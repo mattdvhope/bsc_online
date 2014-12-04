@@ -1,0 +1,6 @@
+%hr
+%h1
+  Here are our courses so far...
+%hr
+- @courses.each do |course|
+  %h3= link_to course.name, course_path(course)
