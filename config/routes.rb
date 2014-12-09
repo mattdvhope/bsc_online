@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :courses, only: [:index, :show]
 
+  # resources :users, only: [:create, :show]
+
 
   # Example resource route with options:
   #   resources :products do
