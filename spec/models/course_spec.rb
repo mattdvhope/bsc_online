@@ -1,5 +1,29 @@
 require 'rails_helper'
 
-RSpec.describe Course, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Course do
+
+  it "saves itself when activated" do
+    course = Course.new(name: "Government English", activated: true)
+    course.save
+    expect(Course.count).to eq(1)
+  end
+
+  it "saves itself when not activated" do
+    course = Course.new(name: "Government English", activated: false)
+    course.save
+    expect(Course.count).to eq(1)
+  end
+
+  it "#activated? is true when activated" do
+    course = Course.new(name: "Government English", activated: true)
+    course.save
+    expect(course.activated?).to eq(true)
+  end
+
+  it "#activated? is false when not activated" do
+    course = Course.new(name: "Government English", activated: false)
+    course.save
+    expect(course.activated?).to eq(false)
+  end
+
 end
