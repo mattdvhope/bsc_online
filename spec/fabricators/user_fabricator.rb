@@ -4,5 +4,5 @@ Fabricator(:user) do
   email { Faker::Internet.email }
   password 'password'
   password_confirmation 'password'
-  postal_code 10651
+  postal_code 10652
 end
