@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe Course do
 
+  it { should belong_to(:curriculum) }
+
   it "saves itself when activated" do
     course = Course.new(name: "Government English", activated: true)
     course.save
