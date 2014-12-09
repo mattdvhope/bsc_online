@@ -11,18 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208081413) do
+ActiveRecord::Schema.define(version: 20141209103327) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activated"
+    t.integer  "curriculum_id"
   end
 
   create_table "curriculums", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141208081413) do
     t.boolean  "interested_in_follow_up?"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "curriculum_id"
   end
 
 end
