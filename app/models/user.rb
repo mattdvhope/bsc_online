@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
+  belongs_to :curriculum
+
   validates_presence_of :first_name, length: { maximum: 30 }
   validates_presence_of :last_name, length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
