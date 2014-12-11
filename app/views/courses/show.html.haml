@@ -1,0 +1,9 @@
+%hr
+%h1
+  - if @course.activated?
+    %h2="Let's start studying #{@course.name}! :-)"
+  - else
+    %h2="#{@course.name} is coming later!  Not ready yet!"
+  %br
+  %h3="#{@course.description}"
+%hr
