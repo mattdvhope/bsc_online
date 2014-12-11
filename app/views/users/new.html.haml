@@ -1,0 +1,13 @@
+%section.site_title
+  %hr
+= bootstrap_form_for @user do |f|
+  %header
+    %h1 Register
+  %hr
+  %h1= f.text_field :first_name, label: "First Name  "
+  %h1= f.text_field :last_name, label: "Last Name  "
+  %h1= f.email_field :email, label: "Email Address  "
+  %h1= f.password_field :password, label: "Password  "
+  %h1= f.password_field :password_confirmation, label: "Password Confirmation "
+  %h1= f.text_field :postal_code, label: "Postal Code  "
+  = f.submit "Join BSC Online!"
