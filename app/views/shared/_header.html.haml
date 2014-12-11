@@ -1,0 +1,9 @@
+%section#top-header.row
+  %h1.col-md-2
+    = link_to "BSC Online", root_path
+    %br
+    %h3= link_to "Click here to learn more about Jesus Christ / พระเยซูคริสต์", "#"
+  - if current_user
+    %h1= "Welcome, #{current_user.first_name} #{current_user.last_name}"
+    %br
+    = link_to "Sign Out", sign_out_path
