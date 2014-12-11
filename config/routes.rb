@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
+  get 'home', to: 'courses#index'
 
   resources :courses, only: [:index, :show]
 
-  # resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show]
+  get 'register', to: "users#new"
+
+  get 'sign_in', to: "sessions#new"
+  resources :sessions, only: [:create]
+  get 'sign_out', to: "sessions#destroy"
+
 
 
   # Example resource route with options:
