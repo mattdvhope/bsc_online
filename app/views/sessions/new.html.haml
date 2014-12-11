@@ -1,0 +1,16 @@
+%section.site_title
+  %hr
+= form_tag sessions_path, class: 'sign_in' do
+  %header
+    %h1 Sign in
+  %hr
+  %h2= label_tag :email, "Email Address"
+  %h2= email_field_tag :email
+  %hr
+  %h2= label_tag :password
+  %h2= password_field_tag :password
+
+  = submit_tag "Let's study English!"
+  %h2= link_to "Forgot Password?", "#"  #forgot_password_path
+  %hr
+  %h2= link_to "Click here to register if you are not yet a student.", register_path
