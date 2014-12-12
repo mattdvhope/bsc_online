@@ -8,10 +8,7 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   %body
-    %header
-      = render 'shared/header'
-    %section.content.clearfix
-      = #render 'shared/messages'
-      = yield
-    %footer
-      &copy 2015 BSC
+    = render 'shared/header'
+    = #render 'shared/messages'
+    = yield
+    &copy 2015 BSC change
