@@ -4,6 +4,7 @@ ruby '2.1.5'
 gem 'rails', '4.1.8'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'bcrypt', '~> 3.1.7'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
