@@ -8,10 +8,15 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   %body
-    %header
-      = render 'shared/header'
-    %section.content.clearfix
-      = #render 'shared/messages'
-      = yield
-    %footer
-      &copy 2015 BSC NOT changed
+    #main-container.container
+      .row
+        .col-xs-4
+          %h3= render 'shared/header'
+        .col-xs-8
+          = yield
+      .row
+        - flash.each do |name, msg|
+          = content_tag :div, msg, class: "alert alert-#{name}"
+
+
+          
