@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get 'sign_out', to: "sessions#destroy"
 
+  get 'ui(/:action)', controller: 'ui'
 
 
   # Example resource route with options:
