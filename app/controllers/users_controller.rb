@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You are registered"
       redirect_to sign_in_path
     else
-      flash[:error] = "You were not able to Register"
+      flash[:danger] = "You were not able to Register"
       render :new
     end
   end
