@@ -8,9 +8,10 @@ class SessionsController < ApplicationController
     user = User.where(email: params[:email]).first
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
       session[:user_id] = user.id
-      redirect_to home_path, notice: 'You are signed in, enjoy!'
+      flash[:success] = 'You are signed in, enjoy!'
+      redirect_to home_path 
     else
-      flash[:error] = "Invalid email or password."
+      flash[:danger] = "Invalid email or password."
       redirect_to sign_in_path
     end
   end
