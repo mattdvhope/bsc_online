@@ -1,13 +1,27 @@
 %section.site_title
   %hr
-= bootstrap_form_for @user do |f|
-  %header
-    %h1 Register
-  %hr
-  %h1= f.text_field :first_name, label: "First Name  "
-  %h1= f.text_field :last_name, label: "Last Name  "
-  %h1= f.email_field :email, label: "Email Address  "
-  %h1= f.password_field :password, label: "Password  "
-  %h1= f.password_field :password_confirmation, label: "Password Confirmation "
-  %h1= f.text_field :postal_code, label: "Postal Code  "
-  = f.submit "Join BSC Online!"
+  = bootstrap_form_for @user do |f|
+    %header
+      %h1 Register
+    %fieldset
+      .form-group
+        .row
+          .col-sm-4
+            %h3= f.text_field :first_name, label: "First Name", class: 'form-control'
+        .row
+          .col-sm-4
+            %h3= f.text_field :last_name, label: "Last Name"
+        .row
+          .col-sm-4
+            %h3= f.email_field :email, label: "Email Address"
+        .row
+          .col-sm-4
+            %h3= f.password_field :password, label: "Password"
+        .row
+          .col-sm-4
+            %h3= f.password_field :password_confirmation, label:"Password Confirmation "
+        .row
+          .col-sm-4
+            %h3= f.text_field :postal_code, label: "Postal Code"
+        %br
+        = f.submit "Join BSC Online!", class: 'btn btn-success'
