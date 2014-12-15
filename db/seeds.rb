@@ -6,9 +6,9 @@
 #
 # cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 
-bible_english    = Course.create(name: 'Bible English', description: 'Awesome course.  I know you will love it!', activated: true)
-business_english = Course.create(name: 'Business English', description: 'Great course.  I think you will love it!')
-tourism_english = Course.create(name: 'Tourism English', description: 'Wonderful course.  I a sure you will love it!')
+bible_english    = Course.create(name: 'Bible English', description: 'Awesome course.  I know you will love it...right now!!', activated: true)
+business_english = Course.create(name: 'Business English', description: 'Great course.  I think you will love it...in the future!')
+tourism_english = Course.create(name: 'Tourism English', description: 'Wonderful course.  I am sure you will love it...in the future!')
 
 alex    = User.create(first_name: 'Alex', last_name: 'Blanton', email: 'alex@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10501)
 matt    = User.create(first_name: 'Matt', last_name: 'Malone', email: 'matt@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10401)
