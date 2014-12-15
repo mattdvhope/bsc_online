@@ -9,8 +9,8 @@
     %hr
     %h2= label_tag :password
     %h2= password_field_tag :password
-
-    = submit_tag "Let's study English!"
+    %br
+    = submit_tag "Let's study English!", :class => "btn btn-primary"
     %h2= link_to "Forgot Password?", "#"  #forgot_password_path
     %hr
     %h2= link_to "Click here to register if you are not yet a student.", register_path
