@@ -10,11 +10,11 @@
   %body
     #main-container.container
       .row
-        - flash.each do |name, msg|
-          = content_tag :div, msg, class: "alert alert-#{name}"
-      .row
-        .col-xs-4
-          %h3= render 'shared/header'
-        .col-xs-8
+        .row-xs-4
+          = render 'shared/messages'
+          = render 'shared/header'
+        .row-xs-8
           = yield
+      %footer
+        &copy 2014 MyFLiX
 
