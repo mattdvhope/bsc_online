@@ -1,6 +1,6 @@
-%h3= link_to "BSC Online", root_path
-%br
+%h3.top_of_site= link_to "BSC Online", root_path
 - if current_user
-  %h1= "Welcome, #{current_user.first_name} #{current_user.last_name}"
+  = link_to "Sign Out", sign_out_path
+- else
+  = link_to "Sign In", sign_in_path
   %br
-  = link_to "Sign Out", sign_out_path, :class => 'btn btn-lg btn-success'

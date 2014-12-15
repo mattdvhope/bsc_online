@@ -1,12 +1,12 @@
 %section.site_title
   %hr
   %h1
-    = link_to "Sign In", sign_in_path
-    or
-    = link_to "Register", register_path
+    ยินดีต้อนรับ...และ...Welcome!!
   %hr
   %h1
     เชินเข้ามาเรียนภาษาอังกฤษกับเราอยู่ที่ "BSC English Online!"
   %hr
-  %h1
-    = link_to "Come and see our list of courses!", courses_path
+  %h1 Here are our current course offerings!
+  - @courses.each do |course|
+    %h3= link_to course.name, course_path(course), class: 'btn btn-success'
+
