@@ -19,9 +19,9 @@ describe UsersController do
     end
 
     context "failed user sign up" do
-      it "sets the flash error message" do
+      it "sets the flash danger message" do
         post :create, user: Fabricate.attributes_for(:user, email: nil)
-        expect(flash[:error]).to eq("You were not able to Register")
+        expect(flash[:danger]).to eq("You were not able to Register")
       end
 
       it "renders the new template" do

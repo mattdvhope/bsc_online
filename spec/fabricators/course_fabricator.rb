@@ -1,5 +1,6 @@
 Fabricator(:course) do
   curriculum_id 1
-  name 'English Course'
+  name { Faker::Lorem.word.capitalize }
+  description { Faker::Company.bs.capitalize }
   activated false
 end

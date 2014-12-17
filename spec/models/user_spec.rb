@@ -8,7 +8,8 @@ describe User do
     alice.save
   end
 
-  it { should belong_to(:curriculum) }
+  it { should have_many(:syllabuses) }
+  it { should have_many(:curriculums) }
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:email) }
