@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
 
   def front
-    @courses = Course.all
+    # redirect_to syllabus_path if current_user
+    @curriculums = Curriculum.all
   end
 
 end
