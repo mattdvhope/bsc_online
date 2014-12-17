@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  get 'home', to: 'courses#index'
+  get 'home', to: "curriculums#index"
 
-  resources :courses, only: [:index, :show]
+  resources :curriculums, only: [:index, :show] do
+    resources :courses, only: [:index]
+  end
+    resources :courses, only: [:show]
 
   resources :users, only: [:create, :show]
   get 'register', to: "users#new"
@@ -12,8 +15,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get 'sign_out', to: "sessions#destroy"
 
-  get 'ui(/:action)', controller: 'ui'
 
+  get 'ui(/:action)', controller: 'ui'
 
   # Example resource route with options:
   #   resources :products do
