@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CoursesController do
+describe CurriculumsController do
 
   describe "GET index" do
     it "sets the @curriculums all the curriculums" do
@@ -13,10 +13,10 @@ describe CoursesController do
   end
 
   describe "GET show" do
-    it "sets @course" do
-      course = Fabricate(:course)
-      get :show, id: course.id
-      expect(assigns(:course)).to eq(course)
+    it "sets @curriculum" do
+      curriculum = Fabricate(:curriculum)
+      get :show, id: curriculum.id
+      expect(assigns(:curriculum)).to eq(curriculum)
     end
   end
 

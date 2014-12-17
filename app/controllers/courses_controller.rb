@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
   def index
-    @courses = Course.all
+    @curriculums = Curriculum.all
   end
 
   def show

@@ -1,0 +1,7 @@
+%section.site_title
+  %hr
+  %h1
+    Our curricula...
+  %hr
+  - @curriculums.each do |curriculum|
+    %h3= link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary'
