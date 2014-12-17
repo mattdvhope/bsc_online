@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase }
 
-  belongs_to :curriculum
+  has_many :syllabuses, :foreign_key=>"student_id"
+  has_many :curriculums, through: :syllabuses
 
   validates_presence_of :first_name, length: { maximum: 30 }
   validates_presence_of :last_name, length: { maximum: 30 }
