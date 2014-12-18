@@ -43,7 +43,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'capybara'
+  gem 'capybara' # For making 'feature' specs / tests
   gem 'launchy'
   gem 'capybara-email'
   gem 'vcr'
