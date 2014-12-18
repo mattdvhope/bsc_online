@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  get 'home', to: "curriculums#index"
+  get 'home', to: "syllabuses#index"
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show]
   end
 
-  resources :users, only: [:create, :show]
   get 'register', to: "users#new"
+  resources :users, only: [:create, :show]
 
   get 'sign_in', to: "sessions#new"
   resources :sessions, only: [:create]
   get 'sign_out', to: "sessions#destroy"
+
+  resources :syllabuses, except: [:destroy]
 
 
   get 'ui(/:action)', controller: 'ui'

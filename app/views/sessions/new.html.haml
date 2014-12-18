@@ -4,7 +4,7 @@
     %header
       %h1 Sign in
     %hr
-    %h2= label_tag :email, "Email Address"
+    %h2= label_tag :email, "Email Address" # Using label_tag helps with 'feature' specs
     %h2= email_field_tag :email
     %hr
     %h2= label_tag :password
