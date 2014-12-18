@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   get 'home', to: "curriculums#index"
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:index]
-  end
     resources :courses, only: [:show]
+  end
 
   resources :users, only: [:create, :show]
   get 'register', to: "users#new"
