@@ -25,10 +25,10 @@ matt    = User.create(first_name: 'Matt', last_name: 'Malone', email: 'matt@test
 tim     = User.create(first_name: 'Tim', last_name: 'Owens', email: 'tim@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10301)
 john    = User.create(first_name: 'John', last_name: 'Lapos', email: 'john@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10201)
 
-core_for_matt = Syllabus.create(curriculum_id: 1, student_id: 2, title: "Matt's syllabus for Core", description: "Matt will study through this core curriculum and through another curriculum.")
-special_for_alex = Syllabus.create(curriculum_id: 2, student_id: 1, title: "Alex's syllabus for Special", description: "Alex will study through this special curriculum for now.")
-special_for_matt = Syllabus.create(curriculum_id: 2, student_id: 2, title: "Matt's syllabus for Special", description: "Matt will study through this special curriculum and through another curriculum.")
-core_for_tim = Syllabus.create(curriculum_id: 1, student_id: 3, title: "Tim's syllabus for Core", description: "Tim will study through this core curriculum for now.")
-special_for_john = Syllabus.create(curriculum_id: 2, student_id: 4, title: "John's syllabus for Special", description: "John will study through this special curriculum for now.")
+core_for_matt = Syllabus.create(curriculum_id: 1, student_id: 2, title: "Syllabus for Core for Matt", description: "This is the BSC core curriculum consisting of ten levels.")
+special_for_alex = Syllabus.create(curriculum_id: 2, student_id: 1, title: "Syllabus for Special for Alex", description: "This is the BSC special curriculum consisting of special courses.")
+special_for_matt = Syllabus.create(curriculum_id: 2, student_id: 2, title: "Syllabus for Special for Matt", description: "This is the BSC special curriculum consisting of special courses.")
+core_for_tim = Syllabus.create(curriculum_id: 1, student_id: 3, title: "Syllabus for Core for Tim", description: "This is the BSC core curriculum consisting of ten levels.")
+special_for_john = Syllabus.create(curriculum_id: 2, student_id: 4, title: "Syllabus for Special for John", description: "This is the BSC special curriculum consisting of special courses.")
 
 
