@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "You are registered"
+      flash[:success] = "You are now registered. Please sign in."
       redirect_to sign_in_path
     else
       flash[:danger] = "You were not able to Register"
