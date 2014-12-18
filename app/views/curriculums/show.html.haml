@@ -6,4 +6,4 @@
     = "Here are our current course offerings for \"#{@curriculum.name}\"..."
   %hr
     - @curriculum.courses.each do |course|
-      %h3= link_to course.name, course_path(course), class: 'btn btn-success'
+      %h3= link_to course.name, curriculum_course_path(@curriculum, course), class: 'btn btn-success'
