@@ -1,9 +1,0 @@
-%section.site_title
-  %hr
-  %h1
-    Here is our full course listing for BSC Online...
-  %hr
-  - @curriculums.each do |curriculum|
-    %h3= link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary'
-    - curriculum.courses.each do |course|
-      %h3= link_to course.name, curriculum_course_path(course), class: 'btn btn-success'
