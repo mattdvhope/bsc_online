@@ -1,7 +1,7 @@
 class Curriculum < ActiveRecord::Base
 
   has_many :courses
-  has_many :syllabuses
-  has_many :students, through: :syllabuses, class_name: "User"
+  has_many :plans
+  has_many :students, through: :plans, class_name: "User"
 
 end
