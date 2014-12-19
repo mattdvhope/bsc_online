@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  get 'home', to: "syllabuses#index"
+  get 'home', to: "plans#index"
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get 'sign_out', to: "sessions#destroy"
 
-  resources :syllabuses, except: [:destroy]
+  resources :plans, except: [:destroy]
 
 
   get 'ui(/:action)', controller: 'ui'
