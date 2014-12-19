@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe SyllabusesController do
+describe PlansController do
 
   # describe "GET new" do
   #   it_behaves_like "requires sign in" do
   #     let(:action) { get :new }
   #   end
 
-  #   it "sets the @syllabus to a new syllabus" do
-  #     syllabus = Syllabus.new
+  #   it "sets the @plan to a new plan" do
+  #     plan = Plan.new
   #     get :new
-  #     # expect(assigns(syllabus)).to be_instance_of Syllabus
-  #     expect(assigns(:syllabus)).to be_new_record 
+  #     # expect(assigns(plan)).to be_instance_of Plan
+  #     expect(assigns(:plan)).to be_new_record 
   #   end
   # end
 

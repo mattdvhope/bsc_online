@@ -1,0 +1,12 @@
+%section.site_title
+  %hr
+  %h1= @plan.description
+  %hr
+  %h1 Here are the courses available for this study within this plan...
+  %br
+  -@plan.curriculum.courses.each do |course|
+    %br
+    %h2= "Name: " + course.name
+    %br
+    %h2= "Description: " + course.description
+    %br
