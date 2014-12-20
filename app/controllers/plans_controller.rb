@@ -2,17 +2,17 @@ class PlansController < ApplicationController
 
   before_action :require_user
 
-  def new
-    @plan = Plan.new
-  end
-
   def index
     @plans = current_user.plans
-    if current_user.plans == []
+    if current_user.plans.empty?
       redirect_to new_plan_path 
     else
       render 'index'
     end
+  end
+
+  def new
+    @plan = Plan.new
   end
 
   def create
