@@ -6,7 +6,7 @@ bsc_core_thai = Curriculum.create(name: 'BSC Core Curriculum for Thais', descrip
 bsc_special_thai = Curriculum.create(name: 'BSC Special Course Curriculum for Thais', description: 'This curriculum consists of various English for Specific Purpose courses.  It is specifically designed for Thai students.')
 
 bible_english    = Course.create(curriculum_id: 2, name: 'Bible English', description: 'Awesome course.  I know you will love it...right now!!', activated: true)
-business_english = Course.create(curriculum_id: 2, name: 'Business English', description: 'Great course.  I think you will love it...in the future!')
+business_english = Course.create(curriculum_id: 2, name: 'Business English', description: 'Great course.  I think you will love it...in the future!', activated: true)
 tourism_english = Course.create(curriculum_id: 2, name: 'Tourism English', description: 'Wonderful course.  I am sure you will love it...in the future!')
 medical_english = Course.create(curriculum_id: 2, name: 'Medical English', description: 'Wonderful course.  I am sure you will enjoy it...in the future!')
 level_0 = Course.create(curriculum_id: 1, name: 'Level 0', description: 'English for pre-beginner Thai students')
@@ -25,9 +25,9 @@ matt    = User.create(first_name: 'Matt', last_name: 'Malone', email: 'matt@test
 tim     = User.create(first_name: 'Tim', last_name: 'Owens', email: 'tim@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10301)
 john    = User.create(first_name: 'John', last_name: 'Lapos', email: 'john@test.tv', password: 'password', password_confirmation: 'password', postal_code: 10201)
 
-core_for_matt = Plan.create(curriculum_id: 1, student_id: 2, description: "This is the BSC core curriculum consisting of ten levels.")
-special_for_alex = Plan.create(curriculum_id: 2, student_id: 1, description: "This is the BSC special curriculum consisting of special courses.")
-special_for_matt = Plan.create(curriculum_id: 2, student_id: 2, description: "This is the BSC special curriculum consisting of special courses.")
-core_for_tim = Plan.create(curriculum_id: 1, student_id: 3, description: "This is the BSC core curriculum consisting of ten levels.")
-special_for_john = Plan.create(curriculum_id: 2, student_id: 4, description: "This is the BSC special curriculum consisting of special courses.")
+core_for_matt = Plan.create(curriculum_id: 1, student_id: 2, description: "Matt, this plan for you consists of the following courses for which you have registered for from curriculum1.")
+special_for_alex = Plan.create(curriculum_id: 2, student_id: 1, description: "Alex, this plan for you consists of the following courses for which you have registered for from curriculum2.")
+special_for_matt = Plan.create(curriculum_id: 2, student_id: 2, description: "Matt, this plan for you consists of the following courses for which you have registered for from curriculum2.")
+core_for_tim = Plan.create(curriculum_id: 1, student_id: 3, description: "Tim, this plan for you consists of the following courses for which you have registered for from curriculum1.")
+special_for_john = Plan.create(curriculum_id: 2, student_id: 4, description: "John, this plan for you consists of the following courses for which you have registered for from curriculum2.")
 
