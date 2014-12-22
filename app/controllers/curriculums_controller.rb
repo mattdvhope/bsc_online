@@ -5,7 +5,12 @@ class CurriculumsController < ApplicationController
   end
 
   def show
-    @curriculum = Curriculum.find(params[:id])
+    if current_user
+      redirect_to 
+    else
+      @curriculum = Curriculum.find(params[:id])
+      render 'show'
+    end
   end
 
 end
