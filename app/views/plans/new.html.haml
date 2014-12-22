@@ -1,4 +1,11 @@
 %section.site_title
   %hr
   %h1
-    Let's build your new plan!!
+    = "#{current_user.first_name}, let's now build your initial custom-made English study plan! :-)"
+  %h1
+    = "Your plan will consist of the courses for which you Register."
+  %hr
+    = render 'shared/curriculums_list'
+  %hr
+  %h1
+    = "In the future you can build upon your current plan by adding more BSC Online English courses."
