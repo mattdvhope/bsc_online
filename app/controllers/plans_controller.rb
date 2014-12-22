@@ -13,6 +13,7 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
+    @curriculums = Curriculum.all
   end
 
   def create

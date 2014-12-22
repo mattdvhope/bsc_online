@@ -1,9 +1,8 @@
 %section.site_title
   %hr
-  %h3= link_to "<< Back to BSC Curricula Page", curriculums_path, class: 'btn btn-primary'
+  %h3
+    = link_to "<< Back to BSC Curricula Page", curriculums_path, class: 'btn btn-primary'
   %hr
   %h1
-    = "Here are our current course offerings for \"#{@curriculum.name}\"..."
-  %hr
-    - @curriculum.courses.each do |course|
-      %h3= link_to course.name, curriculum_course_path(@curriculum, course), class: 'btn btn-success'
+    = "Here are our current course offerings in \"#{@curriculum.name}\"..."
+    =render 'shared/curriculum_courses'

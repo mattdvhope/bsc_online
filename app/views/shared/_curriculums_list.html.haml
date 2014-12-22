@@ -1,0 +1,6 @@
+- @curriculums.each do |curriculum|
+  %h3
+    -if current_user
+      = link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary'      
+    -else
+      = link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary'

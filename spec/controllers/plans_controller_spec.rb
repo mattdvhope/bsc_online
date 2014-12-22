@@ -2,6 +2,18 @@ require 'rails_helper'
 
 describe PlansController do
 
+  describe "GET new" do
+    it_behaves_like "requires sign in" do
+      let(:action) { get :new }
+    end
+
+    it "sets the @plan to a new plan" do
+      set_current_user
+      get :new
+      expect(assigns(:plan)).to be_instance_of Plan
+    end
+  end
+
   describe "GET index" do
     it "renders index template if student has any plans" do
       student = Fabricate(:user)
@@ -19,18 +31,6 @@ describe PlansController do
       set_current_user(student)
       get :index
       expect(response).to redirect_to new_plan_path
-    end
-  end
-
-  describe "GET new" do
-    it_behaves_like "requires sign in" do
-      let(:action) { get :new }
-    end
-
-    it "sets the @plan to a new plan" do
-      set_current_user
-      get :new
-      expect(assigns(:plan)).to be_instance_of Plan
     end
   end
 
