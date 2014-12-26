@@ -3,12 +3,6 @@
   %h1="Hello to #{current_user.first_name}!!"
   %hr
   %h1
-    Here are your current plans...
+    Click on the Curriculum that you will want to study today...
   %hr
-  %hr
-  - counter = 0
-  - @plans.each do |plan|
-    - counter += 1
-    %h2= counter.to_s + ". "
-    %h2=link_to plan.description, plan_path(plan)
-    %hr
+    = render 'shared/curriculums_list'
