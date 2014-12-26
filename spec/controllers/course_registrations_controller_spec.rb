@@ -3,7 +3,7 @@ require 'rails_helper'
 describe CourseRegistrationsController do
 
   describe "GET new" do
-    it_behaves_like "requires sign in" do
+    it_behaves_like "requires log in" do
       let(:action) { get :new }
     end
 
@@ -16,11 +16,11 @@ describe CourseRegistrationsController do
 
   describe "GET index" do
     it "sets the @curriculums all the curriculums" do
+      set_current_user
       curriculum1 = Fabricate(:curriculum)
       curriculum2 = Fabricate(:curriculum)
-      curriculums = [curriculum1, curriculum2]
       get :index
-      expect(assigns(:curriculums)).to match_array(curriculums)
+      expect(assigns(:curriculums)).to eq([curriculum1, curriculum2])
     end
   end
 
