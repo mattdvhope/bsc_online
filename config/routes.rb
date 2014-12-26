@@ -10,12 +10,15 @@ Rails.application.routes.draw do
     resources :courses, only: [:show]
   end
 
-  get 'sign_in', to: "sessions#new"
+  get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
-  resources :course_registrations, only: [:new, :create, :index]
-  get 'sign_out', to: "sessions#destroy"
+
 
   resources :plans, except: [:destroy]
+  resources :course_registrations, only: [:new, :create, :index]
+
+  get 'log_out', to: "sessions#destroy"
+
 
 
   get 'ui(/:action)', controller: 'ui'
