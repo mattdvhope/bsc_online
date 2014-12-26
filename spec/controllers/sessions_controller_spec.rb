@@ -19,12 +19,12 @@ describe SessionsController do
 
   describe "POST create" do
 
-    context "user able to sign in / valid credentials" do
+    context "user able to log in / valid credentials" do
       before {
         alice = Fabricate(:user)
         post :create, email: alice.email, password: alice.password
       }
-      it "puts the signed in user in the session" do
+      it "puts the logged in user in the session" do
         alice = Fabricate(:user)
         post :create, email: alice.email, password: alice.password
         expect(session[:user_id]).to eq(alice.id)
@@ -37,16 +37,16 @@ describe SessionsController do
       end
     end
 
-    context "user unable to sign in / invalid credentials" do
+    context "user unable to log in / invalid credentials" do
       before do
         alice = Fabricate(:user)
         post :create, email: alice.email, password: alice.password + 'zcvzx' # Makes password invalid.
       end
-      it "does not put the signed in user in the session" do
+      it "does not put the logged in user in the session" do
         expect(session[:user_id]).to be_nil # More specific than 'be_blank'
       end
-      it "redirects to the sign in path / page" do
-        expect(response).to redirect_to sign_in_path
+      it "redirects to the log in path / page" do
+        expect(response).to redirect_to log_in_path
       end
       it "sets the flash[:danger] message" do
         expect(flash[:danger]).not_to be_blank
