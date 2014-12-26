@@ -6,10 +6,9 @@ class CurriculumsController < ApplicationController
 
   def show
     if current_user
-      redirect_to 
+      redirect_to course_registrations_path
     else
       @curriculum = Curriculum.find(params[:id])
-      render 'show'
     end
   end
 
