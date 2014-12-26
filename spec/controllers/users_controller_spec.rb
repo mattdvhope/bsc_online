@@ -12,16 +12,16 @@ describe UsersController do
   describe "POST create" do
 
     context "successful user sign up" do
-      it "redirects to the Sign In page" do
+      it "redirects to the Log In page" do
         post :create, user: Fabricate.attributes_for(:user)
-        expect(response).to redirect_to sign_in_path
+        expect(response).to redirect_to log_in_path
       end
     end
 
     context "failed user sign up" do
       it "sets the flash danger message" do
         post :create, user: Fabricate.attributes_for(:user, email: nil)
-        expect(flash[:danger]).to eq("You were not able to Register")
+        expect(flash[:danger]).to eq("You were not able to Sign Up")
       end
 
       it "renders the new template" do

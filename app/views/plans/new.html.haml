@@ -1,11 +1,11 @@
 %section.site_title
   %hr
   %h1
-    = "#{current_user.first_name}, let's now build your initial custom-made English study plan! :-)"
+    = "Welcome to BSC English Online, #{current_user.first_name}!  Let's start building your custom-made 'personal study plan'! :-)"
   %h1
-    = "Your plan will consist of the courses for which you Register."
+    = "Your 'personal study plan' will consist of the courses for which you Register.  You can look at the courses available in each of our #{@curriculums.count} curricula...."
   %hr
-    = render 'shared/curriculums_list'
+    = link_to "Courses to Register for!", course_registrations_path, class: 'btn btn-primary'
   %hr
   %h1
-    = "In the future you can build upon your current plan by adding more BSC Online English courses."
+    = "In the future, you can build upon your 'personal study plan' by adding more BSC Online English courses."
