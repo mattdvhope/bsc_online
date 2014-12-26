@@ -13,11 +13,11 @@ describe CurriculumsController do
   end
 
   describe "GET show" do
-    it "sets @curriculum" do
+    it "sets the @curriculum to the selected curriculum" do
       curriculum = Fabricate(:curriculum)
       get :show, id: curriculum.id
+      expect(assigns(:curriculum)).to be_instance_of Curriculum
       expect(assigns(:curriculum)).to eq(curriculum)
     end
   end
-
 end
