@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PlansController do
 
   describe "GET new" do
-    it_behaves_like "requires sign in" do
+    it_behaves_like "requires log in" do
       let(:action) { get :new }
     end
 
@@ -31,6 +31,17 @@ describe PlansController do
       set_current_user(student)
       get :index
       expect(response).to redirect_to new_plan_path
+    end
+  end
+
+  describe "GET show" do
+    it "Assigns @plan" do
+      student = Fabricate(:user)
+      set_current_user(student)
+      curriculum = Fabricate(:curriculum)
+      plan = Plan.create(curriculum_id: curriculum.id, student_id: student.id, description: "Great plan one!!")
+      get :show, id: plan.id
+      expect(assigns(:plan)).to eq(plan)
     end
   end
 
