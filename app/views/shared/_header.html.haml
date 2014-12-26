@@ -1,7 +1,7 @@
 %h3.top_of_site= link_to "BSC Online", root_path
 - if current_user
-  = link_to "Sign Out", sign_out_path
+  = link_to "Log Out", log_out_path
 - else
-  = link_to "Sign In", sign_in_path
+  = link_to "Log In", log_in_path
   %br
   = link_to "Curricula List", curriculums_path

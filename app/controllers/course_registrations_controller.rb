@@ -8,7 +8,8 @@ class CourseRegistrationsController < ApplicationController
   # def create
   # end
 
-  # def index    
-  # end
+  def index
+    @curriculums = Curriculum.all
+  end
 
 end
