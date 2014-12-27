@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227112009) do
+ActiveRecord::Schema.define(version: 20141227215257) do
 
   create_table "conversations", force: true do |t|
     t.integer  "lesson_id"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 20141227112009) do
     t.boolean  "interested_in_follow_up?"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "guest"
   end
 
 end
