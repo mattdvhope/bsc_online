@@ -2,6 +2,8 @@
 - if current_user
   = link_to "Log Out", log_out_path
 - else
+  = link_to "Become a Member", sign_up_path
+  %br
   = link_to "Log In", log_in_path
   %br
   = link_to "Curricula List", curriculums_path
