@@ -1,12 +1,15 @@
 %section.site_title
   %hr
-  %h3= #link_to "<< Back to #{@course.curriculum.name}", curriculum_path(@course.curriculum), class: 'btn btn-primary'
-  %hr
   %h2="Welcome to \"#{@course.name}\"!"
   %br
-  %h3="#{@course.description}"
-  - if @course.activated?
-    %hr
-    -if current_user
-      = link_to "I want to Register for #{@course.name}", '#', class: 'btn btn-primary'
+  %h2="#{@course.description}"
+  %hr
+  %h2="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
+  -@course.parts.each do |part|
+    %h3=link_to "Part #{part.id}", part_path(part)
+  %hr
+  %h2="When you complete each lesson, you will be given a quiz."
+  %h2="When you complete all the lessons in a Part, you will be given a test."
+  %h3= "After each part is completed, you will receive a digital badge!"
+  %h2="After you complete all the lessons in this course, you will be given an exam. If you pass, you will receive a certificate."
   %hr

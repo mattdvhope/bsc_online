@@ -1,0 +1,9 @@
+%section.site_title
+  %header
+    %h2 You can read this story in six formats:
+    %h3=link_to "100% Thai", story_text_hundred_thai_path(@story, @story.text_hundred_thais.first)
+    %h3=link_to "English - 70% tranlated"
+    %h3=link_to "English - 50% tranlated"
+    %h3=link_to "English - 20% tranlated"
+    %h3=link_to "English - 0% tranlated"
+    %h3=link_to "English Audio"
