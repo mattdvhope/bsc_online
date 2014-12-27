@@ -34,15 +34,4 @@ describe PlansController do
     end
   end
 
-  describe "GET show" do
-    it "Assigns @plan" do
-      student = Fabricate(:user)
-      set_current_user(student)
-      curriculum = Fabricate(:curriculum)
-      plan = Plan.create(curriculum_id: curriculum.id, student_id: student.id, description: "Great plan one!!")
-      get :show, id: plan.id
-      expect(assigns(:plan)).to eq(plan)
-    end
-  end
-
 end

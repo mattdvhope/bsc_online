@@ -1,11 +1,12 @@
 %section.site_title
   %hr
-  %h3= link_to "<< Back to #{@course.curriculum.name}", curriculum_path(@course.curriculum), class: 'btn btn-primary'
+  %h3= #link_to "<< Back to #{@course.curriculum.name}", curriculum_path(@course.curriculum), class: 'btn btn-primary'
   %hr
   %h2="Welcome to \"#{@course.name}\"!"
   %br
   %h3="#{@course.description}"
   - if @course.activated?
     %hr
-    = link_to "I want to become a BSC Online student!", sign_up_path, class: 'btn btn-primary'
+    -if current_user
+      = link_to "I want to Register for #{@course.name}", '#', class: 'btn btn-primary'
   %hr

@@ -1,12 +1,9 @@
 %section.site_title
+  %h1
+    ="Here is your plan!!  I would describe it this way... #{@plan.description}"
   %hr
-  %h1= @plan.description
-  %hr
-  %h1 Here are the courses available for this study within this plan...
-  %br
-  -@plan.curriculum.courses.each do |course|
-    %br
-    %h2= "Name: " + course.name
-    %br
-    %h2= "Description: " + course.description
-    %br
+    %h2="It consists of this Curriculum: '#{@plan.curriculum.name}'"
+    %h2="Please choose one or more courses to add to your plan:"
+    -@plan.curriculum.courses.each do |course|
+      %h2=link_to course.name, curriculum_course_path(@plan.curriculum, course)
+      %h3=course.description
