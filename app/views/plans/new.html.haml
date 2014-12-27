@@ -1,11 +1,16 @@
 %section.site_title
   %hr
-  %h1
-    = "Welcome to BSC English Online, #{current_user.first_name}!  Let's start building your custom-made 'personal study plan'! :-)"
-  %h1
-    = "Your 'personal study plan' will consist of the courses for which you Register.  You can look at the courses available in each of our #{@curriculums.count} curricula...."
-  %hr
-    = link_to "Courses to Register for!", course_registrations_path, class: 'btn btn-primary'
-  %hr
-  %h1
-    = "In the future, you can build upon your 'personal study plan' by adding more BSC Online English courses."
+  = bootstrap_form_for @plan do |f|
+    %header
+      %h1 Build your first Plan!
+      %h3="Welcome to BSC English Online, #{current_user.first_name}!  Let's start building your custom-made 'personal study plan'! :-)"
+    %fieldset
+      .form-group
+        .row
+          .col-sm-4
+            %h2=f.collection_select :curriculum_id, Curriculum.all, :id, :name
+        .row
+          .col-sm-4
+            %h2= f.text_area :description, label: "Describe your plan"
+        %br
+        = f.submit "Let's build your first plan!", class: 'btn btn-success'

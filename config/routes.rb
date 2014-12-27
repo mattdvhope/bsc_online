@@ -4,22 +4,18 @@ Rails.application.routes.draw do
   get 'home', to: "plans#index"
 
   get 'sign_up', to: "users#new"
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :edit, :update, :show]
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:show]
+    resources :courses, only: [:show, :index]
   end
 
   get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
 
-
   resources :plans, except: [:destroy]
-  resources :course_registrations, only: [:new, :create, :index]
 
   get 'log_out', to: "sessions#destroy"
-
-
 
   get 'ui(/:action)', controller: 'ui'
 

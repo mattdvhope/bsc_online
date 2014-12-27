@@ -1,8 +1,16 @@
 %section.site_title
   %hr
-  %h1="Hello to #{current_user.first_name}!!"
+  %h1="Hello #{current_user.first_name}!!"
+  %hr
+  %h2
+    To Register for a new course...
+    = render 'shared/curriculum_courses'
   %hr
   %h1
-    Click on the Curriculum that you will want to study today...
-  %hr
-    = render 'shared/curriculums_list'
+    Here are your Course Plans for the BSC English Online curricula...
+    -@plans.each do |plan|
+      %h2=plan.description
+      -plan.curriculum.courses.each do |course|
+        -#if registered_for
+        %h2=link_to course.name, curriculum_course_path(plan.curriculum, course) # change this path to go only to courses that the student has registered for
+      %hr
