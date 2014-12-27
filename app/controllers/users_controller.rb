@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "You are now signed up as a member with an account. Please sign in."
+      flash[:success] = "You now have a 'member account' with BSC English Online. Please log in."
       redirect_to log_in_path
     else
       flash[:danger] = "You were not able to Sign Up"
@@ -21,7 +21,23 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :postal_code)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?)
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
