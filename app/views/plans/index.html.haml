@@ -10,7 +10,7 @@
     Here are your Course Plans for the BSC English Online curricula...
     -@plans.each do |plan|
       %h2=plan.description
-      -plan.curriculum.courses.each do |course|
+      -#plan.curriculum.courses.each do |course|
         -#if registered_for
-        %h2=link_to course.name, curriculum_course_path(plan.curriculum, course) # change this path to go only to courses that the student has registered for
+        %h2=#link_to course.name, curriculum_course_path(plan.curriculum, course) # change this path to go only to courses that the student has registered for
       %hr
