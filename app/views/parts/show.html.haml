@@ -1,0 +1,9 @@
+%section.site_title
+  %hr
+  %h2="Welcome to Part #{@part.id}\"!"
+  %br
+  %h2="Here are part #{@part.id}'s Lessons"
+  -@part.lessons.each do |lesson|
+    %hr
+    %h3= link_to lesson.name, part_lesson_path(@part, lesson)
+    %h3= lesson.description

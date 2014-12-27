@@ -3,8 +3,7 @@ class CoursesController < ApplicationController
   before_action :require_user, :only => [:edit]
 
   def show
-    @course = Course.find(params[:id])
-    # if current_user.
+    @course = Course.find(1)
   end
 
   def edit
