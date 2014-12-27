@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  root to: "courses#show"
+  root to: "pages#front"
   get 'home', to: "plans#index"
 
   get 'sign_up', to: "users#new"
-  resources :users, only: [:create, :edit, :update, :show]
+  resources :users, only: [:create]
 
   resources :curriculums, only: [:index, :show]
   resources :courses, only: [:show, :index]
