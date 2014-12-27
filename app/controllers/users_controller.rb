@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :require_user, only: [:show]
-
   def new
     @user = User.new
     @courses = Course.all
@@ -10,8 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "You now have a 'member account' with BSC English Online. Please log in."
-      redirect_to log_in_path
+      flash[:success] = "You now have a 'member account' with BSC English Online. Welcome aboard!"
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       flash[:danger] = "You were not able to Sign Up"
       render :new
@@ -25,19 +24,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
