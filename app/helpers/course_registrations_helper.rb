@@ -1,2 +1,0 @@
-module CourseRegistrationsHelper
-end
