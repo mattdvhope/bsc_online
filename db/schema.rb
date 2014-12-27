@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219102506) do
+ActiveRecord::Schema.define(version: 20141227112009) do
+
+  create_table "conversations", force: true do |t|
+    t.integer  "lesson_id"
+    t.string   "text_100_thai"
+    t.string   "text_english_50_thai"
+    t.string   "text_english_0_thai"
+    t.string   "audio_english"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -29,12 +39,86 @@ ActiveRecord::Schema.define(version: 20141219102506) do
     t.string   "name"
   end
 
+  create_table "lessons", force: true do |t|
+    t.integer  "part_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parts", force: true do |t|
+    t.integer  "course_id"
+    t.boolean  "completed?"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "plans", force: true do |t|
     t.integer  "curriculum_id"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "student_id"
+  end
+
+  create_table "practices", force: true do |t|
+    t.integer  "lesson_id"
+    t.string   "sentences"
+    t.string   "audio_sentences"
+    t.string   "phrases"
+    t.string   "audio_phrases"
+    t.string   "vocabulary"
+    t.string   "audio_vocab"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lesson_id"
+    t.string   "name"
+  end
+
+  create_table "text_english_fifty_thais", force: true do |t|
+    t.integer  "story_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_english_seventy_thais", force: true do |t|
+    t.integer  "story_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_english_twenty_thais", force: true do |t|
+    t.integer  "story_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_english_zero_thais", force: true do |t|
+    t.integer  "story_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_hundred_thais", force: true do |t|
+    t.integer  "story_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

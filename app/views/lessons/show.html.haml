@@ -1,0 +1,15 @@
+%section.site_title
+  %hr
+  %h2="Welcome to the lesson called \"#{@lesson.name}\"!"
+  %br
+  %h2="#{@lesson.name} will consist of a story, a conversation and some practices."
+  %h2="Let's now read the story first in Thai..."
+  %hr
+  %h2=link_to "Story", story_path(@lesson.stories.first)
+  %hr
+  %h2=link_to "Conversation", conversation_path(@lesson.conversations.first)
+  %hr
+  %h2=link_to "Practice", practice_path(@lesson.practices.first)
+  %hr
+
+
