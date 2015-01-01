@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   end
 
   def delete_guest_user_and_dependent_plans
-    if current_user.guest?
-      current_user.plans { |plan| plan.destroy }
-      current_user.destroy
+    if self.guest?
+      self.plans { |plan| plan.destroy }
+      self.destroy
     end
   end
 
