@@ -1,8 +1,11 @@
 %h3.top_of_site= link_to "BSC Online", root_path
 - if current_user
   = link_to "Log Out", log_out_path
+  - if current_user.guest
+    %br
+    = link_to "Join BSC English Online!", sign_up_path
 - else
-  = link_to "Become a Member", sign_up_path
+  = link_to "Join BSC English Online!", sign_up_path
   %br
   = link_to "Log In", log_in_path
   %br
