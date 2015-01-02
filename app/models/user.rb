@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    guest ? "Guest User" : first_name
+    guest ? "Guest Student" : first_name
   end
 
   def delete_guest_user_and_dependent_plans
