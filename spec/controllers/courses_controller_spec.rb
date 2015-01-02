@@ -4,9 +4,9 @@ describe CoursesController do
 
   describe "GET show" do
     it "sets @course" do
-      curriculum = Fabricate(:curriculum)
+      set_current_user
       course = Fabricate(:course)
-      get :show, curriculum_id: curriculum.id, id: course.id 
+      get :show, course: course
       expect(assigns(:course)).to eq(course)
     end
   end
