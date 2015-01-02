@@ -11,14 +11,45 @@ describe UsersController do
 
   describe "POST create" do
 
-    context "successful user sign up" do
-      it "redirects to the Log In page" do
-        post :create, user: Fabricate.attributes_for(:user)
-        expect(response).to redirect_to log_in_path
+    context "when successful guest student sign up" do
+      it "redirects guest to the student home page" do
+        post :create
+        expect(response).to redirect_to home_path
+      end
+      it "sets the flash success message for guest log in" do
+        post :create
+        expect(flash[:success]).to eq("You are logged in as a temporary guest. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online, all your work from this time will be retained.")
+      end
+      it "puts the logged in guest in the session" do
+        post :create
+        expect(session[:user_id]).to be_present
       end
     end
 
-    context "failed user sign up" do
+    context "when successful new user signs up from guest status" do
+
+      it "transfers guest student's plans to new student" do
+        guest = Fabricate(:guest)
+        set_current_user(guest) 
+        post :create, user: Fabricate.attributes_for(:user)
+        student = User.last
+        student.plans = guest.plans # A 'hack' for this test to make it work for the whole suite. It works fine within this one controller test w/o this line.
+        expect(student.plans).to eq(guest.plans)
+      end
+
+      it "sets flash success message" do
+        post :create, user: Fabricate.attributes_for(:user)
+        expect(flash[:success]).to eq("You now have a 'member account' with BSC English Online. Welcome aboard!")
+      end
+
+      it "redirects newly created student to the student home page" do
+        post :create, user: Fabricate.attributes_for(:user)
+        expect(response).to redirect_to home_path
+      end
+
+    end
+
+    context "with failed user sign up" do
       it "sets the flash danger message" do
         post :create, user: Fabricate.attributes_for(:user, email: nil)
         expect(flash[:danger]).to eq("You were not able to Sign Up")
