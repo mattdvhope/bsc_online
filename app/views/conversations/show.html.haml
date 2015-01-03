@@ -1,3 +1,6 @@
 %section.site_title
-  %hr
-  %h1 This conversation
+  %header
+    %h2 You can review this conversation in three formats:
+    %h3=link_to "100% Thai Conversation", conversation_conversation_hundred_thai_path(@conversation, @conversation.conversation_hundred_thais.first)
+    %h3=link_to "English Conversation - 50% tranlated", conversation_conversation_english_fifty_thai_path(@conversation, @conversation.conversation_english_fifty_thais.first)
+    %h3=link_to "English Conversation - 0% tranlated", conversation_conversation_english_zero_thai_path(@conversation, @conversation.conversation_english_zero_thais.first)
