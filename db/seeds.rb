@@ -42,6 +42,12 @@ abraham = Lesson.create(part_id: 1, name: "ชายชราผู้ศรั�
 david = Lesson.create(part_id: 1, name: "กษัตริย์เดวิด", description: "The life of young King David of Israel.")
 bathsheeba = Lesson.create(part_id: 1, name: "เดวิดกับบัทเชบา", description: "King David's sin with Bathsheeba and Uriah.")
 
+nathan = Lesson.create(part_id: 2, name: "เรื่อง ของนาธาน", description: "Nathan's story to King David.")
+birth = Lesson.create(part_id: 2, name: "การให้กำเนิดพระเยซู", description: "The birth of Jesus Christ.")
+baptism = Lesson.create(part_id: 2, name: "พระเยซูรับบัพติศมา", description: "The baptism of Jesus Christ.")
+exorcism = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนถูกผีสิ", description: "Jesus delivers someone from an evil spirit.")
+blind = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนตาบอด", description: "Jesus heals a blind man.")
+
 creation_story = Story.create(lesson_id: 1, name: "เกี่ยวกับพระผู้สร้าง")
 sin_story = Story.create(lesson_id: 2, name: "เกี่ยวกับบาปเข้าเอเดน")
 abraham_story = Story.create(lesson_id: 3, name: "เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man")
@@ -78,24 +84,40 @@ bathsheeba_50  = TextEnglishFiftyThai.create(story_id: 5, content: "เกี่
 bathsheeba_20  = TextEnglishTwentyThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English20", audio: "Audio 20")
 bathsheeba_0   = TextEnglishZeroThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English0", audio: "Audio 0")
 
+creation_conversation = Conversation.create(lesson_id: 1, name: "Conversation: เกี่ยวกับพระผู้สร้าง")
+sin_conversation = Conversation.create(lesson_id: 2, name: "Conversation: เกี่ยวกับบาปเข้าเอเดน")
+abraham_conversation = Conversation.create(lesson_id: 3, name: "Conversation: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man")
+david_conversation = Conversation.create(lesson_id: 4, name: "Conversation: เกี่ยวกับกษัตริย์เดวิด")
+bathsheeba_conversation = Conversation.create(lesson_id: 5, name: "Conversation: เกี่ยวกับเดวิดกับบัทเชบา")
 
-creation_conversation = Conversation.create(lesson_id: 1, text_100_thai: "Conversation: เกี่ยวกับพระผู้สร้าง", text_english_50_thai: "Conversation: เกี่ยวกับพระ..who created", text_english_0_thai: "Conversation: About the God who created", audio_english: "Conversation audio file")
-sin_conversation = Conversation.create(lesson_id: 2, text_100_thai: "Conversation: เกี่ยวกับบาปเข้าเอเดน", text_english_50_thai: "Conversation: เกี่ยวกับ..sin entered Eden", text_english_0_thai: "Conversation: About how sin entered Eden", audio_english: "Conversation audio file")
-abraham_conversation = Conversation.create(lesson_id: 3, text_100_thai: "Conversation: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man", text_english_50_thai: "Conversation: เกี่ยวกับชายชราผู้..about an old man", text_english_0_thai: "Conversation: About an old man.", audio_english: "Conversation audio file")
-david_conversation = Conversation.create(lesson_id: 4, text_100_thai: "Conversation: เกี่ยวกับกษัตริย์เดวิด", text_english_50_thai: "Conversation: เกี่ยวกับ..about King David", text_english_0_thai: "Conversation: About King David", audio_english: "Conversation audio file")
-bathsheeba_conversation = Conversation.create(lesson_id: 5, text_100_thai: "Conversation: เกี่ยวกับเดวิดกับบัทเชบา", text_english_50_thai: "Conversation: เกี่ยวกับเดวิด..about David and Bathsheeba", text_english_0_thai: "Conversation: About David and Bathsheeba", audio_english: "Conversation audio file")
+creation_conv_100  = ConversationHundredThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100")
+creation_conv_50   = ConversationEnglishFiftyThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English50", audio: "Audio 50")
+creation_conv_0    = ConversationEnglishZeroThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English0", audio: "Audio 0")
+
+sin_conv_100       = ConversationHundredThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 100")
+sin_conv_50        = ConversationEnglishFiftyThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English50", audio: "Audio 50")
+sin_conv_0         = ConversationEnglishZeroThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English0", audio: "Audio 0")
+
+abraham_conv_100   = ConversationHundredThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
+abraham_conv_50    = ConversationEnglishFiftyThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English50", audio: "Audio 50")
+abraham_conv_0     = ConversationEnglishZeroThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English0", audio: "Audio 0")
+
+david_100          = ConversationHundredThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 100")
+david_50           = ConversationEnglishFiftyThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English50", audio: "Audio 50")
+david_0            = ConversationEnglishZeroThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English0", audio: "Audio 0")
+
+bathsheeba_100     = ConversationHundredThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
+bathsheeba_50      = ConversationEnglishFiftyThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English50", audio: "Audio 50")
+bathsheeba_0       = ConversationEnglishZeroThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English0", audio: "Audio 0")
+
+
+
 
 creation_practice = Practice.create(lesson_id: 1, sentences: "Practice: เกี่ยวกับพระผู้สร้าง", audio_sentences: "Practice audio file", phrases: "Practice: เกี่ยวกับพระ..who created", audio_phrases: "Practice audio file", vocabulary: "Practice: About the God who created", audio_vocab: "Practice audio file")
 sin_practice = Practice.create(lesson_id: 2, sentences: "Practice: เกี่ยวกับบาปเข้าเอเดน", audio_sentences: "Practice audio file", phrases: "Practice: เกี่ยวกับ..sin entered Eden", audio_phrases: "Practice audio file", vocabulary: "Practice: About how sin entered Eden", audio_vocab: "Practice audio file")
 abraham_practice = Practice.create(lesson_id: 3, sentences: "Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man", audio_sentences: "Practice audio file", phrases: "Practice: เกี่ยวกับชายชราผู้..about an old man", audio_phrases: "Practice audio file", vocabulary: "Practice: About an old man.", audio_vocab: "Practice audio file")
 david_practice = Practice.create(lesson_id: 4, sentences: "Practice: เกี่ยวกับกษัตริย์เดวิด", audio_sentences: "Practice audio file", phrases: "Practice: เกี่ยวกับ..about King David", audio_phrases: "Practice audio file", vocabulary: "Practice: About King David", audio_vocab: "Practice audio file")
 bathsheeba_practice = Practice.create(lesson_id: 5, sentences: "Practice: เกี่ยวกับเดวิดกับบัทเชบา", audio_sentences: "Practice audio file", phrases: "Practice: เกี่ยวกับเดวิด..about David and Bathsheeba", audio_phrases: "Practice audio file", vocabulary: "Practice: About David and Bathsheeba", audio_vocab: "Practice audio file")
-
-nathan = Lesson.create(part_id: 2, name: "เรื่อง ของนาธาน", description: "Nathan's story to King David.")
-birth = Lesson.create(part_id: 2, name: "การให้กำเนิดพระเยซู", description: "The birth of Jesus Christ.")
-baptism = Lesson.create(part_id: 2, name: "พระเยซูรับบัพติศมา", description: "The baptism of Jesus Christ.")
-exorcism = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนถูกผีสิ", description: "Jesus delivers someone from an evil spirit.")
-blind = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนตาบอด", description: "Jesus heals a blind man.")
 
 
 
