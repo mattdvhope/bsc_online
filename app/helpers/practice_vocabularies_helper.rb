@@ -1,0 +1,2 @@
+module PracticeVocabulariesHelper
+end

@@ -28,7 +28,11 @@ Rails.application.routes.draw do
     resources :conversation_english_zero_thais, only: [:show]
   end
 
-  resources :practices, only: [:show]
+  resources :practices, only: [:show] do
+    resources :practice_vocabularies, only: [:show]
+    resources :practice_phrases, only: [:show]
+    resources :practice_sentences, only: [:show]
+  end
 
   get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
