@@ -7,6 +7,7 @@
   %h2="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
   -@course.parts.each do |part|
     %h3=link_to "Part #{part.id}", part_path(part)
+  %h3=link_to "Final Exam"
   %hr
   %h2="When you complete each lesson, you will be given a quiz."
   %h2="When you complete all the lessons in a Part, you will be given a test."

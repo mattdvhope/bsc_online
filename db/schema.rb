@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103052104) do
+ActiveRecord::Schema.define(version: 20150103081508) do
+
+  create_table "assessments", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "part_id"
+    t.integer  "lesson_id"
+    t.string   "type"
+    t.text     "content"
+    t.string   "audio"
+    t.integer  "score"
+    t.boolean  "passed?"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conversation_english_fifty_thais", force: true do |t|
     t.integer  "conversation_id"
