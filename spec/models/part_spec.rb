@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Part, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Part do
+
+  it { should belong_to(:course) }
+  it { should have_many(:lessons) }
+  it { should have_many(:assessments) }
+
 end

@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Lesson, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Lesson do
+
+  it { should belong_to(:part) }
+  it { should have_many(:stories) }
+  it { should have_many(:conversations) }
+  it { should have_many(:practices) }
+  it { should have_many(:assessments) }
+
 end
