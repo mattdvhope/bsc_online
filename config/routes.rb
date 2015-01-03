@@ -22,7 +22,12 @@ Rails.application.routes.draw do
     resources :text_english_zero_thais, only: [:show]
   end  
   
-  resources :conversations, only: [:show]
+  resources :conversations, only: [:show] do
+    resources :conversation_hundred_thais, only: [:show]
+    resources :conversation_english_fifty_thais, only: [:show]
+    resources :conversation_english_zero_thais, only: [:show]
+  end
+
   resources :practices, only: [:show]
 
   get 'log_in', to: "sessions#new"
