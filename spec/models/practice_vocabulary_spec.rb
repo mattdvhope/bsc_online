@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe PracticeVocabulary, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe PracticeVocabulary do
+
+  it { should belong_to(:practice) }
+
 end
