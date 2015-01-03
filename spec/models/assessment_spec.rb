@@ -1,5 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Assessment, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Assessment do
+
+  it { should belong_to(:course) }
+  it { should belong_to(:part) }
+  it { should belong_to(:lesson) }
+
 end
