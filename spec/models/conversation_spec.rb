@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Conversation, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Conversation do
+
+  it { should belong_to(:lesson) }
+  it { should have_many(:conversation_hundred_thais) }
+  it { should have_many(:conversation_english_fifty_thais) }
+  it { should have_many(:conversation_english_zero_thais) }
+
 end

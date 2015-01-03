@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe TextEnglishSeventyThai, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe TextEnglishSeventyThai do
+
+  it { should belong_to(:story) }
+
 end
