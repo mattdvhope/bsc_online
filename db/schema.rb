@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103022957) do
+ActiveRecord::Schema.define(version: 20150103052104) do
 
   create_table "conversation_english_fifty_thais", force: true do |t|
     t.integer  "conversation_id"
@@ -83,16 +83,35 @@ ActiveRecord::Schema.define(version: 20150103022957) do
     t.integer  "student_id"
   end
 
-  create_table "practices", force: true do |t|
-    t.integer  "lesson_id"
-    t.string   "sentences"
-    t.string   "audio_sentences"
-    t.string   "phrases"
-    t.string   "audio_phrases"
-    t.string   "vocabulary"
-    t.string   "audio_vocab"
+  create_table "practice_phrases", force: true do |t|
+    t.integer  "practice_id"
+    t.text     "content"
+    t.string   "audio"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "practice_sentences", force: true do |t|
+    t.integer  "practice_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "practice_vocabularies", force: true do |t|
+    t.integer  "practice_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "practices", force: true do |t|
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "stories", force: true do |t|

@@ -1,3 +1,7 @@
 %section.site_title
-  %hr
-  %h1 This practice
+  %header
+    %h2="\"#{@practice.name}\" is practice for the #{@practice.lesson.name} lesson in three forms:"
+    %h3=link_to "Vocabulary", practice_practice_vocabulary_path(@practice, @practice.practice_vocabularies.first)
+    %h3=link_to "Phrases", practice_practice_phrase_path(@practice, @practice.practice_phrases.first)
+    %h3=link_to "Sentences", practice_practice_sentence_path(@practice, @practice.practice_sentences.first)
+
