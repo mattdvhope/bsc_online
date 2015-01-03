@@ -11,16 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227215257) do
+ActiveRecord::Schema.define(version: 20150103022957) do
+
+  create_table "conversation_english_fifty_thais", force: true do |t|
+    t.integer  "conversation_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conversation_english_zero_thais", force: true do |t|
+    t.integer  "conversation_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conversation_hundred_thais", force: true do |t|
+    t.integer  "conversation_id"
+    t.text     "content"
+    t.string   "audio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "conversations", force: true do |t|
     t.integer  "lesson_id"
-    t.string   "text_100_thai"
-    t.string   "text_english_50_thai"
-    t.string   "text_english_0_thai"
-    t.string   "audio_english"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "courses", force: true do |t|
