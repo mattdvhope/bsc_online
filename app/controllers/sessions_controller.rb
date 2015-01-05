@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.where(email: params[:email]).first
+    user = User.where(email: params[:email].downcase).first
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
       session[:user_id] = user.id
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
