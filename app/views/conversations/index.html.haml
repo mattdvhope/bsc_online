@@ -1,0 +1,7 @@
+%section.site_title
+  %hr
+  %h1="Our conversation translation versions..."
+  %hr
+  -@conversations.each do |conversation|
+    %h2=link_to conversation.lesson_language_version, part_lesson_conversation_path(@lesson.part, @lesson, conversation)
+
