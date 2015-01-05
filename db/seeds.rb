@@ -103,21 +103,21 @@ creation_practice_vocabulary = Practice.create(lesson_id: 1, type_of: "Vocabular
 creation_practice_phrases = Practice.create(lesson_id: 1, type_of: "Phrases Practice: เกี่ยวกับพระผู้สร้าง", content: "Phrases Content: เกี่ยวกับพระผู้สร้าง", audio: "Audio Practice Phrases")
 creation_practice_sentences = Practice.create(lesson_id: 1, type_of: "Sentences Practice: เกี่ยวกับพระผู้สร้าง", content: "Sentences Content: เกี่ยวกับพระผู้สร้าง", audio: "Audio Practice Sentences")
 
-sin_practice_vocabulary = Practice.create(lesson_id: 1, type_of: "Vocabulary Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Vocabulary Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Vocabulary")
-sin_practice_phrases = Practice.create(lesson_id: 1, type_of: "Phrases Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Phrases Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Phrases")
-sin_practice_sentences = Practice.create(lesson_id: 1, type_of: "Sentences Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Sentences Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Sentences")
+sin_practice_vocabulary = Practice.create(lesson_id: 2, type_of: "Vocabulary Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Vocabulary Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Vocabulary")
+sin_practice_phrases = Practice.create(lesson_id: 2, type_of: "Phrases Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Phrases Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Phrases")
+sin_practice_sentences = Practice.create(lesson_id: 2, type_of: "Sentences Practice: เกี่ยวกับบาปเข้าเอเดน", content: "Sentences Content: เกี่ยวกับบาปเข้าเอเดน", audio: "Audio Practice Sentences")
 
-abraham_practice_vocabulary = Practice.create(lesson_id: 1, type_of: "Vocabulary Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Vocabulary Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Vocabulary")
-abraham_practice_phrases = Practice.create(lesson_id: 1, type_of: "Phrases Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Phrases Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Phrases")
-abraham_practice_sentences = Practice.create(lesson_id: 1, type_of: "Sentences Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Sentences Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Sentences")
+abraham_practice_vocabulary = Practice.create(lesson_id: 3, type_of: "Vocabulary Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Vocabulary Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Vocabulary")
+abraham_practice_phrases = Practice.create(lesson_id: 3, type_of: "Phrases Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Phrases Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Phrases")
+abraham_practice_sentences = Practice.create(lesson_id: 3, type_of: "Sentences Practice: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", content: "Sentences Content: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า", audio: "Audio Practice Sentences")
 
-david_practice_vocabulary = Practice.create(lesson_id: 1, type_of: "Vocabulary Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Vocabulary Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Vocabulary")
-david_practice_phrases = Practice.create(lesson_id: 1, type_of: "Phrases Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Phrases Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Phrases")
-david_practice_sentences = Practice.create(lesson_id: 1, type_of: "Sentences Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Sentences Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Sentences")
+david_practice_vocabulary = Practice.create(lesson_id: 4, type_of: "Vocabulary Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Vocabulary Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Vocabulary")
+david_practice_phrases = Practice.create(lesson_id: 4, type_of: "Phrases Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Phrases Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Phrases")
+david_practice_sentences = Practice.create(lesson_id: 4, type_of: "Sentences Practice: เกี่ยวกับกษัตริย์เดวิด", content: "Sentences Content: เกี่ยวกับกษัตริย์เดวิด", audio: "Audio Practice Sentences")
 
-bathsheeba_practice_vocabulary = Practice.create(lesson_id: 1, type_of: "Vocabulary Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Vocabulary Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Vocabulary")
-bathsheeba_practice_phrases = Practice.create(lesson_id: 1, type_of: "Phrases Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Phrases Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Phrases")
-bathsheeba_practice_sentences = Practice.create(lesson_id: 1, type_of: "Sentences Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Sentences Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Sentences")
+bathsheeba_practice_vocabulary = Practice.create(lesson_id: 5, type_of: "Vocabulary Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Vocabulary Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Vocabulary")
+bathsheeba_practice_phrases = Practice.create(lesson_id: 5, type_of: "Phrases Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Phrases Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Phrases")
+bathsheeba_practice_sentences = Practice.create(lesson_id: 5, type_of: "Sentences Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Sentences Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Sentences")
 
 
 
