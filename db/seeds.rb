@@ -72,15 +72,12 @@ david_story_50 = Story.create(lesson_id: 4, lesson_language_version: "David - 50
 david_story_20 = Story.create(lesson_id: 4, lesson_language_version: "David - 20% Thai", content: "20 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 20")
 david_story_0 = Story.create(lesson_id: 4, lesson_language_version: "David - 0% Thai", content: "0 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 0")
 
+bathsheeba_story_100 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - 100% Thai", content: "100 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
+bathsheeba_story_70 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - English & 70% Thai", content: "70 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 70")
+bathsheeba_story_50 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - English & 50% Thai", content: "50 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 50")
+bathsheeba_story_20 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - English & 20% Thai", content: "20 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 20")
+bathsheeba_story_0 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - English & 0% Thai", content: "0 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 0")
 
-
-bathsheeba_story = Story.create(lesson_id: 5, name: "เกี่ยวกับเดวิดกับบัทเชบา")
-
-bathsheeba_100 = TextHundredThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
-bathsheeba_70  = TextEnglishSeventyThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English70", audio: "Audio 70")
-bathsheeba_50  = TextEnglishFiftyThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English50", audio: "Audio 50")
-bathsheeba_20  = TextEnglishTwentyThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English20", audio: "Audio 20")
-bathsheeba_0   = TextEnglishZeroThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English0", audio: "Audio 0")
 
 creation_conversation = Conversation.create(lesson_id: 1, name: "Conversation: เกี่ยวกับพระผู้สร้าง")
 sin_conversation = Conversation.create(lesson_id: 2, name: "Conversation: เกี่ยวกับบาปเข้าเอเดน")
