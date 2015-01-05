@@ -5,11 +5,11 @@
   %h2="#{@lesson.name} will consist of a story, a conversation and some practices."
   %h2="Let's now read the story first in Thai..."
   %hr
-  %h2=link_to "Story", story_path(@lesson.stories.first)
+  %h2=link_to "Story Versions", part_lesson_stories_path(@lesson.part, @lesson)
   %hr
-  %h2=link_to "Conversation", conversation_path(@lesson.conversations.first)
+  %h2=link_to "Conversation Versions", part_lesson_conversations_path(@lesson.part, @lesson)
   %hr
-  %h2=link_to "Practice", practice_path(@lesson.practices.first)
+  %h2=link_to "Practice Types", part_lesson_practices_path(@lesson.part, @lesson)
   %hr
   %h2=link_to "Quiz"
   %hr
