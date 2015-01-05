@@ -48,35 +48,33 @@ baptism = Lesson.create(part_id: 2, name: "พระเยซูรับบั�
 exorcism = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนถูกผีสิ", description: "Jesus delivers someone from an evil spirit.")
 blind = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนตาบอด", description: "Jesus heals a blind man.")
 
-creation_story = Story.create(lesson_id: 1, name: "เกี่ยวกับพระผู้สร้าง")
-sin_story = Story.create(lesson_id: 2, name: "เกี่ยวกับบาปเข้าเอเดน")
-abraham_story = Story.create(lesson_id: 3, name: "เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man")
-david_story = Story.create(lesson_id: 4, name: "เกี่ยวกับกษัตริย์เดวิด")
+creation_story_100 = Story.create(lesson_id: 1, lesson_language_version: "Creation - 100% Thai", content: "100 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100")
+creation_story_70 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 70% Thai translation", content: "70 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 70")
+creation_story_50 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 50% Thai translation", content: "50 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 50")
+creation_story_20 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 20% Thai translation", content: "20 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 20")
+creation_story_0 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 0% Thai translation", content: "0 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 0")
+
+sin_story_100 = Story.create(lesson_id: 2, lesson_language_version: "Sin - 100% Thai", content: "100 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 100")
+sin_story_70 = Story.create(lesson_id: 2, lesson_language_version: "Sin - English & 70% Thai", content: "70 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 70")
+sin_story_50 = Story.create(lesson_id: 2, lesson_language_version: "Sin - English & 50% Thai", content: "50 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 50")
+sin_story_20 = Story.create(lesson_id: 2, lesson_language_version: "Sin - English & 20% Thai", content: "20 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 20")
+sin_story_0 = Story.create(lesson_id: 2, lesson_language_version: "Sin - English & 0% Thai", content: "0 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 0")
+
+abraham_story_100 = Story.create(lesson_id: 3, lesson_language_version: "Abraham - 100% Thai", content: "100 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
+abraham_story_70 = Story.create(lesson_id: 3, lesson_language_version: "Abraham - English & 70% Thai", content: "70 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 70")
+abraham_story_50 = Story.create(lesson_id: 3, lesson_language_version: "Abraham - English & 50% Thai", content: "50 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 50")
+abraham_story_20 = Story.create(lesson_id: 3, lesson_language_version: "Abraham - English & 20% Thai", content: "20 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 20")
+abraham_story_0 = Story.create(lesson_id: 3, lesson_language_version: "Abraham - English & 0% Thai", content: "0 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 0")
+
+david_story_100 = Story.create(lesson_id: 4, lesson_language_version: "David - 100% Thai", content: "100 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 100")
+david_story_70 = Story.create(lesson_id: 4, lesson_language_version: "David - 70% Thai", content: "70 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 70")
+david_story_50 = Story.create(lesson_id: 4, lesson_language_version: "David - 50% Thai", content: "50 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 50")
+david_story_20 = Story.create(lesson_id: 4, lesson_language_version: "David - 20% Thai", content: "20 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 20")
+david_story_0 = Story.create(lesson_id: 4, lesson_language_version: "David - 0% Thai", content: "0 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 0")
+
+
+
 bathsheeba_story = Story.create(lesson_id: 5, name: "เกี่ยวกับเดวิดกับบัทเชบา")
-
-creation_100  = TextHundredThai.create(story_id: 1, content: "เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100")
-creation_70   = TextEnglishSeventyThai.create(story_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English70", audio: "Audio 70")
-creation_50   = TextEnglishFiftyThai.create(story_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English50", audio: "Audio 50")
-creation_20   = TextEnglishTwentyThai.create(story_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English20", audio: "Audio 20")
-creation_0    = TextEnglishZeroThai.create(story_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English0", audio: "Audio 0")
-
-sin_100       = TextHundredThai.create(story_id: 2, content: "เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 100")
-sin_70        = TextEnglishSeventyThai.create(story_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English70", audio: "Audio 70")
-sin_50        = TextEnglishFiftyThai.create(story_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English50", audio: "Audio 50")
-sin_20        = TextEnglishTwentyThai.create(story_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English20", audio: "Audio 20")
-sin_0         = TextEnglishZeroThai.create(story_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English0", audio: "Audio 0")
-
-abraham_100   = TextHundredThai.create(story_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
-abraham_70    = TextEnglishSeventyThai.create(story_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English70", audio: "Audio 70")
-abraham_50    = TextEnglishFiftyThai.create(story_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English50", audio: "Audio 50")
-abraham_20    = TextEnglishTwentyThai.create(story_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English20", audio: "Audio 20")
-abraham_0     = TextEnglishZeroThai.create(story_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English0", audio: "Audio 0")
-
-david_100     = TextHundredThai.create(story_id: 4, content: "เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 100")
-david_70      = TextEnglishSeventyThai.create(story_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English70", audio: "Audio 70")
-david_50      = TextEnglishFiftyThai.create(story_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English50", audio: "Audio 50")
-david_20      = TextEnglishTwentyThai.create(story_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English20", audio: "Audio 20")
-david_0       = TextEnglishZeroThai.create(story_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English0", audio: "Audio 0")
 
 bathsheeba_100 = TextHundredThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
 bathsheeba_70  = TextEnglishSeventyThai.create(story_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English70", audio: "Audio 70")
