@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103081508) do
+ActiveRecord::Schema.define(version: 20150105080450) do
 
   create_table "assessments", force: true do |t|
     t.integer  "course_id"
@@ -26,35 +26,13 @@ ActiveRecord::Schema.define(version: 20150103081508) do
     t.datetime "updated_at"
   end
 
-  create_table "conversation_english_fifty_thais", force: true do |t|
-    t.integer  "conversation_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "conversation_english_zero_thais", force: true do |t|
-    t.integer  "conversation_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "conversation_hundred_thais", force: true do |t|
-    t.integer  "conversation_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "conversations", force: true do |t|
     t.integer  "lesson_id"
+    t.string   "lesson_language_version"
+    t.text     "content"
+    t.string   "audio"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   create_table "courses", force: true do |t|
@@ -96,82 +74,22 @@ ActiveRecord::Schema.define(version: 20150103081508) do
     t.integer  "student_id"
   end
 
-  create_table "practice_phrases", force: true do |t|
-    t.integer  "practice_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "practice_sentences", force: true do |t|
-    t.integer  "practice_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "practice_vocabularies", force: true do |t|
-    t.integer  "practice_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "practices", force: true do |t|
     t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.text     "content"
+    t.string   "audio"
+    t.string   "type_of"
   end
 
   create_table "stories", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lesson_id"
-    t.string   "name"
-  end
-
-  create_table "text_english_fifty_thais", force: true do |t|
-    t.integer  "story_id"
+    t.string   "lesson_language_version"
     t.text     "content"
     t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "text_english_seventy_thais", force: true do |t|
-    t.integer  "story_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "text_english_twenty_thais", force: true do |t|
-    t.integer  "story_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "text_english_zero_thais", force: true do |t|
-    t.integer  "story_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "text_hundred_thais", force: true do |t|
-    t.integer  "story_id"
-    t.text     "content"
-    t.string   "audio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
