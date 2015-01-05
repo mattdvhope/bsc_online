@@ -79,31 +79,27 @@ bathsheeba_story_20 = Story.create(lesson_id: 5, lesson_language_version: "Baths
 bathsheeba_story_0 = Story.create(lesson_id: 5, lesson_language_version: "Bathsheeba - English & 0% Thai", content: "0 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 0")
 
 
-creation_conversation = Conversation.create(lesson_id: 1, name: "Conversation: เกี่ยวกับพระผู้สร้าง")
-sin_conversation = Conversation.create(lesson_id: 2, name: "Conversation: เกี่ยวกับบาปเข้าเอเดน")
-abraham_conversation = Conversation.create(lesson_id: 3, name: "Conversation: เกี่ยวกับชายชราผู้ศรัทธาต่อพระเจ้า..about an old man")
-david_conversation = Conversation.create(lesson_id: 4, name: "Conversation: เกี่ยวกับกษัตริย์เดวิด")
-bathsheeba_conversation = Conversation.create(lesson_id: 5, name: "Conversation: เกี่ยวกับเดวิดกับบัทเชบา")
+creation_conversation_100 = Conversation.create(lesson_id: 1, lesson_language_version: "Creation Conversation - 100% Thai", content: "100 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100")
+creation_conversation_50 = Conversation.create(lesson_id: 1, lesson_language_version: "Creation Conversation - 50% Thai", content: "50 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 50")
+creation_conversation_0 = Conversation.create(lesson_id: 1, lesson_language_version: "Creation Conversation - 0% Thai", content: "0 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 0")
 
-creation_conv_100  = ConversationHundredThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100")
-creation_conv_50   = ConversationEnglishFiftyThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English50", audio: "Audio 50")
-creation_conv_0    = ConversationEnglishZeroThai.create(conversation_id: 1, content: "เกี่ยวกับพระผู้สร้าง-English0", audio: "Audio 0")
+sin_conversation_100 = Conversation.create(lesson_id: 2, lesson_language_version: "Sin Conversation - 100% Thai", content: "100 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 100")
+sin_conversation_50 = Conversation.create(lesson_id: 2, lesson_language_version: "Sin Conversation - 50% Thai", content: "50 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 50")
+sin_conversation_0 = Conversation.create(lesson_id: 2, lesson_language_version: "Sin Conversation - 0% Thai", content: "20 - เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 0")
 
-sin_conv_100       = ConversationHundredThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดนและอื่นๆ อีก", audio: "Audio 100")
-sin_conv_50        = ConversationEnglishFiftyThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English50", audio: "Audio 50")
-sin_conv_0         = ConversationEnglishZeroThai.create(conversation_id: 2, content: "เกี่ยวกับบาปเข้าเอเดน-English0", audio: "Audio 0")
+abraham_conversation_100 = Conversation.create(lesson_id: 3, lesson_language_version: "Abraham Conversation - 100% Thai", content: "100 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
+abraham_conversation_50 = Conversation.create(lesson_id: 3, lesson_language_version: "Abraham Conversation - 50% Thai", content: "50 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
+abraham_conversation_0 = Conversation.create(lesson_id: 3, lesson_language_version: "Abraham Conversation - 0% Thai", content: "0 - ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
 
-abraham_conv_100   = ConversationHundredThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้าและอื่นๆ อีก", audio: "Audio 100")
-abraham_conv_50    = ConversationEnglishFiftyThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English50", audio: "Audio 50")
-abraham_conv_0     = ConversationEnglishZeroThai.create(conversation_id: 3, content: "ชายชราผู้ศรัทธาต่อพระเจ้า-English0", audio: "Audio 0")
+david_conversation_100 = Conversation.create(lesson_id: 4, lesson_language_version: "David Conversation - 100% Thai", content: "100 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 100")
+david_conversation_50 = Conversation.create(lesson_id: 4, lesson_language_version: "David Conversation - 50% Thai", content: "50 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 50")
+david_conversation_0 = Conversation.create(lesson_id: 4, lesson_language_version: "David Conversation - 0% Thai", content: "0 - เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 0")
 
-david_100          = ConversationHundredThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิดและอื่นๆ อีก", audio: "Audio 100")
-david_50           = ConversationEnglishFiftyThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English50", audio: "Audio 50")
-david_0            = ConversationEnglishZeroThai.create(conversation_id: 4, content: "เกี่ยวกับกษัตริย์เดวิด-English0", audio: "Audio 0")
+bathsheeba_conversation_100 = Conversation.create(lesson_id: 5, lesson_language_version: "Bathsheeba Conversation - 100% Thai", content: "100 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
+bathsheeba_conversation_50 = Conversation.create(lesson_id: 5, lesson_language_version: "Bathsheeba Conversation - 50% Thai", content: "50 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 50")
+bathsheeba_conversation_0 = Conversation.create(lesson_id: 5, lesson_language_version: "Bathsheeba Conversation - 0% Thai", content: "0 - เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 0")
 
-bathsheeba_100     = ConversationHundredThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบาและอื่นๆ อีก", audio: "Audio 100")
-bathsheeba_50      = ConversationEnglishFiftyThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English50", audio: "Audio 50")
-bathsheeba_0       = ConversationEnglishZeroThai.create(conversation_id: 5, content: "เกี่ยวกับเดวิดกับบัทเชบา-English0", audio: "Audio 0")
+
 
 creation_practice = Practice.create(lesson_id: 1, name: "Practice: เกี่ยวกับพระผู้สร้าง")
 sin_practice = Practice.create(lesson_id: 2, name: "Practice: เกี่ยวกับบาปเข้าเอเดน")
