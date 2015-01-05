@@ -10,30 +10,14 @@ Rails.application.routes.draw do
     resources :courses, only: [:show, :index]
   end
 
-  resources :parts, only: [:show, :index] do
-    resources :lessons, only: [:show, :index]
+  resources :parts, only: [:index, :show] do
+    resources :lessons, only: [:index, :show] do
+      resources :stories, only: [:index, :show]
+      resources :conversations, only: [:index, :show]
+      resources :practices, only: [:index, :show]
+    end
   end
   
-  resources :stories, only: [:show] do
-    resources :text_hundred_thais, only: [:show]
-    resources :text_english_seventy_thais, only: [:show]
-    resources :text_english_fifty_thais, only: [:show]
-    resources :text_english_twenty_thais, only: [:show]
-    resources :text_english_zero_thais, only: [:show]
-  end  
-  
-  resources :conversations, only: [:show] do
-    resources :conversation_hundred_thais, only: [:show]
-    resources :conversation_english_fifty_thais, only: [:show]
-    resources :conversation_english_zero_thais, only: [:show]
-  end
-
-  resources :practices, only: [:show] do
-    resources :practice_vocabularies, only: [:show]
-    resources :practice_phrases, only: [:show]
-    resources :practice_sentences, only: [:show]
-  end
-
   get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
 
