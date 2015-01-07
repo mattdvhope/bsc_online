@@ -67,12 +67,12 @@ describe SessionsController do
       expect(session[:user_id]).to be_nil
     end
 
-    it "redirects to to the root path" do
-      expect(response).to redirect_to root_path
+    it "sets the flash success" do
+      expect(flash[:success]).to eq("You are logged out. Have a great day!")
     end
 
-    it "sets the flash success" do
-      expect(flash[:success]).not_to be_blank
+    it "redirects to to the root path" do
+      expect(response).to redirect_to root_path
     end
 
   end
