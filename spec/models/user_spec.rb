@@ -10,6 +10,7 @@ describe User do
 
   it { should have_many(:plans) }
   it { should have_many(:curriculums) }
+  it { should have_many(:user_answers) }
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:email) }
