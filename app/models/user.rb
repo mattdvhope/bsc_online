@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
-  has_many :plans, :foreign_key=>"student_id"
+  has_many :plans, :foreign_key=>"student_id" #, dependent: :destroy ... or dependent: :destroy_all ... research this...
   has_many :curriculums, through: :plans
 
   validates_presence_of :first_name, length: { maximum: 30 }, unless: :guest?
