@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105080450) do
+ActiveRecord::Schema.define(version: 20150109223947) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "question_id"
+    t.text     "answer_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assessments", force: true do |t|
     t.integer  "course_id"
@@ -83,6 +90,14 @@ ActiveRecord::Schema.define(version: 20150105080450) do
     t.string   "type_of"
   end
 
+  create_table "questions", force: true do |t|
+    t.integer  "assessment_id"
+    t.text     "question_content"
+    t.integer  "correct_answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stories", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -90,6 +105,13 @@ ActiveRecord::Schema.define(version: 20150105080450) do
     t.string   "lesson_language_version"
     t.text     "content"
     t.string   "audio"
+  end
+
+  create_table "user_answers", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
