@@ -5,5 +5,8 @@
   %h2="Here are part #{@part.id}'s Lessons"
   -@part.lessons.each do |lesson|
     %hr
-    %h3= link_to lesson.name, part_lesson_path(@part, lesson)
-    %h3= lesson.description
+    %h3=link_to lesson.name, part_lesson_path(@part, lesson)
+    %h3=lesson.description
+  %hr
+    %h3=link_to "Test for this part" #, assessment_path(@assessment)
+  %hr
