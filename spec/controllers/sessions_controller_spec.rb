@@ -68,7 +68,7 @@ describe SessionsController do
     end
 
     it "sets the flash success" do
-      expect(flash[:success]).to eq("You are logged out. Have a great day!")
+      expect(flash[:success]).to be_present
     end
 
     it "redirects to to the root path" do
