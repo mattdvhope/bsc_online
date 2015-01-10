@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109223947) do
+ActiveRecord::Schema.define(version: 20150110012545) do
 
   create_table "answers", force: true do |t|
     t.integer  "question_id"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20150109223947) do
     t.integer  "course_id"
     t.integer  "part_id"
     t.integer  "lesson_id"
-    t.string   "type"
     t.text     "content"
     t.string   "audio"
     t.integer  "score"
     t.boolean  "passed?"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type_of"
   end
 
   create_table "conversations", force: true do |t|
