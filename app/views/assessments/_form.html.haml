@@ -1,0 +1,17 @@
+=javascript_include_tag "nested_form.js"
+= nested_form_for @assessment do |f|
+  .form-group
+    .row
+      .col-sm-4
+        %h2= f.text_field :type_of, label: "Type of Assessment", class: 'form-control'
+    .row
+      .col-sm-4
+        = f.fields_for :questions do |builder|
+          %h2= builder.text_area :question_content, rows: 3, class: 'form-control'
+          %h3= builder.link_to_remove "Remove this question"
+    .row
+      .col-sm-4
+        %h3= f.link_to_add "Add a question", :questions
+
+    %br
+    = f.submit @assessment.new_record? ? 'Build new Assessment' : 'Edit this Assessment', class: 'btn btn-success'
