@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :assessments, only: [:show]
+  resources :assessments, only: [:show, :new, :create, :edit, :update]
 
   resources :plans, except: [:destroy]
 
