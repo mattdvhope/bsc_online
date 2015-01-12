@@ -7,4 +7,6 @@ describe Assessment do
   it { should belong_to(:lesson) }
   it { should have_many(:questions) }
 
+  it { should accept_nested_attributes_for :questions }
+
 end
