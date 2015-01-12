@@ -119,13 +119,13 @@ bathsheeba_practice_vocabulary = Practice.create(lesson_id: 5, type_of: "Vocabul
 bathsheeba_practice_phrases = Practice.create(lesson_id: 5, type_of: "Phrases Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Phrases Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Phrases")
 bathsheeba_practice_sentences = Practice.create(lesson_id: 5, type_of: "Sentences Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Sentences Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Sentences")
 
-exam = Assessment.create(course_id: 1, type_of: "Exam")
+# exam = Assessment.create(course_id: 1, type_of: "Exam")
 
-question1 = Question.create(assessment_id: 1, question_content: "What is the correct answer to this question?", correct_answer_id: 1)
+# question1 = Question.create(assessment_id: 1, question_content: "What is the correct answer to this question?", correct_answer_id: 1)
 
-answer1 = Answer.create(question_id: 1, answer_content: "Correct answer")
-answer2 = Answer.create(question_id: 1, answer_content: "One Incorrect answer")
-answer3 = Answer.create(question_id: 1, answer_content: "Another Incorrect answer")
+# answer1 = Answer.create(question_id: 1, answer_content: "Correct answer")
+# answer2 = Answer.create(question_id: 1, answer_content: "One Incorrect answer")
+# answer3 = Answer.create(question_id: 1, answer_content: "Another Incorrect answer")
 
 
 
