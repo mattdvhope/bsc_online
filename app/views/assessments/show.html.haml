@@ -6,6 +6,9 @@
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
+    -question.answers.each do |answer|
+
+      %h3=answer.answer_content
     -i+=
     %hr
   %p
