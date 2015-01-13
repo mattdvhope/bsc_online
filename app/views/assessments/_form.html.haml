@@ -1,17 +1,16 @@
-=javascript_include_tag "nested_form.js"
-= nested_form_for @assessment do |f|
-  .form-group
-    .row
-      .col-sm-4
-        %h2= f.text_field :type_of, label: "Type of Assessment", class: 'form-control'
-    .row
-      .col-sm-4
-        = f.fields_for :questions do |builder|
-          %h2= builder.text_area :question_content, rows: 3, class: 'form-control'
-          %h3= builder.link_to_remove "Remove this question"
-    .row
-      .col-sm-4
-        %h3= f.link_to_add "Add a question", :questions
+= simple_form_for @assessment, html: { class: 'form-horizontal' } do |f|
+  .row
+    .col-sm-4
+      %h3= f.input :type_of, label: "Type of Assessment", class: 'form-control'
+  .row
+    .col-sm-4
+      = f.simple_fields_for :questions do |question|
+        = render 'question_fields', :f => question
+      .links
+        %h3= link_to_add_association 'add question', f, :questions
+  %br
+  = f.submit @assessment.new_record? ? 'Build new Assessment' : 'Edit this Assessment', class: 'btn btn-success'
 
-    %br
-    = f.submit @assessment.new_record? ? 'Build new Assessment' : 'Edit this Assessment', class: 'btn btn-success'
+/   Inside your views, use the 'simple_form_for' with one of the Bootstrap form
+/   classes, '.form-horizontal' or '.form-inline', as the following:
+/     = simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|
