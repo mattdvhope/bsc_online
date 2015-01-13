@@ -1,3 +1,6 @@
 .nested-fields
   %h3= f.input :answer_content
+  %h2= f.label "Select whether this answer is 'Correct' or 'Wrong'?"
+  %h2= f.select :correct?, options_for_select(["Wrong", "Correct"])
+
   %h3= link_to_remove_association "remove answer", f
