@@ -2,6 +2,10 @@ class AssessmentsController < ApplicationController
 
   before_action :require_user
 
+  def index
+    @assessments = Assessment.all
+  end
+
   def show
     @assessment = Assessment.find(params[:id])
   end
@@ -39,7 +43,7 @@ class AssessmentsController < ApplicationController
   private
 
   def assessment_params
-    params.require(:assessment).permit(:type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :_destroy ] ])
+    params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :_destroy ] ])
   end
 
 end
