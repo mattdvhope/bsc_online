@@ -12,7 +12,7 @@
       .links
         %h3= link_to_add_association 'add question', f, :questions
   %br
-  = f.submit @assessment.new_record? ? 'Build new Assessment' : 'Edit this Assessment', class: 'btn btn-success'
+  = f.submit @assessment.new_record? ? "Build new Assessment" : "Edit this #{@assessment.type_of}", class: 'btn btn-success'
 
 /   Inside your views, use the 'simple_form_for' with one of the Bootstrap form
 /   classes, '.form-horizontal' or '.form-inline', as the following:
