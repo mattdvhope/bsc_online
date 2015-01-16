@@ -1,13 +1,20 @@
 class AnswersController < ApplicationController
 
+  before_action :require_user
+
   def show
     @answer = Answer.find(params[:id])
-    determine_which_is_correct
+    indicate_whether_answer_correct
   end
 
-  def determine_which_is_correct
-    
-binding.pry    
+  def indicate_whether_answer_correct
+    if @answer.correct?
+      flash[:success] = "CORRECT!!!"
+      redirect_to assessment_path(@answer.question.assessment)
+    else
+      flash[:danger] = "WRONG!!!"
+      redirect_to assessment_path(@answer.question.assessment)
+    end
   end
 
 end
