@@ -1,6 +1,6 @@
-class CreateUserAnswers < ActiveRecord::Migration
+class CreateStudentAnswers < ActiveRecord::Migration
   def change
-    create_table :user_answers do |t|
+    create_table :student_answers do |t|
       t.integer :student_id
       t.integer :answer_id
       t.timestamps
