@@ -2,15 +2,14 @@
   %hr
   %h2="Your #{@assessment.type_of}:"
   %hr
-  %h2=link_to "an assessment", @assessment, remote: true, method: :get
-  %hr
   -i = 1
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
     -question.answers.each do |answer|
-      %h3=answer.answer_content
-      %h3=link_to answer.answer_content, student_answer, remote: true, method: :get
+
+      %h3= link_to answer.answer_content, answer, class: 'answer'
+
     -i = i + 1
   %p
     =link_to "Edit #{@assessment.type_of} | ", edit_assessment_path(@assessment)
