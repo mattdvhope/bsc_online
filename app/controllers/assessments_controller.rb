@@ -16,6 +16,7 @@ class AssessmentsController < ApplicationController
 
   def create
     @assessment = Assessment.new(assessment_params)
+    @assessment.make_answers_correct_true_if_choice_correct
     if @assessment.save
       flash[:success] = "You have created your \"#{@assessment.type_of}\" type of assessment."
       redirect_to assessment_path(@assessment)
@@ -43,7 +44,11 @@ class AssessmentsController < ApplicationController
   private
 
   def assessment_params
-    params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :_destroy ] ])
+    params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct?, :_destroy ] ])
+  end
+
+  def make_correct_answer_to_true
+    
   end
 
 end
