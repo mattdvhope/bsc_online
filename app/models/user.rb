@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :plans, :foreign_key=>"student_id" #, dependent: :destroy ... or dependent: :destroy_all ... research this...
   has_many :curriculums, through: :plans
   has_many :user_answers, :foreign_key=>"student_id"
+  has_many :answers, :foreign_key=>"student_id"
 
   validates_presence_of :first_name, length: { maximum: 30 }, unless: :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, unless: :guest?

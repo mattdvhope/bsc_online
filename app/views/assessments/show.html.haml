@@ -8,10 +8,11 @@
     %h3=i.to_s + ". " + question.question_content
     -question.answers.each do |answer|
 
-      %h3= link_to answer.answer_content, answer, class: 'answer'
+      %h3= link_to answer.answer_content, edit_answer_path(answer), class: 'answer', remote: true
 
     -i = i + 1
   %p
-    =link_to "Edit #{@assessment.type_of} | ", edit_assessment_path(@assessment)
+    =link_to "Edit #{@assessment.type_of}", edit_assessment_path(@assessment)
+    |
     =link_to "View All", assessments_path
 

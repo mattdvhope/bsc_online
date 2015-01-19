@@ -25,6 +25,7 @@ gem 'turbolinks' # Turbolinks makes following links in your web application fast
 # gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 gem 'simple_form'
 gem "cocoon"
+gem 'responders'
 
 group :development do
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

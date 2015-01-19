@@ -4,8 +4,8 @@
 
 $ ->
     $('a.answer').hover (event) ->
-        $(this).toggleClass("hover")
+        $(this).toggleClass("mouse_over")
 
-    $('a.answer').click (event) ->
-        $(this).toggleClass("click")
-
+# $ ->
+#     $('a.answer').on "ajax:success", (e, data, status, xhr) ->
+#         alert("AJAX worked!!!")
