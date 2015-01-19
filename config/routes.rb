@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   resources :assessments, except: [:destroy]
 
-  resources :answers, only: [:show]
+  resources :answers, only: [:show, :edit]
 
   resources :plans, except: [:destroy]
 
