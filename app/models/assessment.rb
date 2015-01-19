@@ -15,4 +15,15 @@ class Assessment < ActiveRecord::Base
     end
   end
 
+  # def assign_assessment_to_appropriate_section_of_course
+  #   case self.type_of
+  #   when "Quiz"
+  #     self.lesson_id = 
+  #   when "Test"
+
+  #   when "Exam"
+      
+  #   end
+  # end
+
 end
