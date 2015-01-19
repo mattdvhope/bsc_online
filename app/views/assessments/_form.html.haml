@@ -5,6 +5,12 @@
       %h2= f.label "Type of Assessment"
       %h2= f.select :type_of, options_for_select(["Quiz", "Test", "Exam"])
       %hr
+      %h2= f.label "Course"
+      %h2= f.collection_select(:course_id, Course.all, :id, :name)
+      %hr
+      %h2= f.label "Lesson" # DO NESTED ATTRIBUTES WITH THIS!!!
+      %h2= f.collection_select(:lesson_id, Lesson.all, :id, :name)
+      %hr
   .row
     .col-sm-4
       = f.simple_fields_for :questions do |question|
