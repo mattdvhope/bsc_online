@@ -1,13 +1,13 @@
 class AssessmentsController < ApplicationController
 
   before_action :require_user
+  before_action :an_assessment, only: [:show, :edit, :update]
 
   def index
     @assessments = Assessment.all
   end
 
   def show
-    @assessment = Assessment.find(params[:id])
   end
 
   def new
@@ -26,12 +26,7 @@ class AssessmentsController < ApplicationController
     end
   end
 
-  def edit
-    @assessment = Assessment.find(params[:id])
-  end
-
   def update
-    @assessment = Assessment.find(params[:id])
     if @assessment.update(assessment_params)
       flash[:success] = "You have edited your assessment."
       redirect_to assessment_path(@assessment)
@@ -43,12 +38,12 @@ class AssessmentsController < ApplicationController
 
   private
 
-  def assessment_params
-    params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct?, :_destroy ] ])
-  end
+    def an_assessment
+      @assessment = Assessment.find(params[:id])
+    end
 
-  def make_correct_answer_to_true
-    
-  end
+    def assessment_params
+      params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct?, :_destroy ] ])
+    end
 
 end
