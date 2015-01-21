@@ -31,10 +31,10 @@ special_for_matt = Plan.create(curriculum_id: 2, student_id: 2, description: "Ma
 core_for_tim = Plan.create(curriculum_id: 1, student_id: 3, description: "Tim, this plan for you consists of the following courses for which you have registered for from curriculum1.")
 special_for_john = Plan.create(curriculum_id: 2, student_id: 4, description: "John, this plan for you consists of the following courses for which you have registered for from curriculum2.")
 
-part_1 = Part.create(course_id: 1)
-part_2 = Part.create(course_id: 1)
-part_3 = Part.create(course_id: 1)
-part_4 = Part.create(course_id: 1)
+part_1 = Part.create(course_id: 1, name: "Part 1")
+part_2 = Part.create(course_id: 1, name: "Part 2")
+part_3 = Part.create(course_id: 1, name: "Part 3")
+part_4 = Part.create(course_id: 1, name: "Part 4")
 
 creation = Lesson.create(part_id: 1, name: "พระผู้สร้าง", description: "The biblical account of how the world was created.")
 sin = Lesson.create(part_id: 1, name: "บาปเข้าเอเดน", description: "The first sin that entered into the world after creation.")

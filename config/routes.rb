@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:show, :index]
+    resources :courses, only: [:show, :index] do
+      resources :assessments, except: [:destroy]
+    end
   end
 
   resources :parts, only: [:index, :show] do
@@ -17,8 +19,6 @@ Rails.application.routes.draw do
       resources :practices, only: [:index, :show]
     end
   end
-  
-  resources :assessments, except: [:destroy]
 
   resources :answers, only: [:show, :edit]
 

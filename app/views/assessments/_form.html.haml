@@ -1,9 +1,15 @@
-= simple_form_for @assessment, html: { class: 'form-horizontal' } do |f|
+= simple_form_for [@assessment.course.curriculum, @assessment.course, @assessment], html: { class: 'form-horizontal' } do |f|
   .row
     .col-sm-4
       %hr
       %h2= f.label "Type of Assessment"
       %h2= f.select :type_of, options_for_select(["Quiz", "Test", "Exam"])
+      %hr
+      %h2= f.label "Part"
+      %h2= f.collection_select(:part_id, @assessment.course.parts, :id, :name, prompt: "- Choose which Part the 'Test' or 'Quiz' is for. -")
+      %hr
+      %h2= f.label "Lesson"
+      %h2= f.collection_select(:lesson_id, @assessment.course.lessons, :id, :name, prompt: "- Choose which Lesson the 'Quiz' is for. -")
       %hr
   .row
     .col-sm-4
