@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
   def edit
     @answer = Answer.find(params[:id])
     student_answer = @answer.student_answer
-binding.pry
+# binding.pry
     unless student_answer
       if student_answer.student_id == current_user.id
         respond_to do |format|
@@ -19,16 +19,6 @@ binding.pry
       end
     end
     redirect_to assessment_path(@answer.question.assessment)
-  end
-
-  def update
-    @answer  = Answer.update(answer_params)
-  end
-
-  private
-
-  def answer_params
-    params.require(:answer).permit(:answer_content, :correct, :student_answer)
   end
 
 end
