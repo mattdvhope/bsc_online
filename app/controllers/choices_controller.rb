@@ -5,12 +5,13 @@ class ChoicesController < ApplicationController
   def edit
     respond_to do |format|
       format.js   {
-        @choice = StudentAnswer.find(params[:id])
-        @choice.answer.question.answers.each do |answer|
-          answer.choices.first.update_attributes(choosing: false)
-        end
-        @choice.update_attributes(choosing: true)
+        @choice = Choice.find(params[:id])
+        choices = @choice.question.choices.where(student_id: current_user.id)
+        choices.each do |choice|
+          choice.update_column(:selected, false)
 # binding.pry
+        end
+        @choice.update_column(:selected, true)
       }
     end
     redirect_to curriculum_course_assessment_path(@choice.answer.question.assessment.course.curriculum, @choice.answer.question.assessment.course, @choice.answer.question.assessment)
