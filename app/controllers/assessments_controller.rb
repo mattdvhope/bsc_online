@@ -8,6 +8,9 @@ class AssessmentsController < ApplicationController
   end
 
   def show
+    if current_user.choices.size == 0
+      @assessment.instantiate_new_choices_for_all_answers_for_new_student(current_user)
+    end
   end
 
   def new
@@ -41,14 +44,6 @@ class AssessmentsController < ApplicationController
 
     def existing_assessment
       @assessment = Assessment.find(params[:id])
-      set_up_assessment_answers(@assessment)
-      @assessment.save
-    end
-
-    def set_up_assessment_answers(assessment)
-      assessment.instantiate_new_choices(current_user)
-      # assessment.set_all_answers_correct_false
-      # assessment.make_answers_correct_true_if_choice_correct
     end
 
     def assessment_params
