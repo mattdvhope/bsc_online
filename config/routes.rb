@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :answers, only: [:show, :edit]
+  resources :choices, only: [:edit]
 
   resources :plans, except: [:destroy]
 
