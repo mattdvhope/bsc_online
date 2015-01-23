@@ -7,6 +7,9 @@ class AssessmentsController < ApplicationController
     @assessments = Assessment.all
   end
 
+  def show
+  end
+
   def new
     @course = Course.find(params[:course_id])
     @assessment = Assessment.new(course_id: @course.id)
@@ -43,9 +46,9 @@ class AssessmentsController < ApplicationController
     end
 
     def set_up_assessment_answers(assessment)
-      assessment.set_all_answers_false
-      assessment.make_answers_correct_true_if_choice_correct
-      assessment.assign_student_to_answers_in_this_assessment(current_user)
+      assessment.instantiate_new_choices(current_user)
+      # assessment.set_all_answers_correct_false
+      # assessment.make_answers_correct_true_if_choice_correct
     end
 
     def assessment_params

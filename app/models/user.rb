@@ -2,10 +2,9 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
-  has_many :plans, :foreign_key=>"student_id" #, dependent: :destroy ... or dependent: :destroy_all ... research this...
+  has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
   has_many :curriculums, through: :plans
-  has_many :user_answers, :foreign_key=>"student_id"
-  has_many :answers, :foreign_key=>"student_id"
+  has_many :choices, as: :selectable, :dependent => :destroy
 
   validates_presence_of :first_name, length: { maximum: 30 }, unless: :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, unless: :guest?
@@ -30,13 +29,6 @@ class User < ActiveRecord::Base
 
   def name
     guest ? "Guest Student" : first_name
-  end
-
-  def delete_guest_user_and_dependent_plans
-    if self.guest?
-      self.plans.each { |plan| plan.destroy }
-      self.destroy
-    end
   end
 
 end

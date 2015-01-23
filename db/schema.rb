@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120061543) do
+ActiveRecord::Schema.define(version: 20150123012719) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150120061543) do
     t.datetime "updated_at"
     t.string   "choice"
     t.boolean  "correct"
-    t.integer  "student_id"
   end
 
   create_table "assessments", force: :cascade do |t|
@@ -35,6 +34,16 @@ ActiveRecord::Schema.define(version: 20150120061543) do
     t.datetime "updated_at"
     t.string   "type_of",    limit: 255
   end
+
+  create_table "choices", force: :cascade do |t|
+    t.boolean  "selected"
+    t.integer  "selectable_id"
+    t.string   "selectable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "choices", ["selectable_type", "selectable_id"], name: "index_choices_on_selectable_type_and_selectable_id"
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "lesson_id"
@@ -109,13 +118,6 @@ ActiveRecord::Schema.define(version: 20150120061543) do
     t.string   "lesson_language_version", limit: 255
     t.text     "content"
     t.string   "audio",                   limit: 255
-  end
-
-  create_table "student_answers", force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
