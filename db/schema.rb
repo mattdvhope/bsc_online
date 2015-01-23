@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123012719) do
+ActiveRecord::Schema.define(version: 20150123064729) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -36,14 +36,12 @@ ActiveRecord::Schema.define(version: 20150123012719) do
   end
 
   create_table "choices", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "student_id"
     t.boolean  "selected"
-    t.integer  "selectable_id"
-    t.string   "selectable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "choices", ["selectable_type", "selectable_id"], name: "index_choices_on_selectable_type_and_selectable_id"
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "lesson_id"

@@ -8,7 +8,7 @@
     %h3=i.to_s + ". " + question.question_content
     -question.answers.each do |answer|
 
-      %h3= link_to answer.answer_content, edit_choice_path(answer.choices.first), class: 'answer', remote: true
+      %h3= link_to answer.answer_content, edit_choice_path(answer.choices.where(student_id: current_user.id, answer_id: answer.id).first), class: 'answer', remote: true
 
     -i = i + 1
   %p
