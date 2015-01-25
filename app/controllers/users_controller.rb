@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = params.include?("user") ? User.new(user_params) : User.new_guest
     if @user.save
       if @user.first_name.blank?
-        flash[:success] = "You are logged in as a temporary guest. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online, all your work from this time will be retained."
+        flash[:success] = "You are logged in as a temporary guest. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online (while still logged in this time!), all your work from this time will be retained."
       else
         @user.plans = current_user.plans if current_user # guest user's plans transferred to new student
         current_user.destroy if current_user # guest user record destroyed
