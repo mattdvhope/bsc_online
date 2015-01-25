@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    flash[:success] = "You are logged out #{current_user.name}. Have a great day!"
+    flash[:success] = current_user.guest? ? "Thank you for visiting as our Guest! Please stop by again!" : "You are logged out #{current_user.name}. Have a great day!"
     current_user.destroy if current_user.guest?
     session[:user_id] = nil
     redirect_to root_path
