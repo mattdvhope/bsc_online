@@ -47,7 +47,7 @@ class AssessmentsController < ApplicationController
     end
 
     def assessment_params
-      params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct, :student_id, :_destroy ] ])
+      params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, :audio, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct, :student_id, :_destroy ] ])
     end
 
 end
