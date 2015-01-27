@@ -4,6 +4,7 @@ describe Course do
 
   it { should belong_to(:curriculum) }
   it { should have_many(:parts) }
+  it { should have_many(:lessons).through(:parts) }
   it { should have_many(:assessments) }
 
   it "saves itself when activated" do
