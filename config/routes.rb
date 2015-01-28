@@ -17,9 +17,11 @@ Rails.application.routes.draw do
 
   resources :parts, only: [:index, :show] do
     resources :lessons, only: [:index, :show] do
-      resources :stories, only: [:index, :show]
-      resources :conversations, only: [:index, :show]
-      resources :practices, only: [:index, :show]
+      with_options only: [:index, :show] do |list_only|
+        list_only.resources :stories
+        list_only.resources :conversations
+        list_only.resources :practices
+      end
     end
   end
 
