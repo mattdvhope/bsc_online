@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:show, :index] do
-      resources :assessments, except: [:destroy]
+    resources :courses, only: [:show] do
+      resources :assessments, only: [:index, :show]
+      namespace :admin do
+        resources :assessments, only: [:new, :create, :edit, :update]
+      end
     end
   end
 
