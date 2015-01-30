@@ -11,6 +11,7 @@ describe User do
   it { should have_many(:plans).dependent(:destroy) }
   it { should have_many(:curriculums).through(:plans) }
   it { should have_many(:choices).dependent(:destroy) }
+  it { should have_many(:roles).dependent(:destroy) }
 
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
