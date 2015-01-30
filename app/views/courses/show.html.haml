@@ -8,7 +8,7 @@
   -@course.parts.each do |part|
     %h3=link_to "Part #{part.id}", part_path(part)
   %h3=link_to "Exam for #{@course.name}" #, curriculum_course_assessment_path(@course.curriculum, @course)
-  %h3=link_to "Build an Assessment", new_curriculum_course_assessment_path(@course.curriculum, @course)
+  %h3=link_to "Build an Assessment", new_curriculum_course_admin_assessment_path(@course.curriculum, @course)
   %hr
   %h2="When you complete each lesson, you will be given a quiz."
   %h2="When you complete all the lessons in a Part, you will be given a test."
