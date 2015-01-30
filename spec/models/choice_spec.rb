@@ -4,6 +4,6 @@ describe Choice do
 
   it { should belong_to(:answer) }
   it { should have_one(:question).through(:answer) }
-  it { should belong_to(:student) }
+  it { should belong_to(:student).class_name('User') }
 
 end
