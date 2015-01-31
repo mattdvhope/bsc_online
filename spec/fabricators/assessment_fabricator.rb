@@ -7,4 +7,5 @@ Fabricator(:assessment) do
   score 90
   passed? true
   type_of "Exam"
+  course { Fabricate(:course) }
 end

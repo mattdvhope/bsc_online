@@ -12,7 +12,7 @@
 
     -i = i + 1
   %p
-    =link_to "Edit #{@assessment.type_of}", edit_curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
+    =link_to "Edit #{@assessment.type_of}", edit_curriculum_course_admin_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     |
-    =link_to "View All", curriculum_course_assessments_path(@assessment.course.curriculum, @assessment.course)
+    =link_to "View All", curriculum_course_admin_assessments_path(@assessment.course.curriculum, @assessment.course)
 

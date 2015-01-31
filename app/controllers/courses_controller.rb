@@ -6,7 +6,4 @@ class CoursesController < ApplicationController
     @course = Course.find(1)
   end
 
-  def index    
-  end
-
 end
