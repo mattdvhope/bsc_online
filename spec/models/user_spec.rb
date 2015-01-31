@@ -26,19 +26,39 @@ describe User do
   it { should_not allow_value(97421).for(:postal_code) }
 
   describe ".new_guest" do
+
     it "returns a new guest user object" do
       user = User.new
       user.guest = true
       expect(:user).to be_present
     end
+
   end
 
   describe "#name" do
+
     it "returns 'Guest Student' if guest" do
       user = User.new
       user.guest = true
       expect(user.name).to eq("Guest Student")
     end
+
+  end
+
+  describe "#overseer_admin?" do
+
+    it "returns true if role name is Admin" do
+      alice = Fabricate(:user)
+      role = Role.create(name: "Admin", overseer_id: alice.id)
+      alice.roles << role
+      expect(alice.overseer_admin?).to eq(true)
+    end
+
+    it "returns false if role name is not Admin" do
+      alice = Fabricate(:user)
+      expect(alice.overseer_admin?).to eq(false)
+    end
+
   end
 
 end
