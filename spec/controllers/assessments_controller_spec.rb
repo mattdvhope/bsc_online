@@ -11,6 +11,31 @@ describe AssessmentsController do
       }
     end
 
+    context "the assessment has no questions" do
+
+      it "sets the flash danger" do
+        set_current_user
+        assessment = Fabricate(:assessment)
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(flash[:danger]).to eq "You need to put questions & answers in. Try again."
+      end
+
+      it "destroys the assessment" do
+        set_current_user
+        assessment = Fabricate(:assessment)
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(Assessment.all.size).to eq 0
+      end
+
+      it "redirects to new_curriculum_course_admin_assessment_path" do
+        set_current_user
+        assessment = Fabricate(:assessment)
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(response).to redirect_to new_curriculum_course_admin_assessment_path
+      end
+
+    end
+
     context "first time the assessment show page is shown" do
 
       it "instantiates new choices for all answers for new student if the question has no choices yet" do
