@@ -9,6 +9,9 @@ describe Assessment do
 
   it { should accept_nested_attributes_for :questions }
 
+  anaf_for_questions = Question.nested_attributes_options[:questions]
+  it { expect(anaf_for_questions[:reject_if].call({ "question_content" => "" })).to eq(true) }
+
   describe "#instantiate_new_choices_for_all_answers_for_new_student" do
     it "assigns a new Choice to each of the assessment's question's answers" do
       student = Fabricate(:user)
