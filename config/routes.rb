@@ -7,16 +7,21 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:show, :index] do
-      resources :assessments, except: [:destroy]
+    resources :courses, only: [:show] do
+      resources :assessments, only: [:show]
+      namespace :admin do
+        resources :assessments, only: [:index, :new, :create, :edit, :update]
+      end
     end
   end
 
   resources :parts, only: [:index, :show] do
     resources :lessons, only: [:index, :show] do
-      resources :stories, only: [:index, :show]
-      resources :conversations, only: [:index, :show]
-      resources :practices, only: [:index, :show]
+      with_options only: [:index, :show] do |list_only|
+        list_only.resources :stories
+        list_only.resources :conversations
+        list_only.resources :practices
+      end
     end
   end
 
