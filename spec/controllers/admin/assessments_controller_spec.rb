@@ -25,7 +25,7 @@ describe Admin::AssessmentsController do
 
   describe "GET new" do
 
-    it_behaves_like "requires log in" do
+    it_behaves_like "requires overseer" do
       let(:action) { get :new, { :curriculum_id => 1, :course_id => 1 } }
     end
 
@@ -47,10 +47,34 @@ describe Admin::AssessmentsController do
   end
 
   describe "POST create" do
+
     context "with valid input" do
+
+      it_behaves_like "requires overseer" do
+        let(:action) { get :new, { :curriculum_id => 1, :course_id => 1 } }
+      end
+
+      it "redirects to the assessment show page" do
+        set_current_overseer
+        post :create, assessment: { recipient_name: "Tom Jones", recipient_email: "tom@test.tv", message: "Friend me at MyFlix." }
+        expect(response).to redirect_to new_invitation_path
+      end
+      
+    end
+
+    context "with invalid input" do
 
       
     end
+
   end
+
+
+
+
+
+
+
+
 
 end
