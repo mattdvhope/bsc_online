@@ -3,4 +3,5 @@ Fabricator(:course) do
   name { Faker::Lorem.word.capitalize }
   description { Faker::Company.bs.capitalize }
   activated false
+  curriculum { Fabricate(:curriculum) }
 end
