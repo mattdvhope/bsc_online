@@ -3,4 +3,5 @@ Fabricator(:answer) do
   answer_content { Faker::Company.bs.capitalize + "." }
   choice "Correct"
   correct true
+  question { Fabricate(:question) }
 end
