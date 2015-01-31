@@ -5,14 +5,17 @@ describe Admin::AssessmentsController do
   describe "GET index" do
 
     it_behaves_like "requires log in" do
-      let(:action) { get :show, id: assessment.id }
+      let(:action) { 
+        assessment = Fabricate(:assessment)
+        get :index, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      }
     end
 
     it "renders the index template" do
       set_current_user
       test = Fabricate(:assessment)
       quiz = Fabricate(:assessment)
-      # assessments = Assessment.all
+binding.pry
       expect(response).to render_template :index
     end
 
