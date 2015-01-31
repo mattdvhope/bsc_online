@@ -2,38 +2,49 @@ require 'rails_helper'
 
 describe AssessmentsController do
 
-  describe "GET show" do # I need an @assessment with an id for this spec to work.
-
-  I must instantiate an Assessment here first.
+  describe "GET show" do
 
     it_behaves_like "requires log in" do
-      let(:action) { get :show, id: assessment.id }
+      let(:action) { 
+        assessment = Fabricate(:assessment)
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      }
+    end
+
+    context "first time the assessment show page is shown" do
+
+      it "instantiates new choices for all answers for new student if the question has no choices yet" do
+        set_current_user
+        answer = Fabricate(:answer)
+        assessment = answer.question.assessment
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(assessment.questions.first.choices.size).to be > 0
+      end
+
+    end
+
+    context "subsequent times the assessment show page is shown" do
+
+      it "does not instantiate new choices for all answers for new student if the question has choices" do
+        alice = Fabricate(:user)
+        set_current_user(alice)
+        answer = Fabricate(:answer)
+        assessment = answer.question.assessment
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(assessment.questions.first.choices.size).to eq 1
+      end
+
     end
 
     it "renders the show template" do
+      assessment = Fabricate(:assessment)
       set_current_user
-      get :show, id: assessment.id
+      question = Fabricate(:question)
+      question.answers << Fabricate(:answer)
+      assessment.questions << question
+      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
       expect(response).to render_template(:show)
-    end
-
-  end
-
-  describe "GET new" do
-
-    it_behaves_like "requires log in" do
-      let(:action) { get :new, { :curriculum_id => 1, :course_id => 1 } }
-    end
-
-    it "sets the @course for this assessment" do
-      set_current_user
-      get :new, { :curriculum_id => 1, :course_id => 1 }
-      expect(assigns(:course)).to be_instance_of Course
-    end
-
-    it "sets the @assessment to a new assessment with course_id" do
-      set_current_user
-      get :new, { :curriculum_id => 1, :course_id => 1 }
-      expect(assigns(:assessment)).to be_instance_of(Assessment)
     end
 
   end
