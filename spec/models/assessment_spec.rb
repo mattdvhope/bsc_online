@@ -9,8 +9,40 @@ describe Assessment do
 
   it { should accept_nested_attributes_for :questions }
 
-  anaf_for_questions = Question.nested_attributes_options[:questions]
+  anaf_for_questions = Assessment.nested_attributes_options[:questions]
   it { expect(anaf_for_questions[:reject_if].call({ "question_content" => "" })).to eq(true) }
+
+  it { should validate_presence_of(:type_of) }
+  it { should validate_presence_of(:lesson_id) }
+  it { should validate_presence_of(:part_id) }
+
+  describe "#a_test?" do
+
+    it "is true if the Assessment is a Test" do
+      assessment = Fabricate(:assessment, type_of: "Test")
+      expect(assessment.a_test?).to eq true
+    end
+
+    it "is false if the Assessment is not a Test" do
+      assessment = Fabricate(:assessment, type_of: "Quiz")
+      expect(assessment.a_test?).to eq false
+    end
+
+  end
+
+  describe "#an_exam?" do
+
+    it "is true if the Assessment is an Exam" do
+      assessment = Fabricate(:assessment, type_of: "Exam")
+      expect(assessment.an_exam?).to eq true
+    end
+
+    it "is false if the Assessment is not an Exam" do
+      assessment = Fabricate(:assessment, type_of: "Test")
+      expect(assessment.an_exam?).to eq false
+    end
+
+  end
 
   describe "#instantiate_new_choices_for_all_answers_for_new_student" do
     it "assigns a new Choice to each of the assessment's question's answers" do
@@ -26,7 +58,7 @@ describe Assessment do
       exam = Fabricate(:assessment)
       exam.questions << question1
       exam.questions << question2
-      exam.instantiate_new_choices_for_all_answers_for_new_student(student)
+      exam.instantiate_new_choices_for_all_answers_for_new_questions(student)
       expect(exam.questions.first.answers.first.choices.first).to have_attributes(answer_id: answer1.id, student_id: student.id, selected: false)
       expect(exam.questions.last.answers.last.choices.last).to have_attributes(answer_id: answer2.id, student_id: student.id, selected: false)
     end
