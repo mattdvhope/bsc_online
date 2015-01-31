@@ -2,6 +2,10 @@ class Admin::AssessmentsController < AdminsController
 
   before_action :existing_assessment, only: [:edit, :update]
 
+  def index
+    @assessments = Assessment.all
+  end
+
   def new
     @course = Course.find(params[:course_id])
     @assessment = Assessment.new(course_id: @course.id)
