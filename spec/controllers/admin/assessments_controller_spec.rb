@@ -54,12 +54,21 @@ describe Admin::AssessmentsController do
         let(:action) { get :new, { :curriculum_id => 1, :course_id => 1 } }
       end
 
+      it "sets the flash success" do
+        set_current_overseer
+        attrs = Fabricate.attributes_for(:assessment)
+        post :create, assessment: attrs, course_id: 1, curriculum_id: 1
+        expect(flash[:success]).not_to be_blank # We expect "something" to be there with a flash notice.
+      end
+
       it "redirects to the assessment show page" do
         set_current_overseer
-        post :create, assessment: { recipient_name: "Tom Jones", recipient_email: "tom@test.tv", message: "Friend me at MyFlix." }
-        expect(response).to redirect_to new_invitation_path
+        attrs = Fabricate.attributes_for(:assessment)
+        course = Fabricate(:course)
+        post :create, assessment: attrs, course_id: course.id, curriculum_id: course.curriculum.id
+        expect(response).to redirect_to curriculum_course_assessment_path(course.curriculum, course, course.assessments.first)
       end
-      
+
     end
 
     context "with invalid input" do
