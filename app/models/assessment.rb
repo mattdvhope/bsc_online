@@ -7,12 +7,12 @@ class Assessment < ActiveRecord::Base
 
   accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['question_content'].blank? }, allow_destroy: true
 
+  validates_presence_of :type_of
   validates_presence_of :part_id, :unless => :an_exam?
-  validates_presence_of :lesson_id, :unless => :a_test?, :unless => :an_exam?
-  validates_presence_of :type_of 
+  validates_presence_of :lesson_id, :if => :a_quiz?
 
-  def a_test?
-    self.type_of == "Test"
+  def a_quiz?
+    self.type_of == "Quiz"
   end
 
   def an_exam?

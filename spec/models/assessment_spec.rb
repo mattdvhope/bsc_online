@@ -13,19 +13,21 @@ describe Assessment do
   it { expect(anaf_for_questions[:reject_if].call({ "question_content" => "" })).to eq(true) }
 
   it { should validate_presence_of(:type_of) }
-  it { should validate_presence_of(:lesson_id) }
   it { should validate_presence_of(:part_id) }
+  it "validates presence of lesson_id when it is a Quiz" do
+    expect(Assessment.new(type_of: "Quiz")).to validate_presence_of(:lesson_id)
+  end
 
-  describe "#a_test?" do
+  describe "#a_quiz?" do
 
-    it "is true if the Assessment is a Test" do
-      assessment = Fabricate(:assessment, type_of: "Test")
-      expect(assessment.a_test?).to eq true
+    it "is true if the Assessment is a Quiz" do
+      assessment = Fabricate(:assessment, type_of: "Quiz")
+      expect(assessment.a_quiz?).to eq true
     end
 
-    it "is false if the Assessment is not a Test" do
-      assessment = Fabricate(:assessment, type_of: "Quiz")
-      expect(assessment.a_test?).to eq false
+    it "is false if the Assessment is not a Quiz" do
+      assessment = Fabricate(:assessment, type_of: "Test")
+      expect(assessment.a_quiz?).to eq false
     end
 
   end
@@ -65,5 +67,3 @@ describe Assessment do
   end
 
 end
-
-
