@@ -6,6 +6,6 @@ Fabricator(:assessment) do
   audio "Audio"
   score 90
   passed? true
-  type_of "Exam"
+  type_of "Test"
   course { Fabricate(:course) }
 end
