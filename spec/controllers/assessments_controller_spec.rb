@@ -62,14 +62,18 @@ describe AssessmentsController do
 
     end
 
-    it "renders the show template" do
-      assessment = Fabricate(:assessment)
-      set_current_user
-      question = Fabricate(:question)
-      question.answers << Fabricate(:answer)
-      assessment.questions << question
-      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
-      expect(response).to render_template(:show)
+    context "the assessment has questions" do
+
+      it "renders the show template" do
+        assessment = Fabricate(:assessment)
+        set_current_user
+        question = Fabricate(:question)
+        question.answers << Fabricate(:answer)
+        assessment.questions << question
+        get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+        expect(response).to render_template(:show)
+      end
+
     end
 
   end
