@@ -29,7 +29,7 @@ class Admin::AssessmentsController < AdminsController
       redirect_to curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
-      render :new
+      redirect_to edit_curriculum_course_admin_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     end
   end
 
