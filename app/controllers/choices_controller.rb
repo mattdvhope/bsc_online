@@ -13,7 +13,7 @@ class ChoicesController < ApplicationController
         @choice.update_column(:selected, true)
       }
     end
-    redirect_to curriculum_course_assessment_path(@choice.answer.question.assessment.course.curriculum, @choice.answer.question.assessment.course, @choice.answer.question.assessment)
+    redirect_to curriculum_course_assessment_path(@choice.question.assessment.course.curriculum, @choice.question.assessment.course, @choice.question.assessment)
   end
 
 end
