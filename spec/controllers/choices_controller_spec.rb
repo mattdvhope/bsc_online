@@ -3,50 +3,46 @@ require 'rails_helper'
 describe ChoicesController do
 
   it_behaves_like "requires log in" do
-    let(:action) { get :edit, id: 1 }
+    let(:action) { patch :update, id: 1 }
   end
 
-  describe "GET edit" do
+  describe "Patch update" do
 
     before :each do
-      @choice = Fabricate(:choice)
+      @alice = Fabricate(:user) # alice's id equals @choice's student_id/user_id
+      set_current_user(@alice)
+      @choice = Fabricate(:choice, student_id: @alice.id) # a single answer (w/ question) is instantiated here that has_many choices
     end
 
     it "sets @choice" do
-      set_current_user
-      xhr :get, :edit, id: @choice.id, format: :js
+      xhr :patch, :update, id: @choice.id, format: :js
       expect(assigns(:choice)).to be_instance_of Choice
     end
 
-    it "finds all the choices of that choice's question" do
-      alice = Fabricate(:user)
-      set_current_user(alice)
+    it "when @choice is clicked, the question's answers' choices (for that student) have each of their 'selected' attributes changed to 'false'" do
       question = @choice.question
-      answer2 = Fabricate(:answer)
-      answer2.choices << Choice.create(answer_id: answer2.id, student_id: alice.id)
-      question.answers << answer2
-      question.answers.find(1).choices.first.student_id = alice.id
-      question.answers.find(2).choices.first.student_id = alice.id
-      answer3 = Answer.create(question_id: question.id)
-      answer3.choices << Choice.create(answer_id: answer2.id, student_id: 2)
-      question.answers << answer3
-      xhr :get, :edit, id: @choice.id, format: :js
-      expect(@choice.question.choices.where(student_id: alice.id).size).to eq 2
+      answer2 = Answer.create(question_id: question.id)
+      answer2.choices << Choice.create(answer_id: answer2.id, student_id: @alice.id, selected: true)
+      question.answers << answer2 # question now has its first answer's choice 'false' and its second answer's choice 'true'.
+      xhr :patch, :update, id: @choice.id, format: :js
+      @choice.reload
+      expect(question.answers.last.choices.first).to have_attributes(:selected => false)
     end
 
-    it "updates the selected attribute to false for that question's choices" do
-      set_current_user
-      xhr :get, :edit, id: @choice.id, format: :js
-      expect(@choice.selected).to eq false
+    it "when @choice is clicked, its selected attribute becomes true" do
+      question = @choice.question
+      answer2 = Answer.create(question_id: question.id)
+      answer2.choices << Choice.create(answer_id: answer2.id, student_id: @alice.id, selected: false)
+      question.answers << answer2 # The question w/ its two answers (w/ both choices' selected: false) is now fully built.
+      xhr :patch, :update, id: @choice.id, format: :js
+      @choice.reload
+      expect(@choice).to have_attributes(:selected => true)
     end
 
-    it "updates the selected attribute in clicked @choice to true" do
-      set_current_user
-      xhr :get, :edit, id: @choice.id, format: :js
-      expect(@choice.selected).to eq false
+    it "redirects to assessment show page" do
+      xhr :patch, :update, id: @choice.id, format: :js
+      expect(response).to redirect_to curriculum_course_assessment_path(@choice.question.assessment.course.curriculum, @choice.question.assessment.course, @choice.question.assessment)
     end
-
-    it "redirects to assessment show page"
 
   end
 
