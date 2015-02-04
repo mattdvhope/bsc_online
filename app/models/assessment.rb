@@ -19,7 +19,7 @@ class Assessment < ActiveRecord::Base
     self.type_of == "Exam"
   end
 
-  def instantiate_new_choices_for_all_answers_for_new_questions(student)
+  def instantiate_new_choices_for_all_answers_for_new_student(student)
     self.questions.each do |question|
       question.answers.each do |answer|
         answer.choices << Choice.new(answer_id: answer.id, student_id: student.id, selected: false)
