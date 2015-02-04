@@ -3,10 +3,10 @@ require 'rails_helper'
 describe ChoicesController do
 
   it_behaves_like "requires log in" do
-    let(:action) { patch :update, id: 1 }
+    let(:action) { get :edit, id: 1 }
   end
 
-  describe "Patch update" do
+  describe "GET edit" do
 
     before :each do
       @alice = Fabricate(:user) # alice's id equals @choice's student_id/user_id
@@ -15,7 +15,7 @@ describe ChoicesController do
     end
 
     it "sets @choice" do
-      xhr :patch, :update, id: @choice.id, format: :js
+      xhr :get, :edit, id: @choice.id, format: :js
       expect(assigns(:choice)).to be_instance_of Choice
     end
 
@@ -24,7 +24,7 @@ describe ChoicesController do
       answer2 = Answer.create(question_id: question.id)
       answer2.choices << Choice.create(answer_id: answer2.id, student_id: @alice.id, selected: true)
       question.answers << answer2 # question now has its first answer's choice 'false' and its second answer's choice 'true'.
-      xhr :patch, :update, id: @choice.id, format: :js
+      xhr :get, :edit, id: @choice.id, format: :js
       @choice.reload
       expect(question.answers.last.choices.first).to have_attributes(:selected => false)
     end
@@ -34,13 +34,13 @@ describe ChoicesController do
       answer2 = Answer.create(question_id: question.id)
       answer2.choices << Choice.create(answer_id: answer2.id, student_id: @alice.id, selected: false)
       question.answers << answer2 # The question w/ its two answers (w/ both choices' selected: false) is now fully built.
-      xhr :patch, :update, id: @choice.id, format: :js
+      xhr :get, :edit, id: @choice.id, format: :js
       @choice.reload
       expect(@choice).to have_attributes(:selected => true)
     end
 
     it "redirects to assessment show page" do
-      xhr :patch, :update, id: @choice.id, format: :js
+      xhr :get, :edit, id: @choice.id, format: :js
       expect(response).to redirect_to curriculum_course_assessment_path(@choice.question.assessment.course.curriculum, @choice.question.assessment.course, @choice.question.assessment)
     end
 

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :choices, only: [:update]
+  resources :choices, only: [:edit]
 
   resources :plans, except: [:destroy]
 
