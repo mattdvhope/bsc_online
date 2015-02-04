@@ -60,7 +60,7 @@ describe Assessment do
       exam = Fabricate(:assessment)
       exam.questions << question1
       exam.questions << question2
-      exam.instantiate_new_choices_for_all_answers_for_new_questions(student)
+      exam.instantiate_new_choices_for_all_answers_for_new_student(student)
       expect(exam.questions.first.answers.first.choices.first).to have_attributes(answer_id: answer1.id, student_id: student.id, selected: false)
       expect(exam.questions.last.answers.last.choices.last).to have_attributes(answer_id: answer2.id, student_id: student.id, selected: false)
     end

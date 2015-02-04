@@ -9,7 +9,7 @@ class AssessmentsController < ApplicationController
       @assessment.destroy
       redirect_to new_curriculum_course_admin_assessment_path
     elsif @assessment.questions.first.choices.size == 0
-      @assessment.instantiate_new_choices_for_all_answers_for_new_questions(current_user)
+      @assessment.instantiate_new_choices_for_all_answers_for_new_student(current_user)
     end
   end
 
