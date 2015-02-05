@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :parts, only: [:index, :show] do
+  resources :parts, only: [:show] do
     resources :lessons, only: [:index, :show] do
       with_options only: [:index, :show] do |list_only|
         list_only.resources :stories
