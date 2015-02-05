@@ -4,7 +4,7 @@ describe CurriculumsController do
 
   describe "GET index" do
 
-    it "sets the @curriculums all the curriculums" do
+    it "sets @curriculums to all the curriculums" do
       curriculum1 = Fabricate(:curriculum)
       curriculum2 = Fabricate(:curriculum)
       curriculums = [curriculum1, curriculum2]
