@@ -33,14 +33,6 @@ describe ConversationsController do
 
   describe "GET show" do
 
-    it_behaves_like "requires log in" do
-      let(:action) {
-        part = Part.create
-        lesson = Lesson.create(part_id: part.id)
-        get :show, id: 1, lesson_id: lesson.id, part_id: part.id
-      }
-    end
-
     it "sets @conversation" do
       part = Part.create
       lesson = Lesson.create(part_id: part.id)
