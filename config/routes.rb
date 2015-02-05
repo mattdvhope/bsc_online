@@ -31,7 +31,6 @@ Rails.application.routes.draw do
 
   get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
-
   get 'log_out', to: "sessions#destroy"
 
   get 'ui(/:action)', controller: 'ui'
