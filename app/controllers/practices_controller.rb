@@ -1,5 +1,7 @@
 class PracticesController < ApplicationController
 
+  before_action :require_user
+
   def index
     @lesson = Lesson.find(params[:lesson_id])
     @practices = @lesson.practices
