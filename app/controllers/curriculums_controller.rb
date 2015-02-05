@@ -1,7 +1,7 @@
 class CurriculumsController < ApplicationController
 
   def index
-    @curriculums = Curriculum.all
+    @curriculums = Curriculum.all # pagination later?
   end
 
   def show
