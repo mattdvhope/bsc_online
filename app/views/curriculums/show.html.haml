@@ -6,8 +6,6 @@
   %h1
     = "Here are our current course offerings in \"#{@curriculum.name}\"..."
   %hr
-    -@curriculums.each do |curriculum|
-      %h2= curriculum.name
+    - @curriculum.courses.each do |course|
+      %h3= link_to course.name, curriculum_course_path(@curriculum, course), class: 'btn btn-success'
       %hr
-      - curriculum.courses.each do |course|
-        %h3= link_to course.name, curriculum_course_path(curriculum, course), class: 'btn btn-success'

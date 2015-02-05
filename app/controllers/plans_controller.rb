@@ -2,6 +2,20 @@ class PlansController < ApplicationController
 
   before_action :require_user
 
+  def index
+    @curriculums = Curriculum.all
+    @plans = current_user.plans
+    if current_user.plans.empty?
+      redirect_to new_plan_path 
+    else
+      render 'index'
+    end
+  end
+
+  def show
+    @plan = Plan.find(params[:id])
+  end
+
   def new
     @plan = Plan.new
     @curriculums = Curriculum.all
@@ -15,20 +29,6 @@ class PlansController < ApplicationController
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
       render :new
-    end
-  end
-
-  def show
-    @plan = Plan.find(params[:id])
-  end
-
-  def index
-    @curriculums = Curriculum.all
-    @plans = current_user.plans
-    if current_user.plans.empty?
-      redirect_to new_plan_path 
-    else
-      render 'index'
     end
   end
 
