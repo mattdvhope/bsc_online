@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     if @course.id != 1
-      render 'under_construction' 
+      render 'under_construction'
     end
   end
 
