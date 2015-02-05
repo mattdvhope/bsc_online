@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  get 'home', to: "courses#show"
+  get 'home', to: "courses#show", defaults: { id: 1 }
 
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
