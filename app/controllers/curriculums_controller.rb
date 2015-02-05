@@ -5,7 +5,6 @@ class CurriculumsController < ApplicationController
   end
 
   def show
-    @curriculums = Curriculum.all
     @curriculum = Curriculum.find(params[:id])
   end
 
