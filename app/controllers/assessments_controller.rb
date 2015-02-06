@@ -9,7 +9,7 @@ class AssessmentsController < ApplicationController
       @assessment.destroy
       redirect_to new_curriculum_course_admin_assessment_path
     else # This 'else' is for the regular student/user using an already-created assessment.
-      if @assessment.questions.first.answers.first.choices.where(student_id: current_user.id).count == 0
+      if @assessment.has_no_student_choices_yet?(current_user)
         @assessment.instantiate_new_choices_for_all_answers_for_new_student(current_user)
       end
     end
