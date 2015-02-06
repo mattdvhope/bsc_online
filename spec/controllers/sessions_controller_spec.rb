@@ -102,20 +102,4 @@ describe SessionsController do
 
   end
 
-  # describe "GET destroy" do
-  #   before do
-  #     set_current_user
-  #     get :destroy
-  #   end
-  #   it "clears the session for the user" do
-  #     expect(session[:user_id]).to be_nil
-  #   end
-  #   it "redirects to to the root path" do
-  #     expect(response).to redirect_to root_path
-  #   end
-  #   it "sets the notice" do
-  #     expect(flash[:notice]).not_to be_blank
-  #   end
-  # end
-
 end
