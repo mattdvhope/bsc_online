@@ -19,6 +19,10 @@ class Assessment < ActiveRecord::Base
     self.type_of == "Exam"
   end
 
+  def has_no_student_choices_yet?(student)
+    self.questions.first.answers.first.choices.where(student_id: student.id).count == 0
+  end
+
   def instantiate_new_choices_for_all_answers_for_new_student(student)
     self.questions.each do |question|
       question.answers.each do |answer|

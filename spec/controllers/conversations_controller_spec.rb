@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe ConversationsController do
 
-  describe "GET index" do
+  it_behaves_like "requires log in" do
+    let(:action) {
+      part = Part.create
+      lesson = Lesson.create(part_id: part.id)
+      get :index, lesson_id: lesson.id, part_id: part.id
+    }
+  end
 
-    it_behaves_like "requires log in" do
-      let(:action) {
-        part = Part.create
-        lesson = Lesson.create(part_id: part.id)
-        get :index, lesson_id: lesson.id, part_id: part.id
-      }
-    end
+  describe "GET index" do
 
     before :each do
       @part = Part.create
