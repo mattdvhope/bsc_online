@@ -46,6 +46,25 @@ describe Assessment do
 
   end
 
+  describe "#has_no_student_choices_yet? is true if student has no choices" do
+    it "checks whether a student has been the show page yet, and has thus instantiated his/her choices" do
+      student = Fabricate(:user)
+      answer = Fabricate(:answer)
+      assessment = answer.question.assessment
+      expect(assessment.has_no_student_choices_yet?(student)).to eq true
+    end
+  end
+
+  describe "#has_no_student_choices_yet? is false if student has choices" do
+    it "checks whether a student has been the show page yet, and has thus instantiated his/her choices" do
+      student = Fabricate(:user)
+      answer = Fabricate(:answer)
+      assessment = answer.question.assessment
+      assessment.instantiate_new_choices_for_all_answers_for_new_student(student)
+      expect(assessment.has_no_student_choices_yet?(student)).to eq false
+    end
+  end
+
   describe "#instantiate_new_choices_for_all_answers_for_new_student" do
     it "assigns a new Choice to each of the assessment's question's answers" do
       student = Fabricate(:user)
