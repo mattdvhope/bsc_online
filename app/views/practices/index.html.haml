@@ -1,6 +1,6 @@
 %section.site_title
-  %hr
+  
   %h1="You can practice this lesson in three ways..."
-  %hr
+  
   -@practices.each do |practice|
     %h2=link_to practice.type_of, part_lesson_practice_path(@lesson.part, @lesson, practice)

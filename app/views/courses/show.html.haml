@@ -1,17 +1,17 @@
 %section.site_title
-  %hr
-  %h2="Welcome to \"#{@course.name}\"!"
+  
+  %h1="Welcome to \"#{@course.name}\"!"
   %br
   %h2="#{@course.description}"
-  %hr
-  %h2="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
+  
+  %h4="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
   -@course.parts.each do |part|
     %h3=link_to "Part #{part.id}", part_path(part)
   %h3=link_to "Exam for #{@course.name}" #, curriculum_course_assessment_path(@course.curriculum, @course)
   %h3=link_to "Build an Assessment", new_curriculum_course_assessment_path(@course.curriculum, @course)
-  %hr
-  %h2="When you complete each lesson, you will be given a quiz."
-  %h2="When you complete all the lessons in a Part, you will be given a test."
-  %h3= "After each part is completed, you will receive a digital badge!"
-  %h2="After you complete all the lessons in this course, you will be given an exam. If you pass, you will receive a certificate."
-  %hr
+  
+  %h4="When you complete each lesson, you will be given a quiz."
+  %h4="When you complete all the lessons in a Part, you will be given a test."
+  %h4= "After each part is completed, you will receive a digital badge!"
+  %h4="After you complete all the lessons in this course, you will be given an exam. If you pass, you will receive a certificate."
+  
