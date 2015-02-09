@@ -1,28 +1,27 @@
 %section.site_title
-  %hr
   = simple_form_for @user do |f|
     %header
       %h1 Open an account at BSC Online!
-      %h3="(When you open an account at BSC Online, you have access to our free sample English course.  If you like, you will also be able to Register as a student at BSC English Online in which you would have access our courses.)"
+      %h4="(When you open an account at BSC Online, you have access to our free sample English course.  If you like, you will also be able to Register as a student at BSC English Online in which you would have access our courses.)"
     %fieldset
       .form-group
         .row
           .col-sm-4
-            %h2= f.input :first_name, label: "First Name", class: 'form-control', :placeholder => "ชื่อเล่น"
+            %h3= f.input :first_name, label: "First Name", class: 'form-control', :placeholder => "ชื่อเล่น"
         .row
           .col-sm-4
-            %h2= f.input :last_name, label: "Last Name"
+            %h3= f.input :last_name, label: "Last Name"
         .row
           .col-sm-4
-            %h2= f.input :email, label: "Email Address"
+            %h3= f.input :email, label: "Email Address"
         .row
           .col-sm-4
-            %h2= f.input :password, label: "Password"
+            %h3= f.input :password, label: "Password"
         .row
           .col-sm-4
-            %h2= f.input :password_confirmation, label:"Password Confirmation "
+            %h3= f.input :password_confirmation, label:"Password Confirmation "
         .row
           .col-sm-4
-            %h2= f.input :postal_code, label: "Postal Code"
+            %h3= f.input :postal_code, label: "Postal Code"
         %br
         = f.submit "Join BSC Online!", class: 'btn btn-success'

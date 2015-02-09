@@ -1,17 +1,17 @@
 %section.site_title
-  %hr
+  
   %h2="Welcome to the lesson called \"#{@lesson.name}\"!"
   %br
   %h2="#{@lesson.name} will consist of a story, a conversation and some practices."
   %h2="Let's now read the story first in Thai..."
-  %hr
+  
   %h2=link_to "Story Versions", part_lesson_stories_path(@lesson.part, @lesson)
-  %hr
+ 
   %h2=link_to "Conversation Versions", part_lesson_conversations_path(@lesson.part, @lesson)
-  %hr
+  
   %h2=link_to "Practice Types", part_lesson_practices_path(@lesson.part, @lesson)
-  %hr
+  
   %h2=link_to "Quiz for this lesson" #, assessment_path(@assessment)
-  %hr
+ 
 
 
