@@ -1,10 +1,11 @@
 Fabricator(:user) do
   first_name { Faker::Name.first_name }
   last_name { Faker::Name.last_name }
-  email { Faker::Internet.email }
+  email "luke@test.com"
   password 'password'
   password_confirmation 'password'
   postal_code 10652
+  guest nil
 end
 
 Fabricator(:guest, from: :user) do
@@ -15,5 +16,4 @@ Fabricator(:guest, from: :user) do
   password_confirmation nil
   postal_code nil
   guest true
-  plans [Plan.create(curriculum_id: 1, description: "great")]
 end

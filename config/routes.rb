@@ -1,32 +1,36 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  get 'home', to: "courses#show"
+  get 'home', to: "courses#show", defaults: { id: 1 }
 
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
 
   resources :curriculums, only: [:index, :show] do
-    resources :courses, only: [:show, :index] do
-      resources :assessments, except: [:destroy]
+    resources :courses, only: [:show] do
+      resources :assessments, only: [:show]
+      namespace :admin do
+        resources :assessments, only: [:index, :new, :create, :edit, :update]
+      end
     end
   end
 
-  resources :parts, only: [:index, :show] do
+  resources :parts, only: [:show] do
     resources :lessons, only: [:index, :show] do
-      resources :stories, only: [:index, :show]
-      resources :conversations, only: [:index, :show]
-      resources :practices, only: [:index, :show]
+      with_options only: [:index, :show] do |list_only|
+        list_only.resources :stories
+        list_only.resources :conversations
+        list_only.resources :practices
+      end
     end
   end
 
-  resources :choices, only: [:edit]
+  resources :choices, only: [:update]
 
   resources :plans, except: [:destroy]
 
   get 'log_in', to: "sessions#new"
   resources :sessions, only: [:create]
-
   get 'log_out', to: "sessions#destroy"
 
   get 'ui(/:action)', controller: 'ui'
