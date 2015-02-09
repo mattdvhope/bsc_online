@@ -5,40 +5,30 @@ class Assessment < ActiveRecord::Base
   belongs_to :lesson
   has_many :questions, :dependent => :destroy
 
-  accepts_nested_attributes_for :questions, reject_if: lambda { |a| a[:question_content].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['question_content'].blank? }, allow_destroy: true
 
-  def instantiate_new_choices(student)
+  validates_presence_of :type_of
+  validates_presence_of :part_id, :unless => :an_exam?
+  validates_presence_of :lesson_id, :if => :a_quiz?
+
+  def a_quiz?
+    self.type_of == "Quiz"
+  end
+
+  def an_exam?
+    self.type_of == "Exam"
+  end
+
+  def has_no_student_choices_yet?(student)
+    self.questions.first.answers.first.choices.where(student_id: student.id).count == 0
+  end
+
+  def instantiate_new_choices_for_all_answers_for_new_student(student)
     self.questions.each do |question|
       question.answers.each do |answer|
-        answer.choices.each = StudentAnswer.new(student_id: student.id)
+        answer.choices << Choice.new(answer_id: answer.id, student_id: student.id, selected: false)
       end
     end
   end
-
-  # def set_all_answer_choices_selected_false
-  #   self.questions.each do |question|
-  #     question.answers.each do |answer|
-  #       answer.choices.map do |choice|
-  #         choice = false
-  #       end
-  #     end
-  #   end
-  # end
-
-#   def make_answers_correct_true_if_choice_correct
-#     self.questions.each do |question|
-#       question.answers.each do |answer|
-#         answer.correct = true if answer.choice == "Correct"
-#       end
-#     end
-#   end
-
-#   def assign_new_student_to_assessment_answers(student)
-#     self.questions.each do |question|
-#       question.answers.each do |answer|
-
-#       end
-#     end    
-#   end
 
 end
