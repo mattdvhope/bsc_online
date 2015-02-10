@@ -2,26 +2,26 @@
 %html
   %head
     %title BSC Online
-    %meta(charset="UTF-8")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta/
+    %meta/
     = csrf_meta_tag
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   %body
     #main-container.container
       .row
-    
     / Navigation
     %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
       .container
-        / Brand and toggle get grouped for better mobile display
+        /
+          Brand and toggle get grouped for better mobile display
         .navbar-header
           %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} BSC Online
+          %a.navbar-brand{:href => root_path} BSC Online
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
@@ -38,55 +38,25 @@
                   %a{:href => "#"} Course 2
                 %li
                   %a{:href => "#"} Course 3
-               
             %li
-              %a{:href => "#"} Register
+              %a{:href => sign_up_path} Register
             %li
-              %a{:href => "#"} Login
+              %a{:href => log_in_path} Login
+            %li
+              = link_to "Try it now!", users_path, method: :post
             %li
               %a{:href => "#"} Contact
-            
-        / /.navbar-collapse
-      / /.container
-      
-    / Header Carousel
-    %header#myCarousel.carousel.slide
-      / Indicators
-      %ol.carousel-indicators
-        %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
-        %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
-        %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
-      / Wrapper for slides
-      .carousel-inner
-        .item.active
-          .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide One');"}
-          .carousel-caption
-            %h2 Caption 1
-        .item
-          .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide Two');"}
-          .carousel-caption
-            %h2 Caption 2
-        .item
-          .fill{:style => "background-image:url('http://placehold.it/1900x1080&text=Slide Three');"}
-          .carousel-caption
-            %h2 Caption 3
-      / Controls
-      %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"}
-        %span.icon-prev
-      %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"}
-        %span.icon-next
+            %li
+              %a{:href => log_out_path} Log Out
 
-      / Page Content
-      .container
-      
-        = render 'shared/messages'
-        = render 'shared/header'
-        = yield
+    = render 'shared/carousel' if controller_name == "pages"
 
-    
-        / Footer
-        %footer
-          .row
-            .col-lg-12
-              %p &copy 2015 BSC Online
-    / /.container
+    / Page Content
+    .container
+      = render 'shared/messages'
+      = yield
+      / Footer
+      %footer
+        .row
+          .col-lg-12
+            %p &copy 2015 BSC Online
