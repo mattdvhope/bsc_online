@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show] do
-      resources :assessments, only: [:show]
+      resources :assessments, only: [:show] do
+        member do
+          post :answer # 'post' is the HTTP verb; having this as post allows js in rails to operate in the views (i.e., in posts/_post.html.erb wherewith method: 'post' triggers the js in rails for data-method="post" in the html).
+        end
+      end
       namespace :admin do
         resources :assessments, only: [:index, :new, :create, :edit, :update]
       end
