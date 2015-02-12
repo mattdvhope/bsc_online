@@ -6,6 +6,12 @@ $ ->
     $('a.answer').hover (event) ->
         $(this).toggleClass("mouse_over")
 
+$ ->
+    $('a.answer').click (event) ->
+        $(this).toggleClass("mouse_over")
+
+
+
 # $ ->
 #     $('a.answer').on "ajax:success", (e, data, status, xhr) ->
 #         alert("AJAX worked!!!")
