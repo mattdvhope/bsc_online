@@ -6,10 +6,7 @@
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
-    -question.answers.each do |answer|
-
-      %h3= link_to answer.answer_content, choice_path(answer.choices.where(student_id: current_user.id, answer_id: answer.id).first), :method => :patch, :class => 'answer', remote: true
-
+    = render 'answers_to_each_question', :question => question
     -i = i + 1
   %p
     =link_to "Edit #{@assessment.type_of}", edit_curriculum_course_admin_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
