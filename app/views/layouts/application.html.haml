@@ -46,8 +46,9 @@
               = link_to "Try it now!", users_path, method: :post
             %li
               %a{:href => "#"} Contact
-            %li
-              %a{:href => log_out_path} Log Out
+            - if current_user
+              %li
+                = link_to "Log Out #{current_user.name}", log_out_path
 
     = render 'shared/carousel' if controller_name == "pages"
 
