@@ -2,8 +2,6 @@ class AssessmentsController < ApplicationController
 
   before_action :require_user
 
-  layout 'application'
-
   def show
     @assessment = Assessment.find(params[:id])
     if @assessment.questions.size == 0 # This 'if' is only for when the admin first creates an assessment.  It's not for the regular user/student.
