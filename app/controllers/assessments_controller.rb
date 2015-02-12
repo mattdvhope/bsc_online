@@ -8,7 +8,7 @@ class AssessmentsController < ApplicationController
       flash[:danger] = "You need to put questions & answers in. Try again."
       @assessment.destroy
       redirect_to new_curriculum_course_admin_assessment_path
-    else # This 'else' is for the regular student/user using an already-created assessment.
+    else # This 'else' is for a brand-new regular student/user using an already-created assessment.
       if @assessment.has_no_student_choices_yet?(current_user)
         @assessment.instantiate_new_choices_for_all_answers_for_new_student(current_user)
       end
