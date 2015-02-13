@@ -119,15 +119,28 @@ bathsheeba_practice_vocabulary = Practice.create(lesson_id: 5, type_of: "Vocabul
 bathsheeba_practice_phrases = Practice.create(lesson_id: 5, type_of: "Phrases Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Phrases Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Phrases")
 bathsheeba_practice_sentences = Practice.create(lesson_id: 5, type_of: "Sentences Practice: เกี่ยวกับเดวิดกับบัทเชบา", content: "Sentences Content: เกี่ยวกับเดวิดกับบัทเชบา", audio: "Audio Practice Sentences")
 
-# exam = Assessment.create(course_id: 1, type_of: "Exam")
+quiz = Assessment.create(course_id: 1, part_id: 1, lesson_id: 1, type_of: "Quiz")
 
-# question1 = Question.create(assessment_id: 1, question_content: "What is the correct answer to this question?", correct_answer_id: 1)
+question1 = Question.create(assessment_id: 1, question_content: "Question #1 for you?")
+question2 = Question.create(assessment_id: 1, question_content: "Question #2 for you?")
+question3 = Question.create(assessment_id: 1, question_content: "Question #3 for you?")
 
-# answer1 = Answer.create(question_id: 1, answer_content: "Correct answer")
-# answer2 = Answer.create(question_id: 1, answer_content: "One Incorrect answer")
-# answer3 = Answer.create(question_id: 1, answer_content: "Another Incorrect answer")
+answer1_1 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- WRONG!!", choice: 'Wrong')
+answer1_2 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- WRONG!!", choice: 'Wrong')
+answer1_3 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- CORRECT!!", choice: 'Correct')
+answer1_4 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- WRONG!!", choice: 'Wrong')
 
+answer2_1 = Answer.create(question_id: 2, answer_content: "Answer to question #2 -- CORRECT!!", choice: 'Correct')
+answer2_2 = Answer.create(question_id: 2, answer_content: "Answer to question #2 -- WRONG!!", choice: 'Wrong')
+answer2_3 = Answer.create(question_id: 2, answer_content: "Answer to question #2 -- WRONG!!", choice: 'Wrong')
+answer2_4 = Answer.create(question_id: 2, answer_content: "Answer to question #2 -- WRONG!!", choice: 'Wrong')
 
+answer3_1 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- WRONG!!", choice: 'Wrong')
+answer3_2 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- CORRECT!!", choice: 'Correct')
+answer3_3 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- WRONG!!", choice: 'Wrong')
+answer3_4 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- WRONG!!", choice: 'Wrong')
+
+admin = Role.create(overseer_id: 1, name: 'Admin')
 
 
 

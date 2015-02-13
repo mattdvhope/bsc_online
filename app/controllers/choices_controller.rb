@@ -6,8 +6,8 @@ class ChoicesController < ApplicationController
     respond_to do |format|
       format.js   {
         @choice = Choice.find(params[:id])
-        choices = @choice.question.choices.where(student_id: current_user.id)
-        choices.each do |choice|
+        @choices = @choice.question.choices.where(student_id: current_user.id)
+        @choices.each do |choice|
           choice.update_column(:selected, false)
           choice.answer
         end
