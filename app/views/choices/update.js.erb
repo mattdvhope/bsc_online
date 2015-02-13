@@ -1,7 +1,1 @@
-<% @choice.question.answers.each do |answer| %>
-  (function() {
-    var $answer = $("<%= j render 'assessments/choice_selected_false', :answer => answer if answer.choices.first.selected == false %>")
-<% # binding.pry %>
-    $answer.toggleClass("answer")
-  })()
-<% end %>
+$('a.answer').html("<%= j render partial: 'assessments/answers_to_each_question', collection: @choice.question %>");
