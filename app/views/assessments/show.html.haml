@@ -6,10 +6,6 @@
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
-    = render 'answers_to_each_question', :question => question
+    %span{:id => "question_#{question.id}"}= render 'answers_to_each_question', :question => question
     -i = i + 1
-  %p
-    =link_to "Edit #{@assessment.type_of}", edit_curriculum_course_admin_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
-    |
-    =link_to "View All", curriculum_course_admin_assessments_path(@assessment.course.curriculum, @assessment.course)
-
+  = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?

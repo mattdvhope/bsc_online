@@ -1,7 +1,6 @@
--# binding.pry
 -question.answers.each do |answer|
 
   - if answer.choices.where(student_id: current_user.id).first.selected == true
-    = render 'choice_selected_true', :answer => answer
+    = render 'assessments/choice_selected_true', :answer => answer
   - else
-    = render 'choice_selected_false', :answer => answer
+    = render 'assessments/choice_selected_false', :answer => answer
