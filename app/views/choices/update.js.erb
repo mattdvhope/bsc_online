@@ -1,1 +1,1 @@
-$('a.answer').html("<%= j render partial: 'assessments/answers_to_each_question', collection: @choice.question %>");
+$('#question_<%= @choice.question.id %>').html("<%= j render partial: 'assessments/answers_to_each_question', :locals => { question: @choice.question } %>");
