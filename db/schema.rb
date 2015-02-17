@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216222449) do
+ActiveRecord::Schema.define(version: 20150217070415) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -136,7 +136,6 @@ ActiveRecord::Schema.define(version: 20150216222449) do
     t.string   "sub_district",             limit: 255
     t.string   "district",                 limit: 255
     t.string   "province",                 limit: 255
-    t.string   "postal_code",              limit: 255
     t.string   "country",                  limit: 255
     t.string   "phone_number",             limit: 255
     t.integer  "age"
@@ -150,6 +149,7 @@ ActiveRecord::Schema.define(version: 20150216222449) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "guest"
+    t.string   "postal_code"
   end
 
 end
