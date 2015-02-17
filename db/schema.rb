@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150217070415) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
     t.text     "answer_content"
@@ -27,12 +30,12 @@ ActiveRecord::Schema.define(version: 20150217070415) do
     t.integer  "part_id"
     t.integer  "lesson_id"
     t.text     "content"
-    t.string   "audio",      limit: 255
+    t.string   "audio"
     t.integer  "score"
     t.boolean  "passed?"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type_of",    limit: 255
+    t.string   "type_of"
   end
 
   create_table "choices", force: :cascade do |t|
@@ -45,33 +48,33 @@ ActiveRecord::Schema.define(version: 20150217070415) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "lesson_id"
-    t.string   "lesson_language_version", limit: 255
+    t.string   "lesson_language_version"
     t.text     "content"
-    t.string   "audio",                   limit: 255
+    t.string   "audio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activated"
     t.integer  "curriculum_id"
-    t.string   "description",   limit: 255
+    t.string   "description"
   end
 
   create_table "curriculums", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description", limit: 255
-    t.string   "name",        limit: 255
+    t.string   "description"
+    t.string   "name"
   end
 
   create_table "lessons", force: :cascade do |t|
     t.integer  "part_id"
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150217070415) do
 
   create_table "plans", force: :cascade do |t|
     t.integer  "curriculum_id"
-    t.string   "description",   limit: 255
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "student_id"
@@ -97,8 +100,8 @@ ActiveRecord::Schema.define(version: 20150217070415) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "content"
-    t.string   "audio",      limit: 255
-    t.string   "type_of",    limit: 255
+    t.string   "audio"
+    t.string   "type_of"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -120,29 +123,29 @@ ActiveRecord::Schema.define(version: 20150217070415) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lesson_id"
-    t.string   "lesson_language_version", limit: 255
+    t.string   "lesson_language_version"
     t.text     "content"
-    t.string   "audio",                   limit: 255
+    t.string   "audio"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",               limit: 255
-    t.string   "last_name",                limit: 255
-    t.string   "email",                    limit: 255
-    t.string   "password_digest",          limit: 255
-    t.string   "address_1",                limit: 255
-    t.string   "address_2",                limit: 255
-    t.string   "city",                     limit: 255
-    t.string   "sub_district",             limit: 255
-    t.string   "district",                 limit: 255
-    t.string   "province",                 limit: 255
-    t.string   "country",                  limit: 255
-    t.string   "phone_number",             limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "sub_district"
+    t.string   "district"
+    t.string   "province"
+    t.string   "country"
+    t.string   "phone_number"
     t.integer  "age"
-    t.string   "gender",                   limit: 255
-    t.string   "occupation",               limit: 255
-    t.string   "university_name",          limit: 255
-    t.string   "religion",                 limit: 255
+    t.string   "gender"
+    t.string   "occupation"
+    t.string   "university_name"
+    t.string   "religion"
     t.boolean  "studied_english_before?"
     t.integer  "studied_english_how_long"
     t.boolean  "interested_in_follow_up?"
