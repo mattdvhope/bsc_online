@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
 gem 'jquery-rails'
 gem 'sidekiq'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'unicorn'
+gem 'passenger'
 gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem 'paratrooper' # for setting up the Heroku staging environment
@@ -30,8 +30,6 @@ gem 'responders'
 
 group :development do
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # gem 'sqlite3'
-  gem 'thin'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'letter_opener'
