@@ -1,7 +1,7 @@
 %section.site_title
   
   %h1="Welcome to \"#{@course.name}\"!"
-  %br
+  %hr
   %h2="#{@course.description}"
   
   %h4="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
@@ -13,3 +13,33 @@
   %h4="When you complete all the lessons in a Part, you will be given a test."
   %h4= "After each part is completed, you will receive a digital badge!"
   %h4="After you complete all the lessons in this course, you will be given an exam. If you pass, you will receive a certificate."
+
+/ Course Overview
+%section.site_title
+  .row
+    .col-lg-12
+      %h1.page-header="Welcome to \"#{@course.name}\"!"
+    -@course.parts.each do |part|
+      .col-md-12
+        .panel-group#accordian
+          .panel.panel-default
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
+                %h3="Section 1"
+            #collapseOne.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Lesson 1"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %a.btn.btn-default{:href => "#"} Begin this Lesson
+                %h4.heading="Lesson 2"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %h4.heading="Lesson 3"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %h4.heading="Lesson 4"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %h4.heading="Lesson 5"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %h3="Section Quiz"
+            / /.panel
+/ /.row
+%hr
