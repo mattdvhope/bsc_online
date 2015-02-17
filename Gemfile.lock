@@ -344,7 +344,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sqlite3 (1.3.10)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -415,7 +414,6 @@ DEPENDENCIES
   sidekiq
   simple_form
   spring
-  sqlite3
   thin
   turbolinks
   uglifier (>= 1.3.0)
