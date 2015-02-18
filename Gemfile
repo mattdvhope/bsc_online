@@ -18,8 +18,8 @@ gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem 'paratrooper' # for setting up the Heroku staging environment
 gem 'carrierwave' # To work with app/uploaders/...
+gem 'carrierwave-aws' # For Amazon S3
 gem 'mini_magick'
-gem 'fog' # For Amazon S3
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 gem 'draper' # For using decorators
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
