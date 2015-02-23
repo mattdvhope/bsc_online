@@ -3,6 +3,7 @@ development:
   encoding: unicode
   database: bsc_online_development
   pool: 5
+  host: localhost
   username: bsc_online
   password:
 
@@ -11,5 +12,6 @@ test:
   encoding: unicode
   database: bsc_online_test
   pool: 5
+  host: localhost
   username: bsc_online
   password:
