@@ -325,7 +325,7 @@ DEPENDENCIES
   rails_12factor
   responders
   rspec-rails
-  sass-rails (~> 4.0.3)
+  sass-rails
   selenium-webdriver
   sentry-raven
   shoulda-matchers
