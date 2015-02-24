@@ -8,7 +8,7 @@ gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the pro
 gem 'bcrypt'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
 gem 'jquery-rails'
 gem 'sidekiq'
