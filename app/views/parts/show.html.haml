@@ -1,6 +1,6 @@
 %section.site_title
   
-  %h2="Welcome to Part #{@part.id}\"!"
+  %h2="Welcome to Part #{@part.id}\!"
   %br
   %h2="Here are part #{@part.id}'s Lessons"
   -@part.lessons.each do |lesson|
@@ -10,3 +10,59 @@
   
     %h3=link_to "Test for this part" #, assessment_path(@assessment)
  
+/ Part Overview
+%section.site_title
+  .row
+    .col-lg-12.center
+      %h1.page-header="Welcome to Part #{@part.id}\!"
+      %h3="You are currently 15% through your lessons for Part #{@part.id}"
+     
+      %nav
+        %ul.pagination.pagination-lg
+          %li
+            %a{"aria-label" => "Previous Part", :href => "#"}
+              %span{"aria-hidden" => "true"} &laquo;
+          %li
+            %a{:href => "#"} Lesson 1
+          %li
+            %a{:href => "#"} Lesson 2
+          %li
+            %a{:href => "#"} Lesson 3
+          %li
+            %a{:href => "#"} Lesson 4
+          %li
+            %a{:href => "#"} Lesson 5
+          %li
+            %a{:href => "#"} Section Exam
+          %li
+            %a{"aria-label" => "Next Part", :href => "#"}
+              %span{"aria-hidden" => "true"} &raquo;
+
+      .col-md-12
+        .panel-group#accordian
+          .panel.panel-default
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
+                %h3="Lesson 1 - พระผู้สร้าง"
+            #collapse1.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Description"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %a.btn.btn-default{:href => "#"} Review this Lesson
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse2"}
+                %h3="Lesson 2 - บาปเข้าเอเดน"
+            #collapse2.panel-collapse
+              .panel-body
+                %h4.heading="Description"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+                %a.btn.btn-default{:href => "#"} Continue this Lesson
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse3"}
+                %h3="Lesson 3 - ชายชราผู้ศรัทธาต่อพระเจ้า"
+            #collapse3.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Description"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+              / /.panel
+/ /.row
