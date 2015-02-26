@@ -3,3 +3,6 @@
     %h2="From Lesson \"#{@story.lesson.name}\" you can read it in this version:"
     %br
     %h3="#{@story.lesson_language_version}"
+    %hr
+    %audio{:controls => "", :autoplay => "true"}
+      %source{:src => "/public/uploads/Track1-ogg.ogg", :type => "audio/ogg"}
