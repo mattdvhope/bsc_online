@@ -1,11 +1,21 @@
 CarrierWave.configure do |config|
 
-  if Rails.env.staging? || Rails.env.production?
+  if Rails.env.staging?
+    config.storage    = :aws
+    config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')
+    config.aws_acl    = :public_read
+    config.asset_host = 'http://enigmatic-castle-3874-staging.herokuapp.com/'
+    config.aws_authenticated_url_expiration = 60 * 60 * 24 * 365
+
+    config.aws_credentials = {
+      access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY')
+    }
+  elsif Rails.env.production?
     config.storage    = :aws
     config.aws_bucket = ENV.fetch('S3_BUCKET_NAME')
     config.aws_acl    = :public_read
     config.asset_host = 'http://enigmatic-castle-3874.herokuapp.com/'
-  # config.asset_host ... see 'rake RAILS_ENV=production PUSH_TO=staging assets:clean assets:precompile' from http://stackoverflow.com/questions/24500627/rails-4-app-image-assets-pointing-to-wrong-cloudfront-domain-name (& maybe...  http://stackoverflow.com/questions/22571375/rails-asset-host-cloudfront-and-heroku)
     config.aws_authenticated_url_expiration = 60 * 60 * 24 * 365
 
     config.aws_credentials = {
