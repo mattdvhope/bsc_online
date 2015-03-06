@@ -9,35 +9,29 @@
     %h3=lesson.description
   
     %h3=link_to "Test for this part" #, assessment_path(@assessment)
- 
+%br
+%br
+/ Progress Status
+.panel.panel-default
+  .panel-body
+    %nav
+      %ul.pager
+        %li.previous.disabled
+          %a{:href => "#"}
+            %span{"aria-hidden" => "true"} 
+            Current Progress
+        %li.next
+          %a{:href => "#"}
+            Next: Lesson 1
+            %span{"aria-hidden" => "true"} &rarr;
+    .progress
+      .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 65%;"} 65%
+
 / Part Overview
 %section.site_title
   .row
     .col-lg-12.center
       %h1.page-header="Welcome to Part #{@part.id}\!"
-      %h3="You are currently 15% through your lessons for Part #{@part.id}"
-     
-      %nav
-        %ul.pagination.pagination-lg
-          %li
-            %a{"aria-label" => "Previous Part", :href => "#"}
-              %span{"aria-hidden" => "true"} &laquo;
-          %li
-            %a{:href => "#"} Lesson 1
-          %li
-            %a{:href => "#"} Lesson 2
-          %li
-            %a{:href => "#"} Lesson 3
-          %li
-            %a{:href => "#"} Lesson 4
-          %li
-            %a{:href => "#"} Lesson 5
-          %li
-            %a{:href => "#"} Section Exam
-          %li
-            %a{"aria-label" => "Next Part", :href => "#"}
-              %span{"aria-hidden" => "true"} &raquo;
-
       .col-md-12
         .panel-group#accordian
           .panel.panel-default
