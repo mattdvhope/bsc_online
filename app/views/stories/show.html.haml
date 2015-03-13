@@ -4,5 +4,10 @@
     %br
     %h3="#{@story.lesson_language_version}"
     %hr
-    %audio{:controls => "", :autoplay => "true"}
-      %source{:src => "/public/uploads/Track1-ogg.ogg", :type => "audio/ogg"}
+    #tv
+      #tvConsole
+        #highlight
+          = image_tag("highlight.png")
+        #videoDiv
+          %iframe.wistia_embed{:allowfullscreen => "", :allowtransparency => "true", :frameborder => "0", :height => "388", :mozallowfullscreen => "", :msallowfullscreen => "", :name => "wistia_embed", :oallowfullscreen => "", :scrolling => "no", :src => "//fast.wistia.net/embed/iframe/l6fwvs4945", :webkitallowfullscreen => "", :width => "490"}
+          %script{:async => "", :src => "//fast.wistia.net/assets/external/E-v1.js"}
