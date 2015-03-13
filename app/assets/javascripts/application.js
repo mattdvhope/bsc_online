@@ -16,4 +16,3 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require assessments
-//= require video
