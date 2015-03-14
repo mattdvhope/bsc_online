@@ -1,21 +1,3 @@
-%section.site_title
-  
-  %h1="Welcome to \"#{@course.name}\"!"
-  %hr
-  %h2="#{@course.description}"
-  
-  %h4="'#{@course.name}' consists of #{@course.parts.size} parts.  Click on a part to see the lessons contained within."
-  -@course.parts.each do |part|
-    %h3=link_to "Part #{part.id}", part_path(part)
-  %h3=link_to "Exam for #{@course.name}" #, curriculum_course_assessment_path(@course.curriculum, @course)
-  %h3=link_to "Build an Assessment",new_curriculum_course_admin_assessment_path(@course.curriculum, @course)
-  %h4="When you complete each lesson, you will be given a quiz."
-  %h4="When you complete all the lessons in a Part, you will be given a test."
-  %h4= "After each part is completed, you will receive a digital badge!"
-  %h4="After you complete all the lessons in this course, you will be given an exam. If you pass, you will receive a certificate."
-
-%br
-%br
 / Progress Status
 .panel.panel-default
   .panel-body
@@ -40,25 +22,25 @@
       %h2="#{@course.description}"
     -@course.parts.each do |part|
       .col-md-12
-        .panel-group#accordian
-          .panel.panel-default
-            .panel-heading
-              %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne"}
-                %h3="Section 1"
-            #collapseOne.panel-collapse.collapse
-              .panel-body
-                %h4.heading="Lesson 1"
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
-                %a.btn.btn-default{:href => "#"} Begin this Lesson
-                %h4.heading="Lesson 2"
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
-                %h4.heading="Lesson 3"
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
-                %h4.heading="Lesson 4"
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
-                %h4.heading="Lesson 5"
-                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
-                %h3="Section Quiz"
-            / /.panel
-/ /.row
-%hr
+        .panel.panel-default
+          .panel-heading
+            %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
+              %h3="#{part.name}"
+              %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
+                .panel-body
+                  -part.lessons.each do |lesson|
+                    %h4.heading=link_to "#{lesson.name}"
+                    %p="#{lesson.description}"
+                    %a.btn.btn-default{:href => "#"} Begin this Lesson
+                  %h3=link_to "Test for #{part.name}"
+    - if @course.show_exam
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            %h3= link_to "#{@course.show_exam} for #{@course.name}", curriculum_course_assessment_path(@course.curriculum, @course, @course.assessments.first)
+    - if current_user.overseer_admin?
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            %h3= link_to "Course building page for #{current_user.first_name}", build_path
+              
