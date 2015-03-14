@@ -29,7 +29,7 @@
               %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   -part.lessons.each do |lesson|
-                    %h4.heading=link_to "#{lesson.name}"
+                    %h4.heading=link_to "#{lesson.name}", part_lesson_path(lesson.part, lesson)
                     %p="#{lesson.description}"
                     %a.btn.btn-default{:href => "#"} Begin this Lesson
                   %h3=link_to "Test for #{part.name}"
