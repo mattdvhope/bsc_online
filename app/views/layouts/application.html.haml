@@ -50,7 +50,7 @@
               %li
                 = link_to "Log Out #{current_user.name}", log_out_path
 
-    = render 'layouts/carousel' if controller_name == "pages"
+    = render 'layouts/carousel' if controller_name == "pages" && !current_user
 
     / Page Content
     .container
