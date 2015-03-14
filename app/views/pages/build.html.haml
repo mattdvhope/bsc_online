@@ -1,1 +1,17 @@
-Hello
+%section.site_title
+  .row
+    .col-lg-12
+      %h1.page-header="Hi \"#{current_user.first_name}.\" You can build and edit your curricula here.  Click on a curriculum to acces its courses, parts, lessons and assessments for editing and for making additions."
+    -@curriculums.each do |curriculum|
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{curriculum.name.gsub(/\s+/, "")}"}
+              %h3="#{curriculum.name}"
+              %div{:id => "collapse" + "#{curriculum.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
+                .panel-body
+                  -curriculum.courses.each do |course|
+                    %h3=link_to "Edit \"#{course.name}\" Course", '#'
+                  %hr
+                  %h3=link_to "Add a new course for \"#{curriculum.name}\"", '#'
+
