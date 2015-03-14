@@ -9,4 +9,14 @@ class Course < ActiveRecord::Base
     self.activated == true
   end
 
+  def show_exam
+    self.assessments.each do |assessment|
+      if assessment.type_of == "Exam"
+        return assessment.type_of
+      else
+        return nil
+      end
+    end
+  end
+
 end
