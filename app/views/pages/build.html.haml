@@ -1,7 +1,7 @@
 %section.site_title
   .row
     .col-lg-12
-      %h1.page-header="Hi \"#{current_user.first_name}.\" You can build and edit your curricula here.  Click on a curriculum to acces its courses, parts, lessons and assessments for editing and for making additions."
+      %h1.page-header="Hi #{current_user.first_name}. You can build and edit your curricula here.  Click on a curriculum to access its courses, parts, lessons and assessments for editing and for making additions."
     -@curriculums.each do |curriculum|
       .col-md-12
         .panel.panel-default
