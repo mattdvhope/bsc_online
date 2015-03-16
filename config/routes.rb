@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :assessments, only: [:show]
       namespace :admin do
         resources :assessments, only: [:index, :new, :create, :edit, :update]
+        resources :curriculums, only: [:new, :create, :edit, :update]
+        resources :courses, only: [:new, :create, :edit, :update]
       end
     end
   end
@@ -22,6 +24,10 @@ Rails.application.routes.draw do
         list_only.resources :stories
         list_only.resources :conversations
         list_only.resources :practices
+      end
+      namespace :admin do
+        resources :parts, only: [:new, :create, :edit, :update]
+        resources :lessons, only: [:new, :create, :edit, :update]
       end
     end
   end
