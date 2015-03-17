@@ -1,0 +1,14 @@
+= form_for [:admin, @course], html: { class: 'form-horizontal' } do |f|
+  .row
+    .col-sm-4
+      %hr
+      %h2= f.label "Name"
+      %h3= f.text_field :name
+      %hr
+      %h2= f.label "Description"
+      %h3= f.text_area :description
+      %hr
+      %h2= f.label "Curriculum that this course will be in"
+      %h3= f.collection_select(:curriculum_id, Curriculum.all, :id, :name, prompt: "- Choose the Curriculum this course will be in. -")
+  %hr
+    = f.submit @course.new_record? ? "Build new Course" : "Edit this #{@course.name}", class: 'btn btn-success'
