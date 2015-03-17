@@ -1,5 +1,7 @@
 class Course < ActiveRecord::Base
 
+  include AssessmentProvidable
+
   belongs_to :curriculum
   has_many :parts
   has_many :lessons, through: :parts
@@ -10,19 +12,6 @@ class Course < ActiveRecord::Base
 
   def activated?
     self.activated == true
-  end
-
-  def show_exam
-    if self.assessments.count > 0
-      self.assessments.each do |assessment|
-        if assessment.type_of == "Exam"
-          return assessment.type_of
-        else
-          return nil
-        end
-      end
-    end
-    nil
   end
 
 end
