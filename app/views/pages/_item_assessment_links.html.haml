@@ -1,0 +1,16 @@
+%a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{item.name.gsub(/\s+/, "")}"}
+  = render 'pages/edit_pulldowns', :item => item
+  %div{:id => "collapse" + "#{item.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
+    .panel-body
+      -case item.class.name
+      -when "Course"
+        %h3=link_to "Edit \"#{item.name}.\"", edit_admin_course_path(item)
+      -when "Part"
+        %h3=link_to "Edit \"#{item.name}.\"", edit_admin_part_path(item)
+      -when "Lesson"
+        %h3=link_to "Edit \"#{item.name}.\"", edit_admin_lesson_path(item)
+
+      -if item.show_assessment
+        = render 'pages/assessment_edit_links', :item => item
+      -else
+        = render 'pages/assessment_build_links', :item => item

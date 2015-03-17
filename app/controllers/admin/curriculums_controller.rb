@@ -1,5 +1,7 @@
 class Admin::CurriculumsController < AdminsController
 
+  before_action :existing_curriculum, only: [:edit, :update]
+
   def new
     @curriculum = Curriculum.new
   end
@@ -15,19 +17,24 @@ class Admin::CurriculumsController < AdminsController
     end
   end
 
-  def edit
-    
-  end
-
   def update
-    
+    if @curriculum.update(curriculum_params)
+      flash[:success] = "You have edited your curriculum's name and description. Now you can edit its content"
+      redirect_to build_path
+    else
+      flash[:danger] = "Your inputs were invalid. Please try again."
+      redirect_to edit_admin_curriculum(@curriculum)
+    end
   end
 
   private
 
+    def existing_curriculum
+      @curriculum = Curriculum.find(params[:id])
+    end
+
     def curriculum_params
       params.require(:curriculum).permit(:name, :description)
     end
-
 
 end

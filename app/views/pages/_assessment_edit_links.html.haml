@@ -1,0 +1,7 @@
+-case item.class.name
+-when "Course"
+  %h3=link_to "Edit the #{item.show_assessment} for \"#{item.name}.\"", edit_curriculum_course_admin_assessment_path(item.curriculum, item, item.provide_assessment_object)
+-when "Part"
+  %h3=link_to "Edit the #{item.show_assessment} for \"#{item.name}.\"", edit_curriculum_course_admin_assessment_path(item.course.curriculum, item.course, item.provide_assessment_object)
+-when "Lesson"
+  %h3=link_to "Edit the #{item.show_assessment} for \"#{item.name}.\"", edit_curriculum_course_admin_assessment_path(item.part.course.curriculum, item.part.course, item.provide_assessment_object)
