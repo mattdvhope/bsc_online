@@ -23,7 +23,7 @@ class Admin::CoursesController < AdminsController
       redirect_to build_path
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
-      redirect_to edit_admin_course(@course)
+      redirect_to edit_admin_course_path(@course)
     end
   end
 
