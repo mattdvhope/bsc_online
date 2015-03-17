@@ -47,6 +47,7 @@ module AssessmentProvidable
         end
       end
     end
+    nil
   end
 
 end

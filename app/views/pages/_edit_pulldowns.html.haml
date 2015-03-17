@@ -1,0 +1,7 @@
+-case item.class.name
+-when "Course"
+  %h3="Edit \"#{item.name}\" which is in the \"#{item.curriculum.name}\" Curriculum."
+-when "Part"
+  %h3="Edit \"#{item.name}\" which is in the \"#{item.course.name}\" Course."
+-when "Lesson"
+  %h3="Edit \"#{item.name}\" which is in \"#{item.part.name}\" of the \"#{item.part.course.name}\" Course."
