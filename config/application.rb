@@ -10,6 +10,8 @@ module BscOnline
   class Application < Rails::Application
     config.active_record.pluralize_table_names = true
     config.active_record.raise_in_transactional_callbacks = true
+    config.autoload_paths += %W(#{config.root}/lib) # To enable the module in lib/assessment_providable.rb to be available to the models
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

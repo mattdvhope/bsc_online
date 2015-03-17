@@ -54,26 +54,26 @@ describe Admin::AssessmentsController do
         let(:action) { post :create, { :curriculum_id => 1, :course_id => 1 } }
       end
 
-      it "creates an assessment" do
+      before :each do
         set_current_overseer
-        attrs = Fabricate.attributes_for(:assessment)
+        @attrs = Fabricate.attributes_for(:assessment)
+      end
+
+      it "creates an assessment" do
         course = Fabricate(:course)
-        post :create, assessment: attrs, course_id: course.id, curriculum_id: course.curriculum.id
+        post :create, assessment: @attrs, course_id: course.id, curriculum_id: course.curriculum.id
         expect(course.assessments.count).to eq(1)
       end
 
       it "sets the flash success" do
-        set_current_overseer
-        attrs = Fabricate.attributes_for(:assessment)
-        post :create, assessment: attrs, course_id: 1, curriculum_id: 1
+        course = Fabricate(:course)
+        post :create, assessment: @attrs, course_id: course.id, curriculum_id: course.curriculum.id
         expect(flash[:success]).not_to be_blank
       end
 
       it "redirects to the assessment show page" do
-        set_current_overseer
-        attrs = Fabricate.attributes_for(:assessment)
         course = Fabricate(:course)
-        post :create, assessment: attrs, course_id: course.id, curriculum_id: course.curriculum.id
+        post :create, assessment: @attrs, course_id: course.id, curriculum_id: course.curriculum.id
         expect(response).to redirect_to curriculum_course_assessment_path(course.curriculum, course, course.assessments.first)
       end
 
@@ -84,7 +84,8 @@ describe Admin::AssessmentsController do
       it "sets the flash danger" do
         set_current_overseer
         attrs = Fabricate.attributes_for(:assessment, type_of: nil)
-        post :create, assessment: attrs, course_id: 1, curriculum_id: 1
+        course = Fabricate(:course)
+        post :create, assessment: attrs, course_id: course.id, curriculum_id: course.curriculum.id
         expect(flash[:danger]).to eq "Your inputs were invalid. Please try again."
       end
 

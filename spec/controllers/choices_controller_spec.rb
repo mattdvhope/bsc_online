@@ -39,9 +39,9 @@ describe ChoicesController do
       expect(@choice).to have_attributes(:selected => true)
     end
 
-    it "when @choice is clicked, it renders nothing" do
+    it "when @choice is clicked, it renders choices/update.js template" do
       xhr :patch, :update, id: @choice.id, format: :js
-      expect(response).to render_template(nil)
+      expect(response).to render_template("choices/update")
     end
 
   end

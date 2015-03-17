@@ -2,8 +2,8 @@
   # Mayor.create(name: 'Emanuel', city: cities.first)
   # cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 
-bsc_core_thai = Curriculum.create(name: 'BSC Core Curriculum for Thais', description: 'This curriculum consists of 10 levels of English for daily life.  It is specifically designed for Thai students.')
-bsc_special_thai = Curriculum.create(name: 'BSC Special Course Curriculum for Thais', description: 'This curriculum consists of various English for Specific Purpose courses.  It is specifically designed for Thai students.')
+bsc_core_thai = Curriculum.create(name: 'BSC Core Courses for Thais', description: 'This curriculum consists of 10 levels of English for daily life.  It is specifically designed for Thai students.')
+bsc_special_thai = Curriculum.create(name: 'BSC Special Courses for Thais', description: 'This curriculum consists of various English for Specific Purpose courses.  It is specifically designed for Thai students.')
 
 bible_english    = Course.create(curriculum_id: 2, name: 'Bible English', description: 'Awesome course.  I know you will love it...right now!!', activated: true)
 business_english = Course.create(curriculum_id: 2, name: 'Business English', description: 'Great course.  I think you will love it...in the future!', activated: true)
