@@ -1,5 +1,7 @@
 class Lesson < ActiveRecord::Base
 
+  include AssessmentProvidable
+
   belongs_to :part
   has_many :stories
   has_many :conversations
