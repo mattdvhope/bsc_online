@@ -37,7 +37,7 @@
       .col-md-12
         .panel.panel-default
           .panel-heading
-            %h3= link_to "#{@course.show_assessment} for #{@course.name}", curriculum_course_assessment_path(@course.curriculum, @course, @course.assessments.first)
+            %h3= link_to "#{@course.show_assessment} for #{@course.name}", curriculum_course_assessment_path(@course.curriculum, @course, @course.provide_assessment_object)
     - if current_user.overseer_admin?
       .col-md-12
         .panel.panel-default
