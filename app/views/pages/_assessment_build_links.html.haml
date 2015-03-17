@@ -1,0 +1,7 @@
+-case item.class.name
+-when "Course"
+  %h3=link_to "Build an Exam for \"#{item.name}\".", new_curriculum_course_admin_assessment_path(item.curriculum, item)
+-when "Part"
+  %h3=link_to "Build a Test for \"#{item.name}\".", new_curriculum_course_admin_assessment_path(item.course.curriculum, item.course)
+-when "Lesson"
+  %h3=link_to "Build a Quiz for \"#{item.name}\".", new_curriculum_course_admin_assessment_path(item.part.course.curriculum, item.part.course)
