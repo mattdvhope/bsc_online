@@ -21,7 +21,7 @@
               %div{:id => "collapseCourse", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   -Course.all.each do |course|
-                    = render 'pages/assessment_links', :item => course
+                    = render 'pages/item_assessment_links', :item => course
                   %hr
                   =link_to "Build a new Course (within an existing Curriculum)", new_admin_course_path, :class => 'btn btn-primary'
       .col-md-12
@@ -32,7 +32,7 @@
               %div{:id => "collapsePart", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   -Part.all.each do |part|
-                    = render 'pages/assessment_links', :item => part
+                    = render 'pages/item_assessment_links', :item => part
                   %hr
                   =link_to "Build a new Part (within an existing Course)", new_admin_part_path, :class => 'btn btn-primary'
       .col-md-12
@@ -43,7 +43,7 @@
               %div{:id => "collapseLesson", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   -Lesson.all.each do |lesson|
-                    = render 'pages/assessment_links', :item => lesson
+                    = render 'pages/item_assessment_links', :item => lesson
                   %hr
                   =link_to "Build a new Lesson (within an existing Part)", new_admin_lesson_path, :class => 'btn btn-primary'
 
