@@ -1,4 +1,4 @@
--question.answers.each do |answer|
+- question.answers.each do |answer|
 
   - if answer.choices.where(student_id: current_user.id).first.selected == true
     = render 'assessments/choice_selected_true', :answer => answer
