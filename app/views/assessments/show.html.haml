@@ -9,3 +9,6 @@
     %span{:id => "question_#{question.id}"}= render 'answers_to_each_question', :question => question
     -i = i + 1
   = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
+
+  = link_to "Press this big button to can see your grades on the grades#index page; later you'll actually (initially) go to the grades#show page", grades_path, class: 'btn btn-success'
+
