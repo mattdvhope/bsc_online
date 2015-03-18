@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Admin::CurriculumsController do
+describe Admin::CoursesController do
 
   describe "GET new" do
 
@@ -8,10 +8,10 @@ describe Admin::CurriculumsController do
       let(:action) { get :new }
     end
 
-    it "sets @curriculum" do
+    it "sets @course" do
       set_current_overseer
       get :new
-      expect(assigns(:curriculum)).to be_instance_of Curriculum
+      expect(assigns(:course)).to be_instance_of Course
     end
 
   end
@@ -26,22 +26,22 @@ describe Admin::CurriculumsController do
 
       before :each do
         set_current_overseer
-        @attrs = Fabricate.attributes_for(:curriculum)
+        @attrs = Fabricate.attributes_for(:course)
       end
 
       it "creates an assessment" do
-        post :create, curriculum: @attrs
-        expect(Curriculum.count).to eq(1)
+        post :create, course: @attrs
+        expect(Course.count).to eq(1)
       end
 
       it "sets the flash success" do
-        post :create, curriculum: @attrs
+        post :create, course: @attrs
         expect(flash[:success]).not_to be_blank
       end
 
       it "redirects back to build path" do
-        post :create, curriculum: @attrs
-        curriculum = Curriculum.first
+        post :create, course: @attrs
+        course = Course.first
         expect(response).to redirect_to build_path
       end
 
@@ -51,7 +51,7 @@ describe Admin::CurriculumsController do
 
       before :each do
         set_current_overseer
-        @attrs = Fabricate.attributes_for(:curriculum, name: "")
+        @attrs = Fabricate.attributes_for(:course, name: "")
       end
 
       it_behaves_like "requires overseer" do
@@ -59,14 +59,14 @@ describe Admin::CurriculumsController do
       end
 
       it "sets the flash danger" do
-        post :create, curriculum: @attrs
+        post :create, course: @attrs
         expect(flash[:danger]).not_to be_blank
       end
 
-      it "redirects to new admin curriculum path" do
-        post :create, curriculum: @attrs
-        curriculum = Curriculum.first
-        expect(response).to redirect_to new_admin_curriculum_path
+      it "redirects to new admin course path" do
+        post :create, course: @attrs
+        course = Course.first
+        expect(response).to redirect_to new_admin_course_path
       end
 
     end
@@ -79,11 +79,11 @@ describe Admin::CurriculumsController do
       let(:action) { get :edit, { :id => 1 } }
     end
 
-    it "sets @curriculum for this curriculum" do
+    it "sets @course for this course" do
       set_current_overseer
-      curriculum = Fabricate(:curriculum)
-      get :edit, { :id => curriculum.id }
-      expect(assigns(:curriculum)).to be_instance_of Curriculum
+      course = Fabricate(:course)
+      get :edit, { :id => course.id }
+      expect(assigns(:course)).to be_instance_of Course
     end
 
   end
@@ -98,33 +98,33 @@ describe Admin::CurriculumsController do
 
       before :each do
         set_current_overseer
-        @curriculum = Fabricate(:curriculum)
-        @attrs = @curriculum.attributes
+        @course = Fabricate(:course)
+        @attrs = @course.attributes
       end
 
-      it "located the requested @curriculum" do
-        patch :update, id: @curriculum, curriculum: @attrs
-        expect(assigns(:curriculum)).to be_instance_of Curriculum
+      it "located the requested @course" do
+        patch :update, id: @course, course: @attrs
+        expect(assigns(:course)).to be_instance_of Course
       end
 
-      it "changes @curriculum's attributes" do
+      it "changes @course's attributes" do
         @attrs[:name] = "New name"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
-        expect(@curriculum.name).to eq "New name"
+        patch :update, id: @course, course: @attrs
+        @course.reload
+        expect(@course.name).to eq "New name"
       end      
 
       it "sets the flash success" do
         @attrs[:name] = "New name"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
+        patch :update, id: @course, course: @attrs
+        @course.reload
         expect(flash[:success]).not_to be_blank
       end
 
       it "redirects back to build" do
         @attrs[:name] = "New name"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
+        patch :update, id: @course, course: @attrs
+        @course.reload
         expect(flash[:success]).to redirect_to build_path
       end
 
@@ -138,41 +138,38 @@ describe Admin::CurriculumsController do
 
       before :each do
         set_current_overseer
-        @curriculum = Fabricate(:curriculum)
-        @attrs = @curriculum.attributes
+        @course = Fabricate(:course)
+        @attrs = @course.attributes
       end
 
-      it "does not change @curriculum's attributes" do
+      it "does not change @course's attributes" do
         @attrs[:name] = nil
         @attrs[:description] = "New description"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
-        expect(@curriculum.description).to_not eq "New description"
+        patch :update, id: @course, course: @attrs
+        @course.reload
+        expect(@course.description).to_not eq "New description"
       end      
 
       it "sets the flash danger" do
         @attrs[:name] = nil
         @attrs[:description] = "New description"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
+        patch :update, id: @course, course: @attrs
+        @course.reload
         expect(flash[:danger]).not_to be_blank
       end
 
-      it "redirects to the edit curriculum path" do
+      it "redirects to the edit course path" do
         @attrs[:name] = nil
         @attrs[:description] = "New description"
-        patch :update, id: @curriculum, curriculum: @attrs
-        @curriculum.reload
-        expect(response).to redirect_to edit_admin_curriculum_path(@curriculum)
+        patch :update, id: @course, course: @attrs
+        @course.reload
+        expect(response).to redirect_to edit_admin_course_path(@course)
       end
 
     end
 
   end
 
+
+
 end
-
-
-
-
-
