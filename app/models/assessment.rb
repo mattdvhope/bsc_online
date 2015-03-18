@@ -5,6 +5,7 @@ class Assessment < ActiveRecord::Base
   belongs_to :lesson
   has_many :questions, :dependent => :destroy
   has_many :answers, :through => :questions
+  has_many :grades, :dependent => :destroy
 
   accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['question_content'].blank? }, allow_destroy: true
 
@@ -26,7 +27,7 @@ class Assessment < ActiveRecord::Base
     self.questions.each do |question|
       question.answers.each do |answer|
         answer_count+=
-        choice_count = choice_count + 1 if answer.choices.where(student_id: student.id).count == 1
+        choice_count = choice_count + 1 if answer.choices.where(student_id: student.id).count == 0
       end
     end
     answer_count > choice_count ? true : false

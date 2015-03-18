@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   resources :choices, only: [:update]
 
+  resources :grades, only: [:show, :index]
+
   resources :plans, except: [:destroy]
 
   get 'log_in', to: "sessions#new"
