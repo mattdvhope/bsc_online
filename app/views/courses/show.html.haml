@@ -32,7 +32,7 @@
                     %h4.heading=link_to "#{lesson.name}", part_lesson_path(lesson.part, lesson)
                     %p="#{lesson.description}"
                     %a.btn.btn-default{:href => "#"} Begin this Lesson
-                  %h3=link_to "Test for #{part.name}"
+                  %h3=link_to "Test for #{part.name}", curriculum_course_assessment_path(@course.curriculum, @course, part.provide_assessment_object) if part.provide_assessment_object
     - if @course.show_assessment
       .col-md-12
         .panel.panel-default
