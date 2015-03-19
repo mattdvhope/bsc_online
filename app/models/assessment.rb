@@ -22,15 +22,13 @@ class Assessment < ActiveRecord::Base
   end
 
   def answers_of_student_not_all_chosen_yet?(student)
-    answer_count = 0
     choice_count = 0
     self.questions.each do |question|
       question.answers.each do |answer|
-        answer_count+=
         choice_count = choice_count + 1 if answer.choices.where(student_id: student.id).count == 0
       end
     end
-    answer_count > choice_count ? true : false
+    self.answers.count > choice_count ? true : false
   end
 
   def instantiate_new_choices_for_all_answers_for_new_student(student)
