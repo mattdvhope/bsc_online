@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   resources :choices, only: [:update]
 
-  resources :grades, only: [:show, :index]
+  resources :grades, only: [:show, :index, :update]
 
   resources :plans, except: [:destroy]
 

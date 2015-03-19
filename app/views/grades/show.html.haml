@@ -1,0 +1,7 @@
+%section.site_title
+
+  %h1= "Hi #{current_user.first_name}, welcome to the GRADE SHOW PAGE!!! :-)"
+  %hr
+  %h1= "Here is your percent-score for this #{@grade.assessment.type_of}:"
+  %br
+  %h2= @grade.score.to_s + "%"
