@@ -41,4 +41,8 @@ class Assessment < ActiveRecord::Base
     end
   end
 
+  def provide_grade_object_for_this_assessment(student)
+    self.grades.where(student_id: student.id).first
+  end
+
 end

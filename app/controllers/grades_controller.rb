@@ -7,7 +7,14 @@ class GradesController < ApplicationController
   end
 
   def show
-    @grade
+    @grade = Grade.find(params[:id])
+  end
+
+  def update
+    @grade = Grade.find(params[:id])
+    @grade.student_score_for_assessment(current_user)
+    @grade.save
+    redirect_to grade_path(@grade) 
   end
 
 end
