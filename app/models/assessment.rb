@@ -21,19 +21,39 @@ class Assessment < ActiveRecord::Base
     self.type_of == "Exam"
   end
 
-  def answers_of_student_not_all_chosen_yet?(student)
-    answer_count = 0
-    choice_count = 0
-    self.questions.each do |question|
-      question.answers.each do |answer|
-        answer_count+=
-        choice_count = choice_count + 1 if answer.choices.where(student_id: student.id).count == 0
-      end
+  def available_for_student_to_view?(student)
+    if student.overseer_admin?
+      return true
+    elsif self.questions_not_all_answered_yet?(student)
+      return true
+    else
+      return false
     end
-    answer_count > choice_count ? true : false
   end
 
-  def instantiate_new_choices_for_all_answers_for_new_student(student)
+  def questions_not_all_answered_yet?(student)
+    self.questions.each do |question|
+      selected_booleans = []
+      question.answers.each do |answer|
+        selected_booleans << answer.choices.where(student_id: student.id).first.selected
+      end
+      return true unless selected_booleans.include?(true)
+    end
+    false
+  end
+
+  def make_sure_choices_are_instantiated(student)
+    if self.choices_for_each_answer_not_yet_instantiated?(student)
+      self.instantiate_new_choices_for_all_answers(student)
+    end
+  end
+
+  def choices_for_each_answer_not_yet_instantiated?(student)
+    self.answers.first.choices.where(student_id: student.id).count == 0 &&
+    self.answers.last.choices.where(student_id: student.id).count == 0
+  end
+
+  def instantiate_new_choices_for_all_answers(student)
     self.questions.each do |question|
       question.answers.each do |answer|
         answer.choices << Choice.new(answer_id: answer.id, student_id: student.id, selected: false)
