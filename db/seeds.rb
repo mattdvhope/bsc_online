@@ -124,6 +124,13 @@ quiz = Assessment.create(course_id: 1, part_id: 1, lesson_id: 1, type_of: "Quiz"
 question1 = Question.create(assessment_id: 1, question_content: "Question #1 for you?")
 question2 = Question.create(assessment_id: 1, question_content: "Question #2 for you?")
 question3 = Question.create(assessment_id: 1, question_content: "Question #3 for you?")
+question4 = Question.create(assessment_id: 1, question_content: "Question #4 for you?")
+question5 = Question.create(assessment_id: 1, question_content: "Question #5 for you?")
+question6 = Question.create(assessment_id: 1, question_content: "Question #6 for you?")
+question7 = Question.create(assessment_id: 1, question_content: "Question #7 for you?")
+question8 = Question.create(assessment_id: 1, question_content: "Question #8 for you?")
+question9 = Question.create(assessment_id: 1, question_content: "Question #9 for you?")
+question10 = Question.create(assessment_id: 1, question_content: "Question #10 for you?")
 
 answer1_1 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- WRONG!!", choice: 'Wrong')
 answer1_2 = Answer.create(question_id: 1, answer_content: "Answer to question #1 -- WRONG!!", choice: 'Wrong')
@@ -139,6 +146,41 @@ answer3_1 = Answer.create(question_id: 3, answer_content: "Answer to question #3
 answer3_2 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- CORRECT!!", choice: 'Correct')
 answer3_3 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- WRONG!!", choice: 'Wrong')
 answer3_4 = Answer.create(question_id: 3, answer_content: "Answer to question #3 -- WRONG!!", choice: 'Wrong')
+
+answer4_1 = Answer.create(question_id: 4, answer_content: "Answer to question #4 -- CORRECT!!", choice: 'Correct')
+answer4_2 = Answer.create(question_id: 4, answer_content: "Answer to question #4 -- WRONG!!", choice: 'Wrong')
+answer4_3 = Answer.create(question_id: 4, answer_content: "Answer to question #4 -- WRONG!!", choice: 'Wrong')
+answer4_4 = Answer.create(question_id: 4, answer_content: "Answer to question #4 -- WRONG!!", choice: 'Wrong')
+
+answer5_1 = Answer.create(question_id: 5, answer_content: "Answer to question #5 -- WRONG!!", choice: 'Wrong')
+answer5_2 = Answer.create(question_id: 5, answer_content: "Answer to question #5 -- CORRECT!!", choice: 'Correct')
+answer5_3 = Answer.create(question_id: 5, answer_content: "Answer to question #5 -- WRONG!!", choice: 'Wrong')
+answer5_4 = Answer.create(question_id: 5, answer_content: "Answer to question #5 -- WRONG!!", choice: 'Wrong')
+
+answer6_1 = Answer.create(question_id: 6, answer_content: "Answer to question #6 -- WRONG!!", choice: 'Wrong')
+answer6_2 = Answer.create(question_id: 6, answer_content: "Answer to question #6 -- WRONG!!", choice: 'Wrong')
+answer6_3 = Answer.create(question_id: 6, answer_content: "Answer to question #6 -- CORRECT!!", choice: 'Correct')
+answer6_4 = Answer.create(question_id: 6, answer_content: "Answer to question #6 -- WRONG!!", choice: 'Wrong')
+
+answer7_1 = Answer.create(question_id: 7, answer_content: "Answer to question #7 -- WRONG!!", choice: 'Wrong')
+answer7_2 = Answer.create(question_id: 7, answer_content: "Answer to question #7 -- WRONG!!", choice: 'Wrong')
+answer7_3 = Answer.create(question_id: 7, answer_content: "Answer to question #7 -- WRONG!!", choice: 'Wrong')
+answer7_4 = Answer.create(question_id: 7, answer_content: "Answer to question #7 -- CORRECT!!", choice: 'Correct')
+
+answer8_1 = Answer.create(question_id: 8, answer_content: "Answer to question #8 -- CORRECT!!", choice: 'Correct')
+answer8_2 = Answer.create(question_id: 8, answer_content: "Answer to question #8 -- WRONG!!", choice: 'Wrong')
+answer8_3 = Answer.create(question_id: 8, answer_content: "Answer to question #8 -- WRONG!!", choice: 'Wrong')
+answer8_4 = Answer.create(question_id: 8, answer_content: "Answer to question #8 -- WRONG!!", choice: 'Wrong')
+
+answer9_1 = Answer.create(question_id: 9, answer_content: "Answer to question #9 -- WRONG!!", choice: 'Wrong')
+answer9_2 = Answer.create(question_id: 9, answer_content: "Answer to question #9 -- CORRECT!!", choice: 'Correct')
+answer9_3 = Answer.create(question_id: 9, answer_content: "Answer to question #9 -- WRONG!!", choice: 'Wrong')
+answer9_4 = Answer.create(question_id: 9, answer_content: "Answer to question #9 -- WRONG!!", choice: 'Wrong')
+
+answer10_1 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- WRONG!!", choice: 'Wrong')
+answer10_2 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- WRONG!!", choice: 'Wrong')
+answer10_3 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- CORRECT!!", choice: 'Correct')
+answer10_4 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- WRONG!!", choice: 'Wrong')
 
 admin = Role.create(overseer_id: 1, name: 'Admin')
 

@@ -14,7 +14,7 @@ class GradesController < ApplicationController
     @grade = Grade.find(params[:id])
     @grade.student_score_for_assessment(current_user)
     @grade.save
-    redirect_to grade_path(@grade) 
+    redirect_to log_out_path
   end
 
 end

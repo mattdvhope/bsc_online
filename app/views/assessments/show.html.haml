@@ -10,5 +10,6 @@
     -i = i + 1
   = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
 
-  = link_to "See your grade for this #{@assessment.type_of}", "/grades/#{@grade.id}", method: 'patch', class: 'btn btn-success'
-
+  %hr
+  %h2="When you click this button, will be automatically logged out from BSC Online.  You can log back in, but you cannot return to this #{@assessment.type_of} page.  Only click this button when you are SURE that you have completed this #{@assessment.type_of}.  You will receive an email to \"#{current_user.email}\" in a few minutes with your #{@assessment.type_of} score."
+  = link_to "Click here when #{@assessment.type_of} completed", "/grades/#{@grade.id}", method: 'patch', class: 'btn btn-success'
