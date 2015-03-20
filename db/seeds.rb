@@ -48,7 +48,7 @@ baptism = Lesson.create(part_id: 2, name: "พระเยซูรับบั�
 exorcism = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนถูกผีสิ", description: "Jesus delivers someone from an evil spirit.")
 blind = Lesson.create(part_id: 2, name: "พระเยซูรักษาคนตาบอด", description: "Jesus heals a blind man.")
 
-creation_story_100 = Story.create(lesson_id: 1, lesson_language_version: "Creation - 100% Thai", content: "100 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: File.open("/Users/matthewmalone/Sites/bsc_online/public/uploads/Track1-ogg.ogg"))
+creation_story_100 = Story.create(lesson_id: 1, lesson_language_version: "Creation - 100% Thai", content: "100 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 100"))
 creation_story_70 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 70% Thai translation", content: "70 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 70")
 creation_story_50 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 50% Thai translation", content: "50 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 50")
 creation_story_20 = Story.create(lesson_id: 1, lesson_language_version: "Creation - English & 20% Thai translation", content: "20 - เกี่ยวกับพระผู้สร้างและอื่นๆ อีก", audio: "Audio 20")
