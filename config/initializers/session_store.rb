@@ -2,4 +2,4 @@
 
 Rails.application.config.session_store :cookie_store,
   key: '_bsc_online_session',
-  expire_after: 10.minutes
+  expire_after: 29.minutes
