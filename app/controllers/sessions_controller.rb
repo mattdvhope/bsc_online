@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8
     user = User.where(email: params[:email].downcase).first
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
       session[:user_id] = user.id
@@ -17,8 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    flash[:success] = current_user.guest? ? "Thank you for visiting as our Guest! Please stop by again!" : "You are logged out #{current_user.name}. Have a great day!"
-    current_user.destroy if current_user.guest?
+    flash[:success] = current_user.guest? ? "Thank you for visiting as our Guest! Please stop by again!" : "You are logged out #{current_user.name}. Have a great day!" if current_user
+    (current_user.destroy if current_user.guest?) if current_user
     session[:user_id] = nil
     redirect_to root_path
   end
