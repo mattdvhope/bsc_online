@@ -10,12 +10,12 @@ class UsersController < ApplicationController
       if @user.guest
         flash[:success] = "You are logged in as a temporary guest. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online (while still logged in this time!), all your work from this time will be retained."
       else
-        @user.plans = current_user.plans if current_user # guest?
-        @user.choices = current_user.choices if current_user # guest?
+        @user.plans = current_user.plans if current_user # Retains 'plans' of Guest User if he decides to Register.
+        @user.choices = current_user.choices if current_user # Retains choices of Guest User if he decides to Register.
         current_user.destroy if current_user # guest?
         flash[:success] = "You now have a 'member account' with BSC English Online, #{@user.first_name}. Welcome aboard!"
       end
-      session[:user_id] = @user.id
+      session[:user_id] = @user.id # This allows 'guest' to enter app rather than being redirected to the log_in page.
       redirect_to home_path
     else
       flash[:danger] = "You were not able to Sign Up"
