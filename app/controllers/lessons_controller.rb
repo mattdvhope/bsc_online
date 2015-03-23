@@ -1,5 +1,7 @@
 class LessonsController < ApplicationController
 
+  before_action :require_user, :only => [:show]
+
   def show
     @lesson = Lesson.find(params[:id])
     @assessment = @lesson.provide_assessment_object
