@@ -1,10 +1,13 @@
 class LessonsController < ApplicationController
 
+  before_action :require_user, :only => [:show]
+
   def show
     @lesson = Lesson.find(params[:id])
     @assessment = @lesson.provide_assessment_object
-    @assessment.make_sure_choices_are_instantiated(current_user)
-# binding.pry
+    if @assessment
+      @assessment.make_sure_choices_are_instantiated(current_user)
+    end
   end
 
 end
