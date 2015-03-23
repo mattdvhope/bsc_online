@@ -42,4 +42,8 @@ class User < ActiveRecord::Base
     false
   end
 
+  def guest_session_time_limit_expired?
+    Time.now > self.created_at + 20.seconds
+  end
+
 end
