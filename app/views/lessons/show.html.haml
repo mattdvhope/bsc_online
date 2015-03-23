@@ -36,9 +36,9 @@
   %h2="Lesson 1: \"#{@lesson.name}\" - The Creator"
   %br
   .media
-  .media-left
+  .media-top
     %a{:href => "#"}
-      %img.media-object.thumbnail{:alt => "...", :src => "http://placehold.it/200x200"}
+      %img.media-object.thumbnail{:alt => "...", :src => "http://placehold.it/500x200"}
   .media-body
     %h3.media-heading Lesson Description
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
@@ -48,7 +48,7 @@
     .col-lg-12.center
       .col-md-12
         %h2="Story Versions"
-        .panel-group#accordian
+        .panel-group#accordion
           .panel.panel-default
             .panel-heading
               %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse1"}
@@ -93,7 +93,7 @@
     .col-lg-12.center
       .col-md-12
         %h2="Conversations"
-        .panel-group#accordian2
+        .panel-group#accordion2
           .panel.panel-default
             .panel-heading
               %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse1a"}
@@ -113,6 +113,38 @@
               %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse3a"}
                 %h3="100% English"
             #collapse3a.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Title"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+            
+              / /.panel
+    / /.row
+
+    / Practices
+    .row
+    .col-lg-12.center
+      .col-md-12
+        %h2="Practices"
+        .panel-group#accordion2
+          .panel.panel-default
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse1b"}
+                %h3="Vocabulary Practice"
+            #collapse1b.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Title"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse2b"}
+                %h3="Phrases Practice"
+            #collapse2b.panel-collapse.collapse
+              .panel-body
+                %h4.heading="Title"
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?
+            .panel-heading
+              %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapse3b"}
+                %h3="Sentences Practice"
+            #collapse3b.panel-collapse.collapse
               .panel-body
                 %h4.heading="Title"
                 %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?

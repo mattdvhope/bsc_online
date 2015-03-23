@@ -41,9 +41,9 @@
             %li
               %a{:href => sign_up_path} Register
             %li
-              %a{:href => log_in_path} Login
+              = link_to "Login", log_in_path unless current_user
             %li
-              = link_to "Try it now!", users_path, method: :post
+              = link_to "Try it now!", users_path, method: :post unless current_user
             %li
               %a{:href => "#"} Contact
             - if current_user

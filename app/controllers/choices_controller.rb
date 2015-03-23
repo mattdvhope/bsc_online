@@ -1,7 +1,5 @@
 class ChoicesController < ApplicationController
 
-  before_action :require_user
-
   def update
     respond_to do |format|
       format.js   {
