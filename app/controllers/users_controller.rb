@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    clear_out_extra_guests_from_app
     @user = params.include?(:user) ? User.new(user_params) : User.new_guest
+    log_out_path if users_path
     if @user.save
       if @user.guest
         flash[:success] = "You are logged in as a temporary guest. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online (while still logged in this time!), all your work from this time will be retained."
