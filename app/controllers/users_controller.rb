@@ -16,6 +16,7 @@ class UsersController < ApplicationController
         flash[:success] = "You now have a 'member account' with BSC English Online, #{@user.first_name}. Welcome aboard!"
       end
       session[:user_id] = @user.id
+      AppMailer.send_welcome_email(@user).deliver_later
       redirect_to home_path
     else
       flash[:danger] = "You were not able to Sign Up"
