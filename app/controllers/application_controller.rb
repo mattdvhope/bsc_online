@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
 
   def require_user
     destroy_guest_if_timed_out
@@ -23,7 +24,12 @@ class ApplicationController < ActionController::Base
       redirect_to :back
     end
 
-    def destroy_guest_if_timed_out
+    def invalid_authenticity
+      flash[:danger] = "You can't log in as a guest after logging in as a student."
+      redirect_to :back
+    end
+
+    def destroy_guest_if_timed_out # in 'require_user' method
       if current_user
         if current_user.guest?
           if current_user.guest_session_time_limit_expired?
@@ -31,6 +37,23 @@ class ApplicationController < ActionController::Base
           end
         end
       end
+    end
+
+    def clear_out_extra_guests_from_app
+      clear_out_expired_guests_from_app
+      delete_glut_of_guests            
+    end
+
+    def clear_out_expired_guests_from_app
+      User.where(guest: true).each do |user|
+        user.destroy if user.guest_session_time_limit_expired?
+      end
+    end
+
+    def delete_glut_of_guests
+      User.where(guest: true).each do |user|
+        user.destroy if User.where(guest:true).count > 100
+      end     
     end
 
 end
