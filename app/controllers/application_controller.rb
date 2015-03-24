@@ -51,8 +51,9 @@ class ApplicationController < ActionController::Base
     end
 
     def delete_glut_of_guests
-      User.where(guest: true).each do |user|
-        user.destroy if User.where(guest:true).count > 100
+      guests_in_app_now = User.where(guest: true)
+      guests_in_app_now.each do |guest|
+        guest.destroy if guests_in_app_now.count > 100
       end     
     end
 
