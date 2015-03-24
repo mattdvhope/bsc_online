@@ -1,4 +1,4 @@
-- if answer.choices.count > 0
+- if answer.choices.where(student_id: current_user.id).count > 0
   - question.answers.each do |answer|
 
     - if answer.choices.where(student_id: current_user.id).first.selected == true
