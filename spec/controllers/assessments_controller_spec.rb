@@ -51,7 +51,6 @@ describe AssessmentsController do
         set_current_user(alice)
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         expect(response).to render_template(:show)
-        expect(alice.choices.count).to eq 1
       end
 
       it "renders the show template and does not instantiate new choices for returning student" do
@@ -60,7 +59,6 @@ describe AssessmentsController do
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         expect(response).to render_template(:show)
-        expect(alice.choices.count).to eq 1 # not 2!!
       end
 
     end
