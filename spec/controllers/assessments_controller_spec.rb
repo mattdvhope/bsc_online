@@ -11,6 +11,20 @@ describe AssessmentsController do
       }
     end
 
+    it "sets @assessment" do
+      set_current_user
+      assessment = Fabricate(:assessment)
+      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      expect(assigns(:assessment)).to be_instance_of Assessment
+    end
+
+    it "sets @grade" do
+      set_current_user
+      assessment = Fabricate(:assessment)
+      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      expect(assigns(:grade)).to be_instance_of Grade
+    end
+
     context "the assessment has no questions" do
 
       it "sets the flash danger" do
