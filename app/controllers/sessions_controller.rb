@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     clear_out_extra_guests_from_app
-    reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8
+    reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     user = User.where(email: params[:email].downcase).first
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
       session[:user_id] = user.id
