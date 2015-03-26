@@ -9,6 +9,8 @@ class Grade < ActiveRecord::Base
 
     # You might need to round up the float before this b/c '#score' is an integer -- not a float!
     self.score = ((number_correct.to_f / number_of_questions.to_f) * 100).round(2)
+    self.save
+    return self.score
   end
 
   def number_of_questions_answered_correctly(student)

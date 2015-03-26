@@ -11,6 +11,20 @@ describe AssessmentsController do
       }
     end
 
+    it "sets @assessment" do
+      set_current_user
+      assessment = Fabricate(:assessment)
+      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      expect(assigns(:assessment)).to be_instance_of Assessment
+    end
+
+    it "sets @grade" do
+      set_current_user
+      assessment = Fabricate(:assessment)
+      get :show, curriculum_id: assessment.course.curriculum.id, course_id: assessment.course.id, id: assessment.id
+      expect(assigns(:grade)).to be_instance_of Grade
+    end
+
     context "the assessment has no questions" do
 
       it "sets the flash danger" do
@@ -51,7 +65,6 @@ describe AssessmentsController do
         set_current_user(alice)
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         expect(response).to render_template(:show)
-        expect(alice.choices.count).to eq 1
       end
 
       it "renders the show template and does not instantiate new choices for returning student" do
@@ -60,7 +73,6 @@ describe AssessmentsController do
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         get :show, curriculum_id: @curriculum.id, course_id: @course.id, id: @assessment.id
         expect(response).to render_template(:show)
-        expect(alice.choices.count).to eq 1 # not 2!!
       end
 
     end

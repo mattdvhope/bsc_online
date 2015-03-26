@@ -170,6 +170,4 @@ describe Admin::CoursesController do
 
   end
 
-
-
 end

@@ -171,8 +171,3 @@ describe Admin::CurriculumsController do
   end
 
 end
-
-
-
-
-

@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
   # This 'match' MUST BE AT THE BOTTOM OF THIS FILE!!!!
-  match "*missing" => redirect("/"), via: :get
+  match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
 
   # Example resource route with options:
   #   resources :products do
