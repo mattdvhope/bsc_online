@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       else
         transition_to_student_status_if_a_guest_in_app(@user)
         flash[:success] = "You now have a 'member account' with BSC English Online, #{@user.first_name}. Welcome aboard!"
+        AppMailer.send_welcome_email(@user).deliver_later
       end
       session[:user_id] = @user.id
       redirect_to home_path

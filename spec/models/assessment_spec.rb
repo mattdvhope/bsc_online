@@ -47,7 +47,7 @@ describe Assessment do
   end
 
   describe "#has_no_student_choices_yet? is true if student has no choices" do
-    it "checks whether a student has been the show page yet, and has thus instantiated his/her choices" do
+    it "checks if student has been to 'lesson/part/course' show page & instantiated choices" do
       student = Fabricate(:user)
       answer = Fabricate(:answer)
       assessment = answer.question.assessment
@@ -56,7 +56,7 @@ describe Assessment do
   end
 
   describe "#has_no_student_choices_yet? is false if student has choices" do
-    it "checks whether a student has been the show page yet, and has thus instantiated his/her choices" do
+    it "checks if student has been to 'lesson/part/course' show page & instantiated choices" do
       student = Fabricate(:user)
       answer = Fabricate(:answer)
       assessment = answer.question.assessment

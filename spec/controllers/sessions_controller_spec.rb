@@ -4,12 +4,12 @@ describe SessionsController do
 
   describe "GET #new" do
 
-    it "renders the new template for unauthenticated users" do
+    it "renders the new template if not current user" do
       get :new
       expect(response).to render_template :new
     end
 
-    it "redirects to home path/page if the user is authenticated" do
+    it "redirects to home path/page if current user" do
       set_current_user
       get :new
       expect(response).to redirect_to home_path
@@ -18,6 +18,15 @@ describe SessionsController do
   end
 
   describe "POST #create" do
+
+    it "clears out extra guests from app" do
+      @alice = Fabricate(:user)
+      guest1 = Fabricate(:guest, created_at: 2.hours.ago)
+      guest2 = Fabricate(:guest, created_at: 2.hours.ago)
+      guest3 = Fabricate(:guest, created_at: 59.minutes.ago)
+      post :create, email: @alice.email, password: @alice.password
+      expect(User.where(guest: true).count).to eq 1
+    end
 
     context "user able to log in / valid credentials" do
 
@@ -66,10 +75,18 @@ describe SessionsController do
 
   describe "GET #destroy" do
 
+    it "clears out extra guests from app" do
+      guest1 = Fabricate(:guest, created_at: 2.hours.ago)
+      guest2 = Fabricate(:guest, created_at: 2.hours.ago)
+      guest3 = Fabricate(:guest, created_at: 59.minutes.ago)
+      get :destroy
+      expect(User.where(guest: true).count).to eq 1
+    end
+
     context "Student is guest user" do
 
       it "sets the flash success" do
-        guest = Fabricate(:user, guest: true)
+        guest = Fabricate(:guest)
         set_current_user(guest)
         get :destroy
         expect(flash[:success]).to eq "Thank you for visiting as our Guest! Please stop by again!"
@@ -77,7 +94,7 @@ describe SessionsController do
 
     end
 
-    context "Student is guest user" do
+    context "Student is long-term student" do
 
       it "sets the flash success" do
         non_guest = Fabricate(:user)

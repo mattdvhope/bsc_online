@@ -2,6 +2,13 @@ require 'rails_helper'
 
 describe CoursesController do
 
+  it_behaves_like "requires log in" do
+    let(:action) {
+      course = Fabricate(:course)
+      get :show, id: course.id
+    }
+  end
+
   describe "GET show" do
 
     it "sets @course" do
@@ -23,6 +30,18 @@ describe CoursesController do
       course = Fabricate(:course, id: 2)
       get :show, id: course.id
       expect(response).to render_template("under_construction")
+    end
+
+    it "assigns the @assessment variable from the @course that provides the assessment object" do
+      alice = Fabricate(:user)
+      set_current_user(alice)
+      answer = Fabricate(:answer)
+      question = Fabricate(:question)
+      question.answers << answer
+      assessment = Fabricate(:assessment, type_of: 'Exam')
+      assessment.questions << question
+      get :show, id: assessment.course.id
+      expect(alice.choices.count).to eq 1 # not 2 or 0!!
     end
 
   end

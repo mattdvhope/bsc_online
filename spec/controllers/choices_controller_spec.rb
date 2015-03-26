@@ -2,10 +2,6 @@ require 'rails_helper'
 
 describe ChoicesController do
 
-  it_behaves_like "requires log in" do
-    let(:action) { patch :update, id: 1 }
-  end
-
   describe "PATCH update" do
 
     before :each do
