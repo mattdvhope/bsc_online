@@ -2,6 +2,13 @@ require 'rails_helper'
 
 describe CoursesController do
 
+  it_behaves_like "requires log in" do
+    let(:action) {
+      course = Fabricate(:course)
+      get :show, id: course.id
+    }
+  end
+
   describe "GET show" do
 
     it "sets @course" do
