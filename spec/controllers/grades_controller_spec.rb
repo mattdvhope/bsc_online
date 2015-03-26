@@ -55,6 +55,15 @@ describe GradesController do
       expect(grade.score).not_to eq nil
     end
 
+    it "redirects to log out path" do
+      assessment = Fabricate(:assessment)
+      alice = Fabricate(:user)
+      set_current_user(alice)
+      grade = Grade.create(student_id: alice.id, assessment_id: assessment.id)
+      patch :update, id: grade.id
+      expect(response).to redirect_to log_out_path
+    end
+
   end
 
 end
