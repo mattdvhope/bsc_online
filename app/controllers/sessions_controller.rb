@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def destroy
     clear_out_extra_guests_from_app
     flash[:success] = current_user.guest? ? "Thank you for visiting as our Guest! Please stop by again!" : "You are logged out #{current_user.name}. Have a great day!" if current_user
-    (current_user.destroy if current_user.guest?) if current_user
+    (current_user.destroy if current_user.guest?) if current_user # Second 'if' in case someone types '/log_out' -- won't get 'nil' error for current_user
     session[:user_id] = nil
     redirect_to root_path
   end
