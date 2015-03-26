@@ -6,14 +6,13 @@ class GradesController < ApplicationController
     
   end
 
-  def show
+  def show # 'grade' created in 'assessments_controller.rb'
     @grade = Grade.find(params[:id])
   end
 
   def update
     @grade = Grade.find(params[:id])
     @grade.student_score_for_assessment(current_user)
-    @grade.save
     redirect_to log_out_path
   end
 
