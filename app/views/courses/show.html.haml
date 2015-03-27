@@ -6,13 +6,13 @@
         %li.previous.disabled
           %a{:href => "#"}
             %span{"aria-hidden" => "true"} 
-            Current Progress
+            Progress in #{@course.name} course
         %li.next
           %a{:href => "#"}
             Next: Lesson 1
             %span{"aria-hidden" => "true"} &rarr;
     .progress
-      .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 65%;"} 65%
+      = render 'shared/progress_bars', :style_suffix => "-course" , :completedness => "45%"
 
 / Course Overview
 %section.site_title
@@ -25,9 +25,13 @@
         .panel.panel-default
           .panel-heading
             %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
-              %h3="#{part.name}"
+              %span.btn.btn-primary
+                ="#{part.name}"
+                %span.caret
               %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
+                  .progress
+                    = render 'shared/progress_bars', :style_suffix => "-part" , :completedness => "50%"
                   -part.lessons.each do |lesson|
                     %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{lesson.name.gsub(/\s+/, "")}"}
                       %h3="#{lesson.name}"
