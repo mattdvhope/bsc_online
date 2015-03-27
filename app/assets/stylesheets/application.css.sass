@@ -10,15 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
  *= require_self
+ *= require general
+ *= require custom
  */
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
 // Google Fonts
-@import url(http://fonts.googleapis.com/css?family=Slabo+27px|Open+Sans:400italic,700italic,400,700|Courgette)
+@import url(http://fonts.googleapis.com/css?family=Merriweather)
 
 // Font Variables
 $slabo: 'Slabo 27px', serif
