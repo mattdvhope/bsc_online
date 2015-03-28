@@ -65,4 +65,12 @@ class Assessment < ActiveRecord::Base
     self.grades.where(student_id: student.id).first
   end
 
+  def array_of_choices_for_this_student_and_this_assessment(student)
+    collected_choices = []
+    self.answers.each do |answer|
+      collected_choices << answer.choices.where(student_id: student.id)
+    end
+    collected_choices.flatten!
+  end
+
 end
