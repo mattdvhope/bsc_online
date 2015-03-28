@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require assessments
 //= require courses
+//= require application
+//= require choices
+
