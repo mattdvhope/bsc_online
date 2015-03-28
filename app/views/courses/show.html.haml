@@ -12,7 +12,7 @@
             Next: Lesson 1
             %span{"aria-hidden" => "true"} &rarr;
     .progress
-      = render 'shared/progress_bars', :style_suffix => "-course" , :completedness => "45%"
+      = render 'shared/progress_bars', :style_suffix => "-course", :width => "55%", :completedness => "55% of #{@course.name} completed"
 
 / Course Overview
 %section.site_title
@@ -27,14 +27,16 @@
             %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
               %span.btn.btn-primary
                 ="#{part.name}"
-                %span.caret
+                %span.right-caret
               %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   .progress
-                    = render 'shared/progress_bars', :style_suffix => "-part" , :completedness => "50%"
+                    = render 'shared/progress_bars', :style_suffix => "-part", :width => "5%", :completedness => "5% of #{part.name} completed"
                   -part.lessons.each do |lesson|
                     %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{lesson.name.gsub(/\s+/, "")}"}
-                      %h3="#{lesson.name}"
+                      %h3
+                        ="#{lesson.name}"
+                        %span.right-caret
                       %div{:id => "collapse" + "#{lesson.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                         .panel-body
                           %a.btn.btn-default{:href => part_lesson_path(lesson.part, lesson)} Begin "#{lesson.name}"

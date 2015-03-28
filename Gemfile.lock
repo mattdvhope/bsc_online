@@ -305,7 +305,6 @@ DEPENDENCIES
   carrierwave
   carrierwave-aws
   cocoon
-  coffee-rails (~> 4.0.0)
   database_cleaner
   draper
   fabrication
