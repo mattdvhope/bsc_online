@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-    @assessment = @lesson.provide_assessment_object # method from lib/assessment_providable.rb
+    @assessment = @lesson.provide_assessment_object # method in lib/assessment_providable.rb
     if @assessment
       @assessment.make_sure_choices_are_instantiated(current_user)
     end
