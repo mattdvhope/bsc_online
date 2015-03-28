@@ -18,12 +18,12 @@
 //= require application
 //= require choices
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-  $( "a.answer" ).hover(
-    function() {
-      $( this ).toggleClass( "hover_over" );
-    }
-  );
+//   $( "a.answer" ).hover(
+//     function() {
+//       $( this ).toggleClass( "hover_over" );
+//     }
+//   );
 
-});
+// });
