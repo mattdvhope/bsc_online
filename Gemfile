@@ -6,7 +6,6 @@ gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'bcrypt'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
