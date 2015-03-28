@@ -27,7 +27,7 @@
             %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
               %span.btn.btn-primary
                 ="#{part.name}"
-                %span.right-caret
+                %span.caret
               %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   .progress
@@ -36,7 +36,7 @@
                     %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{lesson.name.gsub(/\s+/, "")}"}
                       %h3
                         ="#{lesson.name}"
-                        %span.right-caret
+                        %span.caret
                       %div{:id => "collapse" + "#{lesson.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                         .panel-body
                           %a.btn.btn-default{:href => part_lesson_path(lesson.part, lesson)} Begin "#{lesson.name}"
