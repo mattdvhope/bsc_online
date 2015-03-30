@@ -65,6 +65,17 @@ class Assessment < ActiveRecord::Base
     self.grades.where(student_id: student.id).first
   end
 
+  def hash_of_answers_and_student_choices(student)
+    choices = self.array_of_choices_for_this_student_and_this_assessment(student)
+    answers_choices_hash = {}
+    self.questions.each do |question|
+      question.answers.each do |answer|
+        answers_choices_hash.merge!({answer => choices.shift})
+      end
+    end
+    answers_choices_hash
+  end
+
   def array_of_choices_for_this_student_and_this_assessment(student)
     collected_choices = []
     self.answers.each do |answer|
