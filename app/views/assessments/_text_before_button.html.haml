@@ -1,0 +1,4 @@
+- if current_user.guest?
+  %h2= "If you click this button, your \"Guest\" session will end and your #{@assessment.type_of} will be deleted.  If you want to keep this #{@assessment.type_of}, click \"Register\" on top of this page. ***Make sure this works!!!***"
+- else
+  %h2="When you click this button, will be automatically logged out from BSC Online.  You can log back in, but you cannot return to this #{@assessment.type_of} page.  Only click this button when you are SURE that you have completed this #{@assessment.type_of}.  You will receive an email to \"#{current_user.email}\" in a few minutes with your #{@assessment.type_of} score."

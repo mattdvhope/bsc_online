@@ -1,21 +1,15 @@
 %section.site_title
   %hr
-  - if current_user.guest?
-    %h2= "As a guest, your choices for these answers will be deleted when you click the button at the bottom of this page.  But, if you click on 'Register' on the top of this page, they will be retained."
-  - else
-    %h2="Your #{@assessment.type_of} for the #{@assessment.course.name} course in #{@assessment.course.curriculum.name}:"
+  = render 'intro_text', :current_user => current_user
   %hr
   -i = 1
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
-    %span{:id => "question_#{question.id}"}= render 'answers_to_each_question', :question => question, :choices => @choices.select { |choice| choice.question == question }
+    %span{:id => "question_#{question.id}"}= render 'answers_to_each_question', :question => question
     -i = i + 1
   = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
 
   %hr
-  - if current_user.guest?
-    %h2= "If you click this button, your \"Guest\" session will end and your #{@assessment.type_of} will be deleted.  If you want to keep this #{@assessment.type_of}, click \"Register\" on top of this page. ***Make sure this works!!!***"
-  - else
-    %h2="When you click this button, will be automatically logged out from BSC Online.  You can log back in, but you cannot return to this #{@assessment.type_of} page.  Only click this button when you are SURE that you have completed this #{@assessment.type_of}.  You will receive an email to \"#{current_user.email}\" in a few minutes with your #{@assessment.type_of} score."
+  = render 'text_before_button', :current_user => current_user
   = link_to "Click here when #{@assessment.type_of} completed", "/grades/#{@grade.id}", method: 'patch', class: 'btn btn-success'
