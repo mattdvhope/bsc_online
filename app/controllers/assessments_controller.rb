@@ -4,7 +4,6 @@ class AssessmentsController < ApplicationController
 
   def show
     @assessment = Assessment.find(params[:id])
-    @choices = @assessment.array_of_choices_for_this_student_and_this_assessment(current_user)
     @grade = grade_for_assessment_completed_button(@assessment)
     if @assessment.questions.size == 0 # This 'if' is only for when the admin first creates an assessment.  It's not for the regular user/student.
       flash[:danger] = "You need to put questions & answers in. Try again."
