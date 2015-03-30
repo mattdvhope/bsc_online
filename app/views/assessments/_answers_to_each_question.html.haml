@@ -1,7 +1,12 @@
-- choices.each do |choice|
+- question.answers.each do |answer|
 
+  - choices = question.hash_of_answers_and_student_choices(current_user)
+
+  - choice = choices[answer]
   - case choice.selected
+
   - when true
-    %h3= link_to choice.answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer', 'clicked_on'], remote: true
+    %h3= link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer', 'clicked_on'], remote: true
+
   - when false
-    %h3= link_to choice.answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer'], remote: true
+    %h3= link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer'], remote: true

@@ -1,0 +1,4 @@
+- if current_user.guest?
+  %h2= "As a guest, your choices for these answers will be deleted when you click the button at the bottom of this page.  But, if you click on 'Register' on the top of this page, they will be retained."
+- else
+  %h2="Your #{@assessment.type_of} for the #{@assessment.course.name} course in #{@assessment.course.curriculum.name}:"
