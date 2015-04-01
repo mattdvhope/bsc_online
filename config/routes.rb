@@ -9,12 +9,16 @@ Rails.application.routes.draw do
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show] do
-      resources :assessments, only: [:show]
+      resources :assessments, only: [:show], to: "assessments#new"
       namespace :admin do
         resources :assessments, only: [:index, :new, :create, :edit, :update]
       end
     end
   end
+
+  resources :choices, only: [:update]
+
+  resources :grades, only: [:show, :index, :update]
 
   namespace :admin do
     resources :curriculums, only: [:new, :create, :edit, :update]
@@ -41,10 +45,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  resources :choices, only: [:update]
-
-  resources :grades, only: [:show, :index, :update]
 
   resources :plans, except: [:destroy]
 

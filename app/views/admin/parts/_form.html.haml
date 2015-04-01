@@ -1,0 +1,11 @@
+= form_for [:admin, @part], html: { class: 'form-horizontal' } do |f|
+  .row
+    .col-sm-4
+      %hr
+      %h2= f.label "Name"
+      %h3.black_field= f.text_field :name
+      %hr
+      %h2= f.label "Course that this part will be in"
+      %h3= f.collection_select(:course_id, Course.all, :id, :name, prompt: "- Choose the Course this part will be in. -")
+  %hr
+    = f.submit @part.new_record? ? "Build new Part" : "Edit this #{@part.name}", class: 'btn btn-success'

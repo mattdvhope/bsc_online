@@ -3,10 +3,10 @@
     .col-sm-4
       %hr
       %h2= f.label "Name"
-      %h3= f.text_field :name
+      %h3.black_field= f.text_field :name
       %hr
       %h2= f.label "Description"
-      %h3= f.text_area :description
+      %h3.black_field= f.text_area :description
       %hr
       %h2= f.label "Curriculum that this course will be in"
       %h3= f.collection_select(:curriculum_id, Curriculum.all, :id, :name, prompt: "- Choose the Curriculum this course will be in. -")

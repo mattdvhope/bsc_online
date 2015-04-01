@@ -6,4 +6,7 @@ class Part < ActiveRecord::Base
   has_many :lessons
   has_many :assessments
 
+  validates_presence_of :name, :course_id
+  validates_uniqueness_of :name
+
 end
