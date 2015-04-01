@@ -13,3 +13,4 @@
   %hr
   = render 'text_before_button', :current_user => current_user
   = link_to "Click here when #{@assessment.type_of} completed", "/grades/#{@grade.id}", method: 'patch', class: 'btn btn-success'
+

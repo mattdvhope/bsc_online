@@ -3,10 +3,10 @@
     .col-sm-4
       %hr
       %h2= f.label "Name"
-      %h3= f.text_area :name
+      %h3.black_field= f.text_area :name
       %hr
       %h2= f.label "Description"
-      %h3= f.text_area :description
+      %h3.black_field= f.text_area :description
   %hr
     %h2 When you press this button, you will go to a "Course builder" page for this curriculum.
     = f.submit @curriculum.new_record? ? "Build new Curriculum" : "Edit this Curriculum", class: 'btn btn-success'
