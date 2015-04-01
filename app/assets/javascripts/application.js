@@ -12,18 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require courses
 //= require application
+//= require courses
 //= require choices
 
-// $(document).ready(function () {
 
-//   $( "a.answer" ).hover(
-//     function() {
-//       $( this ).toggleClass( "hover_over" );
-//     }
-//   );
-
-// });
