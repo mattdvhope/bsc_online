@@ -21,6 +21,7 @@ gem 'haml-rails'
 # assets
 # gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
+gem 'angular-rails-templates'
 gem 'bootstrap-sass'
 # gem 'bootstrap_form'
 gem 'sass-rails', '~> 5.0.0'
