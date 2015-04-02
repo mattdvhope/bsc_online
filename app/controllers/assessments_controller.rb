@@ -2,7 +2,7 @@ class AssessmentsController < ApplicationController
 
   before_action :require_user
 
-  def new
+  def show
     @assessment = Assessment.find(params[:id])
     @answers_choices = @assessment.hash_of_answers_and_student_choices(current_user)
     @grade = grade_for_assessment_completed_button(@assessment)
@@ -11,10 +11,6 @@ class AssessmentsController < ApplicationController
       @assessment.destroy
       redirect_to new_curriculum_course_admin_assessment_path
     end
-  end
-
-  def create
-binding.pry    
   end
 
   private

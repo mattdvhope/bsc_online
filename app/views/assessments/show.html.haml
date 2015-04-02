@@ -1,5 +1,9 @@
 %section.site_title
   %hr
+  %input{"ng-model" => "newEntry.name", :type => "text"}/
+  %hr
+  {{newEntry.name}}
+  %hr
   = render 'intro_text', :current_user => current_user
   %hr
   -i = 1
