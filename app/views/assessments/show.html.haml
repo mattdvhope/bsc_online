@@ -1,6 +1,7 @@
 %section.site_title
   %hr
-  %input{"ng-model" => "newEntry.name", :type => "text"}/
+  %div{"ng-controller" => "TestCtrl"}
+    %button{"ng-click" => "alertMe()"} Click me
   %hr
   {{newEntry.name}}
   %hr

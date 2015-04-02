@@ -19,15 +19,16 @@ gem "cocoon" # handle nested forms
 gem 'haml-rails'
 
 # assets
-# gem 'angular-ui-bootstrap-rails'
+gem 'angular-ui-bootstrap-rails'
+# gem 'jquery-turbolinks'
+gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'angularjs-rails'
-gem 'angular-rails-templates'
+gem 'angular-rails-templates' # Adds your HTML templates into Angular's $templateCache using Rails asset pipeline.
 gem 'bootstrap-sass'
-# gem 'bootstrap_form'
+gem 'bootstrap_form'
 gem 'sass-rails', '~> 5.0.0'
 gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'jquery-rails'
-gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'mini_magick'
