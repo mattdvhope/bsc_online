@@ -1,9 +1,35 @@
 %section.site_title
   %hr
-  %div{"ng-controller" => "TestCtrl"}
-    %button{"ng-click" => "alertMe()"} Click me
   %hr
-  {{newEntry.name}}
+  %hr
+  %div{ 'ng-app' => 'Raffle' }
+    %div{:'ng-controller' => 'RaffleCtrl'}
+      = form_tag("/", "ng-submit" => "addEntry($event)") do
+        %label
+          Entry
+        %br
+        %input{"ng-model" => "newEntry.name"}/
+        %br
+        %button{:type => 'submit'}
+          Submit Entry
+      %ul
+        %li{:'ng-repeat' => 'entry in entries'}
+          {{entry.name}}
+          %span.winner{"ng-class" => "{highlight: entry == lastWinner}", "ng-show" => "entry.winner"} WINNER
+      %button{"ng-click" => "drawWinner()"} Draw winner
+
+  %hr
+  %hr
+  %hr
+  %hr
+  %hr
+  %hr
+  %h2= link_to 'Paint it red', '/home', :id => 'redness'
+  %hr
+  %hr
+  %h2= link_to 'Yell HELLO!!', '/home', :id => 'my-link'
+  %hr
+  %hr
   %hr
   = render 'intro_text', :current_user => current_user
   %hr
