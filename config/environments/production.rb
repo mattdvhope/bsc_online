@@ -66,6 +66,13 @@ Rails.application.configure do
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
+  # for Bower...
+  config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+  config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
+
+  # for Bower / glyphicons....
+  config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
