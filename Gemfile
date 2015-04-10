@@ -21,8 +21,9 @@ gem 'haml-rails'
 # assets
 # gem 'angular-ui-bootstrap-rails'
 # gem 'jquery-turbolinks'
-gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'angularjs-rails'
+gem 'bower-rails'
+# gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# gem 'angularjs-rails'
 # gem 'angular-rails-templates' # Adds your HTML templates into Angular's $templateCache using Rails asset pipeline.
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
