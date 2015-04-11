@@ -2,9 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular": "latest",
-    "bootstrap-sass-official": "latest",
-    "bootstrap-sprockets": "latest"
-  },
-  "resolutions": {
+    "bootstrap-sass-official": "latest"
   }
 }
