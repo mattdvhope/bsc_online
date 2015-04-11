@@ -18,7 +18,7 @@
   "main": "lib",
   "homepage": "http://bower.io",
   "engines": {
-    "node": "0.10.0"
+    "node": ">=0.10.0"
   },
   "dependencies": {
     "abbrev": "^1.0.5",
