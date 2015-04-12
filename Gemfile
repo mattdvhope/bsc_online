@@ -61,8 +61,10 @@ group :test do
   gem 'database_cleaner' # If we use 'selenium-webdriver' as the test-runner, then we need this gem to clean the db.
 end
 
-group :production do
-  gem 'rails_12factor'
+gem "foreman"
+
+group :production, :staging do
+  gem "rails_12factor"
+  gem "rails_stdout_logging"
+  gem "rails_serve_static_assets"
 end
-
-
