@@ -320,7 +320,7 @@ DEPENDENCIES
   figaro
   foreman
   haml-rails
-  jbuilder (~> 2.0)
+  jbuilder
   jquery-rails
   launchy
   letter_opener

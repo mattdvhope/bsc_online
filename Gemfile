@@ -32,7 +32,7 @@ gem 'coffee-rails'
 gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
 gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
-gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder' #, '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'mini_magick'
 
 group :development do

@@ -1,21 +1,17 @@
-app = angular.module 'Raffle', []
+app = angular.module 'Raffler', ['ngResource']
 
+app.config ["$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
 
-# @restauranteur.controller 'HomeCtrl', ['$scope', ($scope) ->
-#   # Notice how this controller body is empty
-# ]
-
-
-app.controller "RaffleCtrl", @RaffleCtrl = ($scope) ->
-  $scope.entries = [
-    {name: "Larry"}
-    {name: "Curly"}
-    {name: "Moe"}
-  ]
+app.controller "RaffleCtrl", @RaffleCtrl = ($scope, $resource) ->
+  Entry = $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+  $scope.entries = Entry.query()
 
   $scope.addEntry = ($event) ->
     $event.preventDefault()
-    $scope.entries.push($scope.newEntry)
+    entry = Entry.save($scope.newEntry)
+    $scope.entries.push(entry)
     $scope.newEntry = {}
 
   $scope.drawWinner = ->
@@ -25,4 +21,9 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope) ->
     if pool.length > 0
       entry = pool[Math.floor(Math.random()*pool.length)]
       entry.winner = true
+      entry.$update()
       $scope.lastWinner = entry
+
+
+
+
