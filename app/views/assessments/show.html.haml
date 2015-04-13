@@ -2,7 +2,7 @@
   %hr
   %hr
   %hr
-  %div{ 'ng-app' => 'Raffle' }
+  %div{ 'ng-app' => 'Raffler' }
     %div{:'ng-controller' => 'RaffleCtrl'}
       = form_tag("/", "ng-submit" => "addEntry($event)") do
         %label
@@ -13,7 +13,7 @@
         %button{:type => 'submit'}
           Submit Entry
       %ul
-        %li{:'ng-repeat' => 'entry in entries'}
+        %li{:'ng-repeat' => "entry in entries"}
           {{entry.name}}
           %span.winner{"ng-class" => "{highlight: entry == lastWinner}", "ng-show" => "entry.winner"} WINNER
       %button{"ng-click" => "drawWinner()"} Draw winner

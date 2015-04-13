@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'home', to: "courses#show", defaults: { id: 1 }
   get 'build', to: "pages#build"
 
+  resources :entries
+
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
 
