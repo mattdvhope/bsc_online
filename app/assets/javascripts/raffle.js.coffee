@@ -1,5 +1,11 @@
 app = angular.module 'Raffle', []
 
+
+# @restauranteur.controller 'HomeCtrl', ['$scope', ($scope) ->
+#   # Notice how this controller body is empty
+# ]
+
+
 app.controller "RaffleCtrl", @RaffleCtrl = ($scope) ->
   $scope.entries = [
     {name: "Larry"}
