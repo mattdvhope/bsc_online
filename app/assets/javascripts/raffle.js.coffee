@@ -1,4 +1,4 @@
-app = angular.module 'Raffle', ['ngRoute']
+app = angular.module 'Raffle', []
 
 app.controller "RaffleCtrl", @RaffleCtrl = ($scope) ->
   $scope.entries = [
