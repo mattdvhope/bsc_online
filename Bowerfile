@@ -1,5 +1,4 @@
 asset 'angular'
 asset 'angular-route'
 asset 'angular-resource'
-asset 'angular-order-object-by'
 asset 'bootstrap-sass-official'
