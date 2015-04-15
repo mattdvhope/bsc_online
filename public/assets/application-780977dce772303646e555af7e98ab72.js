@@ -37124,6 +37124,1665 @@ var minlengthDirective = function() {
 })(window, document);
 
 !window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');
+/**
+ * @license AngularJS v1.3.15
+ * (c) 2010-2014 Google, Inc. http://angularjs.org
+ * License: MIT
+ */
+
+(function(window, angular, undefined) {'use strict';
+
+/**
+ * @ngdoc module
+ * @name ngRoute
+ * @description
+ *
+ * # ngRoute
+ *
+ * The `ngRoute` module provides routing and deeplinking services and directives for angular apps.
+ *
+ * ## Example
+ * See {@link ngRoute.$route#example $route} for an example of configuring and using `ngRoute`.
+ *
+ *
+ * <div doc-module-components="ngRoute"></div>
+ */
+ /* global -ngRouteModule */
+var ngRouteModule = angular.module('ngRoute', ['ng']).
+                        provider('$route', $RouteProvider),
+    $routeMinErr = angular.$$minErr('ngRoute');
+
+/**
+ * @ngdoc provider
+ * @name $routeProvider
+ *
+ * @description
+ *
+ * Used for configuring routes.
+ *
+ * ## Example
+ * See {@link ngRoute.$route#example $route} for an example of configuring and using `ngRoute`.
+ *
+ * ## Dependencies
+ * Requires the {@link ngRoute `ngRoute`} module to be installed.
+ */
+function $RouteProvider() {
+  function inherit(parent, extra) {
+    return angular.extend(Object.create(parent), extra);
+  }
+
+  var routes = {};
+
+  /**
+   * @ngdoc method
+   * @name $routeProvider#when
+   *
+   * @param {string} path Route path (matched against `$location.path`). If `$location.path`
+   *    contains redundant trailing slash or is missing one, the route will still match and the
+   *    `$location.path` will be updated to add or drop the trailing slash to exactly match the
+   *    route definition.
+   *
+   *    * `path` can contain named groups starting with a colon: e.g. `:name`. All characters up
+   *        to the next slash are matched and stored in `$routeParams` under the given `name`
+   *        when the route matches.
+   *    * `path` can contain named groups starting with a colon and ending with a star:
+   *        e.g.`:name*`. All characters are eagerly stored in `$routeParams` under the given `name`
+   *        when the route matches.
+   *    * `path` can contain optional named groups with a question mark: e.g.`:name?`.
+   *
+   *    For example, routes like `/color/:color/largecode/:largecode*\/edit` will match
+   *    `/color/brown/largecode/code/with/slashes/edit` and extract:
+   *
+   *    * `color: brown`
+   *    * `largecode: code/with/slashes`.
+   *
+   *
+   * @param {Object} route Mapping information to be assigned to `$route.current` on route
+   *    match.
+   *
+   *    Object properties:
+   *
+   *    - `controller` – `{(string|function()=}` – Controller fn that should be associated with
+   *      newly created scope or the name of a {@link angular.Module#controller registered
+   *      controller} if passed as a string.
+   *    - `controllerAs` – `{string=}` – A controller alias name. If present the controller will be
+   *      published to scope under the `controllerAs` name.
+   *    - `template` – `{string=|function()=}` – html template as a string or a function that
+   *      returns an html template as a string which should be used by {@link
+   *      ngRoute.directive:ngView ngView} or {@link ng.directive:ngInclude ngInclude} directives.
+   *      This property takes precedence over `templateUrl`.
+   *
+   *      If `template` is a function, it will be called with the following parameters:
+   *
+   *      - `{Array.<Object>}` - route parameters extracted from the current
+   *        `$location.path()` by applying the current route
+   *
+   *    - `templateUrl` – `{string=|function()=}` – path or function that returns a path to an html
+   *      template that should be used by {@link ngRoute.directive:ngView ngView}.
+   *
+   *      If `templateUrl` is a function, it will be called with the following parameters:
+   *
+   *      - `{Array.<Object>}` - route parameters extracted from the current
+   *        `$location.path()` by applying the current route
+   *
+   *    - `resolve` - `{Object.<string, function>=}` - An optional map of dependencies which should
+   *      be injected into the controller. If any of these dependencies are promises, the router
+   *      will wait for them all to be resolved or one to be rejected before the controller is
+   *      instantiated.
+   *      If all the promises are resolved successfully, the values of the resolved promises are
+   *      injected and {@link ngRoute.$route#$routeChangeSuccess $routeChangeSuccess} event is
+   *      fired. If any of the promises are rejected the
+   *      {@link ngRoute.$route#$routeChangeError $routeChangeError} event is fired. The map object
+   *      is:
+   *
+   *      - `key` – `{string}`: a name of a dependency to be injected into the controller.
+   *      - `factory` - `{string|function}`: If `string` then it is an alias for a service.
+   *        Otherwise if function, then it is {@link auto.$injector#invoke injected}
+   *        and the return value is treated as the dependency. If the result is a promise, it is
+   *        resolved before its value is injected into the controller. Be aware that
+   *        `ngRoute.$routeParams` will still refer to the previous route within these resolve
+   *        functions.  Use `$route.current.params` to access the new route parameters, instead.
+   *
+   *    - `redirectTo` – {(string|function())=} – value to update
+   *      {@link ng.$location $location} path with and trigger route redirection.
+   *
+   *      If `redirectTo` is a function, it will be called with the following parameters:
+   *
+   *      - `{Object.<string>}` - route parameters extracted from the current
+   *        `$location.path()` by applying the current route templateUrl.
+   *      - `{string}` - current `$location.path()`
+   *      - `{Object}` - current `$location.search()`
+   *
+   *      The custom `redirectTo` function is expected to return a string which will be used
+   *      to update `$location.path()` and `$location.search()`.
+   *
+   *    - `[reloadOnSearch=true]` - {boolean=} - reload route when only `$location.search()`
+   *      or `$location.hash()` changes.
+   *
+   *      If the option is set to `false` and url in the browser changes, then
+   *      `$routeUpdate` event is broadcasted on the root scope.
+   *
+   *    - `[caseInsensitiveMatch=false]` - {boolean=} - match routes without being case sensitive
+   *
+   *      If the option is set to `true`, then the particular route can be matched without being
+   *      case sensitive
+   *
+   * @returns {Object} self
+   *
+   * @description
+   * Adds a new route definition to the `$route` service.
+   */
+  this.when = function(path, route) {
+    //copy original route object to preserve params inherited from proto chain
+    var routeCopy = angular.copy(route);
+    if (angular.isUndefined(routeCopy.reloadOnSearch)) {
+      routeCopy.reloadOnSearch = true;
+    }
+    if (angular.isUndefined(routeCopy.caseInsensitiveMatch)) {
+      routeCopy.caseInsensitiveMatch = this.caseInsensitiveMatch;
+    }
+    routes[path] = angular.extend(
+      routeCopy,
+      path && pathRegExp(path, routeCopy)
+    );
+
+    // create redirection for trailing slashes
+    if (path) {
+      var redirectPath = (path[path.length - 1] == '/')
+            ? path.substr(0, path.length - 1)
+            : path + '/';
+
+      routes[redirectPath] = angular.extend(
+        {redirectTo: path},
+        pathRegExp(redirectPath, routeCopy)
+      );
+    }
+
+    return this;
+  };
+
+  /**
+   * @ngdoc property
+   * @name $routeProvider#caseInsensitiveMatch
+   * @description
+   *
+   * A boolean property indicating if routes defined
+   * using this provider should be matched using a case insensitive
+   * algorithm. Defaults to `false`.
+   */
+  this.caseInsensitiveMatch = false;
+
+   /**
+    * @param path {string} path
+    * @param opts {Object} options
+    * @return {?Object}
+    *
+    * @description
+    * Normalizes the given path, returning a regular expression
+    * and the original path.
+    *
+    * Inspired by pathRexp in visionmedia/express/lib/utils.js.
+    */
+  function pathRegExp(path, opts) {
+    var insensitive = opts.caseInsensitiveMatch,
+        ret = {
+          originalPath: path,
+          regexp: path
+        },
+        keys = ret.keys = [];
+
+    path = path
+      .replace(/([().])/g, '\\$1')
+      .replace(/(\/)?:(\w+)([\?\*])?/g, function(_, slash, key, option) {
+        var optional = option === '?' ? option : null;
+        var star = option === '*' ? option : null;
+        keys.push({ name: key, optional: !!optional });
+        slash = slash || '';
+        return ''
+          + (optional ? '' : slash)
+          + '(?:'
+          + (optional ? slash : '')
+          + (star && '(.+?)' || '([^/]+)')
+          + (optional || '')
+          + ')'
+          + (optional || '');
+      })
+      .replace(/([\/$\*])/g, '\\$1');
+
+    ret.regexp = new RegExp('^' + path + '$', insensitive ? 'i' : '');
+    return ret;
+  }
+
+  /**
+   * @ngdoc method
+   * @name $routeProvider#otherwise
+   *
+   * @description
+   * Sets route definition that will be used on route change when no other route definition
+   * is matched.
+   *
+   * @param {Object|string} params Mapping information to be assigned to `$route.current`.
+   * If called with a string, the value maps to `redirectTo`.
+   * @returns {Object} self
+   */
+  this.otherwise = function(params) {
+    if (typeof params === 'string') {
+      params = {redirectTo: params};
+    }
+    this.when(null, params);
+    return this;
+  };
+
+
+  this.$get = ['$rootScope',
+               '$location',
+               '$routeParams',
+               '$q',
+               '$injector',
+               '$templateRequest',
+               '$sce',
+      function($rootScope, $location, $routeParams, $q, $injector, $templateRequest, $sce) {
+
+    /**
+     * @ngdoc service
+     * @name $route
+     * @requires $location
+     * @requires $routeParams
+     *
+     * @property {Object} current Reference to the current route definition.
+     * The route definition contains:
+     *
+     *   - `controller`: The controller constructor as define in route definition.
+     *   - `locals`: A map of locals which is used by {@link ng.$controller $controller} service for
+     *     controller instantiation. The `locals` contain
+     *     the resolved values of the `resolve` map. Additionally the `locals` also contain:
+     *
+     *     - `$scope` - The current route scope.
+     *     - `$template` - The current route template HTML.
+     *
+     * @property {Object} routes Object with all route configuration Objects as its properties.
+     *
+     * @description
+     * `$route` is used for deep-linking URLs to controllers and views (HTML partials).
+     * It watches `$location.url()` and tries to map the path to an existing route definition.
+     *
+     * Requires the {@link ngRoute `ngRoute`} module to be installed.
+     *
+     * You can define routes through {@link ngRoute.$routeProvider $routeProvider}'s API.
+     *
+     * The `$route` service is typically used in conjunction with the
+     * {@link ngRoute.directive:ngView `ngView`} directive and the
+     * {@link ngRoute.$routeParams `$routeParams`} service.
+     *
+     * @example
+     * This example shows how changing the URL hash causes the `$route` to match a route against the
+     * URL, and the `ngView` pulls in the partial.
+     *
+     * <example name="$route-service" module="ngRouteExample"
+     *          deps="angular-route.js" fixBase="true">
+     *   <file name="index.html">
+     *     <div ng-controller="MainController">
+     *       Choose:
+     *       <a href="Book/Moby">Moby</a> |
+     *       <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+     *       <a href="Book/Gatsby">Gatsby</a> |
+     *       <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+     *       <a href="Book/Scarlet">Scarlet Letter</a><br/>
+     *
+     *       <div ng-view></div>
+     *
+     *       <hr />
+     *
+     *       <pre>$location.path() = {{$location.path()}}</pre>
+     *       <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+     *       <pre>$route.current.params = {{$route.current.params}}</pre>
+     *       <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+     *       <pre>$routeParams = {{$routeParams}}</pre>
+     *     </div>
+     *   </file>
+     *
+     *   <file name="book.html">
+     *     controller: {{name}}<br />
+     *     Book Id: {{params.bookId}}<br />
+     *   </file>
+     *
+     *   <file name="chapter.html">
+     *     controller: {{name}}<br />
+     *     Book Id: {{params.bookId}}<br />
+     *     Chapter Id: {{params.chapterId}}
+     *   </file>
+     *
+     *   <file name="script.js">
+     *     angular.module('ngRouteExample', ['ngRoute'])
+     *
+     *      .controller('MainController', function($scope, $route, $routeParams, $location) {
+     *          $scope.$route = $route;
+     *          $scope.$location = $location;
+     *          $scope.$routeParams = $routeParams;
+     *      })
+     *
+     *      .controller('BookController', function($scope, $routeParams) {
+     *          $scope.name = "BookController";
+     *          $scope.params = $routeParams;
+     *      })
+     *
+     *      .controller('ChapterController', function($scope, $routeParams) {
+     *          $scope.name = "ChapterController";
+     *          $scope.params = $routeParams;
+     *      })
+     *
+     *     .config(function($routeProvider, $locationProvider) {
+     *       $routeProvider
+     *        .when('/Book/:bookId', {
+     *         templateUrl: 'book.html',
+     *         controller: 'BookController',
+     *         resolve: {
+     *           // I will cause a 1 second delay
+     *           delay: function($q, $timeout) {
+     *             var delay = $q.defer();
+     *             $timeout(delay.resolve, 1000);
+     *             return delay.promise;
+     *           }
+     *         }
+     *       })
+     *       .when('/Book/:bookId/ch/:chapterId', {
+     *         templateUrl: 'chapter.html',
+     *         controller: 'ChapterController'
+     *       });
+     *
+     *       // configure html5 to get links working on jsfiddle
+     *       $locationProvider.html5Mode(true);
+     *     });
+     *
+     *   </file>
+     *
+     *   <file name="protractor.js" type="protractor">
+     *     it('should load and compile correct template', function() {
+     *       element(by.linkText('Moby: Ch1')).click();
+     *       var content = element(by.css('[ng-view]')).getText();
+     *       expect(content).toMatch(/controller\: ChapterController/);
+     *       expect(content).toMatch(/Book Id\: Moby/);
+     *       expect(content).toMatch(/Chapter Id\: 1/);
+     *
+     *       element(by.partialLinkText('Scarlet')).click();
+     *
+     *       content = element(by.css('[ng-view]')).getText();
+     *       expect(content).toMatch(/controller\: BookController/);
+     *       expect(content).toMatch(/Book Id\: Scarlet/);
+     *     });
+     *   </file>
+     * </example>
+     */
+
+    /**
+     * @ngdoc event
+     * @name $route#$routeChangeStart
+     * @eventType broadcast on root scope
+     * @description
+     * Broadcasted before a route change. At this  point the route services starts
+     * resolving all of the dependencies needed for the route change to occur.
+     * Typically this involves fetching the view template as well as any dependencies
+     * defined in `resolve` route property. Once  all of the dependencies are resolved
+     * `$routeChangeSuccess` is fired.
+     *
+     * The route change (and the `$location` change that triggered it) can be prevented
+     * by calling `preventDefault` method of the event. See {@link ng.$rootScope.Scope#$on}
+     * for more details about event object.
+     *
+     * @param {Object} angularEvent Synthetic event object.
+     * @param {Route} next Future route information.
+     * @param {Route} current Current route information.
+     */
+
+    /**
+     * @ngdoc event
+     * @name $route#$routeChangeSuccess
+     * @eventType broadcast on root scope
+     * @description
+     * Broadcasted after a route dependencies are resolved.
+     * {@link ngRoute.directive:ngView ngView} listens for the directive
+     * to instantiate the controller and render the view.
+     *
+     * @param {Object} angularEvent Synthetic event object.
+     * @param {Route} current Current route information.
+     * @param {Route|Undefined} previous Previous route information, or undefined if current is
+     * first route entered.
+     */
+
+    /**
+     * @ngdoc event
+     * @name $route#$routeChangeError
+     * @eventType broadcast on root scope
+     * @description
+     * Broadcasted if any of the resolve promises are rejected.
+     *
+     * @param {Object} angularEvent Synthetic event object
+     * @param {Route} current Current route information.
+     * @param {Route} previous Previous route information.
+     * @param {Route} rejection Rejection of the promise. Usually the error of the failed promise.
+     */
+
+    /**
+     * @ngdoc event
+     * @name $route#$routeUpdate
+     * @eventType broadcast on root scope
+     * @description
+     *
+     * The `reloadOnSearch` property has been set to false, and we are reusing the same
+     * instance of the Controller.
+     */
+
+    var forceReload = false,
+        preparedRoute,
+        preparedRouteIsUpdateOnly,
+        $route = {
+          routes: routes,
+
+          /**
+           * @ngdoc method
+           * @name $route#reload
+           *
+           * @description
+           * Causes `$route` service to reload the current route even if
+           * {@link ng.$location $location} hasn't changed.
+           *
+           * As a result of that, {@link ngRoute.directive:ngView ngView}
+           * creates new scope and reinstantiates the controller.
+           */
+          reload: function() {
+            forceReload = true;
+            $rootScope.$evalAsync(function() {
+              // Don't support cancellation of a reload for now...
+              prepareRoute();
+              commitRoute();
+            });
+          },
+
+          /**
+           * @ngdoc method
+           * @name $route#updateParams
+           *
+           * @description
+           * Causes `$route` service to update the current URL, replacing
+           * current route parameters with those specified in `newParams`.
+           * Provided property names that match the route's path segment
+           * definitions will be interpolated into the location's path, while
+           * remaining properties will be treated as query params.
+           *
+           * @param {!Object<string, string>} newParams mapping of URL parameter names to values
+           */
+          updateParams: function(newParams) {
+            if (this.current && this.current.$$route) {
+              newParams = angular.extend({}, this.current.params, newParams);
+              $location.path(interpolate(this.current.$$route.originalPath, newParams));
+              // interpolate modifies newParams, only query params are left
+              $location.search(newParams);
+            } else {
+              throw $routeMinErr('norout', 'Tried updating route when with no current route');
+            }
+          }
+        };
+
+    $rootScope.$on('$locationChangeStart', prepareRoute);
+    $rootScope.$on('$locationChangeSuccess', commitRoute);
+
+    return $route;
+
+    /////////////////////////////////////////////////////
+
+    /**
+     * @param on {string} current url
+     * @param route {Object} route regexp to match the url against
+     * @return {?Object}
+     *
+     * @description
+     * Check if the route matches the current url.
+     *
+     * Inspired by match in
+     * visionmedia/express/lib/router/router.js.
+     */
+    function switchRouteMatcher(on, route) {
+      var keys = route.keys,
+          params = {};
+
+      if (!route.regexp) return null;
+
+      var m = route.regexp.exec(on);
+      if (!m) return null;
+
+      for (var i = 1, len = m.length; i < len; ++i) {
+        var key = keys[i - 1];
+
+        var val = m[i];
+
+        if (key && val) {
+          params[key.name] = val;
+        }
+      }
+      return params;
+    }
+
+    function prepareRoute($locationEvent) {
+      var lastRoute = $route.current;
+
+      preparedRoute = parseRoute();
+      preparedRouteIsUpdateOnly = preparedRoute && lastRoute && preparedRoute.$$route === lastRoute.$$route
+          && angular.equals(preparedRoute.pathParams, lastRoute.pathParams)
+          && !preparedRoute.reloadOnSearch && !forceReload;
+
+      if (!preparedRouteIsUpdateOnly && (lastRoute || preparedRoute)) {
+        if ($rootScope.$broadcast('$routeChangeStart', preparedRoute, lastRoute).defaultPrevented) {
+          if ($locationEvent) {
+            $locationEvent.preventDefault();
+          }
+        }
+      }
+    }
+
+    function commitRoute() {
+      var lastRoute = $route.current;
+      var nextRoute = preparedRoute;
+
+      if (preparedRouteIsUpdateOnly) {
+        lastRoute.params = nextRoute.params;
+        angular.copy(lastRoute.params, $routeParams);
+        $rootScope.$broadcast('$routeUpdate', lastRoute);
+      } else if (nextRoute || lastRoute) {
+        forceReload = false;
+        $route.current = nextRoute;
+        if (nextRoute) {
+          if (nextRoute.redirectTo) {
+            if (angular.isString(nextRoute.redirectTo)) {
+              $location.path(interpolate(nextRoute.redirectTo, nextRoute.params)).search(nextRoute.params)
+                       .replace();
+            } else {
+              $location.url(nextRoute.redirectTo(nextRoute.pathParams, $location.path(), $location.search()))
+                       .replace();
+            }
+          }
+        }
+
+        $q.when(nextRoute).
+          then(function() {
+            if (nextRoute) {
+              var locals = angular.extend({}, nextRoute.resolve),
+                  template, templateUrl;
+
+              angular.forEach(locals, function(value, key) {
+                locals[key] = angular.isString(value) ?
+                    $injector.get(value) : $injector.invoke(value, null, null, key);
+              });
+
+              if (angular.isDefined(template = nextRoute.template)) {
+                if (angular.isFunction(template)) {
+                  template = template(nextRoute.params);
+                }
+              } else if (angular.isDefined(templateUrl = nextRoute.templateUrl)) {
+                if (angular.isFunction(templateUrl)) {
+                  templateUrl = templateUrl(nextRoute.params);
+                }
+                templateUrl = $sce.getTrustedResourceUrl(templateUrl);
+                if (angular.isDefined(templateUrl)) {
+                  nextRoute.loadedTemplateUrl = templateUrl;
+                  template = $templateRequest(templateUrl);
+                }
+              }
+              if (angular.isDefined(template)) {
+                locals['$template'] = template;
+              }
+              return $q.all(locals);
+            }
+          }).
+          // after route change
+          then(function(locals) {
+            if (nextRoute == $route.current) {
+              if (nextRoute) {
+                nextRoute.locals = locals;
+                angular.copy(nextRoute.params, $routeParams);
+              }
+              $rootScope.$broadcast('$routeChangeSuccess', nextRoute, lastRoute);
+            }
+          }, function(error) {
+            if (nextRoute == $route.current) {
+              $rootScope.$broadcast('$routeChangeError', nextRoute, lastRoute, error);
+            }
+          });
+      }
+    }
+
+
+    /**
+     * @returns {Object} the current active route, by matching it against the URL
+     */
+    function parseRoute() {
+      // Match a route
+      var params, match;
+      angular.forEach(routes, function(route, path) {
+        if (!match && (params = switchRouteMatcher($location.path(), route))) {
+          match = inherit(route, {
+            params: angular.extend({}, $location.search(), params),
+            pathParams: params});
+          match.$$route = route;
+        }
+      });
+      // No route matched; fallback to "otherwise" route
+      return match || routes[null] && inherit(routes[null], {params: {}, pathParams:{}});
+    }
+
+    /**
+     * @returns {string} interpolation of the redirect path with the parameters
+     */
+    function interpolate(string, params) {
+      var result = [];
+      angular.forEach((string || '').split(':'), function(segment, i) {
+        if (i === 0) {
+          result.push(segment);
+        } else {
+          var segmentMatch = segment.match(/(\w+)(?:[?*])?(.*)/);
+          var key = segmentMatch[1];
+          result.push(params[key]);
+          result.push(segmentMatch[2] || '');
+          delete params[key];
+        }
+      });
+      return result.join('');
+    }
+  }];
+}
+
+ngRouteModule.provider('$routeParams', $RouteParamsProvider);
+
+
+/**
+ * @ngdoc service
+ * @name $routeParams
+ * @requires $route
+ *
+ * @description
+ * The `$routeParams` service allows you to retrieve the current set of route parameters.
+ *
+ * Requires the {@link ngRoute `ngRoute`} module to be installed.
+ *
+ * The route parameters are a combination of {@link ng.$location `$location`}'s
+ * {@link ng.$location#search `search()`} and {@link ng.$location#path `path()`}.
+ * The `path` parameters are extracted when the {@link ngRoute.$route `$route`} path is matched.
+ *
+ * In case of parameter name collision, `path` params take precedence over `search` params.
+ *
+ * The service guarantees that the identity of the `$routeParams` object will remain unchanged
+ * (but its properties will likely change) even when a route change occurs.
+ *
+ * Note that the `$routeParams` are only updated *after* a route change completes successfully.
+ * This means that you cannot rely on `$routeParams` being correct in route resolve functions.
+ * Instead you can use `$route.current.params` to access the new route's parameters.
+ *
+ * @example
+ * ```js
+ *  // Given:
+ *  // URL: http://server.com/index.html#/Chapter/1/Section/2?search=moby
+ *  // Route: /Chapter/:chapterId/Section/:sectionId
+ *  //
+ *  // Then
+ *  $routeParams ==> {chapterId:'1', sectionId:'2', search:'moby'}
+ * ```
+ */
+function $RouteParamsProvider() {
+  this.$get = function() { return {}; };
+}
+
+ngRouteModule.directive('ngView', ngViewFactory);
+ngRouteModule.directive('ngView', ngViewFillContentFactory);
+
+
+/**
+ * @ngdoc directive
+ * @name ngView
+ * @restrict ECA
+ *
+ * @description
+ * # Overview
+ * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
+ * including the rendered template of the current route into the main layout (`index.html`) file.
+ * Every time the current route changes, the included view changes with it according to the
+ * configuration of the `$route` service.
+ *
+ * Requires the {@link ngRoute `ngRoute`} module to be installed.
+ *
+ * @animations
+ * enter - animation is used to bring new content into the browser.
+ * leave - animation is used to animate existing content away.
+ *
+ * The enter and leave animation occur concurrently.
+ *
+ * @scope
+ * @priority 400
+ * @param {string=} onload Expression to evaluate whenever the view updates.
+ *
+ * @param {string=} autoscroll Whether `ngView` should call {@link ng.$anchorScroll
+ *                  $anchorScroll} to scroll the viewport after the view is updated.
+ *
+ *                  - If the attribute is not set, disable scrolling.
+ *                  - If the attribute is set without value, enable scrolling.
+ *                  - Otherwise enable scrolling only if the `autoscroll` attribute value evaluated
+ *                    as an expression yields a truthy value.
+ * @example
+    <example name="ngView-directive" module="ngViewExample"
+             deps="angular-route.js;angular-animate.js"
+             animations="true" fixBase="true">
+      <file name="index.html">
+        <div ng-controller="MainCtrl as main">
+          Choose:
+          <a href="Book/Moby">Moby</a> |
+          <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+          <a href="Book/Gatsby">Gatsby</a> |
+          <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+          <a href="Book/Scarlet">Scarlet Letter</a><br/>
+
+          <div class="view-animate-container">
+            <div ng-view class="view-animate"></div>
+          </div>
+          <hr />
+
+          <pre>$location.path() = {{main.$location.path()}}</pre>
+          <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}</pre>
+          <pre>$route.current.params = {{main.$route.current.params}}</pre>
+          <pre>$routeParams = {{main.$routeParams}}</pre>
+        </div>
+      </file>
+
+      <file name="book.html">
+        <div>
+          controller: {{book.name}}<br />
+          Book Id: {{book.params.bookId}}<br />
+        </div>
+      </file>
+
+      <file name="chapter.html">
+        <div>
+          controller: {{chapter.name}}<br />
+          Book Id: {{chapter.params.bookId}}<br />
+          Chapter Id: {{chapter.params.chapterId}}
+        </div>
+      </file>
+
+      <file name="animations.css">
+        .view-animate-container {
+          position:relative;
+          height:100px!important;
+          background:white;
+          border:1px solid black;
+          height:40px;
+          overflow:hidden;
+        }
+
+        .view-animate {
+          padding:10px;
+        }
+
+        .view-animate.ng-enter, .view-animate.ng-leave {
+          -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+          transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+          display:block;
+          width:100%;
+          border-left:1px solid black;
+
+          position:absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          padding:10px;
+        }
+
+        .view-animate.ng-enter {
+          left:100%;
+        }
+        .view-animate.ng-enter.ng-enter-active {
+          left:0;
+        }
+        .view-animate.ng-leave.ng-leave-active {
+          left:-100%;
+        }
+      </file>
+
+      <file name="script.js">
+        angular.module('ngViewExample', ['ngRoute', 'ngAnimate'])
+          .config(['$routeProvider', '$locationProvider',
+            function($routeProvider, $locationProvider) {
+              $routeProvider
+                .when('/Book/:bookId', {
+                  templateUrl: 'book.html',
+                  controller: 'BookCtrl',
+                  controllerAs: 'book'
+                })
+                .when('/Book/:bookId/ch/:chapterId', {
+                  templateUrl: 'chapter.html',
+                  controller: 'ChapterCtrl',
+                  controllerAs: 'chapter'
+                });
+
+              $locationProvider.html5Mode(true);
+          }])
+          .controller('MainCtrl', ['$route', '$routeParams', '$location',
+            function($route, $routeParams, $location) {
+              this.$route = $route;
+              this.$location = $location;
+              this.$routeParams = $routeParams;
+          }])
+          .controller('BookCtrl', ['$routeParams', function($routeParams) {
+            this.name = "BookCtrl";
+            this.params = $routeParams;
+          }])
+          .controller('ChapterCtrl', ['$routeParams', function($routeParams) {
+            this.name = "ChapterCtrl";
+            this.params = $routeParams;
+          }]);
+
+      </file>
+
+      <file name="protractor.js" type="protractor">
+        it('should load and compile correct template', function() {
+          element(by.linkText('Moby: Ch1')).click();
+          var content = element(by.css('[ng-view]')).getText();
+          expect(content).toMatch(/controller\: ChapterCtrl/);
+          expect(content).toMatch(/Book Id\: Moby/);
+          expect(content).toMatch(/Chapter Id\: 1/);
+
+          element(by.partialLinkText('Scarlet')).click();
+
+          content = element(by.css('[ng-view]')).getText();
+          expect(content).toMatch(/controller\: BookCtrl/);
+          expect(content).toMatch(/Book Id\: Scarlet/);
+        });
+      </file>
+    </example>
+ */
+
+
+/**
+ * @ngdoc event
+ * @name ngView#$viewContentLoaded
+ * @eventType emit on the current ngView scope
+ * @description
+ * Emitted every time the ngView content is reloaded.
+ */
+ngViewFactory.$inject = ['$route', '$anchorScroll', '$animate'];
+function ngViewFactory($route, $anchorScroll, $animate) {
+  return {
+    restrict: 'ECA',
+    terminal: true,
+    priority: 400,
+    transclude: 'element',
+    link: function(scope, $element, attr, ctrl, $transclude) {
+        var currentScope,
+            currentElement,
+            previousLeaveAnimation,
+            autoScrollExp = attr.autoscroll,
+            onloadExp = attr.onload || '';
+
+        scope.$on('$routeChangeSuccess', update);
+        update();
+
+        function cleanupLastView() {
+          if (previousLeaveAnimation) {
+            $animate.cancel(previousLeaveAnimation);
+            previousLeaveAnimation = null;
+          }
+
+          if (currentScope) {
+            currentScope.$destroy();
+            currentScope = null;
+          }
+          if (currentElement) {
+            previousLeaveAnimation = $animate.leave(currentElement);
+            previousLeaveAnimation.then(function() {
+              previousLeaveAnimation = null;
+            });
+            currentElement = null;
+          }
+        }
+
+        function update() {
+          var locals = $route.current && $route.current.locals,
+              template = locals && locals.$template;
+
+          if (angular.isDefined(template)) {
+            var newScope = scope.$new();
+            var current = $route.current;
+
+            // Note: This will also link all children of ng-view that were contained in the original
+            // html. If that content contains controllers, ... they could pollute/change the scope.
+            // However, using ng-view on an element with additional content does not make sense...
+            // Note: We can't remove them in the cloneAttchFn of $transclude as that
+            // function is called before linking the content, which would apply child
+            // directives to non existing elements.
+            var clone = $transclude(newScope, function(clone) {
+              $animate.enter(clone, null, currentElement || $element).then(function onNgViewEnter() {
+                if (angular.isDefined(autoScrollExp)
+                  && (!autoScrollExp || scope.$eval(autoScrollExp))) {
+                  $anchorScroll();
+                }
+              });
+              cleanupLastView();
+            });
+
+            currentElement = clone;
+            currentScope = current.scope = newScope;
+            currentScope.$emit('$viewContentLoaded');
+            currentScope.$eval(onloadExp);
+          } else {
+            cleanupLastView();
+          }
+        }
+    }
+  };
+}
+
+// This directive is called during the $transclude call of the first `ngView` directive.
+// It will replace and compile the content of the element with the loaded template.
+// We need this directive so that the element content is already filled when
+// the link function of another directive on the same element as ngView
+// is called.
+ngViewFillContentFactory.$inject = ['$compile', '$controller', '$route'];
+function ngViewFillContentFactory($compile, $controller, $route) {
+  return {
+    restrict: 'ECA',
+    priority: -400,
+    link: function(scope, $element) {
+      var current = $route.current,
+          locals = current.locals;
+
+      $element.html(locals.$template);
+
+      var link = $compile($element.contents());
+
+      if (current.controller) {
+        locals.$scope = scope;
+        var controller = $controller(current.controller, locals);
+        if (current.controllerAs) {
+          scope[current.controllerAs] = controller;
+        }
+        $element.data('$ngControllerController', controller);
+        $element.children().data('$ngControllerController', controller);
+      }
+
+      link(scope);
+    }
+  };
+}
+
+
+})(window, window.angular);
+/**
+ * @license AngularJS v1.3.15
+ * (c) 2010-2014 Google, Inc. http://angularjs.org
+ * License: MIT
+ */
+
+(function(window, angular, undefined) {'use strict';
+
+var $resourceMinErr = angular.$$minErr('$resource');
+
+// Helper functions and regex to lookup a dotted path on an object
+// stopping at undefined/null.  The path must be composed of ASCII
+// identifiers (just like $parse)
+var MEMBER_NAME_REGEX = /^(\.[a-zA-Z_$][0-9a-zA-Z_$]*)+$/;
+
+function isValidDottedPath(path) {
+  return (path != null && path !== '' && path !== 'hasOwnProperty' &&
+      MEMBER_NAME_REGEX.test('.' + path));
+}
+
+function lookupDottedPath(obj, path) {
+  if (!isValidDottedPath(path)) {
+    throw $resourceMinErr('badmember', 'Dotted member path "@{0}" is invalid.', path);
+  }
+  var keys = path.split('.');
+  for (var i = 0, ii = keys.length; i < ii && obj !== undefined; i++) {
+    var key = keys[i];
+    obj = (obj !== null) ? obj[key] : undefined;
+  }
+  return obj;
+}
+
+/**
+ * Create a shallow copy of an object and clear other fields from the destination
+ */
+function shallowClearAndCopy(src, dst) {
+  dst = dst || {};
+
+  angular.forEach(dst, function(value, key) {
+    delete dst[key];
+  });
+
+  for (var key in src) {
+    if (src.hasOwnProperty(key) && !(key.charAt(0) === '$' && key.charAt(1) === '$')) {
+      dst[key] = src[key];
+    }
+  }
+
+  return dst;
+}
+
+/**
+ * @ngdoc module
+ * @name ngResource
+ * @description
+ *
+ * # ngResource
+ *
+ * The `ngResource` module provides interaction support with RESTful services
+ * via the $resource service.
+ *
+ *
+ * <div doc-module-components="ngResource"></div>
+ *
+ * See {@link ngResource.$resource `$resource`} for usage.
+ */
+
+/**
+ * @ngdoc service
+ * @name $resource
+ * @requires $http
+ *
+ * @description
+ * A factory which creates a resource object that lets you interact with
+ * [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) server-side data sources.
+ *
+ * The returned resource object has action methods which provide high-level behaviors without
+ * the need to interact with the low level {@link ng.$http $http} service.
+ *
+ * Requires the {@link ngResource `ngResource`} module to be installed.
+ *
+ * By default, trailing slashes will be stripped from the calculated URLs,
+ * which can pose problems with server backends that do not expect that
+ * behavior.  This can be disabled by configuring the `$resourceProvider` like
+ * this:
+ *
+ * ```js
+     app.config(['$resourceProvider', function($resourceProvider) {
+       // Don't strip trailing slashes from calculated URLs
+       $resourceProvider.defaults.stripTrailingSlashes = false;
+     }]);
+ * ```
+ *
+ * @param {string} url A parametrized URL template with parameters prefixed by `:` as in
+ *   `/user/:username`. If you are using a URL with a port number (e.g.
+ *   `http://example.com:8080/api`), it will be respected.
+ *
+ *   If you are using a url with a suffix, just add the suffix, like this:
+ *   `$resource('http://example.com/resource.json')` or `$resource('http://example.com/:id.json')`
+ *   or even `$resource('http://example.com/resource/:resource_id.:format')`
+ *   If the parameter before the suffix is empty, :resource_id in this case, then the `/.` will be
+ *   collapsed down to a single `.`.  If you need this sequence to appear and not collapse then you
+ *   can escape it with `/\.`.
+ *
+ * @param {Object=} paramDefaults Default values for `url` parameters. These can be overridden in
+ *   `actions` methods. If any of the parameter value is a function, it will be executed every time
+ *   when a param value needs to be obtained for a request (unless the param was overridden).
+ *
+ *   Each key value in the parameter object is first bound to url template if present and then any
+ *   excess keys are appended to the url search query after the `?`.
+ *
+ *   Given a template `/path/:verb` and parameter `{verb:'greet', salutation:'Hello'}` results in
+ *   URL `/path/greet?salutation=Hello`.
+ *
+ *   If the parameter value is prefixed with `@` then the value for that parameter will be extracted
+ *   from the corresponding property on the `data` object (provided when calling an action method).  For
+ *   example, if the `defaultParam` object is `{someParam: '@someProp'}` then the value of `someParam`
+ *   will be `data.someProp`.
+ *
+ * @param {Object.<Object>=} actions Hash with declaration of custom actions that should extend
+ *   the default set of resource actions. The declaration should be created in the format of {@link
+ *   ng.$http#usage $http.config}:
+ *
+ *       {action1: {method:?, params:?, isArray:?, headers:?, ...},
+ *        action2: {method:?, params:?, isArray:?, headers:?, ...},
+ *        ...}
+ *
+ *   Where:
+ *
+ *   - **`action`** – {string} – The name of action. This name becomes the name of the method on
+ *     your resource object.
+ *   - **`method`** – {string} – Case insensitive HTTP method (e.g. `GET`, `POST`, `PUT`,
+ *     `DELETE`, `JSONP`, etc).
+ *   - **`params`** – {Object=} – Optional set of pre-bound parameters for this action. If any of
+ *     the parameter value is a function, it will be executed every time when a param value needs to
+ *     be obtained for a request (unless the param was overridden).
+ *   - **`url`** – {string} – action specific `url` override. The url templating is supported just
+ *     like for the resource-level urls.
+ *   - **`isArray`** – {boolean=} – If true then the returned object for this action is an array,
+ *     see `returns` section.
+ *   - **`transformRequest`** –
+ *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *     transform function or an array of such functions. The transform function takes the http
+ *     request body and headers and returns its transformed (typically serialized) version.
+ *     By default, transformRequest will contain one function that checks if the request data is
+ *     an object and serializes to using `angular.toJson`. To prevent this behavior, set
+ *     `transformRequest` to an empty array: `transformRequest: []`
+ *   - **`transformResponse`** –
+ *     `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
+ *     transform function or an array of such functions. The transform function takes the http
+ *     response body and headers and returns its transformed (typically deserialized) version.
+ *     By default, transformResponse will contain one function that checks if the response looks like
+ *     a JSON string and deserializes it using `angular.fromJson`. To prevent this behavior, set
+ *     `transformResponse` to an empty array: `transformResponse: []`
+ *   - **`cache`** – `{boolean|Cache}` – If true, a default $http cache will be used to cache the
+ *     GET request, otherwise if a cache instance built with
+ *     {@link ng.$cacheFactory $cacheFactory}, this cache will be used for
+ *     caching.
+ *   - **`timeout`** – `{number|Promise}` – timeout in milliseconds, or {@link ng.$q promise} that
+ *     should abort the request when resolved.
+ *   - **`withCredentials`** - `{boolean}` - whether to set the `withCredentials` flag on the
+ *     XHR object. See
+ *     [requests with credentials](https://developer.mozilla.org/en/http_access_control#section_5)
+ *     for more information.
+ *   - **`responseType`** - `{string}` - see
+ *     [requestType](https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType).
+ *   - **`interceptor`** - `{Object=}` - The interceptor object has two optional methods -
+ *     `response` and `responseError`. Both `response` and `responseError` interceptors get called
+ *     with `http response` object. See {@link ng.$http $http interceptors}.
+ *
+ * @param {Object} options Hash with custom settings that should extend the
+ *   default `$resourceProvider` behavior.  The only supported option is
+ *
+ *   Where:
+ *
+ *   - **`stripTrailingSlashes`** – {boolean} – If true then the trailing
+ *   slashes from any calculated URL will be stripped. (Defaults to true.)
+ *
+ * @returns {Object} A resource "class" object with methods for the default set of resource actions
+ *   optionally extended with custom `actions`. The default set contains these actions:
+ *   ```js
+ *   { 'get':    {method:'GET'},
+ *     'save':   {method:'POST'},
+ *     'query':  {method:'GET', isArray:true},
+ *     'remove': {method:'DELETE'},
+ *     'delete': {method:'DELETE'} };
+ *   ```
+ *
+ *   Calling these methods invoke an {@link ng.$http} with the specified http method,
+ *   destination and parameters. When the data is returned from the server then the object is an
+ *   instance of the resource class. The actions `save`, `remove` and `delete` are available on it
+ *   as  methods with the `$` prefix. This allows you to easily perform CRUD operations (create,
+ *   read, update, delete) on server-side data like this:
+ *   ```js
+ *   var User = $resource('/user/:userId', {userId:'@id'});
+ *   var user = User.get({userId:123}, function() {
+ *     user.abc = true;
+ *     user.$save();
+ *   });
+ *   ```
+ *
+ *   It is important to realize that invoking a $resource object method immediately returns an
+ *   empty reference (object or array depending on `isArray`). Once the data is returned from the
+ *   server the existing reference is populated with the actual data. This is a useful trick since
+ *   usually the resource is assigned to a model which is then rendered by the view. Having an empty
+ *   object results in no rendering, once the data arrives from the server then the object is
+ *   populated with the data and the view automatically re-renders itself showing the new data. This
+ *   means that in most cases one never has to write a callback function for the action methods.
+ *
+ *   The action methods on the class object or instance object can be invoked with the following
+ *   parameters:
+ *
+ *   - HTTP GET "class" actions: `Resource.action([parameters], [success], [error])`
+ *   - non-GET "class" actions: `Resource.action([parameters], postData, [success], [error])`
+ *   - non-GET instance actions:  `instance.$action([parameters], [success], [error])`
+ *
+ *
+ *   Success callback is called with (value, responseHeaders) arguments. Error callback is called
+ *   with (httpResponse) argument.
+ *
+ *   Class actions return empty instance (with additional properties below).
+ *   Instance actions return promise of the action.
+ *
+ *   The Resource instances and collection have these additional properties:
+ *
+ *   - `$promise`: the {@link ng.$q promise} of the original server interaction that created this
+ *     instance or collection.
+ *
+ *     On success, the promise is resolved with the same resource instance or collection object,
+ *     updated with data from server. This makes it easy to use in
+ *     {@link ngRoute.$routeProvider resolve section of $routeProvider.when()} to defer view
+ *     rendering until the resource(s) are loaded.
+ *
+ *     On failure, the promise is resolved with the {@link ng.$http http response} object, without
+ *     the `resource` property.
+ *
+ *     If an interceptor object was provided, the promise will instead be resolved with the value
+ *     returned by the interceptor.
+ *
+ *   - `$resolved`: `true` after first server interaction is completed (either with success or
+ *      rejection), `false` before that. Knowing if the Resource has been resolved is useful in
+ *      data-binding.
+ *
+ * @example
+ *
+ * # Credit card resource
+ *
+ * ```js
+     // Define CreditCard class
+     var CreditCard = $resource('/user/:userId/card/:cardId',
+      {userId:123, cardId:'@id'}, {
+       charge: {method:'POST', params:{charge:true}}
+      });
+
+     // We can retrieve a collection from the server
+     var cards = CreditCard.query(function() {
+       // GET: /user/123/card
+       // server returns: [ {id:456, number:'1234', name:'Smith'} ];
+
+       var card = cards[0];
+       // each item is an instance of CreditCard
+       expect(card instanceof CreditCard).toEqual(true);
+       card.name = "J. Smith";
+       // non GET methods are mapped onto the instances
+       card.$save();
+       // POST: /user/123/card/456 {id:456, number:'1234', name:'J. Smith'}
+       // server returns: {id:456, number:'1234', name: 'J. Smith'};
+
+       // our custom method is mapped as well.
+       card.$charge({amount:9.99});
+       // POST: /user/123/card/456?amount=9.99&charge=true {id:456, number:'1234', name:'J. Smith'}
+     });
+
+     // we can create an instance as well
+     var newCard = new CreditCard({number:'0123'});
+     newCard.name = "Mike Smith";
+     newCard.$save();
+     // POST: /user/123/card {number:'0123', name:'Mike Smith'}
+     // server returns: {id:789, number:'0123', name: 'Mike Smith'};
+     expect(newCard.id).toEqual(789);
+ * ```
+ *
+ * The object returned from this function execution is a resource "class" which has "static" method
+ * for each action in the definition.
+ *
+ * Calling these methods invoke `$http` on the `url` template with the given `method`, `params` and
+ * `headers`.
+ * When the data is returned from the server then the object is an instance of the resource type and
+ * all of the non-GET methods are available with `$` prefix. This allows you to easily support CRUD
+ * operations (create, read, update, delete) on server-side data.
+
+   ```js
+     var User = $resource('/user/:userId', {userId:'@id'});
+     User.get({userId:123}, function(user) {
+       user.abc = true;
+       user.$save();
+     });
+   ```
+ *
+ * It's worth noting that the success callback for `get`, `query` and other methods gets passed
+ * in the response that came from the server as well as $http header getter function, so one
+ * could rewrite the above example and get access to http headers as:
+ *
+   ```js
+     var User = $resource('/user/:userId', {userId:'@id'});
+     User.get({userId:123}, function(u, getResponseHeaders){
+       u.abc = true;
+       u.$save(function(u, putResponseHeaders) {
+         //u => saved user object
+         //putResponseHeaders => $http header getter
+       });
+     });
+   ```
+ *
+ * You can also access the raw `$http` promise via the `$promise` property on the object returned
+ *
+   ```
+     var User = $resource('/user/:userId', {userId:'@id'});
+     User.get({userId:123})
+         .$promise.then(function(user) {
+           $scope.user = user;
+         });
+   ```
+
+ * # Creating a custom 'PUT' request
+ * In this example we create a custom method on our resource to make a PUT request
+ * ```js
+ *    var app = angular.module('app', ['ngResource', 'ngRoute']);
+ *
+ *    // Some APIs expect a PUT request in the format URL/object/ID
+ *    // Here we are creating an 'update' method
+ *    app.factory('Notes', ['$resource', function($resource) {
+ *    return $resource('/notes/:id', null,
+ *        {
+ *            'update': { method:'PUT' }
+ *        });
+ *    }]);
+ *
+ *    // In our controller we get the ID from the URL using ngRoute and $routeParams
+ *    // We pass in $routeParams and our Notes factory along with $scope
+ *    app.controller('NotesCtrl', ['$scope', '$routeParams', 'Notes',
+                                      function($scope, $routeParams, Notes) {
+ *    // First get a note object from the factory
+ *    var note = Notes.get({ id:$routeParams.id });
+ *    $id = note.id;
+ *
+ *    // Now call update passing in the ID first then the object you are updating
+ *    Notes.update({ id:$id }, note);
+ *
+ *    // This will PUT /notes/ID with the note object in the request payload
+ *    }]);
+ * ```
+ */
+angular.module('ngResource', ['ng']).
+  provider('$resource', function() {
+    var provider = this;
+
+    this.defaults = {
+      // Strip slashes by default
+      stripTrailingSlashes: true,
+
+      // Default actions configuration
+      actions: {
+        'get': {method: 'GET'},
+        'save': {method: 'POST'},
+        'query': {method: 'GET', isArray: true},
+        'remove': {method: 'DELETE'},
+        'delete': {method: 'DELETE'}
+      }
+    };
+
+    this.$get = ['$http', '$q', function($http, $q) {
+
+      var noop = angular.noop,
+        forEach = angular.forEach,
+        extend = angular.extend,
+        copy = angular.copy,
+        isFunction = angular.isFunction;
+
+      /**
+       * We need our custom method because encodeURIComponent is too aggressive and doesn't follow
+       * http://www.ietf.org/rfc/rfc3986.txt with regards to the character set
+       * (pchar) allowed in path segments:
+       *    segment       = *pchar
+       *    pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+       *    pct-encoded   = "%" HEXDIG HEXDIG
+       *    unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+       *    sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
+       *                     / "*" / "+" / "," / ";" / "="
+       */
+      function encodeUriSegment(val) {
+        return encodeUriQuery(val, true).
+          replace(/%26/gi, '&').
+          replace(/%3D/gi, '=').
+          replace(/%2B/gi, '+');
+      }
+
+
+      /**
+       * This method is intended for encoding *key* or *value* parts of query component. We need a
+       * custom method because encodeURIComponent is too aggressive and encodes stuff that doesn't
+       * have to be encoded per http://tools.ietf.org/html/rfc3986:
+       *    query       = *( pchar / "/" / "?" )
+       *    pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+       *    unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+       *    pct-encoded   = "%" HEXDIG HEXDIG
+       *    sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
+       *                     / "*" / "+" / "," / ";" / "="
+       */
+      function encodeUriQuery(val, pctEncodeSpaces) {
+        return encodeURIComponent(val).
+          replace(/%40/gi, '@').
+          replace(/%3A/gi, ':').
+          replace(/%24/g, '$').
+          replace(/%2C/gi, ',').
+          replace(/%20/g, (pctEncodeSpaces ? '%20' : '+'));
+      }
+
+      function Route(template, defaults) {
+        this.template = template;
+        this.defaults = extend({}, provider.defaults, defaults);
+        this.urlParams = {};
+      }
+
+      Route.prototype = {
+        setUrlParams: function(config, params, actionUrl) {
+          var self = this,
+            url = actionUrl || self.template,
+            val,
+            encodedVal;
+
+          var urlParams = self.urlParams = {};
+          forEach(url.split(/\W/), function(param) {
+            if (param === 'hasOwnProperty') {
+              throw $resourceMinErr('badname', "hasOwnProperty is not a valid parameter name.");
+            }
+            if (!(new RegExp("^\\d+$").test(param)) && param &&
+              (new RegExp("(^|[^\\\\]):" + param + "(\\W|$)").test(url))) {
+              urlParams[param] = true;
+            }
+          });
+          url = url.replace(/\\:/g, ':');
+
+          params = params || {};
+          forEach(self.urlParams, function(_, urlParam) {
+            val = params.hasOwnProperty(urlParam) ? params[urlParam] : self.defaults[urlParam];
+            if (angular.isDefined(val) && val !== null) {
+              encodedVal = encodeUriSegment(val);
+              url = url.replace(new RegExp(":" + urlParam + "(\\W|$)", "g"), function(match, p1) {
+                return encodedVal + p1;
+              });
+            } else {
+              url = url.replace(new RegExp("(\/?):" + urlParam + "(\\W|$)", "g"), function(match,
+                  leadingSlashes, tail) {
+                if (tail.charAt(0) == '/') {
+                  return tail;
+                } else {
+                  return leadingSlashes + tail;
+                }
+              });
+            }
+          });
+
+          // strip trailing slashes and set the url (unless this behavior is specifically disabled)
+          if (self.defaults.stripTrailingSlashes) {
+            url = url.replace(/\/+$/, '') || '/';
+          }
+
+          // then replace collapse `/.` if found in the last URL path segment before the query
+          // E.g. `http://url.com/id./format?q=x` becomes `http://url.com/id.format?q=x`
+          url = url.replace(/\/\.(?=\w+($|\?))/, '.');
+          // replace escaped `/\.` with `/.`
+          config.url = url.replace(/\/\\\./, '/.');
+
+
+          // set params - delegate param encoding to $http
+          forEach(params, function(value, key) {
+            if (!self.urlParams[key]) {
+              config.params = config.params || {};
+              config.params[key] = value;
+            }
+          });
+        }
+      };
+
+
+      function resourceFactory(url, paramDefaults, actions, options) {
+        var route = new Route(url, options);
+
+        actions = extend({}, provider.defaults.actions, actions);
+
+        function extractParams(data, actionParams) {
+          var ids = {};
+          actionParams = extend({}, paramDefaults, actionParams);
+          forEach(actionParams, function(value, key) {
+            if (isFunction(value)) { value = value(); }
+            ids[key] = value && value.charAt && value.charAt(0) == '@' ?
+              lookupDottedPath(data, value.substr(1)) : value;
+          });
+          return ids;
+        }
+
+        function defaultResponseInterceptor(response) {
+          return response.resource;
+        }
+
+        function Resource(value) {
+          shallowClearAndCopy(value || {}, this);
+        }
+
+        Resource.prototype.toJSON = function() {
+          var data = extend({}, this);
+          delete data.$promise;
+          delete data.$resolved;
+          return data;
+        };
+
+        forEach(actions, function(action, name) {
+          var hasBody = /^(POST|PUT|PATCH)$/i.test(action.method);
+
+          Resource[name] = function(a1, a2, a3, a4) {
+            var params = {}, data, success, error;
+
+            /* jshint -W086 */ /* (purposefully fall through case statements) */
+            switch (arguments.length) {
+              case 4:
+                error = a4;
+                success = a3;
+              //fallthrough
+              case 3:
+              case 2:
+                if (isFunction(a2)) {
+                  if (isFunction(a1)) {
+                    success = a1;
+                    error = a2;
+                    break;
+                  }
+
+                  success = a2;
+                  error = a3;
+                  //fallthrough
+                } else {
+                  params = a1;
+                  data = a2;
+                  success = a3;
+                  break;
+                }
+              case 1:
+                if (isFunction(a1)) success = a1;
+                else if (hasBody) data = a1;
+                else params = a1;
+                break;
+              case 0: break;
+              default:
+                throw $resourceMinErr('badargs',
+                  "Expected up to 4 arguments [params, data, success, error], got {0} arguments",
+                  arguments.length);
+            }
+            /* jshint +W086 */ /* (purposefully fall through case statements) */
+
+            var isInstanceCall = this instanceof Resource;
+            var value = isInstanceCall ? data : (action.isArray ? [] : new Resource(data));
+            var httpConfig = {};
+            var responseInterceptor = action.interceptor && action.interceptor.response ||
+              defaultResponseInterceptor;
+            var responseErrorInterceptor = action.interceptor && action.interceptor.responseError ||
+              undefined;
+
+            forEach(action, function(value, key) {
+              if (key != 'params' && key != 'isArray' && key != 'interceptor') {
+                httpConfig[key] = copy(value);
+              }
+            });
+
+            if (hasBody) httpConfig.data = data;
+            route.setUrlParams(httpConfig,
+              extend({}, extractParams(data, action.params || {}), params),
+              action.url);
+
+            var promise = $http(httpConfig).then(function(response) {
+              var data = response.data,
+                promise = value.$promise;
+
+              if (data) {
+                // Need to convert action.isArray to boolean in case it is undefined
+                // jshint -W018
+                if (angular.isArray(data) !== (!!action.isArray)) {
+                  throw $resourceMinErr('badcfg',
+                      'Error in resource configuration for action `{0}`. Expected response to ' +
+                      'contain an {1} but got an {2}', name, action.isArray ? 'array' : 'object',
+                    angular.isArray(data) ? 'array' : 'object');
+                }
+                // jshint +W018
+                if (action.isArray) {
+                  value.length = 0;
+                  forEach(data, function(item) {
+                    if (typeof item === "object") {
+                      value.push(new Resource(item));
+                    } else {
+                      // Valid JSON values may be string literals, and these should not be converted
+                      // into objects. These items will not have access to the Resource prototype
+                      // methods, but unfortunately there
+                      value.push(item);
+                    }
+                  });
+                } else {
+                  shallowClearAndCopy(data, value);
+                  value.$promise = promise;
+                }
+              }
+
+              value.$resolved = true;
+
+              response.resource = value;
+
+              return response;
+            }, function(response) {
+              value.$resolved = true;
+
+              (error || noop)(response);
+
+              return $q.reject(response);
+            });
+
+            promise = promise.then(
+              function(response) {
+                var value = responseInterceptor(response);
+                (success || noop)(value, response.headers);
+                return value;
+              },
+              responseErrorInterceptor);
+
+            if (!isInstanceCall) {
+              // we are creating instance / collection
+              // - set the initial promise
+              // - return the instance / collection
+              value.$promise = promise;
+              value.$resolved = false;
+
+              return value;
+            }
+
+            // instance call
+            return promise;
+          };
+
+
+          Resource.prototype['$' + name] = function(params, success, error) {
+            if (isFunction(params)) {
+              error = success; success = params; params = {};
+            }
+            var result = Resource[name].call(this, params, this, success, error);
+            return result.$promise || result;
+          };
+        });
+
+        Resource.bind = function(additionalParamDefaults) {
+          return resourceFactory(url, extend({}, paramDefaults, additionalParamDefaults), actions);
+        };
+
+        return Resource;
+      }
+
+      return resourceFactory;
+    }];
+  });
+
+
+})(window, window.angular);
 // Angular Rails Templates 0.1.4
 //
 // angular_templates.ignore_prefix: ["templates/"]
@@ -37132,177 +38791,92 @@ var minlengthDirective = function() {
 
 angular.module("templates", []);
 
+/*!
+ * Bootstrap v3.3.4 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+if (typeof jQuery === 'undefined') {
+  throw new Error('Bootstrap\'s JavaScript requires jQuery')
+}
+
++function ($) {
+  'use strict';
+  var version = $.fn.jquery.split(' ')[0].split('.')
+  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
+  }
+}(jQuery);
+
 /* ========================================================================
- * Bootstrap: affix.js v3.3.1
- * http://getbootstrap.com/javascript/#affix
+ * Bootstrap: transition.js v3.3.4
+ * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
   'use strict';
 
-  // AFFIX CLASS DEFINITION
-  // ======================
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
 
-  var Affix = function (element, options) {
-    this.options = $.extend({}, Affix.DEFAULTS, options)
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
 
-    this.$target = $(this.options.target)
-      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
-
-    this.$element     = $(element)
-    this.affixed      =
-    this.unpin        =
-    this.pinnedOffset = null
-
-    this.checkPosition()
-  }
-
-  Affix.VERSION  = '3.3.1'
-
-  Affix.RESET    = 'affix affix-top affix-bottom'
-
-  Affix.DEFAULTS = {
-    offset: 0,
-    target: window
-  }
-
-  Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {
-    var scrollTop    = this.$target.scrollTop()
-    var position     = this.$element.offset()
-    var targetHeight = this.$target.height()
-
-    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false
-
-    if (this.affixed == 'bottom') {
-      if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom'
-      return (scrollTop + targetHeight <= scrollHeight - offsetBottom) ? false : 'bottom'
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
     }
 
-    var initializing   = this.affixed == null
-    var colliderTop    = initializing ? scrollTop : position.top
-    var colliderHeight = initializing ? targetHeight : height
-
-    if (offsetTop != null && colliderTop <= offsetTop) return 'top'
-    if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'
-
-    return false
-  }
-
-  Affix.prototype.getPinnedOffset = function () {
-    if (this.pinnedOffset) return this.pinnedOffset
-    this.$element.removeClass(Affix.RESET).addClass('affix')
-    var scrollTop = this.$target.scrollTop()
-    var position  = this.$element.offset()
-    return (this.pinnedOffset = position.top - scrollTop)
-  }
-
-  Affix.prototype.checkPositionWithEventLoop = function () {
-    setTimeout($.proxy(this.checkPosition, this), 1)
-  }
-
-  Affix.prototype.checkPosition = function () {
-    if (!this.$element.is(':visible')) return
-
-    var height       = this.$element.height()
-    var offset       = this.options.offset
-    var offsetTop    = offset.top
-    var offsetBottom = offset.bottom
-    var scrollHeight = $('body').height()
-
-    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
-    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
-
-    var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)
-
-    if (this.affixed != affix) {
-      if (this.unpin != null) this.$element.css('top', '')
-
-      var affixType = 'affix' + (affix ? '-' + affix : '')
-      var e         = $.Event(affixType + '.bs.affix')
-
-      this.$element.trigger(e)
-
-      if (e.isDefaultPrevented()) return
-
-      this.affixed = affix
-      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
-
-      this.$element
-        .removeClass(Affix.RESET)
-        .addClass(affixType)
-        .trigger(affixType.replace('affix', 'affixed') + '.bs.affix')
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
     }
 
-    if (affix == 'bottom') {
-      this.$element.offset({
-        top: scrollHeight - height - offsetBottom
-      })
-    }
+    return false // explicit for ie8 (  ._.)
   }
 
-
-  // AFFIX PLUGIN DEFINITION
-  // =======================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.affix')
-      var options = typeof option == 'object' && option
-
-      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.affix
-
-  $.fn.affix             = Plugin
-  $.fn.affix.Constructor = Affix
-
-
-  // AFFIX NO CONFLICT
-  // =================
-
-  $.fn.affix.noConflict = function () {
-    $.fn.affix = old
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
     return this
   }
 
+  $(function () {
+    $.support.transition = transitionEnd()
 
-  // AFFIX DATA-API
-  // ==============
+    if (!$.support.transition) return
 
-  $(window).on('load', function () {
-    $('[data-spy="affix"]').each(function () {
-      var $spy = $(this)
-      var data = $spy.data()
-
-      data.offset = data.offset || {}
-
-      if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom
-      if (data.offsetTop    != null) data.offset.top    = data.offsetTop
-
-      Plugin.call($spy, data)
-    })
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
   })
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: alert.js v3.3.1
+ * Bootstrap: alert.js v3.3.4
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -37316,7 +38890,7 @@ angular.module("templates", []);
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.1'
+  Alert.VERSION = '3.3.4'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -37390,14 +38964,14 @@ angular.module("templates", []);
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: button.js v3.3.1
+ * Bootstrap: button.js v3.3.4
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -37412,7 +38986,7 @@ angular.module("templates", []);
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.1'
+  Button.VERSION  = '3.3.4'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -37507,14 +39081,14 @@ angular.module("templates", []);
     })
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.1
+ * Bootstrap: carousel.js v3.3.4
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -37527,10 +39101,10 @@ angular.module("templates", []);
     this.$element    = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
     this.options     = options
-    this.paused      =
-    this.sliding     =
-    this.interval    =
-    this.$active     =
+    this.paused      = null
+    this.sliding     = null
+    this.interval    = null
+    this.$active     = null
     this.$items      = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
@@ -37540,7 +39114,7 @@ angular.module("templates", []);
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.1'
+  Carousel.VERSION  = '3.3.4'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -37580,8 +39154,11 @@ angular.module("templates", []);
   }
 
   Carousel.prototype.getItemForDirection = function (direction, active) {
-    var delta = direction == 'prev' ? -1 : 1
     var activeIndex = this.getItemIndex(active)
+    var willWrap = (direction == 'prev' && activeIndex === 0)
+                || (direction == 'next' && activeIndex == (this.$items.length - 1))
+    if (willWrap && !this.options.wrap) return active
+    var delta = direction == 'prev' ? -1 : 1
     var itemIndex = (activeIndex + delta) % this.$items.length
     return this.$items.eq(itemIndex)
   }
@@ -37626,13 +39203,7 @@ angular.module("templates", []);
     var $next     = next || this.getItemForDirection(type, $active)
     var isCycling = this.interval
     var direction = type == 'next' ? 'left' : 'right'
-    var fallback  = type == 'next' ? 'first' : 'last'
     var that      = this
-
-    if (!$next.length) {
-      if (!this.options.wrap) return
-      $next = this.$element.find('.item')[fallback]()
-    }
 
     if ($next.hasClass('active')) return (this.sliding = false)
 
@@ -37748,14 +39319,14 @@ angular.module("templates", []);
   })
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.1
+ * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -37767,7 +39338,8 @@ angular.module("templates", []);
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $(this.options.trigger).filter('[href="#' + element.id + '"], [data-target="#' + element.id + '"]')
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
     if (this.options.parent) {
@@ -37779,13 +39351,12 @@ angular.module("templates", []);
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.1'
+  Collapse.VERSION  = '3.3.4'
 
   Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
-    toggle: true,
-    trigger: '[data-toggle="collapse"]'
+    toggle: true
   }
 
   Collapse.prototype.dimension = function () {
@@ -37797,7 +39368,7 @@ angular.module("templates", []);
     if (this.transitioning || this.$element.hasClass('in')) return
 
     var activesData
-    var actives = this.$parent && this.$parent.find('> .panel').children('.in, .collapsing')
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
 
     if (actives && actives.length) {
       activesData = actives.data('bs.collapse')
@@ -37923,7 +39494,7 @@ angular.module("templates", []);
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') options.toggle = false
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -37954,20 +39525,20 @@ angular.module("templates", []);
 
     var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $.extend({}, $this.data(), { trigger: this })
+    var option  = data ? 'toggle' : $this.data()
 
     Plugin.call($target, option)
   })
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.1
+ * Bootstrap: dropdown.js v3.3.4
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -37982,7 +39553,7 @@ angular.module("templates", []);
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.1'
+  Dropdown.VERSION = '3.3.4'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -38035,7 +39606,7 @@ angular.module("templates", []);
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.divider):visible a'
+    var desc = ' li:not(.disabled):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
     if (!$items.length) return
@@ -38122,404 +39693,14 @@ angular.module("templates", []);
     .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: tab.js v3.3.1
- * http://getbootstrap.com/javascript/#tabs
- * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-
-+function ($) {
-  'use strict';
-
-  // TAB CLASS DEFINITION
-  // ====================
-
-  var Tab = function (element) {
-    this.element = $(element)
-  }
-
-  Tab.VERSION = '3.3.1'
-
-  Tab.TRANSITION_DURATION = 150
-
-  Tab.prototype.show = function () {
-    var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
-    var selector = $this.data('target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
-    }
-
-    if ($this.parent('li').hasClass('active')) return
-
-    var $previous = $ul.find('.active:last a')
-    var hideEvent = $.Event('hide.bs.tab', {
-      relatedTarget: $this[0]
-    })
-    var showEvent = $.Event('show.bs.tab', {
-      relatedTarget: $previous[0]
-    })
-
-    $previous.trigger(hideEvent)
-    $this.trigger(showEvent)
-
-    if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return
-
-    var $target = $(selector)
-
-    this.activate($this.closest('li'), $ul)
-    this.activate($target, $target.parent(), function () {
-      $previous.trigger({
-        type: 'hidden.bs.tab',
-        relatedTarget: $this[0]
-      })
-      $this.trigger({
-        type: 'shown.bs.tab',
-        relatedTarget: $previous[0]
-      })
-    })
-  }
-
-  Tab.prototype.activate = function (element, container, callback) {
-    var $active    = container.find('> .active')
-    var transition = callback
-      && $.support.transition
-      && (($active.length && $active.hasClass('fade')) || !!container.find('> .fade').length)
-
-    function next() {
-      $active
-        .removeClass('active')
-        .find('> .dropdown-menu > .active')
-          .removeClass('active')
-        .end()
-        .find('[data-toggle="tab"]')
-          .attr('aria-expanded', false)
-
-      element
-        .addClass('active')
-        .find('[data-toggle="tab"]')
-          .attr('aria-expanded', true)
-
-      if (transition) {
-        element[0].offsetWidth // reflow for transition
-        element.addClass('in')
-      } else {
-        element.removeClass('fade')
-      }
-
-      if (element.parent('.dropdown-menu')) {
-        element
-          .closest('li.dropdown')
-            .addClass('active')
-          .end()
-          .find('[data-toggle="tab"]')
-            .attr('aria-expanded', true)
-      }
-
-      callback && callback()
-    }
-
-    $active.length && transition ?
-      $active
-        .one('bsTransitionEnd', next)
-        .emulateTransitionEnd(Tab.TRANSITION_DURATION) :
-      next()
-
-    $active.removeClass('in')
-  }
-
-
-  // TAB PLUGIN DEFINITION
-  // =====================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.tab')
-
-      if (!data) $this.data('bs.tab', (data = new Tab(this)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.tab
-
-  $.fn.tab             = Plugin
-  $.fn.tab.Constructor = Tab
-
-
-  // TAB NO CONFLICT
-  // ===============
-
-  $.fn.tab.noConflict = function () {
-    $.fn.tab = old
-    return this
-  }
-
-
-  // TAB DATA-API
-  // ============
-
-  var clickHandler = function (e) {
-    e.preventDefault()
-    Plugin.call($(this), 'show')
-  }
-
-  $(document)
-    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
-    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
-
-}(jQuery);
-/* ========================================================================
- * Bootstrap: transition.js v3.3.1
- * http://getbootstrap.com/javascript/#transitions
- * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-
-+function ($) {
-  'use strict';
-
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-  // ============================================================
-
-  function transitionEnd() {
-    var el = document.createElement('bootstrap')
-
-    var transEndEventNames = {
-      WebkitTransition : 'webkitTransitionEnd',
-      MozTransition    : 'transitionend',
-      OTransition      : 'oTransitionEnd otransitionend',
-      transition       : 'transitionend'
-    }
-
-    for (var name in transEndEventNames) {
-      if (el.style[name] !== undefined) {
-        return { end: transEndEventNames[name] }
-      }
-    }
-
-    return false // explicit for ie8 (  ._.)
-  }
-
-  // http://blog.alexmaccaw.com/css-transitions
-  $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
-    var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
-    return this
-  }
-
-  $(function () {
-    $.support.transition = transitionEnd()
-
-    if (!$.support.transition) return
-
-    $.event.special.bsTransitionEnd = {
-      bindType: $.support.transition.end,
-      delegateType: $.support.transition.end,
-      handle: function (e) {
-        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-      }
-    }
-  })
-
-}(jQuery);
-/* ========================================================================
- * Bootstrap: scrollspy.js v3.3.1
- * http://getbootstrap.com/javascript/#scrollspy
- * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-
-+function ($) {
-  'use strict';
-
-  // SCROLLSPY CLASS DEFINITION
-  // ==========================
-
-  function ScrollSpy(element, options) {
-    var process  = $.proxy(this.process, this)
-
-    this.$body          = $('body')
-    this.$scrollElement = $(element).is('body') ? $(window) : $(element)
-    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
-    this.selector       = (this.options.target || '') + ' .nav li > a'
-    this.offsets        = []
-    this.targets        = []
-    this.activeTarget   = null
-    this.scrollHeight   = 0
-
-    this.$scrollElement.on('scroll.bs.scrollspy', process)
-    this.refresh()
-    this.process()
-  }
-
-  ScrollSpy.VERSION  = '3.3.1'
-
-  ScrollSpy.DEFAULTS = {
-    offset: 10
-  }
-
-  ScrollSpy.prototype.getScrollHeight = function () {
-    return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-  }
-
-  ScrollSpy.prototype.refresh = function () {
-    var offsetMethod = 'offset'
-    var offsetBase   = 0
-
-    if (!$.isWindow(this.$scrollElement[0])) {
-      offsetMethod = 'position'
-      offsetBase   = this.$scrollElement.scrollTop()
-    }
-
-    this.offsets = []
-    this.targets = []
-    this.scrollHeight = this.getScrollHeight()
-
-    var self     = this
-
-    this.$body
-      .find(this.selector)
-      .map(function () {
-        var $el   = $(this)
-        var href  = $el.data('target') || $el.attr('href')
-        var $href = /^#./.test(href) && $(href)
-
-        return ($href
-          && $href.length
-          && $href.is(':visible')
-          && [[$href[offsetMethod]().top + offsetBase, href]]) || null
-      })
-      .sort(function (a, b) { return a[0] - b[0] })
-      .each(function () {
-        self.offsets.push(this[0])
-        self.targets.push(this[1])
-      })
-  }
-
-  ScrollSpy.prototype.process = function () {
-    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
-    var scrollHeight = this.getScrollHeight()
-    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
-    var offsets      = this.offsets
-    var targets      = this.targets
-    var activeTarget = this.activeTarget
-    var i
-
-    if (this.scrollHeight != scrollHeight) {
-      this.refresh()
-    }
-
-    if (scrollTop >= maxScroll) {
-      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
-    }
-
-    if (activeTarget && scrollTop < offsets[0]) {
-      this.activeTarget = null
-      return this.clear()
-    }
-
-    for (i = offsets.length; i--;) {
-      activeTarget != targets[i]
-        && scrollTop >= offsets[i]
-        && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-        && this.activate(targets[i])
-    }
-  }
-
-  ScrollSpy.prototype.activate = function (target) {
-    this.activeTarget = target
-
-    this.clear()
-
-    var selector = this.selector +
-        '[data-target="' + target + '"],' +
-        this.selector + '[href="' + target + '"]'
-
-    var active = $(selector)
-      .parents('li')
-      .addClass('active')
-
-    if (active.parent('.dropdown-menu').length) {
-      active = active
-        .closest('li.dropdown')
-        .addClass('active')
-    }
-
-    active.trigger('activate.bs.scrollspy')
-  }
-
-  ScrollSpy.prototype.clear = function () {
-    $(this.selector)
-      .parentsUntil(this.options.target, '.active')
-      .removeClass('active')
-  }
-
-
-  // SCROLLSPY PLUGIN DEFINITION
-  // ===========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.scrollspy')
-      var options = typeof option == 'object' && option
-
-      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.scrollspy
-
-  $.fn.scrollspy             = Plugin
-  $.fn.scrollspy.Constructor = ScrollSpy
-
-
-  // SCROLLSPY NO CONFLICT
-  // =====================
-
-  $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
-    return this
-  }
-
-
-  // SCROLLSPY DATA-API
-  // ==================
-
-  $(window).on('load.bs.scrollspy.data-api', function () {
-    $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
-      Plugin.call($spy, $spy.data())
-    })
-  })
-
-}(jQuery);
-/* ========================================================================
- * Bootstrap: modal.js v3.3.1
+ * Bootstrap: modal.js v3.3.4
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -38529,12 +39710,15 @@ angular.module("templates", []);
   // ======================
 
   var Modal = function (element, options) {
-    this.options        = options
-    this.$body          = $(document.body)
-    this.$element       = $(element)
-    this.$backdrop      =
-    this.isShown        = null
-    this.scrollbarWidth = 0
+    this.options             = options
+    this.$body               = $(document.body)
+    this.$element            = $(element)
+    this.$dialog             = this.$element.find('.modal-dialog')
+    this.$backdrop           = null
+    this.isShown             = null
+    this.originalBodyPad     = null
+    this.scrollbarWidth      = 0
+    this.ignoreBackdropClick = false
 
     if (this.options.remote) {
       this.$element
@@ -38545,7 +39729,7 @@ angular.module("templates", []);
     }
   }
 
-  Modal.VERSION  = '3.3.1'
+  Modal.VERSION  = '3.3.4'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -38579,6 +39763,12 @@ angular.module("templates", []);
 
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
+    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
+      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
+        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
+      })
+    })
+
     this.backdrop(function () {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
@@ -38590,7 +39780,6 @@ angular.module("templates", []);
         .show()
         .scrollTop(0)
 
-      if (that.options.backdrop) that.adjustBackdrop()
       that.adjustDialog()
 
       if (transition) {
@@ -38606,7 +39795,7 @@ angular.module("templates", []);
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        that.$dialog // wait for modal to slide in
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -38635,6 +39824,9 @@ angular.module("templates", []);
       .removeClass('in')
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
+      .off('mouseup.dismiss.bs.modal')
+
+    this.$dialog.off('mousedown.dismiss.bs.modal')
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
@@ -38695,13 +39887,18 @@ angular.module("templates", []);
       var doAnimate = $.support.transition && animate
 
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-        .prependTo(this.$element)
-        .on('click.dismiss.bs.modal', $.proxy(function (e) {
-          if (e.target !== e.currentTarget) return
-          this.options.backdrop == 'static'
-            ? this.$element[0].focus.call(this.$element[0])
-            : this.hide.call(this)
-        }, this))
+        .appendTo(this.$body)
+
+      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
+        if (this.ignoreBackdropClick) {
+          this.ignoreBackdropClick = false
+          return
+        }
+        if (e.target !== e.currentTarget) return
+        this.options.backdrop == 'static'
+          ? this.$element[0].focus()
+          : this.hide()
+      }, this))
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
@@ -38736,14 +39933,7 @@ angular.module("templates", []);
   // these following methods are used to handle overflowing modals
 
   Modal.prototype.handleUpdate = function () {
-    if (this.options.backdrop) this.adjustBackdrop()
     this.adjustDialog()
-  }
-
-  Modal.prototype.adjustBackdrop = function () {
-    this.$backdrop
-      .css('height', 0)
-      .css('height', this.$element[0].scrollHeight)
   }
 
   Modal.prototype.adjustDialog = function () {
@@ -38763,17 +39953,23 @@ angular.module("templates", []);
   }
 
   Modal.prototype.checkScrollbar = function () {
-    this.bodyIsOverflowing = document.body.scrollHeight > document.documentElement.clientHeight
+    var fullWindowWidth = window.innerWidth
+    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
+      var documentElementRect = document.documentElement.getBoundingClientRect()
+      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+    }
+    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
     this.scrollbarWidth = this.measureScrollbar()
   }
 
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+    this.originalBodyPad = document.body.style.paddingRight || ''
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
   Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', '')
+    this.$body.css('padding-right', this.originalBodyPad)
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
@@ -38837,15 +40033,15 @@ angular.module("templates", []);
   })
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.1
+ * Bootstrap: tooltip.js v3.3.4
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -38855,17 +40051,17 @@ angular.module("templates", []);
   // ===============================
 
   var Tooltip = function (element, options) {
-    this.type       =
-    this.options    =
-    this.enabled    =
-    this.timeout    =
-    this.hoverState =
+    this.type       = null
+    this.options    = null
+    this.enabled    = null
+    this.timeout    = null
+    this.hoverState = null
     this.$element   = null
 
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.1'
+  Tooltip.VERSION  = '3.3.4'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -38891,6 +40087,10 @@ angular.module("templates", []);
     this.$element  = $(element)
     this.options   = this.getOptions(options)
     this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)
+
+    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
+      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
+    }
 
     var triggers = this.options.trigger.split(' ')
 
@@ -39112,10 +40312,10 @@ angular.module("templates", []);
     this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
   }
 
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isHorizontal) {
+  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
     this.arrow()
-      .css(isHorizontal ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-      .css(isHorizontal ? 'top' : 'left', '')
+      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
+      .css(isVertical ? 'top' : 'left', '')
   }
 
   Tooltip.prototype.setContent = function () {
@@ -39128,7 +40328,7 @@ angular.module("templates", []);
 
   Tooltip.prototype.hide = function (callback) {
     var that = this
-    var $tip = this.tip()
+    var $tip = $(this.$tip)
     var e    = $.Event('hide.bs.' + this.type)
 
     function complete() {
@@ -39145,7 +40345,7 @@ angular.module("templates", []);
 
     $tip.removeClass('in')
 
-    $.support.transition && this.$tip.hasClass('fade') ?
+    $.support.transition && $tip.hasClass('fade') ?
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
@@ -39186,10 +40386,10 @@ angular.module("templates", []);
   }
 
   Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2  } :
-           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2  } :
+    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } :
+           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } :
            placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width   }
+        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
 
   }
 
@@ -39285,18 +40485,12 @@ angular.module("templates", []);
 
   function Plugin(option) {
     return this.each(function () {
-      var $this    = $(this)
-      var data     = $this.data('bs.tooltip')
-      var options  = typeof option == 'object' && option
-      var selector = options && options.selector
+      var $this   = $(this)
+      var data    = $this.data('bs.tooltip')
+      var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
-      if (selector) {
-        if (!data) $this.data('bs.tooltip', (data = {}))
-        if (!data[selector]) data[selector] = new Tooltip(this, options)
-      } else {
-        if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
-      }
+      if (!data && /destroy|hide/.test(option)) return
+      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -39316,14 +40510,14 @@ angular.module("templates", []);
   }
 
 }(jQuery);
+
 /* ========================================================================
- * Bootstrap: popover.js v3.3.1
+ * Bootstrap: popover.js v3.3.4
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
-
 
 
 +function ($) {
@@ -39338,7 +40532,7 @@ angular.module("templates", []);
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.1'
+  Popover.VERSION  = '3.3.4'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -39394,29 +40588,18 @@ angular.module("templates", []);
     return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
   }
 
-  Popover.prototype.tip = function () {
-    if (!this.$tip) this.$tip = $(this.options.template)
-    return this.$tip
-  }
-
 
   // POPOVER PLUGIN DEFINITION
   // =========================
 
   function Plugin(option) {
     return this.each(function () {
-      var $this    = $(this)
-      var data     = $this.data('bs.popover')
-      var options  = typeof option == 'object' && option
-      var selector = options && options.selector
+      var $this   = $(this)
+      var data    = $this.data('bs.popover')
+      var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
-      if (selector) {
-        if (!data) $this.data('bs.popover', (data = {}))
-        if (!data[selector]) data[selector] = new Popover(this, options)
-      } else {
-        if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
-      }
+      if (!data && /destroy|hide/.test(option)) return
+      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -39437,810 +40620,601 @@ angular.module("templates", []);
 
 }(jQuery);
 
+/* ========================================================================
+ * Bootstrap: scrollspy.js v3.3.4
+ * http://getbootstrap.com/javascript/#scrollspy
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
 
 
++function ($) {
+  'use strict';
 
+  // SCROLLSPY CLASS DEFINITION
+  // ==========================
 
+  function ScrollSpy(element, options) {
+    this.$body          = $(document.body)
+    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+    this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+    this.selector       = (this.options.target || '') + ' .nav li > a'
+    this.offsets        = []
+    this.targets        = []
+    this.activeTarget   = null
+    this.scrollHeight   = 0
 
+    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+    this.refresh()
+    this.process()
+  }
 
+  ScrollSpy.VERSION  = '3.3.4'
 
+  ScrollSpy.DEFAULTS = {
+    offset: 10
+  }
 
+  ScrollSpy.prototype.getScrollHeight = function () {
+    return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+  }
 
+  ScrollSpy.prototype.refresh = function () {
+    var that          = this
+    var offsetMethod  = 'offset'
+    var offsetBase    = 0
 
+    this.offsets      = []
+    this.targets      = []
+    this.scrollHeight = this.getScrollHeight()
 
-(function() {
-  var paintIt;
-
-  paintIt = function(element, backgroundColor, textColor) {
-    element.style.backgroundColor = backgroundColor;
-    if (textColor != null) {
-      return element.style.color = textColor;
+    if (!$.isWindow(this.$scrollElement[0])) {
+      offsetMethod = 'position'
+      offsetBase   = this.$scrollElement.scrollTop()
     }
-  };
+
+    this.$body
+      .find(this.selector)
+      .map(function () {
+        var $el   = $(this)
+        var href  = $el.data('target') || $el.attr('href')
+        var $href = /^#./.test(href) && $(href)
+
+        return ($href
+          && $href.length
+          && $href.is(':visible')
+          && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+      })
+      .sort(function (a, b) { return a[0] - b[0] })
+      .each(function () {
+        that.offsets.push(this[0])
+        that.targets.push(this[1])
+      })
+  }
+
+  ScrollSpy.prototype.process = function () {
+    var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+    var scrollHeight = this.getScrollHeight()
+    var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+    var offsets      = this.offsets
+    var targets      = this.targets
+    var activeTarget = this.activeTarget
+    var i
+
+    if (this.scrollHeight != scrollHeight) {
+      this.refresh()
+    }
+
+    if (scrollTop >= maxScroll) {
+      return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+    }
+
+    if (activeTarget && scrollTop < offsets[0]) {
+      this.activeTarget = null
+      return this.clear()
+    }
+
+    for (i = offsets.length; i--;) {
+      activeTarget != targets[i]
+        && scrollTop >= offsets[i]
+        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
+        && this.activate(targets[i])
+    }
+  }
+
+  ScrollSpy.prototype.activate = function (target) {
+    this.activeTarget = target
+
+    this.clear()
+
+    var selector = this.selector +
+      '[data-target="' + target + '"],' +
+      this.selector + '[href="' + target + '"]'
+
+    var active = $(selector)
+      .parents('li')
+      .addClass('active')
+
+    if (active.parent('.dropdown-menu').length) {
+      active = active
+        .closest('li.dropdown')
+        .addClass('active')
+    }
+
+    active.trigger('activate.bs.scrollspy')
+  }
+
+  ScrollSpy.prototype.clear = function () {
+    $(this.selector)
+      .parentsUntil(this.options.target, '.active')
+      .removeClass('active')
+  }
+
+
+  // SCROLLSPY PLUGIN DEFINITION
+  // ===========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.scrollspy')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.scrollspy
+
+  $.fn.scrollspy             = Plugin
+  $.fn.scrollspy.Constructor = ScrollSpy
+
+
+  // SCROLLSPY NO CONFLICT
+  // =====================
+
+  $.fn.scrollspy.noConflict = function () {
+    $.fn.scrollspy = old
+    return this
+  }
+
+
+  // SCROLLSPY DATA-API
+  // ==================
+
+  $(window).on('load.bs.scrollspy.data-api', function () {
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this)
+      Plugin.call($spy, $spy.data())
+    })
+  })
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: tab.js v3.3.4
+ * http://getbootstrap.com/javascript/#tabs
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // TAB CLASS DEFINITION
+  // ====================
+
+  var Tab = function (element) {
+    this.element = $(element)
+  }
+
+  Tab.VERSION = '3.3.4'
+
+  Tab.TRANSITION_DURATION = 150
+
+  Tab.prototype.show = function () {
+    var $this    = this.element
+    var $ul      = $this.closest('ul:not(.dropdown-menu)')
+    var selector = $this.data('target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    if ($this.parent('li').hasClass('active')) return
+
+    var $previous = $ul.find('.active:last a')
+    var hideEvent = $.Event('hide.bs.tab', {
+      relatedTarget: $this[0]
+    })
+    var showEvent = $.Event('show.bs.tab', {
+      relatedTarget: $previous[0]
+    })
+
+    $previous.trigger(hideEvent)
+    $this.trigger(showEvent)
+
+    if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return
+
+    var $target = $(selector)
+
+    this.activate($this.closest('li'), $ul)
+    this.activate($target, $target.parent(), function () {
+      $previous.trigger({
+        type: 'hidden.bs.tab',
+        relatedTarget: $this[0]
+      })
+      $this.trigger({
+        type: 'shown.bs.tab',
+        relatedTarget: $previous[0]
+      })
+    })
+  }
+
+  Tab.prototype.activate = function (element, container, callback) {
+    var $active    = container.find('> .active')
+    var transition = callback
+      && $.support.transition
+      && (($active.length && $active.hasClass('fade')) || !!container.find('> .fade').length)
+
+    function next() {
+      $active
+        .removeClass('active')
+        .find('> .dropdown-menu > .active')
+          .removeClass('active')
+        .end()
+        .find('[data-toggle="tab"]')
+          .attr('aria-expanded', false)
+
+      element
+        .addClass('active')
+        .find('[data-toggle="tab"]')
+          .attr('aria-expanded', true)
+
+      if (transition) {
+        element[0].offsetWidth // reflow for transition
+        element.addClass('in')
+      } else {
+        element.removeClass('fade')
+      }
+
+      if (element.parent('.dropdown-menu').length) {
+        element
+          .closest('li.dropdown')
+            .addClass('active')
+          .end()
+          .find('[data-toggle="tab"]')
+            .attr('aria-expanded', true)
+      }
+
+      callback && callback()
+    }
+
+    $active.length && transition ?
+      $active
+        .one('bsTransitionEnd', next)
+        .emulateTransitionEnd(Tab.TRANSITION_DURATION) :
+      next()
+
+    $active.removeClass('in')
+  }
+
+
+  // TAB PLUGIN DEFINITION
+  // =====================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.tab')
+
+      if (!data) $this.data('bs.tab', (data = new Tab(this)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.tab
+
+  $.fn.tab             = Plugin
+  $.fn.tab.Constructor = Tab
+
+
+  // TAB NO CONFLICT
+  // ===============
+
+  $.fn.tab.noConflict = function () {
+    $.fn.tab = old
+    return this
+  }
+
+
+  // TAB DATA-API
+  // ============
+
+  var clickHandler = function (e) {
+    e.preventDefault()
+    Plugin.call($(this), 'show')
+  }
+
+  $(document)
+    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
+    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: affix.js v3.3.4
+ * http://getbootstrap.com/javascript/#affix
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // AFFIX CLASS DEFINITION
+  // ======================
+
+  var Affix = function (element, options) {
+    this.options = $.extend({}, Affix.DEFAULTS, options)
+
+    this.$target = $(this.options.target)
+      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
+      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+
+    this.$element     = $(element)
+    this.affixed      = null
+    this.unpin        = null
+    this.pinnedOffset = null
+
+    this.checkPosition()
+  }
+
+  Affix.VERSION  = '3.3.4'
+
+  Affix.RESET    = 'affix affix-top affix-bottom'
+
+  Affix.DEFAULTS = {
+    offset: 0,
+    target: window
+  }
+
+  Affix.prototype.getState = function (scrollHeight, height, offsetTop, offsetBottom) {
+    var scrollTop    = this.$target.scrollTop()
+    var position     = this.$element.offset()
+    var targetHeight = this.$target.height()
+
+    if (offsetTop != null && this.affixed == 'top') return scrollTop < offsetTop ? 'top' : false
+
+    if (this.affixed == 'bottom') {
+      if (offsetTop != null) return (scrollTop + this.unpin <= position.top) ? false : 'bottom'
+      return (scrollTop + targetHeight <= scrollHeight - offsetBottom) ? false : 'bottom'
+    }
+
+    var initializing   = this.affixed == null
+    var colliderTop    = initializing ? scrollTop : position.top
+    var colliderHeight = initializing ? targetHeight : height
+
+    if (offsetTop != null && scrollTop <= offsetTop) return 'top'
+    if (offsetBottom != null && (colliderTop + colliderHeight >= scrollHeight - offsetBottom)) return 'bottom'
+
+    return false
+  }
+
+  Affix.prototype.getPinnedOffset = function () {
+    if (this.pinnedOffset) return this.pinnedOffset
+    this.$element.removeClass(Affix.RESET).addClass('affix')
+    var scrollTop = this.$target.scrollTop()
+    var position  = this.$element.offset()
+    return (this.pinnedOffset = position.top - scrollTop)
+  }
+
+  Affix.prototype.checkPositionWithEventLoop = function () {
+    setTimeout($.proxy(this.checkPosition, this), 1)
+  }
+
+  Affix.prototype.checkPosition = function () {
+    if (!this.$element.is(':visible')) return
+
+    var height       = this.$element.height()
+    var offset       = this.options.offset
+    var offsetTop    = offset.top
+    var offsetBottom = offset.bottom
+    var scrollHeight = $(document.body).height()
+
+    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
+    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
+    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
+
+    var affix = this.getState(scrollHeight, height, offsetTop, offsetBottom)
+
+    if (this.affixed != affix) {
+      if (this.unpin != null) this.$element.css('top', '')
+
+      var affixType = 'affix' + (affix ? '-' + affix : '')
+      var e         = $.Event(affixType + '.bs.affix')
+
+      this.$element.trigger(e)
+
+      if (e.isDefaultPrevented()) return
+
+      this.affixed = affix
+      this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
+
+      this.$element
+        .removeClass(Affix.RESET)
+        .addClass(affixType)
+        .trigger(affixType.replace('affix', 'affixed') + '.bs.affix')
+    }
+
+    if (affix == 'bottom') {
+      this.$element.offset({
+        top: scrollHeight - height - offsetBottom
+      })
+    }
+  }
+
+
+  // AFFIX PLUGIN DEFINITION
+  // =======================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.affix')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.affix
+
+  $.fn.affix             = Plugin
+  $.fn.affix.Constructor = Affix
+
+
+  // AFFIX NO CONFLICT
+  // =================
+
+  $.fn.affix.noConflict = function () {
+    $.fn.affix = old
+    return this
+  }
+
+
+  // AFFIX DATA-API
+  // ==============
+
+  $(window).on('load', function () {
+    $('[data-spy="affix"]').each(function () {
+      var $spy = $(this)
+      var data = $spy.data()
+
+      data.offset = data.offset || {}
+
+      if (data.offsetBottom != null) data.offset.bottom = data.offsetBottom
+      if (data.offsetTop    != null) data.offset.top    = data.offsetTop
+
+      Plugin.call($spy, data)
+    })
+  })
+
+}(jQuery);
+(function() {
+  $(function() {
+    return $('#redness').click(function() {
+      $(this).css('color', 'red');
+      return event.preventDefault();
+    });
+  });
 
 }).call(this);
-$('#my-link').click(function (event) {
-  alert('Hooray!');
-  event.preventDefault(); // Prevent link from following its href
-});
 (function() {
-  var CSRFToken, Click, ComponentUrl, EVENTS, Link, ProgressBar, browserIsntBuggy, browserSupportsCustomEvents, browserSupportsPushState, browserSupportsTurbolinks, bypassOnLoadPopstate, cacheCurrentPage, cacheSize, changePage, clone, constrainPageCacheTo, createDocument, crossOriginRedirect, currentState, enableProgressBar, enableTransitionCache, executeScriptTags, extractTitleAndBody, fetch, fetchHistory, fetchReplacement, historyStateIsDefined, initializeTurbolinks, installDocumentReadyPageEventTriggers, installHistoryChangeHandler, installJqueryAjaxSuccessPageUpdateTrigger, loadedAssets, manuallyTriggerHashChangeForFirefox, pageCache, pageChangePrevented, pagesCached, popCookie, processResponse, progressBar, recallScrollPosition, referer, reflectNewUrl, reflectRedirectedUrl, rememberCurrentState, rememberCurrentUrl, rememberReferer, removeNoscriptTags, requestMethodIsSafe, resetScrollPosition, setAutofocusElement, transitionCacheEnabled, transitionCacheFor, triggerEvent, visit, xhr, _ref,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-    __slice = [].slice,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  var app;
 
-  pageCache = {};
+  app = angular.module('Hello', []);
 
-  cacheSize = 10;
+  app.controller("HelloCntl", this.HelloCntl = function($scope) {
+    return $scope.name = 'World';
+  });
 
-  transitionCacheEnabled = false;
+}).call(this);
+$( document ).ready(function() {
 
-  progressBar = null;
+  $('#my-link').click(function (event) {
+    alert('Hooray!');
+    // $(this).css("color", "red");
+    event.preventDefault(); // Prevent link from following its href
+  });
 
-  currentState = null;
+});
 
-  loadedAssets = null;
 
-  referer = null;
 
-  xhr = null;
+(function() {
+  var app;
 
-  EVENTS = {
-    BEFORE_CHANGE: 'page:before-change',
-    FETCH: 'page:fetch',
-    RECEIVE: 'page:receive',
-    CHANGE: 'page:change',
-    UPDATE: 'page:update',
-    LOAD: 'page:load',
-    RESTORE: 'page:restore',
-    BEFORE_UNLOAD: 'page:before-unload',
-    EXPIRE: 'page:expire'
-  };
+  app = angular.module('Raffler', ['ngResource']);
 
-  fetch = function(url) {
-    var cachedPage;
-    url = new ComponentUrl(url);
-    rememberReferer();
-    cacheCurrentPage();
-    if (progressBar != null) {
-      progressBar.start();
-    }
-    if (transitionCacheEnabled && (cachedPage = transitionCacheFor(url.absolute))) {
-      fetchHistory(cachedPage);
-      return fetchReplacement(url, null, false);
-    } else {
-      return fetchReplacement(url, resetScrollPosition);
-    }
-  };
+  app.config(function($httpProvider) {
+    return $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  });
 
-  transitionCacheFor = function(url) {
-    var cachedPage;
-    cachedPage = pageCache[url];
-    if (cachedPage && !cachedPage.transitionCacheDisabled) {
-      return cachedPage;
-    }
-  };
-
-  enableTransitionCache = function(enable) {
-    if (enable == null) {
-      enable = true;
-    }
-    return transitionCacheEnabled = enable;
-  };
-
-  enableProgressBar = function(enable) {
-    if (enable == null) {
-      enable = true;
-    }
-    if (!browserSupportsTurbolinks) {
-      return;
-    }
-    if (enable) {
-      return progressBar != null ? progressBar : progressBar = new ProgressBar('html');
-    } else {
-      if (progressBar != null) {
-        progressBar.uninstall();
+  app.factory("Entry", function($resource) {
+    return $resource("/entries/:id.json", {
+      id: "@id"
+    }, {
+      update: {
+        method: "PUT"
       }
-      return progressBar = null;
-    }
-  };
-
-  fetchReplacement = function(url, onLoadFunction, showProgressBar) {
-    if (showProgressBar == null) {
-      showProgressBar = true;
-    }
-    triggerEvent(EVENTS.FETCH, {
-      url: url.absolute
     });
-    if (xhr != null) {
-      xhr.abort();
-    }
-    xhr = new XMLHttpRequest;
-    xhr.open('GET', url.withoutHashForIE10compatibility(), true);
-    xhr.setRequestHeader('Accept', 'text/html, application/xhtml+xml, application/xml');
-    xhr.setRequestHeader('X-XHR-Referer', referer);
-    xhr.onload = function() {
-      var doc;
-      triggerEvent(EVENTS.RECEIVE, {
-        url: url.absolute
+  });
+
+  app.controller("RaffleCtrl", this.RaffleCtrl = function($scope, Entry) {
+    $scope.entries = Entry.query();
+    $scope.addEntry = function($event) {
+      var entry;
+      $event.preventDefault();
+      entry = Entry.save($scope.newEntry);
+      $scope.entries.push(entry);
+      return $scope.newEntry = {};
+    };
+    return $scope.drawWinner = function() {
+      var entry, pool;
+      pool = [];
+      angular.forEach($scope.entries, function(entry) {
+        if (!entry.winner) {
+          return pool.push(entry);
+        }
       });
-      if (doc = processResponse()) {
-        reflectNewUrl(url);
-        reflectRedirectedUrl();
-        changePage.apply(null, extractTitleAndBody(doc));
-        manuallyTriggerHashChangeForFirefox();
-        if (typeof onLoadFunction === "function") {
-          onLoadFunction();
+      if (pool.length > 0) {
+        entry = pool[Math.floor(Math.random() * pool.length)];
+        entry.winner = true;
+        entry.$update();
+        return $scope.lastWinner = entry;
+      }
+    };
+  });
+
+  app.filter('orderObjectBy', [
+    function() {
+      return function(items, field, reverse) {
+        var filtered;
+        filtered = [];
+        angular.forEach(items, function(item) {
+          filtered.push(item);
+        });
+        filtered.sort(function(a, b) {
+          if (a[field] > b[field]) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
+        if (reverse) {
+          filtered.reverse();
         }
-        return triggerEvent(EVENTS.LOAD);
-      } else {
-        return document.location.href = crossOriginRedirect() || url.absolute;
-      }
-    };
-    if (progressBar && showProgressBar) {
-      xhr.onprogress = (function(_this) {
-        return function(event) {
-          var percent;
-          percent = event.lengthComputable ? event.loaded / event.total * 100 : progressBar.value + (100 - progressBar.value) / 10;
-          return progressBar.advanceTo(percent);
-        };
-      })(this);
-    }
-    xhr.onloadend = function() {
-      return xhr = null;
-    };
-    xhr.onerror = function() {
-      return document.location.href = url.absolute;
-    };
-    return xhr.send();
-  };
-
-  fetchHistory = function(cachedPage) {
-    if (xhr != null) {
-      xhr.abort();
-    }
-    changePage(cachedPage.title, cachedPage.body);
-    recallScrollPosition(cachedPage);
-    return triggerEvent(EVENTS.RESTORE);
-  };
-
-  cacheCurrentPage = function() {
-    var currentStateUrl;
-    currentStateUrl = new ComponentUrl(currentState.url);
-    pageCache[currentStateUrl.absolute] = {
-      url: currentStateUrl.relative,
-      body: document.body,
-      title: document.title,
-      positionY: window.pageYOffset,
-      positionX: window.pageXOffset,
-      cachedAt: new Date().getTime(),
-      transitionCacheDisabled: document.querySelector('[data-no-transition-cache]') != null
-    };
-    return constrainPageCacheTo(cacheSize);
-  };
-
-  pagesCached = function(size) {
-    if (size == null) {
-      size = cacheSize;
-    }
-    if (/^[\d]+$/.test(size)) {
-      return cacheSize = parseInt(size);
-    }
-  };
-
-  constrainPageCacheTo = function(limit) {
-    var cacheTimesRecentFirst, key, pageCacheKeys, _i, _len, _results;
-    pageCacheKeys = Object.keys(pageCache);
-    cacheTimesRecentFirst = pageCacheKeys.map(function(url) {
-      return pageCache[url].cachedAt;
-    }).sort(function(a, b) {
-      return b - a;
-    });
-    _results = [];
-    for (_i = 0, _len = pageCacheKeys.length; _i < _len; _i++) {
-      key = pageCacheKeys[_i];
-      if (!(pageCache[key].cachedAt <= cacheTimesRecentFirst[limit])) {
-        continue;
-      }
-      triggerEvent(EVENTS.EXPIRE, pageCache[key]);
-      _results.push(delete pageCache[key]);
-    }
-    return _results;
-  };
-
-  changePage = function(title, body, csrfToken, runScripts) {
-    triggerEvent(EVENTS.BEFORE_UNLOAD);
-    document.title = title;
-    document.documentElement.replaceChild(body, document.body);
-    if (csrfToken != null) {
-      CSRFToken.update(csrfToken);
-    }
-    setAutofocusElement();
-    if (runScripts) {
-      executeScriptTags();
-    }
-    currentState = window.history.state;
-    if (progressBar != null) {
-      progressBar.done();
-    }
-    triggerEvent(EVENTS.CHANGE);
-    return triggerEvent(EVENTS.UPDATE);
-  };
-
-  executeScriptTags = function() {
-    var attr, copy, nextSibling, parentNode, script, scripts, _i, _j, _len, _len1, _ref, _ref1;
-    scripts = Array.prototype.slice.call(document.body.querySelectorAll('script:not([data-turbolinks-eval="false"])'));
-    for (_i = 0, _len = scripts.length; _i < _len; _i++) {
-      script = scripts[_i];
-      if (!((_ref = script.type) === '' || _ref === 'text/javascript')) {
-        continue;
-      }
-      copy = document.createElement('script');
-      _ref1 = script.attributes;
-      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-        attr = _ref1[_j];
-        copy.setAttribute(attr.name, attr.value);
-      }
-      if (!script.hasAttribute('async')) {
-        copy.async = false;
-      }
-      copy.appendChild(document.createTextNode(script.innerHTML));
-      parentNode = script.parentNode, nextSibling = script.nextSibling;
-      parentNode.removeChild(script);
-      parentNode.insertBefore(copy, nextSibling);
-    }
-  };
-
-  removeNoscriptTags = function(node) {
-    node.innerHTML = node.innerHTML.replace(/<noscript[\S\s]*?<\/noscript>/ig, '');
-    return node;
-  };
-
-  setAutofocusElement = function() {
-    var autofocusElement, list;
-    autofocusElement = (list = document.querySelectorAll('input[autofocus], textarea[autofocus]'))[list.length - 1];
-    if (autofocusElement && document.activeElement !== autofocusElement) {
-      return autofocusElement.focus();
-    }
-  };
-
-  reflectNewUrl = function(url) {
-    if ((url = new ComponentUrl(url)).absolute !== referer) {
-      return window.history.pushState({
-        turbolinks: true,
-        url: url.absolute
-      }, '', url.absolute);
-    }
-  };
-
-  reflectRedirectedUrl = function() {
-    var location, preservedHash;
-    if (location = xhr.getResponseHeader('X-XHR-Redirected-To')) {
-      location = new ComponentUrl(location);
-      preservedHash = location.hasNoHash() ? document.location.hash : '';
-      return window.history.replaceState(window.history.state, '', location.href + preservedHash);
-    }
-  };
-
-  crossOriginRedirect = function() {
-    var redirect;
-    if (((redirect = xhr.getResponseHeader('Location')) != null) && (new ComponentUrl(redirect)).crossOrigin()) {
-      return redirect;
-    }
-  };
-
-  rememberReferer = function() {
-    return referer = document.location.href;
-  };
-
-  rememberCurrentUrl = function() {
-    return window.history.replaceState({
-      turbolinks: true,
-      url: document.location.href
-    }, '', document.location.href);
-  };
-
-  rememberCurrentState = function() {
-    return currentState = window.history.state;
-  };
-
-  manuallyTriggerHashChangeForFirefox = function() {
-    var url;
-    if (navigator.userAgent.match(/Firefox/) && !(url = new ComponentUrl).hasNoHash()) {
-      window.history.replaceState(currentState, '', url.withoutHash());
-      return document.location.hash = url.hash;
-    }
-  };
-
-  recallScrollPosition = function(page) {
-    return window.scrollTo(page.positionX, page.positionY);
-  };
-
-  resetScrollPosition = function() {
-    if (document.location.hash) {
-      return document.location.href = document.location.href;
-    } else {
-      return window.scrollTo(0, 0);
-    }
-  };
-
-  clone = function(original) {
-    var copy, key, value;
-    if ((original == null) || typeof original !== 'object') {
-      return original;
-    }
-    copy = new original.constructor();
-    for (key in original) {
-      value = original[key];
-      copy[key] = clone(value);
-    }
-    return copy;
-  };
-
-  popCookie = function(name) {
-    var value, _ref;
-    value = ((_ref = document.cookie.match(new RegExp(name + "=(\\w+)"))) != null ? _ref[1].toUpperCase() : void 0) || '';
-    document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/';
-    return value;
-  };
-
-  triggerEvent = function(name, data) {
-    var event;
-    if (typeof Prototype !== 'undefined') {
-      Event.fire(document, name, data, true);
-    }
-    event = document.createEvent('Events');
-    if (data) {
-      event.data = data;
-    }
-    event.initEvent(name, true, true);
-    return document.dispatchEvent(event);
-  };
-
-  pageChangePrevented = function(url) {
-    return !triggerEvent(EVENTS.BEFORE_CHANGE, {
-      url: url
-    });
-  };
-
-  processResponse = function() {
-    var assetsChanged, clientOrServerError, doc, extractTrackAssets, intersection, validContent;
-    clientOrServerError = function() {
-      var _ref;
-      return (400 <= (_ref = xhr.status) && _ref < 600);
-    };
-    validContent = function() {
-      var contentType;
-      return ((contentType = xhr.getResponseHeader('Content-Type')) != null) && contentType.match(/^(?:text\/html|application\/xhtml\+xml|application\/xml)(?:;|$)/);
-    };
-    extractTrackAssets = function(doc) {
-      var node, _i, _len, _ref, _results;
-      _ref = doc.querySelector('head').childNodes;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        node = _ref[_i];
-        if ((typeof node.getAttribute === "function" ? node.getAttribute('data-turbolinks-track') : void 0) != null) {
-          _results.push(node.getAttribute('src') || node.getAttribute('href'));
-        }
-      }
-      return _results;
-    };
-    assetsChanged = function(doc) {
-      var fetchedAssets;
-      loadedAssets || (loadedAssets = extractTrackAssets(document));
-      fetchedAssets = extractTrackAssets(doc);
-      return fetchedAssets.length !== loadedAssets.length || intersection(fetchedAssets, loadedAssets).length !== loadedAssets.length;
-    };
-    intersection = function(a, b) {
-      var value, _i, _len, _ref, _results;
-      if (a.length > b.length) {
-        _ref = [b, a], a = _ref[0], b = _ref[1];
-      }
-      _results = [];
-      for (_i = 0, _len = a.length; _i < _len; _i++) {
-        value = a[_i];
-        if (__indexOf.call(b, value) >= 0) {
-          _results.push(value);
-        }
-      }
-      return _results;
-    };
-    if (!clientOrServerError() && validContent()) {
-      doc = createDocument(xhr.responseText);
-      if (doc && !assetsChanged(doc)) {
-        return doc;
-      }
-    }
-  };
-
-  extractTitleAndBody = function(doc) {
-    var title;
-    title = doc.querySelector('title');
-    return [title != null ? title.textContent : void 0, removeNoscriptTags(doc.querySelector('body')), CSRFToken.get(doc).token, 'runScripts'];
-  };
-
-  CSRFToken = {
-    get: function(doc) {
-      var tag;
-      if (doc == null) {
-        doc = document;
-      }
-      return {
-        node: tag = doc.querySelector('meta[name="csrf-token"]'),
-        token: tag != null ? typeof tag.getAttribute === "function" ? tag.getAttribute('content') : void 0 : void 0
+        return filtered;
       };
-    },
-    update: function(latest) {
-      var current;
-      current = this.get();
-      if ((current.token != null) && (latest != null) && current.token !== latest) {
-        return current.node.setAttribute('content', latest);
-      }
     }
-  };
+  ]);
 
-  createDocument = function(html) {
-    var doc;
-    doc = document.documentElement.cloneNode();
-    doc.innerHTML = html;
-    doc.head = doc.querySelector('head');
-    doc.body = doc.querySelector('body');
-    return doc;
-  };
-
-  ComponentUrl = (function() {
-    function ComponentUrl(original) {
-      this.original = original != null ? original : document.location.href;
-      if (this.original.constructor === ComponentUrl) {
-        return this.original;
-      }
-      this._parse();
+  app.filter('sageApp', [
+    'segmentio', function(segmentio) {
+      return function(entry, category) {
+        segmentio.track(entry, category);
+      };
     }
-
-    ComponentUrl.prototype.withoutHash = function() {
-      return this.href.replace(this.hash, '').replace('#', '');
-    };
-
-    ComponentUrl.prototype.withoutHashForIE10compatibility = function() {
-      return this.withoutHash();
-    };
-
-    ComponentUrl.prototype.hasNoHash = function() {
-      return this.hash.length === 0;
-    };
-
-    ComponentUrl.prototype.crossOrigin = function() {
-      return this.origin !== (new ComponentUrl).origin;
-    };
-
-    ComponentUrl.prototype._parse = function() {
-      var _ref;
-      (this.link != null ? this.link : this.link = document.createElement('a')).href = this.original;
-      _ref = this.link, this.href = _ref.href, this.protocol = _ref.protocol, this.host = _ref.host, this.hostname = _ref.hostname, this.port = _ref.port, this.pathname = _ref.pathname, this.search = _ref.search, this.hash = _ref.hash;
-      this.origin = [this.protocol, '//', this.hostname].join('');
-      if (this.port.length !== 0) {
-        this.origin += ":" + this.port;
-      }
-      this.relative = [this.pathname, this.search, this.hash].join('');
-      return this.absolute = this.href;
-    };
-
-    return ComponentUrl;
-
-  })();
-
-  Link = (function(_super) {
-    __extends(Link, _super);
-
-    Link.HTML_EXTENSIONS = ['html'];
-
-    Link.allowExtensions = function() {
-      var extension, extensions, _i, _len;
-      extensions = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      for (_i = 0, _len = extensions.length; _i < _len; _i++) {
-        extension = extensions[_i];
-        Link.HTML_EXTENSIONS.push(extension);
-      }
-      return Link.HTML_EXTENSIONS;
-    };
-
-    function Link(link) {
-      this.link = link;
-      if (this.link.constructor === Link) {
-        return this.link;
-      }
-      this.original = this.link.href;
-      this.originalElement = this.link;
-      this.link = this.link.cloneNode(false);
-      Link.__super__.constructor.apply(this, arguments);
-    }
-
-    Link.prototype.shouldIgnore = function() {
-      return this.crossOrigin() || this._anchored() || this._nonHtml() || this._optOut() || this._target();
-    };
-
-    Link.prototype._anchored = function() {
-      return (this.hash.length > 0 || this.href.charAt(this.href.length - 1) === '#') && (this.withoutHash() === (new ComponentUrl).withoutHash());
-    };
-
-    Link.prototype._nonHtml = function() {
-      return this.pathname.match(/\.[a-z]+$/g) && !this.pathname.match(new RegExp("\\.(?:" + (Link.HTML_EXTENSIONS.join('|')) + ")?$", 'g'));
-    };
-
-    Link.prototype._optOut = function() {
-      var ignore, link;
-      link = this.originalElement;
-      while (!(ignore || link === document)) {
-        ignore = link.getAttribute('data-no-turbolink') != null;
-        link = link.parentNode;
-      }
-      return ignore;
-    };
-
-    Link.prototype._target = function() {
-      return this.link.target.length !== 0;
-    };
-
-    return Link;
-
-  })(ComponentUrl);
-
-  Click = (function() {
-    Click.installHandlerLast = function(event) {
-      if (!event.defaultPrevented) {
-        document.removeEventListener('click', Click.handle, false);
-        return document.addEventListener('click', Click.handle, false);
-      }
-    };
-
-    Click.handle = function(event) {
-      return new Click(event);
-    };
-
-    function Click(event) {
-      this.event = event;
-      if (this.event.defaultPrevented) {
-        return;
-      }
-      this._extractLink();
-      if (this._validForTurbolinks()) {
-        if (!pageChangePrevented(this.link.absolute)) {
-          visit(this.link.href);
-        }
-        this.event.preventDefault();
-      }
-    }
-
-    Click.prototype._extractLink = function() {
-      var link;
-      link = this.event.target;
-      while (!(!link.parentNode || link.nodeName === 'A')) {
-        link = link.parentNode;
-      }
-      if (link.nodeName === 'A' && link.href.length !== 0) {
-        return this.link = new Link(link);
-      }
-    };
-
-    Click.prototype._validForTurbolinks = function() {
-      return (this.link != null) && !(this.link.shouldIgnore() || this._nonStandardClick());
-    };
-
-    Click.prototype._nonStandardClick = function() {
-      return this.event.which > 1 || this.event.metaKey || this.event.ctrlKey || this.event.shiftKey || this.event.altKey;
-    };
-
-    return Click;
-
-  })();
-
-  ProgressBar = (function() {
-    var className;
-
-    className = 'turbolinks-progress-bar';
-
-    function ProgressBar(elementSelector) {
-      this.elementSelector = elementSelector;
-      this._trickle = __bind(this._trickle, this);
-      this.value = 0;
-      this.content = '';
-      this.speed = 300;
-      this.opacity = 0.99;
-      this.install();
-    }
-
-    ProgressBar.prototype.install = function() {
-      this.element = document.querySelector(this.elementSelector);
-      this.element.classList.add(className);
-      this.styleElement = document.createElement('style');
-      document.head.appendChild(this.styleElement);
-      return this._updateStyle();
-    };
-
-    ProgressBar.prototype.uninstall = function() {
-      this.element.classList.remove(className);
-      return document.head.removeChild(this.styleElement);
-    };
-
-    ProgressBar.prototype.start = function() {
-      return this.advanceTo(5);
-    };
-
-    ProgressBar.prototype.advanceTo = function(value) {
-      var _ref;
-      if ((value > (_ref = this.value) && _ref <= 100)) {
-        this.value = value;
-        this._updateStyle();
-        if (this.value === 100) {
-          return this._stopTrickle();
-        } else if (this.value > 0) {
-          return this._startTrickle();
-        }
-      }
-    };
-
-    ProgressBar.prototype.done = function() {
-      if (this.value > 0) {
-        this.advanceTo(100);
-        return this._reset();
-      }
-    };
-
-    ProgressBar.prototype._reset = function() {
-      var originalOpacity;
-      originalOpacity = this.opacity;
-      setTimeout((function(_this) {
-        return function() {
-          _this.opacity = 0;
-          return _this._updateStyle();
-        };
-      })(this), this.speed / 2);
-      return setTimeout((function(_this) {
-        return function() {
-          _this.value = 0;
-          _this.opacity = originalOpacity;
-          return _this._withSpeed(0, function() {
-            return _this._updateStyle(true);
-          });
-        };
-      })(this), this.speed);
-    };
-
-    ProgressBar.prototype._startTrickle = function() {
-      if (this.trickling) {
-        return;
-      }
-      this.trickling = true;
-      return setTimeout(this._trickle, this.speed);
-    };
-
-    ProgressBar.prototype._stopTrickle = function() {
-      return delete this.trickling;
-    };
-
-    ProgressBar.prototype._trickle = function() {
-      if (!this.trickling) {
-        return;
-      }
-      this.advanceTo(this.value + Math.random() / 2);
-      return setTimeout(this._trickle, this.speed);
-    };
-
-    ProgressBar.prototype._withSpeed = function(speed, fn) {
-      var originalSpeed, result;
-      originalSpeed = this.speed;
-      this.speed = speed;
-      result = fn();
-      this.speed = originalSpeed;
-      return result;
-    };
-
-    ProgressBar.prototype._updateStyle = function(forceRepaint) {
-      if (forceRepaint == null) {
-        forceRepaint = false;
-      }
-      if (forceRepaint) {
-        this._changeContentToForceRepaint();
-      }
-      return this.styleElement.textContent = this._createCSSRule();
-    };
-
-    ProgressBar.prototype._changeContentToForceRepaint = function() {
-      return this.content = this.content === '' ? ' ' : '';
-    };
-
-    ProgressBar.prototype._createCSSRule = function() {
-      return "" + this.elementSelector + "." + className + "::before {\n  content: '" + this.content + "';\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2000;\n  background-color: #0076ff;\n  height: 3px;\n  opacity: " + this.opacity + ";\n  width: " + this.value + "%;\n  transition: width " + this.speed + "ms ease-out, opacity " + (this.speed / 2) + "ms ease-in;\n  transform: translate3d(0,0,0);\n}";
-    };
-
-    return ProgressBar;
-
-  })();
-
-  bypassOnLoadPopstate = function(fn) {
-    return setTimeout(fn, 500);
-  };
-
-  installDocumentReadyPageEventTriggers = function() {
-    return document.addEventListener('DOMContentLoaded', (function() {
-      triggerEvent(EVENTS.CHANGE);
-      return triggerEvent(EVENTS.UPDATE);
-    }), true);
-  };
-
-  installJqueryAjaxSuccessPageUpdateTrigger = function() {
-    if (typeof jQuery !== 'undefined') {
-      return jQuery(document).on('ajaxSuccess', function(event, xhr, settings) {
-        if (!jQuery.trim(xhr.responseText)) {
-          return;
-        }
-        return triggerEvent(EVENTS.UPDATE);
-      });
-    }
-  };
-
-  installHistoryChangeHandler = function(event) {
-    var cachedPage, _ref;
-    if ((_ref = event.state) != null ? _ref.turbolinks : void 0) {
-      if (cachedPage = pageCache[(new ComponentUrl(event.state.url)).absolute]) {
-        cacheCurrentPage();
-        return fetchHistory(cachedPage);
-      } else {
-        return visit(event.target.location.href);
-      }
-    }
-  };
-
-  initializeTurbolinks = function() {
-    rememberCurrentUrl();
-    rememberCurrentState();
-    document.addEventListener('click', Click.installHandlerLast, true);
-    window.addEventListener('hashchange', function(event) {
-      rememberCurrentUrl();
-      return rememberCurrentState();
-    }, false);
-    return bypassOnLoadPopstate(function() {
-      return window.addEventListener('popstate', installHistoryChangeHandler, false);
-    });
-  };
-
-  historyStateIsDefined = window.history.state !== void 0 || navigator.userAgent.match(/Firefox\/2[6|7]/);
-
-  browserSupportsPushState = window.history && window.history.pushState && window.history.replaceState && historyStateIsDefined;
-
-  browserIsntBuggy = !navigator.userAgent.match(/CriOS\//);
-
-  requestMethodIsSafe = (_ref = popCookie('request_method')) === 'GET' || _ref === '';
-
-  browserSupportsTurbolinks = browserSupportsPushState && browserIsntBuggy && requestMethodIsSafe;
-
-  browserSupportsCustomEvents = document.addEventListener && document.createEvent;
-
-  if (browserSupportsCustomEvents) {
-    installDocumentReadyPageEventTriggers();
-    installJqueryAjaxSuccessPageUpdateTrigger();
-  }
-
-  if (browserSupportsTurbolinks) {
-    visit = fetch;
-    initializeTurbolinks();
-  } else {
-    visit = function(url) {
-      return document.location.href = url;
-    };
-  }
-
-  this.Turbolinks = {
-    visit: visit,
-    pagesCached: pagesCached,
-    enableTransitionCache: enableTransitionCache,
-    enableProgressBar: enableProgressBar,
-    allowLinkExtensions: Link.allowExtensions,
-    supported: browserSupportsTurbolinks,
-    EVENTS: clone(EVENTS)
-  };
+  ]);
 
 }).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
