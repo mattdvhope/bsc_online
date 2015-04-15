@@ -38,7 +38,13 @@ app.filter 'orderObjectBy', [ ->
       filtered
 ]
 
-
+app.filter 'sageApp', [
+  'segmentio'
+  (segmentio) ->
+    (entry, category) ->
+      segmentio.track entry, category
+      return
+]
 
 
 
