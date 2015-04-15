@@ -25,6 +25,16 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
       entry.$update()
       $scope.lastWinner = entry
 
+  $scope.removeWinner = ->
+    pool = []
+    angular.forEach $scope.entries, (entry) ->
+      pool.push(entry) if entry.winner
+    if pool.length > 0
+      entry = pool[Math.floor(Math.random()*pool.length)]
+      entry.winner = false
+      entry.$update()
+      $scope.lastWinner = entry
+
 app.filter 'orderObjectBy', [ ->
   'items'
   'field'
@@ -33,7 +43,6 @@ app.filter 'orderObjectBy', [ ->
       filtered = []
       angular.forEach items, (item) ->
         filtered.push item
-        return
       filtered.sort (a, b) ->
         if a[field] > b[field] then 1 else -1
       if reverse
