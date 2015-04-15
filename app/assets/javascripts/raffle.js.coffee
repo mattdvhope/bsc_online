@@ -1,14 +1,12 @@
 app = angular.module 'Raffler', ['ngResource', 'app.filters']
 
-app.config ["$httpProvider", ($httpProvider) ->
+app.config ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
-]
 
-app.factory "Entry", ["$resource", ($resource) ->
+app.factory "Entry", ($resource) ->
   $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
-]
 
-app.controller "RaffleCtrl", @RaffleCtrl = ["$scope", "Entry", ($scope, Entry) ->
+app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
   $scope.entries = Entry.query()
 
   $scope.addEntry = ($event) ->
@@ -26,10 +24,9 @@ app.controller "RaffleCtrl", @RaffleCtrl = ["$scope", "Entry", ($scope, Entry) -
       entry.winner = true
       entry.$update()
       $scope.lastWinner = entry
-]
 
 angular.module('app.filters', []).filter 'orderObjectBy', [ ->
-  ["items", "field", "reverse", (items, field, reverse) ->
+  (items, field, reverse) ->
       filtered = []
       angular.forEach items, (item) ->
         filtered.push item
@@ -39,7 +36,6 @@ angular.module('app.filters', []).filter 'orderObjectBy', [ ->
       if reverse
         filtered.reverse()
       filtered
-  ]
 ]
 
 
