@@ -29,16 +29,17 @@ app.controller "RaffleCtrl", @RaffleCtrl = ["$scope", "Entry", ($scope, Entry) -
 ]
 
 angular.module('app.filters', []).filter 'orderObjectBy', [ ->
-  (items, field, reverse) ->
-    filtered = []
-    angular.forEach items, (item) ->
-      filtered.push item
-      return
-    filtered.sort (a, b) ->
-      if a[field] > b[field] then 1 else -1
-    if reverse
-      filtered.reverse()
-    filtered
+  ["items", "field", "reverse", (items, field, reverse) ->
+      filtered = []
+      angular.forEach items, (item) ->
+        filtered.push item
+        return
+      filtered.sort (a, b) ->
+        if a[field] > b[field] then 1 else -1
+      if reverse
+        filtered.reverse()
+      filtered
+  ]
 ]
 
 
