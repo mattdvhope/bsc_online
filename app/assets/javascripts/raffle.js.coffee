@@ -26,6 +26,9 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
       $scope.lastWinner = entry
 
 app.filter 'orderObjectBy', [ ->
+  'items'
+  'field'
+  'reverse'
   (items, field, reverse) ->
       filtered = []
       angular.forEach items, (item) ->
@@ -37,16 +40,6 @@ app.filter 'orderObjectBy', [ ->
         filtered.reverse()
       filtered
 ]
-
-app.filter 'sageApp', [
-  'segmentio'
-  (segmentio) ->
-    (entry, category) ->
-      segmentio.track entry, category
-      return
-]
-
-
 
 
 
