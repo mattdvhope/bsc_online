@@ -4,8 +4,11 @@ app.config ["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 ]
 
-app.controller "RaffleCtrl", @RaffleCtrl = ($scope, $resource) ->
-  Entry = $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+app.factory "Entry", ["$resource", ($resource) ->
+  $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+app.controller "RaffleCtrl", @RaffleCtrl = ["$scope", "Entry", ($scope, Entry) ->
   $scope.entries = Entry.query()
 
   $scope.addEntry = ($event) ->
@@ -23,4 +26,4 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope, $resource) ->
       entry.winner = true
       entry.$update()
       $scope.lastWinner = entry
-
+]
