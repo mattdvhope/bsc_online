@@ -12,11 +12,13 @@
         %br
         %button{:type => 'submit'}
           Submit Entry
-      %ul
-        %li{:'ng-repeat' => "entry in entries | orderObjectBy: 'created_at' : direction"}
+      %ul.subnav
+        %li{:'ng-repeat' => "entry in entries | orderObjectBy: 'created_at'"}
           {{entry.name}}
           %span.winner{"ng-class" => "{highlight: entry == lastWinner}", "ng-show" => "entry.winner"} WINNER
       %button{"ng-click" => "drawWinner()"} Draw winner
+      %br
+      %button{"ng-click" => "removeWinner()"} Remove the winner
 
   %hr
   %hr
@@ -37,7 +39,8 @@
   -@assessment.questions.each do |question|
     %hr
     %h3=i.to_s + ". " + question.question_content
-    %span{:id => "question_#{question.id}"}= render 'answers_to_each_question', :question => question
+    %span{:id => "question_#{question.id}"}
+      = render 'answers_to_each_question', :question => question
     -i = i + 1
   = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
 
