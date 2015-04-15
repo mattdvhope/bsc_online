@@ -1,4 +1,4 @@
-app = angular.module 'Raffler', ['ngResource', 'app.filters']
+app = angular.module 'Raffler', ['ngResource']
 
 app.config ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
@@ -25,7 +25,7 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
       entry.$update()
       $scope.lastWinner = entry
 
-angular.module('app.filters', []).filter 'orderObjectBy', [ ->
+app.filter 'orderObjectBy', [ ->
   (items, field, reverse) ->
       filtered = []
       angular.forEach items, (item) ->
