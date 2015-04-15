@@ -1,4 +1,4 @@
-app = angular.module 'Raffler', ['ngResource']
+app = angular.module 'Raffler', ['ngResource', 'ngOrderObjectBy']
 
 app.config ["$httpProvider", ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
@@ -23,7 +23,4 @@ app.controller "RaffleCtrl", @RaffleCtrl = ($scope, $resource) ->
       entry.winner = true
       entry.$update()
       $scope.lastWinner = entry
-
-
-
 
