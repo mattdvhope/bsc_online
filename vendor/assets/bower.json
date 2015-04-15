@@ -4,6 +4,10 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
+    "angular-order-object-by": "latest",
     "bootstrap-sass-official": "latest"
+  },
+  "resolutions": {
+    "angular": "1.3.15"
   }
 }
