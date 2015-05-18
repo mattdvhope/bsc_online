@@ -15,6 +15,7 @@ class Admin::AssessmentsController < AdminsController
     @assessment = Assessment.new(assessment_params.merge!(course_id: Course.find(params[:course_id]).id))
     if @assessment.save
       flash[:success] = "You have created your \"#{@assessment.type_of}\" type of assessment."
+      instantiate_choices_for_person_building_assessment
       redirect_to curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
@@ -26,6 +27,7 @@ class Admin::AssessmentsController < AdminsController
   def update
     if @assessment.update(assessment_params)
       flash[:success] = "You have edited your assessment."
+      instantiate_choices_for_person_building_assessment
       redirect_to curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
@@ -43,5 +45,8 @@ class Admin::AssessmentsController < AdminsController
       params.require(:assessment).permit(:course_id, :part_id, :lesson_id, :type_of, :content, :audio, questions_attributes: [ :id, :question_content, :correct_answer_id, :_destroy, answers_attributes: [ :id, :answer_content, :choice, :correct, :student_id, :_destroy ] ])
     end
 
+    def instantiate_choices_for_person_building_assessment
+      @assessment.instantiate_new_choices_for_all_answers(current_user)      
+    end
 
 end
