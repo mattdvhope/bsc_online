@@ -24,7 +24,7 @@ gem 'haml-rails'
 gem 'bower-rails'
 # gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'angularjs-rails'
-gem 'angular-rails-templates' # Adds your HTML templates into Angular's $templateCache using Rails asset pipeline.
+gem 'angular-rails-templates' # This takes html templates and compiles them into javascript files that insert our templates into Angular's $templateCache. This allows us to move our templates into the app/assets/javascripts folder while referencing them in our app using the same syntax. We'll be grouping our files in the javascripts folder by feature. Having templates and javascript in the same folder may seem weird if you're used to Rails' directory structure, but it will make our project easier to navigate. See #1 in this list of top AngularJS mistakes.  Keep in mind that because this gem is changing HTML files to to javascript files, you want to avoid having two assets of the same basename (for example, posts.html and posts.js) in the same folder as sprockets will end up overwriting one of the files.
 # gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'sass-rails', '~> 5.0.0'
