@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show] do
-      resources :assessments, only: [:show]
+      resources :assessments, only: [:show, :edit, :update]
       namespace :admin do
         resources :assessments, only: [:index, :new, :create, :edit, :update]
       end
