@@ -4,6 +4,7 @@ class AssessmentsController < ApplicationController
 
   def show
     @assessment = Assessment.find(params[:id])
+    @assessment.instantiate_new_choices_for_all_answers(current_user)
     @answers_choices = @assessment.hash_of_answers_and_student_choices(current_user)
     @grade = grade_for_assessment_completed_button(@assessment)
     if @assessment.questions.size == 0 # This 'if' is only for when the admin first creates an assessment.  It's not for the regular user/student.
@@ -11,6 +12,16 @@ class AssessmentsController < ApplicationController
       @assessment.destroy
       redirect_to new_curriculum_course_admin_assessment_path
     end
+  end
+
+  def update
+    # Replace the 'show' method above with this 'update' method.
+    # In this method, 'update' the Assessment (in which the 'choice' & 'correct' attributes have been replaced by 'correctness' and 'chosen' ['chosen' is a boolean, set to default as 'false']; maybe drop the 'choices' table). 
+    # Create a 'simple_form_for' in the new 'update' template for this method.
+    # User radio buttons in the 'answers_to_each_question' partial.
+    # Radio buttons format:  See http://stackoverflow.com/questions/746387/labels-for-radio-buttons-in-rails-form
+    # <%= f.label :answer, 'answer content', :value => 'sms' %>
+    # If you make a partial, you'll need to have ALL FOUR radio buttons for EACH QUESTION in that partial.  The whole idea of radio buttons is to choose ONE from a GROUP.
   end
 
   private
