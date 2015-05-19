@@ -16,7 +16,7 @@ class Admin::AssessmentsController < AdminsController
     if @assessment.save
       flash[:success] = "You have created your \"#{@assessment.type_of}\" type of assessment."
       instantiate_choices_for_person_building_assessment
-      redirect_to curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
+      redirect_to edit_curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
       @course = Course.find(params[:course_id])
@@ -28,7 +28,7 @@ class Admin::AssessmentsController < AdminsController
     if @assessment.update(assessment_params)
       flash[:success] = "You have edited your assessment."
       instantiate_choices_for_person_building_assessment
-      redirect_to curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
+      redirect_to edit_curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
     else
       flash[:danger] = "Your inputs were invalid. Please try again."
       redirect_to edit_curriculum_course_admin_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment)
