@@ -1,0 +1,12 @@
+%section.site_title
+  %hr
+  = render 'intro_text', :current_user => current_user
+
+  %hr
+  %h3 Moved to Angular.js SPA
+  %hr
+
+  %hr
+  = render 'text_before_button', :current_user => current_user
+  = link_to "Click here when #{@assessment.type_of} completed", "/grades/#{@grade.id}", method: 'patch', class: 'btn btn-success'
+
