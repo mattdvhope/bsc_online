@@ -2,25 +2,9 @@
   %hr
   = render 'intro_text', :current_user => current_user
 
-  = simple_form_for [@assessment.course.curriculum, @assessment.course, :admin, @assessment], html: { class: 'form-horizontal' } do |f|
   %hr
-  -i = 1
-  -@assessment.questions.each do |question|
-    %hr
-    %h3=i.to_s + ". " + question.question_content
-    %span{:id => "question_#{question.id}"}
-      = question.answers.each do |answer|
-        %h3= answer.answer_content, :class => ['answer']
-
-
-
-    -i = i + 1
-
-
-
-
-
-  = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
+  %h3 Moved to Angular.js SPA
+  %hr
 
   %hr
   = render 'text_before_button', :current_user => current_user
