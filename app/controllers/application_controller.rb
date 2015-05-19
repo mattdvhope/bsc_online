@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
     def not_found_render_404
       session[:user_id] = nil
-      flash[:danger] = "Your 'Guest status' has timed out."
+      flash[:danger] = "Your 'Guest status' has timed out (or 404)."
       redirect_to :back
     end
 
