@@ -10,55 +10,11 @@
   %body
     #main-container.container
       .row
-    / Navigation
-    %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
-      .container
-        /
-          Brand and toggle get grouped for better mobile display
-        .navbar-header
-          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => root_path} BSC Online
-        / Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{:href => "#"} About
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Courses
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{:href => "#"} Bible English
-                %li
-                  %a{:href => "#"} Business English
-                %li
-                  %a{:href => "#"} Course 3
-            %li
-              %a{:href => sign_up_path} Register
-            %li
-              = link_to "Login", log_in_path unless current_user
-            %li
-              = link_to "Try it now!", users_path, method: :post unless current_user
-            %li
-              %a{:href => "#"} Contact
-            - if current_user
-              %li
-                = link_to "Log Out #{current_user.name}", log_out_path
-
+    = render 'layouts/nav'
     = render 'layouts/carousel' if controller_name == "pages" && !current_user
 
     / Page Content
     .container
       = render 'shared/messages'
       = yield
-      / Footer
-      %footer
-        .row
-          .col-lg-12
-            %hr
-            %p &copy 2015 BSC Online
+      = render 'layouts/footer'

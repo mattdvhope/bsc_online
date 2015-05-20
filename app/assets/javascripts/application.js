@@ -17,6 +17,7 @@
 //= require angular-route/angular-route
 //= require angular-resource/angular-resource
 //= require angular-rails-templates
+//= require angular-ui-router
 //= require bootstrap-sass-official
 //= require_tree .
 

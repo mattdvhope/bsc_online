@@ -1,4 +1,5 @@
 asset 'angular'
 asset 'angular-route'
 asset 'angular-resource'
+asset 'angular-ui-router'
 asset 'bootstrap-sass-official'
