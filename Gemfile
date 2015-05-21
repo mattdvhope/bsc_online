@@ -62,7 +62,7 @@ group :test do
 end
 
 gem "foreman"
-gem 'ngannotate-rails'
+# gem 'ngannotate-rails'
 
 group :production, :staging do
   gem "rails_12factor"
