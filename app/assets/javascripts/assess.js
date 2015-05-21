@@ -1,4 +1,15 @@
-var app = angular.module('assessApp', ['ui.router']);
+var app = angular.module('assessApp', ['ui.router', 'templates' ]);
 
+app.config([
+'$stateProvider',
+'$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
 
-alert("I am an alert box!");
+  $stateProvider
+    .state('assessment', {
+      url: '/assessment',
+      templateUrl: 'assessment/_assessment.html'
+    });
+
+  $urlRouterProvider.otherwise('assessment');
+}]);
