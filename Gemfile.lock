@@ -160,9 +160,6 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     netrc (0.10.2)
-    ngannotate-rails (0.15.4)
-      execjs
-      rails (>= 3.1)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     paratrooper (2.4.1)
@@ -325,7 +322,6 @@ DEPENDENCIES
   launchy
   letter_opener
   mini_magick
-  ngannotate-rails
   paratrooper
   passenger
   pg
