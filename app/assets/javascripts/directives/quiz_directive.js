@@ -1,6 +1,6 @@
 app = angular.module('assessApp');
 
-app.directive('quiz', function(quizFactory) {
+app.directive('quiz', ['quizFactory', function(quizFactory) {
   return {
     restrict: 'AE',
     scope: {},
@@ -53,4 +53,4 @@ app.directive('quiz', function(quizFactory) {
       scope.reset();
     }
   }
-});
+}]);
