@@ -1,4 +1,8 @@
-var app = angular.module('assessApp', ['ui.router', 'templates' ]);
+var app = angular.module('assessApp', [
+          'ui.router',
+          'templates',
+          'ngResource'
+          ]);
 
 app.config([
 '$stateProvider',
