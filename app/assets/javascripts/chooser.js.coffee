@@ -3,10 +3,10 @@ app = angular.module 'Chooser', ['ngResource']
 app.config ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 
-app.factory "Entry", ($resource) ->
+app.factory "Choice", ($resource) ->
   $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
 
-app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
+app.controller "ChoiceController", @RaffleCtrl = ($scope, Entry) ->
   $scope.entries = Entry.query()
 
   $scope.addEntry = ($event) ->
