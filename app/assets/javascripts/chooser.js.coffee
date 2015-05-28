@@ -4,16 +4,15 @@ app.config ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 
 app.factory "Choice", ($resource) ->
-  $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+  $resource("/choices/:id.json", {id: "@id"}, {update: {method: "PATCH"}})
 
-app.controller "ChoiceController", @RaffleCtrl = ($scope, Entry) ->
-  $scope.entries = Entry.query()
+app.controller "ChoiceController", @ChoiceController = ($scope, Choice) ->
+  # $scope.entries = Choice.query()
 
-  $scope.addEntry = ($event) ->
-    $event.preventDefault()
-    entry = Entry.save($scope.newEntry)
-    $scope.entries.push(entry)
-    $scope.newEntry = {}
+  $scope.selectChoice = ($event) ->
+    # $event.preventDefault()
+    # choice = Choice.$update()
+    alert(Choice);
 
   $scope.drawWinner = ->
     pool = []
