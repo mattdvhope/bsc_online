@@ -1,44 +1,42 @@
 %section.site_title
   %hr
   %hr
-  %hr
-  %div{ 'ng-app' => 'Raffler' }
-    %div{:'ng-controller' => 'RaffleCtrl'}
-      = form_tag("/", "ng-submit" => "addEntry($event)") do
-        %label
-          Entry
-        %br
-        %input{"ng-model" => "newEntry.name"}/
-        %br
-        %button{:type => 'submit'}
-          Submit Entry
-      %ul.subnav
-        %li{:'ng-repeat' => "entry in entries | orderObjectBy: 'created_at'"}
-          {{entry.name}}
-          %span.winner{"ng-class" => "{highlight: entry == lastWinner}", "ng-show" => "entry.winner"} WINNER
-      %button{"ng-click" => "drawWinner()"} Draw winner
-      %br
-      %button{"ng-click" => "removeWinner()"} Remove the winner
-
-  %hr
-  %hr
-  %hr
-  %hr
-  %hr
-  %hr
-  %hr
-  %hr
-  %hr
   = render 'intro_text', :current_user => current_user
   %hr
-  %div{ 'ng-app' => 'Raffler' }
-    %div{:'ng-controller' => 'RaffleCtrl'}
+  %div{ 'ng-app' => 'Chooser' }
+    %div{:'ng-controller' => 'ChoiceController'}
       -i = 1
       -@assessment.questions.each do |question|
         %hr
         %h3=i.to_s + ". " + question.question_content
         %span{:id => "question_#{question.id}"}
-          = render 'answers_to_each_question', :question => question
+          =# render 'answers_to_each_question', :question => question
+          - question.answers.each do |answer|
+
+            - choices = question.hash_of_answers_and_student_choices(current_user)
+
+            - choice = choices[answer]
+            - case choice.selected
+
+            - when true
+              %h3{"ng-click" => "selectChoice()"} #{answer}
+
+
+
+
+              %h3=# link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer', 'clicked_on'], remote: true
+
+            - when false
+              %h3.answer{"ng-click" => "selectChoice()"} #{answer.answer_content}
+
+
+
+              %h3=# link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer'], remote: true
+
+
+
+
+
         -i = i + 1
   = render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin?
 
