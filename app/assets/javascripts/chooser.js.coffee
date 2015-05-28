@@ -10,13 +10,19 @@ app.factory "Choice", ($resource) ->
     }
   )
 
-app.controller "ChoiceController", @ChoiceController = ($scope, Choice) ->
-  # $scope.choices = Choice.query()
+app.factory "Choices", ($resource) ->
+  $resource("/choices", {format: 'json'},
+    {
+      'query':  {method:'GET', isArray:true}
+    }
+  )
+
+app.controller "ChoiceController", @ChoiceController = ($scope, Choices, Choice) ->
+  $scope.choices = Choices.query()
 
   $scope.selectChoice = ($event) ->
     # $event.preventDefault()
-    choice = Choice.$update()
-    alert(Choice);
+    choice = Choice.update()
 
   $scope.drawWinner = ->
     pool = []
