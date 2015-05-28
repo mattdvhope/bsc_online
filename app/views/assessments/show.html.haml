@@ -21,20 +21,12 @@
             - when true
               %h3{"ng-click" => "selectChoice()"} #{answer}
 
-
-
-
               %h3=# link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer', 'clicked_on'], remote: true
 
             - when false
               %h3.answer{"ng-click" => "selectChoice()"} #{answer.answer_content}
 
-
-
               %h3=# link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer'], remote: true
-
-
-
 
 
         -i = i + 1
