@@ -4,7 +4,11 @@ app.config ($httpProvider) ->
   $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 
 app.factory "Entry", ($resource) ->
-  $resource("/entries/:id.json", {id: "@id"}, {update: {method: "PUT"}})
+  $resource("/entries/:id.json", {id: "@id", format: 'json'},
+    {
+      update: {method: "PUT"}
+    }
+  )
 
 app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
   $scope.entries = Entry.query()
