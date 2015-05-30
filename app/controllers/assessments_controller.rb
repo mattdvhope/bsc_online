@@ -13,21 +13,6 @@ class AssessmentsController < ApplicationController
     end
   end
 
-  def edit
-    @assessment = Assessment.find(params[:id])
-    @grade = grade_for_assessment_completed_button(@assessment)
-  end
-
-  def update
-    # Replace the 'show' method above with this 'update' method.
-    # In this method, 'update' the Assessment (in which the 'choice' & 'correct' attributes have been replaced by 'correctness' and 'chosen' ['chosen' is a boolean, set to default as 'false']; maybe drop the 'choices' table). 
-    # Create a 'simple_form_for' in the new 'update' template for this method.
-    # User radio buttons in the 'answers_to_each_question' partial.
-    # Radio buttons format:  See http://stackoverflow.com/questions/746387/labels-for-radio-buttons-in-rails-form
-    # <%= f.label :answer, 'answer content', :value => 'sms' %>
-    # If you make a partial, you'll need to have ALL FOUR radio buttons for EACH QUESTION in that partial.  The whole idea of radio buttons is to choose ONE from a GROUP.
-  end
-
   private
 
     def grade_for_assessment_completed_button(assessment)

@@ -1,6 +1,0 @@
-.nested-fields
-  %h3= f.label :question
-  .row
-    .col-sm-4
-  = f.simple_fields_for :answers do |answer|
-    = render 'answers', :f => answer

@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
-  # respond_to :html
+
   respond_to :json
+  respond_to :html
 
   def index
     respond_with Entry.all
