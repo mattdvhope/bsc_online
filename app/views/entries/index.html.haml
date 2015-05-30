@@ -8,7 +8,7 @@
       %br
       %button{:type => 'submit'}
         Submit Entry
-    %ul.subnav
+    %ol.subnav{:type => 'a'}
       %li{:'ng-repeat' => "entry in entries | orderObjectBy: 'created_at'"}
         {{entry.name}}
         %span.winner{"ng-class" => "{highlight: entry == lastWinner}", "ng-show" => "entry.winner"} WINNER
