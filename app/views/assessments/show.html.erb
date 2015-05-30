@@ -4,7 +4,7 @@
   <%= render 'intro_text', :current_user => current_user %>
   <hr/>
   <div ng-app="Chooser">
-    <div ng-controller="ChoiceController">
+    <div ng-controller="ChoicesController">
       <% i = 1 %>
       <% @assessment.questions.each do |question| %>
         <hr/>
@@ -12,10 +12,13 @@
           <%= i.to_s + ". " + question.question_content %>
         </h3>
         <span id="question_<%= question.id %>">
-          <ol>
-            <li ng-repeat="answer in question.answers | orderObjectBy: 'id'">
-              {{entry.name}}
-              <span class="winner" ng-class="{highlight: entry == lastWinner}" ng-show="entry.winner">WINNER</span>
+          <ol type="a">
+            <li ng-repeat="choice in choices | orderBy:'id'">
+              <span class="answer"  ng-class="{highlight: choice.selected == true}">
+                <h3 ng-click="selectChoice(choice)">
+                  {{choice.selected}}
+                </h3>
+              </span>
             </li>
           </ol>
           <% question.answers.each do |answer| %>
@@ -23,12 +26,12 @@
             <% choice = choices[answer] %>
             <% case choice.selected %>
             <% when true %>
-              <h3 ng-click="selectChoice()">#{answer}</h3>
+              <h3 ng-click="selectChoice()"><%= answer %></h3>
               <h3>
                 <%= link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer', 'clicked_on'], remote: true %>
               </h3>
             <% when false %>
-              <h3 ng-click="selectChoice()">#{answer.answer_content}</h3>
+              <h3 ng-click="selectChoice()"><%= answer.answer_content %></h3>
               <h3>
                 <%= link_to answer.answer_content, choice_path(choice), :method => :patch, :class => ['answer'], remote: true %>
               </h3>
@@ -37,8 +40,8 @@
         </span>
         <% i = i + 1 %>
       <% end %>
-    </div>
-  </div>
+    </div> <!-- choices controller -->
+  </div> <!-- app -->
   <%= render 'edit_and_view_assessments', :assessment => @assessment if current_user.overseer_admin? %>
   <hr/>
   <%= render 'text_before_button', :current_user => current_user %>
