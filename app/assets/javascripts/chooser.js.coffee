@@ -11,53 +11,34 @@ app.factory "Choice", ($resource) ->
   )
 
 app.factory "Choices", ($resource) ->
-  $resource("/choices", {format: 'json'},
+  $resource("/choices/:id", {id: "@id", format: 'json'},
     {
       'query':  {method:'GET', isArray:true}
     }
   )
 
-app.controller "ChoiceController", @ChoiceController = ($scope, Choices, Choice) ->
+app.controller "ChoicesController", @ChoicesController = ($scope, Choices, $http) ->
   $scope.choices = Choices.query()
 
-  $scope.selectChoice = ($event) ->
-    # $event.preventDefault()
-    choice = Choice.update()
+  $scope.selectChoice = (choice) ->
+    angular.forEach $scope.choices, (choice) ->
+      $http.put('/choices/' + choice.id + '.json').success (data) ->
+        choice.selected = false
+        # return
 
-  $scope.drawWinner = ->
-    pool = []
-    angular.forEach $scope.entries, (entry) ->
-      pool.push(entry) if !entry.winner
-    if pool.length > 0
-      entry = pool[Math.floor(Math.random()*pool.length)]
-      entry.winner = true
-      entry.$update()
-      $scope.lastWinner = entry
+    $http.put('/choices/' + choice.id + '.json').success (data) ->
+      choice.selected = true
+      return
 
-  $scope.removeWinner = ->
-    pool = []
-    angular.forEach $scope.entries, (entry) ->
-      pool.push(entry) if entry.winner
-    if pool.length > 0
-      entry = pool[Math.floor(Math.random()*pool.length)]
-      entry.winner = false
-      entry.$update()
-      $scope.lastWinner = entry
 
-app.filter 'orderObjectBy', [ ->
-  'items'
-  'field'
-  'reverse'
-  (items, field, reverse) ->
-      filtered = []
-      angular.forEach items, (item) ->
-        filtered.push item
-      filtered.sort (a, b) ->
-        if a[field] > b[field] then 1 else -1
-      if reverse
-        filtered.reverse()
-      filtered
-]
+
+
+
+
+
+
+
+
 
 
 
