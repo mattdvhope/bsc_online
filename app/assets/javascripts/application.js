@@ -14,9 +14,8 @@
 //= require jquery_ujs
 //= require cocoon
 //= require angular/angular
-//= require angular-ui-router/release/angular-ui-router
-//= require angular-resource/angular-resource
 //= require angular-rails-templates
+//= require angular-ui-router/release/angular-ui-router
 //= require bootstrap-sass-official
 //= require_tree .
 
