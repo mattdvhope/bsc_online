@@ -2,22 +2,9 @@ angular.module('assessment')
 
 .controller('AssessmentCtrl', [
 '$scope',
-function($scope){
-  // $scope.posts = posts.posts;
+'$http',
+function($scope, $http){
 
-  // $scope.addPost = function(){
-  //   if(!$scope.title || $scope.title === '') { return; }
+  $scope.assessment = $http.get('.json');
 
-  //   posts.create({
-  //     title: $scope.title,
-  //     link: $scope.link
-  //   });
-
-  //   $scope.title = '';
-  //   $scope.link = '';
-  // };
-
-  // $scope.incrementUpvotes = function(post) {
-  //   // posts.upvote(post);
-  // };
 }]);
