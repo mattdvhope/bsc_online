@@ -8,20 +8,30 @@ app.config([
   '$routeProvider',
   function($routeProvider) {
     $routeProvider
-      .when('/',
-        templateUrl: "home/_home.html"
-        controller: 'ThisCtrl'
-      )
+      .when('/', {
+      templateUrl: 'home/_home.html',
+      controller:  'ThisCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
 }]);
 
 app.controller('ThisCtrl', [
 '$scope',
-'Auth',
+'$resource',
 function($scope, $resource){
-  $resource("/entries/:id.json", {id: "@id", format: 'json'},
-    {
-      update: {method: "PUT"}
-    }
-  )
+  Assessment = $resource("/curriculums/:curriculum_id/courses/:course_id/assessments/:id",
+    {curriculum_id: "@curriculum_id", course_id: "@course_id", id: "@id", format: 'json'});
+
+  $scope.assessType = Assessment.get();
+
+  $scope.findType = function() {
+    $scope.description = 'This is a ' + $scope.assessType + '!';
+  };
 
 }]);
+
+
+
+

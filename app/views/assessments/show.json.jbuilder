@@ -1,1 +1,1 @@
-json.(assessment, :id, :course_id, :part_id, :lesson_id, :type_of)
+json.(@assessment, :id, :course_id, :part_id, :lesson_id, :type_of)
