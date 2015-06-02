@@ -3,6 +3,7 @@ class ChoicesController < ApplicationController
   respond_to :json
 
   def index
+# binding.pry
     choices = Choice.all.where(student_id: current_user.id)
     respond_with choices
   end
