@@ -6,7 +6,6 @@ class AssessmentsController < ApplicationController
 
   def show
     @assessment = Assessment.find(params[:id])
-    respond_with @assessment
     # @answers_choices = @assessment.hash_of_answers_and_student_choices(current_user)
     # @grade = grade_for_assessment_completed_button(@assessment)
     # if @assessment.questions.size == 0 # This 'if' is only for when the admin works on an assessment.  It's not for the regular user/student.
