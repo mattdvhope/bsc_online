@@ -2,7 +2,7 @@ class AssessmentsController < ApplicationController
 
   before_action :require_user
 
-  # respond_to :json
+  respond_to :json
 
   def show
     @assessment = Assessment.find(params[:id])

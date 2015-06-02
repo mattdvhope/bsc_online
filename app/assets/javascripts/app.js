@@ -1,34 +1,27 @@
-var app = angular.module('assessment', ['ui.router', 'templates']);
+app = angular.module('Assessment', [
+  'templates',
+  'ngRoute',
+  'ngResource'
+]);
 
 app.config([
-'$stateProvider',
-'$urlRouterProvider',
-function($stateProvider, $urlRouterProvider) {
+  '$routeProvider',
+  function($routeProvider) {
+    $routeProvider
+      .when('/',
+        templateUrl: "home/_home.html"
+        controller: 'ThisCtrl'
+      )
+}]);
 
-  $stateProvider
-    .state('assessment', {
-      url: '/assessments/{id}',
+app.controller('ThisCtrl', [
+'$scope',
+'Auth',
+function($scope, $resource){
+  $resource("/entries/:id.json", {id: "@id", format: 'json'},
+    {
+      update: {method: "PUT"}
+    }
+  )
 
-      templateUrl: 'assessment/_assessment.html',
-      controller: 'AssessmentCtrl'
-      // ,
-      // resolve: {
-      //   postPromise: ['posts', function(posts){
-      //     return posts.getAll();
-      //   }]
-      // }
-    })
-    .state('questions', {
-      url: '/questions',
-      controller: 'AssessmentCtrl'
-      // ,
-      // resolve: {
-      //   post: ['$stateParams', 'posts', function($stateParams, posts) {
-      //     return posts.get($stateParams.id);
-      //   }]
-      // }
-    });
-
-  $urlRouterProvider.otherwise('assessment');
-}])
-
+}]);
