@@ -11,7 +11,7 @@
   
   %h2=link_to "Practice Types", part_lesson_practices_path(@lesson.part, @lesson)
   
-  %h2=link_to "Quiz for this lesson", curriculum_course_assessment_path(@assessment.course.curriculum, @assessment.course, @assessment) if (@assessment && @assessment.available_for_student_to_view?(current_user))
+  %h2=link_to "Quiz for this lesson", appraisals_path if (@assessment && @assessment.available_for_student_to_view?(current_user))
 
 %br
 %br
