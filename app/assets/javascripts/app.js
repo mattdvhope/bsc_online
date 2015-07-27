@@ -1,4 +1,4 @@
-app = angular.module('Assessment', [
+app = angular.module('assessment', [
   'templates',
   'ngRoute',
   'ngResource'
@@ -10,24 +10,30 @@ app.config([
     $routeProvider
       .when('/', {
       templateUrl: 'home/_home.html',
-      controller:  'ThisCtrl'
+      controller:  'ThisController'
       })
       .otherwise({
         redirectTo: '/'
       });
 }]);
 
-app.controller('ThisCtrl', [
+app.controller('ThisController', [
 '$scope',
 '$resource',
 function($scope, $resource){
-  Assessment = $resource("/curriculums/:curriculum_id/courses/:course_id/assessments/:id",
-    {curriculum_id: "@curriculum_id", course_id: "@course_id", id: "@id", format: 'json'});
+  var Assess = $resource("/assessments/:id.json", {id: "@id", format: 'json'});
+  console.log(Assess);
+  console.log(Assess.get());
 
-  $scope.assessType = Assessment.get();
+  Assess.get(function(callbackdata){
+      //function is called on success
+      console.log(callbackdata);
+    }
+  );
 
   $scope.findType = function() {
-    $scope.description = 'This is a ' + $scope.assessType + '!';
+    $resolved = true;
+    $scope.description = 'This is a ' + Assess.type_of + '!';
   };
 
 }]);
