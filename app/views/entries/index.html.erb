@@ -1,0 +1,24 @@
+<div ng-app="Raffler">
+  <div ng-controller="RaffleCtrl">
+    <%= form_tag("/", "ng-submit" => "addEntry($event)") do %>
+      <label>
+        Entry
+      </label>
+      <br/>
+      <input ng-model="newEntry.name">/</input>
+      <br/>
+      <button type="submit">
+        Submit Entry
+      </button>
+    <% end %>
+    <ol class="subnav" type="a">
+      <li ng-repeat="entry in entries | orderObjectBy: 'created_at'">
+        {{entry.name}}
+        <span class="winner" ng-class="{highlight: entry == lastWinner}" ng-show="entry.winner">WINNER</span>
+      </li>
+    </ol>
+    <button ng-click="drawWinner()">Draw winner</button>
+    <br/>
+    <button ng-click="removeWinner()">Remove the winner</button>
+  </div>
+</div>
