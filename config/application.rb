@@ -31,6 +31,8 @@ module BscOnline
 
     # for Handlebars...
     HandlebarsAssets::Config.template_namespace
+    config.assets.initialize_on_precompile = false
+    
 
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
     config.assets.precompile.push(Proc.new do |path|
