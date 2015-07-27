@@ -123,6 +123,11 @@ GEM
       haml (>= 3.1, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    handlebars_assets (0.20.2)
+      execjs (~> 2.0)
+      multi_json (~> 1.0)
+      sprockets (>= 2.0.0, < 4.0)
+      tilt (~> 1.2)
     heroku-api (0.3.22)
       excon (~> 0.38)
       multi_json (~> 1.8)
@@ -314,6 +319,7 @@ DEPENDENCIES
   figaro
   foreman
   haml-rails
+  handlebars_assets
   jbuilder
   jquery-rails
   launchy
