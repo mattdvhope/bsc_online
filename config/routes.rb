@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :new]
 
-  resources :entries
-
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
 
