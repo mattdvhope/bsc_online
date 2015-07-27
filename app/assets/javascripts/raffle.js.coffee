@@ -11,7 +11,14 @@ app.factory "Entry", ($resource) ->
   )
 
 app.controller "RaffleCtrl", @RaffleCtrl = ($scope, Entry) ->
+  console.log(Entry)
   $scope.entries = Entry.query()
+  console.log($scope.entries)
+
+  Entry.query (callbackdata) ->
+    #function is called on success
+    console.log callbackdata
+    return
 
   $scope.addEntry = ($event) ->
     $event.preventDefault()
