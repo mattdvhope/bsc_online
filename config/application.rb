@@ -29,11 +29,6 @@ module BscOnline
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
 
-    # for Handlebars...
-    HandlebarsAssets::Config.template_namespace
-    config.assets.initialize_on_precompile = false
-    
-
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
     config.assets.precompile.push(Proc.new do |path|
       File.extname(path).in? [
