@@ -5,4 +5,4 @@
 //= require handlebars
 //= require bootstrap-sass-official
 
-//= require application/app
+//= require backbone/app
