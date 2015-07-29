@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'home', to: "courses#show", defaults: { id: 1 }
   get 'build', to: "pages#build"
 
-  resources :events, only: [:index, :new]
+  resources :tasks, only: :index
+
+  resources :events
+
 
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
