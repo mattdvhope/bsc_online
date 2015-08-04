@@ -4,8 +4,6 @@ var extend = function(child, parent) { for (var key in parent) { if (hasProp.cal
 App.Views.Events.New = (function(superClass) {
   extend(New, superClass);
 
-console.log("Hello from Backbone!!")
-
   function New() {
     return New.__super__.constructor.apply(this, arguments);
   }
