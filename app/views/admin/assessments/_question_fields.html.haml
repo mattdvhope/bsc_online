@@ -1,9 +1,0 @@
-.nested-fields
-  %h3= f.input :question_content
-  .row
-    .col-sm-4
-  = f.simple_fields_for :answers do |answer|
-    = render 'answer_fields', :f => answer
-  .links
-    %h3= link_to_add_association 'add answer', f, :answers
-  %h3= link_to_remove_association "remove question", f

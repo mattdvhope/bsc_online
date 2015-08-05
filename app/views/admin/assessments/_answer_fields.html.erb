@@ -1,0 +1,20 @@
+<div class="nested-fields">
+  <h3>
+    <%= f.input :answer_content %>
+  </h3>
+  <h2>
+    <%= f.label "Select whether this answer is 'Wrong' or 'Correct'?" %>
+  </h2>
+  <% if f.object.choice == "Correct" %>
+    <h2>
+      <%= f.select :choice, options_for_select(["Correct", "Wrong"]) %>
+    </h2>
+  <% else %>
+    <h2>
+      <%= f.select :choice, options_for_select(["Wrong", "Correct"]) %>
+    </h2>
+  <% end %>
+  <h3>
+    <%= link_to_remove_association "remove answer", f %>
+  </h3>
+</div>
