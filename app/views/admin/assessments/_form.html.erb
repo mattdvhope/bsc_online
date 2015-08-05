@@ -1,0 +1,42 @@
+<%= simple_form_for [@assessment.course.curriculum, @assessment.course, :admin, @assessment], html: { class: 'form-horizontal' } do |f| %>
+  <div class="row">
+    <div class="col-sm-4">
+      <hr/>
+      <h2>
+        <%= f.label "Type of Assessment" %>
+      </h2>
+      <h2>
+        <%= f.select :type_of, options_for_select(["Quiz", "Test", "Exam"]) %>
+      </h2>
+      <hr/>
+      <h2>
+        <%= f.label "Part (for Test and Quiz)" %>
+      </h2>
+      <h2>
+        <%= f.collection_select(:part_id, @assessment.course.parts, :id, :name, prompt: "- Choose which Part the 'Test' or 'Quiz' is for. -") %>
+      </h2>
+      <hr/>
+      <h2>
+        <%= f.label "Lesson (only for Quiz)" %>
+      </h2>
+      <h2>
+        <%= f.collection_select(:lesson_id, @assessment.course.lessons, :id, :name, prompt: "- Choose which Lesson this Assessment is for. -") %>
+      </h2>
+      <hr/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= f.simple_fields_for :questions do |question| %>
+        <%= render 'question_fields', :f => question %>
+      <% end %>
+      <div class="links">
+        <h3>
+          <%= link_to_add_association 'add question', f, :questions %>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <%= f.submit @assessment.new_record? ? "Build new Assessment" : "Edit this #{@assessment.type_of}", class: 'btn btn-success' %>
+<% end %>
