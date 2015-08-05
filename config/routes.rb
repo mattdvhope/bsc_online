@@ -4,20 +4,17 @@ Rails.application.routes.draw do
   get 'home', to: "courses#show", defaults: { id: 1 }
   get 'build', to: "pages#build"
 
-  resources :tasks, only: :index
-
   resources :events
-
 
   get 'sign_up', to: "users#new"
   resources :users, only: [:create]
 
   resources :appraisals, only: [:index]
 
-  resources :assessments, only: [:show, :edit, :update]
 
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show] do
+      resources :assessments, only: [:show, :edit, :update]
       namespace :admin do
         resources :assessments, only: [:index, :new, :create, :edit, :update]
       end
