@@ -184,13 +184,11 @@ answer10_4 = Answer.create(question_id: 10, answer_content: "Answer to question 
 
 admin = Role.create(overseer_id: 1, name: 'Admin')
 
-Entry.create!(name: "Matz") # Must make JSON API so that we can communicate with AngularJS.
-Entry.create!(name: "DHH")
-Entry.create!(name: "Jose Valim")
-Entry.create!(name: "Avdi Grimm")
-Entry.create!(name: "Steve Kabnik")
-Entry.create!(name: "Aaron Patterson")
-
+Event.create(name: "Event #1", month: 3, date: 25, notes: "This is Event #1.")
+Event.create(name: "Event #2", month: 1, date: 5, notes: "This is Event #2.")
+Event.create(name: "Event #3", month: 12, date: 15, notes: "This is Event #3.")
+Event.create(name: "Event #4", month: 2, date: 3, notes: "This is Event #4.")
+Event.create(name: "Event #5", month: 8, date: 21, notes: "This is Event #5.")
 
 
 
