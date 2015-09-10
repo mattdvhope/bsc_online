@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>BSC Online</title>
+    <%= Gon::Base.render_data %>
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <%= favicon_link_tag "favicon.ico" %>
   </head>
   <body>
@@ -18,7 +19,7 @@
     <!-- Page Content-->
     <div class="container">
       <%= render 'shared/messages' %>
-      <%= yield %> <!-- Without any arguments, yield will render the template of the current controller/action. For example, if I'm in the 'practices' controller & its index action, 'yield' will render the 'practices' index template. -->
+      <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
   </body>
