@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Event.all  # GET /events
+    respond_with @events = Event.all
+    gon.jbuilder
   end
 
   def new

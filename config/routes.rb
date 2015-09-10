@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :appraisals, only: [:index]
 
-
   resources :curriculums, only: [:index, :show] do
     resources :courses, only: [:show] do
       resources :assessments, only: [:show, :edit, :update]
