@@ -122,6 +122,11 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
     haml (4.1.0.beta.1)
       tilt
     haml-rails (0.7.0)
@@ -326,6 +331,7 @@ DEPENDENCIES
   faker
   figaro
   foreman
+  gon
   haml-rails
   handlebars_assets
   jbuilder
