@@ -5,10 +5,12 @@
     </h1>
   <hr/>
   <% @assessment.questions.each do |question|  %>
-    <h2><%= question.question_content %></h2>
+    <div>
+      <h2><%= question.question_content %></h2>
       <% question.answers.each do |answer|  %>
-        <h3 class="answer"><%= link_to answer.answer_content, "#" %></h3>
+        <h3 class="answer" ><%= link_to answer.answer_content, root_path %></h3>
       <% end %>
+    </div>
   <% end %>
   
 </section>
