@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :choices, only: [:index, :show, :update]
+  resources :choices, only: [:index, :show, :edit, :update]
 
   resources :grades, only: [:show, :index, :update]
 
