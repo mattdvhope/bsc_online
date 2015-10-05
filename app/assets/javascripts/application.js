@@ -6,4 +6,5 @@
 //= require handlebars
 //= require bootstrap-sass-official
 
-//= require backbone/app
+//= require_self
+//= require assessment
