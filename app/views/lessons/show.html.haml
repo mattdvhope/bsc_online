@@ -13,8 +13,6 @@
 
   %h2=link_to "Quiz for this lesson", curriculum_course_assessment_path(@lesson.part.course.curriculum, @lesson.part.course, @lesson.assessments.first)
   
-  / %h2=link_to "Quiz for this lesson", appraisals_path if (@assessment && @assessment.available_for_student_to_view?(current_user))
-
 %br
 %br
 
