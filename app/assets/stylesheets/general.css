@@ -1,0 +1,187 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding-top: 50px;
+}
+
+a {
+  color: #338533;
+}
+
+a.brown {
+  color: #996633;
+}
+
+.container {
+  font-family: "Times New Roman", Georgia, Serif;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Georgia, Serif;
+}
+
+.navbar-brand {
+  font-family: 'Courgette', cursive;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.page-header {
+  margin-top: 20px;
+}
+
+section.site_title, h3.top_of_site, .top_nav {
+  background: white;
+  padding: 30px;
+  margin-top: 30px;
+  color: #3d3d5c;
+}
+
+span.answer {
+  color: #006600;
+}
+
+span.winner {
+  color: #3300ff;
+  background: #eff3ff;
+}
+
+span.highlight {
+  color: #3300ff;
+  background: #cc0000;
+}
+
+h4.heading {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.img-portfolio {
+  margin-bottom: 30px;
+}
+
+header.carousel {
+  height: 50%;
+}
+
+header.carousel .item {
+  height: 100%;
+}
+
+header.carousel .carousel-inner {
+  height: 100%;
+}
+
+header.carousel .fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.black_field {
+  color: black;
+}
+
+.error-404 {
+  font-size: 100px;
+}
+
+.price {
+  display: block;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+.price sup {
+  top: -20px;
+  left: 2px;
+  font-size: 20px;
+}
+
+.period {
+  display: block;
+  font-style: italic;
+}
+
+footer {
+  margin: 50px 0;
+}
+
+@media (max-width: 991px) {
+  .customer-img {
+    margin-bottom: 30px;
+  }
+  .img-related {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .img-portfolio {
+    margin-bottom: 15px;
+  }
+  header.carousel .carousel {
+    height: 70%;
+  }
+}
+
+.img-hover:hover {
+  opacity: 0.8;
+}
+
+.progress {
+  background: rgba(245, 245, 245, 1);
+  border: 0px solid rgba(184, 114, 114, 1);
+  border-radius: 9px;
+  height: 19px;
+}
+
+.progress-bar-course {
+  background: rgba(139, 0, 0, 1);
+}
+
+.progress-bar-part {
+  background: rgba(125, 38, 205, 1);
+}
+
+.progress-bar-lesson {
+  background: rgba(55, 100, 184, 1)
+}
+
+.btn {
+  font-size: 20px;
+  font-family: "Times New Roman", Georgia, Serif;
+}
+
+.btn-default {
+  color: #1874CD;
+}
+
+.right-caret {
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #000000;
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
+}
+
+.down-caret {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000000;
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
+}
+
+
+
+
