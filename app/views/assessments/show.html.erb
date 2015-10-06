@@ -8,7 +8,10 @@
     <div>
       <h2><%= question.question_content %></h2>
       <% question.answers.each do |answer|  %>
-        <h3 class="answer" ><%= link_to answer.answer_content, root_path %></h3>
+        <h3 class="answer" >
+          <% choice = current_user.choices.where(answer_id: answer.id).first %>
+          <%= link_to answer.answer_content, edit_choice_path(choice), remote: true, :class => ("brown" if choice.selected == true) %>
+        </h3>
       <% end %>
     </div>
   <% end %>
