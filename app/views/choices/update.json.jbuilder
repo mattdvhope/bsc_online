@@ -1,1 +1,0 @@
-json.(@choice, :id, :answer_id, :student_id, :selected)
