@@ -4,6 +4,12 @@
       <%= "\"#{@course.name}\" is under construction.  Here is a description of #{@course.name}. Please come back in the future!" %>
     </h2>
     <hr/>
+    <h2><%= "Here is a video preview of #{@course.name}..." %></h2>
+    <div id="videoDiv">
+      <iframe allowtransparency="true" class="wistia_embed" frameborder="0" height="388" name="wistia_embed" scrolling="no" src="//fast.wistia.net/embed/iframe/l6fwvs4945" width="490"></iframe>
+      <script src="//fast.wistia.net/assets/external/E-v1.js"></script>
+    </div>
+    <hr/>
     <h2>
       <%= "The only course available now is \"#{link_to 'Bible English', curriculum_course_path(@course.curriculum, 1)}\". You are welcome to study it".html_safe %>
     </h2>
