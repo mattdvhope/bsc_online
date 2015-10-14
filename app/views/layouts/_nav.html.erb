@@ -41,7 +41,7 @@
           <%= link_to "Try it now!", users_path, method: :post unless current_user %>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <%= link_to "Contact", contact_path %>
         </li>
         <% if current_user %>
           <li>
