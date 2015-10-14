@@ -1,7 +1,0 @@
-%section.site_title
-  %h1
-    Our curricula at BSC English Online...
-  %hr
-    - @curriculums.each do |curriculum|
-      %h3
-        = link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary'

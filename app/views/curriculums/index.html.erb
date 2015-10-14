@@ -1,0 +1,12 @@
+<section class="site_title">
+  <h1>
+    Our curricula at BSC English Online...
+  </h1>
+  <hr>
+    <% @curriculums.each do |curriculum| %>
+      <h3>
+        <%= link_to curriculum.name, curriculum_path(curriculum), class: 'btn btn-primary' %>
+      </h3>
+    <% end %>
+  </hr>
+</section>
