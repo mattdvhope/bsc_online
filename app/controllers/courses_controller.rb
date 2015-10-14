@@ -1,11 +1,16 @@
 class CoursesController < ApplicationController
 
-  before_action :require_user, :only => [:show]
+  # before_action :require_user, :only => [:show]
 
   def show
     @course = Course.find(params[:id])
     if @course.id != 1
       render 'under_construction'
+    else
+      unless current_user
+        flash[:warning] = "To look at this 'Activated course,' please click 'Try it now!' above."
+        require_user
+      end
     end
     @assessment = @course.provide_assessment_object # method from lib/assessment_providable.rb
     if @assessment
