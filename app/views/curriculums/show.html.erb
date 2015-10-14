@@ -10,7 +10,11 @@
       </h3>
       <% curriculum.courses.each do |course| %>
         <h4>
-          <%= link_to course.name, curriculum_course_path(curriculum, course), class: 'btn btn-success' %>
+          <% if course.id == 1 %>
+            <%= link_to course.name + " (Activated, take a look!)", curriculum_course_path(curriculum, course), class: 'btn btn-info' %>
+          <% else %>
+            <%= link_to course.name + " (Under Construction)", curriculum_course_path(curriculum, course), class: 'btn btn-success' %>
+          <% end %>
         </h4>
       <% end %>
     <% end %>
