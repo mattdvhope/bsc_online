@@ -1,22 +1,17 @@
 <section class="site_title">
   <h3>
-    <%= link_to "<< Back to BSC Curricula Page", curriculums_path, class: 'btn btn-primary' %>
+    <%= link_to "List of all BSC Curricula", curriculums_path, class: 'btn btn-primary' %>
   </h3>
-  <h2>
-    <%= "Here are our current course offerings in \"#{@curriculum.name}\"..." %>
-    <% @curriculums.each do |curriculum| %>
-      <h3>
-        <%= curriculum.name %>
-      </h3>
-      <% curriculum.courses.each do |course| %>
-        <h4>
+  <h2><%= "Here are our current course offerings in \"#{@curriculum.name}\"..." %></h2>
+    <% @curriculum.courses.each do |course| %>
+      <h4>
+        <%= link_to curriculum_course_path(@curriculum, course) do %>
           <% if course.id == 1 %>
-            <%= link_to course.name + " (Activated, take a look!)", curriculum_course_path(curriculum, course), class: 'btn btn-info' %>
+            <%= content_tag :span, course.name + " (Activated!)", :class => "btn btn-info" %>
           <% else %>
-            <%= link_to course.name + " (Under Construction)", curriculum_course_path(curriculum, course), class: 'btn btn-success' %>
+            <%= content_tag :span,course.name + " (Under Construction)", :class => "btn btn-success" %>
           <% end %>
-        </h4>
-      <% end %>
+        <% end %>
+      </h4>
     <% end %>
-  </h2>
 </section>
