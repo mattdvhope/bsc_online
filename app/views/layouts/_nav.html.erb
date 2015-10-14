@@ -26,12 +26,9 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <a href="#">BSC Core Courses for Thais</a>
-            </li>
-            <li>
-              <a href="#">BSC Special Courses for Thais</a>
-            </li>
+            <% Curriculum.all.each do |curriculum| %>
+              <li><%= link_to curriculum.name, curriculum_path(curriculum) %></li>
+            <% end %>
           </ul>
         </li>
         <li>
