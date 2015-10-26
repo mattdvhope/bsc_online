@@ -12,12 +12,24 @@
       <div class="col-md-8">
         <nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
           <ul class="nav navbar-nav navbar-right menu">
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  Curricula
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% Curriculum.all.each do |curriculum| %>
+                    <li><%= link_to curriculum.name, curriculum_path(curriculum) %></li>
+                  <% end %>
+                </ul>
+              </li>
+
+
+
               <li><a href="#page-top" id="place_1" class="page-scroll">Home</a></li>
               <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
               <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
-              <li><a href="#" id="place_4" class="page-scroll">Worldview?</a></li>
-              <li><a href="#" id="" class="page-scroll">Friends</a></li>
-              <li><a href="#" id="" class="page-scroll">Volunteers</a></li>
               <li><a href="#login" id="" class="page-scroll">Login</a></li>
           </ul>
         </nav>
