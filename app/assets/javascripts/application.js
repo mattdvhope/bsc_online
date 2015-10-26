@@ -6,5 +6,8 @@
 //= require handlebars
 //= require bootstrap-sass-official
 
-//= require_self
+
 //= require assessment
+
+//= require lightbox.min
+//= require transitions
