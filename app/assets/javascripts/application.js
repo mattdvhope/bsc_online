@@ -1,11 +1,12 @@
+//= require js-routes
 //= require jquery
 //= require jquery_ujs
 //= require cocoon
-//= require underscore
-//= require backbone
-//= require handlebars
+//= require handlebars.runtime
+//= require underscore/underscore
+//= require backbone/backbone
+//= require backbone-nested-attributes/all
 //= require bootstrap-sass-official
-
 
 //= require assessment
 
