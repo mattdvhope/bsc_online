@@ -25,10 +25,6 @@ module BscOnline
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # for Bower...
-    config.assets.paths << Rails.root.join("vendor","assets","bower_components")
-    config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
-
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
     config.assets.precompile.push(Proc.new do |path|
       File.extname(path).in? [
