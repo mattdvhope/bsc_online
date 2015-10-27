@@ -30,8 +30,6 @@ module BscOnline
       config.sass.load_paths << bower_path
       config.assets.paths << bower_path
     end
-    # Precompile Bootstrap fonts
-    config.assets.precompile << %r(bootstrap-sass-official/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
 
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
     config.assets.precompile.push(Proc.new do |path|
