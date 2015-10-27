@@ -1,4 +1,4 @@
-asset 'angular'
-asset 'angular-route'
-asset 'angular-resource'
 asset 'bootstrap-sass-official'
+asset 'jasmine-jquery'
+asset 'backbone'
+asset 'jshint'
