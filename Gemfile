@@ -20,11 +20,10 @@ gem 'haml-rails'
 
 # assets
 gem "bower-rails"
-gem 'backbone-on-rails'
 gem 'handlebars_assets'
-gem 'underscore-rails'
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'backbone-nested-attributes'
+gem "js-routes" # to define path helpers in asset pipeline
 gem 'sass-rails', '>= 3.2'
 gem 'bootstrap_form'
 gem 'coffee-rails'
