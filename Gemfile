@@ -19,6 +19,7 @@ gem "cocoon" # handle nested forms
 gem 'haml-rails'
 
 # assets
+gem "bower-rails"
 gem 'backbone-on-rails'
 gem 'handlebars_assets'
 gem 'underscore-rails'
