@@ -8,7 +8,9 @@
 //= require backbone-nested-attributes/all
 //= require bootstrap-sass-official
 
-//= require assessment
-
 //= require lightbox.min
 //= require transitions
+
+//= require backbone/app
+
+//= require assessment
