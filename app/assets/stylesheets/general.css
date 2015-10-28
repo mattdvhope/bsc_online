@@ -6,8 +6,13 @@ a.brown {
   color: #996633;
 }
 
+.bsc-container {
+  padding-top: 60px;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 .container-full {
-  margin: 0 auto;
   width: 100%;
   max-width: 100%;
 }
@@ -15,6 +20,7 @@ a.brown {
 .container {
   font-family: "Times New Roman", Georgia, Serif;
   font-weight: normal;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
