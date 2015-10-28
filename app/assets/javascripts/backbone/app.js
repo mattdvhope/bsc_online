@@ -1,49 +1,34 @@
-//= require_self
-
-//= require_tree ./helpers
 //= require_tree ./templates
-
-//= require ./mixins/base/mixin
-//= require_tree ./mixins/base
-//= require_tree ./mixins
-
-//= require ./models/base/model
-//= require_tree ./models/base
 //= require_tree ./models
-
-//= require ./collections/base/collection
-//= require_tree ./collections/base
 //= require_tree ./collections
-
-//= require      ./routers/base/router
-//= require_tree ./routers/base
+//= require_tree ./views
 //= require_tree ./routers
 
-//= require      ./views/base/view
-//= require_tree ./views/base
-//= require_tree ./views
+var App = {
 
-this.App = {
-  Cache: {},
-  Mixins: {},
-  Helpers: {},
-  Models: {},
-  Collections: {},
-  Routers: {},
-  Views: {
-    Events: {}
+  getLogInForm: function() {
+    var log_in_form_modal = new LogInFormView();
+    new_form_modal.render();
+
+    this.new_form = new_form_modal;
   }
+
 };
 
-_.extend(App, Backbone.Events);
+// var router = new Router();
 
-$(function() {
-  return new App.Routers.Events();
+Backbone.history.start({
+  pushState: true, // use 'pushState' to get rid of the '#' in the URL
+  silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-$(function() {
-  return Backbone.history.start({
-    pushState: true
-  });
+$(document).on("click", "a[href^='/']", function(e) {
+  e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
+  router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
+
+
+
+
+
 
