@@ -7,15 +7,16 @@
 var App = {
 
   getLogInForm: function() {
+console.log("in getLogInForm???");
     var log_in_form_modal = new LogInFormView();
-    new_form_modal.render();
+    log_in_form_modal.render();
 
-    this.new_form = new_form_modal;
+    this.log_in_form = log_in_form_modal;
   }
 
 };
 
-// var router = new Router();
+var router = new Router();
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL
