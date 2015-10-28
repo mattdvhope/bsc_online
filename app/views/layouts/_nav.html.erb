@@ -16,7 +16,10 @@
               <li><a href="#page-top" id="place_1" class="page-scroll">Home</a></li>
               <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
               <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
-              <li><a href="#login" id="" class="page-scroll">Login</a></li>
+
+              <li>
+                <%= link_to "Login", log_in_path unless current_user %>
+              </li>
           </ul>
         </nav>
       </div>
