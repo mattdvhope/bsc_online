@@ -3,30 +3,30 @@
 <section class="bsc-container">
 <form class="log_in" action="/sessions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
 
+  <header>
+    <h1>Log in</h1>
+  </header>
+  <h3>
+    <label for="email">Email Address</label>
+  </h3>
+  <h3 class="black_field">
+    <input class="log_in_input" type="email" name="email" id="email">
+  </h3>
+  <h3>
+    <label for="password">Password</label>
+  </h3>
+  <h3 class="black_field">
+    <input type="password" name="password" id="password">
+  </h3>
+  <br>
+  <input type="submit" name="commit" value="Let's study English!" class="btn btn-primary">
+  <h4>
+    <a href="#">Forgot Password?</a>
+  </h4>
+  <h4>
+    <a href="/sign_up">Click here to register if you are not yet a student.</a>
+  </h4>
 
-    <header>
-      <h1>Log in</h1>
-    </header>
-    <h3>
-      <label for="email">Email Address</label>
-    </h3>
-    <h3 class="black_field">
-      <input type="email" name="email" id="email">
-    </h3>
-    <h3>
-      <label for="password">Password</label>
-    </h3>
-    <h3 class="black_field">
-      <input type="password" name="password" id="password">
-    </h3>
-    <br>
-    <input type="submit" name="commit" value="Let's study English!" class="btn btn-primary">
-    <h4>
-      <a href="#">Forgot Password?</a>
-    </h4>
-    <h4>
-      <a href="/log_in">Click here to register if you are not yet a student.</a>
-    </h4>
 </form>
 
 
