@@ -7,7 +7,6 @@
 var App = {
 
   getLogInForm: function() {
-console.log("in getLogInForm???");
     var log_in_form_modal = new LogInFormView();
     log_in_form_modal.render();
 
@@ -23,7 +22,7 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-$("#log-in-nav").on("click", function(e) {
+$("#log-in-nav a").on("click", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
