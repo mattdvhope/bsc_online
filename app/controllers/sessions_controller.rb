@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect_to home_path 
     else
       flash[:danger] = "Invalid email or password."
-      redirect_to log_in_path
+      redirect_to root_path
     end
   end
 
