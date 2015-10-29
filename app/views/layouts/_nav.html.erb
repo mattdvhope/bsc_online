@@ -18,7 +18,7 @@
               <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
 
               <li>
-                <%= link_to "Login", log_in_path unless current_user %>
+                <%= link_to "Login", (log_in_path unless current_user), :id => "log-in-nav" %>
               </li>
               <li>
                 <%= link_to "Log Out", log_out_path if current_user %>
