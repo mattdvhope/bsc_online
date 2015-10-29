@@ -3,23 +3,22 @@
     <div class="row">
       <div class="col-md-4 ">
         <div class="navbar-header">
-              <button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="glyphicon glyphicon-align-justify"></span>
-              </button>
-                <a class="navbar-brand logo" href="#">City English</a>
-          </div>
+          <%= link_to "City English", root_path, :class => "navbar-brand logo" %>
+        </div>
       </div>
       <div class="col-md-8">
         <nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
           <ul class="nav navbar-nav navbar-right menu">
+            <li><a href="#page-top" id="place_1" class="page-scroll">Home</a></li>
+            <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
+            <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
 
-              <li><a href="#page-top" id="place_1" class="page-scroll">Home</a></li>
-              <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
-              <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
-
-              <li>
-                <%= link_to "Login", log_in_path unless current_user %>
-              </li>
+            <li id="log-in-nav">
+              <%= link_to "Login", log_in_path unless current_user %>
+            </li>
+            <li>
+              <%= link_to "Log Out", log_out_path if current_user %>
+            </li>
           </ul>
         </nav>
       </div>

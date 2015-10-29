@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to home_path if current_user
+    if current_user
+      redirect_to home_path
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -14,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to home_path 
     else
       flash[:danger] = "Invalid email or password."
-      redirect_to log_in_path
+      redirect_to root_path
     end
   end
 

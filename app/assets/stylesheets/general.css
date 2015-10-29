@@ -7,9 +7,12 @@ a.brown {
 }
 
 .bsc-container {
-  padding-top: 70px;
+  padding-top: 60px;
   padding-left: 2.5em;
   padding-right: 2.5em;
+}
+
+.alert {
 }
 
 .container-full {
@@ -88,6 +91,16 @@ header.carousel .fill {
 
 .black_field {
   color: black;
+}
+
+.black_field {
+  size: 50;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  height: 42px;
+  padding-left: 7px;
 }
 
 .error-404 {
