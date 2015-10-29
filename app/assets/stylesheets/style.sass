@@ -1,5 +1,7 @@
 @charset "utf-8"
 
+$img-width: 100%
+
 .header
   background: #212A3F
   height: 60px
@@ -39,10 +41,19 @@ logo:active
   margin: 0px !important
   padding: 14px
 
+$break-small: 450px
+$break-large: 451px
+
+.backg
+  @media screen and (max-width: $break-small)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot3.png")
+ 
+  @media screen and (min-width: $break-large)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png")
+
 .backg
   background-attachment: fixed
   background-color: #645862
-  background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png")
   background-position: top left
   background-repeat: no-repeat
   background-size: cover
@@ -50,7 +61,7 @@ logo:active
   cursor: default
   padding: 180px 0 120px
   text-align: center
-  width: 100%
+  width: $img-width
   float: left
 
 @-moz-keyframes reveal-banner
@@ -185,6 +196,9 @@ logo:active
     text-decoration: none
     color: #8ab839
 
+.partners
+  text-align: center
+
 .features
   background: #8ab839
   padding: 60px 0px
@@ -305,8 +319,6 @@ h2.process-text::after
 
 .work-list
   padding: 60px 0px
-
-$img-width: 100%
 
 .work-list a .featured-img
   width: $img-width
