@@ -20,6 +20,9 @@
               <li>
                 <%= link_to "Login", log_in_path unless current_user %>
               </li>
+              <li>
+                <%= link_to "Log Out", log_out_path if current_user %>
+              </li>
           </ul>
         </nav>
       </div>
