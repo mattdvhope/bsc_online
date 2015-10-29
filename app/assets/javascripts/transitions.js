@@ -36,7 +36,7 @@ $("a.close").on("click tap", function(e) {
 });
 
 setTimeout(function(){ 
-  $(".alert").fadeOut(1100); 
+  $(".alert").fadeOut(2000); 
 }, 2200 ); 
 
 
