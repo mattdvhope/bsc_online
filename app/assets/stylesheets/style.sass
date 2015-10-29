@@ -21,32 +21,12 @@ $img-width: 100%
 logo:active
   color: #fff
 
-.menu
-  margin: 0px !important
-  border: none
-  li a
-    color: #434F5B
-    font-weight: 500
-    font-family: 'Poppins', sans-serif
-    line-height: 29px
-    background-color: #212A3F
-    z-index: 999
-    &:hover
-      background-color: #212A3F
-      color: #fff
-
-.menu-button
-  color: #fff
-  font-size: 30px
-  margin: 0px !important
-  padding: 14px
-
-$break-small: 450px
-$break-large: 451px
+$break-small: 250px
+$break-large: 251px
 
 .backg
   @media screen and (max-width: $break-small)
-    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot3.png")
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Baiyoke_Tower_II_Bangkok_Thailand.jpg")
  
   @media screen and (min-width: $break-large)
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png")
@@ -385,7 +365,7 @@ h2.process-text::after
     color: #212A3F
 
 .active
-  color: #fff !important
+  color: #8ab839 !important
 
 .nav li a
   &:focus
@@ -533,6 +513,20 @@ input[placeholder], [placeholder], *[placeholder]
   z-index: 9
   background: rgba(0, 0, 0, .4)
 
+$accept-width-small: 450px
+$accept-width-large: 451px
+$accept-height-small: 810px
+
+#log_in_form_modal
+  @media screen and (max-width: $accept-width-small)
+    margin: 0%
+  @media screen and (min-width: $accept-width-large)
+    margin: 10%
+
+#log_in_form_modal
+  @media screen and (max-height: $accept-height-small)
+    margin: 0% 0% 0% 0%
+
 #log_in_form_modal
   display: none
   position: fixed
@@ -542,7 +536,6 @@ input[placeholder], [placeholder], *[placeholder]
   bottom: 25px
   left: 25px
   padding: 25px
-  margin: 12%
   z-index: 10
   background: #ffffff
 
