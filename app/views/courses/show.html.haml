@@ -1,39 +1,39 @@
 / Progress Status
-.panel.panel-default
-  .panel-body
-    %nav
-      %ul.pager
-        %li.previous.disabled
-          %a{:href => "#"}
-            %span{"aria-hidden" => "true"} 
-            Progress in #{@course.name} course
-        %li.next
-          %a{:href => "#"}
-            Next: Lesson 1
-            %span{"aria-hidden" => "true"} &rarr;
-    .progress
-      = render 'shared/progress_bars', :style_suffix => "-course", :width => "55%", :completedness => "55% of #{@course.name} completed"
 
 / Course Overview
-%section.site_title
+%section.bsc-container
   .row
     .col-lg-12
       %h1.page-header="Welcome to \"#{@course.name}\"!"
+      .panel.panel-default
+        .panel-body
+          %nav
+            %ul.pager
+              %li.previous.disabled
+                %a{:href => "#"}
+                  %span{"aria-hidden" => "true"} 
+                  Progress in #{@course.name} course
+              %li.next
+                %a{:href => "#"}
+                  Next: Lesson 1
+                  %span{"aria-hidden" => "true"} &rarr;
+          .progress
+            = render 'shared/progress_bars', :style_suffix => "-course", :width => "55%", :completedness => "55% of #{@course.name} completed"
       %h2="#{@course.description}"
     -@course.parts.each do |part|
       .col-md-12
         .panel.panel-default
           .panel-heading
-            %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
+            %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", "data-target" => "#collapse" + "#{part.name.gsub(/\s+/, "")}"}
               %span.btn.btn-primary
                 ="#{part.name}"
                 %span.caret
               %div{:id => "collapse" + "#{part.name.gsub(/\s+/, "")}", :class => "panel-collapse", :class => "collapse"}
                 .panel-body
                   .progress
-                    = render 'shared/progress_bars', :style_suffix => "-part", :width => "5%", :completedness => "5% of #{part.name} completed"
+                    = render 'shared/progress_bars', :style_suffix => "-part", :width => "78%", :completedness => "78% of #{part.name} completed"
                   -part.lessons.each do |lesson|
-                    %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse" + "#{lesson.name.gsub(/\s+/, "")}"}
+                    %a.accordion-toggle{"data-parent" => "#accordion", "data-toggle" => "collapse", "data-target" => "#collapse" + "#{lesson.name.gsub(/\s+/, "")}"}
                       %h3
                         ="#{lesson.name}"
                         %span.caret
