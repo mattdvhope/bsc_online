@@ -93,6 +93,16 @@ header.carousel .fill {
   color: black;
 }
 
+.black_field {
+  size: 50;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  height: 42px;
+  padding-left: 7px;
+}
+
 .error-404 {
   font-size: 100px;
 }
