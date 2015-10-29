@@ -17,11 +17,11 @@ $('a[href^="#"]').on('click',function (e) {
     }, 0, 'swing');
 });
 
-$(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') ) {
-        $(this).collapse('hide');
-    }
-});
+// $(document).on('click','.navbar-collapse.in',function(e) {
+//     if( $(e.target).is('a') ) {
+//         $(this).collapse('hide');
+//     }
+// });
 
 // escaping Backbone-provided boxes
 $(document).on("keyup", function(e) {
