@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def invalid_authenticity
-      flash[:danger] = "You can't log in as a guest after logging in as a student."
+      flash[:danger] = "Invalid Authenticity"
       redirect_to :back
     end
 
