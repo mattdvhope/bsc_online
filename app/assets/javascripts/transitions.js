@@ -26,21 +26,25 @@ $(document).on('click', function() {
 
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
-    if( !$(e.target).is('form') ) {
-        $(".close").click();
-    }
+  if( !$(e.target).is('form') ) {
+    triggerClose();
+  }
 });
 
 // escaping Backbone modals
 $(document).on("keyup", function(e) {
-   if (e.keyCode == 27) {
-    $('a.close').trigger('click');
-    collapseNavBar();    
+    if (e.keyCode == 27) {
+      collapseNavBar();    
+      triggerClose();
   }
 });
 
 function collapseNavBar() {
   $( ".navbar-collapse" ).removeClass( "in" );    
+}
+
+function triggerClose() {
+  $('a.close').trigger('click');
 }
 
 $("a.close").on("click tap", function(e) {
