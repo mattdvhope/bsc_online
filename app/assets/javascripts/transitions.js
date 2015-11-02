@@ -17,10 +17,12 @@ $('a[href^="#"]').on('click',function (e) {
     }, 0, 'swing');
 });
 
+
 // Collapse hamburger menu from document
 $(document).on('click', function() {
-  $( ".navbar-collapse" ).removeClass( "in" );
+  collapseNavBar();
 });
+
 
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
@@ -33,8 +35,13 @@ $("#overlay").on('click', function(e) {
 $(document).on("keyup", function(e) {
    if (e.keyCode == 27) {
     $('a.close').trigger('click');
+    collapseNavBar();    
   }
 });
+
+function collapseNavBar() {
+  $( ".navbar-collapse" ).removeClass( "in" );    
+}
 
 $("a.close").on("click tap", function(e) {
   e.preventDefault();
