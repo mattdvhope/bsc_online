@@ -1,0 +1,101 @@
+<!-- Progress Status-->
+<!-- Course Overview-->
+<section class="bsc-container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        <%= "Welcome to \"#{@course.name}\"!" %>
+      </h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <nav>
+            <ul class="pager">
+              <li class="previous disabled">
+                <a href="#">
+                  <span aria-hidden="true"></span>
+                  Progress in <%= "#{@course.name}" %> course
+                </a>
+              </li>
+              <li class="next">
+                <a href="#">
+                  Next: Lesson 1
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="progress">
+            <%= render 'shared/progress_bars', :style_suffix => "-course", :width => "55%", :completedness => "55% of #{@course.name} completed" %>
+          </div>
+        </div>
+      </div>
+      <h2>
+        <%= "#{@course.description}" %>
+      </h2>
+    </div>
+    <% @course.parts.each do |part| %>
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-parent="#accordion" data-target=<%= "#collapse" + "#{part.name.gsub(/\s+/, "")}" %> data-toggle="collapse">
+              <span class="btn btn-primary">
+                <%= "#{part.name}" %>
+                <span class="caret"></span>
+              </span>
+              <div class="collapse" id=<%= "collapse" + "#{part.name.gsub(/\s+/, "")}" %> >
+                <div class="panel-body">
+                  <div class="progress">
+                    <%= render 'shared/progress_bars', :style_suffix => "-part", :width => "78%", :completedness => "78% of #{part.name} completed" %>
+                  </div>
+                  <% part.lessons.each do |lesson| %>
+                    <a class="accordion-toggle" data-parent="#accordion" data-target=<%= "#collapse" + "#{lesson.name.gsub(/\s+/, "")}" %> data-toggle="collapse">
+                      <h3>
+                        <%= "#{lesson.name}" %>
+                        <span class="caret"></span>
+                      </h3>
+                      <div class="collapse" id=<%= "collapse" + "#{lesson.name.gsub(/\s+/, "")}" %>>
+                        <div class="panel-body">
+                          <a class="btn btn-default" href="<%= part_lesson_path(lesson.part, lesson) %>">Begin <%= "#{lesson.name}" %></a>
+                          <div class="panel-body">
+                            <h3>
+                              <%= "#{lesson.description}" %>
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  <% end %>
+                  <h3>
+                    <%= link_to "Test for #{part.name}", curriculum_course_assessment_path(@course.curriculum, @course, part.provide_assessment_object) if part.provide_assessment_object %>
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @course.show_assessment %>
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>
+              <%= link_to "#{@course.show_assessment} for #{@course.name}", curriculum_course_assessment_path(@course.curriculum, @course, @course.provide_assessment_object) %>
+            </h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if current_user.overseer_admin? %>
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>
+              <%= link_to "Course building page for #{current_user.first_name}", build_path %>
+            </h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
