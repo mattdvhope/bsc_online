@@ -17,13 +17,19 @@ $('a[href^="#"]').on('click',function (e) {
     }, 0, 'swing');
 });
 
-$(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') ) {
-        $(this).collapse('hide');
+// Collapse hamburger menu from document
+$(document).on('click', function() {
+  $( ".navbar-collapse" ).removeClass( "in" );
+});
+
+// Remove form on overlay when clicking screen
+$("#overlay").on('click', function(e) {
+    if( !$(e.target).is('form') ) {
+        $(".close").click();
     }
 });
 
-// escaping Backbone-provided boxes
+// escaping Backbone modals
 $(document).on("keyup", function(e) {
    if (e.keyCode == 27) {
     $('a.close').trigger('click');
