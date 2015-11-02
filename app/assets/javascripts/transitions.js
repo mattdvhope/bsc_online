@@ -31,7 +31,7 @@ $("#overlay").on('click', function(e) {
   }
 });
 
-// escaping Backbone modals
+// escape key
 $(document).on("keyup", function(e) {
   if (e.keyCode == 27) {
     collapseNavBar();    
