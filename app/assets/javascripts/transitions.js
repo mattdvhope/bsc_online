@@ -12,9 +12,9 @@ $(".page-scroll").on("click", function() {
 
 $('a[href^="#"]').on('click',function (e) {
   e.preventDefault();
-    $('html, body').animate({
-      scrollTop: $($(this).attr('href')).offset().top
-    }, 0, 'swing');
+  $('html, body').animate({
+    scrollTop: $($(this).attr('href')).offset().top
+  }, 0, 'swing');
 });
 
 
@@ -26,21 +26,25 @@ $(document).on('click', function() {
 
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
-    if( !$(e.target).is('form') ) {
-        $(".close").click();
-    }
+  if( !$(e.target).is('form') ) {
+    triggerClose();
+  }
 });
 
-// escaping Backbone modals
+// escape key
 $(document).on("keyup", function(e) {
-   if (e.keyCode == 27) {
-    $('a.close').trigger('click');
+  if (e.keyCode == 27) {
     collapseNavBar();    
+    triggerClose();
   }
 });
 
 function collapseNavBar() {
-  $( ".navbar-collapse" ).removeClass( "in" );    
+  $(".navbar-collapse").removeClass("in");
+}
+
+function triggerClose() {
+  $("a.close").trigger("click");
 }
 
 $("a.close").on("click tap", function(e) {
