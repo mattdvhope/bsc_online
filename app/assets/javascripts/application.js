@@ -7,9 +7,11 @@
 //= require backbone/backbone
 //= require backbone-nested-attributes/all
 //= require bootstrap-sass-official
+//= require sweetalert
 
 //= require lightbox.min
 //= require transitions
+//= require sweet_alert_code
 
 //= require backbone/app
 

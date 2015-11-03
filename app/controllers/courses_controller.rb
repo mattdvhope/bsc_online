@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
 
   def show
+    gon.user = current_user.name if current_user.guest
+
     @course = Course.find(params[:id])
     if @course.id != 1
       render 'under_construction'
