@@ -3,15 +3,18 @@
     <div class="col-md-12 backg">
       <div class="col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
         <div class="text-box">
-          <p class="intro">Introducing</p>
+          <p class="intro">Welcome to</p>
           <h2>City English</h2>
           <h3>A Template for Eric's perusal..</h3>
           <p>By <span><a href="http://www.html5layouts.com">HTML5 Layouts</a></span></p>
           <div class="col-md-6">
-            <p><a href="#features" class="link-button">Program Info</a></p>
+            <p><%= link_to "Try it now!", users_path, method: :post, :class => "link-button" %></p>
+
           </div>
           <div class="col-md-6">
-            <p><a href="#" class="link-button">Member Login</a></p>
+            <span id="log-in-nav">
+              <p><%= link_to "Student Login", log_in_path, :class => "link-button" %></p>
+            </span>
           </div>
         </div>
       </div>
