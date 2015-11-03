@@ -11,6 +11,7 @@
 
 //= require lightbox.min
 //= require transitions
+//= require sweet_alert_code
 
 //= require backbone/app
 
