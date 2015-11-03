@@ -10,45 +10,45 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "City English", root_path, :class => "navbar-brand" %>
+        <% if current_user %>
+          <% headline = "City English for " + current_user.name %>
+        <% else %>
+          <% headline = "City English" %>
+        <% end %>
+        <%= link_to headline, root_path, :class => "navbar-brand" %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
           <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
           <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li id="log-in-nav">
+                <%= link_to "Student Login", log_in_path unless current_user %>
+              </li>
+              <li id="log-in-nav">
+                <%= link_to "Teacher Login", log_in_path unless current_user %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+
           <li>
-            <a href="<%= sign_up_path %>">Register</a>
+            <%= link_to "Register", sign_up_path if !current_user || current_user.guest == true %>
           </li>
           <li>
             <%= link_to "Try it now!", users_path, method: :post unless current_user %>
-          </li>
-          <li id="log-in-nav">
-            <%= link_to "Login", log_in_path unless current_user %>
           </li>
           <li>
             <%= link_to "Log Out", log_out_path if current_user %>
           </li>
 
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
