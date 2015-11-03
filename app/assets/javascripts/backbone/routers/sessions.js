@@ -9,7 +9,6 @@ var Router = Backbone.Router.extend({
     App.getLogInForm();
   },
   index: function() {
-console.log("index method in Router?");
     var modal = App.songs || App.log_in_form
     if (!modal.$el.is(":animated")) { // ':animated' (a jQuery pseudo-selector) here refers to 'faded in' ('fadeIn' is currently in operation)
       modal.fadeOut();
