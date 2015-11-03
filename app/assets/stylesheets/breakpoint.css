@@ -1,4 +1,6 @@
-@media (max-width: 1051px) {
+/*Use this (BELOW) in case the nav bar becomes too crowded....*/
+
+/*@media (max-width: 731px) {
     .navbar-header {
         float: none;
     }
@@ -34,3 +36,4 @@
         overflow: hidden!important;
     }
 }
+*/
