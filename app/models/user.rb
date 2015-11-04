@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     guest ? "Guest Student" : first_name
   end
 
-  def overseer_admin?
+  def admin?
     self.roles.each do |role|
       if role.name == "Admin"
         return true

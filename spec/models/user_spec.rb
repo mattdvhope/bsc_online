@@ -45,18 +45,18 @@ describe User do
 
   end
 
-  describe "#overseer_admin?" do
+  describe "#admin?" do
 
     it "returns true if role name is Admin" do
       alice = Fabricate(:user)
       role = Role.create(name: "Admin", overseer_id: alice.id)
       alice.roles << role
-      expect(alice.overseer_admin?).to eq(true)
+      expect(alice.admin?).to eq(true)
     end
 
     it "returns false if role name is not Admin" do
       alice = Fabricate(:user)
-      expect(alice.overseer_admin?).to eq(false)
+      expect(alice.admin?).to eq(false)
     end
 
   end
