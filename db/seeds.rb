@@ -182,7 +182,9 @@ answer10_2 = Answer.create(question_id: 10, answer_content: "Answer to question 
 answer10_3 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- CORRECT!!", choice: 'Correct')
 answer10_4 = Answer.create(question_id: 10, answer_content: "Answer to question #10 -- WRONG!!", choice: 'Wrong')
 
-admin = Role.create(overseer_id: 1, name: 'Admin')
+admin = Role.create(name: 'Admin')
+teacher = Role.create(name: 'Teacher')
+student = Role.create(name: 'Student')
 
 Event.create(name: "Event #1", month: 3, date: 25, notes: "This is Event #1.")
 Event.create(name: "Event #2", month: 1, date: 5, notes: "This is Event #2.")
