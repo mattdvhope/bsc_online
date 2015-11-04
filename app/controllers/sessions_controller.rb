@@ -1,13 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-    if current_user
-      redirect_to home_path
-    else
-      redirect_to root_path
-    end
-  end
-
   def create
     clear_out_extra_guests_from_app
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
