@@ -35,8 +35,10 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    if self.role.name == "Admin"
-      return true
+    if self.role
+      if self.role.name == "Admin"
+        return true
+      end
     end
     false
   end
