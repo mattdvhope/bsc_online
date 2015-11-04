@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
   rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
+  rescue_from NoMethodError, :with => :guest_timed_out
 
   def require_user
     destroy_guest_if_timed_out
@@ -29,6 +30,11 @@ class ApplicationController < ActionController::Base
       redirect_to :back
     end
 
+    def guest_timed_out
+      flash[:danger] = "Your Guest Status timed out after one hour. Feel free to visit again as a guest!"
+      redirect_to root_path
+    end
+
     def destroy_guest_if_timed_out # in 'require_user' method
       if current_user
         if current_user.guest?
@@ -52,9 +58,11 @@ class ApplicationController < ActionController::Base
 
     def delete_glut_of_guests
       guests_in_app_now = User.where(guest: true)
-      guests_in_app_now.each do |guest|
-        guest.destroy if guests_in_app_now.count > 100
-      end     
+      if guests_in_app_now.count > 100
+        guests_in_app_now.each do |guest|
+          guest.destroy
+        end
+      end
     end
 
 end
