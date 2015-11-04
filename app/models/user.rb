@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :curriculums, through: :plans
   has_many :choices, :foreign_key=>"student_id", :dependent => :destroy
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
-  has_many :roles, :foreign_key=>"overseer_id", :dependent => :destroy
+
+  belongs_to :role
 
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
