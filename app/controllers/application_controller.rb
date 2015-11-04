@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
   rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
+  rescue_from NoMethodError, :with => :guest_timed_out
 
   def require_user
     destroy_guest_if_timed_out
@@ -27,6 +28,11 @@ class ApplicationController < ActionController::Base
     def invalid_authenticity
       flash[:danger] = "Invalid Authenticity"
       redirect_to :back
+    end
+
+    def guest_timed_out
+      flash[:danger] = "Your Guest Status timed out after one hour. Feel free to visit again as a guest!"
+      redirect_to root_path
     end
 
     def destroy_guest_if_timed_out # in 'require_user' method
