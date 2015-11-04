@@ -22,7 +22,7 @@ class Assessment < ActiveRecord::Base
   end
 
   def available_for_student_to_view?(student)
-    if student.overseer_admin?
+    if student.admin?
       return true
     elsif self.questions_not_all_answered_yet?(student)
       return true
