@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
     def guest_timed_out
       flash[:danger] = "Your Guest Status timed out after one hour. Feel free to visit again as a guest!"
-      redirect_to root_path
+      redirect_to :back
     end
 
     def destroy_guest_if_timed_out # in 'require_user' method
