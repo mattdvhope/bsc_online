@@ -35,10 +35,8 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.roles.each do |role|
-      if role.name == "Admin"
-        return true
-      end
+    if self.role.name == "Admin"
+      return true
     end
     false
   end
