@@ -8,7 +8,8 @@ var LogInFormView = Backbone.View.extend({
     "click a.close": "close"
   },
   duration: 300,
-  template:  HandlebarsTemplates['sessions/log_in'],
+  templateStudent:  HandlebarsTemplates['sessions/student_log_in'],
+  templateTeacher:  HandlebarsTemplates['sessions/teacher_log_in'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
@@ -23,11 +24,20 @@ var LogInFormView = Backbone.View.extend({
       this.remove();
     }.bind(this));
   },
-  render: function() {
-    this.$el.html(this.template({
-      token: $('meta[name=csrf-token]').attr('content')
-    }));
-    this.open(); // to fade the overlay in...
+  render: function(person) {
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+    if (person === "Student") {
+      this.$el.html(this.templateStudent({
+        token: csrf_token
+      }));
+      this.open(); // to fade the overlay in...
+    } else if (person === "Teacher") {
+      this.$el.html(this.templateTeacher({
+        token: csrf_token
+      }));
+      this.open();
+    }
   },
   initialize: function() {
     this.$el.appendTo(document.body);
