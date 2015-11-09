@@ -5,14 +5,12 @@
 //= require_tree ./routers
 
 var App = {
-
-  getLogInForm: function() {
+  getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
-    log_in_form_modal.render();
+    log_in_form_modal.render(person);
 
     this.log_in_form = log_in_form_modal;
   }
-
 };
 
 var router = new Router();
