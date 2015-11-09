@@ -442,9 +442,12 @@ Based on Rails routes of BscOnline::Application
 // home => /home(.:format)
   // function(options)
   home_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"home",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// log_in => /log_in(.:format)
+// log_in_student => /log_in_student(.:format)
   // function(options)
-  log_in_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+  log_in_student_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in_student",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// log_in_teacher => /log_in_teacher(.:format)
+  // function(options)
+  log_in_teacher_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in_teacher",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // log_out => /log_out(.:format)
   // function(options)
   log_out_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_out",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -18476,7 +18479,8 @@ var LogInFormView = Backbone.View.extend({
 
 var Router = Backbone.Router.extend({
   routes: {
-    "log_in": "addNewSession"
+    "log_in_student": "addNewSession"
+    "log_in_teacher": "addNewSession"
   },
   getAlbum: function(name) {
     App.fetchSongs(name);
