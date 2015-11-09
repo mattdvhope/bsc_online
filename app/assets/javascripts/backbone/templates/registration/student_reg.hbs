@@ -1,0 +1,41 @@
+<a class="close" href="#">Close</a>
+
+<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+    <header>
+      <h1>Open an account at BSC Online!</h1>
+      <h4>
+        (When you open an account at BSC Online, you have access to our free sample English course.  If you like, you will also be able to Register as a student at BSC English Online in which you would have access our courses.)
+      </h4>
+    </header>
+    <fieldset>
+      <div class="form-group">
+
+            <h3 class="black_field">
+              <div class="form-group string optional user_first_name"><label class="string optional control-label" for="user_first_name">First Name</label><input class="string optional form-control" placeholder="ชื่อเล่น" type="text" name="user[first_name]" id="user_first_name"></div>
+            </h3>
+
+            <h3 class="black field">
+              <div class="form-group string optional user_last_name"><label class="string optional control-label" for="user_last_name">Last Name</label><input class="string optional form-control" type="text" name="user[last_name]" id="user_last_name"></div>
+            </h3>
+
+            <h3 class="black field">
+              <div class="form-group email optional user_email"><label class="email optional control-label" for="user_email">Email Address</label><input class="string email optional form-control" type="email" name="user[email]" id="user_email"></div>
+            </h3>
+
+            <h3 class="black field">
+              <div class="form-group password optional user_password"><label class="password optional control-label" for="user_password">Password</label><input class="password optional form-control" type="password" name="user[password]" id="user_password"></div>
+            </h3>
+
+            <h3 class="black field">
+              <div class="form-group password optional user_password_confirmation"><label class="password optional control-label" for="user_password_confirmation">Password Confirmation</label><input class="password optional form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation"></div>
+            </h3>
+
+            <h3 class="black field">
+              <div class="form-group string optional user_postal_code"><label class="string optional control-label" for="user_postal_code">Postal Code</label><input class="string optional form-control" type="text" name="user[postal_code]" id="user_postal_code"></div>
+            </h3>
+        <br>
+        <input type="submit" name="commit" value="Join BSC Online!" class="btn btn-success">
+      </div>
+    </fieldset>
+</form>
+
