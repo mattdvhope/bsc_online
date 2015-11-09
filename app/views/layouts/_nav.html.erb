@@ -28,10 +28,10 @@
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li id="backbone-app">
-                <%= link_to "Student Login", log_in_path unless current_user %>
+                <%= link_to "Student Login", log_in_student_path unless current_user %>
               </li>
               <li id="backbone-app">
-                <%= link_to "Teacher Login", log_in_path unless current_user %>
+                <%= link_to "Teacher Login", log_in_teacher_path unless current_user %>
               </li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
