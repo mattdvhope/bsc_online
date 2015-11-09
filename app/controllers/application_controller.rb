@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
     def guest_timed_out
       flash[:danger] = "Your Guest Status timed out after one hour. Feel free to visit again as a guest!"
-      redirect_to :back
+      redirect_to root_path
     end
 
     def destroy_guest_if_timed_out # in 'require_user' method
@@ -59,9 +59,7 @@ class ApplicationController < ActionController::Base
     def delete_glut_of_guests
       guests_in_app_now = User.where(guest: true)
       if guests_in_app_now.count > 100
-        guests_in_app_now.each do |guest|
-          guest.destroy
-        end
+        guests_in_app_now.first.destroy
       end
     end
 

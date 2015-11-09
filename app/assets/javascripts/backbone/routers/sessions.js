@@ -1,6 +1,7 @@
 var Router = Backbone.Router.extend({
   routes: {
-    "log_in": "addNewSession"
+    "log_in_student": "addNewSession",
+    "log_in_teacher": "addNewSession"
   },
   getAlbum: function(name) {
     App.fetchSongs(name);
