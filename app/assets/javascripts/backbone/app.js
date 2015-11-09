@@ -10,6 +10,12 @@ var App = {
     log_in_form_modal.render(person);
 
     this.log_in_form = log_in_form_modal;
+  },
+  getRegForm: function(person) {
+    var reg_form_modal = new RegFormView();
+    reg_form_modal.render(person);
+
+    this.log_in_form = reg_form_modal;
   }
 };
 
