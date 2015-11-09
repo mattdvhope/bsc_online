@@ -1,5 +1,13 @@
 class SessionsController < ApplicationController
 
+  def log_in_student
+    redirect_to root_path
+  end
+
+  def log_in_teacher
+    redirect_to root_path
+  end
+
   def create
     clear_out_extra_guests_from_app
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
