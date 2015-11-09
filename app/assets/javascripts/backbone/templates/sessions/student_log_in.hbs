@@ -1,0 +1,16 @@
+<a class="close" href="#">Close</a>
+
+<form class="log_in" action="/sessions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+
+  <header>
+    <h1>Log in นักศึกษา</h1>
+  </header>
+
+  {{> sessions/_form }}
+
+  <h4>
+    <a href="/sign_up">Click here to register if you are not yet a student.</a>
+  </h4>
+
+</form>
+

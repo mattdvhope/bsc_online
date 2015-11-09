@@ -1,13 +1,18 @@
 var Router = Backbone.Router.extend({
   routes: {
-    "log_in_student": "addNewSession",
-    "log_in_teacher": "addNewSession"
+    "log_in_student": "studentSession",
+    "log_in_teacher": "teacherSession"
   },
   getAlbum: function(name) {
     App.fetchSongs(name);
   },
-  addNewSession: function() {
-    App.getLogInForm();
+  studentSession: function() {
+    var person_logging_in = "Student";
+    App.getLogInForm(person_logging_in);
+  },
+  teacherSession: function() {
+    var person_logging_in = "Teacher";
+    App.getLogInForm(person_logging_in);
   },
   index: function() {
     var modal = App.songs || App.log_in_form
