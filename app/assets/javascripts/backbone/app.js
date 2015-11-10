@@ -18,7 +18,7 @@ var App = {
     var reg_form_modal = new RegFormView();
     reg_form_modal.render(person);
 
-    this.log_in_form = reg_form_modal;
+    this.reg_form = reg_form_modal;
   }
 };
 
