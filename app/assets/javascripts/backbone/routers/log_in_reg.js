@@ -1,12 +1,13 @@
 var Router = Backbone.Router.extend({
   routes: {
+    "": "openFrontPage",
     "log_in_student": "studentSession",
     "log_in_teacher": "teacherSession",
     "sign_up_student": "registerStudent",
     "sign_up_teacher": "registerTeacher"
   },
-  getAlbum: function(name) {
-    App.fetchSongs(name);
+  openFrontPage: function() {
+    App.getFrontPage;
   },
   studentSession: function() {
     var person_logging_in = "Student";

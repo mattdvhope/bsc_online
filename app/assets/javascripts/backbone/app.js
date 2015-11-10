@@ -5,6 +5,9 @@
 //= require_tree ./routers
 
 var App = {
+  getFrontPage: function() {
+    
+  },
   getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
     log_in_form_modal.render(person);
