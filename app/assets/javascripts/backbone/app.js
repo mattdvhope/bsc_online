@@ -5,11 +5,20 @@
 //= require_tree ./routers
 
 var App = {
+  getFrontPage: function() {
+    
+  },
   getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
     log_in_form_modal.render(person);
 
     this.log_in_form = log_in_form_modal;
+  },
+  getRegForm: function(person) {
+    var reg_form_modal = new RegFormView();
+    reg_form_modal.render(person);
+
+    this.log_in_form = reg_form_modal;
   }
 };
 

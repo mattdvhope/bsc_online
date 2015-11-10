@@ -1,10 +1,13 @@
 var Router = Backbone.Router.extend({
   routes: {
+    "": "openFrontPage",
     "log_in_student": "studentSession",
-    "log_in_teacher": "teacherSession"
+    "log_in_teacher": "teacherSession",
+    "sign_up_student": "registerStudent",
+    "sign_up_teacher": "registerTeacher"
   },
-  getAlbum: function(name) {
-    App.fetchSongs(name);
+  openFrontPage: function() {
+    App.getFrontPage;
   },
   studentSession: function() {
     var person_logging_in = "Student";
@@ -13,6 +16,14 @@ var Router = Backbone.Router.extend({
   teacherSession: function() {
     var person_logging_in = "Teacher";
     App.getLogInForm(person_logging_in);
+  },
+  registerStudent: function() {
+    var person_registering = "Student";
+    App.getRegForm(person_registering);
+  },
+  registerTeacher: function() {
+    var person_registering = "Teacher";
+    App.getRegForm(person_registering);
   },
   index: function() {
     var modal = App.songs || App.log_in_form
