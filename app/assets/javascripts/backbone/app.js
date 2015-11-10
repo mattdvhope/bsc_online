@@ -6,7 +6,10 @@
 
 var App = {
   getFrontPage: function() {
-    
+    var front_page_main = new MainFrontView();
+    front_page_main.render();
+
+    this.front_main = front_page_main;
   },
   getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
@@ -22,7 +25,8 @@ var App = {
   }
 };
 
-var router = new Router();
+var log_in_reg_router = new LogRegRouter();
+var front_router = new FrontRouter();
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL
@@ -31,8 +35,9 @@ Backbone.history.start({
 
 $("#backbone-app a").on("click", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
-  router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+  log_in_reg_router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
+
 
 
 
