@@ -3,20 +3,18 @@ var MainFrontView = Backbone.View.extend({
     // id: "entry_form_modal"
   },
   events: {
-    // "click a.close": "close"
+    "click span a.link-button": "logInStudent"
+  },
+  logInStudent: function() {
+    App.getLogInForm("Student");
   },
   templateMainFront:  HandlebarsTemplates['front/main'],
   render: function() {
-console.log("rendering???");
-      this.$el.html(this.templateStudentReg());
+    this.$el.html(this.templateMainFront());
   },
   initialize: function() {
-console.log(this.$el);
     this.$el.appendTo(".entire-main");
   }
 });
-
-
-
 
 
