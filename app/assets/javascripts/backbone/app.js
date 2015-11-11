@@ -9,7 +9,7 @@ var App = {
     var front_page_main = new MainFrontView();
     front_page_main.render();
 
-    this.front_main = front_page_main;
+    // this.front_main = front_page_main;
   },
   getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
@@ -22,6 +22,9 @@ var App = {
     reg_form_modal.render(person);
 
     this.reg_form = reg_form_modal;
+  },
+  init: function() {
+    this.getFrontPage();
   }
 };
 
@@ -33,12 +36,15 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-$("#backbone-app a").on("click", function(e) {
-  e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
-  log_in_reg_router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+$( document ).ready(function() {
+  $("#backbone-app a").on("click", function(e) {
+    e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
+    log_in_reg_router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+  });
 });
 
 
+App.init();
 
 
 
