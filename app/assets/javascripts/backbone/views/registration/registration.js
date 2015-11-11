@@ -40,7 +40,7 @@ var RegFormView = Backbone.View.extend({
     }
   },
   initialize: function() {
-    this.$el.appendTo(document.body);
+    this.$el.appendTo(".entire-main");
   }
 });
 
