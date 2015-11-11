@@ -4,6 +4,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 
+
 var App = {
   getFrontPage: function() {
     var front_page_main = new MainFrontView();
@@ -28,23 +29,24 @@ var App = {
   }
 };
 
-var log_in_reg_router = new LogRegRouter();
-var front_router = new FrontRouter();
+var router = new LogRegRouter();
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-$( document ).ready(function() {
-  $("#backbone-app a").on("click", function(e) {
-    e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
-    log_in_reg_router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
-  });
-});
+
+$(document).on("click", "#backbone-app a", function(e) {
+  e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
+  router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+});                // currentTarget is a jQuery method
 
 
 App.init();
+
+
+
 
 
 
