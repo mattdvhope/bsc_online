@@ -22,7 +22,7 @@ var LogRegRouter = Backbone.Router.extend({
     App.getRegForm(person_registering);
   },
   index: function() {
-    var modal = App.songs || App.log_in_form
+    var modal = App.reg_form || App.log_in_form
     if (!modal.$el.is(":animated")) { // ':animated' (a jQuery pseudo-selector) here refers to 'faded in' ('fadeIn' is currently in operation)
       modal.fadeOut();
     }
