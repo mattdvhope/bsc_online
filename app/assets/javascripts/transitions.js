@@ -47,6 +47,7 @@ function triggerClose() {
   $("a.close").trigger("click");
 }
 
+// for 'Close' link on modals
 $("a.close").on("click tap", function(e) {
   e.preventDefault();
   $(this).parent().fadeOut(600);
