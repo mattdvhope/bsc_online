@@ -1,5 +1,119 @@
 <section class="bsc-container">
-  <h1 class="teacher-reg">Teacher TEST!!!!</h1>
+
+<div class="volunteer-reg">
+  
+
+
+<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+  <header>
+    <h1>Join an exciting team of City English Project (CEP) volunteers!</h1>
+    <hr>
+    <h2>
+      Here is the Volunteer Overview Page--big scroll-down page with buttons at the bottom!!!
+    </h2>
+    <hr>
+    <h4>
+      On big page: Project overview.
+    </h4>
+    <hr>
+    <h4>
+      On big page: Steps to becoming a CEP volunteer.
+    </h4>
+    <hr>
+    <h4>
+      On big page: BUTTON: "Register your church, business, etc."
+    </h4>
+    <hr>
+    <h4>
+      On big page: BUTTON: "Member sign-in" (not activated yet until password or PIN is given to this potential volunteer.) --> This button will go to a sign-in page which is only enterable/functional after you've gotten your PIN number.
+    </h4>
+
+    <hr>
+    <h2>
+      From BUTTON to church Registration page: 
+        - Application form for church
+        - BUTTON on Reg page.... Upon submission, an email will be sent back to YOU (the prospective volunteer) within 48 hours.
+    </h2>
+    <hr>
+    <h4>
+      On the email received about 48 hours later will be a BUTTON or a link bringing them back to the 'Volunteer Overview Page'."  [They now have the PIN number.  When they click onto "Member sign-in" BUTTON and go to the form, the form will now be enterable for them.]
+    </h4>
+    <hr>
+    <h2>  {{!-- "Member" = "PIN holder" --}}
+      Member Page (only accessible from "Member sign-in" page which had only worked with a PIN.)
+    </h2>
+      <h4>
+        "Welcome to the Volunteer Member Page "
+        Introduction: Paragraph, Logo, Picture, etc...
+      </h4>
+      <h4>
+        Square (Thumbnail) Link: "Bring a Volunteer Team"
+        {{!-- ---> This link will go to a form for the Mission team to fill out --}}
+      </h4>
+      <h4>
+        Square (Thumbnail) Link: "Be a Skype Partner"
+        {{!-- ---> This link will go to a form for an individual for a Skype partnership --}}
+      </h4>
+
+
+    <hr>
+  </header>
+
+
+{{!--   These form fields below are not needed here!!! --}}
+
+
+  <h3>
+    <label for="user_first_name">First Name</label>
+  </h3>
+  <h3 class="black_field">
+    <input type="email" name="user[first_name]" id="user_first_name">
+  </h3>
+
+  <h3>
+    <label for="user_last_name">Last Name</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[last_name]" id="user_last_name">
+  </h3>
+
+  <h3>
+    <label for="user_email">Email Address</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[email]" id="user_email">
+  </h3>
+
+  <h3>
+    <label for="user_password">Password</label>
+  </h3>
+  <h3 class="black field">
+    <input type="password" name="user[password]" id="user_password">
+  </h3>
+
+  <h3>
+    <label for="user_password_confirmation">Password Confirmation</label>
+  </h3>
+  <h3 class="black field">
+    <input type="password" name="user[password_confirmation]" id="user_password_confirmation">
+  </h3>
+
+  <h3>
+    <label for="user_postal_code">Postal Code</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[postal_code]" id="user_postal_code">
+  </h3>
+  <br>
+  <input type="submit" name="commit" value="Join CEP!" class="btn btn-success">
+</form>
+
+</div>
+
+
+
+
+
 </section>
 
 
