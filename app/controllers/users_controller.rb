@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def volunteer_intro
+  end
+
   def new
     redirect_to root_path
   end
