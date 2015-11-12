@@ -1,4 +1,4 @@
-var LogRegRouter = Backbone.Router.extend({
+var Router = Backbone.Router.extend({
   routes: {
     "log_in_student": "studentSession",
     "log_in_teacher": "teacherSession",
@@ -15,11 +15,11 @@ var LogRegRouter = Backbone.Router.extend({
   },
   registerStudent: function() {
     var person_registering = "Student";
-    App.getRegForm(person_registering);
+    App.getStudentRegForm(person_registering);
   },
   registerTeacher: function() {
-    var person_registering = "Teacher";
-    App.getRegForm(person_registering);
+    // var person_registering = "Teacher";
+    // App.getRegForm(person_registering);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
