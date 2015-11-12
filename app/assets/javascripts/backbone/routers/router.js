@@ -1,25 +1,20 @@
-var LogRegRouter = Backbone.Router.extend({
+var Router = Backbone.Router.extend({
   routes: {
     "log_in_student": "studentSession",
-    "log_in_teacher": "teacherSession",
-    "sign_up_student": "registerStudent",
-    "sign_up_teacher": "registerTeacher"
+    "register_student": "registerStudent",
+    "registration_form": "registerVolunteer"
   },
   studentSession: function() {
     var person_logging_in = "Student";
     App.getLogInForm(person_logging_in);
   },
-  teacherSession: function() {
-    var person_logging_in = "Teacher";
-    App.getLogInForm(person_logging_in);
-  },
   registerStudent: function() {
     var person_registering = "Student";
-    App.getRegForm(person_registering);
+    App.getStudentRegForm(person_registering);
   },
-  registerTeacher: function() {
-    var person_registering = "Teacher";
-    App.getRegForm(person_registering);
+  registerVolunteer: function() {
+console.log("Register vol????");
+    App.getVolRegForm();
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;

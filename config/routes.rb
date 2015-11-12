@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   resources :events
 
-  get 'sign_up_student', to: "users#new"
-  get 'sign_up_teacher', to: "users#new"
+  get 'register_student', to: "users#new"
+  get 'volunteer_intro', to: "users#volunteer_intro"
+  get 'registration_form', to: "users#registration_form"
   resources :users, only: [:create]
 
   resources :appraisals, only: [:index]

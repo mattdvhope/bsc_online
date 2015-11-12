@@ -20,8 +20,15 @@ var App = {
 
     this.log_in_form = log_in_form_modal;
   },
-  getRegForm: function(person) {
-    var reg_form_modal = new RegFormView();
+  getStudentRegForm: function(person) {
+    var reg_form_modal = new StudentRegFormView();
+    reg_form_modal.render(person);
+
+    this.reg_form = reg_form_modal;
+  },
+  getVolRegForm: function(person) {
+console.log("Vol form????");
+    var reg_form_modal = new VolRegFormView();
     reg_form_modal.render(person);
 
     this.reg_form = reg_form_modal;
@@ -32,7 +39,7 @@ var App = {
   }
 };
 
-var router = new LogRegRouter();
+var router = new Router();
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL

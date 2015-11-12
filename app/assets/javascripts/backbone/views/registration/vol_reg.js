@@ -1,6 +1,6 @@
 var $overlay = $("#overlay");
 
-var RegFormView = Backbone.View.extend({
+var VolRegFormView = Backbone.View.extend({
   attributes: {
     id: "entry_form_modal"
   },
@@ -8,8 +8,7 @@ var RegFormView = Backbone.View.extend({
     "click a.close": "close"
   },
   duration: 300,
-  templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
-  templateTeacherReg:  HandlebarsTemplates['registration/teacher_reg'],
+  templateVolReg:  HandlebarsTemplates['registration/vol_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
@@ -24,23 +23,15 @@ var RegFormView = Backbone.View.extend({
       this.remove();
     }.bind(this));
   },
-  render: function(person) {
+  render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-
-    if (person === "Student") {
-      this.$el.html(this.templateStudentReg({
-        token: csrf_token
-      }));
-      this.open(); // to fade the overlay in...
-    } else if (person === "Teacher") {
-      this.$el.html(this.templateTeacherReg({
-        token: csrf_token
-      }));
-      this.open();
-    }
+    this.$el.html(this.templateVolReg({
+      token: csrf_token
+    }));
+    this.open(); // to fade the overlay in...
   },
   initialize: function() {
-    this.$el.appendTo(".entire-main");
+    this.$el.appendTo(document.body);
   }
 });
 
