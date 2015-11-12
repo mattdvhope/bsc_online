@@ -6,11 +6,13 @@
 
 
 var App = {
-  getFrontPage: function() {
+  getFrontMainPage: function() {
     var front_page_main = new MainFrontView();
     front_page_main.render();
-
-    // this.front_main = front_page_main;
+  },
+  getFrontFooterPage: function() {
+    var front_page_footer = new FooterFrontView();
+    front_page_footer.render();
   },
   getLogInForm: function(person) {
     var log_in_form_modal = new LogInFormView();
@@ -25,7 +27,8 @@ var App = {
     this.reg_form = reg_form_modal;
   },
   init: function() {
-    this.getFrontPage();
+    this.getFrontMainPage();
+    this.getFrontFooterPage();
   }
 };
 
