@@ -10,12 +10,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <% if current_user %>
-          <% headline = "City English for " + current_user.name %>
-        <% else %>
-          <% headline = "City English" %>
-        <% end %>
-        <%= link_to headline, root_path, :class => "navbar-brand" %>
+        <%= link_to "City English", root_path, :class => "navbar-brand" %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
