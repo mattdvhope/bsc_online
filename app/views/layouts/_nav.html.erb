@@ -37,10 +37,10 @@
             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li id="backbone-app">
-                <%= link_to "Register Student", sign_up_student_path unless current_user %>
+                <%= link_to "Register Student", register_student_path unless current_user %>
               </li>
-              <li id="backbone-app">
-                <%= link_to "Register Volunteer", sign_up_volunteer_path %>
+              <li>
+                <%= link_to "Register Volunteer", register_volunteer_path %>
               </li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
