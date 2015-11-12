@@ -1,0 +1,48 @@
+<a class="close" href="#">Close</a>
+
+<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+  <header>
+    <h1>Register your church, business or organization with City English Project (CEP)!</h1>
+    <h4>
+      Upon submission of this Registration form, this form will be sent as an email to CEP.  We will respond back to you within 48 hours. 
+    </h4>
+  </header>
+
+  <h3>
+    <label for="user_first_name">First Name</label>
+  </h3>
+  <h3 class="black_field">
+    <input type="email" name="user[first_name]" id="user_first_name">
+  </h3>
+
+  <h3>
+    <label for="user_last_name">Last Name</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[last_name]" id="user_last_name">
+  </h3>
+
+  <h3>
+    <label for="user_last_name">Church, Business or Organization Name</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[occupation]" id="user_occupation">
+  </h3>
+
+  <h3>
+    <label for="user_email">Email Address</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[email]" id="user_email">
+  </h3>
+
+  <h3>
+    <label for="user_postal_code">Postal Code</label>
+  </h3>
+  <h3 class="black field">
+    <input type="email" name="user[postal_code]" id="user_postal_code">
+  </h3>
+  <br>
+  <input type="submit" name="commit" value="Send this form to CEP" class="btn btn-success">
+</form>
+
