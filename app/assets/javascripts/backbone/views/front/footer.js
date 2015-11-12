@@ -4,7 +4,7 @@ var FooterFrontView = Backbone.View.extend({
     this.$el.html(this.templateFooterFront());
   },
   initialize: function() {
-    this.$el.appendTo(".entire-footer"); //?????????
+    this.$el.appendTo(".entire-footer");
   }
 });
 
