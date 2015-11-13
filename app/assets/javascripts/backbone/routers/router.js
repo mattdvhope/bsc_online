@@ -13,7 +13,6 @@ var Router = Backbone.Router.extend({
     App.getStudentRegForm(person_registering);
   },
   registerVolunteer: function() {
-console.log("Register vol????");
     App.getVolRegForm();
   },
   index: function() {
