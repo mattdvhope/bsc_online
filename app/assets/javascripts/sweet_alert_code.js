@@ -1,4 +1,3 @@
-console.log(gon.user);
 
 if (gon.user) {
   swal({
