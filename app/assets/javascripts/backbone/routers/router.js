@@ -13,7 +13,6 @@ var Router = Backbone.Router.extend({
     App.getStudentRegForm(person_registering);
   },
   registerVolunteer: function() {
-console.log("Register vol????");
     App.getVolRegForm();
   },
   index: function() {
@@ -25,6 +24,7 @@ console.log("Register vol????");
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'FrontRouter'
+    this.route(/^\/?volunteer_intro/, "index", this.index);
   }
 });
       

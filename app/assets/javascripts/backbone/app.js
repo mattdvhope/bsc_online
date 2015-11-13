@@ -27,7 +27,6 @@ var App = {
     this.reg_form = reg_form_modal;
   },
   getVolRegForm: function(person) {
-console.log("Vol form????");
     var reg_form_modal = new VolRegFormView();
     reg_form_modal.render(person);
 
