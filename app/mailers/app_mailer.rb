@@ -3,7 +3,7 @@ class AppMailer < ActionMailer::Base
 
   def send_welcome_email(user)
     @user = user # '@user' available for email which is /view/app_mailer/send_welcome_email.html.haml
-    mail to: user.email, subject: "Welcome to BSC Online!"
+    mail to: user.email, subject: "Welcome to the City English Project (CEP)!"
   end
 
   # def send_forgot_password(user)
