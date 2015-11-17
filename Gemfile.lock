@@ -166,10 +166,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailgun_rails (0.8.0)
-      actionmailer (>= 3.2.13)
-      json (>= 1.7.7)
-      rest-client (>= 1.6.7)
+    mailgun-ruby (1.0.3)
+      json (~> 1.8)
+      rest-client (~> 1.6)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.2)
@@ -347,7 +346,7 @@ DEPENDENCIES
   js-routes
   launchy
   letter_opener
-  mailgun_rails
+  mailgun-ruby (~> 1.0.3)
   mini_magick
   paratrooper
   pg

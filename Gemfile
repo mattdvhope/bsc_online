@@ -17,7 +17,7 @@ gem 'draper' # For using decorators
 gem 'simple_form'
 gem "cocoon" # handle nested forms
 gem 'haml-rails'
-gem 'mailgun_rails'
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
 
 # assets
