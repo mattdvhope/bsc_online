@@ -1,5 +1,5 @@
 class AppMailer < ActionMailer::Base
-  default from: "mattagape@me.com"
+  # default from: "mattagape@me.com"
 
   def send_welcome_email(user)
     @user = user # '@user' available for email which is /view/app_mailer/send_welcome_email.html.haml
