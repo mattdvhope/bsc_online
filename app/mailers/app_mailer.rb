@@ -11,8 +11,8 @@ class AppMailer < ActionMailer::Base
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {:from    => ENV["username"],
                       :to      => @user.email,
-                      :subject => 'Sample Mail using Mailgun API',
-                      :text    => 'This mail is sent using Mailgun API via mailgun-ruby'}
+                      :subject => 'Welcome to CEP!',
+                      :text    => 'We hope you enjoy being a part of CEP!'}
     mg_client.send_message ENV["domain"], message_params
   end
 
