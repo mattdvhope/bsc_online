@@ -17,11 +17,12 @@ gem 'draper' # For using decorators
 gem 'simple_form'
 gem "cocoon" # handle nested forms
 gem 'haml-rails'
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
+
 
 # assets
 gem "bower-rails"
 gem 'handlebars_assets'
-
 gem 'backbone-nested-attributes'
 gem "js-routes" # to define path helpers in asset pipeline
 gem 'sass-rails', '>= 3.2'
