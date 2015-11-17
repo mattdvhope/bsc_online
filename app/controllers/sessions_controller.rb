@@ -15,7 +15,12 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
       session[:user_id] = user.id
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
-      redirect_to home_path 
+      # redirect_to home_path
+      if user.role_id == 1
+        redirect_to home_path
+      elsif user.role_id == 2
+        redirect_to curriculums_path
+      end
     else
       flash[:danger] = "Invalid email or password."
       redirect_to root_path
