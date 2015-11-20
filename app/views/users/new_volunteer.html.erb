@@ -1,0 +1,65 @@
+<section class="bsc-container">
+  <%= simple_form_for @user do |f| %>
+    <header>
+      <h1>Register as a Volunteer with CEP!</h1>
+      <h4>
+        <%= "Fill in your information including the PIN given to you by the CEP Volunteer coordinator." %>
+      </h4>
+    </header>
+    <fieldset>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :first_name, label: "First Name", class: 'form-control', :placeholder => "ชื่อเล่น" %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :last_name, label: "Last Name" %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :email, label: "Email Address" %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :password, label: "Password" %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :password_confirmation, label:"Password Confirmation " %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :postal_code, label: "Postal Code" %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :pin, label: "PIN for Volunteer" %>
+            </h3>
+          </div>
+        </div>
+        <br/>
+        <%= f.submit "Join BSC Online!", class: 'btn btn-success' %>
+      </div>
+    </fieldset>
+  <% end %>
+</section>
