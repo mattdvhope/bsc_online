@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def new_volunteer
+    @user = User.new
+# binding.pry
+  end
+
   def create
     clear_out_extra_guests_from_app
     @user = params.include?(:user) ? User.new(user_params) : User.new_guest
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin)
     end
 
     def transition_to_student_status_if_a_guest_in_app(user)
