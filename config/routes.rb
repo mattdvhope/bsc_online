@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'register_student', to: "users#new"
   get 'volunteer_intro', to: "users#volunteer_intro"
   get 'registration_form', to: "users#registration_form"
+  get 'new_volunteer', to: "users#new_volunteer"
   resources :users, only: [:create]
 
   resources :appraisals, only: [:index]
