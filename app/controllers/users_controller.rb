@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       unless @user.guest
         transition_to_student_status_if_a_guest_in_app(@user)
-        flash[:success] = "You now have a 'member account' with BSC English Online, #{@user.first_name}. Welcome aboard!"
+        flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
         if Rails.env.production?
           AppMailer.sample_email(@user).deliver_later
         else
