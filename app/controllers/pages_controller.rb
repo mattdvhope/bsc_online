@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     @curriculums = Curriculum.all
   end
 
+  def volunteer_intro
+  end
+
   def contact    
   end
 
