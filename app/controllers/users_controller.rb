@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def new_volunteer
     @user = User.new
-# binding.pry
   end
 
   def create
