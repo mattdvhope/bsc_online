@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :events
 
   get 'register_student', to: "users#new"
-  get 'registration_form', to: "users#registration_form"
+  get 'register_volunteer', to: "users#register_volunteer"
   get 'new_volunteer', to: "users#new_volunteer"
   resources :users, only: [:create]
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  def registration_form
+  def register_volunteer
     redirect_to volunteer_intro_path
   end
 
