@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     @curriculums = Curriculum.all
   end
 
+  def volunteer_intro
+    redirect_to home_path if current_user
+  end
+
   def contact    
   end
 

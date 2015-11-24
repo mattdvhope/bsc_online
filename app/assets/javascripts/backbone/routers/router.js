@@ -2,7 +2,7 @@ var Router = Backbone.Router.extend({
   routes: {
     "log_in_student": "studentSession",
     "register_student": "registerStudent",
-    "registration_form": "registerVolunteer"
+    "register_volunteer": "registerVolunteer"
   },
   studentSession: function() {
     var person_logging_in = "Student";
