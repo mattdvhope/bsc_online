@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
+  get 'volunteer_intro', to: "pages#volunteer_intro"
   get 'home', to: "courses#show", defaults: { id: 1 }
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"
@@ -9,10 +10,9 @@ Rails.application.routes.draw do
   resources :events
 
   get 'register_student', to: "users#new"
-  get 'volunteer_intro', to: "users#volunteer_intro"
-  get 'registration_form', to: "users#registration_form"
+  get 'register_volunteer', to: "users#register_volunteer"
   get 'new_volunteer', to: "users#new_volunteer"
-  resources :users, only: [:create]
+  resources :users, only: [:index, :show, :create]
 
   resources :appraisals, only: [:index]
 
