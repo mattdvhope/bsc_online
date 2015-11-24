@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def register_volunteer
     redirect_to volunteer_intro_path
   end
@@ -20,11 +28,7 @@ class UsersController < ApplicationController
       unless @user.guest
         transition_to_student_status_if_a_guest_in_app(@user)
         flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
-        if Rails.env.production?
-          AppMailer.sample_email(@user).deliver_later
-        else
-          AppMailer.send_welcome_email(@user).deliver_later
-        end
+        send_new_user_email(@user)
       end
       session[:user_id] = @user.id
       redirect_to home_path
@@ -45,6 +49,14 @@ class UsersController < ApplicationController
       user.choices = current_user.choices if current_user # guest?
       user.grades = current_user.grades if current_user # guest?
       current_user.destroy if current_user # guest?
+    end
+
+    def send_new_user_email(user)
+      if Rails.env.production?
+        AppMailer.sample_email(@user).deliver_later
+      else
+        AppMailer.send_welcome_email(@user).deliver_later
+      end
     end
 
 end
