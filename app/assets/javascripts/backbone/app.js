@@ -26,6 +26,18 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+//   showErrors: function(errors) {
+// console.log(errors);
+//     _.each(errors, function (error) {
+//       var controlGroup = this.$('.' + error.name);
+//       controlGroup.addClass('error');
+//       controlGroup.find('.help-inline').text(error.message);
+//     }, this);
+//   },
+//   hideErrors: function () {
+//     this.$('.control-group').removeClass('error');
+//     this.$('.help-inline').text('');
+//   },
   getVolRegForm: function(person) {
     var reg_form_modal = new VolRegFormView();
     reg_form_modal.render(person);
@@ -50,6 +62,11 @@ $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
+
+
+// function navigateRouter(target) {
+//   router.navigate($(target).attr("href").replace(/^\//, ""), { trigger: true } );
+// }
 
 
 App.init();
