@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       redirect_to home_path
     else
       flash[:danger] = "You were not able to Sign Up"
-      render :new
+      redirect_to register_student_path
     end
   end
 
