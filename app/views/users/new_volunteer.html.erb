@@ -11,20 +11,6 @@
         <div class="row">
           <div class="col-sm-4">
             <h3>
-              <%= f.input :first_name, label: "First Name", class: 'form-control', :placeholder => "ชื่อเล่น" %>
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :last_name, label: "Last Name" %>
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>
               <%= f.input :email, label: "Email Address" %>
             </h3>
           </div>
@@ -39,26 +25,15 @@
         <div class="row">
           <div class="col-sm-4">
             <h3>
-              <%= f.input :password_confirmation, label:"Password Confirmation " %>
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :postal_code, label: "Postal Code" %>
-            </h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :pin, label: "PIN for Volunteer" %>
+              <%= f.input :password, label: "More info about you as a Volunteer, etc.." %>
             </h3>
           </div>
         </div>
         <br/>
-        <%= f.submit "Join BSC Online!", class: 'btn btn-success' %>
+ 
+
+
+        <%= link_to "Send this Volunteer Application to CEP [button not yet activated]", "#", class: 'btn btn-success' %>
       </div>
     </fieldset>
   <% end %>
