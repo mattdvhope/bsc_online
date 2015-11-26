@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: "pages#front"
   get 'volunteer_intro', to: "pages#volunteer_intro"
-  get 'home', to: "courses#show", defaults: { id: 1 }
+  # get 'home', to: "courses#show", defaults: { id: 1 }
+  get 'home', to: "pages#dashboard", defaults: { id: 1 }
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"

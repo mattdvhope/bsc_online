@@ -6,7 +6,11 @@ class PagesController < ApplicationController
   end
 
   def volunteer_intro
-    redirect_to home_path if current_user
+    # redirect_to home_path if current_user
+  end
+
+  def dashboard
+    
   end
 
   def contact    
