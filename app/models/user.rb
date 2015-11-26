@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
   has_many :choices, :foreign_key=>"student_id", :dependent => :destroy
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
 
-  belongs_to :role
-
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -36,7 +34,7 @@ class User < ActiveRecord::Base
 
   def admin?
     if self.role
-      if self.role.name == "Admin"
+      if self.role == "admin"
         return true
       end
     end

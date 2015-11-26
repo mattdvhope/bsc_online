@@ -53,10 +53,22 @@ class UsersController < ApplicationController
 
     def send_new_user_email(user)
       if Rails.env.production?
-        AppMailer.sample_email(@user).deliver_later
+        send_production_email(user)
       else
-        AppMailer.send_welcome_email(@user).deliver_later
+        send_development_email(user)
       end
+    end
+
+    def send_production_email(user)
+      if user.city
+        AppMailer.volunteer_applicant(@user).deliver_later
+      else
+        AppMailer.student_welcome(@user).deliver_later
+      end
+    end
+
+    def send_development_email(user)
+      AppMailer.send_welcome_email(@user).deliver_later
     end
 
 end
