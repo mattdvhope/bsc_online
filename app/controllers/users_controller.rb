@@ -60,8 +60,11 @@ class UsersController < ApplicationController
     end
 
     def send_production_email(user)
-      # if user.city
-      AppMailer.sample_email(@user).deliver_later
+      if user.city
+        AppMailer.volunteer_applicant(@user).deliver_later
+      else
+        AppMailer.student_welcome(@user).deliver_later
+      end
     end
 
     def send_development_email(user)
