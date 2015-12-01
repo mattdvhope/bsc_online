@@ -58,11 +58,11 @@ var StudentRegFormView = Backbone.View.extend({
   }, // FIX this REGEX to correspond to the Ruby REGEX in 'user.rb'!!!
   close: function(e) {
     e.preventDefault();
+    App.allowBodyScrolling();
     this.fadeOut();
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
