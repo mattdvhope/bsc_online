@@ -23,6 +23,15 @@ $(document).on('click', function() {
   collapseNavBar();
 });
 
+// Prevent scrolling underneath modals
+$("#backbone-app>a, #backbone-app>p>a").on('click', function(){
+  $('body').css('overflow', 'hidden');
+  var offset = window.pageYOffset;
+  $('#entry_form_modal').css({
+      'display': 'block',
+      'top': offset + 'px'
+  });
+});
 
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
@@ -48,10 +57,12 @@ function triggerClose() {
 }
 
 // for 'Close' link on modals
-$("a.close").on("click tap", function(e) {
-  e.preventDefault();
-  $(this).parent().fadeOut(600);
-});
+// $("a.close").on("click tap", function(e) {
+//   e.preventDefault();
+// console.log("here????");
+//   $('body').css('position', "static");
+//   $(this).parent().fadeOut(600);
+// });
 
 setTimeout(function(){ 
   $(".alert").fadeOut(2000); 
