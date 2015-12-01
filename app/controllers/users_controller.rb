@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to home_path
     else
-      flash[:danger] = "You were not able to Sign Up"
+      flash[:danger] = "This email address is already being used. Try again with another email address."
       redirect_to register_student_path
     end
   end
