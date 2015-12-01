@@ -23,6 +23,12 @@ $(document).on('click', function() {
   collapseNavBar();
 });
 
+// Prevent scrolling underneath modals
+$(document).on( 'scroll', function(){
+  if( $("#entry_form_modal")[0] ) {
+    $('body').css('position', "fixed");
+  }
+});
 
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
