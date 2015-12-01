@@ -16,25 +16,49 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
-          <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
-          <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
-          <li id="backbone-app">
-            <%= link_to "Login", log_in_student_path unless current_user %>
-          </li>
 
-          <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li id="backbone-app">
-                <%= link_to "Register Student", register_student_path unless current_user %>
+          <% if !current_user %>
+            <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
+
+            <% if params[:action] == 'front' %>
+              <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
+            <% elsif params[:action] == 'volunteer_intro' %>
+              <li><a href="#features" id="place_2" class="page-scroll">Volunteer Steps</a></li>
+            <% end %>
+
+            <% if params[:action] == 'front' %>
+              <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
+            <% end %>
+
+            <li id="backbone-app">
+              <%= link_to "Login", log_in_student_path unless current_user %>
+            </li>
+
+
+            <% if params[:action] == 'front' %>
+
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li id="backbone-app">
+                    <%= link_to "Register Student", register_student_path unless current_user %>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <%= link_to "Volunteer Info", volunteer_intro_path unless current_user %>
+                  </li>
+
+                </ul>
               </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <%= link_to "Volunteer Info", volunteer_intro_path unless current_user %>
-              </li>
-            </ul>
-          </li>
+            <% elsif params[:action] == 'volunteer_intro' %>
+                  <li id="backbone-app">
+                    <%= link_to "Register Student", register_student_path unless current_user %>
+                  </li>
+              
+            <% end %>
+
+          <% end %>
+
 
           <li>
             <%= link_to "Contact Us!", contact_path %>
