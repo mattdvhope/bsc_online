@@ -44,6 +44,9 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+  allowBodyScrolling: function() {
+    $('body').css('position', "static");
+  },
   init: function() {
     this.getFrontMainPage();
     this.getFrontFooterPage();
