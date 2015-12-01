@@ -66,6 +66,7 @@ var VolRegFormView = Backbone.View.extend({
 
   close: function(e) {
     e.preventDefault();
+    App.allowBodyScrolling();
     this.fadeOut();
     history.back();
   },
