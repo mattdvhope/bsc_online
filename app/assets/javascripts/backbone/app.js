@@ -45,7 +45,7 @@ var App = {
     this.reg_form = reg_form_modal;
   },
   allowBodyScrolling: function() {
-    $('body').css('position', "static");
+    $('body').css('overflow', 'auto');
   },
   init: function() {
     this.getFrontMainPage();
