@@ -2,6 +2,10 @@
   <header>
     <h1>Welcome to the "City English Project"!!</h1>
     <hr>
+    <% if current_user.volunteer? || current_user.admin? %>
+      <h2>You are here on "Volunteer Status"</h2>
+      <hr>
+    <% end %>
     <h2>From here, you can request an American "Skype Conversation Partner."</h2>
     <hr>
   </header>
