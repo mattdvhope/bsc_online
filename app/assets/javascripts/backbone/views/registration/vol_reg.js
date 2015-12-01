@@ -66,11 +66,11 @@ var VolRegFormView = Backbone.View.extend({
 
   close: function(e) {
     e.preventDefault();
-    App.allowBodyScrolling();
     this.fadeOut();
     history.back();
   },
   fadeOut: function() {
+    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
