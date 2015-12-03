@@ -9,11 +9,30 @@
   <header>
     <h1>Welcome to the "City English Project"!!</h1>
     <hr>
-    <% if current_user.volunteer? || current_user.admin? %>
-      <h2>You are here on "Volunteer Status"</h2>
-      <hr>
-    <% end %>
     <h2>From here, you can request an American "Skype Conversation Partner."</h2>
-    <hr>
+    <% if current_user.volunteer? %>
+      <hr>
+      <h2>You are here in "volunteer" status.</h2>
+    <% end %>
+    <% if current_user.admin? %>
+        <hr>
+        <h2>You are here in "admin" status. In 'admin' status, you are allowed to review the "Volunteer Applications" that have come in so far.</h2>
+      <hr>
+      <hr>
+      
+      <% @volunteer_applications.each do |application| %>
+        <h3><%= "Applicant Name: " + "\"" + application.user.name + "\"" %></h3>
+        <hr>
+        <h3><%= "\"" + application.response_first+ "\"" %></h3>
+        <hr>
+        <h3><%= "\"" + application.response_second+ "\"" %></h3>
+        <hr>
+        <h3><%= "\"" + application.response_third+ "\"" %></h3>
+        <hr>
+        <hr>
+      <% end %>
+
+    <% end %>
+
   </header>
 </section>
