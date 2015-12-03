@@ -1,0 +1,49 @@
+<section class="bsc-container">
+  <%= simple_form_for @volunteer_application do |f| %>
+    <header>
+      <h1>CEP Volunteer Application Form</h1>
+      <h4>
+        <%= "Hello #{@volunteer_application.user.name}!" %>
+      </h4>
+
+      <h4>
+        <%= "After you fill out this form, and then click the button below, we will respond to you within 48 hours. We will also send a copy of this application to '#{@volunteer_application.user.email}'." %>
+      </h4>
+    </header>
+    <fieldset>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :user_id, label: "More info about you as a Volunteer, etc.." %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :response_first, as: :text %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :response_second, as: :text %>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              <%= f.input :response_third, as: :text %>
+            </h3>
+          </div>
+        </div>
+        <br/>
+
+        <%= f.button :submit, "Send this Volunteer Application to CEP", :class => "btn btn-success" %>
+      </div>
+    </fieldset>
+  <% end %>
+</section>
