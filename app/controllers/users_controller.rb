@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     end
 
     def send_development_email(user)
-      AppMailer.send_welcome_email(@user).deliver_later
+      AppMailer.development_env_email(@user).deliver_later
     end
 
 end
