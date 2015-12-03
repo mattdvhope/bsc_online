@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'new_volunteer', to: "users#new_volunteer"
   resources :users, only: [:index, :show, :create, :edit, :update]
 
+  resources :volunteer_applications, only: [:edit, :update]
+
   resources :appraisals, only: [:index]
 
   resources :curriculums, only: [:index, :show] do
