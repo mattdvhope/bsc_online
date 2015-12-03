@@ -10,6 +10,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    # @volunteer_applications = VolunteerApplication.where(user: )
+    # @volunteer_applications = VolunteerApplication.joins(:addresses).where("addresses.country = ?", "Poland").preload(:addresses)
   end
 
   def contact    
