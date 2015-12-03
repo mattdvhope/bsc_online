@@ -7,6 +7,8 @@ class AppMailer < ActionMailer::Base
 
   def volunteer_applicant(user)
     @user = user
+    @user.volunteer_application = VolunteerApplication.new
+    @user.save
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
       :from    => ENV["username"],
