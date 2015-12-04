@@ -1,3 +1,4 @@
+<!-- script disables browser back button for this page -->
 <script type = "text/javascript" >
   history.pushState(null, null, 'dashboard');
   window.addEventListener('popstate', function(event) {
@@ -9,11 +10,44 @@
   <header>
     <h1>Welcome to the "City English Project"!!</h1>
     <hr>
-    <% if current_user.volunteer? || current_user.admin? %>
-      <h2>You are here on "Volunteer Status"</h2>
-      <hr>
-    <% end %>
     <h2>From here, you can request an American "Skype Conversation Partner."</h2>
-    <hr>
+    <% if current_user.volunteer? %>
+      <hr>
+      <h2>You are here in "volunteer" status.</h2>
+    <% end %>
+    <% if current_user.admin? %>
+        <hr>
+        <h2>You are here in "admin" status. In 'admin' status, you are allowed to review the "Volunteer Applications" that have come in so far.</h2>
+      <hr>
+      <hr>
+      <% if VolunteerApplication.all == [] %>
+        <h3> No applications now. </h3>
+        <hr>
+      <% end %>
+      
+      <% i = 0 %>
+      <% @volunteer_applications.each do |application| %>
+          <% i = i + 1 %>
+          <h3><%= i.to_s + ". Applicant Name: " + "\"" + application.user.name + " " + application.user.last_name + "\"" %></h3>
+          <hr>
+          <h3><%= "Applicant City: " + "\"" + application.user.city + "\"" %></h3>
+          <hr>
+          <h3><%= "\"" + application.response_first+ "\"" %></h3>
+          <hr>
+          <h3><%= "\"" + application.response_second+ "\"" %></h3>
+          <hr>
+          <h3><%= "\"" + application.response_third+ "\"" %></h3>
+          <hr>
+            <%= link_to "Approve", "#", :class => "btn btn-success" %>
+            <%= link_to "Disapprove", "#", :class => "btn btn-danger" %>
+
+          <hr>
+          <hr>
+
+      <% end %>
+
+
+    <% end %>
+
   </header>
 </section>

@@ -6,13 +6,18 @@ class PagesController < ApplicationController
   end
 
   def volunteer_intro
-    # redirect_to home_path if current_user
   end
 
   def dashboard
+    @volunteer_applications = []
+    VolunteerApplication.find_each do |application|
+      if application.user.role != "volunteer"
+        @volunteer_applications << application
+      end
+    end
   end
 
-  def contact    
+  def contact
   end
 
   def about    
