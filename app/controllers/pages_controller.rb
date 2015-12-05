@@ -9,12 +9,13 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @volunteer_applications = []
-    VolunteerApplication.find_each do |application|
-      if application.user.role != "volunteer"
-        @volunteer_applications << application
-      end
-    end
+    @volunteer_applications = VolunteerApplication.all
+    # @volunteer_applications = []
+    # VolunteerApplication.find_each do |application|
+    #   if application.user.role != "volunteer"
+    #     @volunteer_applications << application
+    #   end
+    # end
   end
 
   def contact
