@@ -51,14 +51,6 @@ class User < ActiveRecord::Base
     false
   end
 
-  def approve_volunteer(applicant)
-
-  end
-
-  def disapprove_volunteer(applicant)
-    
-  end
-
   def guest_session_time_limit_expired?
     Time.now > self.created_at + 1.hour
   end
