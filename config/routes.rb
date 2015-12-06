@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'register_student', to: "users#new"
   get 'register_volunteer', to: "users#register_volunteer"
   get 'new_volunteer', to: "users#new_volunteer"
-  resources :users, only: [:index, :show, :create, :edit, :update]
+  resources :users, only: [:index, :show, :create, :update]
+  get "/users/:id/approve_volunteer", to: "users#approve_volunteer"
+  get "/users/:id/disapprove_volunteer", to: "users#disapprove_volunteer"
 
   resources :volunteer_applications, only: [:edit, :update]
 

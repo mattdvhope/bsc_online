@@ -38,9 +38,25 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    
+# params > {"controller"=>"users", "action"=>"edit", "id"=>"195"}
+  def approve_volunteer
+    @user = User.find(params[:id])
+    if current_user.admin?
+      @user.role = "volunteer"
+      @user.save!(:validate => false)
+    end
+    redirect_to :back
   end
+
+  def disapprove_volunteer
+    @user = User.find(params[:id])
+    if current_user.admin?
+      @user.role = "disapproved_volunteer"
+      @user.save!(:validate => false)
+    end
+    redirect_to :back
+  end
+
 
   def update
     
