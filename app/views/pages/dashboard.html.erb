@@ -38,8 +38,21 @@
           <hr>
           <h3><%= "\"" + application.response_third+ "\"" %></h3>
           <hr>
-            <%= link_to "Approve", "#", :class => "btn btn-success" %>
-            <%= link_to "Disapprove", "#", :class => "btn btn-danger" %>
+
+          <% if application.user.role == "volunteer" %>
+            <div class="approval-disapproval-buttons">
+              <%= link_to "APPROVED-click to edit", "#", :class => "btn btn-success restore-approval-disapproval", :data => { :id => "#{application.user.id}" } %>
+            </div>
+          <% elsif application.user.role == "disapproved_volunteer" %>
+            <div class="approval-disapproval-buttons">
+              <%= link_to "DISAPPROVED-click to edit", "#", :class => "btn btn-danger restore-approval-disapproval", :data => { :id => "#{application.user.id}" } %>
+            </div>
+          <% else %>
+            <div class="approval-disapproval-buttons">
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_volunteer", :class => "btn btn-success volunteer-approval", remote: true %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_volunteer", :class => "btn btn-danger volunteer-disapproval", remote: true %>
+            </div>
+          <% end %>
 
           <hr>
           <hr>
