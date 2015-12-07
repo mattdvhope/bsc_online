@@ -38,7 +38,6 @@ class UsersController < ApplicationController
     end
   end
 
-# params > {"controller"=>"users", "action"=>"edit", "id"=>"195"}
   def approve_volunteer
     @user = User.find(params[:id])
     if current_user.admin?
