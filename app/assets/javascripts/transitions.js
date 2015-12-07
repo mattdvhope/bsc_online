@@ -70,59 +70,63 @@ setTimeout(function(){
 }, 2200 );
 
 // for 'Approve' & 'Disapprove' buttons on dashboard
-$(".volunteer-approval").on("click tap", function(e) {
-  e.preventDefault();
-  console.log($(this).text());
-  $(this).parent().children().last().remove(); // remove 'Disapprove' button
-  $(this).text('APPROVED-click to edit');
-});
 
-$(".volunteer-disapproval").on("click tap", function(e) {
-  e.preventDefault();
-  $(this).parent().children().first().remove(); // remove 'Approve' button
-  $(this).text('DISAPPROVED-click to edit');
-});
+var approval_disapproval_buttons = function () {
 
-$(".restore-approval-disapproval").on("click tap", function(e) {
-  e.preventDefault();
-  $(this).parent().append($('<a>', {
-    class: 'btn btn-success volunteer-approval',
-    'data-remote': 'true',
-    text: 'Approve',
-    href: "/users/" + $(this).data('id') + "/approve_volunteer"
-  }));
-  $(this).parent().append(" ");
-  $(this).parent().append($('<a>', {
-    class: 'btn btn-danger volunteer-disapproval',
-    'data-remote': 'true',
-    text: 'Disapprove',
-    href: "/users/" + $(this).data('id') + "/disapprove_volunteer"
-  }));
-  $(this).remove();
-
-// change below... NOT DRY!!!!!!!  ALSO NOT WORKING CORRECTLY...link disappears after second time through...PROBABLY A SCOPING ISSUE!!!!!
+var approve = function () {
   $(".volunteer-approval").on("click tap", function(e) {
     e.preventDefault();
-    console.log($(this).text());
-    $(this).parent().children().last().remove(); // remove 'Disapprove' button
-    $(this).text('APPROVED-click to edit');
+    $(this).parent().children().last().remove();
+    $(this).parent().append($('<a>', {
+      class: 'btn btn-success restore-approval-disapproval',
+      text: 'APPROVED-click to edit'
+    }));
+    $(this).remove();
+  approval_disapproval_buttons();
   });
+};
 
+var disapprove = function () {
   $(".volunteer-disapproval").on("click tap", function(e) {
     e.preventDefault();
-    $(this).parent().children().first().remove(); // remove 'Approve' button
-    $(this).text('DISAPPROVED-click to edit');
+    $(this).parent().children().first().remove();
+    $(this).parent().append($('<a>', {
+      class: 'btn btn-danger restore-approval-disapproval',
+      text: 'APPROVED-click to edit'
+    }));
+    $(this).remove();
+  approval_disapproval_buttons();
   });
+};
 
-});
+var restore = function () {
+  $(".restore-approval-disapproval").on("click tap", function(e) {
+    e.preventDefault();
+    $(this).parent().append($('<a>', {
+      class: 'btn btn-success volunteer-approval',
+      'data-remote': 'true',
+      text: 'Approve',
+      href: "/users/" + $(this).data('id') + "/approve_volunteer"
+    }));
+    $(this).parent().append(" ");
+    $(this).parent().append($('<a>', {
+      class: 'btn btn-danger volunteer-disapproval',
+      'data-remote': 'true',
+      text: 'Disapprove',
+      href: "/users/" + $(this).data('id') + "/disapprove_volunteer"
+    }));
+    $(this).remove();
+  approval_disapproval_buttons();
+  });
+};
 
+approve();
+disapprove();
+restore();
 
+}
 
-
-
-
-
-
+approval_disapproval_buttons();
 
 
 
