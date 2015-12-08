@@ -70,63 +70,37 @@ setTimeout(function(){
 }, 2200 );
 
 // for 'Approve' & 'Disapprove' buttons on dashboard
+$(".volunteer-approval").on ("click tap", function() {
+  if ($(this).text() === "Approve") {
+    $(this).text("APPROVED-click to edit")
+  } else {
+    $(this).text("Approve");
+  }
+  $(this).parent().children().last().toggle();
+});
 
-var approval_disapproval_buttons = function () {
+$(".volunteer-disapproval").on ("click tap", function() {
+  if ($(this).text() === "Disapprove") {
+    $(this).text("DISAPPROVED-click to edit")
+  } else {
+    $(this).text("Disapprove");
+  }
+  $(this).parent().children().first().toggle();
+});
 
-var approve = function () {
-  $(".volunteer-approval").on("click tap", function(e) {
-    e.preventDefault();
-    $(this).parent().children().last().remove();
-    $(this).parent().append($('<a>', {
-      class: 'btn btn-success restore-approval-disapproval',
-      text: 'APPROVED-click to edit'
-    }));
-    $(this).remove();
-  approval_disapproval_buttons();
-  });
-};
 
-var disapprove = function () {
-  $(".volunteer-disapproval").on("click tap", function(e) {
-    e.preventDefault();
-    $(this).parent().children().first().remove();
-    $(this).parent().append($('<a>', {
-      class: 'btn btn-danger restore-approval-disapproval',
-      text: 'APPROVED-click to edit'
-    }));
-    $(this).remove();
-  approval_disapproval_buttons();
-  });
-};
 
-var restore = function () {
-  $(".restore-approval-disapproval").on("click tap", function(e) {
-    e.preventDefault();
-    $(this).parent().append($('<a>', {
-      class: 'btn btn-success volunteer-approval',
-      'data-remote': 'true',
-      text: 'Approve',
-      href: "/users/" + $(this).data('id') + "/approve_volunteer"
-    }));
-    $(this).parent().append(" ");
-    $(this).parent().append($('<a>', {
-      class: 'btn btn-danger volunteer-disapproval',
-      'data-remote': 'true',
-      text: 'Disapprove',
-      href: "/users/" + $(this).data('id') + "/disapprove_volunteer"
-    }));
-    $(this).remove();
-  approval_disapproval_buttons();
-  });
-};
 
-approve();
-disapprove();
-restore();
 
-}
 
-approval_disapproval_buttons();
+
+
+
+
+
+
+
+
 
 
 
