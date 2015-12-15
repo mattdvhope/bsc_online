@@ -29,7 +29,6 @@ var VolRegFormView = Backbone.View.extend({
       this.highlightEmptyField("#volunteer_password_confirmation", "your password confirmation");
       this.highlightEmptyField("#user_phone_number", "a phone number");
       this.highlightEmptyField("#user_address_1", "an address");
-      this.highlightEmptyField("#user_address_2", "an address");
       this.highlightEmptyField("#user_city", "a city or town");
       this.highlightEmptyField("#user_province", "a state or province");
       this.highlightEmptyField("#volunteer_postal_code", "a postal code");
