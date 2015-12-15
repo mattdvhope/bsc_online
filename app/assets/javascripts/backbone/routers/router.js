@@ -2,7 +2,7 @@ var Router = Backbone.Router.extend({
   routes: {
     "log_in_student": "studentSession",
     "register_student": "registerStudent",
-    "register_volunteer": "registerVolunteer"
+    "register_admin": "registerAdmin"
   },
   studentSession: function() {
     var person_logging_in = "Student";
@@ -12,8 +12,8 @@ var Router = Backbone.Router.extend({
     var person_registering = "Student";
     App.getStudentRegForm(person_registering);
   },
-  registerVolunteer: function() {
-    App.getVolRegForm();
+  registerAdmin: function() {
+    App.getAdminRegForm();
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
