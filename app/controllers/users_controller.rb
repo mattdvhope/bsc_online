@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def new_volunteer
+  def new_admin
     @user = User.new
   end
 
