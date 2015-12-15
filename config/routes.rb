@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'register_student', to: "users#new"
   get 'register_admin', to: "users#register_admin"
-  get 'new_volunteer', to: "users#new_volunteer"
+  get 'new_admin', to: "users#new_admin"
   resources :users, only: [:index, :show, :create, :update]
   get "/users/:id/approve_volunteer", to: "users#approve_volunteer"
   get "/users/:id/disapprove_volunteer", to: "users#disapprove_volunteer"
