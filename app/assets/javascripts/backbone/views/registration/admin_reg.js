@@ -9,7 +9,7 @@ var VolRegFormView = Backbone.View.extend({
     "click input.admin_reg_er": "checkInputs"
   },
   duration: 300,
-  templateVolReg:  HandlebarsTemplates['registration/vol_reg'],
+  templateVolReg:  HandlebarsTemplates['registration/admin_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
