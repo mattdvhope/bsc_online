@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def register_volunteer
+  def register_admin
     redirect_to volunteer_intro_path
   end
 
