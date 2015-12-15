@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :events
 
   get 'register_student', to: "users#new"
-  get 'register_volunteer', to: "users#register_volunteer"
+  get 'register_admin', to: "users#register_admin"
   get 'new_volunteer', to: "users#new_volunteer"
   resources :users, only: [:index, :show, :create, :update]
   get "/users/:id/approve_volunteer", to: "users#approve_volunteer"
