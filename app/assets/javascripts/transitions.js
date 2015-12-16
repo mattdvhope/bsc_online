@@ -10,12 +10,12 @@ $(".page-scroll").on("click", function() {
   $(this).addClass("active");
 });
 
-// $('a[href^="#"]').on('click',function (e) {
-//   e.preventDefault();
-//   $('html, body').animate({
-//     scrollTop: $($(this).attr('href')).offset().top
-//   }, 0, 'swing');
-// });
+$('a[href^="#"]').on('click',function (e) {
+  e.preventDefault();
+  $('html, body').animate({
+    scrollTop: $($(this).attr('href')).offset().top
+  }, 0, 'swing');
+});
 
 
 // Collapse hamburger menu from document

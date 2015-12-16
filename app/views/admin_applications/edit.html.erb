@@ -1,13 +1,13 @@
 <section class="bsc-container">
-  <%= simple_form_for @volunteer_application do |f| %>
+  <%= simple_form_for @admin_application do |f| %>
     <header>
-      <h1>CEP Volunteer Application Form</h1>
+      <h1>CEP Volunteer Administrator Application Form</h1>
       <h4>
-        <%= "Hello #{@volunteer_application.user.name}!" %>
+        <%= "Hello #{@admin_application.user.name}!" %>
       </h4>
 
       <h4>
-        <%= "After you fill out this form, and then click the button below, we will respond to you within 48 hours. We will also automatically send a copy of this application to '#{@volunteer_application.user.email}' for your records." %>
+        <%= "After you fill out this form, and then click the button below, we will respond to you within 48 hours. We will also automatically send a copy of this application to '#{@admin_application.user.email}' for your records." %>
       </h4>
     </header>
     <fieldset>
@@ -35,7 +35,7 @@
         </div>
         <br/>
         <h4>
-          <%= "Thanks for filling this out #{@volunteer_application.user.name}! Press 'Submit Application' here and this Volunteer Application will be automatically sent to CEP & you will also receive a copy of it in your inbox." %>
+          <%= "Thanks for filling this out #{@admin_application.user.name}! Press 'Submit Application' here and this Volunteer Administrator Application will be automatically sent to CEP & you will also receive a copy of it in your inbox." %>
         </h4>
 
         <%= f.button :submit, "Submit Application", :class => "btn btn-success" %>

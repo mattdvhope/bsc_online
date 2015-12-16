@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   resources :events
 
   get 'register_student', to: "users#new"
-  get 'register_volunteer', to: "users#register_volunteer"
-  get 'new_volunteer', to: "users#new_volunteer"
+  get 'register_admin', to: "users#register_admin"
+  get 'new_admin', to: "users#new_admin"
   resources :users, only: [:index, :show, :create, :update]
   get "/users/:id/approve_volunteer", to: "users#approve_volunteer"
   get "/users/:id/disapprove_volunteer", to: "users#disapprove_volunteer"
 
-  resources :volunteer_applications, only: [:edit, :update]
+  resources :admin_applications, only: [:edit, :update]
 
   resources :appraisals, only: [:index]
 

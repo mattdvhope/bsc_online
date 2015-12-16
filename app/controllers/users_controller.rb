@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def register_volunteer
+  def register_admin
     redirect_to volunteer_intro_path
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def new_volunteer
+  def new_admin
     @user = User.new
   end
 
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 
     def send_production_email(user)
       if user.city
-        AppMailer.volunteer_applicant(@user).deliver_later
+        AppMailer.admin_applicant(@user).deliver_later
       else
         AppMailer.student_welcome(@user).deliver_later
       end
