@@ -26,8 +26,7 @@ class AdminApplicationsController < ApplicationController
       if Rails.env.production?
         send_production_emails(applicant)
       else
-        send_production_emails(applicant)
-        # send_development_email(applicant)
+        send_development_email(applicant)
       end
     end
 
