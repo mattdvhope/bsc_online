@@ -1,0 +1,115 @@
+<a class="close" href="#">Close</a>
+
+<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+  <header>
+    <h1>Register your church, business or organization with City English Project (CEP)!</h1>
+    <hr>
+    <h4>
+      When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Application Form." After you fill it out and submit it, will respond to you within 48 hours. 
+    </h4>
+    <hr>
+    <h4>
+      Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "student status" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain "admin" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.
+    </h4>
+    <hr>
+    <h4>
+      Every box is required to be filled in except 'Address 2.'
+    </h4>
+    <hr>
+  </header>
+
+  <h3>
+    <label for="admin_first_name">First Name</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[first_name]" id="admin_first_name">
+  </h3>
+
+  <h3>
+    <label for="admin_last_name">Last Name</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[last_name]" id="admin_last_name">
+  </h3>
+
+  <h3>
+    <label for="user_last_name">Church, Business or Organization Name</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[occupation]" id="user_occupation">
+  </h3>
+
+  <h3>
+    <label for="user_email">Email Address</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="email" name="user[email]" id="user_email">
+  </h3>
+
+  <h3>
+    <label for="admin_password">Password</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="password" name="user[password]" id="admin_password">
+  </h3>
+
+  <h3>
+    <label for="admin_password_confirmation">Password Confirmation</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="password" name="user[password_confirmation]" id="admin_password_confirmation">
+  </h3>
+
+  <h3>
+    <label for="user_phone_number">Phone Number</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[phone_number]" id="user_phone_number">
+  </h3>
+
+  <h3>
+    <label for="user_address_1">Address 1</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[address_1]" id="user_address_1">
+  </h3>
+
+  <h3>
+    <label for="user_address_2">Address 2</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[address_2]" id="user_address_2">
+  </h3>
+
+  <h3>
+    <label for="user_city">Town or City</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[city]" id="user_city">
+  </h3>
+
+  <h3>
+    <label for="user_province">State or Province</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[province]" id="user_province">
+  </h3>
+
+  <h3>
+    <label for="admin_postal_code">Zip / Postal Code</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[postal_code]" id="admin_postal_code">
+  </h3>
+
+  <h3>
+    <label for="country">Country</label>
+  </h3>
+  <h3>
+    <input class="admin_registration" type="text" name="user[country]" id="user_country">
+  </h3>
+
+  <br>
+  <input type="submit" name="commit" value="Send this form to CEP" class="btn btn-success admin_reg_er">
+</form>
+

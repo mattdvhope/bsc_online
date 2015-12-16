@@ -5,15 +5,15 @@ class PagesController < ApplicationController
     @curriculums = Curriculum.all
   end
 
-  def volunteer_intro
+  def admin_intro
   end
 
   def dashboard
-    @volunteer_applications = VolunteerApplication.all
-    # @volunteer_applications = []
-    # VolunteerApplication.find_each do |application|
-    #   if application.user.role != "volunteer"
-    #     @volunteer_applications << application
+    @admin_applications = AdminApplication.all
+    # @admin_applications = []
+    # AdminApplication.find_each do |application|
+    #   if application.user.role != "admin"
+    #     @admin_applications << application
     #   end
     # end
   end

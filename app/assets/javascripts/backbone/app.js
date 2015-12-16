@@ -38,7 +38,7 @@ var App = {
 //     this.$('.control-group').removeClass('error');
 //     this.$('.help-inline').text('');
 //   },
-  getVolRegForm: function(person) {
+  getAdminRegForm: function(person) {
     var reg_form_modal = new VolRegFormView();
     reg_form_modal.render(person);
 
