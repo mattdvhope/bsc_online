@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 
     def send_production_email(user)
       if user.city
-        AppMailer.volunteer_applicant(@user).deliver_later
+        AppMailer.admin_applicant(@user).deliver_later
       else
         AppMailer.student_welcome(@user).deliver_later
       end

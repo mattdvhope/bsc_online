@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get "/users/:id/approve_volunteer", to: "users#approve_volunteer"
   get "/users/:id/disapprove_volunteer", to: "users#disapprove_volunteer"
 
-  resources :volunteer_applications, only: [:edit, :update]
+  resources :admin_applications, only: [:edit, :update]
 
   resources :appraisals, only: [:index]
 

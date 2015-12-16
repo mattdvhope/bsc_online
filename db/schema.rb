@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202045757) do
+ActiveRecord::Schema.define(version: 20151216000319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "response_first"
+    t.text     "response_second"
+    t.text     "response_third"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -167,15 +176,6 @@ ActiveRecord::Schema.define(version: 20151202045757) do
     t.string   "postal_code"
     t.integer  "pin"
     t.string   "role",                     default: "student"
-  end
-
-  create_table "volunteer_applications", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "response_first"
-    t.text     "response_second"
-    t.text     "response_third"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
 end
