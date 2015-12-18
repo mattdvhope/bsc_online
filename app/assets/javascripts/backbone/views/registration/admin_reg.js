@@ -1,6 +1,6 @@
 var $overlay = $("#overlay");
 
-var VolRegFormView = Backbone.View.extend({
+var AdminRegFormView = Backbone.View.extend({
   attributes: {
     id: "entry_form_modal"
   },
@@ -9,7 +9,7 @@ var VolRegFormView = Backbone.View.extend({
     "click input.admin_reg_er": "checkInputs"
   },
   duration: 300,
-  templateVolReg:  HandlebarsTemplates['registration/admin_reg'],
+  templateAdminReg:  HandlebarsTemplates['registration/admin_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
@@ -78,7 +78,7 @@ console.log("in here?? checkInputs??")
   },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-    this.$el.html(this.templateVolReg({
+    this.$el.html(this.templateAdminReg({
       token: csrf_token
     }));
     this.open(); // to fade the overlay in...
