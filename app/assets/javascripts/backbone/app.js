@@ -44,6 +44,12 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+  getVolRegForm: function(person) {
+    var reg_form_modal = new VolRegFormView();
+    reg_form_modal.render(person);
+
+    this.reg_form = reg_form_modal;
+  },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
   },
