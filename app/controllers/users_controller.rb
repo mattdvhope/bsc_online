@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     redirect_to volunteer_intro_path
   end
 
+  def register_vol
+    redirect_to volunteer_intro_path
+  end
+
   def new
     redirect_to root_path
   end
