@@ -37,7 +37,6 @@ module BscOnline
         '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
       ]
     end)
-    config.watchable_dirs['lib'] = [:rb] # for making 'require_dependency' method available
-    config.eager_load_paths += %W( #{config.root}/lib )
+    config.eager_load_paths << "#{Rails.root}/lib"
   end
 end
