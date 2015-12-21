@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  require "pin_providable"
+
   include PinProvidable # in '/lib/pin_providable.rb' ...a module
   before_save { self.email = email.downcase unless self.email.blank? }
 
