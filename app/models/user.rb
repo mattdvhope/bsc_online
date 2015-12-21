@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  include PinProvidable # in '/lib/pin_providable.rb' ...a module
   before_save { self.email = email.downcase unless self.email.blank? }
 
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
@@ -7,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :choices, :foreign_key=>"student_id", :dependent => :destroy
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
   has_one :admin_application, :dependent => :destroy
+
+
+  validates :pin, presence: true,
+            format: { with:  valid_pin }, :unless => :guest?
 
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
@@ -17,7 +22,7 @@ class User < ActiveRecord::Base
 
   has_secure_password validations: false
 
-  validates_presence_of :password, unless: :guest?
+  validates_presence_of :password, :unless => :guest?
   validates :password, length: { minimum: 6 }, :unless => :guest?
   validates :password, confirmation: true, :unless => :guest?
   validates_presence_of :password_confirmation, :unless => :guest?
