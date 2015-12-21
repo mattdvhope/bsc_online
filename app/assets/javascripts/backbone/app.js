@@ -39,6 +39,12 @@ var App = {
 //     this.$('.help-inline').text('');
 //   },
   getAdminRegForm: function(person) {
+    var reg_form_modal = new AdminRegFormView();
+    reg_form_modal.render(person);
+
+    this.reg_form = reg_form_modal;
+  },
+  getVolRegForm: function(person) {
     var reg_form_modal = new VolRegFormView();
     reg_form_modal.render(person);
 

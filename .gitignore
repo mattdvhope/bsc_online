@@ -18,5 +18,8 @@
 # Ignore application configuration
 /config/application.yml
 
+# Ignore pin generator
+/lib/pin_providable.rb
+
 # Ingnore Bower
 /vendor/assets/components

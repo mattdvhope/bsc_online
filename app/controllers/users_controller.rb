@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     redirect_to volunteer_intro_path
   end
 
+  def register_vol
+    redirect_to volunteer_intro_path
+  end
+
   def new
     redirect_to root_path
   end
@@ -24,16 +28,21 @@ class UsersController < ApplicationController
     clear_out_extra_guests_from_app
     @user = params.include?(:user) ? User.new(user_params) : User.new_guest
     log_out_path if users_path
-    if @user.save
+    @user.save if @user.guest
+    if @user.valid?
       unless @user.guest
+        if @user.city
+          @user.role = "volunteer"
+        end
         transition_to_student_status_if_a_guest_in_app(@user)
+        @user.save
         flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
         send_new_user_email(@user)
       end
       session[:user_id] = @user.id
       redirect_to home_path
     else
-      flash[:danger] = "This email address is already being used. Try again with another email address."
+      flash[:danger] = "Your input information is invalid."
       redirect_to register_student_path
     end
   end

@@ -46,8 +46,6 @@
             <span id="backbone-app">
               <%= link_to "Register Your Organization", register_admin_path, :class => "btn btn-success" %>
             </span>
-
-
           </div>
         </div>
      </div>
@@ -57,7 +55,9 @@
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             <h4>Step 2: Invite Volunteers!</h4>
             <p>Invite folks from your church, organization, etc to this web page to Register in "Volunteer" status.  They must receive a PIN from you to Register in "Volunteer" status.  Otherwise, they can only Register in "Student" status.</p>
-            <%= link_to "Volunteer Registration", "#", :class => "btn btn-success" %>
+            <span id="backbone-app">
+              <%= link_to "Volunteer Registration", register_vol_path, :class => "btn btn-success" %>
+            </span>
           </div>
         </div>
      </div>
