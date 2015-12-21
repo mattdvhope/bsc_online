@@ -37,6 +37,6 @@ module BscOnline
         '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
       ]
     end)
-    config.autoload_paths << "#{Rails.root}/lib" # autoload_paths is an array; this allows us to access the 'lib' directory in our models.
+    config.eager_load_paths += %W( #{config.root}/lib )
   end
 end
