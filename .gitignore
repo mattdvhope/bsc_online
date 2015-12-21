@@ -19,7 +19,7 @@
 /config/application.yml
 
 # Ignore pin generator
-/app/models/pin_providable.rb
+/lib/pin_providable.rb
 
 # Ingnore Bower
 /vendor/assets/components
