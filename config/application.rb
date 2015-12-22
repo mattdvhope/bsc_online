@@ -38,6 +38,6 @@ module BscOnline
       ]
     end)
     # config.eager_load_paths << "#{Rails.root}/lib"
-    config.autoload_paths << "#{Rails.root}/lib"
+    # config.autoload_paths << "#{Rails.root}/lib"
   end
 end
