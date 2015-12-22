@@ -27,9 +27,6 @@ class UsersController < ApplicationController
   def create
     clear_out_extra_guests_from_app
     @user = params.include?(:user) ? User.new(user_params) : User.new_guest
-
-    # flash[:success] = "#{@user.generate_pin}"
-
     log_out_path if users_path
     @user.save if @user.guest
     if @user.valid?
