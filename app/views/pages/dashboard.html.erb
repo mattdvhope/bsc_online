@@ -20,13 +20,13 @@
         <h2>You are here in "admin" status. In 'admin' status, you are allowed to review the "Volunteer Applications" that have come in so far.</h2>
       <hr>
       <hr>
-      <% if VolunteerApplication.all == [] %>
+      <% if AdminApplication.all == [] %>
         <h3> No applications now. </h3>
         <hr>
       <% end %>
       
       <% i = 0 %>
-      <% @volunteer_applications.each do |application| %>
+      <% @admin_applications.each do |application| %>
           <% i = i + 1 %>
           <h3><%= i.to_s + ". Applicant Name: " + "\"" + application.user.name + " " + application.user.last_name + "\"" %></h3>
           <hr>
