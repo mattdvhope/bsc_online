@@ -37,7 +37,7 @@ module BscOnline
         '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
       ]
     end)
-    # config.autoload_paths << "#{Rails.root}/lib"
-    config.watchable_dirs['lib'] = [:rb]
+    # config.eager_load_paths << "#{Rails.root}/lib"
+    config.autoload_paths << "#{Rails.root}/lib"
   end
 end
