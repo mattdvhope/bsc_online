@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
 
   # include PinProvidable # in '/lib/pin_providable.rb' ...a module
+
+  include AssessmentProvidable
+
+
   before_save { self.email = email.downcase unless self.email.blank? }
 
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
