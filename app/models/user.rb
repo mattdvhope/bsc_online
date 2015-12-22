@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
 
-  include AssessmentProvidable
-
-  include TesterProvidable
-
+  include CoderProvidable
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
