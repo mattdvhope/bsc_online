@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
   has_one :admin_application, :dependent => :destroy
 
-
-  # validates :pin, presence: true,
-  #           format: { with:  valid_pin }, :unless => :guest?
+  # def applying_as_volunteer?
+  #   validates :pin, presence: true,
+  #             format: { with:  valid_pin }, :unless => :guest?
+  # end
 
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
