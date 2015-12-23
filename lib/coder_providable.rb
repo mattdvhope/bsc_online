@@ -1,11 +1,10 @@
 module CoderProvidable
 
   def generate_pin
-    return SecureRandom.random_number(8999) + 1000
-  end
+    first_num  = ENV["pin_one"].to_i
+    second_num = ENV["pin_two"].to_i
 
-  def show_user_name
-    return self.first_name
+    return SecureRandom.random_number(first_num) + second_num
   end
 
 end

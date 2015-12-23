@@ -27,19 +27,13 @@ class UsersController < ApplicationController
   def create
     clear_out_extra_guests_from_app
     @user = params.include?(:user) ? User.new(user_params) : User.new_guest
-
-    # flash[:success] = "#{@user.generate_pin}"
-
     log_out_path if users_path
     @user.save if @user.guest
     if @user.valid?
       unless @user.guest
-        if @user.city
-          @user.role = "volunteer"
-        end
         transition_to_student_status_if_a_guest_in_app(@user)
         @user.save
-        # flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
+        flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
         send_new_user_email(@user)
       end
       session[:user_id] = @user.id
@@ -90,7 +84,8 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_development_email(user)
+        send_production_email(user)
+        # send_development_email(user)
       end
     end
 
