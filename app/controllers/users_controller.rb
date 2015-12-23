@@ -31,9 +31,6 @@ class UsersController < ApplicationController
     @user.save if @user.guest
     if @user.valid?
       unless @user.guest
-        if @user.city
-          @user.role = "volunteer"
-        end
         transition_to_student_status_if_a_guest_in_app(@user)
         @user.save
         flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
