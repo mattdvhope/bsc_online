@@ -30,16 +30,10 @@ class UsersController < ApplicationController
     log_out_path if users_path
     @user.save if @user.guest
     if @user.valid?
-      unless @user.guest
-        transition_to_student_status_if_a_guest_in_app(@user)
-        @user.save
-        flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
-        send_new_user_email(@user)
-      end
-      session[:user_id] = @user.id
+      set_user_session(@user)
       redirect_to home_path
     else
-      flash[:danger] = "Your input information is invalid."
+      flash_danger(@user)
       redirect_to register_student_path
     end
   end
@@ -84,21 +78,45 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_production_email(user)
-        # send_development_email(user)
+        send_development_email(user)
       end
     end
 
     def send_production_email(user)
       if user.city
-        AppMailer.admin_applicant(@user).deliver_later
+        AppMailer.admin_applicant(user).deliver_later
       else
-        AppMailer.student_welcome(@user).deliver_later
+        AppMailer.student_welcome(user).deliver_later
       end
     end
 
     def send_development_email(user)
-      AppMailer.development_env_email(@user).deliver_later
+      AppMailer.development_env_email(user).deliver_later
+    end
+
+    def set_user_session(user)
+      unless user.guest
+        save_new_user(user)
+        send_new_user_email(user)
+      end
+      session[:user_id] = user.id      
+    end
+
+    def save_new_user(user)
+      transition_to_student_status_if_a_guest_in_app(user)
+      if user.pin != "000000" && user.role != "admin"
+        user.role = "volunteer"
+      end
+      user.save
+      flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
+    end
+
+    def flash_danger(user)
+      if user.pin == "000000"
+        flash[:danger] = "Your input information is invalid."
+      else
+        flash[:danger] = "Your PIN, email or other input is invalid."
+      end
     end
 
 end
