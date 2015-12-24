@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  # rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
   # rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
   # rescue_from NoMethodError, :with => :guest_timed_out
 
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def destroy_old_admin_applicants
     old_applicants = User.where(role: "admin_applicant")
     old_applicants.each do |applicant|
-      if Time.now - applicant.created_at > 604800 # destroyed after one week (7 days)... 604800 seconds
+      if Time.now - applicant.created_at > 60 #604800 # destroyed after one week (7 days)... 604800 seconds
         applicant.destroy
       end 
     end
