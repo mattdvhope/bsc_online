@@ -51,6 +51,15 @@ class User < ActiveRecord::Base
     guest ? "Admin Applicant" : first_name
   end
 
+  def leader?
+    if self.role
+      if self.role == "leader"
+        return true
+      end
+    end
+    false
+  end
+
   def admin?
     if self.role
       if self.role == "admin"
