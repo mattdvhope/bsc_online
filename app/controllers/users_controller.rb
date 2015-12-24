@@ -25,10 +25,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    clear_out_extra_guests_from_app
-    @user = params.include?(:user) ? User.new(user_params) : User.new_guest
+    @user = User.new(user_params)
     log_out_path if users_path
-    @user.save if @user.guest
     if @user.valid?
       set_user_session(@user)
       redirect_to home_path
@@ -83,7 +81,7 @@ class UsersController < ApplicationController
     end
 
     def send_production_email(user)
-      if user.city
+      if user.role == "admin_applicant"
         AppMailer.admin_applicant(user).deliver_later
       else
         AppMailer.student_welcome(user).deliver_later
@@ -95,16 +93,16 @@ class UsersController < ApplicationController
     end
 
     def set_user_session(user)
-      unless user.guest
-        save_new_user(user)
-        send_new_user_email(user)
-      end
+      save_new_user(user)
+      send_new_user_email(user)
       session[:user_id] = user.id      
     end
 
     def save_new_user(user)
-      transition_to_student_status_if_a_guest_in_app(user)
-      if user.role != "admin"
+      if user.city && user.pin == "000000"
+        user.guest = true
+        user.role = "admin_applicant"
+      elsif
         user.city ? user.role = "volunteer" : user.role = "student"
       end
       user.save
