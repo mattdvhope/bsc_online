@@ -38,15 +38,15 @@ var App = {
 //     this.$('.control-group').removeClass('error');
 //     this.$('.help-inline').text('');
 //   },
-  getAdminRegForm: function(person) {
+  getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
-    reg_form_modal.render(person);
+    reg_form_modal.render();
 
     this.reg_form = reg_form_modal;
   },
-  getVolRegForm: function(person) {
+  getVolRegForm: function() {
     var reg_form_modal = new VolRegFormView();
-    reg_form_modal.render(person);
+    reg_form_modal.render();
 
     this.reg_form = reg_form_modal;
   },
