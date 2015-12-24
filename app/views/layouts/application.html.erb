@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <title>CEP Online</title>
+    <!-- <title>CEP Online</title> -->
+    <title><%= full_title(yield :title)%></title> <!-- see 'helpers/application_helper.rb' -->
     <%= Gon::Base.render_data %>
     <%= csrf_meta_tag %>
     <%= stylesheet_link_tag "application" %>
