@@ -21,7 +21,7 @@ var VolRegFormView = Backbone.View.extend({
 
     if (someEmpty) {
       e.preventDefault();
-      this.highlightEmptyField("#vol_pin", "your first name");
+      this.highlightEmptyField("#vol_pin", "your PIN");
       this.highlightEmptyField("#vol_first_name", "your first name");
       this.highlightEmptyField("#vol_last_name", "your last name");
       this.highlightEmptyField("#user_occupation", "your occupation");
