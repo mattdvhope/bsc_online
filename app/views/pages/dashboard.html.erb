@@ -1,4 +1,4 @@
-<% content_for(:title, "#{current_user.name} " + "#{current_user.last_name}")%>
+<% content_for(:title, "#{current_user.first_name} " + "#{current_user.last_name}")%>
 
 <!-- script disables browser back button for this page -->
 <script type = "text/javascript" >
@@ -33,7 +33,7 @@
       <% i = 0 %>
       <% @admin_applications.each do |application| %>
           <% i = i + 1 %>
-          <h3><%= i.to_s + ". Applicant Name: " + "\"" + application.user.name + " " + application.user.last_name + "\"" %></h3>
+          <h3><%= i.to_s + ". Applicant Name: " + "\"" + application.user.first_name + " " + application.user.last_name + "\"" %></h3>
           <hr>
           <h3><%= "Applicant City: " + "\"" + application.user.city + "\"" %></h3>
           <hr>
