@@ -36,19 +36,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def approve_volunteer
+  def approve_admin
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.role = "volunteer"
+    if current_user.leader?
+      @user.role = "admin"
       @user.save!(:validate => false)
     end
     redirect_to :back
   end
 
-  def disapprove_volunteer
+  def disapprove_admin
     @user = User.find(params[:id])
-    if current_user.admin?
-      @user.role = "disapproved_volunteer"
+    if current_user.leader?
+      @user.role = "disapproved_admin"
       @user.save!(:validate => false)
     end
     redirect_to :back
@@ -76,6 +76,7 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
+        # send_production_email(user)
         send_development_email(user)
       end
     end
