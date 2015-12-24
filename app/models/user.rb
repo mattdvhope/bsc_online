@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def name
-    guest ? "Guest Student" : first_name
+    guest ? "Admin Applicant" : first_name
   end
 
   def admin?
