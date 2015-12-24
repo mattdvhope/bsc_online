@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user # This makes the 'current_user' method available in the views.
 
+  def destroy_old_admin_applicants
+    old_applicants = User.where(role: "admin_applicant")
+    old_applicants.each do |applicant|
+      if Time.now - applicant.created_at > 604800 # destroyed after one week (7 days)... 604800 seconds
+        applicant.destroy
+      end 
+    end
+  end
+
   private
 
     def not_found_render_404

@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    destroy_old_admin_applicants
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     user = User.where(email: params[:email].downcase).first
     if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
