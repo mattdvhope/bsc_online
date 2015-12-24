@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def destroy_old_admin_applicants
     old_applicants = User.where(role: "admin_applicant")
     old_applicants.each do |applicant|
-      if Time.now - applicant.created_at > 60 #604800 # destroyed after one week (7 days)... 604800 seconds
+      if Time.now - applicant.created_at > 604800 # destroyed after one week (7 days)... 604800 seconds
         applicant.destroy
       end 
     end
