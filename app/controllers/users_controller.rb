@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       set_user_session(@user)
       redirect_to home_path
     else
-      flash_danger(@user)
+      flash[:danger] = "Your PIN, email or other input is invalid."
       redirect_to register_student_path
     end
   end
@@ -104,19 +104,11 @@ class UsersController < ApplicationController
 
     def save_new_user(user)
       transition_to_student_status_if_a_guest_in_app(user)
-      if user.pin != "000000" && user.role != "admin"
-        user.role = "volunteer"
+      if user.role != "admin"
+        user.city ? user.role = "volunteer" : user.role = "student"
       end
       user.save
       flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
-    end
-
-    def flash_danger(user)
-      if user.pin == "000000"
-        flash[:danger] = "Your input information is invalid."
-      else
-        flash[:danger] = "Your PIN, email or other input is invalid."
-      end
     end
 
 end
