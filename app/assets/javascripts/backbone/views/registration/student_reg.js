@@ -21,6 +21,7 @@ var StudentRegFormView = Backbone.View.extend({
 
     if (someEmpty) {
       e.preventDefault();
+      this.highlightEmptyField("#user_pin", "your PIN");
       this.highlightEmptyField("#user_first_name", "your first name");
       this.highlightEmptyField("#user_last_name", "your last name");
       this.highlightEmptyField("#user_email", "an email address");
