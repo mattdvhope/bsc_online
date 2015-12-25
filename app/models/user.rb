@@ -12,9 +12,14 @@ class User < ActiveRecord::Base
 
   def self.pins_available
     pins = ""
-    admin_folks = User.where(role: "admin").where.not(pin: "000000")
+    admin_folks = User.where(role: "admin")
     admin_folks.each do |admin_person|
       pins += admin_person.pin + "|"
+    end
+
+    leader_folks = User.where(role: "leader")
+    leader_folks.each do |leader_person|
+      pins += leader_person.pin + "|"
     end
 
     pins = "\\A(" + pins[0...-1] + ")" + "\\z"
@@ -48,7 +53,16 @@ class User < ActiveRecord::Base
   end
 
   def name
-    guest ? "Guest Student" : first_name
+    guest ? "Admin Applicant" : first_name
+  end
+
+  def leader?
+    if self.role
+      if self.role == "leader"
+        return true
+      end
+    end
+    false
   end
 
   def admin?

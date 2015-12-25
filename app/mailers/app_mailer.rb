@@ -13,7 +13,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => ENV["username"],
       :to      => @user.email,
-      :subject => "Welcome to CEP, #{@user.name}!",
+      :subject => "Welcome to CEP, #{@user.first_name}!",
       :html => (render_to_string(template: "../views/app_mailer/admin_applicant")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
@@ -25,7 +25,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => ENV["username"],
       :to      => @user.email,
-      :subject => "Welcome to CEP, #{@user.name}!",
+      :subject => "Welcome to CEP, #{@user.first_name}!",
       :html => (render_to_string(template: "../views/app_mailer/student_welcome")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
@@ -37,7 +37,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => ENV["username"],
       :to      => @applicant.email,
-      :subject => "Copy of CEP Volunteer Administrator Application for #{applicant.name} #{applicant.last_name}",
+      :subject => "Copy of CEP Volunteer Administrator Application for #{applicant.first_name} #{applicant.last_name}",
       :html => (render_to_string(template: "../views/app_mailer/send_admin_application_form")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
@@ -49,7 +49,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => ENV["username"],
       :to      => ENV["other_username"],
-      :subject => "CEP Volunteer Administrator Application from #{applicant.name} #{applicant.last_name}",
+      :subject => "CEP Volunteer Administrator Application from #{applicant.first_name} #{applicant.last_name}",
       :html => (render_to_string(template: "../views/app_mailer/send_cep_application_form")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
