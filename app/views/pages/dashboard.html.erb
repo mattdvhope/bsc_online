@@ -44,20 +44,20 @@
           <h3><%= "\"" + application.response_third + "\"" %></h3>
           <hr>
 
-          <% if application.user.role == "volunteer" %>
+          <% if application.user.role == "admin" %>
             <div class="approval-disapproval-buttons">
-              <%= link_to "APPROVED-click to edit", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
-              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "APPROVED-click to edit", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success admin-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger admin-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
             </div>
-          <% elsif application.user.role == "disapproved_volunteer" %>
+          <% elsif application.user.role == "disapproved_admin" %>
             <div class="approval-disapproval-buttons">
-              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
-              <%= link_to "DISAPPROVED-click to edit", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success admin-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "DISAPPROVED-click to edit", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger admin-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
             </div>
           <% else %>
             <div class="approval-disapproval-buttons">
-              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
-              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success admin-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger admin-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
             </div>
           <% end %>
 

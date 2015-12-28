@@ -70,7 +70,7 @@ setTimeout(function(){
 }, 2200 );
 
 // for 'Approve' & 'Disapprove' buttons on dashboard
-$(".volunteer-approval").on ("click tap", function() {
+$(".admin-approval").on ("click tap", function() {
   if ($(this).text() === "Approve") {
     $(this).text("APPROVED-click to edit")
   } else {
@@ -79,7 +79,7 @@ $(".volunteer-approval").on ("click tap", function() {
   $(this).parent().children().last().toggle();
 });
 
-$(".volunteer-disapproval").on ("click tap", function() {
+$(".admin-disapproval").on ("click tap", function() {
   if ($(this).text() === "Disapprove") {
     $(this).text("DISAPPROVED-click to edit")
   } else {
