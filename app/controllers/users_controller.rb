@@ -25,10 +25,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    user = User.new(user_params)
     log_out_path if users_path
-    if @user.valid?
-      set_user_session(@user)
+    if user.valid?
+      set_user_session(user)
       redirect_to home_path
     else
       flash[:danger] = "Your PIN, email or other input is invalid."
@@ -37,19 +37,21 @@ class UsersController < ApplicationController
   end
 
   def approve_admin
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
     if current_user.leader?
-      @user.role = "admin"
-      @user.save!(:validate => false)
+      user.role = "admin"
+      user.guest = false
+      user.save!(:validate => false)
     end
     redirect_to :back
   end
 
   def disapprove_admin
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
     if current_user.leader?
-      @user.role = "disapproved_admin"
-      @user.save!(:validate => false)
+      user.role = "disapproved_admin"
+      user.guest = true
+      user.save!(:validate => false)
     end
     redirect_to :back
   end
@@ -79,14 +81,22 @@ class UsersController < ApplicationController
     end
 
     def save_new_user(user)
+      pin = user.generate_pin.to_s
+      user.add_valid_pin(pin)
       if user.city && user.pin == "000000"
         user.guest = true
         user.role = "admin_applicant"
-      elsif
-        user.city ? user.role = "volunteer" : user.role = "student"
+        user.pin = pin
+      else
+        if user.city
+          user.role = "volunteer"
+        else
+          user.role = "student"
+          user.pin = "000000"
+        end
       end
-      user.save
-      flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
+      user.save!
+      flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
     end
 
     def send_new_user_email(user)
