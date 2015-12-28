@@ -27,8 +27,18 @@ class User < ActiveRecord::Base
     return valid_pins
   end
 
+  def self.pins_available=(pins)
+    @pins_available = pins
+  end
+
+  def add_valid_pin(pin)
+    pins_available = User.pins_available.inspect[4..-5]
+    regex = /#{"\\A(" + pins_available + "|" + pin + ")" + "\\z"}/
+    User.pins_available = regex
+  end
+
   validates :pin, presence: true, 
-                  format: { with: pins_available },
+                  format: { with: @pins_available, message: " -- PIN not correct" },
                   :unless => lambda { self.pin == "000000" }
 
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
