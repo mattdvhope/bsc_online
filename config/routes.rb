@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "/users/:id/disapprove_admin", to: "users#disapprove_admin"
 
   resources :admin_applications, only: [:edit, :update]
+  get "/admin_applications/:id/email_admin_application_approval", to: "admin_applications#email_admin_application_approval"
 
   resources :appraisals, only: [:index]
 
