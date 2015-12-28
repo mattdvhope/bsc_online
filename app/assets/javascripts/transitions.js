@@ -72,39 +72,67 @@ setTimeout(function(){
 // for 'Approve' & 'Disapprove' buttons on dashboard
 $(".approved-button").on ("click tap", function(e) {
   e.preventDefault();
-  $(this).parent().children().hide();
-  $($(this).parent().children()[2]).show();
-  $($(this).parent().children()[3]).show();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  showButton(this, 2);
+  showButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
 $(".disapproved-button").on ("click tap", function(e) {
   e.preventDefault();
-  $(this).parent().children().hide();
-  $($(this).parent().children()[2]).show();
-  $($(this).parent().children()[3]).show();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  showButton(this, 2);
+  showButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
 $(".approve-admin").on ("click tap", function(e) {
   e.preventDefault();
-  $(this).parent().children().hide();
-  $($(this).parent().children()[0]).show();
-  $($(this).parent().children()[4]).show();
+  showButton(this, 0);
+  hideButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  showButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
 $(".disapprove-admin").on ("click tap", function(e) {
   e.preventDefault();
-  $(this).parent().children().hide();
-  $($(this).parent().children()[1]).show();
+  hideButton(this, 0);
+  showButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
 $(".mail-to-admin").on ("click tap", function(e) {
   e.preventDefault();
-  $(this).parent().children().hide();
-  $($(this).parent().children()[5]).show();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  hideButton(this, 4);
+  showButton(this, 5);
+  $($(this).parent().children()[6]).show().fadeOut(10000);
 });
 
 
+function hideButton(element, index) {
+  $($(element).parent().children()[index]).hide();
+}
 
+function showButton(element, index) {
+  $($(element).parent().children()[index]).show();
+}
 
 
 
