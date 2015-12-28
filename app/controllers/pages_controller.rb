@@ -11,13 +11,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @admin_applications = AdminApplication.all
-    # @admin_applications = []
-    # AdminApplication.find_each do |application|
-    #   if application.user.role != "admin"
-    #     @admin_applications << application
-    #   end
-    # end
+    @admin_applications = AdminApplication.all.order("id ASC")
   end
 
   def contact
