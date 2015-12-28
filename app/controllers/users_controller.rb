@@ -72,6 +72,23 @@ class UsersController < ApplicationController
       current_user.destroy if current_user # guest?
     end
 
+    def set_user_session(user)
+      save_new_user(user)
+      send_new_user_email(user)
+      session[:user_id] = user.id      
+    end
+
+    def save_new_user(user)
+      if user.city && user.pin == "000000"
+        user.guest = true
+        user.role = "admin_applicant"
+      elsif
+        user.city ? user.role = "volunteer" : user.role = "student"
+      end
+      user.save
+      flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
+    end
+
     def send_new_user_email(user)
       if Rails.env.production?
         send_production_email(user)
@@ -90,23 +107,6 @@ class UsersController < ApplicationController
 
     def send_development_email(user)
       AppMailer.development_env_email(user).deliver_later
-    end
-
-    def set_user_session(user)
-      save_new_user(user)
-      send_new_user_email(user)
-      session[:user_id] = user.id      
-    end
-
-    def save_new_user(user)
-      if user.city && user.pin == "000000"
-        user.guest = true
-        user.role = "admin_applicant"
-      elsif
-        user.city ? user.role = "volunteer" : user.role = "student"
-      end
-      user.save
-      flash[:success] = "You now have a 'member account' with City English Project, #{@user.first_name}. Welcome aboard!"
     end
 
 end

@@ -44,32 +44,46 @@
           <h3><%= "\"" + application.response_third + "\"" %></h3>
           <hr>
 
-          <% if application.user.role == "volunteer" %>
-            <div class="approval-disapproval-buttons">
-              <%= link_to "APPROVED-click to edit", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
-              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+          <% if application.user.role == "admin" && application.approved %>
+            <div id="approval-disapproval-buttons">
+              <%= link_to "Approval Email sent -- can't edit", "#", :class => "btn btn-info mail-sent disabled", :style => "display: inline-block" %>
             </div>
-          <% elsif application.user.role == "disapproved_volunteer" %>
-            <div class="approval-disapproval-buttons">
-              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
-              <%= link_to "DISAPPROVED-click to edit", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+          <% elsif application.user.role == "admin" && !application.approved %>
+            <div id="approval-disapproval-buttons">
+              <%= link_to "APPROVED-click to edit", "#", :class => "btn btn-success approved-button", :style => "display: inline-block" %>
+              <%= link_to "DISAPPROVED-click to edit", "#", :class => "btn btn-danger disapproved-button", :style => "display: none" %>
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success approve-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger disapprove-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "Send approval email -- can't change!!", "#", :class => "btn btn-info mail-to-admin", :style => "display: inline-block" %>
+              <%= link_to "Approval Email sent -- can't edit", "#", :class => "btn btn-info mail-sent disabled", :style => "display: none" %>
+          <% elsif application.user.role == "disapproved_admin" %>
+            <div id="approval-disapproval-buttons">
+              <%= link_to "APPROVED-click to edit", "#", :class => "btn btn-success approved-button", :style => "display: none" %>
+              <%= link_to "DISAPPROVED-click to edit", "#", :class => "btn btn-danger disapproved-button", :style => "display: inline-block" %>
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success approve-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger disapprove-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: none" %>
+              <%= link_to "Send approval email -- can't change!!", "#", :class => "btn btn-info mail-to-admin", :style => "display: none" %>
+              <%= link_to "Approval Email sent -- can't edit", "#", :class => "btn btn-info mail-sent disabled", :style => "display: none" %>
             </div>
           <% else %>
-            <div class="approval-disapproval-buttons">
-              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success volunteer-approval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
-              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger volunteer-disapproval", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+            <div id="approval-disapproval-buttons">
+              <%= link_to "APPROVED-click to edit", "#", :class => "btn btn-success approved-button", :style => "display: none" %>
+              <%= link_to "DISAPPROVED-click to edit", "#", :class => "btn btn-danger disapproved-button", :style => "display: none" %>
+              <%= link_to "Approve", "/users/#{application.user.id}/approve_admin", :class => "btn btn-success approve-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Disapprove", "/users/#{application.user.id}/disapprove_admin", :class => "btn btn-danger disapprove-admin", remote: true, :data => { :id => "#{application.user.id}" }, :style => "display: inline-block" %>
+              <%= link_to "Send approval email -- can't change!!", "#", :class => "btn btn-info mail-to-admin", :style => "display: none" %>
+              <%= link_to "Approval Email sent -- can't edit", "#", :class => "btn btn-info mail-sent disabled", :style => "display: none" %>
             </div>
           <% end %>
 
-          <hr>
-          <hr>
-
       <% end %>
-
 
     <% end %>
 
+
   </header>
+          <hr>
+          <hr>
 </section>
 
 <!--  -->
