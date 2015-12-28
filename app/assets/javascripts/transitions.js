@@ -10,12 +10,12 @@ $(".page-scroll").on("click", function() {
   $(this).addClass("active");
 });
 
-$('a[href^="#"]').on('click',function (e) {
-  e.preventDefault();
-  $('html, body').animate({
-    scrollTop: $($(this).attr('href')).offset().top
-  }, 0, 'swing');
-});
+// $('a[href^="#"]').on('click',function (e) {
+//   e.preventDefault();
+//   $('html, body').animate({
+//     scrollTop: $($(this).attr('href')).offset().top
+//   }, 0, 'swing');
+// });
 
 
 // Collapse hamburger menu from document
@@ -70,29 +70,38 @@ setTimeout(function(){
 }, 2200 );
 
 // for 'Approve' & 'Disapprove' buttons on dashboard
-$(".volunteer-approval").on ("click tap", function() {
-  if ($(this).text() === "Approve") {
-    $(this).text("APPROVED-click to edit")
-  } else {
-    $(this).text("Approve");
-  }
-  $(this).parent().children().last().toggle();
+$(".approved-button").on ("click tap", function(e) {
+  e.preventDefault();
+  $(this).parent().children().hide();
+  $($(this).parent().children()[2]).show();
+  $($(this).parent().children()[3]).show();
 });
 
-$(".volunteer-disapproval").on ("click tap", function() {
-  if ($(this).text() === "Disapprove") {
-    $(this).text("DISAPPROVED-click to edit")
-  } else {
-    $(this).text("Disapprove");
-  }
-  $(this).parent().children().first().toggle();
+$(".disapproved-button").on ("click tap", function(e) {
+  e.preventDefault();
+  $(this).parent().children().hide();
+  $($(this).parent().children()[2]).show();
+  $($(this).parent().children()[3]).show();
 });
 
+$(".approve-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  $(this).parent().children().hide();
+  $($(this).parent().children()[0]).show();
+  $($(this).parent().children()[4]).show();
+});
 
+$(".disapprove-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  $(this).parent().children().hide();
+  $($(this).parent().children()[1]).show();
+});
 
-
-
-
+$(".mail-to-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  $(this).parent().children().hide();
+  $($(this).parent().children()[5]).show();
+});
 
 
 
