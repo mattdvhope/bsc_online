@@ -28,6 +28,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if current_user.pin != "000000" && current_user.role == "student"
+      current_user.update_attribute(:pin, "000000")
+    end
     flash[:success] = current_user.guest? ? "Thank you for visiting, #{current_user.first_name}! Please look in your email inbox for your 'Volunteer Administrator Application' form." : "You are logged out #{current_user.first_name}. Have a great day!" if current_user
     session[:user_id] = nil
     redirect_to root_path
