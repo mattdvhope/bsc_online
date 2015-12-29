@@ -27,9 +27,13 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     log_out_path if users_path
+    set_user_session(user)
     if user.valid?
-      set_user_session(user)
-      redirect_to home_path
+      if user.role == "admin_applicant"
+        redirect_to root_path
+      else
+        redirect_to home_path
+      end
     else
       flash[:danger] = "Your PIN, email or other input is invalid."
       redirect_to register_student_path
@@ -76,27 +80,21 @@ class UsersController < ApplicationController
 
     def set_user_session(user)
       save_new_user(user)
-      send_new_user_email(user)
-      session[:user_id] = user.id      
+      send_new_user_email(user) if user.valid?
+      session[:user_id] = user.id if user.valid?
     end
 
     def save_new_user(user)
-      pin = user.generate_pin.to_s
-      user.add_valid_pin(pin)
       if user.city && user.pin == "000000"
+        valid_pin = User.pins_available.inspect[4..-5].split("|").sample
+        user.pin = valid_pin
         user.guest = true
         user.role = "admin_applicant"
-        user.pin = pin
-      else
-        if user.city
-          user.role = "volunteer"
-        else
-          user.role = "student"
-          user.pin = "000000"
-        end
+      elsif user.city
+        user.role = "volunteer"
       end
       user.save!
-      flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
+      flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
     end
 
     def send_new_user_email(user)
