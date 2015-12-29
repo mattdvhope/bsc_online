@@ -11,18 +11,23 @@
 <section class="bsc-container">
   <header>
     <h1><%= "Welcome to the \"City English Project\", #{current_user.first_name}!!" %></h1>
-    <hr>
-    <h2>From here, you can request an American "Skype Conversation Partner."</h2>
-    <% if current_user.volunteer? %>
+    <% if current_user.admin? %>
+      <hr>
+      <h2>You are here in "admin" status.</h2>
+    <% elsif current_user.volunteer? %>
       <hr>
       <h2>You are here in "volunteer" status.</h2>
     <% elsif current_user.role == "admin_applicant" %>
       <hr>
       <h2>You are here in "admin applicant" status.</h2>
+    <% elsif current_user.role == "student" %>
+      <hr>
+      <h2>From here, you can request an American "Skype Conversation Partner."</h2>
     <% end %>
+
     <% if current_user.leader? %>
         <hr>
-        <h2>You are here in "admin" status. In 'admin' status, you are allowed to review the "Volunteer Applications" that have come in so far.</h2>
+        <h2>You are here in "leader" status. In 'leader' status, you are allowed to review the "Volunteer Administrator Applications" that have come in so far. Each applicant that you 'Approve' here (ultimately, by sending the email), will recieve a PIN (within the email) which he or she can in turn pass out to potential volunteers.  When you press 'Approve', you will then see a light blue 'email' button which will send the PIN.</h2>
       <% if AdminApplication.all == [] %>
         <h3> No applications now. </h3>
         <hr>
