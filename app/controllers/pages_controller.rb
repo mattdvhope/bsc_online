@@ -14,6 +14,7 @@ class PagesController < ApplicationController
     if current_user.role == "admin_applicant"
       redirect_to log_out_path
     end
+    @english_teachers = User.where(role: "admin")
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 
