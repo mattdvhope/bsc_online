@@ -56,7 +56,6 @@ class AppMailer < ActionMailer::Base
   end
 
   def send_admin_application_approval(applicant)
-binding.pry
     @applicant = applicant
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
