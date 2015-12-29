@@ -55,4 +55,17 @@ class AppMailer < ActionMailer::Base
     mg_client.send_message ENV["domain"], message_params
   end
 
+  def send_admin_application_approval(applicant)
+binding.pry
+    @applicant = applicant
+    mg_client = Mailgun::Client.new ENV["api_key"]
+    message_params = {
+      :from    => ENV["username"],
+      :to      => @applicant.email,
+      :subject => "Congratulations #{applicant.first_name}! You are approved as a CEP Volunteer Administrator!",
+      :html => (render_to_string(template: "../views/app_mailer/send_admin_application_approval")).to_str
+    }
+    mg_client.send_message ENV["domain"], message_params
+  end
+
 end
