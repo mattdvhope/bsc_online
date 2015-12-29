@@ -9,6 +9,8 @@
 </script>
 
 <section class="bsc-container">
+
+
   <header>
     <h1><%= "Welcome to the \"City English Project\", #{current_user.first_name}!!" %></h1>
     <% if current_user.admin? %>
@@ -23,6 +25,17 @@
     <% elsif current_user.role == "student" %>
       <hr>
       <h2>From here, you can request an American "Skype Conversation Partner."</h2>
+      <hr>
+      <h2>Here is a list English teachers. </h2>
+      <ul>
+        <% @english_teachers.each do |teacher| %>
+          <li><h3>
+            <%= "#{teacher.first_name}" + " -- " + "click on #{teacher.gender == 'male' ? 'his' : 'her'}" + " email address here (" %>
+            <%= link_to "#{teacher.email}", "" %>
+            <%= ") to request " + "#{teacher.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher."%>
+          </h3></li>
+        <% end %>
+      </ul>
     <% end %>
 
     <% if current_user.leader? %>
