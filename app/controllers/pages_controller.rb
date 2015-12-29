@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    if current_user.role == "admin_applicant"
+      redirect_to log_out_path
+    end
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 
