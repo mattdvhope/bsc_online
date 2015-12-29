@@ -10,18 +10,20 @@ $(".page-scroll").on("click", function() {
   $(this).addClass("active");
 });
 
-// $('a[href^="#"]').on('click',function (e) {
-//   e.preventDefault();
-//   $('html, body').animate({
-//     scrollTop: $($(this).attr('href')).offset().top
-//   }, 0, 'swing');
-// });
+$('a[href^="#"]').on('click',function (e) {
+  e.preventDefault();
+console.log($(this).attr);
+  $('html, body').animate({
+    scrollTop: $($(this).attr('href')).offset().top
+  }, 0, 'swing');
+});
 
 
 // Collapse hamburger menu from document
 $(document).on('click', function() {
   collapseNavBar();
 });
+
 
 // Prevent scrolling underneath modals
 $( document ).ready(function() {
@@ -35,12 +37,14 @@ $( document ).ready(function() {
   });
 });
 
+
 // Remove form on overlay when clicking screen
 $("#overlay").on('click', function(e) {
   if( !$(e.target).is('form') ) {
     triggerClose();
   }
 });
+
 
 // escape key
 $(document).on("keyup", function(e) {
@@ -58,6 +62,7 @@ function triggerClose() {
   $("a.close").trigger("click");
 }
 
+
 // for 'Close' link on modals
 $("a.close").on("click tap", function(e) {
   e.preventDefault();
@@ -68,6 +73,7 @@ $("a.close").on("click tap", function(e) {
 setTimeout(function(){ 
   $(".alert").fadeOut(2000); 
 }, 2200 );
+
 
 // for 'Approve' & 'Disapprove' buttons on dashboard
 $(".approved-button").on ("click tap", function(e) {
@@ -124,7 +130,6 @@ $(".mail-to-admin").on ("click tap", function(e) {
   showButton(this, 5);
   $($(this).parent().children()[6]).show().fadeOut(10000);
 });
-
 
 function hideButton(element, index) {
   $($(element).parent().children()[index]).hide();
