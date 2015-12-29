@@ -53,7 +53,7 @@ class AdminApplicationsController < ApplicationController
     end
 
     def send_development_email(applicant)
-      AppMailer.development_env_email(@admin_application.user).deliver_later
+      AppMailer.development_env_email(applicant).deliver_later
     end
 
 end
