@@ -28,17 +28,12 @@ $(document).on('click', function() {
 // Prevent scrolling underneath modals
 $( document ).ready(function() {
   $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
-    $('body').css('overflow', 'hidden');
-    var offset = window.pageYOffset;
-    $('#entry_form_modal').css({
-        'display': 'block',
-        'top': offset + 'px'
-    });
+    $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
   });
 });
 
 
-// Remove form on overlay when clicking screen
+// Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
   if( !$(e.target).is('form') ) {
     triggerClose();
@@ -59,6 +54,7 @@ function collapseNavBar() {
 }
 
 function triggerClose() {
+  $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
   $("a.close").trigger("click");
 }
 
