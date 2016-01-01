@@ -510,6 +510,10 @@ input[placeholder], [placeholder], *[placeholder]
     margin-top: 15px
     width: 80% !important
 
+$accept-width-small: 450px
+$accept-width-large: 451px
+$accept-height-small: 810px
+
 #overlay
   display: none
   position: fixed
@@ -518,11 +522,10 @@ input[placeholder], [placeholder], *[placeholder]
   bottom: 0
   left: 0
   z-index: 9
-  background: rgba(0, 0, 0, .4)
-
-$accept-width-small: 450px
-$accept-width-large: 451px
-$accept-height-small: 810px
+  @media screen and (max-width: $accept-width-small)
+    background: rgba(0, 0, 0, 1)
+  @media screen and (min-width: $accept-width-large)
+    background: rgba(0, 0, 0, .4)
 
 #entry_form_modal
   @media screen and (max-width: $accept-width-small)
