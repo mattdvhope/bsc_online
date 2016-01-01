@@ -33,7 +33,7 @@ $( document ).ready(function() {
 });
 
 
-// Remove form on overlay when clicking screen
+// Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
   if( !$(e.target).is('form') ) {
     triggerClose();
