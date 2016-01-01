@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
   # rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
-  # rescue_from NoMethodError, :with => :guest_timed_out
+  rescue_from NoMethodError, :with => :guest_timed_out
 
   def require_user
     destroy_guest_if_timed_out
