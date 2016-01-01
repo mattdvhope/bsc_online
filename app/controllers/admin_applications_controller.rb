@@ -8,7 +8,7 @@ class AdminApplicationsController < ApplicationController
     @admin_application = AdminApplication.find(params[:id])
     if @admin_application.update(admin_application_params)
       user = @admin_application.user
-      user.update_attribute(:pin, user.generate_pin.to_s)
+      user.update_attribute(:pin, user.generate_pin)
       user.save!(:validate => false)
       flash[:success] = "Thank you for sending in this CEP Volunteer Administrator Application!"
       send_application_emails(@admin_application.user)
