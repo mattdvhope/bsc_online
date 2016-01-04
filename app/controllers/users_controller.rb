@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     redirect_to volunteer_intro_path
   end
 
+  def show_profile
+    redirect_to home_path
+  end
+
   def new
     redirect_to root_path
   end
