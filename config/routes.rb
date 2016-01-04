@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'new_admin', to: "users#new_admin"
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
+  get 'show_profile', to: "users#show_profile"
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
   get "/users/:id/approve_admin", to: "users#approve_admin"
