@@ -73,11 +73,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });                // currentTarget is a jQuery method
 
 
-// function navigateRouter(target) {
-//   router.navigate($(target).attr("href").replace(/^\//, ""), { trigger: true } );
-// }
-
-
 App.init();
 
 
