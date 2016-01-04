@@ -4,7 +4,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-
 var App = {
   getFrontMainPage: function() {
     var front_page_main = new MainFrontView();
@@ -49,6 +48,12 @@ var App = {
     reg_form_modal.render();
 
     this.reg_form = reg_form_modal;
+  },
+  getProfileForm: function() {
+    var profile_form_modal = new ProfileFormView();
+    profile_form_modal.render();
+
+    this.profile_form = profile_form_modal;
   },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
