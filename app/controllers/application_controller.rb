@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   # rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
   rescue_from NoMethodError, :with => :guest_timed_out
 
+  def require_leader
+    redirect_to root_path unless current_user.leader?
+  end
+
   def require_user
     destroy_guest_if_timed_out
     redirect_to root_path unless current_user
