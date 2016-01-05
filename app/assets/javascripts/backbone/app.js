@@ -4,7 +4,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-
 var App = {
   getFrontMainPage: function() {
     var front_page_main = new MainFrontView();
@@ -26,18 +25,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-//   showErrors: function(errors) {
-// console.log(errors);
-//     _.each(errors, function (error) {
-//       var controlGroup = this.$('.' + error.name);
-//       controlGroup.addClass('error');
-//       controlGroup.find('.help-inline').text(error.message);
-//     }, this);
-//   },
-//   hideErrors: function () {
-//     this.$('.control-group').removeClass('error');
-//     this.$('.help-inline').text('');
-//   },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
     reg_form_modal.render();
@@ -50,12 +37,23 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+  loadProfileForm: function() {
+    this.users = new Users();
+// console.log(this.users);
+    this.profile_view = new ProfileFormView({ collection: this.users });
+    this.users.fetch();
+  },
+  getProfileForm: function(email) {
+    var user = this.users.findWhere({ email: email }).toJSON()
+    this.profile_view.render(user);
+  },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
   },
   init: function() {
     this.getFrontMainPage();
     this.getFrontFooterPage();
+    this.loadProfileForm();
   }
 };
 
@@ -71,11 +69,6 @@ $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
-
-
-// function navigateRouter(target) {
-//   router.navigate($(target).attr("href").replace(/^\//, ""), { trigger: true } );
-// }
 
 
 App.init();

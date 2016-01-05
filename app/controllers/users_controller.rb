@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  # before_action :require_leader, :only => [:index, :show]
+
   def index
     @users = User.all
   end
@@ -14,6 +16,10 @@ class UsersController < ApplicationController
 
   def register_vol
     redirect_to volunteer_intro_path
+  end
+
+  def show_profile
+    redirect_to home_path
   end
 
   def new
