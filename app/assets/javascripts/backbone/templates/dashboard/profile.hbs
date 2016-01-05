@@ -1,0 +1,32 @@
+<a class="close" href="#">Close</a>
+
+<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+  <header>
+    <h1>Profile of {{first_name}}!</h1>
+    <h4>
+      Here is some information about this potential student or teacher.
+    </h4>
+    <hr>
+  </header>
+
+  <h3>
+    <label for="user_note">Note</label>
+  </h3>
+  <h3>
+    <textarea class="student_registration" name="user[note]" id="user_note" cols="20" rows="3" placeholder="บันทึก"></textarea>
+  </h3>
+
+  <h3>
+    <label for="user_gender">Gender</label>
+  </h3>
+  <h3>
+    <select name="user[gender]" id="vol_gender">
+      <option value="ผู้ชาย">ผู้ชาย</option>
+      <option value="ผู้หญิง">ผู้หญิง</option>
+    </select>
+  </h3>
+
+  <br>
+  <input type="submit" name="commit" value="Join CEP!" class="btn btn-success student_reg_er">
+</form>
+

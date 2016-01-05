@@ -30,8 +30,12 @@
       <ul>
         <% @english_teachers.each do |teacher| %>
           <li><h3>
-            <%= "#{teacher.first_name}" + " -- " + "click on #{teacher.gender == 'male' ? 'his' : 'her'}" + " email address here (" %>
-            <%= link_to "#{teacher.email}", "" %>
+            <%= teacher.first_name + " -- " + "click on #{teacher.gender == 'male' ? 'his' : 'her'}" + " email address here (" %>
+
+            <span id="backbone-app">
+              <%= link_to teacher.email, "/show_profile/" + teacher.email %>
+            </span>
+
             <%= ") to request " + "#{teacher.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher."%>
           </h3></li>
         <% end %>
@@ -107,4 +111,8 @@
           <hr>
 </section>
 
-<!--  -->
+<div id="overlay">
+  <!-- for .hbs templates (sessions & registration) -->
+</div>
+
+

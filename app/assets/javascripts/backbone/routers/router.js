@@ -3,7 +3,8 @@ var Router = Backbone.Router.extend({
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
-    "log_in_student": "studentSession"
+    "log_in_student": "studentSession",
+    "show_profile/:email": "showProfile"
   },
   registerAdmin: function() {
     App.getAdminRegForm();
@@ -18,6 +19,9 @@ var Router = Backbone.Router.extend({
   studentSession: function() {
     var person_logging_in = "Student";
     App.getLogInForm(person_logging_in);
+  },
+  showProfile: function(email) {
+    App.getProfileForm(email);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
