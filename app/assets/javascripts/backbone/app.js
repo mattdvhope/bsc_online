@@ -25,18 +25,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-//   showErrors: function(errors) {
-// console.log(errors);
-//     _.each(errors, function (error) {
-//       var controlGroup = this.$('.' + error.name);
-//       controlGroup.addClass('error');
-//       controlGroup.find('.help-inline').text(error.message);
-//     }, this);
-//   },
-//   hideErrors: function () {
-//     this.$('.control-group').removeClass('error');
-//     this.$('.help-inline').text('');
-//   },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
     reg_form_modal.render();
@@ -49,11 +37,15 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getProfileForm: function() {
-    var profile_form_modal = new ProfileFormView();
-    profile_form_modal.render();
-
-    this.profile_form = profile_form_modal;
+  loadProfileForm: function() {
+    this.users = new Users();
+// console.log(this.users);
+    this.profile_view = new ProfileFormView({ collection: this.users });
+    this.users.fetch();
+  },
+  getProfileForm: function(email) {
+    var user = this.users.findWhere({ email: email }).toJSON()
+    this.profile_view.render(user);
   },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
@@ -61,6 +53,7 @@ var App = {
   init: function() {
     this.getFrontMainPage();
     this.getFrontFooterPage();
+    this.loadProfileForm();
   }
 };
 
