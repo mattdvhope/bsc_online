@@ -1,7 +1,6 @@
 var User = Backbone.Model.extend({
   parse: function(attrs) {
-console.log(attrs);
-
+    attrs.user_url = "/users/" + attrs.email;
     return attrs;
   },
   url: "users", // for 'users#create...POST' 
@@ -9,8 +8,7 @@ console.log(attrs);
     'first_name': null,
     'last_name': null,
     'email': null,
-    'password': null,
-    'password_confirmation': null,
+    'password_digest': null,
     'postal_code': null,
     'address_1': null,
     'address_2': null,
