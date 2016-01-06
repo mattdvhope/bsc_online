@@ -22,7 +22,6 @@ class AppMailer < ActionMailer::Base
   def student_welcome(user)
     @user = user
     mg_client = Mailgun::Client.new ENV["api_key"]
-binding.pry
     message_params = {
       # :from    => "City English Project <" + ENV["username"] + ">",
       :from    => "City English Project <" + ENV["username"] + ">",
@@ -65,6 +64,19 @@ binding.pry
       :to      => @applicant.email,
       :subject => "Congratulations #{applicant.first_name}! You are approved as a CEP Volunteer Administrator!",
       :html => (render_to_string(template: "../views/app_mailer/send_admin_application_approval")).to_str
+    }
+    mg_client.send_message ENV["domain"], message_params
+  end
+
+  def student_to_volunteer(student, volunteer)
+    @student = student
+    @volunteer = volunteer
+    mg_client = Mailgun::Client.new ENV["api_key"]
+    message_params = {
+      :from    => "City English Project <" + ENV["username"] + ">",
+      :to      => volunteer.email,
+      :subject => "Hi #{volunteer.first_name}, #{student.first_name} wants a Skype partnership!",
+      :html => (render_to_string(template: "../views/app_mailer/student_to_volunteer")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
   end

@@ -6,6 +6,7 @@ var ProfileFormView = Backbone.View.extend({
   },
   events: {
     "click a.close": "close",
+    "click a.btn-warning": "close",
     "click input.student_reg_er": "checkInputs"
   },
   duration: 300,
@@ -21,7 +22,7 @@ var ProfileFormView = Backbone.View.extend({
 
     if (someEmpty) {
       e.preventDefault();
-      this.highlightEmptyField("#user_note", "your note");
+      this.highlightEmptyField("#volunteer_note", "your note");
     }
   },
   highlightEmptyField: function(input_id, text) {
@@ -42,12 +43,26 @@ var ProfileFormView = Backbone.View.extend({
       this.remove();
     }.bind(this));
   },
-  render: function(user) {
-// console.log(user);
+  render: function(volunteer) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+    var gender = volunteer.gender
+    var pronoun;
+    if (gender === "male" || "ผู้ชาย") {
+      pronoun = "him";
+      gender = "man";
+    } else {
+      pronoun = "her";
+      gender = "woman";
+    }
     this.$el.html(this.templateProfile({
       token: csrf_token,
-      first_name: user.first_name
+      first_name: volunteer.first_name,
+      last_name: volunteer.last_name,
+      gender: gender,
+      age: volunteer.age,
+      pronoun: pronoun,
+      volunteer: volunteer,
+      student: App.student
     }));
     this.open(); // to fade the overlay in...
   },

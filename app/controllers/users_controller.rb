@@ -18,8 +18,15 @@ class UsersController < ApplicationController
     redirect_to volunteer_intro_path
   end
 
-  def show_profile
-    redirect_to home_path
+  def volunteers
+    @volunteers = User.where(role: "admin")
+  end
+
+  def student_connect_with_volunteer
+    student = User.find(params[:id])
+    volunteer = User.find(params[:volunteer_id])
+    email_from_student_to_volunteer(student, volunteer)
+    redirect_to :back
   end
 
   def new
@@ -116,6 +123,14 @@ class UsersController < ApplicationController
         AppMailer.admin_applicant(user).deliver_later
       else
         AppMailer.student_welcome(user).deliver_later
+      end
+    end
+
+    def email_from_student_to_volunteer(student, volunteer)
+      if Rails.env.production?
+        AppMailer.student_to_volunteer(student, volunteer).deliver_later
+      else
+        send_development_email(user)
       end
     end
 
