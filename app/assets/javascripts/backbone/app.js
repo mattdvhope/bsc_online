@@ -38,14 +38,14 @@ var App = {
     this.reg_form = reg_form_modal;
   },
   loadProfileForm: function() {
-    this.users = new Users();
-// console.log(this.users);
-    this.profile_view = new ProfileFormView({ collection: this.users });
-    this.users.fetch();
+    this.volunteers = new Volunteers();
+    this.profile_view = new ProfileFormView({ collection: this.volunteers });
+    this.volunteers.fetch();
   },
   getProfileForm: function(email) {
-    var user = this.users.findWhere({ email: email }).toJSON()
-    this.profile_view.render(user);
+    this.student = gon.student
+    var volunteer = this.volunteers.findWhere({ email: email }).toJSON()
+    this.profile_view.render(volunteer);
   },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
