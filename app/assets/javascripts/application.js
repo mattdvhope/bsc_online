@@ -12,6 +12,7 @@
 //= require lightbox.min
 //= require transitions
 //= require sweet_alert_code
+//= require facebook_sdk
 
 //= require backbone/app
 
