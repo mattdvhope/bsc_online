@@ -106,8 +106,10 @@ class UsersController < ApplicationController
       elsif user.city
         user.role = "volunteer"
       end
-      user.save!
-      flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
+      if user.save
+        flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
+        return user
+      end
     end
 
     def send_new_user_email(user)
