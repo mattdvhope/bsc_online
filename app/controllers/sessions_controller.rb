@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
   def create
     destroy_old_admin_applicants
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
-    user = User.where(email: params[:email].downcase).first
-    if user && user.authenticate(params[:password]) # The 'authenticate' method is given to us by the Rails 'has_secure_password' in user.rb
+    if user = user_defined
       session[:user_id] = user.id
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
       if user.role
@@ -34,5 +33,20 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+  private
+
+    def user_defined
+      if params[:email]
+        user = User.where(email: params[:email].downcase).first
+        if user.authenticate(params[:password])
+          return user
+        else
+          return false
+        end
+      else
+        user = User.omniauth(env['omniauth.auth'])
+      end
+    end
 
 end
