@@ -1,11 +1,11 @@
 OmniAuth.config.logger = Rails.logger
 
 if Rails.env.production?
-  fb_app_id = env['fb_app_id_production']
-  fb_app_secret = env['fb_app_secret_production']
+  fb_app_id = "518969934944042"
+  fb_app_secret = "bf90ca4c90dfab2d6bfc50ce563bca0e"
 else
-  fb_app_id = env['fb_app_id_development']
-  fb_app_secret = env['fb_app_secret_development']
+  fb_app_id = "518971841610518"
+  fb_app_secret = "f19fca5cdb4779493d7ec5975aa5462c"
 end
 
 
