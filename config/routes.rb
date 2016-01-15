@@ -68,6 +68,9 @@ Rails.application.routes.draw do
 
   get 'log_in_student', to: "sessions#log_in_student" # action doesn't really matter here since Backbone is taking over routing with this path
   get 'log_in_teacher', to: "sessions#log_in_teacher" # action doesn't really matter here since Backbone is taking over routing with this path
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+
   resources :sessions, only: [:create]
   get 'log_out', to: "sessions#destroy"
 
