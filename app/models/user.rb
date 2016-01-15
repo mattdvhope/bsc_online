@@ -10,6 +10,21 @@ class User < ActiveRecord::Base
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
   has_one :admin_application, :dependent => :destroy
 
+  def self.omniauth(auth)
+    string_number = (auth.uid.to_i * rand(10000)).to_s
+    where(uid_facebook: auth.uid).first_or_initialize.tap do |user|
+      user.uid_facebook = auth.uid
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      user.email = auth.info.email
+      user.password = string_number
+      user.password_confirmation = string_number
+      user.gender = auth.extra.raw_info.gender == "male" ? "ผู้ชาย" : "ผู้หญิง"
+      user.postal_code = "10901"
+      user.save!
+    end
+  end
+
   def self.pins_available
     pins = ""
     admin_folks = User.where(role: "admin")
