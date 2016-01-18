@@ -45,7 +45,7 @@
             </li>
 
 
-            <% if params[:action] == 'front' || 'volunteer_intro' %>
+            <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
               <li id="backbone-app">
                 <%= link_to "Register", register_student_path unless current_user %>
               </li>
