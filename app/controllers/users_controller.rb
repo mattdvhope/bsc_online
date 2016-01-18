@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin)
+      params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
     end
 
     def transition_to_student_status_if_a_guest_in_app(user)
@@ -106,8 +106,10 @@ class UsersController < ApplicationController
       elsif user.city
         user.role = "volunteer"
       end
-      user.save!
-      flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
+      if user.save
+        flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
+        return user
+      end
     end
 
     def send_new_user_email(user)
