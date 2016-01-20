@@ -26,11 +26,11 @@ $(document).on('click', function() {
 
 
 // Prevent scrolling underneath modals
-$( document ).ready(function() {
-  $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
-    $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
-  });
-});
+// $( document ).ready(function() {
+//   $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
+//     $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
+//   });
+// });
 
 
 // Remove overlay form when clicking screen
