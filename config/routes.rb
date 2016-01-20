@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :events
 
+  get 'main_thai', to: "users#main_thai"
+
   get 'new_admin', to: "users#new_admin"
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
