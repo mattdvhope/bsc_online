@@ -9490,7 +9490,7 @@ input[placeholder], [placeholder], *[placeholder] {
     width: 80% !important;
   }
 }
-/* line 513, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 517, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #overlay {
   display: none;
   position: fixed;
@@ -9499,30 +9499,41 @@ input[placeholder], [placeholder], *[placeholder] {
   bottom: 0;
   left: 0;
   z-index: 9;
-  background: rgba(0, 0, 0, 0.4);
+}
+@media screen and (max-width: 450px) {
+  /* line 517, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  #overlay {
+    background: black;
+  }
+}
+@media screen and (min-width: 451px) {
+  /* line 517, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  #overlay {
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
 
 @media screen and (max-width: 450px) {
-  /* line 527, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 530, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 0%;
   }
 }
 @media screen and (min-width: 451px) {
-  /* line 527, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 530, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 10%;
   }
 }
 
 @media screen and (max-height: 810px) {
-  /* line 533, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 536, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 0% 0% 0% 0%;
   }
 }
 
-/* line 537, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 540, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #entry_form_modal {
   display: none;
   position: fixed;
@@ -9538,7 +9549,7 @@ input[placeholder], [placeholder], *[placeholder] {
   background: white;
 }
 
-/* line 551, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 554, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #entry_form_modal a.close {
   position: absolute;
   top: 25px;
@@ -9993,7 +10004,7 @@ h3.brown {
 }
 
 
-@media (max-width: 831px) {
+@media (max-width: 2000px) {
     .navbar-header {
         float: none;
     }
