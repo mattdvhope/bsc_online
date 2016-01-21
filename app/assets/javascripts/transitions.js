@@ -12,10 +12,11 @@ $(".page-scroll").on("click", function() {
 
 $('a[href^="#"]').on('click',function (e) {
   e.preventDefault();
-console.log($(this).attr);
-  $('html, body').animate({
-    scrollTop: $($(this).attr('href')).offset().top
-  }, 0, 'swing');
+  if ($($(this).attr('href')).offset()) {
+    $('html, body').animate({
+      scrollTop: $($(this).attr('href')).offset().top
+    }, 0, 'swing');
+  }
 });
 
 
@@ -41,7 +42,7 @@ $("#overlay").on('click', function(e) {
 });
 
 
-// escape key
+// Remove overlay form with escape key
 $(document).on("keyup", function(e) {
   if (e.keyCode == 27) {
     collapseNavBar();    
