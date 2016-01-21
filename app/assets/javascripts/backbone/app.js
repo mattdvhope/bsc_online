@@ -7,7 +7,15 @@
 var App = {
   getFrontMainPage: function() {
     var front_page_main = new MainFrontView();
+    front_page_main.$el.parent().children().remove()
+    var front_page_main = new MainFrontView();
     front_page_main.render();
+  },
+  getFrontMainThai: function() {
+    var front_page_thai_main = new MainThaiView();
+    front_page_thai_main.$el.parent().children().remove()
+    var front_page_thai_main = new MainThaiView();
+    front_page_thai_main.render();
   },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();

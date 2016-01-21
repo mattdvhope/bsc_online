@@ -457,6 +457,12 @@ Based on Rails routes of BscOnline::Application
 // log_out => /log_out(.:format)
   // function(options)
   log_out_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_out",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// main_english => /main_english(.:format)
+  // function(options)
+  main_english_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"main_english",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// main_thai => /main_thai(.:format)
+  // function(options)
+  main_thai_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"main_thai",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // new_admin => /new_admin(.:format)
   // function(options)
   new_admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"new_admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -546,7 +552,10 @@ Based on Rails routes of BscOnline::Application
   users_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // volunteer_intro => /volunteer_intro(.:format)
   // function(options)
-  volunteer_intro_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_intro",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments)}
+  volunteer_intro_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_intro",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// volunteers => /volunteers(.:format)
+  // function(options)
+  volunteers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteers",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments)}
 ;
     root.Routes.options = defaults;
     root.Routes.default_serializer = function(object, prefix) {
@@ -18383,9 +18392,11 @@ $(".page-scroll").on("click", function() {
 
 $('a[href^="#"]').on('click',function (e) {
   e.preventDefault();
-  $('html, body').animate({
-    scrollTop: $($(this).attr('href')).offset().top
-  }, 0, 'swing');
+  if ($($(this).attr('href')).offset()) {
+    $('html, body').animate({
+      scrollTop: $($(this).attr('href')).offset().top
+    }, 0, 'swing');
+  }
 });
 
 
@@ -18394,26 +18405,24 @@ $(document).on('click', function() {
   collapseNavBar();
 });
 
-// Prevent scrolling underneath modals
-$( document ).ready(function() {
-  $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
-    $('body').css('overflow', 'hidden');
-    var offset = window.pageYOffset;
-    $('#entry_form_modal').css({
-        'display': 'block',
-        'top': offset + 'px'
-    });
-  });
-});
 
-// Remove form on overlay when clicking screen
+// Prevent scrolling underneath modals
+// $( document ).ready(function() {
+//   $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
+//     $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
+//   });
+// });
+
+
+// Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
   if( !$(e.target).is('form') ) {
     triggerClose();
   }
 });
 
-// escape key
+
+// Remove overlay form with escape key
 $(document).on("keyup", function(e) {
   if (e.keyCode == 27) {
     collapseNavBar();    
@@ -18426,8 +18435,10 @@ function collapseNavBar() {
 }
 
 function triggerClose() {
+  $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
   $("a.close").trigger("click");
 }
+
 
 // for 'Close' link on modals
 $("a.close").on("click tap", function(e) {
@@ -18440,25 +18451,70 @@ setTimeout(function(){
   $(".alert").fadeOut(2000); 
 }, 2200 );
 
+
 // for 'Approve' & 'Disapprove' buttons on dashboard
-$(".volunteer-approval").on ("click tap", function() {
-  if ($(this).text() === "Approve") {
-    $(this).text("APPROVED-click to edit")
-  } else {
-    $(this).text("Approve");
-  }
-  $(this).parent().children().last().toggle();
+$(".approved-button").on ("click tap", function(e) {
+  e.preventDefault();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  showButton(this, 2);
+  showButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
-$(".volunteer-disapproval").on ("click tap", function() {
-  if ($(this).text() === "Disapprove") {
-    $(this).text("DISAPPROVED-click to edit")
-  } else {
-    $(this).text("Disapprove");
-  }
-  $(this).parent().children().first().toggle();
+$(".disapproved-button").on ("click tap", function(e) {
+  e.preventDefault();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  showButton(this, 2);
+  showButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
 });
 
+$(".approve-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  showButton(this, 0);
+  hideButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  showButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
+});
+
+$(".disapprove-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  hideButton(this, 0);
+  showButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  hideButton(this, 4);
+  hideButton(this, 5);
+  hideButton(this, 6);
+});
+
+$(".mail-to-admin").on ("click tap", function(e) {
+  e.preventDefault();
+  hideButton(this, 0);
+  hideButton(this, 1);
+  hideButton(this, 2);
+  hideButton(this, 3);
+  hideButton(this, 4);
+  showButton(this, 5);
+  $($(this).parent().children()[6]).show().fadeOut(10000);
+});
+
+function hideButton(element, index) {
+  $($(element).parent().children()[index]).hide();
+}
+
+function showButton(element, index) {
+  $($(element).parent().children()[index]).show();
+}
 
 
 
@@ -18472,14 +18528,7 @@ $(".volunteer-disapproval").on ("click tap", function() {
 
 
 
-
-
-
-
-
-
-
-
+;
 
 if (gon.user) {
   swal({
@@ -18498,19 +18547,74 @@ if (gon.user) {
 
 
 ;
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '518971841610518',
+    xfbml      : true,
+    version    : 'v2.5'
+  });
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/profile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<a class=\"close\" href=\"#\">Close</a>\n\n<form novalidate=\"novalidate\" class=\"simple_form new_user\" id=\"new_user\" action=\"/student_connect_with_volunteer\" accept-charset=\"UTF-8\" method=\"get\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
+    + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
+    + ">\n  <header>\n    <h1>Profile of "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + "!</h1>\n    <h4>\n      Here is some information about "
+    + this.escapeExpression(((helper = (helper = helpers.pronoun || (depth0 != null ? depth0.pronoun : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pronoun","hash":{},"data":data}) : helper)))
+    + ".\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + " "
+    + this.escapeExpression(((helper = (helper = helpers.last_name || (depth0 != null ? depth0.last_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"last_name","hash":{},"data":data}) : helper)))
+    + " is a "
+    + this.escapeExpression(((helper = (helper = helpers.age || (depth0 != null ? depth0.age : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"age","hash":{},"data":data}) : helper)))
+    + "-year-old "
+    + this.escapeExpression(((helper = (helper = helpers.gender || (depth0 != null ? depth0.gender : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"gender","hash":{},"data":data}) : helper)))
+    + " who is available as a Skype-partner for you, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + ".\n  </h3>\n  <br>\n\n\n  <a class=\"btn btn-success\" href=\"/student_connect_with_volunteer/"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.id : stack1), depth0))
+    + "/"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.id : stack1), depth0))
+    + "\">\n    Get in touch with "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + "\n  </a>\n\n  <a class=\"btn btn-warning\" href=\"#\">Not choose "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + " yet</a>\n\n\n</form>\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/profile"];
+}).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["front/footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container-fluid footer\">\n  <div class=\"row\">\n    <ul>\n      <br>\n      <li style=\"list-style-type: none;\"><a href=\"/contact\">Contact Us!</a></li>\n      <br>\n      <li style=\"list-style-type: none;\">Copyright &copy; City English Project 2015</li>\n      <br>\n    </ul>\n  </div>\n</div>";
+    return "<div class=\"container-fluid footer\">\n  <div class=\"row\">\n    <ul>\n      <br>\n      <li style=\"list-style-type: none;\"><div class=\"line-it-button\" style=\"display: none;\" data-type=\"share-d\" data-lang=\"en\"></div></li>\n      <br>\n      <li style=\"list-style-type: none;\"><a href=\"/contact\">Contact Us!</a></li>\n      <br>\n      <li style=\"list-style-type: none;\">Copyright &copy; City English Project 2015</li>\n      <br>\n      <li style=\"list-style-type: none;\">Flag images provided by <a href=\"http://www.icondrawer.com/\">Icon Drawer</a></li>\n      <br>\n    </ul>\n  </div>\n</div>";
 },"useData":true});
   return this.HandlebarsTemplates["front/footer"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <p class=\"intro\">Welcome to</p>\n          <h2>City English (\"เว็บไซต์นี้กำลังปรับปรุง / under construction\")</h2>\n          <h3>A Template for Eric's perusal..</h3>\n          <p>By <span><a href=\"#\">Matt Malone</a></span></p>\n          <!-- http://www.html5layouts.com -->\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in_student\">Login</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">Register</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p><a class=\"link-button\" href=\"/volunteer_intro\">Volunteer!</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Welcome To City English...ยินดีต้อนรับ!!</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time and check out what we have to offer!\n        </p>\n        </br>\n        <h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Features</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>On-site Classes</h4>\n            <p>We offer our City Talk conversational English and worldview class (beginner, basic and intermediate levels) in businesses, vocational schools and universities. A primary focus of City Talk is learning to speak English with clarity and confidence!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Partners</h4>\n            <p>We know that the best way to learn a language is to practice with native speakers. So, our network offers online conversation partnerships with native English speakers (via Line, Facebook, etc.).</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Online Classes</h4>\n            <p>Our online network offers basic classes on topics that are important for Thai English learners in the 21st century. For example, we will offer classes on job resumes, global worldviews/culture, job interviews, etc.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Groups</h4>\n            <p>Do you prefer to practice speaking English with friends in a group setting? We also offer online conversation groups with native English speakers!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Community Boards</h4>\n            <p>Need to practice writing? Have an immediate English question you need answering? Connect into our online community boards to get answers from native English speakers.</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Certificate Program</h4>\n            <p>In partnership with a leading English institute in the United States, we hope to launch our certificate program in late 2016 or early 2017. Our goal is to offer general English certificates as well as certificates in specific fields of study.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <h2 class=\"text-center features-text-bottom\">In addition, we have plans for future classes, activities and much, much more!</h2>\n</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center process-text\">A Simple Process. An Incredible Opportunity.</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Step 1</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>Step 2</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">Helping Friends</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot.jpg\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot.jpg\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<!-- Volunteer info -->\n<div class=\"container-fluid work\" id=\"volunteer\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center volunteer-text\">Volunteer Information</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Volunteer Info -->\n\n\n\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n";
+    return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <p class=\"intro\">Welcome to</p>\n          <h2>City English (\"Under construction\")</h2>\n          <h3>A Template for Eric's perusal..</h3>\n          <p>By <span><a href=\"#\">Matt Malone</a></span></p>\n          <!-- http://www.html5layouts.com -->\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in_student\">Login</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">Register</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p><a class=\"link-button\" href=\"/volunteer_intro\">Volunteer!</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Welcome To City English Project...!!</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n        </p>\n        </br>\n        <h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Features</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>On-site Classes</h4>\n            <p>We offer our City Talk conversational English and worldview class (beginner, basic and intermediate levels) in businesses, vocational schools and universities. A primary focus of City Talk is learning to speak English with clarity and confidence!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Partners</h4>\n            <p>The best way to learn a language is to practice with native speakers, so our network offers online conversation partnerships with native English speakers (via Skype).</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Online Classes</h4>\n            <p>Our online network offers basic classes on topics that are important for Thai English learners in the 21st century. For example, we will offer classes on job resumes, global worldviews/culture, job interviews, etc.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Groups</h4>\n            <p>Do you prefer to practice speaking English with friends in a group setting? We also offer online video conversation groups with native English speakers!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Community Boards</h4>\n            <p>Do you need to practice writing? Do you have an immediate English question you need answered? Connect into our online community boards to get answers from native English speakers.</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Certificate Program</h4>\n            <p>In partnership with a leading English institute in the United States, we hope to launch our certificate program in 2017. Our goal is to offer general English certificates as well as certificates in specific fields of study.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <h2 class=\"text-center features-text-bottom\">In addition, we have plans for future classes, activities and much, much more!</h2>\n</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center process-text\">A Simple Process. An Incredible Opportunity.</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Step 1</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>Step 2</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">Helping Friends</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<!-- Volunteer info -->\n<div class=\"container-fluid work\" id=\"volunteer\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center volunteer-text\">Volunteer Information</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Volunteer Info -->\n\n\n\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["front/main"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["front/main_thai"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <p class=\"intro\">ยินดีต้อนรับ</p>\n          <h2>กกกกกกกกกกกกกก (\"เว็บไซต์นี้กำลังปรับปรุง\")</h2>\n          <h3>กกกกกกกกกกกกกกกกกกกกกกกกกกกกก..</h3>\n          <p>By <span><a href=\"#\">กกกกกกกกกกกกกก</a></span></p>\n          <!-- http://www.html5layouts.com -->\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in_student\">Login</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">Register</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p><a class=\"link-button\" href=\"/volunteer_intro\">Volunteer!</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>ยินดีต้อนรับ City English Project...!!</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n        </p>\n        </br>\n        <h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Features Thai -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Features</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <h2 class=\"text-center features-text-bottom\">ในอนาคต, กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก!</h2>\n</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center process-text\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">Helping Friends</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<!-- Volunteer info -->\n<div class=\"container-fluid work\" id=\"volunteer\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center volunteer-text\">Volunteer Information</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Volunteer Info -->\n\n\n\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n";
+},"useData":true});
+  return this.HandlebarsTemplates["front/main_thai"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -18519,7 +18623,7 @@ if (gon.user) {
 
   return "<a class=\"close\" href=\"#\">Close</a>\n\n<form novalidate=\"novalidate\" class=\"simple_form new_user\" id=\"new_user\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n  <header>\n    <h1>Register your church, business or organization with City English Project (CEP)!</h1>\n    <hr>\n    <h4>\n      When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Application Form.\" After you fill it out and submit it, will respond to you within 48 hours. \n    </h4>\n    <hr>\n    <h4>\n      Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"student status\" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain \"admin\" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.\n    </h4>\n    <hr>\n    <h4>\n      Every box is required to be filled in except 'Address 2.'\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    <label for=\"admin_first_name\">First Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[first_name]\" id=\"admin_first_name\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_last_name\">Last Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[last_name]\" id=\"admin_last_name\">\n  </h3>\n\n  <h3>\n    <label for=\"user_last_name\">Church, Business or Organization Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[occupation]\" id=\"user_occupation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_email\">Email Address</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"email\" name=\"user[email]\" id=\"user_email\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_password\">Password</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"password\" name=\"user[password]\" id=\"admin_password\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_password_confirmation\">Password Confirmation</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"password\" name=\"user[password_confirmation]\" id=\"admin_password_confirmation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_phone_number\">Phone Number</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[phone_number]\" id=\"user_phone_number\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_1\">Address 1</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[address_1]\" id=\"user_address_1\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_2\">Address 2</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[address_2]\" id=\"user_address_2\">\n  </h3>\n\n  <h3>\n    <label for=\"user_city\">Town or City</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[city]\" id=\"user_city\">\n  </h3>\n\n  <h3>\n    <label for=\"user_province\">State or Province</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[province]\" id=\"user_province\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_postal_code\">Zip / Postal Code</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[postal_code]\" id=\"admin_postal_code\">\n  </h3>\n\n  <h3>\n    <label for=\"country\">Country</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[country]\" id=\"user_country\">\n  </h3>\n\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Send this form to CEP\" class=\"btn btn-success admin_reg_er\">\n</form>\n";
+    + ">\n  <header>\n    <h1>Register your church, business or organization with City English Project (CEP)!</h1>\n    <hr>\n    <h4>\n      When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Application Form.\" After you fill it out and submit it, will respond to you within 48 hours. \n    </h4>\n    <hr>\n    <h4>\n      Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"student status\" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain \"admin\" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.\n    </h4>\n    <hr>\n    <h4>\n      Every box is required to be filled in except 'Address 2.'\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    <label for=\"admin_first_name\">First Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[first_name]\" id=\"admin_first_name\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_last_name\">Last Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[last_name]\" id=\"admin_last_name\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_gender\">Gender</label>\n  </h3>\n  <h3>\n    <select name=\"user[gender]\" id=\"admin_gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select>\n  </h3>\n\n  <h3>\n    <label for=\"user_occupation\">Church, Business or Organization Name</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[occupation]\" id=\"user_occupation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_email\">Email Address</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"email\" name=\"user[email]\" id=\"user_email\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_password\">Password</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"password\" name=\"user[password]\" id=\"admin_password\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_password_confirmation\">Password Confirmation</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"password\" name=\"user[password_confirmation]\" id=\"admin_password_confirmation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_phone_number\">Phone Number</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[phone_number]\" id=\"user_phone_number\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_1\">Address 1</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[address_1]\" id=\"user_address_1\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_2\">Address 2</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[address_2]\" id=\"user_address_2\">\n  </h3>\n\n  <h3>\n    <label for=\"user_city\">Town or City</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[city]\" id=\"user_city\">\n  </h3>\n\n  <h3>\n    <label for=\"user_province\">State or Province</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[province]\" id=\"user_province\">\n  </h3>\n\n  <h3>\n    <label for=\"admin_postal_code\">Zip / Postal Code</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[postal_code]\" id=\"admin_postal_code\">\n  </h3>\n\n  <h3>\n    <label for=\"country\">Country</label>\n  </h3>\n  <h3>\n    <input class=\"admin_registration\" type=\"text\" name=\"user[country]\" id=\"user_country\">\n  </h3>\n\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Send this form to CEP\" class=\"btn btn-success admin_reg_er\">\n</form>\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/admin_reg"];
 }).call(this);
@@ -18565,8 +18669,7 @@ if (gon.user) {
 }).call(this);
 var User = Backbone.Model.extend({
   parse: function(attrs) {
-console.log(attrs);
-
+    attrs.user_url = "/users/" + attrs.email;
     return attrs;
   },
   url: "users", // for 'users#create...POST' 
@@ -18574,8 +18677,7 @@ console.log(attrs);
     'first_name': null,
     'last_name': null,
     'email': null,
-    'password': null,
-    'password_confirmation': null,
+    'password_digest': null,
     'postal_code': null,
     'address_1': null,
     'address_2': null,
@@ -18597,57 +18699,95 @@ console.log(attrs);
     'guest': false,
     'role_id': 0,
     'pin': null
-  },  
-  validate: function (attrs) {
-    var errors = [];
-console.log("errors-begin: " + errors);
-
-    if (!attrs.first_name) {
-        errors.push({name: 'first_name', message: 'Please fill first name field.'});
-    }
-    if (!attrs.last_name) {
-        errors.push({name: 'last_name', message: 'Please fill last name field.'});
-    }
-    // if (!attrs.occupation) {
-    //     errors.push({name: 'occupation', message: 'Please fill occupation field.'});
-    // }
-    if (!attrs.email) {
-        errors.push({name: 'email', message: 'Please fill email field.'});
-    }
-    if (!attrs.password) {
-        errors.push({name: 'password', message: 'Please fill password field.'});
-    }
-    if (!attrs.password_confirmation) {
-        errors.push({name: 'password_confirmation', message: 'Please fill password_confirmation field.'});
-    }
-    // if (!attrs.phone_number) {
-    //     errors.push({name: 'phone_number', message: 'Please fill phone number field.'});
-    // }
-    // if (!attrs.address_1) {
-    //     errors.push({name: 'address_1', message: 'Please fill address 1 field.'});
-    // }
-    // if (!attrs.city) {
-    //     errors.push({name: 'city', message: 'Please fill city field.'});
-    // }
-    // if (!attrs.province) {
-    //     errors.push({name: 'province', message: 'Please fill province field.'});
-    // }
-    if (!attrs.postal_code) {
-        errors.push({name: 'postal_code', message: 'Please fill postal code field.'});
-    }
-    // if (!attrs.country) {
-    //     errors.push({name: 'country', message: 'Please fill country field.'});
-    // }
-console.log("errors-end: " + errors);
-
-    return errors.length > 0 ? errors : false;
   }
 
 });
-Users = Backbone.Collection.extend({
+var Users = Backbone.Collection.extend({
   model: User,
   url: "/users.json"
 }); 
+var Volunteers = Backbone.Collection.extend({
+  model: User,
+  url: "/volunteers.json"
+}); 
+var $overlay = $("#overlay");
+
+var ProfileFormView = Backbone.View.extend({
+  attributes: {
+    id: "entry_form_modal"
+  },
+  events: {
+    "click a.close": "close",
+    "click a.btn-warning": "close",
+    "click input.student_reg_er": "checkInputs"
+  },
+  duration: 300,
+  templateProfile:  HandlebarsTemplates['dashboard/profile'],
+  open: function () {
+    this.$el.add($overlay).fadeIn(this.duration);
+  },
+  checkInputs: function(e) {
+    $(".profile").css("border-color", "blue");
+    var someEmpty = $('.profile').filter(function(){
+      return $.trim(this.value).length === 0;
+    }).length > 0;
+
+    if (someEmpty) {
+      e.preventDefault();
+      this.highlightEmptyField("#volunteer_note", "your note");
+    }
+  },
+  highlightEmptyField: function(input_id, text) {
+    if ($(input_id).val() === "") {
+      $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
+    }
+  },
+  close: function(e) {
+    e.preventDefault();
+    this.fadeOut();
+    App.loadProfileForm();
+    history.back();
+  },
+  fadeOut: function() {
+    App.allowBodyScrolling();
+    $overlay.fadeOut(this.duration);
+    this.$el.fadeOut(this.duration, function() {
+      this.remove();
+    }.bind(this));
+  },
+  render: function(volunteer) {
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    var gender = volunteer.gender
+    var pronoun;
+    if (gender === "male" || "ผู้ชาย") {
+      pronoun = "him";
+      gender = "man";
+    } else {
+      pronoun = "her";
+      gender = "woman";
+    }
+    this.$el.html(this.templateProfile({
+      token: csrf_token,
+      first_name: volunteer.first_name,
+      last_name: volunteer.last_name,
+      gender: gender,
+      age: volunteer.age,
+      pronoun: pronoun,
+      volunteer: volunteer,
+      student: App.student
+    }));
+    this.open(); // to fade the overlay in...
+  },
+  initialize: function() {
+    this.$el.appendTo(document.body);
+    this.listenTo(this.collection, "change", this.render);
+  }
+});
+
+
+
+
+
 var FooterFrontView = Backbone.View.extend({
   templateFooterFront:  HandlebarsTemplates['front/footer'],
   render: function() {
@@ -18666,6 +18806,17 @@ var MainFrontView = Backbone.View.extend({
   templateMainFront:  HandlebarsTemplates['front/main'],
   render: function() {
     this.$el.html(this.templateMainFront());
+  },
+  initialize: function() {
+    this.$el.appendTo(".entire-main");
+  }
+});
+
+
+var MainThaiView = Backbone.View.extend({
+  templateMainThaiFront:  HandlebarsTemplates['front/main_thai'],
+  render: function() {
+    this.$el.html(this.templateMainThaiFront());
   },
   initialize: function() {
     this.$el.appendTo(".entire-main");
@@ -19030,10 +19181,19 @@ var LogInFormView = Backbone.View.extend({
 
 var Router = Backbone.Router.extend({
   routes: {
+    "main_thai": "showThai",
+    "main_english": "showEnglish",
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
-    "log_in_student": "studentSession"
+    "log_in_student": "studentSession",
+    "volunteers/:email": "showProfile"
+  },
+  showThai: function() {
+    App.getFrontMainThai();
+  },
+  showEnglish: function() {
+    App.getFrontMainPage();
   },
   registerAdmin: function() {
     App.getAdminRegForm();
@@ -19048,6 +19208,9 @@ var Router = Backbone.Router.extend({
   studentSession: function() {
     var person_logging_in = "Student";
     App.getLogInForm(person_logging_in);
+  },
+  showProfile: function(email) {
+    App.getProfileForm(email);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
@@ -19070,11 +19233,18 @@ var Router = Backbone.Router.extend({
 
 
 
-
 var App = {
   getFrontMainPage: function() {
     var front_page_main = new MainFrontView();
+    front_page_main.$el.parent().children().remove()
+    var front_page_main = new MainFrontView();
     front_page_main.render();
+  },
+  getFrontMainThai: function() {
+    var front_page_thai_main = new MainThaiView();
+    front_page_thai_main.$el.parent().children().remove()
+    var front_page_thai_main = new MainThaiView();
+    front_page_thai_main.render();
   },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();
@@ -19092,18 +19262,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-//   showErrors: function(errors) {
-// console.log(errors);
-//     _.each(errors, function (error) {
-//       var controlGroup = this.$('.' + error.name);
-//       controlGroup.addClass('error');
-//       controlGroup.find('.help-inline').text(error.message);
-//     }, this);
-//   },
-//   hideErrors: function () {
-//     this.$('.control-group').removeClass('error');
-//     this.$('.help-inline').text('');
-//   },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
     reg_form_modal.render();
@@ -19116,12 +19274,23 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+  loadProfileForm: function() {
+    this.volunteers = new Volunteers();
+    this.profile_view = new ProfileFormView({ collection: this.volunteers });
+    this.volunteers.fetch();
+  },
+  getProfileForm: function(email) {
+    this.student = gon.student
+    var volunteer = this.volunteers.findWhere({ email: email }).toJSON()
+    this.profile_view.render(volunteer);
+  },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
   },
   init: function() {
     this.getFrontMainPage();
     this.getFrontFooterPage();
+    this.loadProfileForm();
   }
 };
 
@@ -19139,11 +19308,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });                // currentTarget is a jQuery method
 
 
-// function navigateRouter(target) {
-//   router.navigate($(target).attr("href").replace(/^\//, ""), { trigger: true } );
-// }
-
-
 App.init();
 
 
@@ -19157,6 +19321,7 @@ $("h3.answer").click(function() {
   $(this).closest("div").children("h3").children("a").removeClass("brown");
   $(this).children().addClass("brown");
 });
+
 
 
 

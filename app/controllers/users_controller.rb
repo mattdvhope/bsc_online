@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def main_thai
+    redirect_to root_path
+  end
+
+  def main_english
+    redirect_to root_path
+  end
+
   def register_admin
     redirect_to volunteer_intro_path
   end

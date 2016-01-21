@@ -11,10 +11,18 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to "City English", root_path, :class => "navbar-brand" %>
+        <span id="backbone-app">
+          <%= link_to (image_tag 'thailand.png'), main_thai_path %>
+        </span>
+        <span id="backbone-app">
+          <%= link_to (image_tag 'usa.png'), main_english_path %>
+        </span>
+
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
         <ul class="nav navbar-nav navbar-right">
           <!-- <li
             style="padding: 1em; padding-top: 1.1em;"
@@ -24,11 +32,10 @@
             data-show-faces="true">
           </li> -->
           <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li>
-
           <% if !current_user %>
             <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
 
-            <li><a href="/auth/facebook">Facebook</a></li>
+            <!-- <li><a href="/auth/facebook">Facebook</a></li> -->
 
             <% if params[:action] == 'front' %>
               <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
@@ -45,7 +52,7 @@
             </li>
 
 
-            <% if params[:action] == 'front' || 'volunteer_intro' %>
+            <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
               <li id="backbone-app">
                 <%= link_to "Register", register_student_path unless current_user %>
               </li>
