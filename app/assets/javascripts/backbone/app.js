@@ -21,9 +21,9 @@ var App = {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
-  getLogInForm: function(person) {
+  getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();
-    log_in_form_modal.render(person);
+    log_in_form_modal.render();
 
     this.log_in_form = log_in_form_modal;
   },

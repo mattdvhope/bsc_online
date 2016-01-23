@@ -9,8 +9,7 @@ var LogInFormView = Backbone.View.extend({
     "click input.login_checker": "checkInputs"
   },
   duration: 300,
-  templateStudent:  HandlebarsTemplates['sessions/student_log_in'],
-  templateTeacher:  HandlebarsTemplates['sessions/teacher_log_in'],
+  templateSession:  HandlebarsTemplates['sessions/log_in'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
@@ -53,18 +52,10 @@ var LogInFormView = Backbone.View.extend({
   },
   render: function(person) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-
-    if (person === "Student") {
-      this.$el.html(this.templateStudent({
+      this.$el.html(this.templateSession({
         token: csrf_token
       }));
       this.open(); // to fade the overlay in...
-    } else if (person === "Teacher") {
-      this.$el.html(this.templateTeacher({
-        token: csrf_token
-      }));
-      this.open();
-    }
   },
   initialize: function() {
     this.$el.appendTo(document.body);

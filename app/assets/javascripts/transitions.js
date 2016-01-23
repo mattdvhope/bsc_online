@@ -72,7 +72,7 @@ setTimeout(function(){
 }, 2200 );
 
 
-// for 'Approve' & 'Disapprove' buttons on dashboard
+// for 'Approve' & 'Disapprove' buttons on leader dashboard
 $(".approved-button").on ("click tap", function(e) {
   e.preventDefault();
   hideButton(this, 0);
@@ -135,6 +135,22 @@ function hideButton(element, index) {
 function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
+
+
+// switch between Thai & American flags
+$(".thai_flag").on("click tap", function() {
+  $($(this).parent().find( ".thai_flag" )).hide();
+  $($(this).parent().find( ".usa_flag" )).show();
+});
+
+$(".usa_flag").on("click tap", function() {
+  $($(this).parent().find( ".thai_flag" )).show();
+  $($(this).parent().find( ".usa_flag" )).hide();
+});
+
+
+
+
 
 
 

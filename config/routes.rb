@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
 
-  resources :events
+  # resources :events
 
   get 'main_thai', to: "users#main_thai"
   get 'main_english', to: "users#main_english"
@@ -69,8 +69,7 @@ Rails.application.routes.draw do
 
   resources :plans, except: [:destroy]
 
-  get 'log_in_student', to: "sessions#log_in_student" # action doesn't really matter here since Backbone is taking over routing with this path
-  get 'log_in_teacher', to: "sessions#log_in_teacher" # action doesn't really matter here since Backbone is taking over routing with this path
+  get 'log_in', to: "sessions#log_in" # action doesn't really matter here since Backbone is taking over routing with this path
 
   get 'auth/:provider/callback', to: 'sessions#create'
 

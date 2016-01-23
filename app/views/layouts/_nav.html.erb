@@ -11,10 +11,10 @@
           <span class="icon-bar"></span>
         </button>
         <%= link_to "City English", root_path, :class => "navbar-brand" %>
-        <span id="backbone-app">
+        <span id="backbone-app" class="thai_flag" style="display: inline;">
           <%= link_to (image_tag 'thailand.png'), main_thai_path %>
         </span>
-        <span id="backbone-app">
+        <span id="backbone-app" class="usa_flag" style="display: none;">
           <%= link_to (image_tag 'usa.png'), main_english_path %>
         </span>
 
@@ -51,10 +51,6 @@
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li id="backbone-app">
-                  <%= link_to "Student Info", "#" unless current_user %>
-                </li>
-                <li role="separator" class="divider"></li>
                 <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
                   <li id="backbone-app">
                     <%= link_to "Register New Student", register_student_path unless current_user %>
@@ -62,29 +58,27 @@
                 <% end %>
                 <li role="separator" class="divider"></li>
                 <li id="backbone-app">
-                  <%= link_to "Student Login", log_in_student_path unless current_user %>
+                  <%= link_to "Student Login", log_in_path unless current_user %>
                 </li>
 
               </ul>
             </li>
 
-
-
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Volunteer<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li id="backbone-app">
-                  <%= link_to "Volunteer Info", "#" unless current_user %>
+                  <%= link_to "Volunteer Info", volunteer_intro_path unless current_user %>
                 </li>
                 <li role="separator" class="divider"></li>
                 <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
                   <li id="backbone-app">
-                    <%= link_to "Register New Volunteer", register_student_path unless current_user %>
+                    <%= link_to "Register New Volunteer", register_vol_path unless current_user %>
                   </li>
                 <% end %>
                 <li role="separator" class="divider"></li>
                 <li id="backbone-app">
-                  <%= link_to "Volunteer Login", log_in_teacher_path unless current_user %>
+                  <%= link_to "Volunteer Login", log_in_path unless current_user %>
                 </li>
 
               </ul>

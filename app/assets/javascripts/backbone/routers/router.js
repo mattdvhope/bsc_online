@@ -5,7 +5,7 @@ var Router = Backbone.Router.extend({
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
-    "log_in_student": "studentSession",
+    "log_in": "startSession",
     "volunteers/:email": "showProfile"
   },
   showThai: function() {
@@ -24,9 +24,8 @@ var Router = Backbone.Router.extend({
     var person_registering = "Student";
     App.getStudentRegForm(person_registering);
   },
-  studentSession: function() {
-    var person_logging_in = "Student";
-    App.getLogInForm(person_logging_in);
+  startSession: function() {
+    App.getLogInForm();
   },
   showProfile: function(email) {
     App.getProfileForm(email);
