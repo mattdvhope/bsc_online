@@ -1,10 +1,6 @@
 class SessionsController < ApplicationController
 
-  def log_in_student
-    redirect_to root_path
-  end
-
-  def log_in_teacher
+  def log_in
     redirect_to root_path
   end
 
