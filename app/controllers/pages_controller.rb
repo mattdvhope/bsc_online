@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @curriculums = Curriculum.all
   end
 
-  def admin_intro
+  def volunteer_intro
   end
 
   def dashboard
