@@ -23,9 +23,7 @@ var App = {
   },
   getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();
-console.log(log_in_form_modal);
     log_in_form_modal.render();
-console.log(log_in_form_modal);
 
     this.log_in_form = log_in_form_modal;
   },
