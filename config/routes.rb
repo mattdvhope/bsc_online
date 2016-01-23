@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
 
-  resources :events
+  # resources :events
 
   get 'main_thai', to: "users#main_thai"
   get 'main_english', to: "users#main_english"
