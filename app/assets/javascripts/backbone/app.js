@@ -4,22 +4,31 @@
 //= require_tree ./views
 //= require_tree ./routers
 
+var $entire_main = $(document).find(".entire-main");
+
 var App = {
   getFrontMainPage: function() {
-    var front_page_main = new MainFrontView();
-    front_page_main.$el.parent().children().remove()
+    $entire_main.children().hide();
     var front_page_main = new MainFrontView();
     front_page_main.render();
   },
   getFrontMainThai: function() {
-    var front_page_thai_main = new MainThaiView();
-    front_page_thai_main.$el.parent().children().remove()
+    $entire_main.children().hide();
     var front_page_thai_main = new MainThaiView();
     front_page_thai_main.render();
+
+    this.front_page_thai_main = front_page_thai_main;
   },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
+  },
+  getVolunteerPage: function() {
+    $entire_main.children().hide();
+    var volunteer_page = new VolunteerPageView();
+    volunteer_page.render();
+
+    this.volunteer_page = volunteer_page;
   },
   getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();

@@ -6,6 +6,7 @@ var Router = Backbone.Router.extend({
     "register_vol": "registerVol",
     "register_student": "registerStudent",
     "log_in": "startSession",
+    "volunteer_info": "showVolunteerPage",
     "volunteers/:email": "showProfile"
   },
   showThai: function() {
@@ -27,19 +28,24 @@ var Router = Backbone.Router.extend({
   startSession: function() {
     App.getLogInForm();
   },
+  showVolunteerPage: function() {
+    App.getVolunteerPage();
+  },
   showProfile: function(email) {
     App.getProfileForm(email);
   },
   index: function() {
-    var modal = App.reg_form || App.log_in_form;
-    if (!modal.$el.is(":animated")) { // ':animated' (a jQuery pseudo-selector) here refers to 'faded in' ('fadeIn' is currently in operation)
+    var modal = App.reg_form || App.log_in_form || App.volunteer_page || App.front_page_thai_main;
+    if (modal.$el.is(":visible")) {
       modal.fadeOut();
     }
     App.reg_form = undefined;
+    App.log_in_form = undefined;
+    App.volunteer_page = undefined;
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'FrontRouter'
-    this.route(/^\/?volunteer_intro/, "index", this.index);
+    // this.route(/^\/?volunteer_intro/, "index", this.index);
   }
 });
       

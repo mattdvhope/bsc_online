@@ -14,7 +14,6 @@ var AdminRegFormView = Backbone.View.extend({
     this.$el.add($overlay).fadeIn(this.duration);
   },
   checkInputs: function(e) {
-console.log("in here?? checkInputs??")
     $(".admin_registration").css("border-color", "blue");
     var someEmpty = $('.admin_registration').filter(function(){
       return $.trim(this.value).length === 0;
@@ -70,7 +69,6 @@ console.log("in here?? checkInputs??")
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
