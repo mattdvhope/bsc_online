@@ -69,7 +69,6 @@ var AdminRegFormView = Backbone.View.extend({
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
