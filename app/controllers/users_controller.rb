@@ -19,11 +19,11 @@ class UsersController < ApplicationController
   end
 
   def register_admin
-    redirect_to volunteer_intro_path
+    redirect_to volunteer_info_path
   end
 
   def register_vol
-    redirect_to volunteer_intro_path
+    redirect_to volunteer_info_path
   end
 
   def volunteers
