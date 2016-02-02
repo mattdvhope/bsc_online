@@ -7,7 +7,8 @@ class PagesController < ApplicationController
     @curriculums = Curriculum.all
   end
 
-  def volunteer_intro
+  def volunteer_info
+    redirect_to root_path
   end
 
   def dashboard
