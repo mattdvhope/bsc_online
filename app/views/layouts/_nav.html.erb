@@ -34,24 +34,15 @@
           <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li>
           <% if !current_user %>
             <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
-
             <!-- <li><a href="/auth/facebook">Facebook</a></li> -->
-
-            <% if params[:action] == 'front' %>
-              <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
-            <% elsif params[:action] == 'volunteer_intro' %>
-              <li><a href="#features" id="place_2" class="page-scroll">Volunteer Steps</a></li>
-            <% end %>
-
-            <% if params[:action] == 'front' %>
-              <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
-            <% end %>
-
+            <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
+            <li><a href="#features" id="place_2" class="page-scroll">Volunteer Steps</a></li>
+            <li><a href="#process" id="place_3" class="page-scroll">Process</a></li>
 
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
+                <% if params[:action] == 'front' %> <!-- !!!! SECURITY problem with string literal -->
                   <li id="backbone-app">
                     <%= link_to "Register New Student", register_student_path unless current_user %>
                   </li>
@@ -60,27 +51,23 @@
                 <li id="backbone-app">
                   <%= link_to "Student Login", log_in_path unless current_user %>
                 </li>
-
               </ul>
             </li>
 
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Volunteer<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li id="backbone-app">
-                  <%= link_to "Volunteer Info", volunteer_intro_path unless current_user %>
+                <li id="backbone-app" class="volunteer_page">
+                  <%= link_to "Volunteer Info", volunteer_info_path unless current_user %>
                 </li>
                 <li role="separator" class="divider"></li>
-                <% if params[:action] == 'front' || 'volunteer_intro' %> <!-- !!!! SECURITY problem with string literal -->
-                  <li id="backbone-app">
-                    <%= link_to "Register New Volunteer", register_vol_path unless current_user %>
-                  </li>
-                <% end %>
+                <li id="backbone-app">
+                  <%= link_to "Register New Volunteer", register_vol_path unless current_user %>
+                </li>
                 <li role="separator" class="divider"></li>
                 <li id="backbone-app">
                   <%= link_to "Volunteer Login", log_in_path unless current_user %>
                 </li>
-
               </ul>
             </li>
 
