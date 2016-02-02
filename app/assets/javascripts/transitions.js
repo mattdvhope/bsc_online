@@ -161,6 +161,3 @@ $(".usa_flag").on("click tap", function() {
 
 
 
-
-
-
