@@ -44,7 +44,7 @@ var Router = Backbone.Router.extend({
     App.volunteer_page = undefined;
   },
   initialize: function() {
-    this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'FrontRouter'
+    this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'Router'
     // this.route(/^\/?volunteer_intro/, "index", this.index);
   }
 });
