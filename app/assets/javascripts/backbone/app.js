@@ -54,12 +54,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  toggledLanguages: function() {
-    var languages = new toggledLanguagesView();
-    languages.render();
-
-    // this.languages = languages;
-  },
   loadProfileForm: function() {
     this.volunteers = new Volunteers();
     this.profile_view = new ProfileFormView({ collection: this.volunteers });
@@ -77,7 +71,6 @@ var App = {
     this.getFrontMainPage();
     this.getFrontFooterPage();
     this.loadProfileForm();
-    this.toggledLanguages();
   }
 };
 
@@ -98,15 +91,19 @@ $(document).on("click", "#backbone-app a", function(e) {
 
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function() {
+  var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
   App.getFrontMainPage();
+  $(window).scrollTop(tempScrollTop);
 });
 
 $(".usa_flag").on("click tap", function() {
+  var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
   App.getFrontMainPage();
+  $(window).scrollTop(tempScrollTop);
 });
 ///////////////////////////////////////////////////
 
