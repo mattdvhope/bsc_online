@@ -29,23 +29,40 @@ var Router = Backbone.Router.extend({
     App.getLogInForm();
   },
   showVolunteerPage: function() {
-    App.getVolunteerPage();
+    if (App.reg_form) {
+      App.reg_form.fadeOut();
+    }
+    else if (App.log_in_form) {
+      App.log_in_form.fadeOut();
+    } else {
+      App.getVolunteerPage();      
+    }
   },
   showProfile: function(email) {
     App.getProfileForm(email);
   },
   index: function() {
-    var modal = App.reg_form || App.log_in_form || App.volunteer_page || App.front_page_thai_main;
-    if (modal.$el.is(":visible")) {
-      modal.fadeOut();
+    var modal = App.reg_form || App.log_in_form;
+    var page = App.front_page_thai_main || App.volunteer_page;
+    if (modal && page) {
+      App.getFrontMainPage();
+    } else if (modal) {
+      if (modal.$el.is(":visible")) {
+        modal.fadeOut();
+      }
+    } else if (page) {
+      if (page.$el.is(":visible")) {
+        page.fadeOut();
+      }
     }
     App.reg_form = undefined;
     App.log_in_form = undefined;
+    App.front_page_thai_main = undefined;
     App.volunteer_page = undefined;
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'Router'
-    // this.route(/^\/?volunteer_intro/, "index", this.index);
+    // this.route(/^\/?volunteer_info/, "volunteer_info", this.showVolunteerPage);
   }
 });
       
