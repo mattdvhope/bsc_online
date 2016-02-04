@@ -81,12 +81,10 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
-
 
 App.init();
 
