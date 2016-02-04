@@ -140,7 +140,7 @@ class UsersController < ApplicationController
       if Rails.env.production?
         AppMailer.student_to_volunteer(student, volunteer).deliver_later
       else
-        send_development_email(user)
+        send_development_email(student)
       end
     end
 
