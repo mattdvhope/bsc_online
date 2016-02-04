@@ -54,6 +54,12 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
+  toggledLanguages: function() {
+    var languages = new toggledLanguagesView();
+    languages.render();
+
+    // this.languages = languages;
+  },
   loadProfileForm: function() {
     this.volunteers = new Volunteers();
     this.profile_view = new ProfileFormView({ collection: this.volunteers });
@@ -71,10 +77,13 @@ var App = {
     this.getFrontMainPage();
     this.getFrontFooterPage();
     this.loadProfileForm();
+    this.toggledLanguages();
   }
 };
 
 var router = new Router();
+// var languageRouter = new LanguageRouter(); //////////////
+
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL
@@ -85,6 +94,21 @@ $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
+
+
+// switch between Thai & American flags //////////
+$(".thai_flag").on("click tap", function() {
+  $($(this).parent().find( ".thai_flag" )).hide();
+  $($(this).parent().find( ".usa_flag" )).show();
+  App.getFrontMainPage();
+});
+
+$(".usa_flag").on("click tap", function() {
+  $($(this).parent().find( ".thai_flag" )).show();
+  $($(this).parent().find( ".usa_flag" )).hide();
+  App.getFrontMainPage();
+});
+///////////////////////////////////////////////////
 
 App.init();
 
