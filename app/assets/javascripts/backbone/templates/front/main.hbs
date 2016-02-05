@@ -1,40 +1,40 @@
+<div class="front-main-hbs">
+
 <div class="container-full main" id="page-top">
   <div class="row">
     <div class="col-md-12 backg">
       <div class="col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
         <div class="text-box">
-          <p class="intro">Welcome to</p>
-          <h2>City English ("Under construction")</h2>
-          <h3>A Template for Eric's perusal..</h3>
-          <p>By <span><a href="#">Matt Malone</a></span></p>
-          <!-- http://www.html5layouts.com -->
+          <div id="welcome-language">
+            {{#if thai_flag_present}}
+              {{> front/english/_top_welcome }}
+            {{^}}
+              {{> front/thai/_top_welcome }}
+            {{/if}}
+          </div>
           <div class="col-md-4">
             <span id="backbone-app">
-              <p><a class="link-button" href="/log_in">Login</a></p>
+              <p><a class="link-button" href="/log_in">{{login}}</a></p>
+
             </span>
           </div>
           <div class="col-md-4">
             <span id="backbone-app">
-              <p><a class="link-button" href="/register_student">Register</a></p>
+              <p><a class="link-button" href="/register_student">{{register}}</a></p>
             </span>
           </div>
           <div class="col-md-4">
-            <p id="backbone-app"><a class="link-button" href="/volunteer_info">Volunteer!</a></p>
+            <p id="backbone-app"><a class="link-button" href="/volunteer_info">{{volunteer}}</a></p>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-12 col-xs-12 some-notes">
-      <div class="title">
-        <h2>Welcome To City English Project...!!</h2>
-      </div>
-      <div class="desc">
-        <p class="paragraph">
-          The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!
-        </p>
-        </br>
-        <h2 class="partners">Partners you can trust. A network that will help you succeed.</h2>
-      </div>
+      {{#if thai_flag_present}}
+        {{> front/english/_middle_welcome }}
+      {{^}}
+        {{> front/thai/_middle_welcome }}
+      {{/if}}
     </div>
   </div>
 </div>
@@ -42,14 +42,17 @@
 
 <!-- Features -->
 <div class="container-full features" id="features">
-  <h2 class="text-center features-text">Features</h2>
+  <h2 class="text-center features-text">{{features}}</h2>
   <div class="row">
      <div class="col-md-4">  
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>On-site Classes</h4>
-            <p>We offer our City Talk conversational English and worldview class (beginner, basic and intermediate levels) in businesses, vocational schools and universities. A primary focus of City Talk is learning to speak English with clarity and confidence!</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_on_site_classes }}
+            {{^}}
+              {{> front/thai/_on_site_classes }}
+            {{/if}}
           </div>
         </div>
      </div>
@@ -57,8 +60,11 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>Conversation Partners</h4>
-            <p>The best way to learn a language is to practice with native speakers, so our network offers online conversation partnerships with native English speakers (via Skype).</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_conversation_partners }}
+            {{^}}
+              {{> front/thai/_conversation_partners }}
+            {{/if}}
           </div>
         </div>
      </div>
@@ -66,8 +72,11 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>Online Classes</h4>
-            <p>Our online network offers basic classes on topics that are important for Thai English learners in the 21st century. For example, we will offer classes on job resumes, global worldviews/culture, job interviews, etc.</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_online_classes }}
+            {{^}}
+              {{> front/thai/_online_classes }}
+            {{/if}}
           </div>
         </div>
      </div>
@@ -77,8 +86,11 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>Conversation Groups</h4>
-            <p>Do you prefer to practice speaking English with friends in a group setting? We also offer online video conversation groups with native English speakers!</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_conversation_groups }}
+            {{^}}
+              {{> front/thai/_conversation_groups }}
+            {{/if}}
           </div>
         </div>
      </div>
@@ -86,8 +98,11 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>Community Boards</h4>
-            <p>Do you need to practice writing? Do you have an immediate English question you need answered? Connect into our online community boards to get answers from native English speakers.</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_community_boards }}
+            {{^}}
+              {{> front/thai/_community_boards }}
+            {{/if}}
           </div>
         </div>
      </div>
@@ -95,13 +110,20 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            <h4>Certificate Program</h4>
-            <p>In partnership with a leading English institute in the United States, we hope to launch our certificate program in 2017. Our goal is to offer general English certificates as well as certificates in specific fields of study.</p>
+            {{#if thai_flag_present}}
+              {{> front/english/_certificate_program }}
+            {{^}}
+              {{> front/thai/_certificate_program }}
+            {{/if}}
           </div>
         </div>
      </div>
   </div>
-  <h2 class="text-center features-text-bottom">In addition, we have plans for future classes, activities and much, much more!</h2>
+  {{#if thai_flag_present}}
+    {{> front/english/_in_addition }}
+  {{^}}
+    {{> front/thai/_in_addition }}
+  {{/if}}
 </div> <!-- Features -->
 
 
@@ -110,13 +132,17 @@
   <div class="container">
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        <h2 class="text-center process-text">A Simple Process. An Incredible Opportunity.</h2>
+        {{#if thai_flag_present}}
+          {{> front/english/_process_opportunity }}
+        {{^}}
+          {{> front/thai/_process_opportunity }}
+        {{/if}}
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
             <div class="featured-img">
               <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" alt="CEP 1" >
             </div>
-            <h3>Step 1</h3>
+            <h3>{{step_one}}</h3>
           </a>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
@@ -124,7 +150,7 @@
             <div class="featured-img">
               <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png" alt="CEP 2" >
             </div>
-            <h3>Step 2</h3>
+            <h3>{{step_two}}</h3>
           </a>
         </div>
       </div>
@@ -138,7 +164,11 @@
   <div class="container">
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        <h2 class="text-center worldview-text">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>
+        {{#if thai_flag_present}}
+          {{> front/english/_worldview }}
+        {{^}}
+          {{> front/thai/_worldview }}
+        {{/if}}
         <div class="col-md-4 col-sm-6 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png" data-lightbox="image-1">
             <div class="featured-img">
@@ -184,7 +214,7 @@
   <div class="container">
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        <h2 class="text-center helping-text">Helping Friends</h2>
+        <h2 class="text-center helping-text">{{helping_friends}}</h2>
         <div class="col-md-4 col-sm-6 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png" data-lightbox="image-1">
             <div class="featured-img">
@@ -222,55 +252,6 @@
     </div>
   </div>
 </div> <!-- Helping Friends -->
-
-
-
-<!-- Volunteer info -->
-<div class="container-fluid work" id="volunteer">
-  <div class="container">
-    <div class="row" id="starts">
-      <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        <h2 class="text-center volunteer-text">Volunteer Information</h2>
-        <div class="col-md-4 col-sm-6 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
-            <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" alt="CEP 1" >
-            </div>
-            <div class="image-hover">
-              <i class="glyphicon glyphicon-eye-open"></i>
-            </div>
-            <h3>Amazing Beauty</h3>
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png" data-lightbox="image-1">
-            <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png" alt="CEP 3" >
-            </div>
-            <div class="image-hover">
-              <i class="glyphicon glyphicon-eye-open"></i>
-            </div>
-            <h3>Mind Blowing</h3>
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png" data-lightbox="image-1">
-            <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png" alt="CEP 5" >
-            </div>
-            <div class="image-hover">
-              <i class="glyphicon glyphicon-eye-open"></i>
-            </div>
-            <h3>Perfect Shot</h3>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> <!-- Volunteer Info -->
-
-
-
 
 
 
@@ -330,4 +311,4 @@
     </div> 
 </div>
 
-
+</div> {{!-- front-main-hbs --}}
