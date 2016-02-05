@@ -10,14 +10,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def main_thai
-    redirect_to root_path
-  end
-
-  def main_english
-    redirect_to root_path
-  end
-
   def register_admin
     redirect_to volunteer_info_path
   end
@@ -140,7 +132,7 @@ class UsersController < ApplicationController
       if Rails.env.production?
         AppMailer.student_to_volunteer(student, volunteer).deliver_later
       else
-        send_development_email(user)
+        send_development_email(student)
       end
     end
 

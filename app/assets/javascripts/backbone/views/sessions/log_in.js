@@ -44,11 +44,11 @@ var LogInFormView = Backbone.View.extend({
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.log_in_form = undefined;
   },
   render: function(person) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');

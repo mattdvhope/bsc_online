@@ -1,5 +1,6 @@
 var Router = Backbone.Router.extend({
   routes: {
+    "": "showVolunteerPage",
     "main_thai": "showThai",
     "main_english": "showEnglish",
     "register_admin": "registerAdmin",
@@ -43,7 +44,7 @@ var Router = Backbone.Router.extend({
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
-    var page = App.front_page_thai_main || App.volunteer_page;
+    var page = App.volunteer_page;
     if (modal && page) {
       App.getFrontMainPage();
     } else if (modal) {
@@ -57,7 +58,6 @@ var Router = Backbone.Router.extend({
     }
     App.reg_form = undefined;
     App.log_in_form = undefined;
-    App.front_page_thai_main = undefined;
     App.volunteer_page = undefined;
   },
   initialize: function() {

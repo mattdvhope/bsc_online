@@ -73,6 +73,7 @@ var AdminRegFormView = Backbone.View.extend({
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.reg_form = undefined;
   },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');

@@ -12,13 +12,6 @@ var App = {
     var front_page_main = new MainFrontView();
     front_page_main.render();
   },
-  getFrontMainThai: function() {
-    $entire_main.children().hide();
-    var front_page_thai_main = new MainThaiView();
-    front_page_thai_main.render();
-
-    this.front_page_thai_main = front_page_thai_main;
-  },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
@@ -85,6 +78,35 @@ $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
+
+// switch between Thai & American flags //////////
+$(".thai_flag").on("click tap", function(e) {
+  e.preventDefault();
+  var tempScrollTop = $(window).scrollTop();
+  $($(this).parent().find( ".thai_flag" )).hide();
+  $($(this).parent().find( ".usa_flag" )).show();
+  checkIfPageVisible();
+  $(window).scrollTop(tempScrollTop);
+});
+
+$(".usa_flag").on("click tap", function(e) {
+  e.preventDefault();
+  var tempScrollTop = $(window).scrollTop();
+  $($(this).parent().find( ".thai_flag" )).show();
+  $($(this).parent().find( ".usa_flag" )).hide();
+  checkIfPageVisible();
+  $(window).scrollTop(tempScrollTop);
+});
+
+function checkIfPageVisible() {
+  if ($(".front-main-hbs").is(":visible")) {
+    App.getFrontMainPage();    
+  } else if ($(".entire-vol").is(":visible")) {
+    router.navigate("volunteer_info");
+    App.getVolunteerPage();    
+  }
+}
+///////////////////////////////////////////////////
 
 App.init();
 

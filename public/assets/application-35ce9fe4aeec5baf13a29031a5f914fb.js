@@ -427,18 +427,9 @@ Based on Rails routes of BscOnline::Application
 // edit_curriculum_course_admin_assessment => /curriculums/:curriculum_id/courses/:course_id/admin/assessments/:id/edit(.:format)
   // function(curriculum_id, course_id, id, options)
   edit_curriculum_course_admin_assessment_path: Utils.route(["curriculum_id","course_id","id"], ["format"], [2,[7,"/",false],[2,[6,"curriculums",false],[2,[7,"/",false],[2,[3,"curriculum_id",false],[2,[7,"/",false],[2,[6,"courses",false],[2,[7,"/",false],[2,[3,"course_id",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"assessments",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]]]], arguments),
-// edit_event => /events/:id/edit(.:format)
-  // function(id, options)
-  edit_event_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"events",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
 // edit_plan => /plans/:id/edit(.:format)
   // function(id, options)
   edit_plan_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"plans",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
-// event => /events/:id(.:format)
-  // function(id, options)
-  event_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"events",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
-// events => /events(.:format)
-  // function(options)
-  events_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"events",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // grade => /grades/:id(.:format)
   // function(id, options)
   grade_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"grades",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
@@ -448,21 +439,12 @@ Based on Rails routes of BscOnline::Application
 // home => /home(.:format)
   // function(options)
   home_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"home",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// log_in_student => /log_in_student(.:format)
+// log_in => /log_in(.:format)
   // function(options)
-  log_in_student_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in_student",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// log_in_teacher => /log_in_teacher(.:format)
-  // function(options)
-  log_in_teacher_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in_teacher",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+  log_in_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // log_out => /log_out(.:format)
   // function(options)
   log_out_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_out",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// main_english => /main_english(.:format)
-  // function(options)
-  main_english_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"main_english",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// main_thai => /main_thai(.:format)
-  // function(options)
-  main_thai_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"main_thai",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // new_admin => /new_admin(.:format)
   // function(options)
   new_admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"new_admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -481,9 +463,6 @@ Based on Rails routes of BscOnline::Application
 // new_curriculum_course_admin_assessment => /curriculums/:curriculum_id/courses/:course_id/admin/assessments/new(.:format)
   // function(curriculum_id, course_id, options)
   new_curriculum_course_admin_assessment_path: Utils.route(["curriculum_id","course_id"], ["format"], [2,[7,"/",false],[2,[6,"curriculums",false],[2,[7,"/",false],[2,[3,"curriculum_id",false],[2,[7,"/",false],[2,[6,"courses",false],[2,[7,"/",false],[2,[3,"course_id",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"assessments",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], arguments),
-// new_event => /events/new(.:format)
-  // function(options)
-  new_event_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"events",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
 // new_plan => /plans/new(.:format)
   // function(options)
   new_plan_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"plans",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
@@ -550,9 +529,9 @@ Based on Rails routes of BscOnline::Application
 // users => /users(.:format)
   // function(options)
   users_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// volunteer_intro => /volunteer_intro(.:format)
+// volunteer_info => /volunteer_info(.:format)
   // function(options)
-  volunteer_intro_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_intro",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+  volunteer_info_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_info",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // volunteers => /volunteers(.:format)
   // function(options)
   volunteers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteers",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments)}
@@ -18452,7 +18431,7 @@ setTimeout(function(){
 }, 2200 );
 
 
-// for 'Approve' & 'Disapprove' buttons on dashboard
+// for 'Approve' & 'Disapprove' buttons on leader dashboard
 $(".approved-button").on ("click tap", function(e) {
   e.preventDefault();
   hideButton(this, 0);
@@ -18596,6 +18575,61 @@ window.fbAsyncInit = function() {
   return this.HandlebarsTemplates["dashboard/profile"];
 }).call(this);
 (function() {
+  Handlebars.registerPartial("front/english/_certificate_program", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>Certificate Program</h4>\n<p>In partnership with a leading English institute in the United States, we hope to launch our certificate program in 2017. Our goal is to offer general English certificates as well as certificates in specific fields of study.</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_community_boards", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>Community Boards</h4>\n<p>Do you need to practice writing? Do you have an immediate English question you need answered? Connect into our online community boards to get answers from native English speakers.</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_conversation_groups", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>Conversation Groups</h4>\n<p>Do you prefer to practice speaking English with friends in a group setting? We also offer online video conversation groups with native English speakers!</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_conversation_partners", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>Conversation Partners</h4>\n<p>The best way to learn a language is to practice with native speakers, so our network offers online conversation partnerships with native English speakers (via Skype).</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_in_addition", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center features-text-bottom\">In addition, we have plans for future classes, activities and much, much more!</h2>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"title\">\n  <h2>Welcome To City English Project...!!</h2>\n</div>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n  </p>\n  </br>\n  <h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_on_site_classes", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>On-site Classes</h4>\n<p>We offer our City Talk conversational English and worldview class (beginner, basic and intermediate levels) in businesses, vocational schools and universities. A primary focus of City Talk is learning to speak English with clarity and confidence!</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_online_classes", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>Online Classes</h4>\n<p>Our online network offers basic classes on topics that are important for Thai English learners in the 21st century. For example, we will offer classes on job resumes, global worldviews/culture, job interviews, etc.</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_process_opportunity", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center process-text\">A Simple Process. An Incredible Opportunity.</h2>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p class=\"intro\">Welcome to</p>\n<h2>City English (\"Under construction\")</h2>\n<h3>A Template for Eric's perusal..</h3>\n<p>By <span><a href=\"#\">Matt Malone</a></span></p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>";
+},"useData":true}));
+}).call(this);
+(function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["front/footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"container-fluid footer\">\n  <div class=\"row\">\n    <ul>\n      <br>\n      <li style=\"list-style-type: none;\"><div class=\"line-it-button\" style=\"display: none;\" data-type=\"share-d\" data-lang=\"en\"></div></li>\n      <br>\n      <li style=\"list-style-type: none;\"><a href=\"/contact\">Contact Us!</a></li>\n      <br>\n      <li style=\"list-style-type: none;\">Copyright &copy; City English Project 2015</li>\n      <br>\n      <li style=\"list-style-type: none;\">Flag images provided by <a href=\"http://www.icondrawer.com/\">Icon Drawer</a></li>\n      <br>\n    </ul>\n  </div>\n</div>";
@@ -18604,17 +18638,191 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <p class=\"intro\">Welcome to</p>\n          <h2>City English (\"Under construction\")</h2>\n          <h3>A Template for Eric's perusal..</h3>\n          <p>By <span><a href=\"#\">Matt Malone</a></span></p>\n          <!-- http://www.html5layouts.com -->\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in_student\">Login</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">Register</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p><a class=\"link-button\" href=\"/volunteer_intro\">Volunteer!</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Welcome To City English Project...!!</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n        </p>\n        </br>\n        <h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Features</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>On-site Classes</h4>\n            <p>We offer our City Talk conversational English and worldview class (beginner, basic and intermediate levels) in businesses, vocational schools and universities. A primary focus of City Talk is learning to speak English with clarity and confidence!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Partners</h4>\n            <p>The best way to learn a language is to practice with native speakers, so our network offers online conversation partnerships with native English speakers (via Skype).</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Online Classes</h4>\n            <p>Our online network offers basic classes on topics that are important for Thai English learners in the 21st century. For example, we will offer classes on job resumes, global worldviews/culture, job interviews, etc.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Conversation Groups</h4>\n            <p>Do you prefer to practice speaking English with friends in a group setting? We also offer online video conversation groups with native English speakers!</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Community Boards</h4>\n            <p>Do you need to practice writing? Do you have an immediate English question you need answered? Connect into our online community boards to get answers from native English speakers.</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Certificate Program</h4>\n            <p>In partnership with a leading English institute in the United States, we hope to launch our certificate program in 2017. Our goal is to offer general English certificates as well as certificates in specific fields of study.</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <h2 class=\"text-center features-text-bottom\">In addition, we have plans for future classes, activities and much, much more!</h2>\n</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center process-text\">A Simple Process. An Incredible Opportunity.</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Step 1</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>Step 2</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">Helping Friends</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<!-- Volunteer info -->\n<div class=\"container-fluid work\" id=\"volunteer\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center volunteer-text\">Volunteer Information</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Volunteer Info -->\n\n\n\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n";
-},"useData":true});
+  this.HandlebarsTemplates["front/main"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"5":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_middle_welcome'],depth0,{"name":"front/english/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"7":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_middle_welcome'],depth0,{"name":"front/thai/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_on_site_classes'],depth0,{"name":"front/english/_on_site_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"11":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_on_site_classes'],depth0,{"name":"front/thai/_on_site_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_conversation_partners'],depth0,{"name":"front/english/_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_partners'],depth0,{"name":"front/thai/_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"17":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"21":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"23":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"25":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"27":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"29":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_certificate_program'],depth0,{"name":"front/english/_certificate_program","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"31":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_certificate_program'],depth0,{"name":"front/thai/_certificate_program","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"33":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_in_addition'],depth0,{"name":"front/english/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"35":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_in_addition'],depth0,{"name":"front/thai/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"37":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_process_opportunity'],depth0,{"name":"front/english/_process_opportunity","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"39":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_process_opportunity'],depth0,{"name":"front/thai/_process_opportunity","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"41":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_worldview'],depth0,{"name":"front/english/_worldview","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"43":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_worldview'],depth0,{"name":"front/thai/_worldview","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"front-main-hbs\">\n\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <div id=\"welcome-language\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in\">"
+    + this.escapeExpression(((helper = (helper = helpers.login || (depth0 != null ? depth0.login : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login","hash":{},"data":data}) : helper)))
+    + "</a></p>\n\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">"
+    + this.escapeExpression(((helper = (helper = helpers.register || (depth0 != null ? depth0.register : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register","hash":{},"data":data}) : helper)))
+    + "</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p id=\"backbone-app\"><a class=\"link-button\" href=\"/volunteer_info\">"
+    + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
+    + "</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
+    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
+    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(29, data, 0),"inverse":this.program(31, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n     </div>\n  </div>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(33, data, 0),"inverse":this.program(35, data, 0),"data":data})) != null ? stack1 : "")
+    + "</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(37, data, 0),"inverse":this.program(39, data, 0),"data":data})) != null ? stack1 : "")
+    + "        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>"
+    + this.escapeExpression(((helper = (helper = helpers.step_one || (depth0 != null ? depth0.step_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_one","hash":{},"data":data}) : helper)))
+    + "</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>"
+    + this.escapeExpression(((helper = (helper = helpers.step_two || (depth0 != null ? depth0.step_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_two","hash":{},"data":data}) : helper)))
+    + "</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(41, data, 0),"inverse":this.program(43, data, 0),"data":data})) != null ? stack1 : "")
+    + "        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">"
+    + this.escapeExpression(((helper = (helper = helpers.helping_friends || (depth0 != null ? depth0.helping_friends : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"helping_friends","hash":{},"data":data}) : helper)))
+    + "</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n</div> ";
+},"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
 }).call(this);
 (function() {
-  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["front/main_thai"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n          <p class=\"intro\">ยินดีต้อนรับ</p>\n          <h2>กกกกกกกกกกกกกก (\"เว็บไซต์นี้กำลังปรับปรุง\")</h2>\n          <h3>กกกกกกกกกกกกกกกกกกกกกกกกกกกกก..</h3>\n          <p>By <span><a href=\"#\">กกกกกกกกกกกกกก</a></span></p>\n          <!-- http://www.html5layouts.com -->\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/log_in_student\">Login</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <span id=\"backbone-app\">\n              <p><a class=\"link-button\" href=\"/register_student\">Register</a></p>\n            </span>\n          </div>\n          <div class=\"col-md-4\">\n            <p><a class=\"link-button\" href=\"/volunteer_intro\">Volunteer!</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>ยินดีต้อนรับ City English Project...!!</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n        </p>\n        </br>\n        <h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Features Thai -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Features</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>ดกกกดกดกดกดกดกดกดกด</h4>\n            <p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>\n          </div>\n        </div>\n     </div>\n  </div>\n  <h2 class=\"text-center features-text-bottom\">ในอนาคต, กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก!</h2>\n</div> <!-- Features -->\n\n\n<!-- Process -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center process-text\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center worldview-text\">English + Worldview/Culture + Personal Relationships = Opportunities to Advance</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">Helping Friends</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<!-- Volunteer info -->\n<div class=\"container-fluid work\" id=\"volunteer\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center volunteer-text\">Volunteer Information</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>กกกกกกกกกกกกกกก</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Volunteer Info -->\n\n\n\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n";
-},"useData":true});
-  return this.HandlebarsTemplates["front/main_thai"];
+  Handlebars.registerPartial("front/thai/_certificate_program", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_community_boards", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_conversation_groups", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_conversation_partners", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_in_addition", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center features-text-bottom\">ในอนาคต, กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก!</h2>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n  <h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_on_site_classes", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_online_classes", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ดกกกดกดกดกดกดกดกดกด</h4>\n<p>กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_process_opportunity", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center process-text\">เป็นกระบวนการที่ง่าย เป็นโอกาสที่เหลือเชื่อ</h2>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p class=\"intro\">ยินดีต้อนรับ</p>\n<h2>กกกกกกกกกกกกกก (\"เว็บไซต์นี้กำลังปรับปรุง\")</h2>\n<h3>กกกกกกกกกกกกกกกกกกกกกกกกกกกกก..</h3>\n<p>By <span><a href=\"#\">กกกกกกกกกกกกกก</a></span></p>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center worldview-text\">ภาษาอังกฤษ + โลกทัศน์/วัฒนธรรม + ความสัมพันธ์ส่วนตัว = โอกาสเพื่อความก้าวหน้า</h2>\n\n";
+},"useData":true}));
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -18656,16 +18864,45 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["sessions/student_log_in"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  this.HandlebarsTemplates["sessions/log_in"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<a class=\"close\" href=\"#\">Close</a>\n\n<form class=\"log_in\" action=\"/sessions\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n  <header>\n    <h1>Log in นักศึกษา</h1>\n  </header>\n\n"
+    + ">\n\n  <header>\n    <h1>Log in</h1>\n  </header>\n\n"
     + ((stack1 = this.invokePartial(partials['sessions/_form'],depth0,{"name":"sessions/_form","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "\n  <h4>\n    <a href=\"/sign_up_student\">Click here to register if you are not yet a student.</a>\n  </h4>\n\n</form>\n";
 },"usePartial":true,"useData":true});
-  return this.HandlebarsTemplates["sessions/student_log_in"];
+  return this.HandlebarsTemplates["sessions/log_in"];
+}).call(this);
+(function() {
+  Handlebars.registerPartial("volunteer/english/_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p class=\"intro\">Welcome</p>\n<h2>Volunteers!</h2>\n<h3>Here is an overview of CEP for you.</h3>\n<h3>Let's take a look below!</h3>\n<div class=\"col-md-12\">\n  <span id=\"backbone-app\">\n    <p><a class=\"link-button\" href=\"/register_admin\">Register Your Organization</a></p>\n  </span>\n</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("volunteer/thai/_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p class=\"intro\">ยินดีต้อนรับ</p>\n<h2>คนอาสาสมัคร!</h2>\n<h3>นี่คือภาพรวมของ CEP สำหรับคุณ.</h3>\n<h3>ลองมาดูด้านล่าง!</h3>\n<div class=\"col-md-12\">\n  <span id=\"backbone-app\">\n    <p><a class=\"link-button\" href=\"/register_admin\">ลงทะเบียนองค์กรของคุณ</a></p>\n  </span>\n</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["volunteer/volunteer_info"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['volunteer/english/_welcome'],depth0,{"name":"volunteer/english/_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['volunteer/thai/_welcome'],depth0,{"name":"volunteer/thai/_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"entire-vol\">\n\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg-vol\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Project Overview</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          Here is an overview of what CEP is all about...for volunteers!\n        </p>\n        </br>\n        <h2 class=\"partners\">Let's look at the details below....</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Steps to becoming a CEP volunteer -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Steps to becoming a CEP volunteer</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 1: Register your church, business or organization</h4>\n            <p>In order to ensure that our CEP students receive the highest quality English education experience possible, we ask that you first register your church, business or organization.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_admin\">Register Your Organization</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 2: Invite Volunteers!</h4>\n            <p>Invite folks from your church, organization, etc to this web page to Register in \"Volunteer\" status.  They must receive a PIN from you to Register in \"Volunteer\" status.  Otherwise, they can only Register in \"Student\" status.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_vol\">Volunteer Registration</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 3: Multiply volunteers!</h4>\n            <p>Encourage the people from your church, organization, etc to also invite other people whom they know to consider volunteering for City English Project.  You can then give them a PIN as well for them to Register in 'Volunteer status.'</p>\n          </div>\n        </div>\n     </div>\n  </div>\n</div> <!-- Steps to becoming a CEP volunteer -->\n\n</div> <!-- class=\"entire-vol\" -->\n\n\n<div id=\"overlay\"><!-- .hbs --></div>\n";
+},"usePartial":true,"useData":true});
+  return this.HandlebarsTemplates["volunteer/volunteer_info"];
 }).call(this);
 var User = Backbone.Model.extend({
   parse: function(attrs) {
@@ -18803,26 +19040,54 @@ var FooterFrontView = Backbone.View.extend({
 
 
 var MainFrontView = Backbone.View.extend({
-  templateMainFront:  HandlebarsTemplates['front/main'],
+  template:  HandlebarsTemplates['front/main'],
   render: function() {
-    this.$el.html(this.templateMainFront());
+    this.$el.html(this.template({
+      thai_flag_present: this.thai_flag_up(),
+      login: this.login_button_language(),
+      register: this.register_button_language(),
+      volunteer: this.volunteer_button_language(),
+      features: this.features_language(),
+      step_one: this.step_one(),
+      step_two: this.step_two(),
+      helping_friends: this.helping_friends()
+    }));
+  },
+  thai_flag_up: function() {
+    return $(".thai_flag").is(":visible");
+  },
+  login_button_language: function() {
+    return this.switch_languages("Login", "เข้าสู่ระบบ");
+  },
+  register_button_language: function() {
+    return this.switch_languages("Register", "ลงทะเบียน");
+  },
+  volunteer_button_language: function() {
+    return this.switch_languages("Volunteer!", "รับอาสา!");
+  },
+  features_language: function() {
+    return this.switch_languages("Features", "คุณลักษณะเด่น");
+  },
+  step_one: function() {
+    return this.switch_languages("Step One", "ขั้นตอนหนึ่ง");
+  },
+  step_two: function() {
+    return this.switch_languages("Step Two", "ขั้นตอนที่สอง");
+  },
+  helping_friends: function() {
+    return this.switch_languages("Helping Friends", "ช่วยให้เพื่อน ๆ");
+  },
+  switch_languages: function(english, thai) {
+    if (this.thai_flag_up()) {
+      return english;
+    } else {
+      return thai
+    }
   },
   initialize: function() {
     this.$el.appendTo(".entire-main");
   }
 });
-
-
-var MainThaiView = Backbone.View.extend({
-  templateMainThaiFront:  HandlebarsTemplates['front/main_thai'],
-  render: function() {
-    this.$el.html(this.templateMainThaiFront());
-  },
-  initialize: function() {
-    this.$el.appendTo(".entire-main");
-  }
-});
-
 
 var $overlay = $("#overlay");
 
@@ -18840,7 +19105,6 @@ var AdminRegFormView = Backbone.View.extend({
     this.$el.add($overlay).fadeIn(this.duration);
   },
   checkInputs: function(e) {
-console.log("in here?? checkInputs??")
     $(".admin_registration").css("border-color", "blue");
     var someEmpty = $('.admin_registration').filter(function(){
       return $.trim(this.value).length === 0;
@@ -18896,11 +19160,11 @@ console.log("in here?? checkInputs??")
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.reg_form = undefined;
   },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -18988,6 +19252,7 @@ var StudentRegFormView = Backbone.View.extend({
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.reg_form = undefined;
   },
   render: function(person) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -19085,6 +19350,7 @@ var VolRegFormView = Backbone.View.extend({
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.reg_form = undefined;
   },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -19113,8 +19379,7 @@ var LogInFormView = Backbone.View.extend({
     "click input.login_checker": "checkInputs"
   },
   duration: 300,
-  templateStudent:  HandlebarsTemplates['sessions/student_log_in'],
-  templateTeacher:  HandlebarsTemplates['sessions/teacher_log_in'],
+  templateSession:  HandlebarsTemplates['sessions/log_in'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
   },
@@ -19149,26 +19414,18 @@ var LogInFormView = Backbone.View.extend({
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();
     }.bind(this));
+    App.log_in_form = undefined;
   },
   render: function(person) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-
-    if (person === "Student") {
-      this.$el.html(this.templateStudent({
+      this.$el.html(this.templateSession({
         token: csrf_token
       }));
       this.open(); // to fade the overlay in...
-    } else if (person === "Teacher") {
-      this.$el.html(this.templateTeacher({
-        token: csrf_token
-      }));
-      this.open();
-    }
   },
   initialize: function() {
     this.$el.appendTo(document.body);
@@ -19179,14 +19436,47 @@ var LogInFormView = Backbone.View.extend({
 
 
 
+var VolunteerPageView = Backbone.View.extend({
+  template:  HandlebarsTemplates['volunteer/volunteer_info'],
+  fadeOut: function() {
+    this.$el.fadeOut(0, function() {
+      this.remove();
+    }.bind(this));
+    App.getFrontMainPage();
+  },
+  render: function() {
+    this.$el.html(this.template({
+      thai_flag_present: this.thai_flag_up()
+
+    }));
+  },
+  thai_flag_up: function() {
+    return $(".thai_flag").is(":visible");
+  },
+
+  switch_languages: function(english, thai) {
+    if (this.thai_flag_up()) {
+      return english;
+    } else {
+      return thai
+    }
+  },
+  initialize: function() {
+    this.$el.appendTo(".entire-main");
+  }
+});
+
+
 var Router = Backbone.Router.extend({
   routes: {
+    "": "showVolunteerPage",
     "main_thai": "showThai",
     "main_english": "showEnglish",
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
-    "log_in_student": "studentSession",
+    "log_in": "startSession",
+    "volunteer_info": "showVolunteerPage",
     "volunteers/:email": "showProfile"
   },
   showThai: function() {
@@ -19205,23 +19495,43 @@ var Router = Backbone.Router.extend({
     var person_registering = "Student";
     App.getStudentRegForm(person_registering);
   },
-  studentSession: function() {
-    var person_logging_in = "Student";
-    App.getLogInForm(person_logging_in);
+  startSession: function() {
+    App.getLogInForm();
+  },
+  showVolunteerPage: function() {
+    if (App.reg_form) {
+      App.reg_form.fadeOut();
+    }
+    else if (App.log_in_form) {
+      App.log_in_form.fadeOut();
+    } else {
+      App.getVolunteerPage();      
+    }
   },
   showProfile: function(email) {
     App.getProfileForm(email);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
-    if (!modal.$el.is(":animated")) { // ':animated' (a jQuery pseudo-selector) here refers to 'faded in' ('fadeIn' is currently in operation)
-      modal.fadeOut();
+    var page = App.volunteer_page;
+    if (modal && page) {
+      App.getFrontMainPage();
+    } else if (modal) {
+      if (modal.$el.is(":visible")) {
+        modal.fadeOut();
+      }
+    } else if (page) {
+      if (page.$el.is(":visible")) {
+        page.fadeOut();
+      }
     }
     App.reg_form = undefined;
+    App.log_in_form = undefined;
+    App.volunteer_page = undefined;
   },
   initialize: function() {
-    this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'FrontRouter'
-    this.route(/^\/?volunteer_intro/, "index", this.index);
+    this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'Router'
+    // this.route(/^\/?volunteer_info/, "volunteer_info", this.showVolunteerPage);
   }
 });
       
@@ -19233,26 +19543,28 @@ var Router = Backbone.Router.extend({
 
 
 
+var $entire_main = $(document).find(".entire-main");
+
 var App = {
   getFrontMainPage: function() {
-    var front_page_main = new MainFrontView();
-    front_page_main.$el.parent().children().remove()
+    $entire_main.children().hide();
     var front_page_main = new MainFrontView();
     front_page_main.render();
-  },
-  getFrontMainThai: function() {
-    var front_page_thai_main = new MainThaiView();
-    front_page_thai_main.$el.parent().children().remove()
-    var front_page_thai_main = new MainThaiView();
-    front_page_thai_main.render();
   },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
-  getLogInForm: function(person) {
+  getVolunteerPage: function() {
+    $entire_main.children().hide();
+    var volunteer_page = new VolunteerPageView();
+    volunteer_page.render();
+
+    this.volunteer_page = volunteer_page;
+  },
+  getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();
-    log_in_form_modal.render(person);
+    log_in_form_modal.render();
 
     this.log_in_form = log_in_form_modal;
   },
@@ -19301,12 +19613,39 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
 
+// switch between Thai & American flags //////////
+$(".thai_flag").on("click tap", function(e) {
+  e.preventDefault();
+  var tempScrollTop = $(window).scrollTop();
+  $($(this).parent().find( ".thai_flag" )).hide();
+  $($(this).parent().find( ".usa_flag" )).show();
+  checkIfPageVisible();
+  $(window).scrollTop(tempScrollTop);
+});
+
+$(".usa_flag").on("click tap", function(e) {
+  e.preventDefault();
+  var tempScrollTop = $(window).scrollTop();
+  $($(this).parent().find( ".thai_flag" )).show();
+  $($(this).parent().find( ".usa_flag" )).hide();
+  checkIfPageVisible();
+  $(window).scrollTop(tempScrollTop);
+});
+
+function checkIfPageVisible() {
+  if ($(".front-main-hbs").is(":visible")) {
+    App.getFrontMainPage();    
+  } else if ($(".entire-vol").is(":visible")) {
+    router.navigate("volunteer_info");
+    App.getVolunteerPage();    
+  }
+}
+///////////////////////////////////////////////////
 
 App.init();
 
