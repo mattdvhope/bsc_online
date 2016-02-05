@@ -58,7 +58,6 @@ var Router = Backbone.Router.extend({
     }
     App.reg_form = undefined;
     App.log_in_form = undefined;
-    App.front_page_thai_main = undefined;
     App.volunteer_page = undefined;
   },
   initialize: function() {
