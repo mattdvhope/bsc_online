@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
 private
 
   def require_admin
-    if !current_user.admin? # In the future, I might have '#overseer_leader', etc, etc types of 'overseers'.
+    if !current_user.leader? # In the future, I might have '#overseer_leader', etc, etc types of 'overseers'.
       flash[:danger] = "You are not authorized to do that."
       redirect_to home_path
     end
