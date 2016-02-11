@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   end
 
   def build
-    redirect_to home_path unless current_user.admin?
+    redirect_to home_path unless current_user.leader?
     @curriculums = Curriculum.all
   end
 
