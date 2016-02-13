@@ -6,6 +6,7 @@ var ProfileFormView = Backbone.View.extend({
   },
   events: {
     "click a.close": "close",
+    "click a.btn-success": "close",
     "click a.btn-warning": "close",
     "click input.student_reg_er": "checkInputs"
   },
