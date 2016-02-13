@@ -27,15 +27,9 @@ class User < ActiveRecord::Base
 
   def self.pins_available
     pins = ""
-
-    admin_folks = User.where(role: "admin")
-    admin_folks.each do |admin_person|
-      pins += admin_person.pin + "|"
-    end
-
-    leader_folks = User.where(role: "leader")
-    leader_folks.each do |leader_person|
-      pins += leader_person.pin + "|"
+    holders = where("users.role = ? OR users.role = ?", "leader", "admin")
+    holders.each do |holder|
+      pins += holder.pin + "|"
     end
 
     pins = "\\A(" + pins[0...-1] + ")" + "\\z"
@@ -43,9 +37,7 @@ class User < ActiveRecord::Base
     return valid_pins
   end
 
-  validates :pin, presence: true, 
-                  format: { with: pins_available } #,
-                  # :unless => lambda { self.pin == "000000" }
+  # validates_presence_of :pin #, :unless => lambda { self.pin == "000000" }
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
