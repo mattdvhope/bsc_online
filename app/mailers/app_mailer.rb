@@ -13,7 +13,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => "City English Project <" + ENV["username"] + ">",
       :to      => @user.email,
-      :subject => "Welcome to CEP, #{@user.first_name}!",
+      :subject => "Hi #{@user.first_name}, thanks for your interest in CEP!",
       :html => (render_to_string(template: "../views/app_mailer/admin_applicant")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
@@ -28,6 +28,19 @@ class AppMailer < ActionMailer::Base
       :to      => @user.email,
       :subject => "Welcome to CEP, #{@user.first_name}!",
       :html => (render_to_string(template: "../views/app_mailer/student_welcome")).to_str
+    }
+    mg_client.send_message ENV["domain"], message_params
+  end
+
+  def volunteer_welcome(user)
+    @user = user
+    mg_client = Mailgun::Client.new ENV["api_key"]
+    message_params = {
+      # :from    => "City English Project <" + ENV["username"] + ">",
+      :from    => "City English Project <" + ENV["username"] + ">",
+      :to      => @user.email,
+      :subject => "Glad to have you as a CEP volunteer, #{@user.first_name}!",
+      :html => (render_to_string(template: "../views/app_mailer/volunteer_welcome")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
   end
