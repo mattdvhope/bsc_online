@@ -37,9 +37,7 @@ class User < ActiveRecord::Base
     return valid_pins
   end
 
-  validates :pin, presence: true, 
-                  format: { with: pins_available } #,
-                  # :unless => lambda { self.pin == "000000" }
+  # validates_presence_of :pin #, :unless => lambda { self.pin == "000000" }
   validates_presence_of :first_name, length: { maximum: 30 }, :unless => :guest?
   validates_presence_of :last_name, length: { maximum: 30 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
