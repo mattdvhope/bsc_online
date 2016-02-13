@@ -19,9 +19,7 @@ class UsersController < ApplicationController
   end
 
   def volunteers
-    admin_folks = User.where(role: "admin")
-    volunteer_folks = User.where(role: "volunteer")
-    @volunteers = admin_folks.concat(volunteer_folks)
+    @volunteers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
   end
 
   def student_connect_with_volunteer
