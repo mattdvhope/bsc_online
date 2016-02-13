@@ -16,7 +16,9 @@ class PagesController < ApplicationController
     if current_user.role == "admin_applicant"
       redirect_to log_out_path
     end
-    @english_teachers = User.where(role: "admin")
+    admin_folks = User.where(role: "admin")
+    volunteer_folks = User.where(role: "volunteer")
+    @english_teachers = admin_folks.concat(volunteer_folks)
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 
@@ -27,7 +29,7 @@ class PagesController < ApplicationController
   end
 
   def build
-    redirect_to home_path unless current_user.admin?
+    redirect_to home_path unless current_user.leader?
     @curriculums = Curriculum.all
   end
 

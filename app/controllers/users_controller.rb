@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   end
 
   def volunteers
-    @volunteers = User.where(role: "admin")
+    admin_folks = User.where(role: "admin")
+    volunteer_folks = User.where(role: "volunteer")
+    @volunteers = admin_folks.concat(volunteer_folks)
   end
 
   def student_connect_with_volunteer
@@ -116,13 +118,16 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_development_email(user)
+        send_production_email(user)
+        # send_development_email(user)
       end
     end
 
     def send_production_email(user)
       if user.role == "admin_applicant"
         AppMailer.admin_applicant(user).deliver_later
+      elsif user.role == "volunteer"
+        AppMailer.volunteer_welcome(user).deliver_later
       else
         AppMailer.student_welcome(user).deliver_later
       end
@@ -132,7 +137,8 @@ class UsersController < ApplicationController
       if Rails.env.production?
         AppMailer.student_to_volunteer(student, volunteer).deliver_later
       else
-        send_development_email(student)
+        AppMailer.student_to_volunteer(student, volunteer).deliver_later
+        # send_development_email(student)
       end
     end
 

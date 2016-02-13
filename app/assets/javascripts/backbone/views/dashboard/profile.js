@@ -47,13 +47,20 @@ var ProfileFormView = Backbone.View.extend({
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     var gender = volunteer.gender
     var pronoun;
-    if (gender === "male" || "ผู้ชาย") {
+    if (gender === "male") {
       pronoun = "him";
       gender = "man";
-    } else {
+    } else if (gender === "female") {
+      pronoun = "her";
+      gender = "woman";
+    } else if (gender === "ผู้ชาย") {
+      pronoun = "him";
+      gender = "man";
+    } else if (gender === "ผู้หญิง") {
       pronoun = "her";
       gender = "woman";
     }
+
     this.$el.html(this.templateProfile({
       token: csrf_token,
       first_name: volunteer.first_name,
