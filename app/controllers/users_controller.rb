@@ -46,8 +46,8 @@ class UsersController < ApplicationController
       if user.save
         flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
         session[:user_id] = user.id
-        send_new_user_email(user)
         redirect_to home_path
+        send_new_user_email(user)
       else
         if user.errors.messages[:password]
           flash[:danger] = "Password #{user.errors.messages[:password].first}."
