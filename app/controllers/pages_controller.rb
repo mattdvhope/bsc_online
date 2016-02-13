@@ -16,9 +16,7 @@ class PagesController < ApplicationController
     if current_user.role == "admin_applicant"
       redirect_to log_out_path
     end
-    admin_folks = User.where(role: "admin")
-    volunteer_folks = User.where(role: "volunteer")
-    @english_teachers = admin_folks.concat(volunteer_folks)
+    @english_teachers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 
