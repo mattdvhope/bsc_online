@@ -40,16 +40,23 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     log_out_path if users_path
-    set_user_session(user)
-    if user.valid?
-      if user.role == "admin_applicant"
-        redirect_to root_path
-      else
+    set_up(user)
+
+    if (User.pins_available =~ user.pin) == 0
+      if user.save
+        flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
+        session[:user_id] = user.id
         redirect_to home_path
+      else
+        if user.errors.messages[:password]
+          flash[:danger] = "Password #{user.errors.messages[:password].first}."
+        elsif user.errors.messages[:postal_code]
+          flash[:danger] = "Postal Code #{user.errors.messages[:postal_code].first}."
+        end
+        redirect_to root_path
       end
     else
-      flash[:danger] = "Your PIN, email or other input is invalid."
-      redirect_to register_student_path
+      deal_with_bad_pin
     end
   end
 
@@ -91,13 +98,7 @@ class UsersController < ApplicationController
       current_user.destroy if current_user # guest?
     end
 
-    def set_user_session(user)
-      save_new_user(user)
-      send_new_user_email(user) if user.valid?
-      session[:user_id] = user.id if user.valid?
-    end
-
-    def save_new_user(user)
+    def set_up(user)
       if user.city && user.pin == "000000"
         valid_pin = User.pins_available.inspect[4..-5].split("|").sample
         user.pin = valid_pin
@@ -106,18 +107,19 @@ class UsersController < ApplicationController
       elsif user.city
         user.role = "volunteer"
       end
-      if user.save
-        flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!" if user.valid?
-        return user
-      end
+      user
+    end
+
+    def deal_with_bad_pin
+      flash[:danger] = "PIN incorrect"
+      redirect_to root_path
     end
 
     def send_new_user_email(user)
       if Rails.env.production?
         send_production_email(user)
       else
-        send_production_email(user)
-        # send_development_email(user)
+        send_development_email(user)
       end
     end
 
@@ -135,8 +137,7 @@ class UsersController < ApplicationController
       if Rails.env.production?
         AppMailer.student_to_volunteer(student, volunteer).deliver_later
       else
-        AppMailer.student_to_volunteer(student, volunteer).deliver_later
-        # send_development_email(student)
+        send_development_email(student)
       end
     end
 
