@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    User.pins_available # to ensure the latest PIN works; a pins_available 'refresh'!
     log_out_path if users_path
     set_user_session(user)
     if user.valid?
