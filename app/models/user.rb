@@ -27,15 +27,9 @@ class User < ActiveRecord::Base
 
   def self.pins_available
     pins = ""
-
-    admin_folks = User.where(role: "admin")
-    admin_folks.each do |admin_person|
-      pins += admin_person.pin + "|"
-    end
-
-    leader_folks = User.where(role: "leader")
-    leader_folks.each do |leader_person|
-      pins += leader_person.pin + "|"
+    holders = where("users.role = ? OR users.role = ?", "leader", "admin")
+    holders.each do |holder|
+      pins += holder.pin + "|"
     end
 
     pins = "\\A(" + pins[0...-1] + ")" + "\\z"
