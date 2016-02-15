@@ -9,13 +9,11 @@ var VolunteerPageView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       thai_flag_present: this.thai_flag_up()
-
     }));
   },
   thai_flag_up: function() {
     return $(".thai_flag").is(":visible");
   },
-
   switch_languages: function(english, thai) {
     if (this.thai_flag_up()) {
       return english;
@@ -24,6 +22,7 @@ var VolunteerPageView = Backbone.View.extend({
     }
   },
   initialize: function() {
+    this.listenTo(this.model, 'sync', this.render());
     this.$el.appendTo(".entire-main");
   }
 });
