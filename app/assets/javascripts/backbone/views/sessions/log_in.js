@@ -6,7 +6,7 @@ var LogInFormView = Backbone.View.extend({
   },
   events: {
     "click a.close": "close",
-    "click input.login_checker": "checkInputs"
+    "click input.login-checker": "checkInputs"
   },
   duration: 300,
   templateSession:  HandlebarsTemplates['sessions/log_in'],
