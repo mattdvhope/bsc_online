@@ -1,20 +1,11 @@
 var Router = Backbone.Router.extend({
   routes: {
-    "": "showVolunteerPage",
-    "main_thai": "showThai",
-    "main_english": "showEnglish",
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
     "log_in": "startSession",
     "volunteer_info": "showVolunteerPage",
     "volunteers/:email": "showProfile"
-  },
-  showThai: function() {
-    App.getFrontMainThai();
-  },
-  showEnglish: function() {
-    App.getFrontMainPage();
   },
   registerAdmin: function() {
     App.getAdminRegForm();
