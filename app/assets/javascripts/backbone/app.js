@@ -9,6 +9,7 @@ var $entire_main = $(document).find(".entire-main");
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
+    this.retainTemplateOnReload("");
     var front_page_main = new MainFrontView();
     front_page_main.render();
   },
@@ -18,6 +19,7 @@ var App = {
   },
   getVolunteerPage: function() {
     $entire_main.children().hide();
+    this.retainTemplateOnReload("volunteer_info");
     var volunteer_page = new VolunteerPageView();
     volunteer_page.render();
 
@@ -60,8 +62,24 @@ var App = {
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
   },
+  retainTemplateOnReload: function(fragment) {
+    sessionStorage.setItem('fragment', fragment);
+    Backbone.history.navigate(fragment);
+  },
+  retainThaiLanguageOnReload: function() {
+    if (sessionStorage.getItem('language') === "thai") {
+      $($(".thai_flag").parent().find( ".thai_flag" )).hide();
+      $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
+    }
+  },
   init: function() {
-    this.getFrontMainPage();
+    this.retainThaiLanguageOnReload();
+    if (sessionStorage.getItem('fragment') === "volunteer_info") {
+      this.getVolunteerPage();
+      sessionStorage.setItem('fragment', "volunteer_info");
+    } else {
+      this.getFrontMainPage();      
+    }
     this.getFrontFooterPage();
     this.loadProfileForm();
   }
@@ -74,6 +92,7 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
+
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
@@ -82,6 +101,7 @@ $(document).on("click", "#backbone-app a", function(e) {
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function(e) {
   e.preventDefault();
+  sessionStorage.setItem('language', "thai");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
@@ -91,6 +111,7 @@ $(".thai_flag").on("click tap", function(e) {
 
 $(".usa_flag").on("click tap", function(e) {
   e.preventDefault();
+  sessionStorage.setItem('language', "english");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
@@ -108,7 +129,18 @@ function checkIfPageVisible() {
 }
 ///////////////////////////////////////////////////
 
+
+$("#home-link").on("click", function() {
+  sessionStorage.setItem('fragment', "");
+});
+$(".login-checker").on("click", function() {
+  sessionStorage.setItem('fragment', "");
+});
+
+
 App.init();
+
+
 
 
 
