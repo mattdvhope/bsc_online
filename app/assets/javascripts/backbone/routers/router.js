@@ -7,12 +7,6 @@ var Router = Backbone.Router.extend({
     "volunteer_info": "showVolunteerPage",
     "volunteers/:email": "showProfile"
   },
-  showThai: function() {
-    App.getFrontMainThai();
-  },
-  showEnglish: function() {
-    App.getFrontMainPage();
-  },
   registerAdmin: function() {
     App.getAdminRegForm();
   },
