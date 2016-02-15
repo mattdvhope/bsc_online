@@ -18601,7 +18601,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"title\">\n  <h2>Welcome To City English Project...!!</h2>\n</div>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n  </p>\n  </br>\n  <h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n</div>";
+    return "<div class=\"title\">\n  <h2>Welcome To City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n  </p>\n  </br>\n  <p class=\"paragraph\">\n    Feel free to view this video consisting of edited clips from \"The Men Who Built America\" History channel series and with text commentary added by Matt Malone.  The video gives an account of the early career of the great 19th century industrialist, Andrew Carnegie, and the challenge from his mentor Tom Scott to \"build a bridge\" over the Mississipi that would \"unite America!\"  Just as Carnegie sought to \"bridge the great divide\" between East and West, so too does the City English Project seek to help \"bridge the great divide\" for the Thai people....\n  </p>\n  </br>\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18621,7 +18621,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p class=\"intro\">Welcome to</p>\n<h2>City English (\"Under construction\")</h2>\n<h3>A Template for Eric's perusal..</h3>\n<p>By <span><a href=\"#\">Matt Malone</a></span></p>";
+    return "<p class=\"intro\">Welcome to</p>\n<h2>City English (\"Under construction\")</h2>\n<h3>A Template for Duane's perusal..</h3>\n<p>By <span><a href=\"#\">Matt Malone</a></span></p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18739,7 +18739,7 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
     + "</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
+    + "      <script charset=\"ISO-8859-1\" src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script><div class=\"wistia_responsive_padding\" style=\"padding:56.07% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><div class=\"wistia_embed wistia_async_sxogt01t32 videoFoam=true\" style=\"height:100%;width:100%\">&nbsp;</div></div></div>\n\n\n    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
     + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
     + "</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
@@ -18796,7 +18796,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n  <h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n</div>";
+    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18859,7 +18859,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("sessions/_form", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <h3>\n    <label for=\"email\">Email Address</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"email\" name=\"email\" id=\"login_email\">\n  </h3>\n  <h3>\n    <label for=\"password\">Password</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"password\" name=\"password\" id=\"login_password\">\n  </h3>\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Let's study English!\" class=\"btn btn-primary login_checker\">\n  <h4>\n    <a href=\"#\">Forgot Password?</a>\n  </h4>";
+    return "  <h3>\n    <label for=\"email\">Email Address</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"email\" name=\"email\" id=\"login_email\">\n  </h3>\n  <h3>\n    <label for=\"password\">Password</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"password\" name=\"password\" id=\"login_password\">\n  </h3>\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Let's study English!\" class=\"btn btn-primary login-checker\">\n  <h4>\n    <a href=\"#\">Forgot Password?</a>\n  </h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18955,6 +18955,7 @@ var ProfileFormView = Backbone.View.extend({
   },
   events: {
     "click a.close": "close",
+    "click a.btn-success": "close",
     "click a.btn-warning": "close",
     "click input.student_reg_er": "checkInputs"
   },
@@ -18996,13 +18997,20 @@ var ProfileFormView = Backbone.View.extend({
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     var gender = volunteer.gender
     var pronoun;
-    if (gender === "male" || "ผู้ชาย") {
+    if (gender === "male") {
       pronoun = "him";
       gender = "man";
-    } else {
+    } else if (gender === "female") {
+      pronoun = "her";
+      gender = "woman";
+    } else if (gender === "ผู้ชาย") {
+      pronoun = "him";
+      gender = "man";
+    } else if (gender === "ผู้หญิง") {
       pronoun = "her";
       gender = "woman";
     }
+
     this.$el.html(this.templateProfile({
       token: csrf_token,
       first_name: volunteer.first_name,
@@ -19376,7 +19384,7 @@ var LogInFormView = Backbone.View.extend({
   },
   events: {
     "click a.close": "close",
-    "click input.login_checker": "checkInputs"
+    "click input.login-checker": "checkInputs"
   },
   duration: 300,
   templateSession:  HandlebarsTemplates['sessions/log_in'],
@@ -19447,13 +19455,11 @@ var VolunteerPageView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       thai_flag_present: this.thai_flag_up()
-
     }));
   },
   thai_flag_up: function() {
     return $(".thai_flag").is(":visible");
   },
-
   switch_languages: function(english, thai) {
     if (this.thai_flag_up()) {
       return english;
@@ -19462,6 +19468,7 @@ var VolunteerPageView = Backbone.View.extend({
     }
   },
   initialize: function() {
+    this.listenTo(this.model, 'sync', this.render());
     this.$el.appendTo(".entire-main");
   }
 });
@@ -19469,21 +19476,12 @@ var VolunteerPageView = Backbone.View.extend({
 
 var Router = Backbone.Router.extend({
   routes: {
-    "": "showVolunteerPage",
-    "main_thai": "showThai",
-    "main_english": "showEnglish",
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
     "log_in": "startSession",
     "volunteer_info": "showVolunteerPage",
     "volunteers/:email": "showProfile"
-  },
-  showThai: function() {
-    App.getFrontMainThai();
-  },
-  showEnglish: function() {
-    App.getFrontMainPage();
   },
   registerAdmin: function() {
     App.getAdminRegForm();
@@ -19548,6 +19546,7 @@ var $entire_main = $(document).find(".entire-main");
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
+    this.retainTemplateOnReload("");
     var front_page_main = new MainFrontView();
     front_page_main.render();
   },
@@ -19557,6 +19556,7 @@ var App = {
   },
   getVolunteerPage: function() {
     $entire_main.children().hide();
+    this.retainTemplateOnReload("volunteer_info");
     var volunteer_page = new VolunteerPageView();
     volunteer_page.render();
 
@@ -19599,8 +19599,24 @@ var App = {
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
   },
+  retainTemplateOnReload: function(fragment) {
+    localStorage.setItem('fragment', fragment);
+    Backbone.history.navigate(fragment);
+  },
+  retainThaiLanguageOnReload: function() {
+    if (localStorage.getItem('language') === "thai") {
+      $($(".thai_flag").parent().find( ".thai_flag" )).hide();
+      $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
+    }
+  },
   init: function() {
-    this.getFrontMainPage();
+    this.retainThaiLanguageOnReload();
+    if (localStorage.getItem('fragment') === "volunteer_info") {
+      this.getVolunteerPage();
+      localStorage.setItem('fragment', "volunteer_info");
+    } else {
+      this.getFrontMainPage();      
+    }
     this.getFrontFooterPage();
     this.loadProfileForm();
   }
@@ -19613,6 +19629,7 @@ Backbone.history.start({
   silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
+
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
@@ -19621,6 +19638,7 @@ $(document).on("click", "#backbone-app a", function(e) {
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function(e) {
   e.preventDefault();
+  localStorage.setItem('language', "thai");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
@@ -19630,6 +19648,7 @@ $(".thai_flag").on("click tap", function(e) {
 
 $(".usa_flag").on("click tap", function(e) {
   e.preventDefault();
+  localStorage.setItem('language', "english");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
@@ -19647,7 +19666,18 @@ function checkIfPageVisible() {
 }
 ///////////////////////////////////////////////////
 
+
+$("#home-link").on("click", function() {
+  localStorage.setItem('fragment', "");
+});
+$(".login-checker").on("click", function() {
+  localStorage.setItem('fragment', "");
+});
+
+
 App.init();
+
+
 
 
 
