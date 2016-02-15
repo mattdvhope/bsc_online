@@ -63,20 +63,20 @@ var App = {
     $('body').css('overflow', 'auto');
   },
   retainTemplateOnReload: function(fragment) {
-    sessionStorage.setItem('fragment', fragment);
+    localStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
   },
   retainThaiLanguageOnReload: function() {
-    if (sessionStorage.getItem('language') === "thai") {
+    if (localStorage.getItem('language') === "thai") {
       $($(".thai_flag").parent().find( ".thai_flag" )).hide();
       $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
     }
   },
   init: function() {
     this.retainThaiLanguageOnReload();
-    if (sessionStorage.getItem('fragment') === "volunteer_info") {
+    if (localStorage.getItem('fragment') === "volunteer_info") {
       this.getVolunteerPage();
-      sessionStorage.setItem('fragment', "volunteer_info");
+      localStorage.setItem('fragment', "volunteer_info");
     } else {
       this.getFrontMainPage();      
     }
@@ -101,7 +101,7 @@ $(document).on("click", "#backbone-app a", function(e) {
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function(e) {
   e.preventDefault();
-  sessionStorage.setItem('language', "thai");
+  localStorage.setItem('language', "thai");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
@@ -111,7 +111,7 @@ $(".thai_flag").on("click tap", function(e) {
 
 $(".usa_flag").on("click tap", function(e) {
   e.preventDefault();
-  sessionStorage.setItem('language', "english");
+  localStorage.setItem('language', "english");
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
@@ -131,10 +131,10 @@ function checkIfPageVisible() {
 
 
 $("#home-link").on("click", function() {
-  sessionStorage.setItem('fragment', "");
+  localStorage.setItem('fragment', "");
 });
 $(".login-checker").on("click", function() {
-  sessionStorage.setItem('fragment', "");
+  localStorage.setItem('fragment', "");
 });
 
 
