@@ -11,6 +11,8 @@
 
 //= require lightbox.min
 //= require transitions
+//= require browser_storage
+//= require thai_amer_flags
 //= require sweet_alert_code
 //= require facebook_sdk
 
