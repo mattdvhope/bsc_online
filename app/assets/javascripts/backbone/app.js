@@ -9,7 +9,7 @@ var $entire_main = $(document).find(".entire-main");
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
-    if (sessionStorage.getItem("fragment") !== null) {
+    if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
@@ -21,7 +21,7 @@ var App = {
   },
   getVolunteerPage: function() {
     $entire_main.children().hide();
-    if (sessionStorage.getItem("fragment") !== null) {
+    if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("volunteer_info");      
     }
     var volunteer_page = new VolunteerPageView();
@@ -77,10 +77,10 @@ var App = {
     }
   },
   init: function() {
-    if (sessionStorage.getItem("fragment") !== null) {
+    if (sessionStorageAvailable("fragment")) {
       this.retainThaiLanguageOnReload();
     }
-    if (sessionStorage.getItem("fragment") !== null) {
+    if (sessionStorageAvailable("fragment")) {
       if (sessionStorage.getItem('fragment') === "volunteer_info") {
         this.getVolunteerPage();
         sessionStorage.setItem('fragment', "volunteer_info");
@@ -111,7 +111,7 @@ $(document).on("click", "#backbone-app a", function(e) {
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function(e) {
   e.preventDefault();
-  if (sessionStorage.getItem("fragment") !== null) {
+  if (sessionStorageAvailable("fragment")) {
     sessionStorage.setItem('language', "thai");    
   }
   var tempScrollTop = $(window).scrollTop();
@@ -123,7 +123,7 @@ $(".thai_flag").on("click tap", function(e) {
 
 $(".usa_flag").on("click tap", function(e) {
   e.preventDefault();
-  if (sessionStorage.getItem("fragment") !== null) {
+  if (sessionStorageAvailable("fragment")) {
     sessionStorage.setItem('language', "english");    
   }
   var tempScrollTop = $(window).scrollTop();
@@ -143,7 +143,12 @@ function checkIfPageVisible() {
 }
 ///////////////////////////////////////////////////
 
-if (sessionStorage.getItem("fragment") !== null) {
+
+function sessionStorageAvailable(key) {
+  return sessionStorage.getItem(key) !== null
+}
+
+if (sessionStorageAvailable("fragment")) {
   $("#home-link").on("click", function() {
     sessionStorage.setItem('fragment', "");
   });
