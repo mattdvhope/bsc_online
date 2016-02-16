@@ -19546,7 +19546,9 @@ var $entire_main = $(document).find(".entire-main");
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
-    this.retainTemplateOnReload("");
+    if (sessionStorageAvailable("fragment")) {
+      this.retainTemplateOnReload("");      
+    }
     var front_page_main = new MainFrontView();
     front_page_main.render();
   },
@@ -19556,7 +19558,9 @@ var App = {
   },
   getVolunteerPage: function() {
     $entire_main.children().hide();
-    this.retainTemplateOnReload("volunteer_info");
+    if (sessionStorageAvailable("fragment")) {
+      this.retainTemplateOnReload("volunteer_info");      
+    }
     var volunteer_page = new VolunteerPageView();
     volunteer_page.render();
 
@@ -19600,22 +19604,28 @@ var App = {
     $('body').css('overflow', 'auto');
   },
   retainTemplateOnReload: function(fragment) {
-    localStorage.setItem('fragment', fragment);
+    sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
   },
   retainThaiLanguageOnReload: function() {
-    if (localStorage.getItem('language') === "thai") {
+    if (sessionStorage.getItem('language') === "thai") {
       $($(".thai_flag").parent().find( ".thai_flag" )).hide();
       $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
     }
   },
   init: function() {
-    this.retainThaiLanguageOnReload();
-    if (localStorage.getItem('fragment') === "volunteer_info") {
-      this.getVolunteerPage();
-      localStorage.setItem('fragment', "volunteer_info");
+    if (sessionStorageAvailable("fragment")) {
+      this.retainThaiLanguageOnReload();
+    }
+    if (sessionStorageAvailable("fragment")) {
+      if (sessionStorage.getItem('fragment') === "volunteer_info") {
+        this.getVolunteerPage();
+        sessionStorage.setItem('fragment', "volunteer_info");
+      } else {
+        this.getFrontMainPage();
+      }
     } else {
-      this.getFrontMainPage();      
+      this.getFrontMainPage();
     }
     this.getFrontFooterPage();
     this.loadProfileForm();
@@ -19638,7 +19648,9 @@ $(document).on("click", "#backbone-app a", function(e) {
 // switch between Thai & American flags //////////
 $(".thai_flag").on("click tap", function(e) {
   e.preventDefault();
-  localStorage.setItem('language', "thai");
+  if (sessionStorageAvailable("fragment")) {
+    sessionStorage.setItem('language', "thai");    
+  }
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
@@ -19648,7 +19660,9 @@ $(".thai_flag").on("click tap", function(e) {
 
 $(".usa_flag").on("click tap", function(e) {
   e.preventDefault();
-  localStorage.setItem('language', "english");
+  if (sessionStorageAvailable("fragment")) {
+    sessionStorage.setItem('language', "english");    
+  }
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
@@ -19667,12 +19681,18 @@ function checkIfPageVisible() {
 ///////////////////////////////////////////////////
 
 
-$("#home-link").on("click", function() {
-  localStorage.setItem('fragment', "");
-});
-$(".login-checker").on("click", function() {
-  localStorage.setItem('fragment', "");
-});
+function sessionStorageAvailable(key) {
+  return sessionStorage.getItem(key) !== null
+}
+
+if (sessionStorageAvailable("fragment")) {
+  $("#home-link").on("click", function() {
+    sessionStorage.setItem('fragment', "");
+  });
+  $(".login-checker").on("click", function() {
+    sessionStorage.setItem('fragment', "");
+  });
+}
 
 
 App.init();
