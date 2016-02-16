@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     def user_defined
       if params[:email]
         user = User.where(email: params[:email].downcase).first
-        if user.authenticate(params[:password])
+        if user && user.authenticate(params[:password])
           return user
         else
           return false
