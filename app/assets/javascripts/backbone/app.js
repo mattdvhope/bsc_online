@@ -109,15 +109,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });                // currentTarget is a jQuery method
 
 
-function checkIfPageVisible() {
-  if ($(".front-main-hbs").is(":visible")) {
-    App.getFrontMainPage();    
-  } else if ($(".entire-vol").is(":visible")) {
-    router.navigate("volunteer_info");
-    App.getVolunteerPage();    
-  }
-}
-
 
 App.init();
 

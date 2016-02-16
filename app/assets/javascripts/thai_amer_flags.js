@@ -7,7 +7,7 @@ $(".thai_flag").on("click tap", function(e) {
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
-  checkIfPageVisible();
+  getCorrectPageWhenFlagClicked();
   $(window).scrollTop(tempScrollTop);
 });
 
@@ -19,8 +19,17 @@ $(".usa_flag").on("click tap", function(e) {
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
-  checkIfPageVisible();
+  getCorrectPageWhenFlagClicked();
   $(window).scrollTop(tempScrollTop);
 });
-///////////////////////////////////////////////////
+
+function getCorrectPageWhenFlagClicked() {
+  if ($(".front-main-hbs").is(":visible")) {
+    App.getFrontMainPage();    
+  } else if ($(".entire-vol").is(":visible")) {
+    router.navigate("volunteer_info");
+    App.getVolunteerPage();    
+  }
+}
+
 
