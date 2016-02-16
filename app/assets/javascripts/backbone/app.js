@@ -6,6 +6,28 @@
 
 var $entire_main = $(document).find(".entire-main");
 
+try {
+  // Initialize sessionStorage key-value pairs//////////
+  if (sessionStorage.getItem("fragment") === null) {
+    sessionStorage.setItem("fragment", "");
+  }
+  if (sessionStorage.getItem("language") === null) {
+    sessionStorage.setItem("language", "english");
+  }
+  //////////////////////////////////////////////////////
+}
+catch (e) {
+  // alert("Please turn off 'private' for this browser to make this app work much faster.");
+  swal({
+    title: "Please turn off 'private' for this browser or use the 'Chrome' browser's 'incognito window'.",
+    text: "If you run this web app on this browser using the 'private window' setting, it will perform very slowly.",
+    timer: 24000,
+    showConfirmButton: true,
+    animation: "slide-from-bottom"
+  });
+}
+
+
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
