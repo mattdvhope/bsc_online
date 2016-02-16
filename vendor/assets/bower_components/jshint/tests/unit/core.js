@@ -771,6 +771,14 @@ exports.testUndefinedAssignment = function (test) {
     "var i = undefined;",
     "const j = undefined;",
     "let k = undefined;",
+    "// jshint +W080",
+    "var l = undefined === 0;",
+    "const m = undefined === 0;",
+    "let n = undefined === 0;",
+    "let [ o = undefined === 0 ] = [];",
+    "[ o = undefined === 0] = [];",
+    "let { p = undefined === 0, x: q = undefined === 0 } = {};",
+    "({ p = undefined === 0, x: q = undefined === 0 } = {});"
   ];
 
   TestRun(test)
@@ -1878,7 +1886,7 @@ exports.catchWithNoParam = function (test) {
   test.done();
 };
 
-exports.catchWithNoParam = function (test) {
+exports.tryWithoutCatch = function (test) {
   var src = [
     "try{}",
     "if (true) { console.log(); }"
@@ -1986,6 +1994,40 @@ exports.duplicateProto = function (test) {
   TestRun(test, "Duplicate labels")
     .addError(2, "'__proto__' has already been declared.")
     .test(src, { proto: true });
+
+  test.done();
+};
+
+exports["gh-2761"] = function (test) {
+  var code = [
+    "/* global foo: false */",
+    "foo = 2;",
+    "// jshint -W020",
+    "foo = 3;",
+    "// jshint +W020",
+    "foo = 4;"
+  ];
+
+  TestRun(test, "W020")
+    .addError(2, "Read only.")
+    .addError(6, "Read only.")
+    .test(code);
+
+  code = [
+    "function a() {}",
+    "a = 2;",
+    "// jshint -W021",
+    "a = 3;",
+    "// jshint +W021",
+    "a = 4;"
+  ];
+
+  TestRun(test, "W021")
+    .addError(2, "Reassignment of 'a', which is is a function. " +
+              "Use 'var' or 'let' to declare bindings that may change.")
+    .addError(6, "Reassignment of 'a', which is is a function. " +
+              "Use 'var' or 'let' to declare bindings that may change.")
+    .test(code);
 
   test.done();
 };
