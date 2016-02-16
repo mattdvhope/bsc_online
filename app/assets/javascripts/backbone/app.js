@@ -6,28 +6,6 @@
 
 var $entire_main = $(document).find(".entire-main");
 
-try {
-  // Initialize sessionStorage key-value pairs//////////
-  if (sessionStorage.getItem("fragment") === null) {
-    sessionStorage.setItem("fragment", "");
-  }
-  if (sessionStorage.getItem("language") === null) {
-    sessionStorage.setItem("language", "english");
-  }
-  //////////////////////////////////////////////////////
-}
-catch (e) {
-  // alert("Please turn off 'private' for this browser to make this app work much faster.");
-  swal({
-    title: "Please turn off 'private' for this browser or use the 'Chrome' browser's 'incognito window'.",
-    text: "If you run this web app on this browser using the 'private window' setting, it will perform very slowly.",
-    timer: 24000,
-    showConfirmButton: true,
-    animation: "slide-from-bottom"
-  });
-}
-
-
 var App = {
   getFrontMainPage: function() {
     $entire_main.children().hide();
@@ -130,30 +108,6 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
 
-// switch between Thai & American flags //////////
-$(".thai_flag").on("click tap", function(e) {
-  e.preventDefault();
-  if (sessionStorageAvailable("fragment")) {
-    sessionStorage.setItem('language', "thai");    
-  }
-  var tempScrollTop = $(window).scrollTop();
-  $($(this).parent().find( ".thai_flag" )).hide();
-  $($(this).parent().find( ".usa_flag" )).show();
-  checkIfPageVisible();
-  $(window).scrollTop(tempScrollTop);
-});
-
-$(".usa_flag").on("click tap", function(e) {
-  e.preventDefault();
-  if (sessionStorageAvailable("fragment")) {
-    sessionStorage.setItem('language', "english");    
-  }
-  var tempScrollTop = $(window).scrollTop();
-  $($(this).parent().find( ".thai_flag" )).show();
-  $($(this).parent().find( ".usa_flag" )).hide();
-  checkIfPageVisible();
-  $(window).scrollTop(tempScrollTop);
-});
 
 function checkIfPageVisible() {
   if ($(".front-main-hbs").is(":visible")) {
@@ -162,21 +116,6 @@ function checkIfPageVisible() {
     router.navigate("volunteer_info");
     App.getVolunteerPage();    
   }
-}
-///////////////////////////////////////////////////
-
-
-function sessionStorageAvailable(key) {
-  return sessionStorage.getItem(key) !== null
-}
-
-if (sessionStorageAvailable("fragment")) {
-  $("#home-link").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
-  $(".login-checker").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
 }
 
 
