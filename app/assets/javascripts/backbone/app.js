@@ -4,8 +4,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-console.log(gon.user);
-
 var $entire_main = $(document).find(".entire-main");
 
 var App = {

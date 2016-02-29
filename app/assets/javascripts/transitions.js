@@ -1,23 +1,25 @@
-// Scrolling up & down home page...
+// Scrolling up & down home page/////////
 $("#place_1").addClass("active");
 
-$(".page-scroll").on("click", function() {
+$(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
   event.preventDefault();
   $("#place_1").removeClass("active");
   $("#place_2").removeClass("active");
   $("#place_3").removeClass("active");
   $("#place_4").removeClass("active");
+  $("#place_5").removeClass("active");
   $(this).addClass("active");
 });
 
 $('a[href^="#"]').on('click',function (e) {
   e.preventDefault();
-  if ($($(this).attr('href')).offset()) {
+  if ($($(this).attr('href'))) {
     $('html, body').animate({
-      scrollTop: $($(this).attr('href')).offset().top
+      scrollTop: sessionStorage.getItem($(this).attr('href'))
     }, 0, 'swing');
   }
 });
+//////////////////////////////////////////
 
 
 // Collapse hamburger menu from document
