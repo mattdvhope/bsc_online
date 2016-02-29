@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    gon.student = current_user
+    gon.user = current_user
     if current_user.role == "admin_applicant"
       redirect_to log_out_path
     end

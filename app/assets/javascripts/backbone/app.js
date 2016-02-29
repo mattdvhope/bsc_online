@@ -4,6 +4,8 @@
 //= require_tree ./views
 //= require_tree ./routers
 
+console.log(gon.user);
+
 var $entire_main = $(document).find(".entire-main");
 
 var App = {
@@ -108,15 +110,6 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
 
-
-function checkIfPageVisible() {
-  if ($(".front-main-hbs").is(":visible")) {
-    App.getFrontMainPage();    
-  } else if ($(".entire-vol").is(":visible")) {
-    router.navigate("volunteer_info");
-    App.getVolunteerPage();    
-  }
-}
 
 
 App.init();

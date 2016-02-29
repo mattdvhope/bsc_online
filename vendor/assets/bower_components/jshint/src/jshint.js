@@ -187,19 +187,15 @@ var JSHINT = (function() {
   }
 
   function assume() {
+    var badESOpt = null;
     processenforceall();
 
     /**
      * TODO: Remove in JSHint 3
      */
-    if (!state.option.esversion && !state.option.moz) {
-      if (state.option.es3) {
-        state.option.esversion = 3;
-      } else if (state.option.esnext) {
-        state.option.esversion = 6;
-      } else {
-        state.option.esversion = 5;
-      }
+    badESOpt = state.inferEsVersion();
+    if (badESOpt) {
+      quit("E059", state.tokens.next, "esversion", badESOpt);
     }
 
     if (state.inES5()) {
@@ -208,6 +204,14 @@ var JSHINT = (function() {
 
     if (state.inES6()) {
       combine(predefined, vars.ecmaIdentifiers[6]);
+    }
+
+    /**
+     * Use `in` to check for the presence of any explicitly-specified value for
+     * `globalstrict` because both `true` and `false` should trigger an error.
+     */
+    if (state.option.strict === "global" && "globalstrict" in state.option) {
+      quit("E059", state.tokens.next, "strict", "globalstrict");
     }
 
     if (state.option.module) {
@@ -244,9 +248,6 @@ var JSHINT = (function() {
 
     if (state.option.phantom) {
       combine(predefined, vars.phantom);
-      if (state.option.strict === true) {
-        state.option.strict = "global";
-      }
     }
 
     if (state.option.prototypejs) {
@@ -256,9 +257,6 @@ var JSHINT = (function() {
     if (state.option.node) {
       combine(predefined, vars.node);
       combine(predefined, vars.typed);
-      if (state.option.strict === true) {
-        state.option.strict = "global";
-      }
     }
 
     if (state.option.devel) {
@@ -278,9 +276,6 @@ var JSHINT = (function() {
       combine(predefined, vars.browser);
       combine(predefined, vars.typed);
       combine(predefined, vars.browserify);
-      if (state.option.strict === true) {
-        state.option.strict = "global";
-      }
     }
 
     if (state.option.nonstandard) {
@@ -321,18 +316,25 @@ var JSHINT = (function() {
   }
 
   // Produce an error warning.
-  function quit(code, line, chr) {
-    var percentage = Math.floor((line / state.lines.length) * 100);
+  function quit(code, token, a, b) {
+    var percentage = Math.floor((token.line / state.lines.length) * 100);
     var message = messages.errors[code].desc;
 
-    throw {
+    var exception = {
       name: "JSHintError",
-      line: line,
-      character: chr,
+      line: token.line,
+      character: token.from,
       message: message + " (" + percentage + "% scanned).",
       raw: message,
-      code: code
+      code: code,
+      a: a,
+      b: b
     };
+
+    exception.reason = supplant(message, exception) + " (" + percentage +
+      "% scanned).";
+
+    throw exception;
   }
 
   function removeIgnoredMessages() {
@@ -361,8 +363,8 @@ var JSHINT = (function() {
       t = state.tokens.curr;
     }
 
-    l = t.line || 0;
-    ch = t.from || 0;
+    l = t.line;
+    ch = t.from;
 
     w = {
       id: "(error)",
@@ -384,7 +386,7 @@ var JSHINT = (function() {
     removeIgnoredMessages();
 
     if (JSHINT.errors.length >= state.option.maxerr)
-      quit("E043", l, ch);
+      quit("E043", t);
 
     return w;
   }
@@ -640,7 +642,6 @@ var JSHINT = (function() {
           case "false":
             state.option.strict = false;
             break;
-          case "func":
           case "global":
           case "implied":
             state.option.strict = val;
@@ -658,31 +659,6 @@ var JSHINT = (function() {
           if (!hasParsedCode(state.funct)) {
             error("E055", state.tokens.next, "module");
           }
-        }
-
-        /**
-         * TODO: Remove in JSHint 3
-         */
-        var esversions = {
-          es3   : 3,
-          es5   : 5,
-          esnext: 6
-        };
-        if (_.has(esversions, key)) {
-          switch (val) {
-          case "true":
-            state.option.moz = false;
-            state.option.esversion = esversions[key];
-            break;
-          case "false":
-            if (!state.option.moz) {
-              state.option.esversion = 5;
-            }
-            break;
-          default:
-            error("E002", nt);
-          }
-          return;
         }
 
         if (key === "esversion") {
@@ -730,9 +706,6 @@ var JSHINT = (function() {
             state.option[key] = (val === "true");
           }
 
-          if (key === "newcap") {
-            state.option["(explicitNewcap)"] = true;
-          }
           return;
         }
 
@@ -821,7 +794,7 @@ var JSHINT = (function() {
       state.tokens.next = lookahead.shift() || lex.token();
 
       if (!state.tokens.next) { // No more tokens left, give up
-        quit("E041", state.tokens.curr.line);
+        quit("E041", state.tokens.curr);
       }
 
       if (state.tokens.next.id === "(end)" || state.tokens.next.id === "(error)") {
@@ -833,7 +806,11 @@ var JSHINT = (function() {
       }
 
       if (state.tokens.next.isSpecial) {
-        doOption();
+        if (state.tokens.next.type === "falls through") {
+          state.tokens.curr.caseFallsThrough = true;
+        } else {
+          doOption();
+        }
       } else {
         if (state.tokens.next.id !== "(endline)") {
           break;
@@ -1225,7 +1202,7 @@ var JSHINT = (function() {
       }
 
       if (!left || !right) {
-        quit("E041", state.tokens.curr.line);
+        quit("E041", state.tokens.curr);
       }
 
       if (left.id === "!") {
@@ -1342,7 +1319,7 @@ var JSHINT = (function() {
   /**
    * Checks the left hand side of an assignment for issues, returns if ok
    * @param {token} left - the left hand side of the assignment
-   * @param {token} assignToken - the token for the assignment
+   * @param {token=} assignToken - the token for the assignment, used for reporting
    * @param {object=} options - optional object
    * @param {boolean} options.allowDestructuring - whether to allow destructuting binding
    * @returns {boolean} Whether the left hand side is OK
@@ -1350,6 +1327,8 @@ var JSHINT = (function() {
   function checkLeftSideAssign(left, assignToken, options) {
 
     var allowDestructuring = options && options.allowDestructuring;
+
+    assignToken = assignToken || left;
 
     if (state.option.freeze) {
       var nativeObject = findNativePrototype(left);
@@ -1374,7 +1353,9 @@ var JSHINT = (function() {
     } else if (left.id === "{" || left.id === "[") {
       if (allowDestructuring && state.tokens.curr.left.destructAssign) {
         state.tokens.curr.left.destructAssign.forEach(function(t) {
-          state.funct["(scope)"].block.modify(t.id, t.token);
+          if (t.id) {
+            state.funct["(scope)"].block.modify(t.id, t.token);
+          }
         });
       } else {
         if (left.id === "{" || !left.left) {
@@ -1663,7 +1644,9 @@ var JSHINT = (function() {
 
     r = expression(0, true);
 
-    if (r && (!r.identifier || r.value !== "function") && (r.type !== "(punctuator)")) {
+    if (r && !(r.identifier && r.value === "function") &&
+        !(r.type === "(punctuator)" && r.left &&
+          r.left.identifier && r.left.value === "function")) {
       if (!state.isStrict() &&
           state.option.strict === "global") {
         warning("E007");
@@ -1758,9 +1741,6 @@ var JSHINT = (function() {
     }
 
     if (state.isStrict()) {
-      if (!state.option["(explicitNewcap)"]) {
-        state.option.newcap = true;
-      }
       state.option.undef = true;
     }
   }
@@ -1798,6 +1778,7 @@ var JSHINT = (function() {
 
       // create a new block scope
       state.funct["(scope)"].stack();
+      state.funct["(noblockscopedvar)"] = false;
 
       line = state.tokens.curr.line;
       if (state.tokens.next.id !== "}") {
@@ -2005,7 +1986,9 @@ var JSHINT = (function() {
   // ECMAScript parser
 
   delim("(endline)");
-  delim("(begin)");
+  (function(x) {
+    x.line = x.from = 0;
+  })(delim("(begin)"));
   delim("(end)").reach = true;
   delim("(error)").reach = true;
   delim("}").reach = true;
@@ -2300,7 +2283,7 @@ var JSHINT = (function() {
     this.right = expression(150);
 
     if (!this.right) { // '!' followed by nothing? Give up.
-      quit("E041", this.line || 0);
+      quit("E041", this);
     }
 
     if (bang[this.right.id] === true) {
@@ -2314,7 +2297,7 @@ var JSHINT = (function() {
     this.first = this.right = p;
 
     if (!p) { // 'typeof' followed by nothing? Give up.
-      quit("E041", this.line || 0, this.character || 0);
+      quit("E041", this);
     }
 
     // The `typeof` operator accepts unresolvable references, so the operand
@@ -3360,12 +3343,14 @@ var JSHINT = (function() {
     var ids;
     var identifiers = [];
     var openingParsed = options && options.openingParsed;
+    var isAssignment = options && options.assignment;
+    var recursiveOptions = isAssignment ? { assignment: isAssignment } : null;
     var firstToken = openingParsed ? state.tokens.curr : state.tokens.next;
 
     var nextInnerDE = function() {
       var ident;
       if (checkPunctuators(state.tokens.next, ["[", "{"])) {
-        ids = destructuringPatternRecursive();
+        ids = destructuringPatternRecursive(recursiveOptions);
         for (var id in ids) {
           id = ids[id];
           identifiers.push({ id: id.id, token: id.token });
@@ -3378,9 +3363,27 @@ var JSHINT = (function() {
         advance(")");
       } else {
         var is_rest = checkPunctuator(state.tokens.next, "...");
-        ident = identifier();
-        if (ident)
+
+        if (isAssignment) {
+          var identifierToken = is_rest ? peek(0) : state.tokens.next;
+          if (!identifierToken.identifier) {
+            warning("E030", identifierToken, identifierToken.value);
+          }
+          var assignTarget = expression(155);
+          if (assignTarget) {
+            checkLeftSideAssign(assignTarget);
+
+            // if the target was a simple identifier, add it to the list to return
+            if (assignTarget.identifier) {
+              ident = assignTarget.value;
+            }
+          }
+        } else {
+          ident = identifier();
+        }
+        if (ident) {
           identifiers.push({ id: ident, token: state.tokens.curr });
+        }
         return is_rest;
       }
       return false;
@@ -3399,15 +3402,22 @@ var JSHINT = (function() {
         advance(":");
         nextInnerDE();
       } else {
+        // this id will either be the property name or the property name and the assigning identifier
         id = identifier();
         if (checkPunctuator(state.tokens.next, ":")) {
           advance(":");
           nextInnerDE();
-        } else {
+        } else if (id) {
+          // in this case we are assigning (not declaring), so check assignment
+          if (isAssignment) {
+            checkLeftSideAssign(state.tokens.curr);
+          }
           identifiers.push({ id: id, token: state.tokens.curr });
         }
       }
     };
+
+    var id, value;
     if (checkPunctuator(firstToken, "[")) {
       if (!openingParsed) {
         advance("[");
@@ -3428,10 +3438,11 @@ var JSHINT = (function() {
           } else {
             advance("=");
           }
-          if (state.tokens.next.id === "undefined") {
-            warning("W080", state.tokens.prev, state.tokens.prev.value);
+          id = state.tokens.prev;
+          value = expression(10);
+          if (value && value.type === "undefined") {
+            warning("W080", id, id.value);
           }
-          expression(10);
         }
         if (!checkPunctuator(state.tokens.next, "]")) {
           advance(",");
@@ -3450,10 +3461,11 @@ var JSHINT = (function() {
         assignmentProperty();
         if (checkPunctuator(state.tokens.next, "=")) {
           advance("=");
-          if (state.tokens.next.id === "undefined") {
-            warning("W080", state.tokens.prev, state.tokens.prev.value);
+          id = state.tokens.prev;
+          value = expression(10);
+          if (value && value.type === "undefined") {
+            warning("W080", id, id.value);
           }
-          expression(10);
         }
         if (!checkPunctuator(state.tokens.next, "}")) {
           advance(",");
@@ -3548,14 +3560,15 @@ var JSHINT = (function() {
 
       if (state.tokens.next.id === "=") {
         advance("=");
-        if (!prefix && state.tokens.next.id === "undefined") {
-          warning("W080", state.tokens.prev, state.tokens.prev.value);
-        }
         if (!prefix && peek(0).id === "=" && state.tokens.next.identifier) {
           warning("W120", state.tokens.next, state.tokens.next.value);
         }
+        var id = state.tokens.prev;
         // don't accept `in` in expression if prefix is used for ForIn/Of loop.
         value = expression(prefix ? 120 : 10);
+        if (!prefix && value && value.type === "undefined") {
+          warning("W080", id, id.value);
+        }
         if (lone) {
           tokens[0].first = value;
         } else {
@@ -3654,10 +3667,6 @@ var JSHINT = (function() {
         state.nameStack.set(state.tokens.curr);
 
         advance("=");
-        if (!prefix && report && !state.funct["(loopage)"] &&
-          state.tokens.next.id === "undefined") {
-          warning("W080", state.tokens.prev, state.tokens.prev.value);
-        }
         if (peek(0).id === "=" && state.tokens.next.identifier) {
           if (!prefix && report &&
               !state.funct["(params)"] ||
@@ -3665,8 +3674,12 @@ var JSHINT = (function() {
             warning("W120", state.tokens.next, state.tokens.next.value);
           }
         }
+        var id = state.tokens.prev;
         // don't accept `in` in expression if prefix is used for ForIn/Of loop.
         value = expression(prefix ? 120 : 10);
+        if (value && !prefix && report && !state.funct["(loopage)"] && value.type === "undefined") {
+          warning("W080", id, id.value);
+        }
         if (lone) {
           tokens[0].first = value;
         } else {
@@ -3856,15 +3869,15 @@ var JSHINT = (function() {
     }
     var i = optionalidentifier();
 
+    state.funct["(scope)"].addlabel(i, {
+      type: "function",
+      token: state.tokens.curr });
+
     if (i === undefined) {
       warning("W025");
     } else if (inexport) {
       state.funct["(scope)"].setExported(i, state.tokens.prev);
     }
-
-    state.funct["(scope)"].addlabel(i, {
-      type: "function",
-      token: state.tokens.curr });
 
     doFunction({
       name: i,
@@ -4066,7 +4079,7 @@ var JSHINT = (function() {
           // You can tell JSHint that you don't use break intentionally by
           // adding a comment /* falls through */ on a line just before
           // the next `case`.
-          if (!reg.fallsThrough.test(state.lines[state.tokens.next.line - 2])) {
+          if (!state.tokens.curr.caseFallsThrough) {
             warning("W086", state.tokens.curr, "case");
           }
         }
@@ -4090,7 +4103,7 @@ var JSHINT = (function() {
           // Do not display a warning if 'default' is the first statement or if
           // there is a special /* falls through */ comment.
           if (this.cases.length) {
-            if (!reg.fallsThrough.test(state.lines[state.tokens.next.line - 2])) {
+            if (!state.tokens.curr.caseFallsThrough) {
               warning("W086", state.tokens.curr, "default");
             }
           }
@@ -5129,11 +5142,8 @@ var JSHINT = (function() {
           newOptionObj[optionKey] = o[optionKey];
           if ((optionKey === "esversion" && o[optionKey] === 5) ||
               (optionKey === "es5" && o[optionKey])) {
-            warning("I003");
+            warningAt("I003", 0, 0);
           }
-
-          if (optionKeys[x] === "newcap" && o[optionKey] === false)
-            newOptionObj["(explicitNewcap)"] = true;
         }
       }
     }
@@ -5243,7 +5253,7 @@ var JSHINT = (function() {
     });
 
     lex.on("fatal", function(ev) {
-      quit("E041", ev.line, ev.from);
+      quit("E041", ev);
     });
 
     lex.on("Identifier", function(ev) {
@@ -5267,15 +5277,15 @@ var JSHINT = (function() {
       }
     }
 
-    assume();
-
-    // combine the passed globals after we've assumed all our options
-    combine(predefined, g || {});
-
-    //reset values
-    comma.first = true;
-
     try {
+      assume();
+
+      // combine the passed globals after we've assumed all our options
+      combine(predefined, g || {});
+
+      //reset values
+      comma.first = true;
+
       advance();
       switch (state.tokens.next.id) {
       case "{":
@@ -5286,7 +5296,10 @@ var JSHINT = (function() {
         directives();
 
         if (state.directive["use strict"]) {
-          if (state.option.strict !== "global") {
+          if (state.option.strict !== "global" &&
+              !((state.option.strict === true || !state.option.strict) &&
+                (state.option.globalstrict || state.option.module || state.option.node ||
+                 state.option.phantom || state.option.browserify))) {
             warning("W097", state.tokens.prev);
           }
         }
@@ -5295,7 +5308,7 @@ var JSHINT = (function() {
       }
 
       if (state.tokens.next.id !== "(end)") {
-        quit("E041", state.tokens.curr.line);
+        quit("E041", state.tokens.curr);
       }
 
       state.funct["(scope)"].unstack();
@@ -5307,7 +5320,7 @@ var JSHINT = (function() {
           scope     : "(main)",
           raw       : err.raw,
           code      : err.code,
-          reason    : err.message,
+          reason    : err.reason,
           line      : err.line || nt.line,
           character : err.character || nt.from
         }, null);

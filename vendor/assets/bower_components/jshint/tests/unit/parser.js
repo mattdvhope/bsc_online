@@ -45,6 +45,10 @@ exports.other = function (test) {
     .addError(1, "Unrecoverable syntax error. (100% scanned).")
     .test("typeof;");
 
+  TestRun(test)
+    .addError(1, "Unrecoverable syntax error. (0% scanned).")
+    .test("}");
+
   test.done();
 };
 
@@ -1124,10 +1128,35 @@ exports.exported = function (test) {
   run.test(src, {unused: true }); // es5
   run.test(src, {esnext: true, unused: true });
   run.test(src, {moz: true, unused: true });
+  run.test(src, {unused: true, latedef: true});
 
-  run = TestRun(test)
+  TestRun(test)
     .addError(1, "'unused' is defined but never used.")
     .test("var unused = 1; var used = 2;", {exported: ["used"], unused: true});
+
+  TestRun(test, "exported vars aren't used before definition")
+    .test("var a;", {exported:["a"], latedef: true});
+
+  var code = [
+    "/* exported a, b */",
+    "if (true) {",
+    "  /* exported c, d */",
+    "  let a, c, e, g;",
+    "  const [b, d, f, h] = [];",
+    "  /* exported e, f */",
+    "}",
+    "/* exported g, h */"
+  ];
+  TestRun(test, "blockscoped variables")
+    .addError(4, "'a' is defined but never used.")
+    .addError(4, "'c' is defined but never used.")
+    .addError(4, "'e' is defined but never used.")
+    .addError(4, "'g' is defined but never used.")
+    .addError(5, "'b' is defined but never used.")
+    .addError(5, "'d' is defined but never used.")
+    .addError(5, "'f' is defined but never used.")
+    .addError(5, "'h' is defined but never used.")
+    .test(code, {esversion: 6, unused: true});
 
   test.done();
 };
@@ -1514,7 +1543,9 @@ exports["destructuring const as esnext"] = function (test) {
     "const [ f, [ [ [ g ], h ], i ] ] = [ 1, [ [ [ 2 ], 3], 4 ] ];",
     "const { foo : bar } = { foo : 1 };",
     "const [ j, { foo : foobar } ] = [ 2, { foo : 1 } ];",
-    "[j] = [1];"
+    "[j] = [1];",
+    "[j.a] = [1];",
+    "[j['a']] = [1];",
   ];
 
   TestRun(test)
@@ -1533,6 +1564,7 @@ exports["destructuring const as esnext"] = function (test) {
     .addError(7, "'bar' is defined but never used.")
     .addError(8, "'foobar' is defined but never used.")
     .addError(9, "Attempting to override 'j' which is a constant.")
+    .addError(11, "['a'] is better written in dot notation.")
     .addError(3, "'z' is not defined.")
     .test(code, {esnext: true, unused: true, undef: true});
 
@@ -1649,7 +1681,10 @@ exports["destructuring const errors"] = function (test) {
     "const [ a, b, c ] = [ 1, 2, 3 ];",
     "const [ 1 ] = [ a ];",
     "const [ k, l; m ] = [ 1, 2, 3 ];",
-    "const [ n, o, p ] = [ 1, 2; 3 ];"
+    "const [ n, o, p ] = [ 1, 2; 3 ];",
+    "const q = {};",
+    "[q.a] = [1];",
+    "({a:q.a} = {a:1});"
   ];
 
   TestRun(test)
@@ -1688,10 +1723,18 @@ exports["destructuring globals as moz"] = function (test) {
     "[ o ] = [ { o : 1 } ];",
     "[ a, [ [ [ b ], c ], d ] ] = [ 1, [ [ [ 2 ], 3], 4 ] ];",
     "[ a, { foo : b } ] = [ 2, { foo : 1 } ];",
+    "[ a.b ] = [1];",
+    "[ { a: a.b } ] = [{a:1}];",
+    "[ { a: a['b'] } ] = [{a:1}];",
+    "[a['b']] = [1];",
+    "[,...a.b] = [1];"
   ];
 
   TestRun(test)
     .addError(4,  "'z' is not defined.")
+    .addError(11, "['b'] is better written in dot notation.")
+    .addError(12, "['b'] is better written in dot notation.")
+    .addError(13, "'spread/rest operator' is only available in ES6 (use 'esversion: 6').")
     .test(code, {moz: true, unused: true, undef: true});
 
   test.done();
@@ -1699,7 +1742,7 @@ exports["destructuring globals as moz"] = function (test) {
 
 exports["destructuring globals as esnext"] = function (test) {
   var code = [
-    "var a, b, c, d, h, w, o;",
+    "var a, b, c, d, h, i, w, o;",
     "[ a, b, c ] = [ 1, 2, 3 ];",
     "[ a ] = [ 1 ];",
     "[ a ] = [ z ];",
@@ -1707,10 +1750,22 @@ exports["destructuring globals as esnext"] = function (test) {
     "[ o ] = [ { o : 1 } ];",
     "[ a, [ [ [ b ], c ], d ] ] = [ 1, [ [ [ 2 ], 3], 4 ] ];",
     "[ a, { foo : b } ] = [ 2, { foo : 1 } ];",
+    "[ a.b ] = [1];",
+    "[ { a: a.b } ] = [{a:1}];",
+    "[ { a: a['b'] } ] = [{a:1}];",
+    "[a['b']] = [1];",
+    "[,...a.b] = [1];",
+    "[...i] = [1];",
+    "[notDefined1] = [];",
+    "[...notDefined2] = [];",
   ];
 
   TestRun(test)
     .addError(4,  "'z' is not defined.")
+    .addError(11, "['b'] is better written in dot notation.")
+    .addError(12, "['b'] is better written in dot notation.")
+    .addError(15, "'notDefined1' is not defined.")
+    .addError(16, "'notDefined2' is not defined.")
     .test(code, {esnext: true, unused: true, undef: true});
 
   test.done();
@@ -1726,6 +1781,11 @@ exports["destructuring globals as es5"] = function (test) {
     "[ o ] = [ { o : 1 } ];",
     "[ a, [ [ [ b ], c ], d ] ] = [ 1, [ [ [ 2 ], 3], 4 ] ];",
     "[ a, { foo : b } ] = [ 2, { foo : 1 } ];",
+    "[ a.b ] = [1];",
+    "[ { a: a.b } ] = [{a:1}];",
+    "[ { a: a['b'] } ] = [{a:1}];",
+    "[a['b']] = [1];",
+    "[,...a.b] = [1];"
   ];
 
   TestRun(test)
@@ -1737,6 +1797,14 @@ exports["destructuring globals as es5"] = function (test) {
     .addError(6, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
     .addError(7, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
     .addError(8, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(9, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(10, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(11, "['b'] is better written in dot notation.")
+    .addError(11, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(12, "['b'] is better written in dot notation.")
+    .addError(12, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(13, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(13, "'spread/rest operator' is only available in ES6 (use 'esversion: 6').")
     .test(code, {unused: true, undef: true}); // es5
 
   test.done();
@@ -1752,6 +1820,11 @@ exports["destructuring globals as legacy JS"] = function (test) {
     "[ o ] = [ { o : 1 } ];",
     "[ a, [ [ [ b ], c ], d ] ] = [ 1, [ [ [ 2 ], 3], 4 ] ];",
     "[ a, { foo : b } ] = [ 2, { foo : 1 } ];",
+    "[ a.b ] = [1];",
+    "[ { a: a.b } ] = [{a:1}];",
+    "[ { a: a['b'] } ] = [{a:1}];",
+    "[a['b']] = [1];",
+    "[,...a.b] = [1];"
   ];
 
   TestRun(test)
@@ -1763,6 +1836,14 @@ exports["destructuring globals as legacy JS"] = function (test) {
     .addError(6, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
     .addError(7, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
     .addError(8, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(9, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(10, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(11, "['b'] is better written in dot notation.")
+    .addError(11, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(12, "['b'] is better written in dot notation.")
+    .addError(12, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(13, "'destructuring assignment' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(13, "'spread/rest operator' is only available in ES6 (use 'esversion: 6').")
     .test(code, {es3: true, unused: true, undef: true});
 
   test.done();
@@ -1776,6 +1857,9 @@ exports["destructuring globals with syntax error"] = function (test) {
     "[ a, b; c ] = [ 1, 2, 3 ];",
     "[ a, b, c ] = [ 1, 2; 3 ];",
     "[ a ] += [ 1 ];",
+    "[ { a.b } ] = [{a:1}];",
+    "[ a() ] = [];",
+    "[ { a: a() } ] = [];"
   ];
 
   TestRun(test)
@@ -1788,8 +1872,49 @@ exports["destructuring globals with syntax error"] = function (test) {
     .addError(5, "Expected an identifier and instead saw ']'.")
     .addError(5, "Expected an assignment or function call and instead saw an expression.")
     .addError(6, "Bad assignment.")
+    .addError(7, "Expected ',' and instead saw '.'.")
+    .addError(8, "Expected ',' and instead saw '('.")
+    .addError(8, "Expected an identifier and instead saw ')'.")
+    .addError(8, "Expected an identifier and instead saw ')'.")
+    .addError(9, "Expected ',' and instead saw '('.")
+    .addError(9, "Expected an identifier and instead saw ')'.")
     .addError(2,  "'z' is not defined.")
     .test(code, {esnext: true, unused: true, undef: true});
+
+  TestRun(test)
+    .addError(1, "Expected ',' and instead saw '['.")
+    .addError(1, "Expected ':' and instead saw ']'.")
+    .addError(1, "Expected an identifier and instead saw '}'.")
+    .addError(1, "Expected ',' and instead saw ']'.")
+    .addError(1, "Expected an identifier and instead saw '{'.")
+    .addError(1, "Expected ',' and instead saw 'a'.")
+    .addError(1, "Expected an identifier and instead saw ':'.")
+    .addError(1, "Expected ',' and instead saw '1'.")
+    .addError(1, "Expected an assignment or function call and instead saw an expression.")
+    .addError(1, "Expected an identifier and instead saw '='.")
+    .test("[ { a['b'] } ] = [{a:1}];", {esnext: true, unused: true, undef: true});
+
+  TestRun(test)
+    .addError(1, "Expected ',' and instead saw '('.")
+    .addError(1, "Expected an identifier and instead saw ')'.")
+    .test("[ { a() } ] = [];", {esnext: true, unused: true, undef: true});
+
+  TestRun(test)
+    .addError(1, "Extending prototype of native object: 'Number'.")
+    .addError(3, "Bad assignment.")
+    .addError(4, "Bad assignment.")
+    .addError(6, "Do not assign to the exception parameter.")
+    .addError(7, "Do not assign to the exception parameter.")
+    .test([
+      "[ Number.prototype.toString ] = [function(){}];",
+      "function a() {",
+      "  [ new.target ] = [];",
+      "  [ arguments.anything ] = [];",
+      "  try{} catch(e) {",
+      "    ({e} = {e});",
+      "    [e] = [];",
+      "  }",
+      "}"], {esnext: true, freeze: true});
 
   test.done();
 };
@@ -2848,7 +2973,6 @@ exports["make sure var variables can shadow let variables"] = function (test) {
     .addError(1, "'a' is defined but never used.")
     .addError(2, "'b' is defined but never used.")
     .addError(3, "'c' is defined but never used.")
-    .addError(9, "'d' is defined but never used.")
     .addError(9, "'d' has already been declared.")
     .test(code, { esnext: true, unused: true, undef: true, funcscope: true });
 
@@ -4849,25 +4973,32 @@ exports["no let not directly within a block"] = function (test) {
     "   if (true)",
     "       let x = 1;",
     "}",
-    "if (true) let (x = 1) print(x);",
     "for (let x = 0; x < 42; ++x) let a = 1;",
     "for (let x in [1, 2, 3, 4] ) let a = 1;",
     "for (let x of [1, 2, 3, 4] ) let a = 1;",
     "while (true) let a = 1;",
-    "if (false) let a = 1; else if (true) let a = 1; else let a = 2;"
+    "if (false) let a = 1; else if (true) let a = 1; else let a = 2;",
+    "if (true) if (false) let x = 1;",
+    "if (true) if (false) { let x = 1; }",
+    "if (true) try { let x = 1; } catch (e) { let x = 1; }"
   ];
 
-  TestRun(test)
+  var run = TestRun(test)
     .addError(1, "Let declaration not directly within block.")
     .addError(4, "Let declaration not directly within block.")
+    .addError(6, "Let declaration not directly within block.")
     .addError(7, "Let declaration not directly within block.")
     .addError(8, "Let declaration not directly within block.")
     .addError(9, "Let declaration not directly within block.")
     .addError(10, "Let declaration not directly within block.")
-    .addError(11, "Let declaration not directly within block.")
-    .addError(11, "Let declaration not directly within block.")
-    .addError(11, "Let declaration not directly within block.")
-    .test(code, {moz: true, predef: ["print"]});
+    .addError(10, "Let declaration not directly within block.")
+    .addError(10, "Let declaration not directly within block.")
+    .addError(11, "Let declaration not directly within block.");
+  run.test(code, {esversion: 6});
+  run.test(code, {moz: true});
+
+  // Don't warn about let expressions
+  TestRun(test).test("if (true) let (x = 1) print(x);", {moz: true, predef: ["print"]});
 
   test.done();
 };
@@ -4881,7 +5012,8 @@ exports["no const not directly within a block"] = function (test) {
     "}",
     "for (let x = 0; x < 42; ++x) const a = 1;",
     "while (true) const a = 1;",
-    "if (false) const a = 1; else if (true) const a = 1; else const a = 2;"
+    "if (false) const a = 1; else if (true) const a = 1; else const a = 2;",
+    "if (true) if (false) { const a = 1; }"
   ];
 
   TestRun(test)
@@ -5806,6 +5938,24 @@ exports["class method this"] = function (test) {
   TestRun(test)
     .addError(10, "Possible strict violation.")
     .test(code, {esnext: true});
+
+  test.done();
+};
+
+exports.classNewcap = function (test) {
+  var code = [
+    "class C {",
+    "  m() {",
+    "    var ctor = function() {};",
+    "    var Ctor = function() {};",
+    "    var c1 = new ctor();",
+    "    var c2 = Ctor();",
+    "  }",
+    "}"
+  ];
+
+  TestRun(test, "The `newcap` option is not automatically enabled within class bodies.")
+    .test(code, { esversion: 6 });
 
   test.done();
 };
@@ -6839,6 +6989,7 @@ exports.testStrictDirectiveASI = function (test) {
     .test("'use strict'\n(function fn() {})();", options);
 
   TestRun(test, 5)
+    .addError(2, "Missing \"use strict\" statement.")
     .test("'use strict'\n[0] = '6';", options);
 
   TestRun(test, 6)
@@ -6848,6 +6999,7 @@ exports.testStrictDirectiveASI = function (test) {
     .test("'use strict',function fn() {}\nfn();", options);
 
   TestRun(test, 7)
+    .addError(1, "Missing \"use strict\" statement.")
     .test("'use strict'.split(' ');", options);
 
   TestRun(test, 8)
@@ -7213,6 +7365,42 @@ exports["new.target"] = function (test) {
     .addError(6, "Bad assignment.")
     .addError(7, "Bad assignment.")
     .test(code4, { esnext: true });
+
+  test.done();
+};
+
+// gh2656: "[Regression] 2.9.0 warns about proto deprecated even if proto:true"
+exports.lazyIdentifierChecks = function (test) {
+  var src = [
+    "var o = [",
+    "  function() {",
+    "    // jshint proto: true",
+    "    o.__proto__ = null;",
+    "  }",
+    "];",
+    "o.__proto__ = null;"
+  ];
+
+  TestRun(test)
+    .addError(7, "The '__proto__' property is deprecated.")
+    .test(src);
+
+  src = [
+    "var o = {",
+    "  p: function() {",
+    "    // jshint proto: true, iterator: true",
+    "    o.__proto__ = null;",
+    "    o.__iterator__ = null;",
+    "  }",
+    "};",
+    "o.__proto__ = null;",
+    "o.__iterator__ = null;"
+  ];
+
+  TestRun(test)
+    .addError(8, "The '__proto__' property is deprecated.")
+    .addError(9, "The '__iterator__' property is deprecated.")
+    .test(src);
 
   test.done();
 };

@@ -86,6 +86,9 @@ exports.node = function (test) {
     .addError(1, "Read only.")
     .test(overwrites, { es3: true, browserify: true });
 
+  TestRun(test, "gh-2657")
+    .test("'use strict';var a;", { node: true });
+
   test.done();
 };
 

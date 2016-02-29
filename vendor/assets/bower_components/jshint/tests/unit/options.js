@@ -259,6 +259,9 @@ exports.latedef = function (test) {
       .addError(48, "'ci' was used before it was defined.")
       .test(esnextSrc, {esnext: true, latedef: true});
 
+  TestRun(test, "shouldn't warn when marking a var as exported")
+    .test("var a;", { exported: ["a"], latedef: true });
+
   test.done();
 };
 
@@ -271,6 +274,9 @@ exports.latedefInline = function (test) {
     .addError(22, "'a' was used before it was defined.")
     .addError(26, "Bad option value.")
     .test(src);
+
+  TestRun(test, "shouldn't warn when marking a var as exported")
+    .test("/*exported a*/var a;", { latedef: true });
 
   test.done();
 };
@@ -803,7 +809,8 @@ exports.undefDeleteStrict = function (test) {
   test.done();
 };
 
-exports.unused = function (test) {
+exports.unused = {};
+exports.unused.basic = function (test) {
   var src = fs.readFileSync(__dirname + '/fixtures/unused.js', 'utf8');
 
   var allErrors = [
@@ -884,6 +891,93 @@ exports.unused = function (test) {
   test.ok(unused.some(function (err) { return err.line === 7 && err.character == 9 && err.name === "c"; }));
   test.ok(unused.some(function (err) { return err.line === 15 && err.character == 10 && err.name === "foo"; }));
   test.ok(unused.some(function (err) { return err.line === 68 && err.character == 5 && err.name === "y"; }));
+
+  test.done();
+};
+
+// Regression test for gh-2784
+exports.unused.usedThroughShadowedDeclaration = function (test) {
+  var code = [
+    "(function() {",
+    "  var x;",
+    "  {",
+    "    var x;",
+    "    void x;",
+    "  }",
+    "}());"
+  ];
+
+  TestRun(test)
+    .addError(4, "'x' is already defined.")
+    .test(code, { unused: true });
+
+  test.done();
+};
+
+exports.unused.unusedThroughShadowedDeclaration = function (test) {
+  var code = [
+    "(function() {",
+    "  {",
+    "      var x;",
+    "      void x;",
+    "  }",
+    "  {",
+    "      var x;",
+    "  }",
+    "})();"
+  ];
+
+  TestRun(test)
+    .addError(7, "'x' is already defined.")
+    .test(code, { unused: true });
+
+  test.done();
+};
+
+exports.unused.hoisted = function (test) {
+  var code = [
+    "(function() {",
+    "  {",
+    "    var x;",
+    "  }",
+    "  {",
+    "    var x;",
+    "  }",
+    "  void x;",
+    "}());"
+  ];
+
+  TestRun(test)
+    .addError(6, "'x' is already defined.")
+    .addError(8, "'x' used out of scope.")
+    .test(code, { unused: true });
+
+  test.done();
+};
+
+exports.unused.crossBlocks = function (test) {
+  var code = fs.readFileSync(__dirname + '/fixtures/unused-cross-blocks.js', 'utf8');
+
+  TestRun(test)
+    .addError(15, "'func4' is already defined.")
+    .addError(18, "'func5' is already defined.")
+    .addError(41, "'topBlock6' is already defined.")
+    .addError(44, "'topBlock7' is already defined.")
+    .addError(56, "'topBlock3' is already defined.")
+    .addError(59, "'topBlock4' is already defined.")
+    .addError(9, "'unusedFunc' is defined but never used.")
+    .addError(27, "'unusedTopBlock' is defined but never used.")
+    .addError(52, "'unusedNestedBlock' is defined but never used.")
+    .test(code, { unused: true });
+
+  TestRun(test)
+    .addError(15, "'func4' is already defined.")
+    .addError(18, "'func5' is already defined.")
+    .addError(41, "'topBlock6' is already defined.")
+    .addError(44, "'topBlock7' is already defined.")
+    .addError(56, "'topBlock3' is already defined.")
+    .addError(59, "'topBlock4' is already defined.")
+    .test(code);
 
   test.done();
 };
@@ -1584,12 +1678,10 @@ exports.strict = function (test) {
   var run = TestRun(test)
     .addError(1, 'Missing "use strict" statement.');
   run.test(code, { es3: true, strict: true });
-  run.test(code, { es3: true, strict: "func" });
   run.test(code, { es3: true, strict: "global" });
   TestRun(test).test(code, { es3: true, strict: "implied" });
 
   TestRun(test).test(code1, { es3: true, strict: true });
-  TestRun(test).test(code1, { es3: true, strict: "func" });
   TestRun(test).test(code1, { es3: true, strict: "global" });
   TestRun(test)
     .addError(1, 'Unnecessary directive "use strict".')
@@ -1601,7 +1693,6 @@ exports.strict = function (test) {
     .addError(7, 'Strict violation.')
     .addError(8, 'Strict violation.');
   run.test(src, { es3: true, strict: true });
-  run.test(src, { es3: true, strict: "func" });
   run.test(src, { es3: true, strict: "global" });
 
   run = TestRun(test)
@@ -1612,11 +1703,9 @@ exports.strict = function (test) {
   run.test(src2, { es3: true, strict: false });
 
   TestRun(test)
-    .addError(6, "Missing 'new' prefix when invoking a constructor.")
     .test(src3, {es3 : true});
 
   TestRun(test).test(code2, { es3: true, strict: true });
-  TestRun(test).test(code2, { es3: true, strict: "func" });
   TestRun(test)
     .addError(1, 'Missing "use strict" statement.')
     .test(code2, { es3: true, strict: "global" });
@@ -1625,11 +1714,10 @@ exports.strict = function (test) {
   run = TestRun(test)
     .addError(1, 'Use the function form of "use strict".');
   run.test(code3, { strict: true });
-  run.test(code3, { strict: "func" });
   run.addError(1, 'Unnecessary directive "use strict".')
     .test(code3, { strict: "implied" });
 
-  [ true, false, "global", "func", "implied" ].forEach(function(val) {
+  [ true, false, "global", "implied" ].forEach(function(val) {
     JSHINT("/*jshint strict: " + val + " */");
     test.strictEqual(JSHINT.data().options.strict, val);
   });
@@ -1641,9 +1729,45 @@ exports.strict = function (test) {
   TestRun(test, "environments have precedence over 'strict: true'")
     .test(code3, { strict: true, node: true });
 
-  TestRun(test, "environments don't have precedence over 'strict: func'")
-    .addError(1, 'Use the function form of "use strict".')
-    .test(code3, { strict: "func", node: true });
+  TestRun(test, "gh-2668")
+    .addError(1, "Missing \"use strict\" statement.")
+    .test("a = 2;", { strict: "global" });
+
+  test.done();
+};
+
+/**
+ * This test asserts sub-optimal behavior.
+ *
+ * In the "browserify", "node" and "phantomjs" environments, user code is not
+ * executed in the global scope directly. This means that top-level `use
+ * strict` directives, although seemingly global, do *not* enable ES5 strict
+ * mode for other scripts executed in the same environment. Because of this,
+ * the `strict` option should enforce a top-level `use strict` directive in
+ * those environments.
+ *
+ * The `strict` option was implemented without consideration for these
+ * environments, so the sub-optimal behavior must be preserved for backwards
+ * compatability.
+ *
+ * TODO: Interpret `strict: true` as `strict: global` in the Browserify,
+ * Node.js, and PhantomJS environments, and remove this test in JSHint 3
+ */
+exports.strictEnvs = function (test) {
+  var partialStrict = [
+    "void 0;",
+    "(function() { void 0; }());",
+    "(function() { 'use strict'; void 0; }());"
+  ];
+  TestRun(test, "")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test(partialStrict, { strict: true, browserify: true });
+  TestRun(test, "")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test(partialStrict, { strict: true, node: true });
+  TestRun(test, "")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test(partialStrict, { strict: true, phantom: true });
 
   test.done();
 };
@@ -1669,6 +1793,58 @@ exports.globalstrict = function (test) {
   // Don't enforce "use strict"; if strict has been explicitly set to false
   TestRun(test).test(code[1], { es3: true, globalstrict: true, strict: false });
 
+  TestRun(test, "co-occurence with 'strict: global' (via configuration)")
+    .addError(0, "Incompatible values for the 'strict' and 'globalstrict' linting options. (0% scanned).")
+    .test("this is not JavaScript", { strict: "global", globalstrict: false });
+
+  TestRun(test, "co-occurence with 'strict: global' (via configuration)")
+    .addError(0, "Incompatible values for the 'strict' and 'globalstrict' linting options. (0% scanned).")
+    .test("this is not JavaScript", { strict: "global", globalstrict: true });
+
+  TestRun(test, "co-occurence with 'strict: global' (via in-line directive")
+    .addError(2, "Incompatible values for the 'strict' and 'globalstrict' linting options. (66% scanned).")
+    .test([
+      "",
+      "// jshint globalstrict: true",
+      "this is not JavaScript"
+    ], { strict: "global" });
+
+  TestRun(test, "co-occurence with 'strict: global' (via in-line directive")
+    .addError(2, "Incompatible values for the 'strict' and 'globalstrict' linting options. (66% scanned).")
+    .test([
+      "",
+      "// jshint globalstrict: false",
+      "this is not JavaScript"
+    ], { strict: "global" });
+
+  TestRun(test, "co-occurence with 'strict: global' (via in-line directive")
+    .addError(2, "Incompatible values for the 'strict' and 'globalstrict' linting options. (66% scanned).")
+    .test([
+      "",
+      "// jshint strict: global",
+      "this is not JavaScript"
+    ], { globalstrict: true });
+
+  TestRun(test, "co-occurence with 'strict: global' (via in-line directive")
+    .addError(2, "Incompatible values for the 'strict' and 'globalstrict' linting options. (66% scanned).")
+    .test([
+      "",
+      "// jshint strict: global",
+      "this is not JavaScript"
+    ], { globalstrict: false });
+
+  TestRun(test, "co-occurence with internally-set 'strict: gobal' (module code)")
+    .test(code, { strict: true, globalstrict: false, esnext: true, module: true });
+
+  TestRun(test, "co-occurence with internally-set 'strict: gobal' (Node.js code)")
+    .test(code, { strict: true, globalstrict: false, node: true });
+
+  TestRun(test, "co-occurence with internally-set 'strict: gobal' (Phantom.js code)")
+    .test(code, { strict: true, globalstrict: false, phantom: true });
+
+  TestRun(test, "co-occurence with internally-set 'strict: gobal' (Browserify code)")
+    .test(code, { strict: true, globalstrict: false, browserify: true });
+
   // Check that we can detect missing "use strict"; statement for code that is
   // not inside a function
   code = [
@@ -1678,12 +1854,16 @@ exports.globalstrict = function (test) {
   ];
   TestRun(test)
     .addError(1, 'Missing "use strict" statement.')
+    .addError(2, 'Missing "use strict" statement.')
     .test(code, { globalstrict: true, strict: true });
 
   // globalscript does not prevent you from using only the function-mode
   // "use strict";
   code = '(function (test) { "use strict"; return; }());';
   TestRun(test).test(code, { globalstrict: true, strict: true });
+
+  TestRun(test, "gh-2661")
+    .test("'use strict';", { strict: false, globalstrict: true });
 
   test.done();
 };
@@ -1826,9 +2006,7 @@ exports.quotesAndTemplateLiterals = function (test) {
 
   // Without esnext
   TestRun(test)
-    .addError(2, "Unexpected '`'.")
-    .addError(2, "Unexpected early end of program.")
-    .addError(2, "Unrecoverable syntax error. (100% scanned).")
+    .addError(2, "'template literal syntax' is only available in ES6 (use 'esversion: 6').")
     .test(src);
 
   // With esnext
@@ -1847,7 +2025,8 @@ exports.quotesAndTemplateLiterals = function (test) {
   test.done();
 };
 
-exports.scope = function (test) {
+exports.scope = {};
+exports.scope.basic = function (test) {
   var src = fs.readFileSync(__dirname + '/fixtures/scope.js', 'utf8');
 
   TestRun(test, 1)
@@ -1865,6 +2044,25 @@ exports.scope = function (test) {
     .addError(37, "'cc' is not defined.")
     .addError(42, "'bb' is not defined.")
     .test(src, { es3: true, funcscope: true });
+
+  test.done();
+};
+
+exports.scope.crossBlocks = function (test) {
+  var code = fs.readFileSync(__dirname + '/fixtures/scope-cross-blocks.js', 'utf8');
+
+  TestRun(test)
+    .addError(3, "'topBlockBefore' used out of scope.")
+    .addError(4, "'nestedBlockBefore' used out of scope.")
+    .addError(11, "'nestedBlockBefore' used out of scope.")
+    .addError(27, "'nestedBlockAfter' used out of scope.")
+    .addError(32, "'nestedBlockAfter' used out of scope.")
+    .addError(33, "'topBlockAfter' used out of scope.")
+    .test(code);
+
+  TestRun(test)
+    .test(code, { funcscope: true });
+
 
   test.done();
 };
@@ -1904,6 +2102,26 @@ exports.esnext = function (test) {
     .addError(3, "'myConst' has already been declared.")
     .addError(4, "Attempting to override 'foo' which is a constant.")
     .test(code, { moz: true });
+
+  test.done();
+};
+
+// The `moz` option should not preclude ES6
+exports.mozAndEs6 = function (test) {
+  var src = [
+   "var x = () => {};",
+   "function* toArray(...rest) {",
+   "  void new.target;",
+   "  yield rest;",
+   "}",
+   "var y = [...x];"
+  ];
+
+  TestRun(test)
+    .test(src, { esversion: 6 });
+
+  TestRun(test)
+    .test(src, { esversion: 6, moz: true });
 
   test.done();
 };
@@ -3179,6 +3397,20 @@ exports.module.declarationRestrictions = function( test ) {
   test.done();
 };
 
+exports.module.newcap = function(test) {
+  var code = [
+    "var ctor = function() {};",
+    "var Ctor = function() {};",
+    "var c1 = new ctor();",
+    "var c2 = Ctor();"
+  ];
+
+  TestRun(test, "The `newcap` option is not automatically enabled for module code.")
+    .test(code, { esversion: 6, module: true });
+
+  test.done();
+};
+
 exports.esversion = function(test) {
   var code = [
     "// jshint esversion: 3",
@@ -3241,22 +3473,44 @@ exports.esversion = function(test) {
     .test(arrayComprehension, { esnext: true });
 
 
-  TestRun(test, "precedence over `es3`") // TODO: Remove in JSHint 3
+  TestRun(test, "incompatibility with `es3`") // TODO: Remove in JSHint 3
+    .addError(0, "Incompatible values for the 'esversion' and 'es3' linting options. (0% scanned).")
     .test(es6code, { esversion: 6, es3: true });
 
-  TestRun(test, "precedence over `es5`") // TODO: Remove in JSHint 3
+  TestRun(test, "incompatibility with `es5`") // TODO: Remove in JSHint 3
     .addError(0, "ES5 option is now set per default")
+    .addError(0, "Incompatible values for the 'esversion' and 'es5' linting options. (0% scanned).")
     .test(es6code, { esversion: 6, es5: true });
 
-  TestRun(test, "precedence over `esnext`") // TODO: Remove in JSHint 3
-    .addError(2, "'computed property names' is only available in ES6 (use 'esversion: 6').")
+  TestRun(test, "incompatibility with `esnext`") // TODO: Remove in JSHint 3
+    .addError(0, "Incompatible values for the 'esversion' and 'esnext' linting options. (0% scanned).")
     .test(es6code, { esversion: 3, esnext: true });
+
+  TestRun(test, "imcompatible option specified in-line")
+    .addError(2, "Incompatible values for the 'esversion' and 'es3' linting options. (66% scanned).")
+    .test(["", "// jshint esversion: 3", ""], { es3: true });
+
+  TestRun(test, "incompatible option specified in-line")
+    .addError(2, "Incompatible values for the 'esversion' and 'es3' linting options. (66% scanned).")
+    .test(["", "// jshint es3: true", ""], { esversion: 3 });
+
+  TestRun(test, "compatible option specified in-line")
+    .addError(3, "'class' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .test(["", "// jshint esversion: 3", "class A {}"], { esversion: 3 });
+
+  TestRun(test, "compatible option specified in-line")
+    .addError(3, "'class' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .test(["", "// jshint esversion: 3", "class A {}"], { esversion: 6 });
+
+  TestRun(test, "compatible option specified in-line")
+    .test(["", "// jshint esversion: 6", "class A {}"], { esversion: 3 });
 
   var code2 = [ // TODO: Remove in JSHint 3
     "/* jshint esversion: 3, esnext: true */"
   ].concat(es6code);
 
-  TestRun(test, "the last has the precedence (inline configuration)") // TODO: Remove in JSHint 3
+  TestRun(test, "incompatible options specified in-line") // TODO: Remove in JSHint 3
+    .addError(1, "Incompatible values for the 'esversion' and 'esnext' linting options. (25% scanned).")
     .test(code2);
 
   var code3 = [

@@ -15978,7 +15978,7 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
   })
 })(Backbone, _);
 /*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under the MIT license
  */
@@ -15991,13 +15991,13 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
   var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
-    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
+  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] > 2)) {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3')
   }
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: transition.js v3.3.5
+ * Bootstrap: transition.js v3.3.6
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16057,7 +16057,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: alert.js v3.3.5
+ * Bootstrap: alert.js v3.3.6
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16076,7 +16076,7 @@ if (typeof jQuery === 'undefined') {
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.5'
+  Alert.VERSION = '3.3.6'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -16152,7 +16152,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: button.js v3.3.5
+ * Bootstrap: button.js v3.3.6
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16172,7 +16172,7 @@ if (typeof jQuery === 'undefined') {
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.5'
+  Button.VERSION  = '3.3.6'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -16273,7 +16273,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.5
+ * Bootstrap: carousel.js v3.3.6
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16304,7 +16304,7 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.5'
+  Carousel.VERSION  = '3.3.6'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -16511,7 +16511,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.5
+ * Bootstrap: collapse.js v3.3.6
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16541,7 +16541,7 @@ if (typeof jQuery === 'undefined') {
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.5'
+  Collapse.VERSION  = '3.3.6'
 
   Collapse.TRANSITION_DURATION = 350
 
@@ -16723,7 +16723,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.5
+ * Bootstrap: dropdown.js v3.3.6
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16743,7 +16743,7 @@ if (typeof jQuery === 'undefined') {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.5'
+  Dropdown.VERSION = '3.3.6'
 
   function getParent($this) {
     var selector = $this.attr('data-target')
@@ -16775,7 +16775,7 @@ if (typeof jQuery === 'undefined') {
       if (e.isDefaultPrevented()) return
 
       $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
     })
   }
 
@@ -16809,7 +16809,7 @@ if (typeof jQuery === 'undefined') {
 
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
     }
 
     return false
@@ -16889,7 +16889,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.3.5
+ * Bootstrap: modal.js v3.3.6
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -16923,7 +16923,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Modal.VERSION  = '3.3.5'
+  Modal.VERSION  = '3.3.6'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -17227,7 +17227,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.5
+ * Bootstrap: tooltip.js v3.3.6
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
@@ -17254,7 +17254,7 @@ if (typeof jQuery === 'undefined') {
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.5'
+  Tooltip.VERSION  = '3.3.6'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -17742,7 +17742,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.3.5
+ * Bootstrap: popover.js v3.3.6
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -17762,7 +17762,7 @@ if (typeof jQuery === 'undefined') {
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.5'
+  Popover.VERSION  = '3.3.6'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -17851,7 +17851,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.5
+ * Bootstrap: scrollspy.js v3.3.6
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -17880,7 +17880,7 @@ if (typeof jQuery === 'undefined') {
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.5'
+  ScrollSpy.VERSION  = '3.3.6'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -18024,7 +18024,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.3.5
+ * Bootstrap: tab.js v3.3.6
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -18044,7 +18044,7 @@ if (typeof jQuery === 'undefined') {
     // jscs:enable requireDollarBeforejQueryAssignment
   }
 
-  Tab.VERSION = '3.3.5'
+  Tab.VERSION = '3.3.6'
 
   Tab.TRANSITION_DURATION = 150
 
@@ -18180,7 +18180,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: affix.js v3.3.5
+ * Bootstrap: affix.js v3.3.6
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -18209,7 +18209,7 @@ if (typeof jQuery === 'undefined') {
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.3.5'
+  Affix.VERSION  = '3.3.6'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
@@ -18555,7 +18555,7 @@ $(".thai_flag").on("click tap", function(e) {
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).hide();
   $($(this).parent().find( ".usa_flag" )).show();
-  checkIfPageVisible();
+  getCorrectPageWhenFlagClicked();
   $(window).scrollTop(tempScrollTop);
 });
 
@@ -18567,22 +18567,31 @@ $(".usa_flag").on("click tap", function(e) {
   var tempScrollTop = $(window).scrollTop();
   $($(this).parent().find( ".thai_flag" )).show();
   $($(this).parent().find( ".usa_flag" )).hide();
-  checkIfPageVisible();
+  getCorrectPageWhenFlagClicked();
   $(window).scrollTop(tempScrollTop);
 });
-///////////////////////////////////////////////////
+
+function getCorrectPageWhenFlagClicked() {
+  if ($(".front-main-hbs").is(":visible")) {
+    App.getFrontMainPage();    
+  } else if ($(".entire-vol").is(":visible")) {
+    router.navigate("volunteer_info");
+    App.getVolunteerPage();    
+  }
+}
+
 
 ;
 
-if (gon.user) {
-  swal({
-    title: "สวัสดีครับ -- Thank you for visiting as our guest!",
-    text: "You are logged in as a temporary guest for one hour. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online (while still logged in this time!), all your work from this visit will be retained.",
-    timer: 20000,
-    showConfirmButton: true,
-    animation: "slide-from-bottom"
-  });
-}
+// if (gon.user) {
+//   swal({
+//     title: "สวัสดีครับ -- Thank you for visiting as our guest!",
+//     text: "You are logged in as a temporary guest for one hour. Please be aware that any work you do while logged in as a 'temporary guest' will not be recorded after you have logged out. But if you decide to Join BSC English Online (while still logged in this time!), all your work from this visit will be retained.",
+//     timer: 20000,
+//     showConfirmButton: true,
+//     animation: "slide-from-bottom"
+//   });
+// }
 
 
 
@@ -18666,7 +18675,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"title\">\n  <h2>Welcome To City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n  </p>\n  </br>\n  <p class=\"paragraph\">\n    Feel free to view this video consisting of edited clips from \"The Men Who Built America\" History channel series and with text commentary added by Matt Malone.  The video gives an account of the early career of the great 19th century industrialist, Andrew Carnegie, and the challenge from his mentor Tom Scott to \"build a bridge\" over the Mississipi that would \"unite America!\"  Just as Carnegie sought to \"bridge the great divide\" between East and West, so too does the City English Project seek to help \"bridge the great divide\" for the Thai people....\n  </p>\n  </br>\n</div>";
+    return "<div class=\"title\">\n  <h2>Welcome To City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">Partners you can trust. A network that will help you succeed.</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    The City English Project is a new network and online community that makes learning English convenient, affordable and fun! We offer Thai students on-site English classes, online one-on-one conversation practice with native English speakers, as well as an integrated online learning community. Our creative approach of English training focuses on helping Thais excel in business and personal relationships within the ASEAN community and beyond. Please take some time to check out what we have to offer!\n  </p>\n  </br>\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18804,7 +18813,7 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
     + "</a></p>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <script charset=\"ISO-8859-1\" src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script><div class=\"wistia_responsive_padding\" style=\"padding:56.07% 0 0 0;position:relative;\"><div class=\"wistia_responsive_wrapper\" style=\"height:100%;left:0;position:absolute;top:0;width:100%;\"><div class=\"wistia_embed wistia_async_sxogt01t32 videoFoam=true\" style=\"height:100%;width:100%\">&nbsp;</div></div></div>\n\n\n    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
+    + "    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
     + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
     + "</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
@@ -18824,13 +18833,13 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(37, data, 0),"inverse":this.program(39, data, 0),"data":data})) != null ? stack1 : "")
     + "        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>"
     + this.escapeExpression(((helper = (helper = helpers.step_one || (depth0 != null ? depth0.step_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_one","hash":{},"data":data}) : helper)))
-    + "</h3>\n          </a>\n        </div>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>"
+    + "</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>"
     + this.escapeExpression(((helper = (helper = helpers.step_two || (depth0 != null ? depth0.step_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_two","hash":{},"data":data}) : helper)))
-    + "</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Process -->\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"worldview\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
+    + "</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n  </div>\n</div> <!-- Process -->\n\n\n\n\n<!-- worldview -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(41, data, 0),"inverse":this.program(43, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP4.png\" alt=\"CEP 4\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png\" alt=\"CEP 5\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Worldview -->\n\n\n\n<!-- Helping Friends -->\n<div class=\"container-fluid work\" id=\"helping\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">"
+    + "        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Worldview One</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>Worldview Two</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n  </div>  <!-- container -->\n</div> <!-- worldview -->\n\n\n\n<!-- Helping friends -->\n<div class=\"container-fluid work\" id=\"process\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">"
     + this.escapeExpression(((helper = (helper = helpers.helping_friends || (depth0 != null ? depth0.helping_friends : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"helping_friends","hash":{},"data":data}) : helper)))
-    + "</h2>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP3.png\" alt=\"CEP 3\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Amazing Beauty</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png\" alt=\"CEP shot\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Mind Blowing</h3>\n          </a>\n        </div>\n        <div class=\"col-md-4 col-sm-6 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"On-site classes\" >\n            </div>\n            <div class=\"image-hover\">\n              <i class=\"glyphicon glyphicon-eye-open\"></i>\n            </div>\n            <h3>Perfect Shot</h3>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div> <!-- Helping Friends -->\n\n\n\n<div class=\"container-full countspace\">\n  <div class=\"row\">\n    <div class=\"col-md-12 countbg\">\n      <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-cloud\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"100\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Files uploaded</h5>                               \n                </div>\n            </div>  \n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-check\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"88\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Projects completed</h5>                               \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-list\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"3297\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Lines of code written</h5>                                                   \n                </div>\n            </div>\n            <div class=\"col-xs-12 col-sm-3 col-md-3\">\n                <div class=\"counter-item\">\n                    <i class=\"glyphicon glyphicon-user\"></i>\n                    <div class=\"timer\" data-from=\"0\" data-to=\"86\" data-speed=\"5000\" data-refresh-interval=\"50\"></div>\n                    <h5>Happy clients</h5>                                                   \n                </div>     \n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Former location of 'login' -->\n<div id=\"overlay\"><!-- .hbs --></div>\n\n\n\n<div class=\"container-full notes\">\n    <div class=\"row\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 notes-bg\">\n        <div class=\"container\">\n          <div class=\"col-md-8 col-sm-8 col-xs-12\">\n            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing.</p>\n          </div>\n          <div class=\"col-md-offset-1 col-md-2 col-md-offset-1 col-sm-offset-1 col-sm-2 col-sm-offset-1 col-xs-12\">\n            <button type=\"button\" class=\"btn btn-default btneff\">Read More</button>\n          </div>\n        </div>\n      </div>\n    </div> \n</div>\n\n</div> ";
+    + "</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Helping Friends One</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>Helping Friends Two</h3>\n          </a>\n        </div>\n        <div>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT </div>\n      </div>\n    </div> <!-- row -->\n  </div>  <!-- container -->\n</div> <!-- Helping Friends -->\n\n</div> ";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
 }).call(this);
@@ -18861,7 +18870,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_middle_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n</div>";
+    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<h2 class=\"partners\">กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19606,6 +19615,8 @@ var Router = Backbone.Router.extend({
 
 
 
+console.log(gon.user);
+
 var $entire_main = $(document).find(".entire-main");
 
 var App = {
@@ -19710,15 +19721,6 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });                // currentTarget is a jQuery method
 
-
-function checkIfPageVisible() {
-  if ($(".front-main-hbs").is(":visible")) {
-    App.getFrontMainPage();    
-  } else if ($(".entire-vol").is(":visible")) {
-    router.navigate("volunteer_info");
-    App.getVolunteerPage();    
-  }
-}
 
 
 App.init();
