@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :require_leader, :only => [:index, :show]
+  # before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
     @users = User.all
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def volunteers
-    @volunteers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
+    # @volunteers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
   end
 
   def student_connect_with_volunteer
