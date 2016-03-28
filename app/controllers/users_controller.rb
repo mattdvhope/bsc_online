@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     student = User.find(params[:id])
     volunteer = User.find(params[:volunteer_id])
     email_from_student_to_volunteer(student, volunteer)
-    redirect_to :back
+    render :nothing => true
   end
 
   def new
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
       user.guest = false
       user.save!(:validate => false)
     end
-    redirect_to :back
+    render :nothing => true
   end
 
   def disapprove_admin
@@ -78,12 +78,14 @@ class UsersController < ApplicationController
       user.guest = true
       user.save!(:validate => false)
     end
-    redirect_to :back
+    render :nothing => true
   end
 
 
-  def update
-    
+  def update # Backbone...user.save(attrs, {patch: true});...var attrs = {"last_name":"Smith"};
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    redirect_to '/' # patch '', to: "pages#front" ...in routes.rb
   end
 
   private

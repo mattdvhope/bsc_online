@@ -53,7 +53,7 @@ var Router = Backbone.Router.extend({
   },
   initialize: function() {
     this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'Router'
-    // this.route(/^\/?volunteer_info/, "volunteer_info", this.showVolunteerPage);
+    // this.route(/^\/?volunteer_info$/, "volunteer_info", this.showVolunteerPage);
   }
 });
       
