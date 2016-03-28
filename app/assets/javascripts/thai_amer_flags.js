@@ -34,8 +34,8 @@ function getCorrectPageWhenFlagClicked() {
 $(window).load(function() {
   sessionStorage.setItem('#page-top', $("#page-top").offset().top);
   sessionStorage.setItem('#features', $("#features").offset().top);
-  sessionStorage.setItem('#process', $("#process").offset().top);
-  sessionStorage.setItem('#world-view', $("#world-view").offset().top);
+  sessionStorage.setItem('#get-started', $("#get-started").offset().top);
+  sessionStorage.setItem('#holistic', $("#holistic").offset().top);
   sessionStorage.setItem('#helping-friends', $("#helping-friends").offset().top);
 });
 ////////////////////

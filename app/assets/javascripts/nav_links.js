@@ -5,8 +5,8 @@
 $(document).on("click tap", "a[href$='volunteer_info']", function() {
 
   $($("div.navbar-collapse>").find("a[href$='#features']")).hide()
-  $($("div.navbar-collapse>").find("a[href$='#process']")).hide()
-  $($("div.navbar-collapse>").find("a[href$='#world-view']")).hide()
+  $($("div.navbar-collapse>").find("a[href$='#get-started']")).hide()
+  $($("div.navbar-collapse>").find("a[href$='#holistic']")).hide()
   $($("div.navbar-collapse>").find("a[href$='#helping-friends']")).hide()
 
     // if (sessionStorageAvailable("fragment")) {
