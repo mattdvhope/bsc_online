@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
+  patch '', to: "pages#front" # route for users#update
   get 'volunteer_info', to: "pages#volunteer_info"
 
   get 'home', to: "pages#dashboard"
@@ -13,10 +14,11 @@ Rails.application.routes.draw do
   get 'new_admin', to: "users#new_admin"
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
-  get 'volunteers', to: "users#volunteers"
+  # get 'volunteers', to: "users#volunteers"
   get 'student_connect_with_volunteer/:id/:volunteer_id', to: "users#student_connect_with_volunteer"
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
+
   get "/users/:id/approve_admin", to: "users#approve_admin"
   get "/users/:id/disapprove_admin", to: "users#disapprove_admin"
 
