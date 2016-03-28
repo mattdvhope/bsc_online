@@ -26,7 +26,7 @@ $break-large: 451px
 
 .backg
   @media screen and (max-width: $break-small)
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Baiyoke_Tower_II_Bangkok_Thailand.jpg")
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png")
  
   @media screen and (min-width: $break-large)
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP_shot2.png")
@@ -35,7 +35,7 @@ $break-large: 451px
   background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP5.png")
 
 .backg, .backg-vol
-  background-attachment: fixed
+  // background-attachment: fixed
   background-color: #645862
   background-position: top left
   background-repeat: no-repeat
@@ -91,11 +91,11 @@ $break-large: 451px
   padding-bottom: 35px
 
 .inner
-  -moz-animation: reveal-banner 1s 0.25s ease-in-out
-  -webkit-animation: reveal-banner 1s 0.25s ease-in-out
-  -o-animation: reveal-banner 1s 0.25s ease-in-out
-  -ms-animation: reveal-banner 1s 0.25s ease-in-out
-  animation: reveal-banner 1s 0.25s ease-in-out
+  -moz-animation: reveal-banner 0s 0s ease-in-out
+  -webkit-animation: reveal-banner 0s 0s ease-in-out
+  -o-animation: reveal-banner 0s 0s ease-in-out
+  -ms-animation: reveal-banner 0s 0s ease-in-out
+  animation: reveal-banner 0s 0s ease-in-out
   -moz-animation-fill-mode: forwards
   -webkit-animation-fill-mode: forwards
   -o-animation-fill-mode: forwards
@@ -105,25 +105,29 @@ $break-large: 451px
   color: white
   display: inline-block
   opacity: 0
-  padding: 20px 40px
+  padding: 20px 20px
   text-align: center
 
 .text-box
   font-family: 'Poppins', sans-serif
-  p.intro
-    font-size: 30px
-    font-weight: 300
-    line-height: 1
-    font-family: 'Poppins', sans-serif
   h2
     font-size: 55px
     font-weight: 700
     color: #fff
     border-bottom: 7px double #fa3447
     border-top: 7px double #fa3447
-    text-transform: uppercase
-    line-height: 1.5
+    line-height: 130%
     font-family: 'Roboto', sans-serif
+  p.intro
+    font-size: 30px
+    font-weight: 400
+    padding: 0px 22px 10px 22px
+    border-bottom: 7px double #fa3447
+    line-height: 200%
+    font-family: 'Poppins', sans-serif
+    a
+      color: #ffffff
+      text-decoration: underline
   h3
     font-size: 20px
     font-weight: 500
@@ -287,14 +291,22 @@ h2.features-text-bottom
   width: 100% !important
   font-size: 17px
 
-.process-text
+.get-started-text
   font-family: 'Roboto', sans-serif
   font-weight: 700
   letter-spacing: 5px
   margin-bottom: 30px
   margin-top: 30px
 
-h2.process-text::after
+h2.get-started-text::after
+  display: block
+  margin: 15px auto 10px
+  width: 80px
+  height: 1px
+  background: #8ab839 none repeat scroll 0% 0%
+  content: ""
+
+h3.get-started-text::after
   display: block
   margin: 15px auto 10px
   width: 80px

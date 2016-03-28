@@ -34,7 +34,7 @@ var MainFrontView = Backbone.View.extend({
     return this.switch_languages("Step Two", "ขั้นตอนที่สอง");
   },
   helping_friends: function() {
-    return this.switch_languages("Helping Friends", "ช่วยให้เพื่อน ๆ");
+    return this.switch_languages("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
   switch_languages: function(english, thai) {
     if (this.thai_flag_up()) {
