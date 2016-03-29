@@ -16,6 +16,5 @@
 //= require facebook_sdk
 
 //= require backbone/app
-//= require nav_links
 
 //= require assessment
