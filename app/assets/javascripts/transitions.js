@@ -1,4 +1,4 @@
-// Scrolling up & down home page/////////
+// Scrolling up & down pages with nav links/////////
 $("#place_1").addClass("active");
 
 $(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
@@ -8,11 +8,13 @@ $(".page-scroll").on("click", function() { // to remove coloring from previously
   $("#place_3").removeClass("active");
   $("#place_4").removeClass("active");
   $("#place_5").removeClass("active");
+  $("#place_6").removeClass("active");
   $(this).addClass("active");
 });
 
 $('a[href^="#"]').on('click',function (e) {
   e.preventDefault();
+console.log(sessionStorage.getItem($(this).attr('href')));
   if ($($(this).attr('href'))) {
     $('html, body').animate({
       scrollTop: sessionStorage.getItem($(this).attr('href'))
@@ -26,15 +28,6 @@ $('a[href^="#"]').on('click',function (e) {
 $(document).on('click', function() {
   collapseNavBar();
 });
-
-
-// Prevent scrolling underneath modals
-// $( document ).ready(function() {
-//   $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
-//     $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
-//   });
-// });
-
 
 // Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
