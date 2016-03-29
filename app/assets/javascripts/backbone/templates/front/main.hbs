@@ -5,10 +5,10 @@
     <div class="col-md-12 backg">
       <div class="col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
         <div class="text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_top_welcome }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_top_welcome }}
+            {{^}}
+              {{> front/english/_top_welcome }}
             {{/if}}
           {{!-- <div class="col-md-4">
             <p id="backbone-app"><a class="link-button" href="/volunteer_info">{{volunteer}}</a></p>
@@ -17,10 +17,10 @@
       </div>
     </div>
     <div class="col-md-12 col-xs-12 some-notes">
-      {{#if thai_flag_present}}
-        {{> front/english/_middle_welcome }}
-      {{^}}
+      {{#if thai_language}}
         {{> front/thai/_middle_welcome }}
+      {{^}}
+        {{> front/english/_middle_welcome }}
       {{/if}}
     </div>
   </div>
@@ -35,10 +35,10 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_city_talk_class }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_city_talk_class }}
+            {{^}}
+              {{> front/english/_city_talk_class }}
             {{/if}}
           </div>
         </div>
@@ -47,10 +47,10 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_eng_conversation_partners }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_eng_conversation_partners }}
+            {{^}}
+              {{> front/english/_eng_conversation_partners }}
             {{/if}}
           </div>
         </div>
@@ -59,10 +59,10 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_community_boards }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_community_boards }}
+            {{^}}
+              {{> front/english/_community_boards }}
             {{/if}}
           </div>
         </div>
@@ -73,10 +73,10 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_conversation_groups }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_conversation_groups }}
+            {{^}}
+              {{> front/english/_conversation_groups }}
             {{/if}}
           </div>
         </div>
@@ -85,10 +85,10 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_online_classes }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_online_classes }}
+            {{^}}
+              {{> front/english/_online_classes }}
             {{/if}}
           </div>
         </div>
@@ -97,19 +97,19 @@
         <div class="picturing">
           <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png" alt="Class Scene" align="middle">
           <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
-            {{#if thai_flag_present}}
-              {{> front/english/_ongoing_opportunities }}
-            {{^}}
+            {{#if thai_language}}
               {{> front/thai/_ongoing_opportunities }}
+            {{^}}
+              {{> front/english/_ongoing_opportunities }}
             {{/if}}
           </div>
         </div>
      </div>
   </div>
-  {{#if thai_flag_present}}
-    {{> front/english/_in_addition }}
-  {{^}}
+  {{#if thai_language}}
     {{> front/thai/_in_addition }}
+  {{^}}
+    {{> front/english/_in_addition }}
   {{/if}}
 </div> <!-- Features -->
 
@@ -119,10 +119,10 @@
   <div class="container">
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        {{#if thai_flag_present}}
-          {{> front/english/_get_started }}
-        {{^}}
+        {{#if thai_language}}
           {{> front/thai/_get_started }}
+        {{^}}
+          {{> front/english/_get_started }}
         {{/if}}
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
@@ -133,10 +133,10 @@
           </a>
         </div>
         <div>
-          {{#if thai_flag_present}}
-            {{> front/english/_get_started_one }}
-          {{^}}
+          {{#if thai_language}}
             {{> front/thai/_get_started_one }}
+          {{^}}
+            {{> front/english/_get_started_one }}
           {{/if}}
         </div>
       </div>
@@ -152,10 +152,10 @@
           </a>
         </div>
         <div>
-          {{#if thai_flag_present}}
-            {{> front/english/_get_started_two }}
-          {{^}}
+          {{#if thai_language}}
             {{> front/thai/_get_started_two }}
+          {{^}}
+            {{> front/english/_get_started_two }}
           {{/if}}
         </div>
       </div>
@@ -164,15 +164,15 @@
 </div> <!-- Process -->
 
 
-<!-- holistic -->
+<!-- Holistic -->
 <div class="container-fluid work" id="holistic">
   <div class="container">
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
-        {{#if thai_flag_present}}
-          {{> front/english/_holistic }}
-        {{^}}
+        {{#if thai_language}}
           {{> front/thai/_holistic }}
+        {{^}}
+          {{> front/english/_holistic }}
         {{/if}}
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
@@ -183,15 +183,15 @@
           </a>
         </div>
         <div>
-          {{#if thai_flag_present}}
-            {{> front/english/_holistic_text }}
-          {{^}}
+          {{#if thai_language}}
             {{> front/thai/_holistic_text }}
+          {{^}}
+            {{> front/english/_holistic_text }}
           {{/if}}
         </div>
       </div>
   </div>  <!-- container -->
-</div> <!-- holistic -->
+</div> <!-- Holistic -->
 
 
 <!-- Helping friends -->
@@ -209,10 +209,10 @@
           </a>
         </div>
         <div>
-          {{#if thai_flag_present}}
-            {{> front/english/_helping_friends_text }}
-          {{^}}
+          {{#if thai_language}}
             {{> front/thai/_helping_friends_text }}
+          {{^}}
+            {{> front/english/_helping_friends_text }}
           {{/if}}
 
           

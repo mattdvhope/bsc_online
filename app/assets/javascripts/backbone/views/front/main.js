@@ -2,7 +2,7 @@ var MainFrontView = Backbone.View.extend({
   template:  HandlebarsTemplates['front/main'],
   render: function() {
     this.$el.html(this.template({
-      thai_flag_present: this.thai_flag_up(),
+      thai_language: this.app_language_is_thai(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
@@ -12,8 +12,8 @@ var MainFrontView = Backbone.View.extend({
       helping_friends: this.helping_friends()
     }));
   },
-  thai_flag_up: function() {
-    return $(".thai_flag").is(":visible");
+  app_language_is_thai: function() {
+    return sessionStorage.getItem('language') === "thai";
   },
   login_button_language: function() {
     return this.switch_languages("Login", "เข้าสู่ระบบ");
@@ -37,10 +37,10 @@ var MainFrontView = Backbone.View.extend({
     return this.switch_languages("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
   switch_languages: function(english, thai) {
-    if (this.thai_flag_up()) {
-      return english;
-    } else {
+    if (this.app_language_is_thai()) {
       return thai
+    } else {
+      return english;
     }
   },
   initialize: function() {

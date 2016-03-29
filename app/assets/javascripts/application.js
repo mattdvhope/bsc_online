@@ -12,11 +12,12 @@
 //= require lightbox.min
 //= require browser_storage
 //= require transitions
-//= require thai_amer_flags
-//= require nav_links
 //= require sweet_alert_code
 //= require facebook_sdk
 
 //= require backbone/app
+//= require nav_links
+//= require thai_amer_flags
+
 
 //= require assessment

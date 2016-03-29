@@ -7,26 +7,41 @@
 var $entire_main = $(document).find(".entire-main");
 
 var App = {
+  renderNavBar: function() {
+    if (this.nav_bar) { this.nav_bar.remove(); }
+    var nav_bar = new NavBarView();
+    nav_bar.render();
+
+    this.nav_bar = nav_bar;
+  },
   getFrontMainPage: function() {
-    $entire_main.children().hide();
+    if (this.volunteer_page) { this.volunteer_page.remove(); }
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
+    this.renderNavBar();
     front_page_main.render();
+
+console.log("rendering???");
+    this.front_page_main = front_page_main;
   },
   getFrontFooterPage: function() {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
   getVolunteerPage: function() {
-    $entire_main.children().hide();
+    if (this.front_page_main) {
+      this.front_page_main.remove();
+    }
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("volunteer_info");      
     }
     var volunteer_page = new VolunteerPageView();
+    this.renderNavBar();
     volunteer_page.render();
 
+console.log("rendering???");
     this.volunteer_page = volunteer_page;
   },
   getLogInForm: function() {
@@ -77,6 +92,7 @@ var App = {
     }
   },
   init: function() {
+    // this.getNavBar();    
     if (sessionStorageAvailable("fragment")) {
       this.retainThaiLanguageOnReload();
     }

@@ -1,5 +1,6 @@
 var Router = Backbone.Router.extend({
   routes: {
+    "": "showMainPage",
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
     "register_student": "registerStudent",
@@ -19,6 +20,16 @@ var Router = Backbone.Router.extend({
   },
   startSession: function() {
     App.getLogInForm();
+  },
+  showMainPage: function() {
+    if (App.reg_form) {
+      App.reg_form.fadeOut();
+    }
+    else if (App.log_in_form) {
+      App.log_in_form.fadeOut();
+    } else {
+      App.getFrontMainPage();      
+    }
   },
   showVolunteerPage: function() {
     if (App.reg_form) {
