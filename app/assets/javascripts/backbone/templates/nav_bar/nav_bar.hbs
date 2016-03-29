@@ -4,15 +4,15 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <span id="backbone-app">
-          <a class="navbar-brand" id="home-link" href="/">City English</a>
-        </span>
+        <a class="navbar-brand" id="home-link" href="/">City English</a>
+
         {{#if thai_language}}
           <span class="usa_flag" style="display: inline;">
             <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
@@ -22,7 +22,8 @@
             <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
           </span>
         {{/if}}
-      </div>
+
+      </div> {{!-- .navbar-header --}}
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,46 +36,46 @@
             data-width="450"
             data-show-faces="true">
           </li> -->
-          {{!-- <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li> --}}
-          <li><a href="#page-top" id="place_1" class="page-scroll">Top</a></li>
+          <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li>
+          <li><a href="#page-top" id="place_1" class="page-scroll">{{top}}</a></li>
           <!-- <li><a href="/auth/facebook">Facebook</a></li> -->
 
           {{#if volunteer_page_below}}
-            <li><a href="#volunteer-steps" id="place_6" class="page-scroll">Steps to Volunteer</a></li>
+            <li><a href="#volunteer-steps" id="place_6" class="page-scroll">{{steps_to_volunteer}}</a></li>
           {{^}}
-            <li><a href="#features" id="place_2" class="page-scroll">Features</a></li>
-            <li><a href="#get-started" id="place_3" class="page-scroll">Get Started</a></li>
-            <li><a href="#holistic" id="place_4" class="page-scroll">Holistic</a></li>
-            <li><a href="#helping-friends" id="place_5" class="page-scroll">Helping Friends</a></li>
+            <li><a href="#features" id="place_2" class="page-scroll">{{features}}</a></li>
+            <li><a href="#get-started" id="place_3" class="page-scroll">{{get_started}}</a></li>
+            <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li>
+            <li><a href="#helping-friends" id="place_5" class="page-scroll">{{helping_friends}}</a></li>
           {{/if}}
 
 
           <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student<span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li id="backbone-app">
-                  <a href="/register_student">Register New Student</a>
+                  <a href="/register_student">{{register_new_student}}</a>
                 </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app" class="login-checker">
-                <a href="/log_in">Student Login</a>
+                <a href="/log_in">{{login_student}}</a>
               </li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Volunteer<span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li id="backbone-app" class="volunteer_page">
-                <a href="/volunteer_info">Volunteer Info</a>
+                <a href="/volunteer_info">{{volunteer_info}}</a>
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app">
-                <a href="/register_vol">Register New Volunteer</a>
+                <a href="/register_vol">{{register_new_volunteer}}</a>
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app" class="login-checker">
-                <a href="/log_in">Volunteer Login</a>
+                <a href="/log_in">{{login_volunteer}}</a>
               </li>
             </ul>
           </li>
@@ -104,16 +105,19 @@
   });
 
   function getCorrectPageWhenFlagClicked() {
-
     if ($(".front-main-hbs").is(":visible")) {
-      $(".entire-nav").children().remove();
-      $(".entire-main").children().remove();
       App.getFrontMainPage();    
     } else if ($(".entire-vol").is(":visible")) {
-      $(".entire-nav").children().remove();
-      $(".entire-main").children().remove();
       App.getVolunteerPage();
     }
+  }
+</script>
+
+<script>
+  if (sessionStorageAvailable("fragment")) {
+    $("#home-link").on("click", function() {
+      sessionStorage.setItem('fragment', "");
+    });
   }
 </script>
 

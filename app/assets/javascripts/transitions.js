@@ -3,6 +3,7 @@ $("#place_1").addClass("active");
 
 $(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
   event.preventDefault();
+console.log("in page-scroll???");
   $("#place_1").removeClass("active");
   $("#place_2").removeClass("active");
   $("#place_3").removeClass("active");
