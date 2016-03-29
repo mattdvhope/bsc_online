@@ -90,7 +90,6 @@
 
 <script>
   $(".thai_flag").on("click tap", function() {
-  console.log("in thai_flag??");
     if (sessionStorageAvailable("fragment")) {
       sessionStorage.setItem('language', "thai");
     }
@@ -98,7 +97,6 @@
   });
 
   $(".usa_flag").on("click tap", function() {
-  console.log("in usa_flag??");
     if (sessionStorageAvailable("fragment")) {
       sessionStorage.setItem('language', "english");
     }
@@ -106,7 +104,6 @@
   });
 
   function getCorrectPageWhenFlagClicked() {
-  console.log($(".entire-main"));
 
     if ($(".front-main-hbs").is(":visible")) {
       $(".entire-nav").children().remove();

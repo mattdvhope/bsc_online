@@ -12,18 +12,6 @@ $(".page-scroll").on("click", function() { // to remove coloring from previously
   $(this).addClass("active");
 });
 
-$('a[href^="#"]').on('click',function (e) {
-  e.preventDefault();
-console.log(sessionStorage.getItem($(this).attr('href')));
-  if ($($(this).attr('href'))) {
-    $('html, body').animate({
-      scrollTop: sessionStorage.getItem($(this).attr('href'))
-    }, 0, 'swing');
-  }
-});
-//////////////////////////////////////////
-
-
 // Collapse hamburger menu from document
 $(document).on('click', function() {
   collapseNavBar();
@@ -35,7 +23,6 @@ $("#overlay").on('click', function(e) {
     triggerClose();
   }
 });
-
 
 // Remove overlay form with escape key
 $(document).on("keyup", function(e) {

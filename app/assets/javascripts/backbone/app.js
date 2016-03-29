@@ -23,7 +23,6 @@ var App = {
     this.renderNavBar();
     front_page_main.render();
 
-console.log("rendering???");
     this.front_page_main = front_page_main;
   },
   getFrontFooterPage: function() {
@@ -41,7 +40,6 @@ console.log("rendering???");
     this.renderNavBar();
     volunteer_page.render();
 
-console.log("rendering???");
     this.volunteer_page = volunteer_page;
   },
   getLogInForm: function() {
