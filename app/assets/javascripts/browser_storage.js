@@ -11,7 +11,6 @@ try {
   //////////////////////////////////////////////////////
 }
 catch (e) {
-  // alert("Please turn off 'private' for this browser to make this app work much faster.");
   swal({
     title: "Please turn off 'private' for this browser or use Chrome.",
     text: "It will run slowly in 'private.'",
@@ -21,17 +20,6 @@ catch (e) {
   });
 }
 
-
 function sessionStorageAvailable(key) {
   return sessionStorage.getItem(key) !== null
 }
-
-if (sessionStorageAvailable("fragment")) {
-  $("#home-link").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
-  $(".login-checker").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
-}
-

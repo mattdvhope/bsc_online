@@ -16,27 +16,27 @@ var MainFrontView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   login_button_language: function() {
-    return this.switch_languages("Login", "เข้าสู่ระบบ");
+    return this.choose_language("Login", "เข้าสู่ระบบ");
   },
   register_button_language: function() {
-    return this.switch_languages("Register", "ลงทะเบียน");
+    return this.choose_language("Register", "ลงทะเบียน");
   },
   volunteer_button_language: function() {
-    return this.switch_languages("Volunteer!", "รับอาสา!");
+    return this.choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.switch_languages("Features", "คุณลักษณะเด่น");
+    return this.choose_language("Features", "คุณลักษณะเด่น");
   },
   step_one: function() {
-    return this.switch_languages("Step One", "ขั้นตอนหนึ่ง");
+    return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
   step_two: function() {
-    return this.switch_languages("Step Two", "ขั้นตอนที่สอง");
+    return this.choose_language("Step Two", "ขั้นตอนที่สอง");
   },
   helping_friends: function() {
-    return this.switch_languages("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
+    return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
-  switch_languages: function(english, thai) {
+  choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {
       return thai
     } else {

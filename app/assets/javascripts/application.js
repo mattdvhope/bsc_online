@@ -16,8 +16,5 @@
 //= require facebook_sdk
 
 //= require backbone/app
-//= require nav_links
-//= require thai_amer_flags
-
 
 //= require assessment

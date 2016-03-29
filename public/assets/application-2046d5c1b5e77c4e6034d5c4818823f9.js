@@ -18391,7 +18391,6 @@ try {
   //////////////////////////////////////////////////////
 }
 catch (e) {
-  // alert("Please turn off 'private' for this browser to make this app work much faster.");
   swal({
     title: "Please turn off 'private' for this browser or use Chrome.",
     text: "It will run slowly in 'private.'",
@@ -18401,58 +18400,29 @@ catch (e) {
   });
 }
 
-
 function sessionStorageAvailable(key) {
   return sessionStorage.getItem(key) !== null
 }
-
-if (sessionStorageAvailable("fragment")) {
-  $("#home-link").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
-  $(".login-checker").on("click", function() {
-    sessionStorage.setItem('fragment', "");
-  });
-}
-
 ;
-// Scrolling up & down home page/////////
+// Scrolling up & down pages with nav links/////////
 $("#place_1").addClass("active");
 
 $(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
   event.preventDefault();
+console.log("in page-scroll???");
   $("#place_1").removeClass("active");
   $("#place_2").removeClass("active");
   $("#place_3").removeClass("active");
   $("#place_4").removeClass("active");
   $("#place_5").removeClass("active");
+  $("#place_6").removeClass("active");
   $(this).addClass("active");
 });
-
-$('a[href^="#"]').on('click',function (e) {
-  e.preventDefault();
-  if ($($(this).attr('href'))) {
-    $('html, body').animate({
-      scrollTop: sessionStorage.getItem($(this).attr('href'))
-    }, 0, 'swing');
-  }
-});
-//////////////////////////////////////////
-
 
 // Collapse hamburger menu from document
 $(document).on('click', function() {
   collapseNavBar();
 });
-
-
-// Prevent scrolling underneath modals
-// $( document ).ready(function() {
-//   $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
-//     $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
-//   });
-// });
-
 
 // Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
@@ -18460,7 +18430,6 @@ $("#overlay").on('click', function(e) {
     triggerClose();
   }
 });
-
 
 // Remove overlay form with escape key
 $(document).on("keyup", function(e) {
@@ -18569,75 +18538,6 @@ function showButton(element, index) {
 
 
 ;
-// switch between Thai & American flags //////////
-$(".thai_flag").on("click tap", function() {
-  if (sessionStorageAvailable("fragment")) {
-    sessionStorage.setItem('language', "thai");    
-  }
-  var tempScrollTop = $("body").scrollTop();
-  $($(this).parent().find( ".thai_flag" )).hide();
-  $($(this).parent().find( ".usa_flag" )).show();
-  getCorrectPageWhenFlagClicked();
-  $("body").scrollTop(tempScrollTop);
-});
-
-$(".usa_flag").on("click tap", function() {
-  if (sessionStorageAvailable("fragment")) {
-    sessionStorage.setItem('language', "english");   
-  }
-  var tempScrollTop = $("body").scrollTop();
-  $($(this).parent().find( ".thai_flag" )).show();
-  $($(this).parent().find( ".usa_flag" )).hide();
-  getCorrectPageWhenFlagClicked();
-  $("body").scrollTop(tempScrollTop);
-});
-
-function getCorrectPageWhenFlagClicked() {
-  if ($(".front-main-hbs").is(":visible")) {
-    App.getFrontMainPage();    
-  } else if ($(".entire-vol").is(":visible")) {
-    router.navigate("volunteer_info");
-    App.getVolunteerPage();    
-  }
-}
-
-// This is here to prepare the nav bar links for the switch to a different langauge...so that in 'transitions.js', 'scrollTop' will be dynamically populated from sessionStorage////
-$(window).load(function() {
-  sessionStorage.setItem('#page-top', $("#page-top").offset().top);
-  sessionStorage.setItem('#features', $("#features").offset().top);
-  sessionStorage.setItem('#get-started', $("#get-started").offset().top);
-  sessionStorage.setItem('#holistic', $("#holistic").offset().top);
-  sessionStorage.setItem('#helping-friends', $("#helping-friends").offset().top);
-});
-////////////////////
-
-
-
-
-
-;
-// Change out nav link list when changing pages
-
-// $($("a[href$='volunteer_info']").parent().parent().children().last().find( "ul" )).hide();
-
-$(document).on("click tap", "a[href$='volunteer_info']", function() {
-
-  $($("div.navbar-collapse>").find("a[href$='#features']")).hide()
-  $($("div.navbar-collapse>").find("a[href$='#get-started']")).hide()
-  $($("div.navbar-collapse>").find("a[href$='#holistic']")).hide()
-  $($("div.navbar-collapse>").find("a[href$='#helping-friends']")).hide()
-
-    // if (sessionStorageAvailable("fragment")) {
-    //   sessionStorage.setItem('language', "thai");    
-    // }
-    // var tempScrollTop = $("body").scrollTop();
-    // $($(this).parent().find( ".thai_flag" )).hide();
-    // $($(this).parent().find( ".usa_flag" )).show();
-    // getCorrectPageWhenFlagClicked();
-    // $("body").scrollTop(tempScrollTop);
-
-});
-
 
 // if (gon.user) {
 //   swal({
@@ -18791,164 +18691,164 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"5":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_middle_welcome'],depth0,{"name":"front/english/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_middle_welcome'],depth0,{"name":"front/thai/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"7":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_middle_welcome'],depth0,{"name":"front/thai/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_middle_welcome'],depth0,{"name":"front/english/_middle_welcome","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"9":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"13":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"15":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"17":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"19":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"21":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"23":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"25":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"27":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"29":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_ongoing_opportunities'],depth0,{"name":"front/english/_ongoing_opportunities","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_ongoing_opportunities'],depth0,{"name":"front/thai/_ongoing_opportunities","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"31":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_ongoing_opportunities'],depth0,{"name":"front/thai/_ongoing_opportunities","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_ongoing_opportunities'],depth0,{"name":"front/english/_ongoing_opportunities","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"33":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_in_addition'],depth0,{"name":"front/english/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_in_addition'],depth0,{"name":"front/thai/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"35":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_in_addition'],depth0,{"name":"front/thai/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_in_addition'],depth0,{"name":"front/english/_in_addition","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"37":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started'],depth0,{"name":"front/english/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started'],depth0,{"name":"front/thai/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"39":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started'],depth0,{"name":"front/thai/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started'],depth0,{"name":"front/english/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"41":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_one'],depth0,{"name":"front/english/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_one'],depth0,{"name":"front/thai/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"43":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_one'],depth0,{"name":"front/thai/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started_one'],depth0,{"name":"front/english/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"45":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_two'],depth0,{"name":"front/english/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_two'],depth0,{"name":"front/thai/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"47":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_two'],depth0,{"name":"front/thai/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started_two'],depth0,{"name":"front/english/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"49":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_holistic'],depth0,{"name":"front/english/_holistic","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_holistic'],depth0,{"name":"front/thai/_holistic","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"51":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_holistic'],depth0,{"name":"front/thai/_holistic","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_holistic'],depth0,{"name":"front/english/_holistic","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"53":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_holistic_text'],depth0,{"name":"front/english/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_holistic_text'],depth0,{"name":"front/thai/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"55":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_holistic_text'],depth0,{"name":"front/thai/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_holistic_text'],depth0,{"name":"front/english/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"57":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_helping_friends_text'],depth0,{"name":"front/english/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_helping_friends_text'],depth0,{"name":"front/thai/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"59":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_helping_friends_text'],depth0,{"name":"front/thai/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_helping_friends_text'],depth0,{"name":"front/english/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<div class=\"front-main-hbs\">\n\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "    </div>\n  </div>\n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
     + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
     + "</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Line+Logo.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(29, data, 0),"inverse":this.program(31, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(29, data, 0),"inverse":this.program(31, data, 0),"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n     </div>\n  </div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(33, data, 0),"inverse":this.program(35, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(33, data, 0),"inverse":this.program(35, data, 0),"data":data})) != null ? stack1 : "")
     + "</div> <!-- Features -->\n\n\n<!-- Get Started -->\n<div class=\"container-fluid work\" id=\"get-started\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(37, data, 0),"inverse":this.program(39, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(37, data, 0),"inverse":this.program(39, data, 0),"data":data})) != null ? stack1 : "")
     + "        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>"
     + this.escapeExpression(((helper = (helper = helpers.step_one || (depth0 != null ? depth0.step_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_one","hash":{},"data":data}) : helper)))
     + "</h3>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(41, data, 0),"inverse":this.program(43, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(41, data, 0),"inverse":this.program(43, data, 0),"data":data})) != null ? stack1 : "")
     + "        </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png\" alt=\"CEP 2\" >\n            </div>\n            <h3>"
     + this.escapeExpression(((helper = (helper = helpers.step_two || (depth0 != null ? depth0.step_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"step_two","hash":{},"data":data}) : helper)))
     + "</h3>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(45, data, 0),"inverse":this.program(47, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div> <!-- row -->\n  </div>\n</div> <!-- Process -->\n\n\n<!-- holistic -->\n<div class=\"container-fluid work\" id=\"holistic\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(49, data, 0),"inverse":this.program(51, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(45, data, 0),"inverse":this.program(47, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n      </div>\n    </div> <!-- row -->\n  </div>\n</div> <!-- Process -->\n\n\n<!-- Holistic -->\n<div class=\"container-fluid work\" id=\"holistic\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(49, data, 0),"inverse":this.program(51, data, 0),"data":data})) != null ? stack1 : "")
     + "        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Holistic</h3>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(53, data, 0),"inverse":this.program(55, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n  </div>  <!-- container -->\n</div> <!-- holistic -->\n\n\n<!-- Helping friends -->\n<div class=\"container-fluid work\" id=\"helping-friends\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(53, data, 0),"inverse":this.program(55, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n      </div>\n  </div>  <!-- container -->\n</div> <!-- Holistic -->\n\n\n<!-- Helping friends -->\n<div class=\"container-fluid work\" id=\"helping-friends\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\">\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <h2 class=\"text-center helping-text\">"
     + this.escapeExpression(((helper = (helper = helpers.helping_friends || (depth0 != null ? depth0.helping_friends : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"helping_friends","hash":{},"data":data}) : helper)))
     + "</h2>\n        <div class=\"col-md-6 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png\" alt=\"CEP 1\" >\n            </div>\n            <h3>Friends Helping Friends</h3>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(57, data, 0),"inverse":this.program(59, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(57, data, 0),"inverse":this.program(59, data, 0),"data":data})) != null ? stack1 : "")
     + "\n          \n        </div>\n      </div>\n    </div> <!-- row -->\n  </div>  <!-- container -->\n</div> <!-- Helping Friends -->\n\n</div> ";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
@@ -19030,6 +18930,57 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["nav_bar/nav_bar"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "          <span class=\"usa_flag\" style=\"display: inline;\">\n            <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n          </span>\n";
+},"3":function(depth0,helpers,partials,data) {
+    return "          <span class=\"thai_flag\" style=\"display: inline;\">\n            <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n          </span>\n";
+},"5":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "            <li><a href=\"#volunteer-steps\" id=\"place_6\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.steps_to_volunteer || (depth0 != null ? depth0.steps_to_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"steps_to_volunteer","hash":{},"data":data}) : helper)))
+    + "</a></li>\n";
+},"7":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "            <li><a href=\"#features\" id=\"place_2\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
+    + "</a></li>\n            <li><a href=\"#get-started\" id=\"place_3\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.get_started || (depth0 != null ? depth0.get_started : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"get_started","hash":{},"data":data}) : helper)))
+    + "</a></li>\n            <li><a href=\"#holistic\" id=\"place_4\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.holistic || (depth0 != null ? depth0.holistic : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"holistic","hash":{},"data":data}) : helper)))
+    + "</a></li>\n            <li><a href=\"#helping-friends\" id=\"place_5\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.helping_friends || (depth0 != null ? depth0.helping_friends : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"helping_friends","hash":{},"data":data}) : helper)))
+    + "</a></li>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<header class=\"header\">\n\n  <nav class=\"navbar navbar-default\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" id=\"home-link\" href=\"/\">City English</a>\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n      </div> \n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n          <!-- <li\n            style=\"padding: 1em; padding-top: 1.1em;\"\n            class=\"fb-like\"\n            data-share=\"true\"\n            data-width=\"450\"\n            data-show-faces=\"true\">\n          </li> -->\n          <li style=\"padding: 1em; padding-top: 1.1em;\"><div class=\"line-it-button\" style=\"display: none;\" data-type=\"share-a\" data-lang=\"en\"></div></li>\n          <li><a href=\"#page-top\" id=\"place_1\" class=\"page-scroll\">"
+    + this.escapeExpression(((helper = (helper = helpers.top || (depth0 != null ? depth0.top : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"top","hash":{},"data":data}) : helper)))
+    + "</a></li>\n          <!-- <li><a href=\"/auth/facebook\">Facebook</a></li> -->\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.volunteer_page_below : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n\n          <li class=\"dropdown\">\n            <a href=\"\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
+    + this.escapeExpression(((helper = (helper = helpers.student || (depth0 != null ? depth0.student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student","hash":{},"data":data}) : helper)))
+    + "<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n                <li id=\"backbone-app\">\n                  <a href=\"/register_student\">"
+    + this.escapeExpression(((helper = (helper = helpers.register_new_student || (depth0 != null ? depth0.register_new_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_student","hash":{},"data":data}) : helper)))
+    + "</a>\n                </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a href=\"/log_in\">"
+    + this.escapeExpression(((helper = (helper = helpers.login_student || (depth0 != null ? depth0.login_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_student","hash":{},"data":data}) : helper)))
+    + "</a>\n              </li>\n            </ul>\n          </li>\n\n          <li class=\"dropdown\">\n            <a href=\"\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
+    + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
+    + "<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li id=\"backbone-app\" class=\"volunteer_page\">\n                <a href=\"/volunteer_info\">"
+    + this.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_info","hash":{},"data":data}) : helper)))
+    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a href=\"/register_vol\">"
+    + this.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
+    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a href=\"/log_in\">"
+    + this.escapeExpression(((helper = (helper = helpers.login_volunteer || (depth0 != null ? depth0.login_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_volunteer","hash":{},"data":data}) : helper)))
+    + "</a>\n              </li>\n            </ul>\n          </li>\n          <li>\n            <a href=\"/log_out\">Log Out</a>\n          </li>\n\n\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n<script>\n  $(\".thai_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"thai\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  $(\".usa_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"english\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  function getCorrectPageWhenFlagClicked() {\n    if ($(\".front-main-hbs\").is(\":visible\")) {\n      App.getFrontMainPage();    \n    } else if ($(\".entire-vol\").is(\":visible\")) {\n      App.getVolunteerPage();\n    }\n  }\n</script>\n\n<script>\n  if (sessionStorageAvailable(\"fragment\")) {\n    $(\"#home-link\").on(\"click\", function() {\n      sessionStorage.setItem('fragment', \"\");\n    });\n  }\n</script>\n\n</header>\n";
+},"useData":true});
+  return this.HandlebarsTemplates["nav_bar/nav_bar"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["registration/admin_reg"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -19104,7 +19055,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"entire-vol\">\n\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg-vol\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_flag_present : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Project Overview</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          Here is an overview of what CEP is all about...for volunteers!\n        </p>\n        </br>\n        <h2 class=\"partners\">Let's look at the details below....</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Steps to becoming a CEP volunteer -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">Steps to becoming a CEP volunteer</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 1: Register your church, business or organization</h4>\n            <p>In order to ensure that our CEP students receive the highest quality English education experience possible, we ask that you first register your church, business or organization.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_admin\">Register Your Organization</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 2: Invite Volunteers!</h4>\n            <p>Invite folks from your church, organization, etc to this web page to Register in \"Volunteer\" status.  They must receive a PIN from you to Register in \"Volunteer\" status.  Otherwise, they can only Register in \"Student\" status.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_vol\">Volunteer Registration</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 3: Multiply volunteers!</h4>\n            <p>Encourage the people from your church, organization, etc to also invite other people whom they know to consider volunteering for City English Project.  You can then give them a PIN as well for them to Register in 'Volunteer status.'</p>\n          </div>\n        </div>\n     </div>\n  </div>\n</div> <!-- Steps to becoming a CEP volunteer -->\n\n</div> <!-- class=\"entire-vol\" -->\n\n\n<div id=\"overlay\"><!-- .hbs --></div>\n";
+    + "        </div>\n      </div>\n    </div>\n    <div class=\"col-md-12 col-xs-12 some-notes\">\n      <div class=\"title\">\n        <h2>Project Overview</h2>\n      </div>\n      <div class=\"desc\">\n        <p class=\"paragraph\">\n          Here is an overview of what CEP is all about...for volunteers!\n        </p>\n        </br>\n        <h2 class=\"partners\">Let's look at the details below....</h2>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Steps to becoming a CEP volunteer -->\n<div class=\"container-full features\" id=\"volunteer-steps\">\n  <h2 class=\"text-center features-text\">Steps to becoming a CEP volunteer</h2>\n  <div class=\"row\">\n     <div class=\"col-md-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 1: Register your church, business or organization</h4>\n            <p>In order to ensure that our CEP students receive the highest quality English education experience possible, we ask that you first register your church, business or organization.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_admin\">Register Your Organization</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 2: Invite Volunteers!</h4>\n            <p>Invite folks from your church, organization, etc to this web page to Register in \"Volunteer\" status.  They must receive a PIN from you to Register in \"Volunteer\" status.  Otherwise, they can only Register in \"Student\" status.</p>\n            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_vol\">Volunteer Registration</a>\n            </span>\n          </div>\n        </div>\n     </div>\n     <div class=\"col-md-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/On-site+classes.png\" alt=\"Class Scene\" align=\"middle\">\n          <div class=\"col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n            <h4>Step 3: Multiply volunteers!</h4>\n            <p>Encourage the people from your church, organization, etc to also invite other people whom they know to consider volunteering for City English Project.  You can then give them a PIN as well for them to Register in 'Volunteer status.'</p>\n          </div>\n        </div>\n     </div>\n  </div>\n</div> <!-- Steps to becoming a CEP volunteer -->\n\n</div> <!-- class=\"entire-vol\" -->\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["volunteer/volunteer_info"];
 }).call(this);
@@ -19232,7 +19183,7 @@ var MainFrontView = Backbone.View.extend({
   template:  HandlebarsTemplates['front/main'],
   render: function() {
     this.$el.html(this.template({
-      thai_flag_present: this.thai_flag_up(),
+      thai_language: this.app_language_is_thai(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
@@ -19242,39 +19193,117 @@ var MainFrontView = Backbone.View.extend({
       helping_friends: this.helping_friends()
     }));
   },
-  thai_flag_up: function() {
-    return $(".thai_flag").is(":visible");
+  app_language_is_thai: function() {
+    return sessionStorage.getItem('language') === "thai";
   },
   login_button_language: function() {
-    return this.switch_languages("Login", "เข้าสู่ระบบ");
+    return this.choose_language("Login", "เข้าสู่ระบบ");
   },
   register_button_language: function() {
-    return this.switch_languages("Register", "ลงทะเบียน");
+    return this.choose_language("Register", "ลงทะเบียน");
   },
   volunteer_button_language: function() {
-    return this.switch_languages("Volunteer!", "รับอาสา!");
+    return this.choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.switch_languages("Features", "คุณลักษณะเด่น");
+    return this.choose_language("Features", "คุณลักษณะเด่น");
   },
   step_one: function() {
-    return this.switch_languages("Step One", "ขั้นตอนหนึ่ง");
+    return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
   step_two: function() {
-    return this.switch_languages("Step Two", "ขั้นตอนที่สอง");
+    return this.choose_language("Step Two", "ขั้นตอนที่สอง");
   },
   helping_friends: function() {
-    return this.switch_languages("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
+    return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
-  switch_languages: function(english, thai) {
-    if (this.thai_flag_up()) {
-      return english;
-    } else {
+  choose_language: function(english, thai) {
+    if (this.app_language_is_thai()) {
       return thai
+    } else {
+      return english;
     }
   },
   initialize: function() {
     this.$el.appendTo(".entire-main");
+  }
+});
+
+var NavBarView = Backbone.View.extend({
+  template:  HandlebarsTemplates['nav_bar/nav_bar'],
+  render: function(visible) {
+    this.$el.html(this.template({
+      volunteer_page_below: this.volunteer_page_visible(),
+      thai_language: this.app_language_is_thai(),
+      top: this.top(),
+      features: this.features(),
+      get_started: this.get_started(),
+      holistic: this.holistic(),
+      helping_friends: this.helping_friends(),
+      student: this.student(),
+      register_new_student: this.register_new_student(),
+      login_student: this.login_student(),
+      volunteer: this.volunteer(),
+      volunteer_info: this.volunteer_info(),
+      register_new_volunteer: this.register_new_volunteer(),
+      login_volunteer: this.login_volunteer(),
+      steps_to_volunteer: this.steps_to_volunteer()
+    }));
+  },
+  volunteer_page_visible: function() {
+    return $(".entire-vol").is(":visible");
+  },
+  app_language_is_thai: function() {
+    return sessionStorage.getItem('language') === "thai";
+  },
+  top: function() {
+    return this.choose_language("Top", "ข้างบน");
+  },
+  features: function() {
+    return this.choose_language("Features", "คุณลักษณะเด่น");
+  },
+  get_started: function() {
+    return this.choose_language("Get Started", "เริ่ม");
+  },
+  holistic: function() {
+    return this.choose_language("Holistic", "แบบองค์รวมรุ่น");
+  },
+  helping_friends: function() {
+    return this.choose_language("Helping Friends", "ช่วยให้เพื่อน ๆ");
+  },
+  student: function() {
+    return this.choose_language("Student", "นักศึกษา");
+  },
+  register_new_student: function() {
+    return this.choose_language("Register New Student", "ลงทะเบียนนักศึกษาใหม่");
+  },
+  login_student: function() {
+    return this.choose_language("Student Login", "นักศึกษาล็อคอิน");
+  },
+  volunteer: function() {
+    return this.choose_language("Volunteer", "อาสาสมัคร");
+  },
+  volunteer_info: function() {
+    return this.choose_language("Volunteer Info", "ข้อมูลอาสาสมัคร");
+  },
+  register_new_volunteer: function() {
+    return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+  },
+  login_volunteer: function() {
+    return this.choose_language("Volunteer Login", "คนอาสาสมัครล็อคอิน");
+  },
+  steps_to_volunteer: function() {
+    return this.choose_language("Steps to Volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+  },
+  choose_language: function(english, thai) {
+    if (this.app_language_is_thai()) {
+      return thai
+    } else {
+      return english;
+    }
+  },
+  initialize: function() {
+    this.$el.appendTo(".entire-nav");
   }
 });
 
@@ -19726,26 +19755,40 @@ var $entire_main = $(document).find(".entire-main");
 
 var App = {
   getFrontMainPage: function() {
-    $entire_main.children().hide();
+    this.removeNavAndPage();
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
+    this.renderNavBar();
     front_page_main.render();
-  },
-  getFrontFooterPage: function() {
-    var front_page_footer = new FooterFrontView();
-    front_page_footer.render();
+
+    this.front_page_main = front_page_main;
   },
   getVolunteerPage: function() {
-    $entire_main.children().hide();
+    this.removeNavAndPage();
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("volunteer_info");      
     }
     var volunteer_page = new VolunteerPageView();
+    this.renderNavBar();
     volunteer_page.render();
 
     this.volunteer_page = volunteer_page;
+  },
+  renderNavBar: function() {
+    var nav_bar = new NavBarView();
+    nav_bar.render();
+
+    this.nav_bar = nav_bar;
+  },
+  removeNavAndPage: function() {
+    $(".entire-nav").children().remove();
+    $(".entire-main").children().remove();
+  },
+  getFrontFooterPage: function() {
+    var front_page_footer = new FooterFrontView();
+    front_page_footer.render();
   },
   getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();
@@ -19788,16 +19831,7 @@ var App = {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
   },
-  retainThaiLanguageOnReload: function() {
-    if (sessionStorage.getItem('language') === "thai") {
-      $($(".thai_flag").parent().find( ".thai_flag" )).hide();
-      $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
-    }
-  },
   init: function() {
-    if (sessionStorageAvailable("fragment")) {
-      this.retainThaiLanguageOnReload();
-    }
     if (sessionStorageAvailable("fragment")) {
       if (sessionStorage.getItem('fragment') === "volunteer_info") {
         this.getVolunteerPage();
@@ -19843,8 +19877,6 @@ $("h3.answer").click(function() {
   $(this).closest("div").children("h3").children("a").removeClass("brown");
   $(this).children().addClass("brown");
 });
-
-
 
 
 

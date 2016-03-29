@@ -7,15 +7,8 @@
 var $entire_main = $(document).find(".entire-main");
 
 var App = {
-  renderNavBar: function() {
-    if (this.nav_bar) { this.nav_bar.remove(); }
-    var nav_bar = new NavBarView();
-    nav_bar.render();
-
-    this.nav_bar = nav_bar;
-  },
   getFrontMainPage: function() {
-    if (this.volunteer_page) { this.volunteer_page.remove(); }
+    this.removeNavAndPage();
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("");      
     }
@@ -23,17 +16,10 @@ var App = {
     this.renderNavBar();
     front_page_main.render();
 
-console.log("rendering???");
     this.front_page_main = front_page_main;
   },
-  getFrontFooterPage: function() {
-    var front_page_footer = new FooterFrontView();
-    front_page_footer.render();
-  },
   getVolunteerPage: function() {
-    if (this.front_page_main) {
-      this.front_page_main.remove();
-    }
+    this.removeNavAndPage();
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("volunteer_info");      
     }
@@ -41,8 +27,21 @@ console.log("rendering???");
     this.renderNavBar();
     volunteer_page.render();
 
-console.log("rendering???");
     this.volunteer_page = volunteer_page;
+  },
+  renderNavBar: function() {
+    var nav_bar = new NavBarView();
+    nav_bar.render();
+
+    this.nav_bar = nav_bar;
+  },
+  removeNavAndPage: function() {
+    $(".entire-nav").children().remove();
+    $(".entire-main").children().remove();
+  },
+  getFrontFooterPage: function() {
+    var front_page_footer = new FooterFrontView();
+    front_page_footer.render();
   },
   getLogInForm: function() {
     var log_in_form_modal = new LogInFormView();
@@ -85,17 +84,7 @@ console.log("rendering???");
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
   },
-  retainThaiLanguageOnReload: function() {
-    if (sessionStorage.getItem('language') === "thai") {
-      $($(".thai_flag").parent().find( ".thai_flag" )).hide();
-      $($(".thai_flag").parent().find( ".usa_flag" )).show(); 
-    }
-  },
   init: function() {
-    // this.getNavBar();    
-    if (sessionStorageAvailable("fragment")) {
-      this.retainThaiLanguageOnReload();
-    }
     if (sessionStorageAvailable("fragment")) {
       if (sessionStorage.getItem('fragment') === "volunteer_info") {
         this.getVolunteerPage();

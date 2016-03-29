@@ -3,6 +3,7 @@ $("#place_1").addClass("active");
 
 $(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
   event.preventDefault();
+console.log("in page-scroll???");
   $("#place_1").removeClass("active");
   $("#place_2").removeClass("active");
   $("#place_3").removeClass("active");
@@ -11,18 +12,6 @@ $(".page-scroll").on("click", function() { // to remove coloring from previously
   $("#place_6").removeClass("active");
   $(this).addClass("active");
 });
-
-$('a[href^="#"]').on('click',function (e) {
-  e.preventDefault();
-console.log(sessionStorage.getItem($(this).attr('href')));
-  if ($($(this).attr('href'))) {
-    $('html, body').animate({
-      scrollTop: sessionStorage.getItem($(this).attr('href'))
-    }, 0, 'swing');
-  }
-});
-//////////////////////////////////////////
-
 
 // Collapse hamburger menu from document
 $(document).on('click', function() {
@@ -35,7 +24,6 @@ $("#overlay").on('click', function(e) {
     triggerClose();
   }
 });
-
 
 // Remove overlay form with escape key
 $(document).on("keyup", function(e) {
