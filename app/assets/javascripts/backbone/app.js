@@ -47,7 +47,7 @@ var App = {
     var log_in_form_modal = new LogInFormView();
     log_in_form_modal.render();
 
-    this.log_in_form = log_in_form_modal;
+    this.log_in_form_modal = log_in_form_modal;
   },
   getStudentRegForm: function(person) {
     var reg_form_modal = new StudentRegFormView();
@@ -111,8 +111,14 @@ Backbone.history.start({
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
-});                // currentTarget is a jQuery method
+});
 
+$(document).on("click", "#backbone-app input", function(e) {
+  e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
+  App.log_in_form_modal.close(e);
+  // App.getVolunteerPage();
+  // router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+});
 
 
 App.init();
