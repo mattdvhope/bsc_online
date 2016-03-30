@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-binding.pry
     destroy_old_admin_applicants
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
