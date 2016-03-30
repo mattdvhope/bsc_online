@@ -75,7 +75,7 @@ var ProfileFormView = Backbone.View.extend({
   },
   initialize: function() {
     this.$el.appendTo(document.body);
-    this.listenTo(this.collection, "change", this.render);
+    // this.listenTo(this.collection, "change", this.render);
   }
 });
 
