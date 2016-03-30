@@ -61,6 +61,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    render :nothing => true
+  end
+
   def approve_admin
     user = User.find(params[:id])
     if current_user.leader?
@@ -79,13 +85,6 @@ class UsersController < ApplicationController
       user.save!(:validate => false)
     end
     render :nothing => true
-  end
-
-
-  def update # Backbone...user.save(attrs, {patch: true});...var attrs = {"last_name":"Smith"};
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    redirect_to '/' # patch '', to: "pages#front" ...in routes.rb
   end
 
   private

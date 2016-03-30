@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: "pages#front"
-  patch '', to: "pages#front" # route for users#update
   get 'volunteer_info', to: "pages#volunteer_info"
 
   get 'home', to: "pages#dashboard"
