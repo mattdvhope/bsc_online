@@ -34,7 +34,6 @@ var ProfileFormView = Backbone.View.extend({
   close: function(e) {
     e.preventDefault();
     this.fadeOut();
-    App.loadProfileForm();
     history.back();
   },
   fadeOut: function() {
