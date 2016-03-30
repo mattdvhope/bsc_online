@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+binding.pry
     destroy_old_admin_applicants
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
@@ -43,7 +44,7 @@ class SessionsController < ApplicationController
           return false
         end
       else
-        user = User.omniauth(env['omniauth.auth'])
+        user = User.omniauth(env['omniauth.auth']) # for facebook gem
       end
     end
 
