@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
 
-  # resources :events
-
   get 'new_admin', to: "users#new_admin"
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
-  get 'volunteers', to: "users#volunteers"
+
+  get 'volunteers/users/:id', to: "users#show"
+
+  # get 'volunteers', to: "users#volunteers"
   get 'student_connect_with_volunteer/:id/:volunteer_id', to: "users#student_connect_with_volunteer"
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
