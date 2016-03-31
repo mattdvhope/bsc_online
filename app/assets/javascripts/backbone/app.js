@@ -67,18 +67,12 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  loadProfileForm: function() {
-    // this.student = gon.student
-    // this.volunteers = gon.english_teachers    // new Volunteers();
-    // this.profile_view = new ProfileFormView({ collection: this.volunteers });
-    // this.volunteers.fetch();
-  },
   getProfileForm: function(email) {
     this.student = gon.student
-    this.volunteers = gon.english_teachers    // new Volunteers();
+    this.volunteers = new Volunteers();
     this.profile_view = new ProfileFormView({ collection: this.volunteers });
 console.log(gon.student);
-console.log(gon.english_teachers);
+console.log(gon.volunteers);
     var volunteer = this.volunteers[0]   //.findWhere({ email: email }).toJSON()
     this.profile_view.render(volunteer);
   },

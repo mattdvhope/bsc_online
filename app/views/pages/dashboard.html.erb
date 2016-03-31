@@ -27,11 +27,11 @@
       <hr>
       <h2>Here is a list of available Skype-partner English teachers. </h2>
       <ul>
-        <% @english_teachers.each do |teacher| %>
+        <% @volunteers.each do |volunteer| %>
           <li><h3>
 
             <span id="backbone-app">
-              <%= link_to teacher.first_name + " " + teacher.last_name + " -- request " + "#{teacher.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + teacher.email %>
+              <%= link_to volunteer.first_name + " " + volunteer.last_name + " -- request " + "#{volunteer.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + volunteer.email %>
             </span>
 
           </h3></li>
