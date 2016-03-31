@@ -12,11 +12,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    gon.user = current_user
+    gon.student = current_user
     if current_user.role == "admin_applicant"
       redirect_to log_out_path
     end
     @english_teachers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
+    gon.english_teachers = @english_teachers
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 
