@@ -31,7 +31,7 @@
           <li><h3>
 
             <span id="backbone-app">
-              <%= link_to volunteer.first_name + " " + volunteer.last_name + " -- request " + "#{volunteer.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + volunteer.email %>
+              <%= link_to volunteer.first_name + " " + volunteer.last_name + " -- request " + "#{volunteer.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + volunteer.id.to_s %>
             </span>
 
           </h3></li>
