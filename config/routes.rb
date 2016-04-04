@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'register_vol', to: "users#register_vol"
 
   get 'volunteers/users/:id', to: "users#show"
+  get 'volunteers/volunteers', to: "users#volunteers"
 
   get 'volunteers', to: "users#volunteers"
   get 'student_connect_with_volunteer/:id/:volunteer_id', to: "users#student_connect_with_volunteer"

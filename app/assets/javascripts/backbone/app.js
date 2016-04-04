@@ -67,14 +67,19 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getProfileForm: function(email) {
-    this.student = gon.student
+  getStudentOnDashboardLoad: function() {
+    var student = new User({ id: gon.student_id });
+    this.student = student.fetch();
+  },
+  getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
+    this.volunteers.fetch();
+  },
+  getProfileForm: function(id) {
     this.profile_view = new ProfileFormView({ collection: this.volunteers });
-console.log(gon.student);
-console.log(gon.volunteers);
-    var volunteer = this.volunteers[0]   //.findWhere({ email: email }).toJSON()
-    this.profile_view.render(volunteer);
+    var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
+    var student = this.student.responseJSON
+    this.profile_view.render(volunteer, student);
   },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
@@ -87,7 +92,6 @@ console.log(gon.volunteers);
     if (sessionStorageAvailable("fragment")) {
       if (sessionStorage.getItem('fragment') === "volunteer_info") {
         this.getVolunteerPage();
-        sessionStorage.setItem('fragment', "volunteer_info");
       } else {
         this.getFrontMainPage();
       }
@@ -95,6 +99,8 @@ console.log(gon.volunteers);
       this.getFrontMainPage();
     }
     this.getFrontFooterPage();
+    this.getStudentOnDashboardLoad();
+    this.getVolunteersOnDashboardLoad();
   }
 };
 
