@@ -47,7 +47,7 @@ var App = {
     var log_in_form_modal = new LogInFormView();
     log_in_form_modal.render();
 
-    this.log_in_form = log_in_form_modal;
+    this.log_in_form_modal = log_in_form_modal;
   },
   getStudentRegForm: function(person) {
     var reg_form_modal = new StudentRegFormView();
@@ -67,15 +67,19 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  loadProfileForm: function() {
+  getStudentOnDashboardLoad: function() {
+    var student = new User({ id: gon.student_id });
+    this.student = student.fetch();
+  },
+  getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
-    this.profile_view = new ProfileFormView({ collection: this.volunteers });
     this.volunteers.fetch();
   },
-  getProfileForm: function(email) {
-    this.student = gon.student
-    var volunteer = this.volunteers.findWhere({ email: email }).toJSON()
-    this.profile_view.render(volunteer);
+  getProfileForm: function(id) {
+    this.profile_view = new ProfileFormView({ collection: this.volunteers });
+    var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
+    var student = this.student.responseJSON
+    this.profile_view.render(volunteer, student);
   },
   allowBodyScrolling: function() {
     $('body').css('overflow', 'auto');
@@ -88,7 +92,6 @@ var App = {
     if (sessionStorageAvailable("fragment")) {
       if (sessionStorage.getItem('fragment') === "volunteer_info") {
         this.getVolunteerPage();
-        sessionStorage.setItem('fragment', "volunteer_info");
       } else {
         this.getFrontMainPage();
       }
@@ -96,7 +99,8 @@ var App = {
       this.getFrontMainPage();
     }
     this.getFrontFooterPage();
-    this.loadProfileForm();
+    this.getStudentOnDashboardLoad();
+    this.getVolunteersOnDashboardLoad();
   }
 };
 
@@ -111,8 +115,14 @@ Backbone.history.start({
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
-});                // currentTarget is a jQuery method
+});
 
+$(document).on("click", "#backbone-app input", function(e) {
+  e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
+  App.log_in_form_modal.close(e);
+  // App.getVolunteerPage();
+  // router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
+});
 
 
 App.init();

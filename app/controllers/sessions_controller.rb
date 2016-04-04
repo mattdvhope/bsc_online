@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def log_in
-    redirect_to root_path
+    redirect_to root_path # in case 'log_in' typed into URL
   end
 
   def create
@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
           return false
         end
       else
-        user = User.omniauth(env['omniauth.auth'])
+        user = User.omniauth(env['omniauth.auth']) # for facebook gem
       end
     end
 

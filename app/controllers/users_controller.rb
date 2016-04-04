@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def volunteers
-    # @volunteers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
+    @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
   end
 
   def student_connect_with_volunteer

@@ -34,7 +34,6 @@ var ProfileFormView = Backbone.View.extend({
   close: function(e) {
     e.preventDefault();
     this.fadeOut();
-    App.loadProfileForm();
     history.back();
   },
   fadeOut: function() {
@@ -44,7 +43,7 @@ var ProfileFormView = Backbone.View.extend({
       this.remove();
     }.bind(this));
   },
-  render: function(volunteer) {
+  render: function(volunteer, student) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     var gender = volunteer.gender
     var pronoun;
@@ -61,7 +60,6 @@ var ProfileFormView = Backbone.View.extend({
       pronoun = "her";
       gender = "woman";
     }
-
     this.$el.html(this.templateProfile({
       token: csrf_token,
       first_name: volunteer.first_name,
@@ -70,13 +68,13 @@ var ProfileFormView = Backbone.View.extend({
       age: volunteer.age,
       pronoun: pronoun,
       volunteer: volunteer,
-      student: App.student
+      student: student
     }));
     this.open(); // to fade the overlay in...
   },
   initialize: function() {
     this.$el.appendTo(document.body);
-    this.listenTo(this.collection, "change", this.render);
+    // this.listenTo(this.collection, "change", this.render);
   }
 });
 
