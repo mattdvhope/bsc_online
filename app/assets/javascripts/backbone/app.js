@@ -29,6 +29,9 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
+  getDashboardPage: function() {
+
+  },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
     nav_bar.render();
