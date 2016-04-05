@@ -118,17 +118,6 @@ function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
 
-// set autofocus in input fields
-function setFocus() {
-  $("#admin_first_name").focus();
-  $("#user_pin").focus();
-  $("#vol_pin").focus();
-  $("#login_email").focus();
-}
-
-
-
-
 
 
 

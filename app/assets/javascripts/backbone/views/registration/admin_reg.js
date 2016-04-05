@@ -12,7 +12,7 @@ var AdminRegFormView = Backbone.View.extend({
   templateAdminReg:  HandlebarsTemplates['registration/admin_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
-    setFocus();
+    $("#admin_first_name").focus();
   },
   checkInputs: function(e) {
     $(".admin_registration").css("border-color", "blue");
