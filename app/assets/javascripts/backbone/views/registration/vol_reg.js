@@ -12,6 +12,7 @@ var VolRegFormView = Backbone.View.extend({
   templateVolReg:  HandlebarsTemplates['registration/vol_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
+    setFocus();
   },
   checkInputs: function(e) {
     $(".vol_registration").css("border-color", "blue");
