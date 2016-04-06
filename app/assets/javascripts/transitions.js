@@ -17,6 +17,13 @@ $(document).on('click', function() {
   collapseNavBar();
 });
 
+// Prevent scrolling underneath modals
+$( document ).ready(function() {
+  $("#backbone-app>a, #backbone-app>p>a").on('click', function(){
+    $('body').css('overflow','hidden'); // scrolling stopped on body when modal opened
+  });
+});
+
 // Remove overlay form when clicking screen
 $("#overlay").on('click', function(e) {
   if( !$(e.target).is('form') ) {
