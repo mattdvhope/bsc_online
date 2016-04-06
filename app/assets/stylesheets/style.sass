@@ -535,7 +535,7 @@ $accept-height-small: 810px
   left: 0
   z-index: 9
   @media screen and (max-width: $accept-width-small)
-    background: rgba(0, 0, 0, 1)
+    background: rgba(0, 0, 0, .4)
   @media screen and (min-width: $accept-width-large)
     background: rgba(0, 0, 0, .4)
 
@@ -544,6 +544,7 @@ $accept-height-small: 810px
     margin: 0%
   @media screen and (min-width: $accept-width-large)
     margin: 10%
+    border-radius: 5px
 
 #entry_form_modal
   @media screen and (max-height: $accept-height-small)
@@ -554,11 +555,10 @@ $accept-height-small: 810px
   position: fixed
   max-height: 900px
   overflow-y: auto
-  border-radius: 25px
-  top: 25px
-  right: 25px
-  bottom: 25px
-  left: 25px
+  top: 0px
+  right: 0px
+  bottom: 0px
+  left: 0px
   padding: 25px
   z-index: 10
   background: #ffffff
