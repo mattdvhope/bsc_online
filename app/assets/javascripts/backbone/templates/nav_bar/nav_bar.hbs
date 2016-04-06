@@ -11,17 +11,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" id="home-link" href="/">City English</a>
 
-        {{#if thai_language}}
-          <span class="usa_flag" style="display: inline;">
-            <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
-          </span>
-        {{^}}
-          <span class="thai_flag" style="display: inline;">
-            <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
-          </span>
-        {{/if}}
+        <div> {{!-- to ensure flag stays beside title --}}
+          <a class="navbar-brand" id="home-link" href="/">City English</a>
+
+          {{#if thai_language}}
+            <span class="usa_flag" style="display: inline;">
+              <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
+            </span>
+          {{^}}
+            <span class="thai_flag" style="display: inline;">
+              <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
+            </span>
+          {{/if}}
+        </div>
 
       </div> {{!-- .navbar-header --}}
 
@@ -92,7 +95,7 @@
 
 <script>
   // Enable scrolling navbar menu in mobile
-  $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
+  // $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
 
   // Thai / American flag
   $(".thai_flag").on("click tap", function() {
