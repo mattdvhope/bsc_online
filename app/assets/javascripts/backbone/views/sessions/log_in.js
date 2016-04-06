@@ -12,6 +12,7 @@ var LogInFormView = Backbone.View.extend({
   templateSession:  HandlebarsTemplates['sessions/log_in'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
+    $("#login_email").focus();
   },
   checkInputs: function(e) {
     $(".user_login").css("border-color", "blue");

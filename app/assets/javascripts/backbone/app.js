@@ -29,6 +29,17 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
+  getDashboardPage: function() {
+    this.removeNavAndPage();
+    // if (sessionStorageAvailable("fragment")) {
+    //   this.retainTemplateOnReload("dashboard");      
+    // }
+    // var dashboard = new DashboardView();
+    // this.renderNavBar();
+    // dashboard.render();
+
+    // this.dashboard = dashboard;
+  },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
     nav_bar.render();
@@ -120,7 +131,7 @@ $(document).on("click", "#backbone-app a", function(e) {
 $(document).on("click", "#backbone-app input", function(e) {
   e.preventDefault();     // "trigger: true" (below) will call the 'route' function in the 'initialize' method
   App.log_in_form_modal.close(e);
-  // App.getVolunteerPage();
+  App.getDashboardPage();
   // router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
 

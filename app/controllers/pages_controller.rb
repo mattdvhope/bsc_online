@@ -3,8 +3,13 @@ class PagesController < ApplicationController
   include ApplicationHelper
 
   def front
-    redirect_to home_path if current_user
     @curriculums = Curriculum.all
+
+    if current_user && current_user.role == "leader"
+      redirect_to leader_page_path
+    elsif current_user
+      redirect_to home_path
+    end
   end
 
   def volunteer_info
@@ -18,6 +23,9 @@ class PagesController < ApplicationController
     end
     @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
 
+  end
+
+  def leader_page
     @admin_applications = AdminApplication.all.order("id ASC")
   end
 

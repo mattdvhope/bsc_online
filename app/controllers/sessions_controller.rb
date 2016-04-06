@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
       if user.role
-        redirect_to home_path
+        redirect_to root_path
       else
         redirect_to curriculums_path
       end

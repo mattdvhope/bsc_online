@@ -12,6 +12,7 @@ var StudentRegFormView = Backbone.View.extend({
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
   open: function () {
     this.$el.add($overlay).fadeIn(this.duration);
+    $("#user_pin").focus();
   },
   checkInputs: function(e) {
     $(".student_registration").css("border-color", "blue");

@@ -48,26 +48,26 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
 
-    def destroy_guest_if_timed_out # in 'require_user' method
-      if current_user
-        if current_user.guest?
-          if current_user.guest_session_time_limit_expired?
-            current_user.destroy
-          end
-        end
-      end
-    end
+    # def destroy_guest_if_timed_out # in 'require_user' method
+    #   if current_user
+    #     if current_user.guest?
+    #       if current_user.guest_session_time_limit_expired?
+    #         current_user.destroy
+    #       end
+    #     end
+    #   end
+    # end
 
     def clear_out_extra_guests_from_app
       clear_out_expired_guests_from_app
       delete_glut_of_guests            
     end
 
-    def clear_out_expired_guests_from_app
-      User.where(guest: true).each do |user|
-        user.destroy if user.guest_session_time_limit_expired?
-      end
-    end
+    # def clear_out_expired_guests_from_app
+    #   User.where(guest: true).each do |user|
+    #     user.destroy if user.guest_session_time_limit_expired?
+    #   end
+    # end
 
     def delete_glut_of_guests
       guests_in_app_now = User.where(guest: true)
