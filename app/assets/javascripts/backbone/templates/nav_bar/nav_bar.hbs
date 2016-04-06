@@ -91,6 +91,10 @@
   </nav>
 
 <script>
+  // Enable scrolling navbar menu in mobile
+  $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
+
+  // Thai / American flag
   $(".thai_flag").on("click tap", function() {
     if (sessionStorageAvailable("fragment")) {
       sessionStorage.setItem('language', "thai");
