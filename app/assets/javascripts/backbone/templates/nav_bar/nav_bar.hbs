@@ -1,6 +1,6 @@
 <header class="header">
 
-  <nav class="navbar navbar-default">
+  <nav id="nav" class="navbar navbar-default" id="nav-text-color">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -55,7 +55,7 @@
 
 
           <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
+            <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li id="backbone-app">
                   <a href="/register_student">{{register_new_student}}</a>
@@ -68,7 +68,7 @@
           </li>
 
           <li class="dropdown">
-            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
+            <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li id="backbone-app" class="volunteer_page">
                 <a href="/volunteer_info">{{volunteer_info}}</a>
@@ -84,7 +84,7 @@
             </ul>
           </li>
           <li>
-            <a href="/log_out">Log Out</a>
+            {{!-- <a href="/log_out">Log Out</a> --}}
           </li>
 
 

@@ -1,0 +1,16 @@
+h2.paragraph {
+  font-family: 'Six Caps', sans-serif;
+}
+
+p.paragraph {
+  font-family: 'Muli', sans-serif;
+}
+
+#nav {
+  background-color: #2D3179;
+  font-family: 'Muli', sans-serif;
+}
+
+a#home-link, a#place_1, a#place_2, a#place_3, a#place_4, a#place_5, a#place_6, a#nav-dropdown  {
+  color: #ffffff;
+}
