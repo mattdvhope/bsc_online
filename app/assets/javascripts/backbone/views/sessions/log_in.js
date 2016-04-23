@@ -53,10 +53,10 @@ var LogInFormView = Backbone.View.extend({
   },
   render: function(person) {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-      this.$el.html(this.templateSession({
-        token: csrf_token
-      }));
-      this.open(); // to fade the overlay in...
+    this.$el.html(this.templateSession({
+      token: csrf_token
+    }));
+    this.open(); // to fade the overlay in...
   },
   initialize: function() {
     this.$el.appendTo(document.body);
