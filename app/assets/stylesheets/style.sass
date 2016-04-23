@@ -34,7 +34,12 @@ $break-large: 451px
 .backg-vol
   background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cdp_at_coffee_shop.jpg")
 
-.backg, .backg-vol
+.backg-welcome
+  background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+no+blue+small.png")
+  z-index: 2
+  
+
+.backg, .backg-vol, .backg-welcome
   // background-attachment: fixed
   background-color: #645862
   background-position: top left
@@ -171,12 +176,15 @@ $break-large: 451px
   font-weight: 300
   font-size: 42px
   text-align: center
+  // background-color: #2D3179
   color: #8AB839
   text-transform: uppercase
 
 .desc p
-  width: 75%
-  margin: 0 auto
+  width: 55%
+  position: relative
+  margin-right: 2em
+  float: right
   font-family: 'Poppins', sans-serif
   font-weight: 400
   color: #2E2E2E
@@ -193,7 +201,9 @@ $break-large: 451px
   margin-right: 2em
 
 .features
-  background: #8ab839
+  z-index: 0
+  position: relative
+  background: #2D3179
   padding: 60px 0px
 
 .features-text
@@ -239,9 +249,8 @@ h2.features-text-bottom
   font-size: 35px
   text-align: center
   color: #fff
-  border: 1px solid #fff
   display: block
-  border-radius: 4%
+  border-radius: 50%
   background: rgba(255, 255, 255, 0.1)
   width: 270px
   height: 270px
@@ -253,7 +262,7 @@ h2.features-text-bottom
 .icon-text-box
   h4
     font-family: 'Roboto', sans-serif
-    color: #2e2e2e
+    color: #ffffff
     font-weight: 400
     font-size: 28px
     margin: 20px 0 20px 0
@@ -261,7 +270,7 @@ h2.features-text-bottom
     font-family: 'Poppins', sans-serif
     font-weight: 400
     font-size: 19px
-    color: #2E2E2E
+    color: #ffffff
     margin: 0 0 55px 0
 
 .notes
@@ -494,7 +503,7 @@ input[placeholder], [placeholder], *[placeholder]
     padding: 8px
   .desc p
     font-size: 15px
-    text-align: center
+    text-align: right
   .icon-text-box
     h4, p
       text-align: center
@@ -572,10 +581,5 @@ $accept-height-small: 810px
   right: 25px
   z-index: 1
   color: #0D0101
-
-
-
-
-
 
 
