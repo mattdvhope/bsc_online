@@ -1,5 +1,17 @@
-h2.paragraph {
-  font-family: 'Six Caps', sans-serif;
+h2.partners-thai {
+  font-family: 'Kanit', sans-serif;
+  color: black;
+  font-size: 200%;
+  margin-right: 1em;
+  float: right;
+}
+
+h2.partners-english {
+  font-family: 'Lustria', sans-serif;
+  color: black;
+  font-size: 150%;
+  margin-right: 2em;
+  float: right;
 }
 
 p.paragraph {
