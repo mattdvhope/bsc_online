@@ -27,8 +27,7 @@ class AdminApplicationsController < ApplicationController
     if Rails.env.production?
       AppMailer.send_admin_application_approval(applicant).deliver_later
     else
-      AppMailer.send_admin_application_approval(applicant).deliver_later
-      # send_development_email(applicant)
+      send_development_email(applicant)
     end
 
     redirect_to :back
@@ -44,8 +43,7 @@ class AdminApplicationsController < ApplicationController
       if Rails.env.production?
         send_production_emails(applicant)
       else
-        send_production_emails(applicant)
-        # send_development_email(applicant)
+        send_development_email(applicant)
       end
     end
 

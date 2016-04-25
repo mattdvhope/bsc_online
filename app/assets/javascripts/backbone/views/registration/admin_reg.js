@@ -78,7 +78,6 @@ var AdminRegFormView = Backbone.View.extend({
   },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-console.log(csrf_token);
     this.$el.html(this.templateAdminReg({
       token: csrf_token
     }));
