@@ -26,3 +26,8 @@ p.paragraph {
 a#home-link, a#place_1, a#place_2, a#place_3, a#place_4, a#place_5, a#place_6, a#nav-dropdown  {
   color: #ffffff;
 }
+
+a#drop-down-link {
+  background-color: #2D3179;
+  color: #ffffff; 
+}
