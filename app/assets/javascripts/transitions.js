@@ -125,7 +125,7 @@ function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
 
-
+console.log($(window).width());
 
 
 

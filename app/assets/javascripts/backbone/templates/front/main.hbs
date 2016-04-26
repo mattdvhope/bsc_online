@@ -18,6 +18,13 @@
         </div>
       </div>
     </div>
+
+    {{#if window_big}}
+      {{> front/_carousel_big }}
+    {{^}}
+      {{> front/_carousel_small }}
+    {{/if}}
+
     <div class="col-md-12 col-xs-12 some-notes backg-welcome">
       {{#if thai_language}}
         {{> front/thai/_middle_welcome }}

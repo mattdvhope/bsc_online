@@ -2,6 +2,7 @@ var MainFrontView = Backbone.View.extend({
   template:  HandlebarsTemplates['front/main'],
   render: function() {
     this.$el.html(this.template({
+      window_big: this.window_width(),
       thai_language: this.app_language_is_thai(),
       login: this.login_button_language(),
       register: this.register_button_language(),
@@ -11,6 +12,9 @@ var MainFrontView = Backbone.View.extend({
       step_two: this.step_two(),
       helping_friends: this.helping_friends()
     }));
+  },
+  window_width: function() {
+    return $(window).width() > 500
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
