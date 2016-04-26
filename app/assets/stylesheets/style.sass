@@ -21,24 +21,61 @@ $img-width: 100%
 logo:active
   color: #fff
 
-$break-small: 450px
-$break-large: 451px
+$break: 451px
 
 .backg
-  @media screen and (max-width: $break-small)
-    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cep_on_bench.jpg")
- 
-  @media screen and (min-width: $break-large)
-    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cep_on_bench.jpg")
+  @media screen and (min-width: $break) // for large screen
+    background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cep_on_bench.jpg")
+  @media screen and (max-width: $break) // for small screen
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile.png")
 
 .backg-vol
-  background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cdp_at_coffee_shop.jpg")
+  @media screen and (min-width: $break) // for large screen
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/cdp_at_coffee_shop.jpg")
+  @media screen and (max-width: $break) // for small screen
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile.png")
+
+.inner
+  float: right
+  // background: #8BC34A
+  @media screen and (min-width: $break) // for large screen
+    background: rgba(139, 195, 74, 0.7)
+  @media screen and (max-width: $break) // for small screen
+    background: rgba(139, 195, 74, 0.4)
+  border-radius: 40px 0px 0px 40px
+  color: #2D3179
 
 .backg-welcome
-  background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+no+blue+small.png")  
+  @media screen and (min-width: 1153px) and (orientation: landscape)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png")
+  @media screen and (max-width: 1153px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+lady.png")
+  @media screen and (max-width: 996px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+medium4.png")
+    height: 900px
+  @media screen and (max-width: 935px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+medium5.png")
+    height: 1490px
+  @media screen and (max-width: 854px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+medium7.png")
+    height: 1890px
+  @media screen and (max-width: 800px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+narrow.png")
+    height: 2790px
+  @media screen and (max-width: 700px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+narrow+small.png")
+    height: 2790px
+  @media screen and (max-width: 420px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+narrow+smaller.png")
+    height: 2990px
+  @media screen and (max-width: 400px)
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+narrow+smallest.png")
+    height: 3190px
+
 
 .backg, .backg-vol, .backg-welcome
   // background-attachment: fixed
+  // height: 1000px
   background-color: #645862
   background-position: top left
   background-repeat: no-repeat
@@ -47,76 +84,8 @@ $break-large: 451px
   cursor: default
   padding: 180px 0 120px
   text-align: center
-  width: $img-width
+  // width: $img-width
   float: left
-
-@-moz-keyframes reveal-banner
-  0%
-    opacity: 0
-
-  100%
-    opacity: 1
-
-
-@-webkit-keyframes reveal-banner
-  0%
-    opacity: 0
-
-  100%
-    opacity: 1
-
-
-@-o-keyframes reveal-banner
-  0%
-    opacity: 0
-
-  100%
-    opacity: 1
-
-
-@-ms-keyframes reveal-banner
-  0%
-    opacity: 0
-
-  100%
-    opacity: 1
-
-
-@keyframes reveal-banner
-  0%
-    opacity: 0
-
-  100%
-    opacity: 1
-
-
-.wistia_responsive_padding
-  padding-bottom: 35px
-
-// .inner
-//   -moz-animation: reveal-banner 0s 0s ease-in-out
-//   -webkit-animation: reveal-banner 0s 0s ease-in-out
-//   -o-animation: reveal-banner 0s 0s ease-in-out
-//   -ms-animation: reveal-banner 0s 0s ease-in-out
-//   animation: reveal-banner 0s 0s ease-in-out
-//   -moz-animation-fill-mode: forwards
-//   -webkit-animation-fill-mode: forwards
-//   -o-animation-fill-mode: forwards
-//   -ms-animation-fill-mode: forwards
-//   animation-fill-mode: forwards
-//   background: rgba(33, 42, 63, 0.5)
-//   color: white
-//   display: inline-block
-//   opacity: 0
-//   padding: 20px 20px
-//   text-align: center
-
-.inner
-  float: right
-  // background: #8BC34A
-  background: rgba(139, 195, 74, 0.7)
-  border-radius: 40px 0px 0px 40px
-  color: #2D3179
 
 .text-box
   font-family: 'Poppins', sans-serif
@@ -170,6 +139,49 @@ $break-large: 451px
       &:hover
         background: rgba(255, 255, 255, 0.3)
 
+@-moz-keyframes reveal-banner
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-webkit-keyframes reveal-banner
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-o-keyframes reveal-banner
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-ms-keyframes reveal-banner
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@keyframes reveal-banner
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+.wistia_responsive_padding
+  padding-bottom: 35px
+
 .some-notes
   padding: 40px 0px
   float: left
@@ -186,7 +198,7 @@ $break-large: 451px
 .desc p
   width: 55%
   position: relative
-  margin-right: 2em
+  margin: 8em 1em 5em 1em
   float: right
   font-family: 'Poppins', sans-serif
   font-weight: 400
@@ -490,53 +502,53 @@ input[placeholder], [placeholder], *[placeholder]
       color: #8AB839
       font-family: 'Poppins', sans-serif
 
-@media (min-width: 380px) and (max-width: 768px)
-  .text-box
-    p.intro
-      font-size: 22px
-    h2
-      font-size: 40px
-    h3
-      font-size: 16px
-    p a.link-button
-      padding: 8px 14px
-      font-size: 13px
-  .title h2
-    font-size: 29px
-    padding: 8px
-  .desc p
-    font-size: 15px
-    text-align: right
-  .icon-text-box
-    h4, p
-      text-align: center
-  .btneff
-    margin-top: 15px
-    width: 20% !important
+// @media (min-width: 380px) and (max-width: 768px)
+//   .text-box
+//     p.intro
+//       font-size: 22px
+//     h2
+//       font-size: 40px
+//     h3
+//       font-size: 16px
+//     p a.link-button
+//       padding: 8px 14px
+//       font-size: 13px
+//   .title h2
+//     font-size: 29px
+//     padding: 8px
+//   .desc p
+//     font-size: 15px
+//     text-align: right
+//   .icon-text-box
+//     h4, p
+//       text-align: center
+//   .btneff
+//     margin-top: 15px
+//     width: 20% !important
 
-@media (min-width: 0px) and (max-width: 379px)
-  .text-box
-    p.intro
-      font-size: 22px
-    h2
-      font-size: 20px
-    h3
-      font-size: 16px
-    p a.link-button
-      padding: 8px 14px
-      font-size: 13px
-  .title h2
-    font-size: 29px
-    padding: 8px
-  .desc p
-    font-size: 15px
-    text-align: justify
-  .icon-text-box
-    h4, p
-      text-align: center
-  .btneff
-    margin-top: 15px
-    width: 80% !important
+// @media (min-width: 0px) and (max-width: 379px)
+//   .text-box
+//     p.intro
+//       font-size: 22px
+//     h2
+//       font-size: 20px
+//     h3
+//       font-size: 16px
+//     p a.link-button
+//       padding: 8px 14px
+//       font-size: 13px
+//   .title h2
+//     font-size: 29px
+//     padding: 8px
+//   .desc p
+//     font-size: 15px
+//     text-align: justify
+//   .icon-text-box
+//     h4, p
+//       text-align: center
+//   .btneff
+//     margin-top: 15px
+//     width: 80% !important
 
 $accept-width-small: 450px
 $accept-width-large: 451px
