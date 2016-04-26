@@ -15,7 +15,7 @@ gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 gem 'draper' # For using decorators
 # gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 gem 'simple_form'
-gem "cocoon" # handle nested forms
+gem "cocoon" # handle nested forms in rails
 gem 'haml-rails'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'omniauth-facebook'
@@ -28,7 +28,10 @@ gem "bower-rails"
 gem 'handlebars_assets'
 gem 'backbone-nested-attributes'
 gem "js-routes" # to define path helpers in asset pipeline
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails'
+gem 'sass-images', github: 'codegram/sass-images'
+# gem 'bourbon'
+# gem 'compass-rails'
 gem 'bootstrap_form'
 gem 'coffee-rails'
 gem 'autoprefixer-rails' # To work with bootstrap. It automatically adds the proper vendor prefixes to your CSS code when it is compiled.
