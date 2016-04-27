@@ -119,6 +119,16 @@
       App.getVolunteerPage();
     }
   }
+
+  // in tandem with "Maintain scroll position when flag clicked" in transitions.js
+  $(".thai_flag").on("click", function() {
+    $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
+  });
+  $(".usa_flag").on("click", function() {
+    $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
+  });
+
+
 </script>
 
 <script>

@@ -14,7 +14,7 @@ var MainFrontView = Backbone.View.extend({
     }));
   },
   window_width: function() {
-    return $(window).width() > 500
+    return $(window).width() > 550
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";

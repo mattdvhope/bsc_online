@@ -19,18 +19,23 @@
       </div>
     </div>
 
-    {{#if window_big}}
-      {{> front/_carousel_big }}
-    {{^}}
-      {{> front/_carousel_small }}
-    {{/if}}
-
-    <div class="col-md-12 col-xs-12 some-notes backg-welcome">
-      {{#if thai_language}}
-        {{> front/thai/_middle_welcome }}
-      {{^}}
-        {{> front/english/_middle_welcome }}
-      {{/if}}
+    <div id="mycarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active">
+            {{#if window_big}}
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png" alt="wide picture" class="img-responsive">
+            {{^}}
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
+            {{/if}}
+          <div class="carousel-caption">
+            {{#if thai_language}}
+              {{> front/thai/_carousel_caption }}
+            {{^}}
+              {{> front/english/_carousel_caption }}
+            {{/if}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -134,9 +139,9 @@
           {{> front/english/_get_started }}
         {{/if}}
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
+          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" data-lightbox="image-1">
             <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" alt="CEP 1" >
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" alt="CEP 1" >
             </div>
             <h3>{{step_one}}</h3>
           </a>
@@ -153,9 +158,9 @@
     <div class="row" id="starts">
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png" data-lightbox="image-1">
+          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" data-lightbox="image-1">
             <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP2.png" alt="CEP 2" >
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" alt="CEP 2" >
             </div>
             <h3>{{step_two}}</h3>
           </a>
@@ -184,9 +189,9 @@
           {{> front/english/_holistic }}
         {{/if}}
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
+          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" data-lightbox="image-1">
             <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" alt="CEP 1" >
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" alt="CEP 1" >
             </div>
             <h3>Holistic</h3>
           </a>
@@ -210,9 +215,9 @@
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
         <h2 class="text-center helping-text">{{helping_friends}}</h2>
         <div class="col-md-6 col-sm-12 col-xs-12 work-space">
-          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" data-lightbox="image-1">
+          <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" data-lightbox="image-1">
             <div class="featured-img">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP1.png" alt="CEP 1" >
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" alt="CEP 1" >
             </div>
             <h3>Friends Helping Friends</h3>
           </a>

@@ -125,7 +125,17 @@ function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
 
-console.log($(window).width());
+// Maintain scroll position when flag clicked
+$(document).on('scroll', function () {
+  var num = $(window).scrollTop();
+  sessionStorage.setItem("scrollTopPos", num);
+});
+
+
+
+
+
+
 
 
 
