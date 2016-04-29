@@ -49,8 +49,8 @@
           {{^}}
             <li><a href="#features" id="place_2" class="page-scroll">{{features}}</a></li>
             <li><a href="#get-started" id="place_3" class="page-scroll">{{get_started}}</a></li>
-            <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li>
-            <li><a href="#helping-friends" id="place_5" class="page-scroll">{{helping_friends}}</a></li>
+            {{!-- <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li> --}}
+            <li><a href="#contact-us" id="place_5" class="page-scroll">{{contact_us}}</a></li>
           {{/if}}
 
 
@@ -128,6 +128,54 @@
     $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
   });
 
+  $("#place_1").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#place_1").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $("#place_2").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#place_2").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $("#place_3").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#place_3").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $("#place_5").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#place_5").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $("#place_6").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#place_6").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $("#nav-dropdown").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $("#nav-dropdown").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
+
+  $(".dropdown-toggle").mouseenter(function(){
+    $(this).css("background-color", "#8BC34A");
+  });
+  $(".dropdown-toggle").mouseleave(function(){
+    $(this).css("background-color", "#2D3179");
+  });
 
 </script>
 

@@ -8,7 +8,7 @@ var NavBarView = Backbone.View.extend({
       features: this.features(),
       get_started: this.get_started(),
       holistic: this.holistic(),
-      helping_friends: this.helping_friends(),
+      contact_us: this.contact_us(),
       student: this.student(),
       register_new_student: this.register_new_student(),
       login_student: this.login_student(),
@@ -37,8 +37,8 @@ var NavBarView = Backbone.View.extend({
   holistic: function() {
     return this.choose_language("Holistic", "แบบองค์รวมรุ่น");
   },
-  helping_friends: function() {
-    return this.choose_language("Helping Friends", "ช่วยให้เพื่อน ๆ");
+  contact_us: function() {
+    return this.choose_language("Contact Us", "ติดต่อเรา");
   },
   student: function() {
     return this.choose_language("Student", "นักศึกษา");

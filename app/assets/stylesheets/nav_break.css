@@ -1,4 +1,4 @@
-@media (max-width: 965px) {
+@media (max-width: 730px) {
     .navbar-header {
         float: none;
     }
@@ -34,3 +34,14 @@
         overflow: hidden!important;
     }
 }
+
+.navbar-nav > li > a {
+  text-align: center;
+}
+
+/*.page-scroll {
+  text-align: center;
+  border-style: solid;
+  border-color: #ff0000 #0000ff;
+  border: 2px;
+}*/

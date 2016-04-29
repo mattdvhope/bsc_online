@@ -25,9 +25,10 @@ $break: 550px
 
 .backg
   @media screen and (min-width: $break) // for large screen
-    background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/on_bench.jpg")
+    background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/on_bench.jpg") no-repeat
   @media screen and (max-width: $break) // for small screen
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/on_bench_mobile.jpg")
+    background-size: cover
 
 .backg-vol
   @media screen and (min-width: $break) // for large screen
@@ -68,7 +69,7 @@ $break: 550px
   //   border-bottom: 7px #fa3447
   //   border-top: 7px #fa3447
   //   line-height: 130%
-  //   font-family: 'Roboto', sans-serif
+  //   font-family: 'Muli', sans-serif
   p.intro
     font-size: 30px
     font-weight: 400
@@ -125,11 +126,11 @@ $break: 550px
   @media screen and (max-width: 550px)
     left: 10%
   @media screen and (min-width: 720px)
-    top: 40% !important
+    top: 40%
   @media screen and (max-width: 720px)
-    top: 43% !important
+    top: 43%
   @media screen and (max-width: $break)
-    top: 40% !important
+    top: 40%
   transform: translateY(-23%)
   text-align: left
   bottom: initial
@@ -147,7 +148,7 @@ $break: 550px
   padding: 60px 0px
 
 .features-text
-  font-family: 'Roboto', sans-serif
+  font-family: 'Muli', sans-serif
   font-weight: 700
   letter-spacing: 5px
   margin-bottom: 30px
@@ -162,7 +163,7 @@ h2.features-text::after
   content: ""
 
 .features-text-bottom
-  font-family: 'Roboto', sans-serif
+  font-family: 'Muli', sans-serif
   font-weight: 700
   letter-spacing: 5px
   margin-bottom: 30px
@@ -184,7 +185,7 @@ h2.features-text-bottom
     background: #FFF none repeat scroll 0% 0%
     content: ""
 
-#get-started
+#get-started, #holistic
   background: #8BC34A
 
 .get-started-text
@@ -221,14 +222,11 @@ html, body
   max-width: 100%
   overflow-x: hidden
 
-
-
 span.stepTitle
   color: #2d3179
   font-family: "Muli", sans-serif
   font-weight: 700
   letter-spacing: 5px
-    
 
 h3.get-started-text
   font-size: 1em
@@ -240,6 +238,65 @@ h3.get-started-text
   margin-right: auto
   margin-left: auto
   padding: 0
+
+
+
+
+.footer-screen
+  position: relative
+  color: #2D3179
+  @media screen and (min-width: 840px)
+    font-size: 100%
+  @media screen and (max-width: 840px)
+    font-size: 90%
+  @media screen and (max-width: 763px)
+    font-size: 80%
+  @media screen and (max-width: 690px)
+    font-size: 70%
+
+.footer-content
+  h2
+    text-align: center
+    font-family: 'Muli', sans-serif
+  top: 0
+  left: 2%
+  position: absolute
+  .row
+    overflow: hidden
+  [class*="col-"]
+    margin-bottom: -99999px
+    padding-bottom: 99999px
+
+.footer-cep-logo
+  @media screen and (min-width: 611px)
+    padding-right: 10px
+    padding-left: 24px
+    border-right: 2px solid #8BC34A
+  @media screen and (max-width: 620px)
+    display: none
+  img
+    border-radius: 50%
+
+.footer-subtitle
+  font-size: 200%
+
+.footer-address
+  padding-right: 10px
+  border-right: 2px solid #8BC34A
+
+#contact-info
+  width: 100%
+  left: 90%
+  top: 0
+  transform: translateY(-53%)
+  text-align: left
+  bottom: initial
+  color: black
+  font-size: 200%
+  text-shadow: none
+  color: red
+
+
 
 
 @-moz-keyframes reveal-banner
@@ -286,7 +343,7 @@ h3.get-started-text
   float: left
 
 .title h2
-  font-family: 'Roboto', sans-serif
+  font-family: 'Muli', sans-serif
   font-weight: 300
   font-size: 42px
   text-align: center
@@ -331,7 +388,7 @@ h3.get-started-text
 
 .icon-text-box
   h4
-    font-family: 'Roboto', sans-serif
+    font-family: 'Muli', sans-serif
     color: #ffffff
     font-weight: 400
     font-size: 28px
@@ -397,7 +454,7 @@ h3.get-started-text
     background: #8ab839
     color: #fff
     margin: 0px
-    font-family: 'Roboto', sans-serif
+    font-family: 'Muli', sans-serif
   &:hover .image-hover
     display: block
     animation: 0.4s ease-in 0s normal none 1 running imagehover
@@ -480,7 +537,7 @@ h3.get-started-text
   font-weight: 700
   text-transform: uppercase
   letter-spacing: 2px
-  font-family: 'Roboto', sans-serif
+  font-family: 'Muli', sans-serif
 
 .login
   padding: 60px 0px
