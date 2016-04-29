@@ -2,6 +2,7 @@
 
 <div class="container-fluid">
 
+<!-- Welcome top -->
 <div class="container-full main" id="page-top">
   <div class="row">
     <div class="col-md-12 backg">
@@ -19,20 +20,21 @@
       </div>
     </div>
   </div> {{!-- row --}}
+
   <div class="row">
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="item active">
-            {{#if window_big}}
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png" alt="wide picture" class="img-responsive">
-            {{^}}
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
-            {{/if}}
+          {{#if window_big}}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png" alt="wide picture" class="img-responsive">
+          {{^}}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
+          {{/if}}
           <div class="carousel-caption">
             {{#if thai_language}}
-              {{> front/thai/_carousel_caption }}
+              {{> front/thai/_welcome_caption }}
             {{^}}
-              {{> front/english/_carousel_caption }}
+              {{> front/english/_welcome_caption }}
             {{/if}}
           </div>
         </div>
@@ -46,10 +48,10 @@
 <div class="container-full features" id="features">
   <h2 class="text-center features-text">{{features}}</h2>
   <div class="row">
-     <div class="col-md-4">  
+     <div class="col-xs-12 col-md-4">  
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features1.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features1.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_city_talk_class }}
             {{^}}
@@ -58,10 +60,10 @@
           </div>
         </div>
      </div>
-     <div class="col-md-4"> 
+     <div class="col-xs-12 col-md-4"> 
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features2.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_eng_conversation_partners }}
             {{^}}
@@ -70,10 +72,10 @@
           </div>
         </div>
      </div>
-     <div class="col-md-4">
+     <div class="col-xs-12 col-md-4">
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features1.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features1.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_community_boards }}
             {{^}}
@@ -84,10 +86,10 @@
      </div>
   </div>
   <div class="row">
-     <div class="col-md-4">  
+     <div class="col-xs-12 col-md-4">  
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_conversation_groups }}
             {{^}}
@@ -96,10 +98,10 @@
           </div>
         </div>
      </div>
-     <div class="col-md-4">
+     <div class="col-xs-12 col-md-4">
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features4.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_online_classes }}
             {{^}}
@@ -108,10 +110,10 @@
           </div>
         </div>
      </div>
-     <div class="col-md-4"> 
+     <div class="col-xs-12 col-md-4"> 
         <div class="picturing">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features6.png" alt="Class Scene" align="middle">
-          <div class="col-md-13 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Features6.png" alt="Class Scene" align="middle" class="img-responsive">
+          <div class="col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box">
             {{#if thai_language}}
               {{> front/thai/_ongoing_opportunities }}
             {{^}}
@@ -130,7 +132,7 @@
 
 
 <!-- Get Started -->
-<div class="container-fluid work" id="get-started">
+<div class="container-full work" id="get-started">
   <div class="container">
     <div class="row" id="starts" >
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
@@ -175,12 +177,6 @@
         </div>
       </div>
     </div> <!-- row -->
-  </div>
-</div> <!-- Get Started -->
-
-
-<div class="container-fluid work" id="holistic">
-  <div class="container">
     <div class="row" id="starts" >
       <div class="col-md-12 col-sm-12 col-xs-12 work-list">
         <div class="col-md-5 col-sm-12 col-xs-12 work-space">
@@ -220,30 +216,8 @@
       </div>
     </div> <!-- row -->
   </div>
-</div> <!-- Process -->
+</div> <!-- Get Started -->
 
-<div class="container-full main" id="contact-us">
-  <div class="row">
-    <div id="mycarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="item active">
-            {{#if window_big}}
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City_scape.png" alt="wide picture" class="img-responsive">
-            {{^}}
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
-            {{/if}}
-          <div class="carousel-caption">
-            {{#if thai_language}}
-              {{> front/thai/_carousel_caption }}
-            {{^}}
-              {{> front/english/_carousel_caption }}
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> {{!-- row --}}
-</div>
 
 </div> <!-- container-fluid -->
 
