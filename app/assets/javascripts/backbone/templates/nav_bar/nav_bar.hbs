@@ -42,17 +42,17 @@
           {{!-- <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li> --}}
           {{!-- <li><a href="/auth/facebook">Facebook</a></li> --}}
 
-          <li><a href="#page-top" id="place_1" class="page-scroll">{{top}}</a></li>
+          <li><a href="#page-top" id="place_1" class="page-scroll nav-hover">{{top}}</a></li>
 
           {{#if volunteer_page_below}}
-            <li><a href="#volunteer-steps" id="place_6" class="page-scroll">{{steps_to_volunteer}}</a></li>
+            <li><a href="#volunteer-steps" id="place_6" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
           {{^}}
-            <li><a href="#features" id="place_2" class="page-scroll">{{features}}</a></li>
-            <li><a href="#get-started" id="place_3" class="page-scroll">{{get_started}}</a></li>
+            <li><a href="#features" id="place_2" class="page-scroll nav-hover">{{features}}</a></li>
+            <li><a href="#get-started" id="place_3" class="page-scroll nav-hover">{{get_started}}</a></li>
             {{!-- <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li> --}}
-            <li><a href="#contact-us" id="place_5" class="page-scroll">{{contact_us}}</a></li>
           {{/if}}
 
+          <li><a href="#contact-us" id="place_5" class="page-scroll nav-hover">{{contact_us}}</a></li>
 
           <li class="dropdown">
             <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
@@ -128,40 +128,13 @@
     $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
   });
 
-  $("#place_1").mouseenter(function(){
+  $(".nav-hover").mouseenter(function(){
     $(this).css("background-color", "#8BC34A");
   });
-  $("#place_1").mouseleave(function(){
+  $(".nav-hover").mouseleave(function(){
     $(this).css("background-color", "#2D3179");
   });
 
-  $("#place_2").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $("#place_2").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-  $("#place_3").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $("#place_3").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-  $("#place_5").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $("#place_5").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-  $("#place_6").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $("#place_6").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
 
   $("#nav-dropdown").mouseenter(function(){
     $(this).css("background-color", "#8BC34A");
