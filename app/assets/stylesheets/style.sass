@@ -249,16 +249,19 @@ h3.get-started-text
     font-size: 100%
   @media screen and (max-width: 840px)
     font-size: 90%
-  @media screen and (max-width: 763px)
-    font-size: 80%
-  @media screen and (max-width: 690px)
-    font-size: 70%
+  // @media screen and (max-width: 770px)
+  //   font-size: 80%
 
 .footer-content
   h2
     text-align: center
     font-family: 'Muli', sans-serif
-  top: 0
+  @media screen and (min-width: 1270px)
+    top: 0
+  @media screen and (max-width: 1270px)
+    top: 7%
+  @media screen and (max-width: 1000px)
+    top: 0%
   left: 2%
   position: absolute
   .row
@@ -268,12 +271,16 @@ h3.get-started-text
     padding-bottom: 99999px
 
 .footer-cep-logo
-  @media screen and (min-width: 611px)
-    padding-right: 10px
-    padding-left: 24px
+  @media screen and (min-width: 767px)
+    padding-right: 2%
+    padding-left: 2%
     border-right: 2px solid #8BC34A
-  @media screen and (max-width: 620px)
-    display: none
+  @media screen and (max-width: 767px)
+    padding-right: 31%
+    padding-left: 31%
+  @media screen and (max-width: 550px)
+    padding-right: 19%
+    padding-left: 19%
   img
     border-radius: 50%
 
@@ -281,9 +288,36 @@ h3.get-started-text
   font-size: 200%
 
 .footer-address
-  padding-right: 10px
-  border-right: 2px solid #8BC34A
+  @media screen and (min-width: 767px)
+    padding-right: 10px
+  @media screen and (min-width: 767px)
+    border-right: 2px solid #8BC34A
 
+.social-media-icon
+  @media screen and (min-width: 767px)
+    width: 20%
+  @media screen and (max-width: 767px)
+    width: 11%
+  @media screen and (max-width: 550px)
+    width: 20%
+  margin: 1%
+
+.footer-left-line
+  @media screen and (max-width: 767px)
+    padding-left: 20px
+  @media screen and (max-width: 767px)
+    border-left: 2px solid #8BC34A
+    width: 70%
+    margin-left: auto
+    margin-right: auto
+
+.footer-map
+  @media screen and (max-width: 767px)
+    width: 70%
+    margin-left: auto
+    margin-right: auto
+
+//???????????????
 #contact-info
   width: 100%
   left: 90%
