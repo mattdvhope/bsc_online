@@ -267,12 +267,18 @@ h3.get-started-text
   @media screen and (max-width: 1000px)
     top: 0%
   left: 2%
-  position: absolute
-  .row
-    overflow: hidden
-  [class*="col-"]
-    margin-bottom: -99999px
-    padding-bottom: 99999px
+  @media screen and (min-width: 410px)
+    position: absolute
+    .row
+      overflow: hidden
+    [class*="col-"]
+      margin-bottom: -99999px
+      padding-bottom: 99999px
+  @media screen and (max-width: 410px)
+    position: absolute
+    left: 2%
+    margin-left: -62px
+
 
 .footer-cep-logo
   @media screen and (min-width: 767px)
@@ -283,10 +289,16 @@ h3.get-started-text
     padding-right: 31%
     padding-left: 31%
   @media screen and (max-width: 550px)
-    padding-right: 19%
-    padding-left: 19%
+    padding-right: 31%
+    padding-left: 31%
+  @media screen and (max-width: 410px)
+    padding-right: 37%
+    padding-left: 37%
   img
     border-radius: 50%
+    margin-left: auto
+    margin-right: auto
+
 
 .footer-subtitle
   font-size: 200%
@@ -324,6 +336,38 @@ h3.get-started-text
     width: 90%
     margin-left: auto
     margin-right: auto
+
+.copyright
+  @media screen and (min-width: 410px)
+    margin-top: 20px
+    margin-left: 45px
+    margin-right: auto
+  @media screen and (max-width: 410px)
+    display: none
+
+.fb-div
+  @media screen and (min-width: 410px)
+    margin-top: 20px
+    margin-bottom: 40px
+    margin-left: 45px
+  @media screen and (max-width: 410px)
+    display: none
+
+.copyright-small-mobile
+  @media screen and (min-width: 410px)
+    display: none
+  @media screen and (max-width: 410px)
+    margin-left: 10px
+    margin-right: auto
+
+.fb-div-small-mobile
+  @media screen and (min-width: 410px)
+    display: none
+  @media screen and (max-width: 410px)
+    margin-top: 10px
+    margin-bottom: 40px
+    margin-left: 2px
+
 
 //???????????????
 #contact-info
