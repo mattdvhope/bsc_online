@@ -373,6 +373,7 @@ DEPENDENCIES
   letter_opener
   mailgun-ruby (~> 1.0.3)
   mini_magick
+  omniauth
   omniauth-facebook
   paratrooper
   pg
