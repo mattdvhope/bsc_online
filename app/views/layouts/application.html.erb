@@ -11,15 +11,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <%= favicon_link_tag "favicon.ico" %>
+    
+
+    <meta property="og:url"         content="http://cityenglishproject.com/" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="CEP Home" />
+    <meta property="og:description" content="Our site" />
+    <meta property="og:image"       content="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/on_bench.jpg" />
+
+
   </head>
   <body>
-    <%= render 'shared/messages' %>
-
-    <%= yield %>
-
-    <%= javascript_include_tag "application" %>
-    <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer"></script>
-
+    <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -37,5 +40,13 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
+
+
+    <%= render 'shared/messages' %>
+
+    <%= yield %>
+
+    <%= javascript_include_tag "application" %>
+    <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer"></script>
   </body>
 </html>
