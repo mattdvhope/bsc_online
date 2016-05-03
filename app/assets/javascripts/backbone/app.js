@@ -15,6 +15,7 @@ var App = {
     var front_page_main = new MainFrontView();
     this.renderNavBar();
     front_page_main.render();
+    $(window).scrollTop(0);
 
     this.front_page_main = front_page_main;
   },

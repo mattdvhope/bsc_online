@@ -21,6 +21,7 @@ var Router = Backbone.Router.extend({
     App.getLogInForm();
   },
   showVolunteerPage: function() {
+    $(window).scrollTop(0);
     if (App.reg_form) {
       App.reg_form.fadeOut();
     }
