@@ -114,9 +114,11 @@
 
   function getCorrectPageWhenFlagClicked() {
     if ($(".front-main-hbs").is(":visible")) {
-      App.getFrontMainPage();    
+      App.getFrontMainPage();
+      App.getFooter();
     } else if ($(".entire-vol").is(":visible")) {
       App.getVolunteerPage();
+      App.getFooter();
     }
   }
 

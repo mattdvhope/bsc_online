@@ -9,7 +9,7 @@
     <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+mobile.png" class="img-responsive">
   {{/if}}
   <div class="footer-content">
-    <h2>Contact us</h2>
+    <h2>{{contact_us}}</h2>
     <br>
     <div class="row row-eq-height">
       <div class="col-sm-3 footer-cep-logo">
@@ -18,14 +18,15 @@
       <br>
       <div class="col-sm-3 footer-address">
         <div class="footer-left-line">
-        <div class="footer-subtitle">Call:</div>
-        <div>080-555-7777,</div>
-        <div>081-555-8888</div>
+        <div class="footer-subtitle">{{telephone}}</div>
+        <div>080-???-7777,</div>
+        <div>081-???-8888</div>
         <br>
-        <div class="footer-subtitle">Address:</div>
-        <div>9999 Pan Road</div>
-        <div>(behind coffee shop)</div>
-        <div>South Satorn 99999</div>
+          {{#if thai_language}}
+            {{> footer/thai/_address }}
+          {{^}}
+            {{> footer/english/_address }}
+          {{/if}}
         <br>
         <div>
           <a href=""><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Facebook.png" class="social-media-icon"></a>
@@ -38,13 +39,16 @@
       </div>
       <br>
       <div class="col-sm-6 footer-map">
-        <iframe src="https://www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK
+        <{{!-- iframe src="https://www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK
       &zoom=17
       &key=YOUR_API_KEY">
-        </iframe>
+        </ifram --}}e>
       </div>
     </div> {{!-- row --}}
-    <div class="copyright" style="list-style-type: none;">Copyright &copy; City English Project 2015</div>
+    <div class="copyright" style="list-style-type: none;">
+      <div>Copyright &copy; City English Project 2016</div>
+      <div>All rights reserved.</div>
+    </div>
     <div class="fb-div">
       <div
         class="fb-like"

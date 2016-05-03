@@ -50,7 +50,8 @@ var App = {
     $(".entire-nav").children().remove();
     $(".entire-main").children().remove();
   },
-  getFrontFooterPage: function() {
+  getFooter: function() {
+    $(".entire-footer").children().remove();
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
@@ -109,7 +110,7 @@ var App = {
     } else {
       this.getFrontMainPage();
     }
-    this.getFrontFooterPage();
+    this.getFooter();
     this.getStudentOnDashboardLoad();
     this.getVolunteersOnDashboardLoad();
   }
