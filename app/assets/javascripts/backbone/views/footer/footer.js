@@ -1,4 +1,5 @@
 var FooterFrontView = Backbone.View.extend({
+  // id: "contact-us",
   templateFooter:  HandlebarsTemplates['footer/footer'],
   render: function() {
     this.$el.html(this.templateFooter({

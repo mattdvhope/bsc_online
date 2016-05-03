@@ -125,12 +125,17 @@ function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
 
-// Maintain scroll position when flag clicked
+// Maintain scroll position when flag clicked; see nav_bar.hbs, 
 $(document).on('scroll', function () {
   var num = $(window).scrollTop();
   sessionStorage.setItem("scrollTopPos", num);
 });
 
+// Re-render footer when window size changes
+$(window).on('resize', function() {
+  App.getFooter();
+  $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
+});
 
 
 
