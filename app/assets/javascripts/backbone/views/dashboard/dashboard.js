@@ -7,7 +7,6 @@ var DashboardView = Backbone.View.extend({
   //   App.getFrontMainPage();
   // },
   render: function() {
-console.log("in render?");
     this.$el.html(this.template());
   },
   initialize: function() {

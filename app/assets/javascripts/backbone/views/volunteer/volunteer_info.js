@@ -1,24 +1,35 @@
 var VolunteerPageView = Backbone.View.extend({
   template:  HandlebarsTemplates['volunteer/volunteer_info'],
-  fadeOut: function() {
-    this.$el.fadeOut(0, function() {
-      this.remove();
-    }.bind(this));
-    App.getFrontMainPage();
-  },
   render: function() {
     this.$el.html(this.template({
-      thai_flag_present: this.thai_flag_up()
+      window_big: this.window_width(),
+      thai_language: this.app_language_is_thai(),
+      steps_title: this.steps_title(),
+      register_organization: this.register_organization(),
+      volunteer_registration: this.volunteer_registration()
+
     }));
   },
-  thai_flag_up: function() {
-    return $(".thai_flag").is(":visible");
+  window_width: function() {
+    return $(window).width() > 550
   },
-  switch_languages: function(english, thai) {
-    if (this.thai_flag_up()) {
-      return english;
-    } else {
+  app_language_is_thai: function() {
+    return sessionStorage.getItem('language') === "thai";
+  },
+  steps_title: function() {
+    return this.choose_language("Steps to becoming a CEP volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+  },
+  register_organization: function() {
+    return this.choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
+  },
+  volunteer_registration: function() {
+    return this.choose_language("Volunteer Registration", "การลงทะเบียนคนอาสาสมัคร");
+  },
+  choose_language: function(english, thai) {
+    if (this.app_language_is_thai()) {
       return thai
+    } else {
+      return english;
     }
   },
   initialize: function() {
