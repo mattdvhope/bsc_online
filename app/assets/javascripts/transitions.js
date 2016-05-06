@@ -138,23 +138,18 @@ $(window).on('resize', function() {
   $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
 });
 
+// Animate size of logo on nav bar and move flag over
 $(window).on('scroll', function () {
     var scrollTop = $(window).scrollTop();
-    if (scrollTop > 100) {
-        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-        $(".usa_flag").stop().animate( {marginLeft: "70px"}, 50 );
-        $(".thai_flag").stop().animate( {marginLeft: "70px"}, 50 );
+    if (scrollTop < 100) {
+        $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
+        $(".usa_flag, .thai_flag").stop().animate( {marginLeft: "155px"}, 80 );
     }
     else {
-         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
-        $(".usa_flag").stop().animate( {marginLeft: "155px"}, 80 );
-        $(".thai_flag").stop().animate( {marginLeft: "155px"}, 80 );
+        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
+        $(".usa_flag, .thai_flag").stop().animate( {marginLeft: "70px"}, 50 );
     }
 });
-
-
-
-
 
 
 
