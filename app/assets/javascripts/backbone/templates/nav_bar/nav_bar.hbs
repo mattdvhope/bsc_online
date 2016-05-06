@@ -126,11 +126,11 @@
   // in tandem with "Maintain scroll position when flag clicked" in transitions.js
   $(".thai_flag").on("click", function() {
     $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
-    App.applcationView.render();
+    App.applcationView.render(); // to make modal have correct language
   });
   $(".usa_flag").on("click", function() {
     $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
-    App.applcationView.render();
+    App.applcationView.render(); // to make modal have correct language
   });
 
   $(".nav-hover").mouseenter(function(){
