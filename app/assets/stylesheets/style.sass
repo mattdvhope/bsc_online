@@ -26,11 +26,25 @@ logo:active
 
 $break: 550px
 
+.navbar-brand > img
+  display: inline
+  width: 160px
+  margin-top: -11px
+  margin-left: 10px
+  border-radius: 50%
+  position: fixed
+
+.usa_flag, .thai_flag
+  margin-left: 155px
+
+.header
+  background-color: #8BC34A
+
 .backg
   @media screen and (min-width: $break) // for large screen
     background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scene.jpg") no-repeat
   @media screen and (max-width: $break) // for small screen
-    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile.png")
+    background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile+buildings.png")
     background-size: cover
 
 .backg-vol
