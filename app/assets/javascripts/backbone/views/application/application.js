@@ -8,9 +8,26 @@ var ApplicationView = Backbone.View.extend({
 
   },
 
+  app_language_is_thai: function() {
+    return sessionStorage.getItem('language') === "thai";
+  },
+  application_title: function() {
+    return this.choose_language("Application Form & CEP Schedule", "กดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดดด");
+  },
+  choose_language: function(english, thai) {
+    if (this.app_language_is_thai()) {
+      return thai
+    } else {
+      return english;
+    }
+  },
+
   render: function() {
-console.log(this.el);
-    this.$el.html(this.template({}));
+console.log(sessionStorage.getItem('language'));
+    this.$el.html(this.template({
+      application_title: this.application_title(),
+
+    }));
 
     return this;
   }
