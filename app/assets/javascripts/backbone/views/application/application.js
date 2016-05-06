@@ -23,7 +23,6 @@ var ApplicationView = Backbone.View.extend({
   },
 
   render: function() {
-console.log(sessionStorage.getItem('language'));
     this.$el.html(this.template({
       application_title: this.application_title(),
 
