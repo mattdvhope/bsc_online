@@ -19,6 +19,10 @@ var App = {
 
     this.front_page_main = front_page_main;
   },
+  instantiateApplicationView: function() {
+    this.applcationView = new ApplicationView();
+    $("#applicationmodal").html(this.applcationView.render().el);
+  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     if (sessionStorageAvailable("fragment")) {
@@ -114,6 +118,7 @@ var App = {
     this.getFooter();
     this.getStudentOnDashboardLoad();
     this.getVolunteersOnDashboardLoad();
+    this.instantiateApplicationView();
   }
 };
 
