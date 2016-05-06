@@ -128,6 +128,7 @@ function showButton(element, index) {
 // Maintain scroll position when flag clicked; see nav_bar.hbs, 
 $(document).on('scroll', function () {
   var num = $(window).scrollTop();
+// console.log(num);
   sessionStorage.setItem("scrollTopPos", num);
 });
 
@@ -136,6 +137,30 @@ $(window).on('resize', function() {
   App.getFooter();
   $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
 });
+
+$(window).on('scroll', function () {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > 100) {
+        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
+        $(".usa_flag").stop().animate( {marginLeft: "70px"}, 50 );
+        $(".thai_flag").stop().animate( {marginLeft: "70px"}, 50 );
+    }
+    else {
+         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
+        $(".usa_flag").stop().animate( {marginLeft: "155px"}, 80 );
+        $(".thai_flag").stop().animate( {marginLeft: "155px"}, 80 );
+    }
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
