@@ -1,0 +1,96 @@
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">{{application_title}}</h3>
+      </div>
+      <div class="modal-body">
+        <form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" {{!-- value={{token}} --}}>
+
+          {{!-- <label class="field-label">Nickname</label>
+          <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" aria-describedby="basic-addon1" maxlength="100"> --}}
+
+          <label class="field-label">First Name</label>
+          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" aria-describedby="basic-addon1" maxlength="100">
+
+<br>
+<br>
+          {{!-- <h3>
+            <label for="nickname">Nickname</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="ชื่อเล่น" type="text" name="user[nickname]" id="user_nickname">
+          </h3>
+
+          <h3>
+            <label for="user_first_name">First Name</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="ชื่อเล่น" type="text" name="user[first_name]" id="user_first_name">
+          </h3>
+
+          <h3>
+            <label for="user_last_name">Last Name</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="นามสกุล" type="text" name="user[last_name]" id="user_last_name">
+          </h3>
+
+          <h3>
+            <label for="user_gender">Gender</label>
+          </h3>
+          <h3>
+            <select name="user[gender]" id="vol_gender">
+              <option value="ผู้ชาย">ผู้ชาย</option>
+              <option value="ผู้หญิง">ผู้หญิง</option>
+            </select>
+          </h3>
+
+          <h3>
+            <label for="user_email">Email Address</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="อีเมล" type="email" name="user[email]" id="user_email">
+          </h3>
+
+          <h3>
+            <label for="user_password">Password</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="รหัสผ่าน" type="password" name="user[password]" id="user_password">
+          </h3>
+
+          <h3>
+            <label for="user_password_confirmation">Password Confirmation</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="รหัสผ่าน" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+          </h3>
+
+          <h3>
+            <label for="user_postal_code">Postal Code</label>
+          </h3>
+          <h3>
+            <input class="field-input student_registration" placeholder="รหัสไปรษณีย์" type="text" name="user[postal_code]" id="user_postal_code">
+          </h3>
+          <br> --}}
+          <input type="submit" name="commit" value="Join CEP!" class="btn btn-success student_reg_er">
+
+          <div class="control-group">
+            <button class="category_add btn btn-primary">Add</button>
+          </div>
+
+          <ul class="categories span3">
+          </ul>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+
