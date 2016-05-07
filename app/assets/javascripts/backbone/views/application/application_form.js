@@ -1,18 +1,13 @@
 var ApplicationView = Backbone.View.extend({
 
-  template:  HandlebarsTemplates['application/application'],
-
+  initialize: function() {},
   events: {},
-
-  initialize: function() {
-
-  },
 
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
   },
   application_title: function() {
-    return this.choose_language("Application Form & CEP Schedule", "กดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดกดดด");
+    return this.choose_language("Application for Thai people who want to learn English at CEP", "กดกดกดกดกดกดกดกดกดกดกดกดกดดกดกดกดกดกดกดกดกกหกหกกหกกหกกดกดกดกดกดดด");
   },
   choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {
@@ -21,6 +16,8 @@ var ApplicationView = Backbone.View.extend({
       return english;
     }
   },
+
+  template:  HandlebarsTemplates['application/application_form'],
 
   render: function() {
     this.$el.html(this.template({
