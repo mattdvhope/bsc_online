@@ -20,7 +20,7 @@
     "tag": "2.1.1",
     "commit": "fdd234f58d4997ec13400ba4f070e8a803f6ecbe"
   },
-  "_source": "git://github.com/velesin/jasmine-jquery.git",
+  "_source": "https://github.com/velesin/jasmine-jquery.git",
   "_target": "*",
   "_originalSource": "jasmine-jquery"
 }

@@ -155,9 +155,10 @@ $( document ).ready(function() {
     resumeScrollingAferModal();
   });
 
-  $("#applicationmodal").on("click", function(e) {
-    if( !$(e.target).is('modal-content') ) {
-      resumeScrollingAferModal();
+  $(document).on("keyup", function(e) {
+  if (e.keyCode == 27) {
+    resumeScrollingAferModal();
+    $(".close-modal").trigger("click");
     }
   });
 

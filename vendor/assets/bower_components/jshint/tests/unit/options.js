@@ -435,11 +435,11 @@ exports.testCamelcase = function (test) {
 
   // Require identifiers in camel case if camelcase is true
   TestRun(test)
-    .addError(5, "Identifier 'Foo_bar' is not in camel case.")
-    .addError(5, "Identifier 'test_me' is not in camel case.")
-    .addError(6, "Identifier 'test_me' is not in camel case.")
-    .addError(6, "Identifier 'test_me' is not in camel case.")
-    .addError(13, "Identifier 'test_1' is not in camel case.")
+    .addError(5, "Identifier 'Foo_bar' is not in camel case.", {character: 17})
+    .addError(5, "Identifier 'test_me' is not in camel case.", {character: 25})
+    .addError(6, "Identifier 'test_me' is not in camel case.", {character: 15})
+    .addError(6, "Identifier 'test_me' is not in camel case.", {character: 25})
+    .addError(13, "Identifier 'test_1' is not in camel case.", {character: 26})
     .test(source, { es3: true, camelcase: true });
 
 
@@ -1769,6 +1769,62 @@ exports.strictEnvs = function (test) {
     .addError(2, "Missing \"use strict\" statement.")
     .test(partialStrict, { strict: true, phantom: true });
 
+  partialStrict = [
+    '(() =>',
+    '  void 0',
+    ')();',
+  ]
+
+  TestRun(test, "Block-less arrow functions in the Browserify env")
+    .addError(3, "Missing \"use strict\" statement.")
+    .test(partialStrict, { esversion: 6, strict: true, browserify: true });
+  TestRun(test, "Block-less arrow function in the Node.js environment")
+    .addError(3, "Missing \"use strict\" statement.")
+    .test(partialStrict, { esversion: 6, strict: true, node: true });
+  TestRun(test, "Block-less arrow function in the PhantomJS environment")
+    .addError(3, "Missing \"use strict\" statement.")
+    .test(partialStrict, { esversion: 6, strict: true, phantom: true });
+
+  test.done();
+};
+
+/**
+ * The following test asserts sub-optimal behavior.
+ *
+ * Through the `strict` and `globalstrict` options, JSHint can be configured to
+ * issue warnings when code is not in strict mode. Historically, JSHint has
+ * issued these warnings on a per-statement basis in global code, leading to
+ * "noisy" output through the repeated reporting of the missing directive.
+ */
+exports.strictNoise = function (test) {
+  TestRun(test, "global scope")
+    .addError(1, "Missing \"use strict\" statement.")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test([
+      "void 0;",
+      "void 0;",
+    ], { strict: true, globalstrict: true });
+
+  TestRun(test, "function scope")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test([
+      "(function() {",
+      "  void 0;",
+      "  void 0;",
+      "}());",
+    ], { strict: true });
+
+  TestRun(test, "function scope")
+    .addError(2, "Missing \"use strict\" statement.")
+    .test([
+      "(function() {",
+      "  (function() {",
+      "    void 0;",
+      "    void 0;",
+      "  }());",
+      "}());",
+    ], { strict: true });
+
   test.done();
 };
 
@@ -1864,6 +1920,22 @@ exports.globalstrict = function (test) {
 
   TestRun(test, "gh-2661")
     .test("'use strict';", { strict: false, globalstrict: true });
+
+  TestRun(test, "gh-2836 (1)")
+    .test([
+      "// jshint globalstrict: true",
+      // The specific option set by the following directive is not relevant.
+      // Any option set by another directive will trigger the regression.
+      "// jshint undef: true"
+    ]);
+
+  TestRun(test, "gh-2836 (2)")
+    .test([
+      "// jshint strict: true, globalstrict: true",
+      // The specific option set by the following directive is not relevant.
+      // Any option set by another directive will trigger the regression.
+      "// jshint undef: true"
+    ]);
 
   test.done();
 };
@@ -2463,10 +2535,10 @@ exports.freeze = function (test) {
   TestRun(test)
     .addError(3, "Extending prototype of native object: 'Array'.")
     .addError(13, "Extending prototype of native object: 'Boolean'.")
-    .test(src, { freeze: true });
+    .test(src, { freeze: true, esversion: 6 });
 
   TestRun(test)
-    .test(src);
+    .test(src, { esversion: 6 });
 
   test.done();
 };
@@ -2478,7 +2550,7 @@ exports.nonbsp = function (test) {
     .test(src, { sub: true });
 
   TestRun(test)
-    .addError(1, "This line contains non-breaking spaces: http://jshint.com/doc/options/#nonbsp")
+    .addError(1, "This line contains non-breaking spaces: http://jshint.com/docs/options/#nonbsp")
     .test(src, { nonbsp: true, sub: true });
 
   test.done();
@@ -2677,6 +2749,30 @@ singleGroups.bindingPower.singleExpr = function (test) {
     .addError(33, "Unnecessary grouping operator.")
     .addError(34, "Unnecessary grouping operator.")
     .test(code, { singleGroups: true });
+
+  code = [
+    "var x;",
+    "x = (printA || printB)``;",
+    "x = (printA || printB)`${}`;",
+    "x = (new X)``;",
+    "x = (new X)`${}`;",
+    // Should warn:
+    "x = (x.y)``;",
+    "x = (x.y)`${}`;",
+    "x = (x[x])``;",
+    "x = (x[x])`${}`;",
+    "x = (x())``;",
+    "x = (x())`${}`;"
+  ];
+
+  TestRun(test)
+    .addError(6, "Unnecessary grouping operator.")
+    .addError(7, "Unnecessary grouping operator.")
+    .addError(8, "Unnecessary grouping operator.")
+    .addError(9, "Unnecessary grouping operator.")
+    .addError(10, "Unnecessary grouping operator.")
+    .addError(11, "Unnecessary grouping operator.")
+    .test(code, { singleGroups: true, esversion: 6, supernew: true });
 
   test.done();
 };
@@ -2967,6 +3063,26 @@ singleGroups.postfix = function (test) {
   test.done();
 };
 
+singleGroups.destructuringAssign = function (test) {
+
+  var code = [
+    // statements
+    "({ x } = { x : 1 });",
+    "([ x ] = [ 1 ]);",
+    // expressions
+    "1, ({ x } = { x : 1 });",
+    "1, ([ x ] = [ 1 ]);"
+  ];
+
+  TestRun(test)
+    .addError(2, "Unnecessary grouping operator.")
+    .addError(3, "Unnecessary grouping operator.")
+    .addError(4, "Unnecessary grouping operator.")
+    .test(code, { esversion: 6, singleGroups: true, expr: true });
+
+  test.done();
+};
+
 exports.elision = function (test) {
   var code = [
     "var a = [1,,2];",
@@ -3213,69 +3329,6 @@ exports.varstmt = function (test) {
   test.done();
 };
 
-exports.errorI003 = function(test) {
-  var code = [
-    "// jshint browser: true",
-    "function f() {",
-    "  // jshint browser: false",
-    "}",
-    "f();"
-  ];
-
-  TestRun(test, "no es5 option with enforceall")
-    .test(code, { enforceall: true });
-
-  TestRun(test, "global overriding es5")
-    .addError(0, "ES5 option is now set per default")
-    .test(code, { es5: true });
-
-  var code2 = [
-    "// jshint browser: true",
-    "function f() {",
-    "  // jshint es5: true",
-    "}",
-    "f();"
-  ];
-
-  TestRun(test, "nested overriding es5")
-    .addError(3, "ES5 option is now set per default")
-    .test(code2, { enforceall: true });
-
-  var code3 = [
-    "// jshint es5: false",
-    "// jshint es5: true",
-    "// jshint es5: false",
-    "// jshint es5: true"
-  ];
-
-  TestRun(test, "toggling es5 option")
-    .test(code3, {});
-
-  var code4 = [
-    "// jshint es5: false",
-    "function a() {",
-    "  // jshint es5: true",
-    "  function b() {",
-    "    // jshint es5: false",
-    "    function c() {",
-    "      // jshint es5: true",
-    "      function d() {",
-    "      }",
-    "      d();",
-    "    }",
-    "    c();",
-    "  }",
-    "  b();",
-    "}",
-    "a();"
-  ];
-
-  TestRun(test, "toggling es5 option through nested scopes")
-    .test(code4, {});
-
-  test.done();
-};
-
 exports.module = {};
 exports.module.behavior = function(test) {
   var code = [
@@ -3411,6 +3464,43 @@ exports.module.newcap = function(test) {
   test.done();
 };
 
+exports.module.await = function(test) {
+  var allPositions = [
+    "var await;",
+    "function await() {}",
+    "await: while (false) {}",
+    "void { await: null };",
+    "void {}.await;"
+  ];
+
+  TestRun(test)
+    .test(allPositions, { esversion: 3 });
+  TestRun(test)
+    .test(allPositions);
+  TestRun(test)
+    .test(allPositions, { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Expected an identifier and instead saw 'await' (a reserved word).")
+    .test("var await;", { esversion: 6, module: true });
+
+  TestRun(test)
+    .addError(1, "Expected an identifier and instead saw 'await' (a reserved word).")
+    .test("function await() {}", { esversion: 6, module: true });
+
+  TestRun(test)
+    .addError(1, "Expected an identifier and instead saw 'await' (a reserved word).")
+    .test("await: while (false) {}", { esversion: 6, module: true });
+
+  TestRun(test)
+    .test([
+      "void { await: null };",
+      "void {}.await;"
+    ], { esversion: 6, module: true });
+
+  test.done();
+};
+
 exports.esversion = function(test) {
   var code = [
     "// jshint esversion: 3",
@@ -3478,7 +3568,6 @@ exports.esversion = function(test) {
     .test(es6code, { esversion: 6, es3: true });
 
   TestRun(test, "incompatibility with `es5`") // TODO: Remove in JSHint 3
-    .addError(0, "ES5 option is now set per default")
     .addError(0, "Incompatible values for the 'esversion' and 'es5' linting options. (0% scanned).")
     .test(es6code, { esversion: 6, es5: true });
 

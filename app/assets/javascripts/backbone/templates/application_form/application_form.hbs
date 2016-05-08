@@ -1,0 +1,62 @@
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">{{application_title}}</h3>
+      </div>
+      <div class="modal-body">
+        <form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token">
+
+          <input type="hidden" name="user[guest]" value="true">
+
+          <hr>
+          <label class="field-label">Nickname</label>
+          <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="user[nickname]">
+          <hr>
+          <label class="field-label">First Name</label>
+          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="user[first_name]">
+          <hr>
+          <label class="field-label">Last Name</label>
+          <input type="text" class="form-control last-name" placeholder="นามสกุล" name="user[last_name]">
+          <hr>
+          <label class="field-label">Last Name</label>
+          <input type="text" class="form-control last-name" placeholder="นามสกุล" name="user[last_name]">
+          <hr>
+          <label class="field-label">Gender</label>
+          <div>
+          <select name="user[gender]" class="gender-select">
+            <option value="ผู้ชาย">ผู้ชาย</option>
+            <option value="ผู้หญิง">ผู้หญิง</option>
+          </select>
+          </div>
+          <hr>
+          <label class="field-label">Email Address</label>
+          <input type="text" class="form-control email" placeholder="อีเมล" name="user[email]">
+          <hr>
+          <label class="field-label">Password</label>
+          <input type="text" class="form-control password" placeholder="รหัสผ่าน" name="user[password]">
+          <hr>
+          <label class="field-label">Password Confirmation</label>
+          <input type="text" class="form-control password-confirmation" placeholder="รหัสผ่าน" name="user[password_confirmation]">
+          <hr>
+          <label class="field-label">Postal Code</label>
+          <input type="text" class="form-control postal-code" placeholder="รหัสไปรษณีย์" name="user[postal_code]">
+          <hr>
+
+          <div class="control-group">
+            <button class="guest-add btn">Join CEP!</button>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+

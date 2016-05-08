@@ -140,9 +140,7 @@ exports.assignment = function (test) {
     .addError(3, "Bad assignment.")
     .addError(4, "Bad assignment.")
     .addError(5, "Bad assignment.")
-    .addError(14, "Bad assignment.")
-    .addError(14, "Expected an assignment or function call and instead saw an expression.")
-    .addError(14, "Missing semicolon.");
+    .addError(14, "Bad assignment.");
 
   run.test(code, { plusplus: true, es3: true });
   run.test(code, { plusplus: true }); // es5
@@ -492,10 +490,11 @@ exports.regexp = function (test) {
     "var s = /(((/;",
     "var t = /x/* 2;",
     "var u = /x/;",
-    "var v = /dsdg;",
     "var w = v + /s/;",
     "var x = w - /s/;",
-    "var y = typeof /[a-z]/;" // GH-657
+    "var y = typeof /[a-z]/;", // GH-657
+    "var z = /a/ instanceof /a/.constructor;", // GH-2773
+    "var v = /dsdg;"
   ];
 
   var run = TestRun(test)
@@ -514,13 +513,15 @@ exports.regexp = function (test) {
     .addError(17, "Invalid regular expression.")
     .addError(20, "Invalid regular expression.")
     .addError(21, "Invalid regular expression.")
-    .addError(24, "Unclosed regular expression.")
-    .addError(24, "Unrecoverable syntax error. (88% scanned).");
+    .addError(28, "Unclosed regular expression.")
+    .addError(28, "Unrecoverable syntax error. (100% scanned).");
 
   run.test(code, {es3: true});
   run.test(code, {}); // es5
   run.test(code, {esnext: true});
   run.test(code, {moz: true});
+
+  TestRun(test).test("var a = `${/./}${/./}`;", { esversion: 6 });
 
 
   // Pre Regular Expression Punctuation
@@ -1021,33 +1022,25 @@ exports["gh-2587"] = function (test) {
 
 exports.badAssignments = function (test) {
   TestRun(test)
-    .addError(1, "Missing semicolon.")
     .addError(1, "Bad assignment.")
-    .addError(1, "Expected an assignment or function call and instead saw an expression.")
     .test([
       "a() = 1;"
     ], { });
 
   TestRun(test)
-    .addError(1, "Missing semicolon.")
     .addError(1, "Bad assignment.")
-    .addError(1, "Expected an assignment or function call and instead saw an expression.")
     .test([
       "a.a() = 1;"
     ], { });
 
   TestRun(test)
-    .addError(1, "Missing semicolon.")
     .addError(1, "Bad assignment.")
-    .addError(1, "Expected an assignment or function call and instead saw an expression.")
     .test([
       "(function(){}) = 1;"
     ], { });
 
   TestRun(test)
-    .addError(1, "Missing semicolon.")
     .addError(1, "Bad assignment.")
-    .addError(1, "Expected an assignment or function call and instead saw an expression.")
     .test([
       "a.a() &= 1;"
     ], { });
@@ -1863,7 +1856,7 @@ exports["destructuring globals with syntax error"] = function (test) {
   ];
 
   TestRun(test)
-    .addError(3, "Expected an identifier and instead saw '1'.")
+    .addError(3, "Bad assignment.")
     .addError(4, "Expected ',' and instead saw ';'.")
     .addError(5, "Expected ']' to match '[' from line 5 and instead saw ';'.")
     .addError(5, "Missing semicolon.")
@@ -1873,11 +1866,8 @@ exports["destructuring globals with syntax error"] = function (test) {
     .addError(5, "Expected an assignment or function call and instead saw an expression.")
     .addError(6, "Bad assignment.")
     .addError(7, "Expected ',' and instead saw '.'.")
-    .addError(8, "Expected ',' and instead saw '('.")
-    .addError(8, "Expected an identifier and instead saw ')'.")
-    .addError(8, "Expected an identifier and instead saw ')'.")
-    .addError(9, "Expected ',' and instead saw '('.")
-    .addError(9, "Expected an identifier and instead saw ')'.")
+    .addError(8, "Bad assignment.")
+    .addError(9, "Bad assignment.")
     .addError(2,  "'z' is not defined.")
     .test(code, {esnext: true, unused: true, undef: true});
 
@@ -1905,6 +1895,8 @@ exports["destructuring globals with syntax error"] = function (test) {
     .addError(4, "Bad assignment.")
     .addError(6, "Do not assign to the exception parameter.")
     .addError(7, "Do not assign to the exception parameter.")
+    .addError(9, "Bad assignment.")
+    .addError(10, "Bad assignment.")
     .test([
       "[ Number.prototype.toString ] = [function(){}];",
       "function a() {",
@@ -1914,6 +1906,9 @@ exports["destructuring globals with syntax error"] = function (test) {
       "    ({e} = {e});",
       "    [e] = [];",
       "  }",
+      "  ({ x: null } = {});",
+      "  ({ y: [...this] } = {});",
+      "  ({ y: [...z] } = {});",
       "}"], {esnext: true, freeze: true});
 
   test.done();
@@ -2026,6 +2021,50 @@ exports["destructuring assignment default values"] = function (test) {
     .addError(13, "It's not necessary to initialize 'x' to 'undefined'.")
     .addError(14, "Expected ']' and instead saw '='.")
     .test(code, { esnext: true });
+
+  test.done();
+};
+
+exports["destructuring assignment of valid simple assignment targets"] = function (test) {
+  TestRun(test)
+    .test([
+      "[ foo().attr ] = [];",
+      "[ function() {}.attr ] = [];",
+      "[ function() { return {}; }().attr ] = [];",
+      "[ new Ctor().attr ] = [];"
+    ], { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("[ foo() ] = [];", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("({ x: foo() } = {});", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("[ true ? x : y ] = [];", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("({ x: true ? x : y } = {});", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("[ x || y ] = [];", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("({ x: x || y } = {});", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("[ new Ctor() ] = [];", { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Bad assignment.")
+    .test("({ x: new Ctor() } = {});", { esversion: 6 });
 
   test.done();
 };
@@ -5093,8 +5132,7 @@ exports["regression test for crash from GH-964"] = function (test) {
 
   TestRun(test)
     .addError(2, "Bad assignment.")
-    .addError(2, "Expected an operator and instead saw 'new'.")
-    .addError(2, "Missing semicolon.")
+    .addError(2, "Did you mean to return a conditional instead of an assignment?")
     .test(code);
 
   test.done();
@@ -6156,32 +6194,6 @@ exports["test for GH-1089"] = function (test) {
   run.test(code);
 
   test.done();
-};
-
-exports["test for GH-1103"] = function (test) {
-  var code = [ "var ohnoes = 42;" ];
-
-  var run = TestRun(test);
-
-  var patch = true;
-
-  JSHINT.addModule(function (linter) {
-    if (!patch) {
-      return;
-    }
-    patch = false;
-
-    var ohnoes = "oh noes";
-    Array.prototype.ohnoes = function () {
-      linter.warn("E024", { line: 1, char: 1, data: [ ohnoes += "!" ] });
-    };
-  });
-
-  run.test(code);
-
-  test.done();
-
-  delete Array.prototype.ohnoes;
 };
 
 exports["test for GH-1105"] = function (test) {
@@ -7400,6 +7412,36 @@ exports.lazyIdentifierChecks = function (test) {
   TestRun(test)
     .addError(8, "The '__proto__' property is deprecated.")
     .addError(9, "The '__iterator__' property is deprecated.")
+    .test(src);
+
+  test.done();
+};
+
+exports.parsingCommas = function (test) {
+  var src = fs.readFileSync(__dirname + '/fixtures/parsingCommas.js', 'utf8');
+
+  TestRun(test)
+    .addError(2, "Unexpected ','.")
+    .addError(2, "Comma warnings can be turned off with 'laxcomma'.")
+    .addError(1, "Bad line breaking before ','.")
+    .addError(2, "Expected an identifier and instead saw ';'.")
+    .addError(2, "Expected an identifier and instead saw ')'.")
+    .addError(2, "Expected ';' and instead saw '{'.")
+    .addError(2, "Expected an identifier and instead saw '}'.")
+    .addError(5, "Expected ')' to match '(' from line 1 and instead saw 'for'.")
+    .addError(5, "Expected an identifier and instead saw ';'.")
+    .addError(5, "Expected ')' to match '(' from line 5 and instead saw ';'.")
+    .addError(5, "Expected an assignment or function call and instead saw an expression.")
+    .addError(5, "Missing semicolon.")
+    .addError(6, "Unexpected ','.")
+    .addError(5, "Expected an assignment or function call and instead saw an expression.")
+    .addError(5, "Missing semicolon.")
+    .addError(6, "Expected an identifier and instead saw ','.")
+    .addError(6, "Expected an assignment or function call and instead saw an expression.")
+    .addError(6, "Missing semicolon.")
+    .addError(6, "Expected an identifier and instead saw ')'.")
+    .addError(6, "Expected an assignment or function call and instead saw an expression.")
+    .addError(6, "Missing semicolon.")
     .test(src);
 
   test.done();

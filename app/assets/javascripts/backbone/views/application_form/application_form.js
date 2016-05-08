@@ -17,7 +17,7 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
-  template:  HandlebarsTemplates['application/application_form'],
+  template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
     this.$el.html(this.template({
