@@ -1,5 +1,4 @@
 asset 'bootstrap-sass-official'
-asset 'bootstrap-select'
 asset 'jasmine-jquery'
 asset 'backbone'
 asset 'jshint'
