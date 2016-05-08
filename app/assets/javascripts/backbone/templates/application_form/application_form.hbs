@@ -27,63 +27,29 @@
           <input type="text" class="form-control last-name" placeholder="นามสกุล" name="user[last_name]">
           <hr>
           <label class="field-label">Gender</label>
-          <select name="user[gender]">
+          <div>
+          <select name="user[gender]" class="gender-select">
             <option value="ผู้ชาย">ผู้ชาย</option>
             <option value="ผู้หญิง">ผู้หญิง</option>
           </select>
-
-
-<hr>
-<hr>
-<hr>
-<hr>
-
-          <h3>
-            <label for="user_gender">Gender</label>
-          </h3>
-          <h3>
-            <select name="user[gender]" id="vol_gender">
-              <option value="ผู้ชาย">ผู้ชาย</option>
-              <option value="ผู้หญิง">ผู้หญิง</option>
-            </select>
-          </h3>
-
-          <h3>
-            <label for="user_email">Email Address</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="อีเมล" type="email" name="user[email]" id="user_email">
-          </h3>
-
-          <h3>
-            <label for="user_password">Password</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="รหัสผ่าน" type="password" name="user[password]" id="user_password">
-          </h3>
-
-          <h3>
-            <label for="user_password_confirmation">Password Confirmation</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="รหัสผ่าน" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-          </h3>
-
-          <h3>
-            <label for="user_postal_code">Postal Code</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="รหัสไปรษณีย์" type="text" name="user[postal_code]" id="user_postal_code">
-          </h3>
-          <br> --}}
-          
+          </div>
+          <hr>
+          <label class="field-label">Email Address</label>
+          <input type="text" class="form-control email" placeholder="อีเมล" name="user[email]">
+          <hr>
+          <label class="field-label">Password</label>
+          <input type="text" class="form-control password" placeholder="รหัสผ่าน" name="user[password]">
+          <hr>
+          <label class="field-label">Password Confirmation</label>
+          <input type="text" class="form-control password-confirmation" placeholder="รหัสผ่าน" name="user[password_confirmation]">
+          <hr>
+          <label class="field-label">Postal Code</label>
+          <input type="text" class="form-control postal-code" placeholder="รหัสไปรษณีย์" name="user[postal_code]">
+          <hr>
 
           <div class="control-group">
             <button class="guest-add btn">Join CEP!</button>
           </div>
-
-          <ul class="categories span3">
-          </ul>
 
         </form>
       </div>
