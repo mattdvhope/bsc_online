@@ -119,6 +119,7 @@ var App = {
     this.getStudentOnDashboardLoad();
     this.getVolunteersOnDashboardLoad();
     this.instantiateApplicationView();
+    $('.entire-main').find('.modal-initiator').trigger('click');
   }
 };
 
