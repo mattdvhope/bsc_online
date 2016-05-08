@@ -7,13 +7,21 @@
         <h3 class="modal-title">{{application_title}}</h3>
       </div>
       <div class="modal-body">
-        <form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" {{!-- value={{token}} --}}>
+        <form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token">
 
           {{!-- <label class="field-label">Nickname</label>
           <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" aria-describedby="basic-addon1" maxlength="100"> --}}
 
           <label class="field-label">First Name</label>
-          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" aria-describedby="basic-addon1" maxlength="100">
+
+
+          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="user[first_name]" aria-describedby="basic-addon1">
+          <input type="hidden" name="user[guest]" value="true">
+
+
+
 
 <br>
 <br>
@@ -76,10 +84,10 @@
             <input class="field-input student_registration" placeholder="รหัสไปรษณีย์" type="text" name="user[postal_code]" id="user_postal_code">
           </h3>
           <br> --}}
-          <input type="submit" name="commit" value="Join CEP!" class="btn btn-success student_reg_er">
+          
 
           <div class="control-group">
-            <button class="category_add btn btn-primary">Add</button>
+            <button class="guest-add btn">Join CEP!</button>
           </div>
 
           <ul class="categories span3">
