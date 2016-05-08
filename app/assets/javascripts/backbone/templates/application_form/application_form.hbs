@@ -11,40 +11,32 @@
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="authenticity_token">
 
-          {{!-- <label class="field-label">Nickname</label>
-          <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" aria-describedby="basic-addon1" maxlength="100"> --}}
-
-          <label class="field-label">First Name</label>
-
-
-          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="user[first_name]" aria-describedby="basic-addon1">
           <input type="hidden" name="user[guest]" value="true">
 
+          <hr>
+          <label class="field-label">Nickname</label>
+          <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="user[nickname]">
+          <hr>
+          <label class="field-label">First Name</label>
+          <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="user[first_name]">
+          <hr>
+          <label class="field-label">Last Name</label>
+          <input type="text" class="form-control last-name" placeholder="นามสกุล" name="user[last_name]">
+          <hr>
+          <label class="field-label">Last Name</label>
+          <input type="text" class="form-control last-name" placeholder="นามสกุล" name="user[last_name]">
+          <hr>
+          <label class="field-label">Gender</label>
+          <select name="user[gender]">
+            <option value="ผู้ชาย">ผู้ชาย</option>
+            <option value="ผู้หญิง">ผู้หญิง</option>
+          </select>
 
 
-
-<br>
-<br>
-          {{!-- <h3>
-            <label for="nickname">Nickname</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="ชื่อเล่น" type="text" name="user[nickname]" id="user_nickname">
-          </h3>
-
-          <h3>
-            <label for="user_first_name">First Name</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="ชื่อเล่น" type="text" name="user[first_name]" id="user_first_name">
-          </h3>
-
-          <h3>
-            <label for="user_last_name">Last Name</label>
-          </h3>
-          <h3>
-            <input class="field-input student_registration" placeholder="นามสกุล" type="text" name="user[last_name]" id="user_last_name">
-          </h3>
+<hr>
+<hr>
+<hr>
+<hr>
 
           <h3>
             <label for="user_gender">Gender</label>
