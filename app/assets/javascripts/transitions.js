@@ -1,8 +1,8 @@
 // Scrolling up & down pages with nav links/////////
 $("#place_1").addClass("active");
 
-$(".page-scroll").on("click", function() { // to remove coloring from previously clicked nav links
-  event.preventDefault();
+$(".page-scroll").on("click", function(e) { // to remove coloring from previously clicked nav links
+  e.preventDefault();
   $("#place_1").removeClass("active");
   $("#place_2").removeClass("active");
   $("#place_3").removeClass("active");
@@ -159,6 +159,14 @@ $( document ).ready(function() {
   if (e.keyCode == 27) {
     resumeScrollingAferModal();
     $(".close-modal").trigger("click");
+    }
+  });
+
+  $("#applicationmodal").on('click', function(event) {
+    var applFormViewDiv = document.getElementById("application-form-modal");
+    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the div
+      resumeScrollingAferModal();
+      $(".close-modal").trigger("click");
     }
   });
 
