@@ -1,4 +1,5 @@
 var ApplicationView = Backbone.View.extend({
+  id: "application-form-modal",
 
   initialize: function() {},
   events: {},

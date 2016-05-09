@@ -7,7 +7,7 @@
         <h3 class="modal-title">{{application_title}}</h3>
       </div>
       <div class="modal-body">
-        <form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+        <form novalidate="novalidate" class="simple_form application_form" id="new_user" action="/users" accept-charset="UTF-8" method="post">
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="authenticity_token">
 
@@ -28,10 +28,10 @@
           <hr>
           <label class="field-label">Gender</label>
           <div>
-          <select name="user[gender]" class="gender-select">
-            <option value="ผู้ชาย">ผู้ชาย</option>
-            <option value="ผู้หญิง">ผู้หญิง</option>
-          </select>
+            <select name="user[gender]" class="gender-select">
+              <option value="ผู้ชาย">ผู้ชาย</option>
+              <option value="ผู้หญิง">ผู้หญิง</option>
+            </select>
           </div>
           <hr>
           <label class="field-label">Email Address</label>
@@ -43,13 +43,74 @@
           <label class="field-label">Password Confirmation</label>
           <input type="text" class="form-control password-confirmation" placeholder="รหัสผ่าน" name="user[password_confirmation]">
           <hr>
-          <label class="field-label">Postal Code</label>
-          <input type="text" class="form-control postal-code" placeholder="รหัสไปรษณีย์" name="user[postal_code]">
+          <label class="field-label">Province / District in Bangkok</label>
+          <input type="text" class="form-control district" placeholder="จังหวัด / เขต" name="user[district]">
+          <hr>
+
+
+          <fieldset id="class-schedule-options">
+            <label for="class-schedule" class="field-label">Choose your schedule option</label>
+            <div class="radio-div-applic">
+              <label><input type="radio" id="sched-opt-one" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 1: Study for five times in one week.</span></label>
+              <select id="five-weeks" name="user[class_time]" class="grayout" disabled>
+                <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
+                <option value="monday_one_five_weeks">Mondays, 30 May - 27 June (5 times), 5:00-6:30pm</option>
+                <option value="monday_two_five_weeks">Mondays, 30 May - 27 June (5 times), 7:00-8:30pm</option>
+                <option value="tuesday_one_five_weeks">Tuesdays, 31 May - 28 June (5 times), 5:00-6:30pm</option>
+                <option value="tuesday_two_five_weeks">Tuesdays, 31 May - 28 June (5 times), 7:00-8:30pm</option>
+                <option value="saturday_one_five_weeks">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>
+                <option value="saturday_two_five_weeks">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>
+                <option value="saturday_three_five_weeks">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>
+                <option value="saturday_four_five_weeks">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>
+              </select>
+            </div>
+            <br>
+            <div class="radio-div-applic">
+              <label><input type="radio" id="sched-opt-two" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 2: Study one time per week for five weeks.</span></label>
+              <select id="one-whole-week" name="user[class_time]" class="grayout" disabled>
+                <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
+                <option value="mondayfive">Monday-Friday, 6-10 June (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 6-10 June (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 13-17 June (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 13-17 June (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 20-24 June (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 20-24 June (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 27 June-1 July (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 27 June-1 July (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 4-8 July (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 4-8 July (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 7:00-8:30pm</option>
+                <option value="mondayfive">Monday-Friday, 18-22 July (4 times, because of holiday), 5:00-6:30pm</option>
+                <option value="mondayfive">Monday-Friday, 18-22 July (4 times, because of holiday), 7:00-8:30pm</option>
+              </select>
+            </div>
+          </fieldset>
+          <hr>
+          <fieldset id="user[payment-option]">
+            <label class="field-label">Choose your payment option</label>
+              <p class="above-radios"><a href="#">How much does each class cost?</a></p>
+              <div class="radio-div-applic">
+                <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay at the CEP Center on Pan Road.</span></label>
+              </div>
+              <br>
+              <div class="radio-div-applic">
+                <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by bank transfer to CEP's bank.</span></label>
+              </div>
+              <br>
+              <div class="radio-div-applic">
+                <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by Paypal.</span></label>
+              </div>
+              <p class="under-radios"><a href="#">CEP's payment information</a></p>
+          </fieldset>
           <hr>
 
           <div class="control-group">
             <button class="guest-add btn">Join CEP!</button>
           </div>
+
+          <hr>
+          <p>After you have submitted this application, friended CEP on Facebook and/or LINE and then made your payment, you are eligible to come to our center on <a href="">Pan Road</a> to pick up your class book.  Make sure to bring your book to each class session.  If you lose your book, you will need to buy another one for 100 baht in order to be allowed to attend each session of the class.</p>
 
         </form>
       </div>
@@ -59,4 +120,23 @@
     </div>
     
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
