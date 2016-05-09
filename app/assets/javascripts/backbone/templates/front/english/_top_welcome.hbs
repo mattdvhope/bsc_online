@@ -10,6 +10,8 @@
 {{!-- <h2>Stacked Bootstrap Modal Example.</h2>
 <a data-toggle="modal" href="#" class="btn btn-primary" data-target="#myModal">Launch modal</a>
 <br><hr><br><hr> --}}
+<!-- Note that this <a.btn> is ABOVE #myModal, unlike #applicationmodal which is in front.html.erb... the 'a.modal-initiator' above actually 'reaches back' into the Rails view for #applicationmodal and then proceeds to populate it with the ApplicationView's template (application_form.hbs). -->
+
 
 <div class="modal fade" id="myModal" role="dialog">
   
