@@ -10,7 +10,8 @@ gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem 'paratrooper' # for setting up the Heroku staging environment
 gem 'carrierwave' # To work with app/uploaders/...
-gem 'carrierwave-aws' # For Amazon S3; replaces 'fog'
+gem 'mini_magick'
+gem 'fog-aws' # For Amazon S3
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 gem 'draper' # For using decorators
 # gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
@@ -40,7 +41,6 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0' # compressor for JavaScript assets; coffeescript
 gem 'gon'
 gem 'jbuilder' #, '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'mini_magick'
 
 group :development do
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
