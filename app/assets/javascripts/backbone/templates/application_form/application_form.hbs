@@ -7,7 +7,7 @@
       <h3 class="modal-title">{{application_title}}</h3>
     </div>
     <div class="modal-body">
-      <form novalidate="novalidate" class="simple_form application_form" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+      <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token">
 
@@ -43,7 +43,9 @@
         <label class="field-label">Province / District in Bangkok</label>
         <input type="text" class="form-control district" placeholder="จังหวัด / เขต" name="user[district]">
         <hr>
-
+        <label for="user_face_photo">Face photo</label><br>
+        <input type="file" name="user[face_photo]" id="user_face_photo">
+        <hr>
 
         <fieldset id="class-schedule-options">
           <label for="class-schedule" class="field-label">Choose your schedule option</label>
@@ -83,7 +85,9 @@
             </select>
           </div>
         </fieldset>
+
         <hr>
+
         <fieldset id="user[payment-option]">
           <label class="field-label">Choose your payment option</label>
             <p class="above-radios"><a href="#">How much does each class cost?</a></p>
@@ -100,6 +104,7 @@
             </div>
             <p class="under-radios"><a href="#">CEP's payment information</a></p>
         </fieldset>
+
         <hr>
 
         <div class="control-group">
@@ -107,6 +112,7 @@
         </div>
 
         <hr>
+        
         <p>After you have submitted this application, friended CEP on Facebook and/or LINE and then made your payment, you are eligible to come to our center on <a href="">Pan Road</a> to pick up your class book.  Make sure to bring your book to each class session.  If you lose your book, you will need to buy another one for 100 baht in order to be allowed to attend each session of the class.</p>
 
       </form>
