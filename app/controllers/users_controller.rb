@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
+binding.pry
     @user = User.find(params[:id])
-    render "show"
   end
 
   def register_admin
@@ -65,8 +65,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    redirect_to user_path(@user)
-    # render :nothing => true
+    render :nothing => true
   end
 
   def approve_admin
