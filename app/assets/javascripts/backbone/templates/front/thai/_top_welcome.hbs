@@ -5,3 +5,109 @@
 <p class="intro">ถ้าตอบว่า "ใช่" <a class="modal-initiator" href="#" data-toggle="modal" data-target="#applicationmodal">คลิกที่นี่!</a></p>
 
 
+
+
+<!-- Here & below is the Bootstrap modal functionality -->
+{{!-- <h2>Stacked Bootstrap Modal Example.</h2>
+<a data-toggle="modal" href="#" class="btn btn-primary" data-target="#myModal">Launch modal</a>
+<br><hr><br><hr> --}}
+<!-- Note that this <a.btn> is ABOVE #myModal, unlike #applicationmodal which is in front.html.erb... the 'a.modal-initiator' above actually 'reaches back' into the Rails view for #applicationmodal and then proceeds to populate it with the ApplicationView's template (application_form.hbs). -->
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 1</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <br>
+                <br>
+                <p>more content</p>
+                <br>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Launch modal2</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade rotate" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 2</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <br>
+                <p>come content</p>
+                <br>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal3" class="btn btn-primary">Launch modal</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 3</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal4" class="btn btn-primary">Launch modal</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal4">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 4</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.</div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

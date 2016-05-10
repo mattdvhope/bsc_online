@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     log_out_path if users_path
     set_up(user)
 
-    if (User.pins_available =~ user.pin) == 0
+    # if (User.pins_available =~ user.pin) == 0
       if user.save
         flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
         session[:user_id] = user.id
@@ -56,9 +56,9 @@ class UsersController < ApplicationController
         end
         redirect_to root_path
       end
-    else
-      deal_with_bad_pin
-    end
+    # else
+    #   deal_with_bad_pin
+    # end
   end
 
   def update
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
+      params.require(:user).permit(:first_name, :last_name, :face_photo, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
     end
 
     def transition_to_student_status_if_a_guest_in_app(user)

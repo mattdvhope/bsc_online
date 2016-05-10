@@ -85,8 +85,8 @@ p.under-radios
   margin-top: 20px
 
 select.grayout
-  opacity: 0.4
-  filter: alpha(opacity = 40)
+  opacity: 0.7
+  filter: alpha(opacity = 70)
 
 select.blackin
   opacity: 1
@@ -98,6 +98,15 @@ select.blackin
   border-color: #2D3179
   border-width: 2px
 
+
+// for nested modals
+// crazy batman newspaper spinny thing
+.rotate
+  transform: rotate(180deg)
+  transition: all 0.5s
+  &.in
+    transform: rotate(1800deg)
+    transition: all 1.5s
 
 
 
