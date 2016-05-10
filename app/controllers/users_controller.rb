@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     log_out_path if users_path
     set_up(user)
 
-    if (User.pins_available =~ user.pin) == 0
+    # if (User.pins_available =~ user.pin) == 0
       if user.save
         flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
         session[:user_id] = user.id
@@ -56,9 +56,9 @@ class UsersController < ApplicationController
         end
         redirect_to root_path
       end
-    else
-      deal_with_bad_pin
-    end
+    # else
+    #   deal_with_bad_pin
+    # end
   end
 
   def update
