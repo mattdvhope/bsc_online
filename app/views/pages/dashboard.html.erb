@@ -12,7 +12,10 @@
 
   <div>
 
-    <h1><%= "Welcome to the \"City English Project\", #{current_user.first_name}!!" %></h1>
+    <%= image_tag current_user.face_photo %>
+
+
+    <h1><%= "Welcome to the \"City English Project,\" #{current_user.first_name}!!" %></h1>
     <% if current_user.admin? %>
       <hr>
       <h2>You are here in "admin" status.</h2>
