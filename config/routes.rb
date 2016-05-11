@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   # root to: "pages#front"
-  root to: "users#new"
   
   get 'volunteer_info', to: "pages#volunteer_info"
 
