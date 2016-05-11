@@ -50,11 +50,6 @@ GEM
     arel (6.0.0)
     autoprefixer-rails (4.0.2.2)
       execjs
-    aws-sdk (1.62.0)
-      aws-sdk-v1 (= 1.62.0)
-    aws-sdk-v1 (1.62.0)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
     backbone-nested-attributes (0.5.0)
       rails (>= 3.2.8)
     bcrypt (3.1.9)
@@ -81,6 +76,10 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    carrierwave_direct (0.0.15)
+      carrierwave
+      fog
+      uuidtools
     celluloid (0.16.0)
       timers (~> 4.0.0)
     childprocess (0.5.5)
@@ -413,6 +412,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    uuidtools (2.1.5)
     vcr (2.9.3)
     webmock (1.20.4)
       addressable (>= 2.3.6)
@@ -426,7 +426,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  aws-sdk
   backbone-nested-attributes
   bcrypt
   better_errors
@@ -436,6 +435,7 @@ DEPENDENCIES
   capybara
   capybara-email
   carrierwave
+  carrierwave_direct
   cocoon
   coffee-rails
   database_cleaner
