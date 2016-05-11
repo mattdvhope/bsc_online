@@ -50,11 +50,12 @@ GEM
     arel (6.0.0)
     autoprefixer-rails (4.0.2.2)
       execjs
-    aws-sdk (1.62.0)
-      aws-sdk-v1 (= 1.62.0)
-    aws-sdk-v1 (1.62.0)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
+    aws-sdk (2.3.2)
+      aws-sdk-resources (= 2.3.2)
+    aws-sdk-core (2.3.2)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.3.2)
+      aws-sdk-core (= 2.3.2)
     backbone-nested-attributes (0.5.0)
       rails (>= 3.2.8)
     bcrypt (3.1.9)
@@ -238,6 +239,8 @@ GEM
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jmespath (1.2.4)
+      json_pure (>= 1.8.1)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -246,6 +249,7 @@ GEM
       railties (>= 3.2)
       sprockets-rails
     json (1.8.2)
+    json_pure (1.8.3)
     jwt (1.5.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -426,7 +430,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  aws-sdk
+  aws-sdk (~> 2)
   backbone-nested-attributes
   bcrypt
   better_errors
