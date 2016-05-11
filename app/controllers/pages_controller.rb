@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   def front
     @curriculums = Curriculum.all
 
+    # @user = User.find(2)
+
     if current_user && current_user.role == "leader"
       redirect_to leader_page_path
     elsif current_user

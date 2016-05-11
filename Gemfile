@@ -11,10 +11,11 @@ gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry
 gem 'paratrooper' # for setting up the Heroku staging environment
 
 # AWS stuff...
-gem 'carrierwave-aws'
-# gem 'carrierwave' # file upload solution
+# gem 'carrierwave-aws'
+gem 'carrierwave' # file upload solution
+gem 'carrierwave_direct'
 gem 'mini_magick' # photo resizing
-# gem 'fog', require: 'fog/aws' # for AWS cloud storage
+gem 'fog', require: 'fog/aws' # for AWS cloud storage
 
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 gem 'draper' # For using decorators
