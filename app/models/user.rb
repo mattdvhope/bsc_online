@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   include CoderProvidable
 
+  mount_uploader :face_photo, FacePhotoUploader
+
   before_save { self.email = email.downcase unless self.email.blank? }
 
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
