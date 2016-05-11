@@ -4,7 +4,7 @@ class FacePhotoUploader < CarrierWave::Uploader::Base
 
   process :resize_to_fill => [156, 200] #The '#enable_processing' method in 'carrier_wave.rb' allows for the usage of this 'process' (for production? too??)
 
-  storage :fog
+  storage :aws
 
   def cache_dir
     "#{Rails .root}/tmp/uploads"
