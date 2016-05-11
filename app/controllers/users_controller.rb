@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
+# binding.pry
     @users = User.all
   end
 
@@ -30,7 +31,11 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to root_path
+    # redirect_to root_path
+
+    @uploader = User.new.face_photo
+    @uploader.success_action_redirect = users_path
+    render "new"
   end
 
   def new_admin
@@ -38,6 +43,9 @@ class UsersController < ApplicationController
   end
 
   def create
+# binding.pry
+    @uploader.update_attribute :face_photo_key, params[:key]
+
     user = User.new(user_params)
     log_out_path if users_path
     set_up(user)
