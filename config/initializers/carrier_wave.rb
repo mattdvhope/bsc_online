@@ -1,16 +1,5 @@
 # in AWS, go to IAM > Users > Permissions > Attach Policy > [scroll way down to...] AmazonS3FullAccess
 
-# CarrierWave.configure do |config|
-#   config.fog_credentials = {
-#     :provider               => 'AWS',
-#     :aws_access_key_id      => ENV['S3_KEY'],
-#     :aws_secret_access_key  => ENV['S3_SECRET'],
-#     :region                 => ENV['S3_REGION']
-#   }
-#   config.fog_directory  = ENV['S3_BUCKET']
-#   config.cache_dir = "#{Rails.root}/tmp/uploads"
-# end
-
 CarrierWave.configure do |config|
   config.storage    = :aws
   config.aws_bucket = ENV.fetch('S3_BUCKET')
