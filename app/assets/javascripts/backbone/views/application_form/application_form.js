@@ -21,9 +21,10 @@ var ApplicationView = Backbone.View.extend({
   template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
       application_title: this.application_title(),
-
+      token: csrf_token
     }));
 
     return this;

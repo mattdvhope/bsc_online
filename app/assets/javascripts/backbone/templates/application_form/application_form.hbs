@@ -9,7 +9,7 @@
     <div class="modal-body">
       <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
-      <input type="hidden" name="authenticity_token">
+      <input type="hidden" name="authenticity_token" value={{token}}>
 
         <input type="hidden" name="user[guest]" value="true">
 
