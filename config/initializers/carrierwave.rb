@@ -1,6 +1,7 @@
 # in AWS, go to IAM > Users > Permissions > Attach Policy > [scroll way down to...] AmazonS3FullAccess
+
 CarrierWave.configure do |config|
-  if Rails.env.staging? || Rails.env.production?
+  if Rails.env.production?
     config.fog_credentials = {
       :provider               => 'AWS',
       :aws_access_key_id      => ENV['S3_KEY'],
@@ -13,3 +14,5 @@ CarrierWave.configure do |config|
     config.enable_processing = Rails.env.development? # If we're only running tests, we'll not use mini_magick to process the images.
   end
 end
+
+
