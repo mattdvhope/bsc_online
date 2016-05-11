@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510063638) do
+ActiveRecord::Schema.define(version: 20160511204548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20160510063638) do
     t.string   "pin",                      default: "000000"
     t.string   "uid_facebook"
     t.string   "nickname"
-    t.string   "face_photo"
+    t.string   "image"
   end
 
 end

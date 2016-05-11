@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   include CoderProvidable
 
-  mount_uploader :face_photo, FacePhotoUploader
+  mount_uploader :image, FacePhotoUploader
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
