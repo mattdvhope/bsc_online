@@ -12,9 +12,7 @@ gem 'paratrooper' # for setting up the Heroku staging environment
 
 # AWS stuff...
 gem 'carrierwave-aws'
-# gem 'carrierwave' # file upload solution
 gem 'mini_magick' # photo resizing
-# gem 'fog', require: 'fog/aws' # for AWS cloud storage
 
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 gem 'draper' # For using decorators
