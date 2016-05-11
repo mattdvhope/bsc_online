@@ -18,5 +18,8 @@
 # Ignore application configuration
 /config/application.yml
 
-# Ingnore Bower
+# Ignore Bower
 /vendor/assets/components
+
+# Ignore .env
+.env
