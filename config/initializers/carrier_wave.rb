@@ -8,10 +8,8 @@ CarrierWave.configure do |config|
       :region                 => ENV['S3_REGION']
     }
     config.fog_directory  = ENV['S3_BUCKET']
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
   else
     config.storage = :file
     config.enable_processing = Rails.env.development? # If we're only running tests, we'll not use mini_magick to process the images.
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
 end
