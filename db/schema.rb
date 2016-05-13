@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510063638) do
+ActiveRecord::Schema.define(version: 20160511214148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,12 @@ ActiveRecord::Schema.define(version: 20160510063638) do
     t.string   "name"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "plans", force: :cascade do |t|
     t.integer  "curriculum_id"
     t.string   "description"
@@ -179,7 +185,7 @@ ActiveRecord::Schema.define(version: 20160510063638) do
     t.string   "pin",                      default: "000000"
     t.string   "uid_facebook"
     t.string   "nickname"
-    t.string   "face_photo"
+    t.string   "image"
   end
 
 end

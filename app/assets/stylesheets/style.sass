@@ -24,8 +24,6 @@ $img-width: 100%
 logo:active
   color: #fff
 
-$break: 550px
-
 .navbar-brand > img
   display: inline
   width: 160px
@@ -41,26 +39,26 @@ $break: 550px
   background-color: #8BC34A
 
 .backg
-  @media screen and (min-width: $break) // for large screen
+  @media screen and (min-width: 550px) // for large screen
     background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scene.jpg") no-repeat
-  @media screen and (max-width: $break) // for small screen
+  @media screen and (max-width: 550px) // for small screen
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile+buildings.png")
     background-size: cover
 
-.backg-vol
-  @media screen and (min-width: $break) // for large screen
+    .backg-vol
+  @media screen and (min-width: 550px) // for large screen
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg")
-  @media screen and (max-width: $break) // for small screen
+  @media screen and (max-width: 550px) // for small screen
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop_mobile.jpg")
 
 .inner // green(#8BC34A) box on top of main
-  float: right
-  @media screen and (min-width: $break) // for large screen
-    background: rgba(139, 195, 74, 0.7)
-  @media screen and (max-width: $break) // for small screen
-    background: rgba(139, 195, 74, 0.4)
+  display: inline-block
+  // @media screen and (min-width: 550px) // for large screen
+  //   background: rgba(139, 195, 74, 0.7)
+  // @media screen and (max-width: 550px) // for small screen
+  //   background: rgba(139, 195, 74, 0.4)
   border-radius: 40px 0px 0px 40px
-  color: #2D3179
+  color: #fff
 
 .backg, .backg-vol
   background-color: #645862
@@ -77,6 +75,10 @@ $break: 550px
 .text-box
   a
     background-color: #2D3179
+  a.top-click
+    background-color: #8BC34A
+    padding: 9px
+    border-radius: 7%
   p.intro
     font-size: 30px
     font-weight: 400
@@ -93,8 +95,8 @@ $break: 550px
     width: 450px
   @media screen and (max-width: 700px)
     width: 350px
-  @media screen and (max-width: $break)
-    width: 300px
+  @media screen and (max-width: 700px)
+    width: 350px
   @media screen and (max-width: 400px)
     width: 280px
   @media screen and (min-width: 840px)
@@ -103,11 +105,12 @@ $break: 550px
     left: 34%
   @media screen and (max-width: 550px)
     left: 10%
+    width: 300px
   @media screen and (min-width: 720px)
     top: 40%
   @media screen and (max-width: 720px)
     top: 43%
-  @media screen and (max-width: $break)
+  @media screen and (max-width: 550px)
     top: 40%
   transform: translateY(-23%)
   text-align: left

@@ -434,7 +434,6 @@ DEPENDENCIES
   bower-rails
   capybara
   capybara-email
-  carrierwave
   carrierwave_direct
   cocoon
   coffee-rails
@@ -443,7 +442,6 @@ DEPENDENCIES
   fabrication
   faker
   figaro
-  fog
   foreman
   gon
   haml-rails

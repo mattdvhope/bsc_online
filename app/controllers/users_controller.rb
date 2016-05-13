@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   # before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
-# binding.pry
     @users = User.all
   end
 
@@ -31,11 +30,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    # redirect_to root_path
-
-    @uploader = User.new.face_photo
-    @uploader.success_action_redirect = users_path
-    render "new"
+    redirect_to root_path
   end
 
   def new_admin
@@ -43,8 +38,7 @@ class UsersController < ApplicationController
   end
 
   def create
-# binding.pry
-    @uploader.update_attribute :face_photo_key, params[:key]
+    # @uploader.update_attribute :image_key, params[:key]
 
     user = User.new(user_params)
     log_out_path if users_path
@@ -98,7 +92,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :face_photo, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
+      params.require(:user).permit(:first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
     end
 
     def transition_to_student_status_if_a_guest_in_app(user)

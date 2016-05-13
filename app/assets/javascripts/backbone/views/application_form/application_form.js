@@ -8,7 +8,7 @@ var ApplicationView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   application_title: function() {
-    return this.choose_language("Application for Thai people who want to learn English at CEP", "กดกดกดกดกดกดกดกดกดกดกดกดกดดกดกดกดกดกดกดกดกกหกหกกหกกหกกดกดกดกดกดดด");
+    return this.choose_language("Register for the 'You Can Speak' class", "กดกดกดกดกดกดกดกดกดกดกดกดกดดกดกดกดกดกดกดกดกกหกหกกหกกหกกดกดกดกดกดดด");
   },
   choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {

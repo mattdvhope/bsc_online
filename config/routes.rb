@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  # root to: "pages#front"
-  root to: "users#new"
+  root to: "pages#front"
+
+  # root to: "photos#index"
+  # resources :photos, only: [:index, :new]
   
   get 'volunteer_info', to: "pages#volunteer_info"
 
@@ -83,7 +85,7 @@ Rails.application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
 
   # This 'match' MUST BE AT THE BOTTOM OF THIS FILE!!!!
-  match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
+  # match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
 
   # Example resource route with options:
   #   resources :products do
