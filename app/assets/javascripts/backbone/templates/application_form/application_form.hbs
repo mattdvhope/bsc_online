@@ -13,6 +13,17 @@
 
         <input type="hidden" name="user[guest]" value="true">
 
+        {{!-- <h4>Details about our "You Can Speak" class</h4> --}}
+        <ul>
+          <li>Only 399 baht!</li>
+          <li>Classes taught by TESOL certified native English speaker from America and Australia</li>
+          <li>Focuses on Conversation that builds confidence and clarity</li>
+          <li>Practice speaking while learning about international cultures and worldview</li>
+          <li>Each class consists of five 90-minute sessions
+          <li style="margin-left: 10px; list-style:none;">- 75 minutes of conversational English and culture</li>
+          <li style="margin-left: 10px; list-style:none;">- 15 minutes of English and <a href="">Christian worldview</a></li>
+        </ul>
+
         <hr>
         <label class="field-label">Nickname</label>
         <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="user[nickname]">
@@ -43,14 +54,14 @@
         <label class="field-label">Province / District in Bangkok</label>
         <input type="text" class="form-control district" placeholder="จังหวัด / เขต" name="user[district]">
         <hr>
-        <label for="user_image">Image</label><br>
+        {{!-- <label for="user_image">Image</label><br>
         <input type="file" name="user[image]" id="user_image">
-        <hr>
+        <hr> --}}
 
         <fieldset id="class-schedule-options">
-          <label for="class-schedule" class="field-label">Choose your schedule option</label>
+          <label for="class-schedule" class="field-label">Choose your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on <a href="">Pan road</a>.  Our office hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.</label>
           <div class="radio-div-applic">
-            <label><input type="radio" id="sched-opt-one" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 1: Study for five times in one week.</span></label>
+            <label><input type="radio" id="sched-opt-one" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 1:  Study one time per week for five weeks.</span></label>
             <select id="five-weeks" name="user[class_time]" class="grayout" disabled>
               <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
               <option value="monday_one_five_weeks">Mondays, 30 May - 27 June (5 times), 5:00-6:30pm</option>
@@ -65,7 +76,7 @@
           </div>
           <br>
           <div class="radio-div-applic">
-            <label><input type="radio" id="sched-opt-two" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 2: Study one time per week for five weeks.</span></label>
+            <label><input type="radio" id="sched-opt-two" name="class-schedule-options" class="radio-in-appl"><span class="applic-radio">Option 2:          All 5 sessions in one week, Monday-Friday.</span></label>
             <select id="one-whole-week" name="user[class_time]" class="grayout" disabled>
               <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
               <option value="mondayfive">Monday-Friday, 6-10 June (5 times), 5:00-6:30pm</option>
@@ -80,8 +91,8 @@
               <option value="mondayfive">Monday-Friday, 4-8 July (5 times), 7:00-8:30pm</option>
               <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 5:00-6:30pm</option>
               <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 18-22 July (4 times, because of holiday), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 18-22 July (4 times, because of holiday), 7:00-8:30pm</option>
+              <option value="mondayfive">Monday-Friday, 18-22 July (5 times, 5:00-6:30pm</option>
+              <option value="mondayfive">Monday-Friday, 18-22 July (5 times, 7:00-8:30pm</option>
             </select>
           </div>
         </fieldset>
@@ -92,28 +103,25 @@
           <label class="field-label">Choose your payment option</label>
             <p class="above-radios"><a href="#">How much does each class cost?</a></p>
             <div class="radio-div-applic">
-              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay at the CEP Center on Pan Road.</span></label>
+              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay at the CEP Center on <a href="">Pan Road</a>.</span></label>
             </div>
             <br>
             <div class="radio-div-applic">
-              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by bank transfer to CEP's bank.</span></label>
+              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by <a href="">bank transfer</a> to CEP's bank.</span></label>
             </div>
             <br>
-            <div class="radio-div-applic">
-              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by Paypal.</span></label>
-            </div>
             <p class="under-radios"><a href="#">CEP's payment information</a></p>
         </fieldset>
 
         <hr>
 
         <div class="control-group">
-          <button class="guest-add btn">Join CEP!</button>
+          <button class="guest-add btn">Submit</button>
         </div>
 
         <hr>
         
-        <p>After you have submitted this application, friended CEP on Facebook and/or LINE and then made your payment, you are eligible to come to our center on <a href="">Pan Road</a> to pick up your class book.  Make sure to bring your book to each class session.  If you lose your book, you will need to buy another one for 100 baht in order to be allowed to attend each session of the class.</p>
+        <p>After you have submitted this application, feel free to visit our CEP center on <a href="">Pan Road</a> during our <a href="">office hours</a>.  We would love to meet you!  You can also pick up your book early if you like.</p>
 
       </form>
     </div>

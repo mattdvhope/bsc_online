@@ -17,7 +17,7 @@ var VolunteerPageView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   steps_title: function() {
-    return this.choose_language("Steps to becoming a CEP volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+    return this.choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
   },
   register_organization: function() {
     return this.choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
