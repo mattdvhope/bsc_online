@@ -1,15 +1,19 @@
 class PhotosController < ApplicationController
 
   def index
-    @photos = @photos.sort_by(&:created_at)
+    @photos = Photo.all
 
     @uploader = ImageUploader.new
-    @uploader.success_action_redirect = new_tank_photo_url(@tank)
+    @uploader.success_action_redirect = new_photo_url
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @photos }
     end
+  end
+
+  def new
+binding.pry    
   end
 
   def create

@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @uploader.update_attribute :image_key, params[:key]
+    # @uploader.update_attribute :image_key, params[:key]
 
     user = User.new(user_params)
     log_out_path if users_path

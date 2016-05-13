@@ -2,3 +2,10 @@
   <%= f.file_field :image, :class => "btn btn-success btn-medium" %>
   <%= f.submit "Upload", :class => "btn btn-primary btn-medium" %>
 <% end %>
+
+
+<ul>
+  <% @photos.each do |photo| %>
+    <li><%= image_tag photo.image %></li>
+  <% end %>
+</ul>
