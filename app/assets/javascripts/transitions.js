@@ -181,9 +181,8 @@ $( document ).ready(function() {
 
   function resumeScrollingAferModal() {
 console.log($('#applicationmodal').hasClass('in'));
-console.log(currentScrollTopUnderModal);
     $('html').removeClass('noscroll');
-    if ('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
+    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
       $(window).scrollTop(currentScrollTopUnderModal);
     } else {
       $(window).scrollTop(700);
