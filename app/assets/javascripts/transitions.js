@@ -153,8 +153,8 @@ $(window).on('scroll', function () {
 // Prevent scrolling underneath bootstrap modals
 $( document ).ready(function() {
   $("a.modal-initiator").on("click", function() {
-    currentScrollTopForModal = $(window).scrollTop();
-    $('html').addClass('noscroll').css('top', '-' + currentScrollTopForModal + 'px');
+    currentScrollTopUnderModal = $(window).scrollTop();
+    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
   });
 
   $(".close-modal").on("click", function() {
@@ -178,7 +178,11 @@ $( document ).ready(function() {
 
   function resumeScrollingAferModal() {
     $('html').removeClass('noscroll');
-    $(window).scrollTop(currentScrollTopForModal);
+    if (currentScrollTopUnderModal) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
+      $(window).scrollTop(currentScrollTopUnderModal);
+    } else {
+      $(window).scrollTop(0);
+    }
   }
 });
 
