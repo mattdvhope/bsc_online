@@ -25,6 +25,9 @@ var VolunteerPageView = Backbone.View.extend({
   volunteer_registration: function() {
     return this.choose_language("Volunteer Registration", "การลงทะเบียนคนอาสาสมัคร");
   },
+  fadeOut: function() {
+    App.getFrontMainPage()
+  },
   choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {
       return thai
