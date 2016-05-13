@@ -158,30 +158,34 @@ $( document ).ready(function() {
   });
 
   $(".close-modal").on("click", function() {
-    resumeScrollingAferModal();
+    dealWithClosingModal();
   });
 
   $(document).on("keyup", function(e) {
-  if (e.keyCode == 27) {
-    resumeScrollingAferModal();
-    $(".close-modal").trigger("click");
+    if (e.keyCode == 27) {
+      dealWithClosingModal();
     }
   });
 
   $("#applicationmodal").on('click', function(event) {
     var applFormViewDiv = document.getElementById("application-form-modal");
-    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the div
-      resumeScrollingAferModal();
-      $(".close-modal").trigger("click");
+    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
+      dealWithClosingModal();
     }
   });
 
+  function dealWithClosingModal() {
+    resumeScrollingAferModal();
+    $('#applicationmodal').modal('hide');
+  }
+
   function resumeScrollingAferModal() {
+console.log($('#applicationmodal').hasClass('in'));
     $('html').removeClass('noscroll');
-    if (currentScrollTopUnderModal) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
+    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
       $(window).scrollTop(currentScrollTopUnderModal);
     } else {
-      $(window).scrollTop(0);
+      $(window).scrollTop(700);
     }
   }
 });

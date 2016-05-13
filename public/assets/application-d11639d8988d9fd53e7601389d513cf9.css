@@ -8902,13 +8902,13 @@ logo:active {
 @media screen and (min-width: 800px) {
   /* line 101, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-box p.intro {
-    font-size: 300%;
+    font-size: 370%;
   }
 }
 @media screen and (max-width: 800px) {
   /* line 101, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-box p.intro {
-    font-size: 240%;
+    font-size: 290%;
   }
 }
 /* line 110, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
