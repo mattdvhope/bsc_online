@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
   end
 
   def new
-binding.pry    
+# binding.pry    
   end
 
   def create
