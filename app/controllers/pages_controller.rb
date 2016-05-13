@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   include ApplicationHelper
 
   def front
+    gon.page_needed = "front"
     @curriculums = Curriculum.all
 
     if current_user && current_user.role == "leader"
@@ -13,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def volunteer_info
-    redirect_to root_path
+    gon.page_needed = "volunteer_info"
   end
 
   def dashboard

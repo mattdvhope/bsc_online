@@ -48,7 +48,7 @@ var MainFrontView = Backbone.View.extend({
     }
   },
   initialize: function() {
-    this.$el.appendTo(".entire-main");
+    this.$el.appendTo(".entire");
   }
 });
 
