@@ -4,7 +4,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-var $entire_main = $(document).find(".entire-main");
+var $entire = $(document).find(".entire");
 
 var App = {
   getFrontMainPage: function() {
@@ -13,6 +13,7 @@ var App = {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
+    document.title = 'City English | Home';
     this.renderNavBar();
     front_page_main.render();
     $(window).scrollTop(0);
@@ -25,10 +26,8 @@ var App = {
   },
   getVolunteerPage: function() {
     this.removeNavAndPage();
-    if (sessionStorageAvailable("fragment")) {
-      this.retainTemplateOnReload("volunteer_info");      
-    }
     var volunteer_page = new VolunteerPageView();
+    document.title = 'City English | Volunteers';
     this.renderNavBar();
     volunteer_page.render();
 
@@ -53,7 +52,7 @@ var App = {
   },
   removeNavAndPage: function() {
     $(".entire-nav").children().remove();
-    $(".entire-main").children().remove();
+    $entire.children().remove();
   },
   getFooter: function() {
     $(".entire-footer").children().remove();
@@ -106,20 +105,14 @@ var App = {
     Backbone.history.navigate(fragment);
   },
   init: function() {
-    if (sessionStorageAvailable("fragment")) {
-      if (sessionStorage.getItem('fragment') === "volunteer_info") {
-        this.getVolunteerPage();
-      } else {
-        this.getFrontMainPage();
-      }
-    } else {
+    if (gon.page_needed === "front") {
       this.getFrontMainPage();
     }
+    else if (gon.page_needed === "volunteer_info") {
+      this.getVolunteerPage();
+    }
     this.getFooter();
-    this.getStudentOnDashboardLoad();
-    this.getVolunteersOnDashboardLoad();
     this.instantiateApplicationView();
-    // $('.entire-main').find('.modal-initiator').trigger('click');
   }
 };
 
@@ -127,7 +120,7 @@ var router = new Router();
 
 Backbone.history.start({
   pushState: true, // use 'pushState' to get rid of the '#' in the URL
-  silent: true // If the server has already rendered the entire page, and you don't want the initial route to trigger when starting History, pass silent: true.
+  silent: true // If the server has already rendered the page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
 $(document).on("click", "#backbone-app a", function(e) {

@@ -37,7 +37,7 @@ var VolunteerPageView = Backbone.View.extend({
   },
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render());
-    this.$el.appendTo(".entire-main");
+    this.$el.appendTo(".entire");
   }
 });
 
