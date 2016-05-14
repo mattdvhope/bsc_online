@@ -153,7 +153,7 @@ $(window).on('scroll', function () {
 // Open modal & prevent scrolling underneath bootstrap modals
 $( document ).ready(function() {
   $("a.modal-initiator").on("click", function() {
-    $('#applicationmodal').modal();
+    // $('#applicationmodal').modal();
     currentScrollTopUnderModal = $(window).scrollTop();
     $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
   });
@@ -192,7 +192,7 @@ console.log($('#applicationmodal').hasClass('in'));
 });
 
 
-// de-select, grayout & disable selectors for class schedules on application form
+// de-select, grayout & disable selectors for class schedules on application form modal
 $( document ).ready(function() {
   var button1 = document.getElementById("sched-opt-one");
   var button2 = document.getElementById("sched-opt-two");
@@ -216,19 +216,23 @@ $( document ).ready(function() {
 });
 
 
-// modals in modals / nested modals
-$('#openBtn').click(function () {
-    $('#myModal').modal({
-        show: true
-    })
+// Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
+$("p.above-radios > a").on("click", function () {
+  $('#myModal').modal({
+    show: true
+  })
 });
 $(document).on('show.bs.modal', '.modal', function (event) {
-    var zIndex = 1040 + (10 * $('.modal:visible').length);
-    $(this).css('z-index', zIndex);
-    setTimeout(function() {
-        $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
-    }, 0);
+  var zIndex = 1040 + (10 * $('.modal:visible').length);
+  $(this).css('z-index', zIndex);
+  setTimeout(function() {
+    $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+  }, 0);
 });
+$(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
+  $('.modal:visible').length && $(document.body).addClass('modal-open');
+});
+
 
 
 // Uncheck other radio button(s) in '#payment-options' fieldset when new one clicked; This allows for different names between them.

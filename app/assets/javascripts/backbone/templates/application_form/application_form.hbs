@@ -1,7 +1,7 @@
 <div class="modal-dialog">
 
   <!-- Modal content-->
-  <div class="modal-content">
+  <div class="modal-content application-modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" {{!-- data-dismiss="modal" --}}>&times;</button>
       <h3 class="modal-title">{{application_title}}</h3>
@@ -93,12 +93,11 @@
             </select>
           </div>
         </fieldset>
-
         <hr>
 
         <fieldset id="payment-options">
           <label class="field-label">Choose your payment option</label>
-            <p class="above-radios"><a href="#">How much does each class cost?</a></p>
+            <p class="above-radios"><a data-toggle="modal" href="#" data-target="#myModal">How much does each class cost?</a></p>
             <div class="radio-div-applic">
               <label><input type="radio" name="pay_at_center" class="radio-pay_at_center"><span class="applic-radio">Pay at the CEP Center on <a href="">Pan Road</a>.</span></label>
             </div>
@@ -109,7 +108,6 @@
             <br>
             <p class="under-radios"><a href="#">CEP's payment information</a></p>
         </fieldset>
-
         <hr>
 
         <div class="control-group">
@@ -117,9 +115,7 @@
         </div>
 
         <hr>
-        
         <p>After you have submitted this application, feel free to visit our CEP center on <a href="">Pan Road</a> during our <a href="">office hours</a>.  We would love to meet you!  You can also pick up your book early if you like.</p>
-
       </form>
     </div>
     <div class="modal-footer">
@@ -129,7 +125,12 @@
 </div> <!-- Modal dialog -->
 
 
-
+{{!-- <!-- Here & below is the Bootstrap nested modal functionality -->
+<h2>Stacked Bootstrap Modal Example.</h2>
+<a data-toggle="modal" href="#" class="btn btn-primary" data-target="#myModal">Launch modal</a>
+<hr><hr>
+<!-- The 'Launch modal' anchor tag above actually 'reaches back' into 'main.hbs' for the actual modal (#myModal, in this case) and then proceeds to populate this application_form.hbs with it (the #myModal <div>). -->
+ --}}
 
 
 
