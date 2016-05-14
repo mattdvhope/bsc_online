@@ -64,7 +64,7 @@ var StudentRegFormView = Backbone.View.extend({
     history.back();
   },
   fadeOut: function() {
-    App.allowBodyScrolling();
+    // App.allowBodyScrolling();
     $overlay.fadeOut(this.duration);
     this.$el.fadeOut(this.duration, function() {
       this.remove();

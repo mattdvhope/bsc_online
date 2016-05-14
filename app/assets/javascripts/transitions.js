@@ -37,7 +37,7 @@ function collapseNavBar() {
 }
 
 function triggerClose() {
-  $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
+  // $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
   $("a.close").trigger("click");
 }
 

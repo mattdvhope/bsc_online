@@ -97,9 +97,9 @@ var App = {
     var student = this.student.responseJSON
     this.profile_view.render(volunteer, student);
   },
-  allowBodyScrolling: function() {
-    $('body').css('overflow', 'auto');
-  },
+  // allowBodyScrolling: function() {
+  //   $('body').css('overflow', 'auto');
+  // },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
