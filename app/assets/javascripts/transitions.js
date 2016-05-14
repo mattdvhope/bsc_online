@@ -222,7 +222,6 @@ $('#openBtn').click(function () {
         show: true
     })
 });
-
 $(document).on('show.bs.modal', '.modal', function (event) {
     var zIndex = 1040 + (10 * $('.modal:visible').length);
     $(this).css('z-index', zIndex);
@@ -232,7 +231,15 @@ $(document).on('show.bs.modal', '.modal', function (event) {
 });
 
 
-
+// Uncheck other radio button(s) in '#payment-options' fieldset when new one clicked; This allows for different names between them.
+$( document ).ready(function() {
+    $('.radio-pay_at_center').on("change", function() {
+      $('.radio-pay_by_transfer').prop('checked', false);
+    });
+    $('.radio-pay_by_transfer').on("change", function() {
+      $('.radio-pay_at_center').prop('checked', false);
+    });
+});
 
 
 

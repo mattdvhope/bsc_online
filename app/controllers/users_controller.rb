@@ -39,28 +39,15 @@ class UsersController < ApplicationController
 
   def create
     # @uploader.update_attribute :image_key, params[:key]
-
     user = User.new(user_params)
+    params[:pay_at_center] == "on" ? user.payment_option = "pay_at_center" : params[:pay_at_center] = nil
+    params[:pay_by_transfer] == "on" ? user.payment_option = "pay_by_transfer" : params[:pay_by_transfer] = nil
     log_out_path if users_path
-    set_up(user)
-
-    # if (User.pins_available =~ user.pin) == 0
-      if user.save
-        flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
-        session[:user_id] = user.id
-        redirect_to home_path
-        send_new_user_email(user)
-      else
-        if user.errors.messages[:password]
-          flash[:danger] = "Password #{user.errors.messages[:password].first}."
-        elsif user.errors.messages[:postal_code]
-          flash[:danger] = "Postal Code #{user.errors.messages[:postal_code].first}."
-        end
-        redirect_to root_path
-      end
-    # else
-    #   deal_with_bad_pin
-    # end
+    if user.guest
+      deal_with_guest(user)
+    else
+      deal_with_non_guest(user)
+    end
   end
 
   def update
@@ -83,7 +70,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if current_user.leader?
       user.role = "disapproved_admin"
-      user.guest = true
+      # user.guest = true
       user.save!(:validate => false)
     end
     render :nothing => true
@@ -92,21 +79,52 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :uid_facebook)
+      params.require(:user).permit(:first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :class_time, :uid_facebook)
     end
 
-    def transition_to_student_status_if_a_guest_in_app(user)
-      user.plans = current_user.plans if current_user # guest?
-      user.choices = current_user.choices if current_user # guest?
-      user.grades = current_user.grades if current_user # guest?
-      current_user.destroy if current_user # guest?
+    # def transition_to_student_status_if_a_guest_in_app(user)
+    #   user.plans = current_user.plans if current_user # guest?
+    #   user.choices = current_user.choices if current_user # guest?
+    #   user.grades = current_user.grades if current_user # guest?
+    #   current_user.destroy if current_user # guest?
+    # end
+
+    def deal_with_guest(user)
+      if user.save
+        redirect_to root_path
+        send_new_user_email(user)
+      else
+        flash[:danger] = "Something went wrong. Try signing in again."
+        redirect_to root_path
+      end
+    end
+
+    def deal_with_non_guest(user)
+      if (User.pins_available =~ user.pin) == 0
+        set_up(user)
+        if user.save
+          flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
+          session[:user_id] = user.id
+          redirect_to home_path
+          send_new_user_email(user)
+        else
+          if user.errors.messages[:password]
+            flash[:danger] = "Password #{user.errors.messages[:password].first}."
+          elsif user.errors.messages[:postal_code]
+            flash[:danger] = "Postal Code #{user.errors.messages[:postal_code].first}."
+          end
+          redirect_to root_path
+        end
+      else
+        deal_with_bad_pin
+      end
     end
 
     def set_up(user)
       if user.city && user.pin == "000000"
         valid_pin = User.pins_available.inspect[4..-5].split("|").sample
         user.pin = valid_pin
-        user.guest = true
+        # user.guest = true
         user.role = "admin_applicant"
       elsif user.city
         user.role = "volunteer"
