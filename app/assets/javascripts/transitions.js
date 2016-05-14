@@ -150,7 +150,7 @@ $(window).on('scroll', function () {
 
 });
 
-// Prevent scrolling underneath bootstrap modals
+// Open modal & prevent scrolling underneath bootstrap modals
 $( document ).ready(function() {
   $("a.modal-initiator").on("click", function() {
     $('#applicationmodal').modal();
