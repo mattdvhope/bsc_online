@@ -304,13 +304,7 @@ $(document).on('hidden.bs.modal', '.modal', function () { // This restores the s
   $('.modal:visible').length && $(document.body).addClass('modal-open');
 });
 
-// Uncheck other radio button(s) in '#payment-options' fieldset when new one clicked; This allows for different names between them.
-    $('.radio-pay_at_center').on("change", function() {
-      $('.radio-pay_by_transfer').prop('checked', false);
-    });
-    $('.radio-pay_by_transfer').on("change", function() {
-      $('.radio-pay_at_center').prop('checked', false);
-    });
+
 
 
 

@@ -150,6 +150,15 @@ $(window).on('scroll', function () {
 
 });
 
+// Uncheck other radio button(s) in '#payment-options' fieldset in application_form.hbs when new button is clicked; This allows for different names between them.
+$( document ).ready(function() {
+  $('.radio-pay_at_center').on("change", function() {
+    $('.radio-pay_by_transfer').prop('checked', false);
+  });
+  $('.radio-pay_by_transfer').on("change", function() {
+    $('.radio-pay_at_center').prop('checked', false);
+  });
+});
 
 
 
