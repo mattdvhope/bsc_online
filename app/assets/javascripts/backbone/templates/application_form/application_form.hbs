@@ -1,7 +1,7 @@
 <div class="modal-dialog">
 
   <!-- Modal content-->
-  <div class="modal-content">
+  <div class="modal-content application-modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" {{!-- data-dismiss="modal" --}}>&times;</button>
       <h3 class="modal-title">{{application_title}}</h3>
@@ -16,7 +16,7 @@
         {{!-- <h4>Details about our "You Can Speak" class</h4> --}}
         <ul>
           <li>Only 399 baht!</li>
-          <li>Classes taught by TESOL certified native English speakers from America and Australia</li>
+          <li>Classes taught by TESOL certified native English speakers from America</li>
           <li>Focuses on Conversation that builds confidence and clarity</li>
           <li>Practice speaking while learning about international cultures and worldview</li>
           <li>Each class consists of five 90-minute sessions
@@ -42,14 +42,11 @@
           </select>
         </div>
         <hr>
+        <label class="field-label">Phone Number</label>
+        <input type="text" class="form-control phone_number" placeholder="อีเมล" name="user[phone_number]">
+        <hr>
         <label class="field-label">Email Address</label>
         <input type="text" class="form-control email" placeholder="อีเมล" name="user[email]">
-        <hr>
-        <label class="field-label">Password</label>
-        <input type="password" class="form-control password" placeholder="รหัสผ่าน" name="user[password]">
-        <hr>
-        <label class="field-label">Password Confirmation</label>
-        <input type="password" class="form-control password-confirmation" placeholder="รหัสผ่าน" name="user[password_confirmation]">
         <hr>
         <label class="field-label">Province / District in Bangkok</label>
         <input type="text" class="form-control district" placeholder="จังหวัด / เขต" name="user[district]">
@@ -96,23 +93,21 @@
             </select>
           </div>
         </fieldset>
-
         <hr>
 
-        <fieldset id="user[payment-option]">
+        <fieldset id="payment-options">
           <label class="field-label">Choose your payment option</label>
-            <p class="above-radios"><a href="#">How much does each class cost?</a></p>
+            <p class="above-radios"><a data-toggle="modal" href="#" data-target="#myModal">How much does each class cost?</a></p>
             <div class="radio-div-applic">
-              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay at the CEP Center on <a href="">Pan Road</a>.</span></label>
+              <label><input type="radio" name="pay_at_center" class="radio-pay_at_center"><span class="applic-radio">Pay at the CEP Center on <a href="">Pan Road</a>.</span></label>
             </div>
             <br>
             <div class="radio-div-applic">
-              <label><input type="radio" name="user[payment_option]" class="radio-in-appl"><span class="applic-radio">Pay by <a href="">bank transfer</a> to CEP's bank.</span></label>
+              <label><input type="radio" name="pay_by_transfer" class="radio-pay_by_transfer"><span class="applic-radio">Pay by <a href="">bank transfer</a> to CEP's bank.</span></label>
             </div>
             <br>
             <p class="under-radios"><a href="#">CEP's payment information</a></p>
         </fieldset>
-
         <hr>
 
         <div class="control-group">
@@ -120,9 +115,7 @@
         </div>
 
         <hr>
-        
         <p>After you have submitted this application, feel free to visit our CEP center on <a href="">Pan Road</a> during our <a href="">office hours</a>.  We would love to meet you!  You can also pick up your book early if you like.</p>
-
       </form>
     </div>
     <div class="modal-footer">
@@ -132,7 +125,12 @@
 </div> <!-- Modal dialog -->
 
 
-
+{{!-- <!-- Here & below is the Bootstrap nested modal functionality -->
+<h2>Stacked Bootstrap Modal Example.</h2>
+<a data-toggle="modal" href="#" class="btn btn-primary" data-target="#myModal">Launch modal</a>
+<hr><hr>
+<!-- The 'Launch modal' anchor tag above actually 'reaches back' into 'main.hbs' for the actual modal (#myModal, in this case) and then proceeds to populate this application_form.hbs with it (the #myModal <div>). -->
+ --}}
 
 
 

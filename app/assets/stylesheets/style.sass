@@ -106,7 +106,7 @@ logo:active
     font-weight: 400
     border-bottom: 7px #fa3447
     line-height: 130%
-    font-family: 'Muli', sans-serif
+    font-family: 'Kanit', sans-serif
     a
       color: #ffffff
       text-decoration: underline
@@ -426,7 +426,10 @@ h3.get-started-text
   // margin-bottom: 40px
 
 .text-under-circle
-  padding-right: 40px
+  @media screen and (min-width: 1170px)
+    padding-right: 90px
+  @media screen and (max-width: 1170px)
+    padding-right: 40px
 
 p.vol-step
   @media screen and (min-width: 767px)
