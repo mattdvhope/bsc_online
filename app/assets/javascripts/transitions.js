@@ -153,6 +153,7 @@ $(window).on('scroll', function () {
 // Prevent scrolling underneath bootstrap modals
 $( document ).ready(function() {
   $("a.modal-initiator").on("click", function() {
+    $('#applicationmodal').modal();
     currentScrollTopUnderModal = $(window).scrollTop();
     $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
   });
