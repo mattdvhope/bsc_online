@@ -30,9 +30,9 @@
         display: block!important;
         margin-top: 0px;
     }
-    .collapsing {
+    /*.collapsing {
         overflow: hidden!important;
-    }
+    }*/
 }
 
 .navbar-nav > li > a {
