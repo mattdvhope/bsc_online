@@ -426,7 +426,10 @@ h3.get-started-text
   // margin-bottom: 40px
 
 .text-under-circle
-  padding-right: 40px
+  @media screen and (min-width: 1170px)
+    padding-right: 90px
+  @media screen and (max-width: 1170px)
+    padding-right: 40px
 
 p.vol-step
   @media screen and (min-width: 767px)
