@@ -26,7 +26,11 @@ logo:active
 
 .navbar-brand > img
   display: inline
-  width: 160px
+
+  @media screen and (min-width: 810px) // for large screen
+    width: 160px
+  @media screen and (max-width: 810px) // for small screen
+    width: 55px
   margin-top: -11px
   margin-left: 10px
   border-radius: 50%
