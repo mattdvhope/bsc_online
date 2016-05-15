@@ -141,8 +141,6 @@ $(window).on('scroll', function () {
   } else {
     $('.navbar-brand > img').css("width", "55px");
   }
-
-    
 });
 
 /////// Radio buttons ////////
