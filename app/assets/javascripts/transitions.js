@@ -177,8 +177,67 @@ $( document ).ready(function() {
 /////// Radio buttons ////////
 
 
+/////// modal ////////
+// Open modal & prevent scrolling underneath bootstrap modals
+$( document ).ready(function() {
+  $("a.modal-initiator").on("click", function() {
+    // $('#applicationmodal').modal();
+    currentScrollTopUnderModal = $(window).scrollTop();
+    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
+  });
 
+  $(".close-modal").on("click", function() {
+console.log("trying to close???");
+    dealWithClosingModal();
+  });
 
+  $(document).on("keyup", function(e) {
+    if (e.keyCode == 27) {
+      dealWithClosingModal();
+    }
+  });
+
+  $("#applicationmodal").on('click', function(event) {
+    var applFormViewDiv = document.getElementById("application-form-modal");
+    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
+      dealWithClosingModal();
+    }
+  });
+
+  function dealWithClosingModal() {
+    resumeScrollingAferModal();
+    $('#applicationmodal').modal('hide');
+  }
+
+  function resumeScrollingAferModal() {
+console.log($('#applicationmodal').hasClass('in'));
+    $('html').removeClass('noscroll');
+    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
+      $(window).scrollTop(currentScrollTopUnderModal);
+    } else {
+      $(window).scrollTop(870);
+    }
+  }
+
+  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
+  $("p.above-radios > a").on("click", function () {
+    $('#myModal').modal({
+      show: true
+    })
+  });
+  $(document).on('show.bs.modal', '.modal', function (event) {
+    var zIndex = 1040 + (10 * $('.modal:visible').length);
+    $(this).css('z-index', zIndex);
+    setTimeout(function() {
+      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+    }, 0);
+  });
+  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
+    $('.modal:visible').length && $(document.body).addClass('modal-open');
+  });
+
+});
+/////// modal ////////
 
 
 
