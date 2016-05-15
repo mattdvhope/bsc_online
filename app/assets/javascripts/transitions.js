@@ -27,12 +27,9 @@ $("#overlay").on('click', function(e) {
 // If someone presses the esc kep w/in a nested modal, this will ensure that the page is not fixed/frozen for scrolling.
 $(document).on("keydown", function(e) {
   if (e.keyCode == 27) {
-    // return false;
     location.reload();
   }
 });
-
-
 
 function collapseNavBar() {
   $(".navbar-collapse").removeClass("in");
