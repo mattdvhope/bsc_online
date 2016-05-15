@@ -3,7 +3,7 @@ var MainFrontView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: this.thai_language(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
@@ -16,7 +16,7 @@ var MainFrontView = Backbone.View.extend({
   window_width: function() {
     return $(window).width() > 550
   },
-  app_language_is_thai: function() {
+  thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
   },
   login_button_language: function() {
@@ -41,7 +41,7 @@ var MainFrontView = Backbone.View.extend({
     return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
   choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
+    if (this.thai_language()) {
       return thai
     } else {
       return english;
