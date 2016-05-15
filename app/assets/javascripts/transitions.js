@@ -187,7 +187,6 @@ $( document ).ready(function() {
   });
 
   $(".close-modal").on("click", function() {
-console.log("trying to close???");
     dealWithClosingModal();
   });
 
@@ -218,23 +217,6 @@ console.log($('#applicationmodal').hasClass('in'));
       $(window).scrollTop(870);
     }
   }
-
-  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
-  $("p.above-radios > a").on("click", function () {
-    $('#myModal').modal({
-      show: true
-    })
-  });
-  $(document).on('show.bs.modal', '.modal', function (event) {
-    var zIndex = 1040 + (10 * $('.modal:visible').length);
-    $(this).css('z-index', zIndex);
-    setTimeout(function() {
-      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
-    }, 0);
-  });
-  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
-    $('.modal:visible').length && $(document.body).addClass('modal-open');
-  });
 
 });
 /////// modal ////////
