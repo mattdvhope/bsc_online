@@ -130,24 +130,15 @@ $(window).on('resize', function() {
   $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
 });
 
-// Animate size of logo on nav bar
+// Animate size of logo on nav bar for desktop screens (not mobile)
 $(window).on('scroll', function () {
-    var scrollTop = $(window).scrollTop();
-    if ($(window).width() > 550) {
-      changeLogoSize(100);
+  if ($(window).width() > 810) {
+    if ($(window).scrollTop() < 100) {
+        $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
+    } else {
+        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
     }
-    else {
-      changeLogoSize(18);
-    }
-    function changeLogoSize(scrollPosition) {
-      if (scrollTop < scrollPosition) {
-          $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
-      }
-      else {
-          $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-      }
-    }
-
+  }
 });
 
 // Uncheck other radio button(s) in '#payment-options' fieldset in application_form.hbs when new button is clicked; This allows for different names between them.
