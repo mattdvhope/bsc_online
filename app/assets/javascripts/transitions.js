@@ -132,13 +132,17 @@ $(window).on('resize', function() {
 
 // Animate size of logo on nav bar for desktop screens (not mobile)
 $(window).on('scroll', function () {
-  if ($(window).width() > 1000) {
+  if ($(window).width() > 550) {
     if ($(window).scrollTop() < 100) {
         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
     } else {
         $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-    }
+    } 
+  } else {
+    $('.navbar-brand > img').css("width", "55px");
   }
+
+    
 });
 
 /////// Radio buttons ////////
