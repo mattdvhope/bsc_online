@@ -145,82 +145,82 @@ $(window).on('scroll', function () {
 
 /////// Radio buttons ////////
 // de-select, grayout & disable selectors for class schedules on application form modal
-$( document ).ready(function() {
-  var button1 = document.getElementById("sched-opt-one");
-  var button2 = document.getElementById("sched-opt-two");
+// $( document ).ready(function() {
+//   var button1 = document.getElementById("sched-opt-one");
+//   var button2 = document.getElementById("sched-opt-two");
 
-  $("#sched-opt-one, #sched-opt-two").on("click", function() {
-    if (button1.checked){ // if #five-weeks selected
-      $('#five-weeks').prop('disabled', false);
-      $('#five-weeks').removeClass("grayout").addClass("blackin");
-      $('#one-whole-week').val('select_option');
-      $('#one-whole-week').prop('disabled', 'disabled');
-      $('#one-whole-week').removeClass("blackin").addClass("grayout");
-    }
-    else if (button2.checked) { // if #one-whole-week selected
-      $('#one-whole-week').prop('disabled', false);
-      $('#one-whole-week').removeClass("grayout").addClass("blackin");
-      $('#five-weeks').val('select_option');
-      $('#five-weeks').prop('disabled', 'disabled');
-      $('#five-weeks').removeClass("blackin").addClass("grayout");
-    }
-  });
-});
+//   $("#sched-opt-one, #sched-opt-two").on("click", function() {
+//     if (button1.checked){ // if #five-weeks selected
+//       $('#five-weeks').prop('disabled', false);
+//       $('#five-weeks').removeClass("grayout").addClass("blackin");
+//       $('#one-whole-week').val('select_option');
+//       $('#one-whole-week').prop('disabled', 'disabled');
+//       $('#one-whole-week').removeClass("blackin").addClass("grayout");
+//     }
+//     else if (button2.checked) { // if #one-whole-week selected
+//       $('#one-whole-week').prop('disabled', false);
+//       $('#one-whole-week').removeClass("grayout").addClass("blackin");
+//       $('#five-weeks').val('select_option');
+//       $('#five-weeks').prop('disabled', 'disabled');
+//       $('#five-weeks').removeClass("blackin").addClass("grayout");
+//     }
+//   });
+// });
 
 // Uncheck other radio button(s) in '#payment-options' fieldset in application_form.hbs when new button is clicked; This allows for different names between them.
-$( document ).ready(function() {
-  $('.radio-pay_at_center').on("change", function() {
-    $('.radio-pay_by_transfer').prop('checked', false);
-  });
-  $('.radio-pay_by_transfer').on("change", function() {
-    $('.radio-pay_at_center').prop('checked', false);
-  });
-});
+// $( document ).ready(function() {
+//   $('.radio-pay_at_center').on("change", function() {
+//     $('.radio-pay_by_transfer').prop('checked', false);
+//   });
+//   $('.radio-pay_by_transfer').on("change", function() {
+//     $('.radio-pay_at_center').prop('checked', false);
+//   });
+// });
 /////// Radio buttons ////////
 
 
-/////// modal ////////
+/////// modal //////// some of this code is repeated in application_form.hbs, but some also needs to stay here
 // Open modal & prevent scrolling underneath bootstrap modals
-$( document ).ready(function() {
-  $("a.modal-initiator").on("click", function() {
-    // $('#applicationmodal').modal();
-    currentScrollTopUnderModal = $(window).scrollTop();
-    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
-  });
+// $( document ).ready(function() {
+//   $("a.modal-initiator").on("click", function() {
+//     // $('#applicationmodal').modal();
+//     currentScrollTopUnderModal = $(window).scrollTop();
+//     $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
+//   });
 
-  $(".close-modal").on("click", function() {
-    dealWithClosingModal();
-  });
+//   $(".close-modal").on("click", function() {
+//     dealWithClosingModal();
+//   });
 
-  $(document).on("keyup", function(e) {
-    if (e.keyCode == 27) {
-      dealWithClosingModal();
-    }
-  });
+//   $(document).on("keyup", function(e) {
+//     if (e.keyCode == 27) {
+//       dealWithClosingModal();
+//     }
+//   });
 
-  $("#applicationmodal").on('click', function(event) {
-    var applFormViewDiv = document.getElementById("application-form-modal");
-    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
-      dealWithClosingModal();
-    }
-  });
+//   $("#applicationmodal").on('click', function(event) {
+//     var applFormViewDiv = document.getElementById("application-form-modal");
+//     if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
+//       dealWithClosingModal();
+//     }
+//   });
 
-  function dealWithClosingModal() {
-    resumeScrollingAferModal();
-    $('#applicationmodal').modal('hide');
-  }
+//   function dealWithClosingModal() {
+//     resumeScrollingAferModal();
+//     $('#applicationmodal').modal('hide');
+//   }
 
-  function resumeScrollingAferModal() {
-console.log($('#applicationmodal').hasClass('in'));
-    $('html').removeClass('noscroll');
-    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
-      $(window).scrollTop(currentScrollTopUnderModal);
-    } else {
-      $(window).scrollTop(870);
-    }
-  }
+//   function resumeScrollingAferModal() {
+// console.log($('#applicationmodal').hasClass('in'));
+//     $('html').removeClass('noscroll');
+//     if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
+//       $(window).scrollTop(currentScrollTopUnderModal);
+//     } else {
+//       $(window).scrollTop(870);
+//     }
+//   }
 
-});
+// });
 /////// modal ////////
 
 
