@@ -46,21 +46,27 @@ select.gender-select
 
 select.seminar-session-select
   background: white
-  margin-top: 25px
+  margin-bottom: 10px
   margin-left: 5px
+  border-color: #0000ff
   @media screen and (min-width: 768px)
-    font-size: 30px
+    font-size: 130%
   @media screen and (max-width: 768px)
-    font-size: 14px
-  @media screen and (min-width: 768px)
-    height: 55px
-  @media screen and (max-width: 768px)
-    height: 35px
+    font-size: 90%
+  // @media screen and (max-width: 550px)
+  //   font-size: 60%
+
+  // @media screen and (max-width: 768px)
+  height: 55px
+  // @media screen and (max-width: 768px)
+  //   height: 35px
+    
   @media screen and (min-width: 768px)
     width: 600px
   @media screen and (max-width: 768px)
     width: 400px
-  border-color: #0000ff
+  @media screen and (max-width: 550px)
+    width: 200px
 
 p.above-radios
   padding-left: 19px
@@ -71,22 +77,25 @@ div.radio-div-applic
   font-size: 20px
   margin-left: 15px
 
+input[type="radio"]
+  margin-right: 12px
+
 .radio-in-appl
   width: 28px
   height: 28px
   vertical-align: middle
 
-span.applic-radio // text in radio buttons
-  margin-left: 14px
-  font-family: 'Muli', sans-serif
+// span.applic-radio // text in radio buttons
+//   margin-left: 14px
+//   font-family: 'Muli', sans-serif
 
 p.under-radios
   padding-left: 19px
   margin-top: 20px
 
 select.grayout
-  opacity: 0.7
-  filter: alpha(opacity = 70)
+  opacity: 0.6
+  filter: alpha(opacity = 60)
 
 select.blackin
   opacity: 1

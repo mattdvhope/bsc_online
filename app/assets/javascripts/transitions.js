@@ -132,13 +132,37 @@ $(window).on('resize', function() {
 
 // Animate size of logo on nav bar for desktop screens (not mobile)
 $(window).on('scroll', function () {
-  if ($(window).width() > 810) {
+  if ($(window).width() > 910) {
     if ($(window).scrollTop() < 100) {
         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
     } else {
         $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
     }
   }
+});
+
+/////// Radio buttons ////////
+// de-select, grayout & disable selectors for class schedules on application form modal
+$( document ).ready(function() {
+  var button1 = document.getElementById("sched-opt-one");
+  var button2 = document.getElementById("sched-opt-two");
+
+  $("#sched-opt-one, #sched-opt-two").on("click", function() {
+    if (button1.checked){ // if #five-weeks selected
+      $('#five-weeks').prop('disabled', false);
+      $('#five-weeks').removeClass("grayout").addClass("blackin");
+      $('#one-whole-week').val('select_option');
+      $('#one-whole-week').prop('disabled', 'disabled');
+      $('#one-whole-week').removeClass("blackin").addClass("grayout");
+    }
+    else if (button2.checked) { // if #one-whole-week selected
+      $('#one-whole-week').prop('disabled', false);
+      $('#one-whole-week').removeClass("grayout").addClass("blackin");
+      $('#five-weeks').val('select_option');
+      $('#five-weeks').prop('disabled', 'disabled');
+      $('#five-weeks').removeClass("blackin").addClass("grayout");
+    }
+  });
 });
 
 // Uncheck other radio button(s) in '#payment-options' fieldset in application_form.hbs when new button is clicked; This allows for different names between them.
@@ -150,6 +174,7 @@ $( document ).ready(function() {
     $('.radio-pay_at_center').prop('checked', false);
   });
 });
+/////// Radio buttons ////////
 
 
 
