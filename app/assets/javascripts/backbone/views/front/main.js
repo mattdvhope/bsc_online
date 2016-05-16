@@ -12,6 +12,7 @@ var MainFrontView = Backbone.View.extend({
       step_two: this.step_two(),
       helping_friends: this.helping_friends(),
       christian_worldview: this.christian_worldview(),
+      cost_amount: this.cost_amount(),
       press_enter: this.press_enter()
     }));
   },
@@ -44,6 +45,9 @@ var MainFrontView = Backbone.View.extend({
   },
   christian_worldview: function() { // in _nested_modal_christian_worldview.hrb
     return this.choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
+  },
+  cost_amount: function() {
+    return this.choose_language("Cost amount", "จำนวนเงินค่าใช้จ่าย");
   },
   press_enter: function() { // in _nested_modal_christian_worldview.hrb
     return this.choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
