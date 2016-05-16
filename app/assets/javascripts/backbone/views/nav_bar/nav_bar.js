@@ -26,13 +26,13 @@ var NavBarView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   top: function() {
-    return this.choose_language("Top", "ข้างบน");
+    return this.choose_language("Top", "หน้าแรก");
   },
   features: function() {
-    return this.choose_language("Features", "คุณลักษณะเด่น");
+    return this.choose_language("Features", "บริการของเรา");
   },
   get_started: function() {
-    return this.choose_language("Get Started", "เริ่ม");
+    return this.choose_language("Get Started", "เริ่มต้นกับเรา");
   },
   holistic: function() {
     return this.choose_language("Holistic", "แบบองค์รวมรุ่น");
@@ -41,7 +41,7 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Contact Us", "ติดต่อเรา");
   },
   student: function() {
-    return this.choose_language("Student", "นักศึกษา");
+    return this.choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
     return this.choose_language("Register New Student", "ลงทะเบียนนักศึกษาใหม่");

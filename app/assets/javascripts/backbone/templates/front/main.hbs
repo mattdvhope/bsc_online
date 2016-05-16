@@ -125,9 +125,9 @@
      </div>
   </div>
   {{#if thai_language}}
-    {{> front/thai/_in_addition }}
+    {{> front/thai/_we_look_forward }}
   {{^}}
-    {{> front/english/_in_addition }}
+    {{> front/english/_we_look_forward }}
   {{/if}}
 </div> <!-- Features -->
 
@@ -160,7 +160,7 @@
       </div>
     </div> <!-- row -->
     <div class="row" id="starts">
-      <div style="position: relative; margin-top: -8em;" class="col-md-12 col-sm-12 col-xs-12 work-list">
+      <div style="position: relative; margin-top: -5em;" class="col-md-12 col-sm-12 col-xs-12 work-list">
         <div class="col-md-5 col-sm-12 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png" data-lightbox="image-1">
             <div class="featured-img">
@@ -199,7 +199,7 @@
       </div>
     </div> <!-- row -->
     <div class="row" id="starts">
-      <div style="position: relative; margin-top: -8em;" class="col-md-12 col-sm-12 col-xs-12 work-list">
+      <div style="position: relative; margin-top: -5em;" class="col-md-12 col-sm-12 col-xs-12 work-list">
         <div class="col-md-5 col-sm-12 col-xs-12 work-space">
           <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png" data-lightbox="image-1">
             <div class="featured-img">
@@ -223,56 +223,25 @@
 </div> <!-- container-fluid -->
 </div> {{!-- front-main-hbs --}}
 
+
+<!-- nested modals in application_form.hbs -->
 {{> front/_nested_modal }}
+{{> front/_nested_modal_christian_worldview }}
+{{> front/_nested_modal_cost_amount }}
+{{> front/_nested_modal_payment_info }}
+<!-- nested modals in application_form.hbs -->
+
+
 
 <script>
 
-  // Open modal & prevent scrolling underneath bootstrap modals
-  $("a.modal-initiator").on("click", function() {
-    // $('#applicationmodal').modal();
-    currentScrollTopUnderModal = $(window).scrollTop();
-    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
-  });
-
-  $(".close-modal").on("click", function() {
-console.log("trying to close???");
-    dealWithClosingModal();
-  });
-
-  $(document).on("keyup", function(e) {
-    if (e.keyCode == 27) {
-      dealWithClosingModal();
-    }
-  });
-
-  $("#applicationmodal").on('click', function(event) {
-    var applFormViewDiv = document.getElementById("application-form-modal");
-    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
-      dealWithClosingModal();
-    }
-  });
-
-  function dealWithClosingModal() {
-    resumeScrollingAferModal();
-    $('#applicationmodal').modal('hide');
-  }
-
-  function resumeScrollingAferModal() {
-console.log($('#applicationmodal').hasClass('in'));
-    $('html').removeClass('noscroll');
-    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
-      $(window).scrollTop(currentScrollTopUnderModal);
-    } else {
-      $(window).scrollTop(870);
-    }
-  }
-
   // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
-  $("p.above-radios > a").on("click", function () {
-    $('#myModal').modal({
-      show: true
-    })
-  });
+//   $("p.above-radios > a").on("click", function () {
+// console.log("clicked???");
+//     $('#christianWorldViewModal').modal({
+//       show: true
+//     })
+//   });
   $(document).on('show.bs.modal', '.modal', function (event) {
     var zIndex = 1040 + (10 * $('.modal:visible').length);
     $(this).css('z-index', zIndex);
@@ -284,10 +253,9 @@ console.log($('#applicationmodal').hasClass('in'));
     $('.modal:visible').length && $(document.body).addClass('modal-open');
   });
 
+
+
 </script>
-
-
-
 
 
 

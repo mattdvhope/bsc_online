@@ -3,20 +3,22 @@ var MainFrontView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: this.thai_language(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
       features: this.features_language(),
       step_one: this.step_one(),
       step_two: this.step_two(),
-      helping_friends: this.helping_friends()
+      helping_friends: this.helping_friends(),
+      christian_worldview: this.christian_worldview(),
+      press_enter: this.press_enter()
     }));
   },
   window_width: function() {
     return $(window).width() > 550
   },
-  app_language_is_thai: function() {
+  thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
   },
   login_button_language: function() {
@@ -29,7 +31,7 @@ var MainFrontView = Backbone.View.extend({
     return this.choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.choose_language("Features", "คุณลักษณะเด่น");
+    return this.choose_language("Features", "บริการของเรา");
   },
   step_one: function() {
     return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
@@ -40,8 +42,14 @@ var MainFrontView = Backbone.View.extend({
   helping_friends: function() {
     return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
+  christian_worldview: function() { // in _nested_modal_christian_worldview.hrb
+    return this.choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
+  },
+  press_enter: function() { // in _nested_modal_christian_worldview.hrb
+    return this.choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
+  },
   choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
+    if (this.thai_language()) {
       return thai
     } else {
       return english;
