@@ -1,0 +1,41 @@
+<!-- Welcome top -->
+<div class="container-full main" id="page-top">
+  <div class="row">
+    <div class="col-md-12 backg">
+      <div id="welcome-box" class="col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+        <div class="text-box">
+          {{#if thai_language}}
+            {{> front/thai/_top_welcome }}
+          {{^}}
+            {{> front/english/_top_welcome }}
+          {{/if}}
+
+          {{!-- <div class="col-md-4">
+            <p id="backbone-app"><a class="link-button" href="/volunteer_info">{{volunteer}}</a></p>
+          </div> --}}
+        </div>
+      </div>
+    </div>
+  </div> {{!-- row --}}
+
+  <div class="row">
+    <div id="mycarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="item active">
+          {{#if window_big}}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png" alt="wide picture" class="img-responsive">
+          {{^}}
+            <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
+          {{/if}}
+          <div class="carousel-caption">
+            {{#if thai_language}}
+              {{> front/thai/_welcome_caption }}
+            {{^}}
+              {{> front/english/_welcome_caption }}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> {{!-- row --}}
+</div>

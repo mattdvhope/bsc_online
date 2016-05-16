@@ -1,0 +1,87 @@
+<div class="container-full" id="get-started">
+<br>
+<br>
+  <div id="get-started-centerer">
+    <hr>
+    <hr>
+    <div class="row">
+    {{#if thai_language}}
+      {{> front/thai/_get_started_top }}
+    {{^}}
+      {{> front/english/_get_started_top }}
+    {{/if}}
+    </div> <!-- row -->
+    <hr>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        {{#if thai_language}}
+          {{> front/thai/_get_started_one }}
+        {{^}}
+          {{> front/english/_get_started_one }}
+        {{/if}}
+      </div>
+    </div> <!-- row -->
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        {{#if thai_language}}
+          {{> front/thai/_get_started_two }}
+        {{^}}
+          {{> front/english/_get_started_two }}
+        {{/if}}
+      </div>
+    </div> <!-- row -->
+    <br>
+    <hr>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        {{#if thai_language}}
+          {{> front/thai/_holistic_text }}
+        {{^}}
+          {{> front/english/_holistic_text }}
+        {{/if}}
+      </div>
+    </div> <!-- row -->
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+          {{#if thai_language}}
+            {{> front/thai/_friends_helping }}
+          {{^}}
+            {{> front/english/_friends_helping }}
+          {{/if}}
+      </div>
+    </div> <!-- row -->
+    <hr>
+    <hr>
+    <br>
+    <br>
+
+  </div> <!-- get-started-centerer -->
+
+</div> <!-- container -->
+
