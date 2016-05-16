@@ -5,6 +5,9 @@
 
 $img-width: 100%
 
+body
+  font-family: 'Kanit', sans-serif
+
 .header
   background: #212A3F
   height: 60px
@@ -162,7 +165,7 @@ logo:active
   padding: 60px 0px
 
 .features-text
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
   font-weight: 700
   letter-spacing: 5px
   margin-bottom: 30px
@@ -177,7 +180,7 @@ h2.features-text::after
   background: #FFF none repeat scroll 0% 0%
 
 .features-text-bottom
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
   font-weight: 700
   letter-spacing: 5px
   margin-bottom: 30px
@@ -205,9 +208,17 @@ h2.features-text-bottom
 
 .get-started-text
   color: #2D3179
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
   font-weight: 700
-  letter-spacing: 5px
+  width: 90%
+  margin-left: auto
+  margin-right: auto
+
+.text-under-get-started
+  color: #2D3179
+  font-family: 'Kanit', sans-serif
+  font-weight: 700
+  font-size: 2em
   width: 90%
   margin-left: auto
   margin-right: auto
@@ -230,13 +241,13 @@ h3.get-started-text::after
 
 span.stepTitle
   color: #2d3179
-  font-family: "Muli", sans-serif
+  font-family: "Kanit", sans-serif
   font-weight: 700
   letter-spacing: 5px
 
 span.steps
   color: #2D3179
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
   font-size: 16px
   
 html, body 
@@ -264,7 +275,7 @@ h3.get-started-text
 .footer-content
   h2
     text-align: center
-    font-family: 'Muli', sans-serif
+    font-family: 'Kanit', sans-serif
   @media screen and (min-width: 1270px)
     top: 0
   @media screen and (max-width: 1270px)
@@ -330,13 +341,13 @@ h3.get-started-text
     margin-left: auto
     margin-right: auto
 
-.footer-map
+#footer-map
   @media screen and (max-width: 767px)
     width: 70%
     margin-left: auto
     margin-right: auto
-  iframe
-    width: 90%
+  img
+    width: 70%
     margin-left: auto
     margin-right: auto
 
@@ -406,7 +417,7 @@ h3.get-started-text
   float: left
 
 .title h2
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
   font-weight: 300
   font-size: 42px
   text-align: center
@@ -419,7 +430,7 @@ h3.get-started-text
   position: relative
   margin: 8em 1em 5em 1em
   float: right
-  font-family: 'Poppins', sans-serif
+  font-family: 'Kanit', sans-serif
   font-weight: 400
   color: #2E2E2E
   font-size: 16px
@@ -434,9 +445,6 @@ h3.get-started-text
   margin-left: 2em
   margin-right: 2em
 
-.picturing
-  // margin-bottom: 40px
-
 .text-under-circle
   @media screen and (min-width: 1170px)
     padding-right: 90px
@@ -446,7 +454,7 @@ h3.get-started-text
 p.vol-step
   @media screen and (min-width: 767px)
     width: 11em
-  font-family: "Muli", sans-serif
+  font-family: "Kanit", sans-serif
 
 .picturing .btn
   font-size: 20px
@@ -461,7 +469,7 @@ p.vol-step
   background-color: #8BC34A
   border-width: 5px
   border-color: #fff
-  font-family: "Muli", sans-serif
+  font-family: "Kanit", sans-serif
 
 .picturing img
   margin: 0 auto
@@ -471,8 +479,14 @@ p.vol-step
   display: block
   border-radius: 50%
   background: rgba(255, 255, 255, 0.1)
-  width: 270px
-  height: 270px
+
+  @media screen and (min-width: 780px)
+    width: 270px
+    height: 270px
+  @media screen and (max-width: 780px)
+    width: 220px
+    height: 220px
+
   line-height: 80px
 
 
@@ -482,13 +496,13 @@ p.vol-step
 
 .icon-text-box
   h4
-    font-family: 'Muli', sans-serif
+    font-family: 'Kanit', sans-serif
     color: #ffffff
     font-weight: 400
     font-size: 28px
     margin: 20px 0 20px 0
   p
-    font-family: 'Poppins', sans-serif
+    font-family: 'Kanit', sans-serif
     font-weight: 400
     font-size: 19px
     color: #ffffff
@@ -513,7 +527,7 @@ p.vol-step
   p
     font-size: 17px
     margin: 0px !important
-    font-family: 'Poppins', sans-serif
+    font-family: 'Kanit', sans-serif
     font-weight: 300
     line-height: 30px
 
@@ -548,7 +562,7 @@ p.vol-step
     background: #8ab839
     color: #fff
     margin: 0px
-    font-family: 'Muli', sans-serif
+    font-family: 'Kanit', sans-serif
   &:hover .image-hover
     display: block
     animation: 0.4s ease-in 0s normal none 1 running imagehover
@@ -631,7 +645,7 @@ p.vol-step
   font-weight: 700
   text-transform: uppercase
   letter-spacing: 2px
-  font-family: 'Muli', sans-serif
+  font-family: 'Kanit', sans-serif
 
 .login
   padding: 60px 0px
@@ -648,7 +662,7 @@ p.vol-step
   color: #212A3F
   height: auto !important
   margin-bottom: 30px
-  font-family: 'Poppins', sans-serif
+  font-family: 'Kanit', sans-serif
   &:focus
     border-color: rgba(33, 42, 63, 0.2)
     outline: 0px none
@@ -679,10 +693,10 @@ input[placeholder], [placeholder], *[placeholder]
   width: 100%
   p
     text-align: center
-    font-family: 'Poppins', sans-serif
+    font-family: 'Kanit', sans-serif
     a
       color: #8AB839
-      font-family: 'Poppins', sans-serif
+      font-family: 'Kanit', sans-serif
 
 
 

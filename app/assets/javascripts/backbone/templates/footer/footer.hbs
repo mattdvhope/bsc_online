@@ -19,7 +19,6 @@
       <div class="col-sm-3 footer-address">
         <div class="footer-left-line">
           <div class="footer-subtitle">{{telephone}}</div>
-          <div>080-???-7777,</div>
           <div>081-???-8888</div>
           <br>
             {{#if thai_language}}
@@ -37,15 +36,15 @@
         </div> <!-- class="footer-left-line" -->
       </div> <!-- footer-address -->
       <br>
-      <div class="col-sm-6 footer-map">
-        {{!-- <iframe src="https://www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK
-      &zoom=17
-      &key=YOUR_API_KEY">
-        </iframe> --}}
+      <div id="footer-map" class="col-sm-6">
 
-        <div id="googleMap" style="width:500px;height:380px;"></div>
-
-
+        <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png" data-lightbox="image-1">
+          <div class="featured-img pan-road-map">
+            <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png" alt="Pan Road Map" >
+          </div>
+          {{!-- <h3>{{step_one}}</h3> --}}
+        </a>
+        {{!-- <div id="googleMap" style="width:500px;height:380px;"></div> --}}
       </div>
     </div> {{!-- row --}}
     <div class="copyright" style="list-style-type: none;">
