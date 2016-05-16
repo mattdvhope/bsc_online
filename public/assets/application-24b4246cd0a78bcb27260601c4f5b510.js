@@ -18786,7 +18786,7 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.contact_us || (depth0 != null ? depth0.contact_us : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"contact_us","hash":{},"data":data}) : helper)))
     + "</h2>\n    <br>\n    <div class=\"row row-eq-height\">\n      <div class=\"col-sm-3 footer-cep-logo\">\n        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo.png\" alt=\"wide picture\" class=\"img-responsive\">\n      </div>\n      <br>\n      <div class=\"col-sm-3 footer-address\">\n        <div class=\"footer-left-line\">\n          <div class=\"footer-subtitle\">"
     + this.escapeExpression(((helper = (helper = helpers.telephone || (depth0 != null ? depth0.telephone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"telephone","hash":{},"data":data}) : helper)))
-    + "</div>\n          <div>081-???-8888</div>\n          <br>\n"
+    + "</div>\n          <div>086-696-7821</div>\n          <br>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(13, data, 0),"data":data})) != null ? stack1 : "")
     + "          <br>\n          <div>\n            <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Facebook.png\" class=\"social-media-icon\"></a>\n            <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Instagram.png\" class=\"social-media-icon\"></a>\n          </div>\n          <br>\n        </div> <!-- class=\"footer-left-line\" -->\n      </div> <!-- footer-address -->\n      <br>\n      <div id=\"footer-map\" class=\"col-sm-6\">\n\n        <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png\" data-lightbox=\"image-1\">\n          <div class=\"featured-img pan-road-map\">\n            <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png\" alt=\"Pan Road Map\" >\n          </div>\n        </a>\n      </div>\n    </div> \n    <div class=\"copyright\" style=\"list-style-type: none;\">\n      <div>Copyright &copy; City English Project 2016</div>\n      <div>All rights reserved.</div>\n    <div>Flag images provided by <a href=\"http://www.icondrawer.com/\" target=\"_blank\">Icon Drawer</a>\n\n    </div>\n    </div>\n    <div class=\"fb-div\">\n      <div\n        class=\"fb-like\"\n        data-share=\"true\"\n        data-width=\"450\"\n        data-show-faces=\"true\">\n      </div>\n    </div>\n  </div> \n  <br>\n</div> \n\n\n";
 },"usePartial":true,"useData":true});
@@ -18798,6 +18798,142 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
+  Handlebars.registerPartial("front/_features", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"5":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"7":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"11":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"17":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"21":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_ongoing_opportunities'],depth0,{"name":"front/thai/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"23":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_ongoing_opportunities'],depth0,{"name":"front/english/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"25":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_we_look_forward'],depth0,{"name":"front/thai/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"27":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_we_look_forward'],depth0,{"name":"front/english/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
+    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
+    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.png\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners.png\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Community+Boards.png\" alt=\"Community Boards\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups.png\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Online+Classes.png\" alt=\"Online Classes\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Ongoing+Opportunities.png\" alt=\"Ongoing Opportunities\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n  </div>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
+    + "</div> <!-- Features -->";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/_get_started", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_top'],depth0,{"name":"front/thai/_get_started_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started_top'],depth0,{"name":"front/english/_get_started_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"5":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_one'],depth0,{"name":"front/thai/_get_started_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"7":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started_one'],depth0,{"name":"front/english/_get_started_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_two'],depth0,{"name":"front/thai/_get_started_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"11":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_get_started_two'],depth0,{"name":"front/english/_get_started_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_holistic_text'],depth0,{"name":"front/thai/_holistic_text","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_holistic_text'],depth0,{"name":"front/english/_holistic_text","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"17":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_friends_helping'],depth0,{"name":"front/thai/_friends_helping","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_friends_helping'],depth0,{"name":"front/english/_friends_helping","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container-full\" id=\"get-started\">\n<br>\n<br>\n  <div id=\"get-started-centerer\">\n    <hr>\n    <hr>\n    <div class=\"row\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </div> <!-- row -->\n    <hr>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </div>\n    </div> <!-- row -->\n    <br>\n    <hr>\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <hr>\n    <br>\n    <br>\n\n  </div> <!-- get-started-centerer -->\n\n</div> <!-- container -->\n";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
   Handlebars.registerPartial("front/_nested_modal", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<!-- Modal we're looking for in application_form.hbs -->\n<div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\n                  <h4 class=\"modal-title\">Modal 1</h4>\n\n            </div>\n            <div class=\"container\"></div>\n            <div class=\"modal-body\">Content for the dialog / modal goes here.\n                <br>\n                <p>content...</p>\n                <br>\n                <br>  <a data-toggle=\"modal\" href=\"#myModal2\" class=\"btn btn-primary\">Launch modal2</a>\n\n            </div>\n            <div class=\"modal-footer\">  <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n  <a href=\"#\" class=\"btn btn-primary \">Save changes</a>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"modal fade rotate\" id=\"myModal2\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\n                  <h4 class=\"modal-title\">Modal 2</h4>\n\n            </div>\n            <div class=\"container\"></div>\n            <div class=\"modal-body\">Content for the dialog / modal goes here.\n                <br>\n                <br>\n                <p>Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...L</p>\n                <br>\n                <br>\n                <br>  <a data-toggle=\"modal\" href=\"#myModal3\" class=\"btn btn-primary\">Launch modal</a>\n\n            </div>\n            <div class=\"modal-footer\">  <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n  <a href=\"#\" class=\"btn btn-primary\">Save changes</a>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"modal fade\" id=\"myModal3\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\n                  <h4 class=\"modal-title\">Modal 3</h4>\n\n            </div>\n            <div class=\"container\"></div>\n            <div class=\"modal-body\">Content for the dialog / modal goes here.\n                <br>\n                <br>\n                <p>content...</p>\n                <br>\n                <br>  <a data-toggle=\"modal\" href=\"#myModal4\" class=\"btn btn-primary\">Launch modal</a>\n\n            </div>\n            <div class=\"modal-footer\">  <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n  <a href=\"#\" class=\"btn btn-primary\">Save changes</a>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"modal fade\" id=\"myModal4\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\n                  <h4 class=\"modal-title\">Modal 4</h4>\n\n            </div>\n            <div class=\"container\"></div>\n            <div class=\"modal-body\">Content for the dialog / modal goes here.</div>\n            <div class=\"modal-footer\">  <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n  <a href=\"#\" class=\"btn btn-primary\">Save changes</a>\n\n            </div>\n        </div>\n    </div>\n</div> <!-- Modal for application_form.hbs -->\n\n";
 },"useData":true}));
@@ -18806,11 +18942,11 @@ window.fbAsyncInit = function() {
   Handlebars.registerPartial("front/_nested_modal_christian_worldview", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_helping_friends_text'],depth0,{"name":"front/thai/_helping_friends_text","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_friends_helping'],depth0,{"name":"front/thai/_friends_helping","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_helping_friends_text'],depth0,{"name":"front/english/_helping_friends_text","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_friends_helping'],depth0,{"name":"front/english/_friends_helping","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
@@ -18834,6 +18970,39 @@ window.fbAsyncInit = function() {
   Handlebars.registerPartial("front/_nested_modal_payment_info", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "";
 },"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/_welcome", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"5":function(depth0,helpers,partials,data) {
+    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
+},"7":function(depth0,helpers,partials,data) {
+    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_welcome_caption'],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"11":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_welcome_caption'],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<!-- Welcome top -->\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div id=\"welcome-box\" class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n        </div>\n      </div>\n    </div>\n  </div> \n\n  <div class=\"row\">\n    <div id=\"mycarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n      <div class=\"carousel-inner\">\n        <div class=\"item active\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "          <div class=\"carousel-caption\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "          </div>\n        </div>\n      </div>\n    </div>\n  </div> \n</div>";
+},"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_city_talk_class", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -18861,28 +19030,28 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/english/_get_started", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center get-started-text\">Let's Get Started!</h2>\n\n<h3 class=\"text-under-get-started\">\n      The City English Project is designed to help you excel in conversational English. To take advantage of all we have to offer you must to become a network member. Becoming a member of the network involves two easy steps:\n</h3>";
+  Handlebars.registerPartial("front/english/_friends_helping", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>Serving Thai People</h3>\n\n<span>We understand that studying English (especially with native English speakers) can be VERY expensive in Thailand.  That is one of the main reasons we started the project.  One question we often get asked is, \"How are your English classes and online partnerships so affordable?\" We are able to make our classes and partnerships affordable for two reasons.  First, we are a non-profit project. We exist to serve Thai people, not make money. All income is used to support and expand our services to you. Second, our TESOL certified English teachers and conversation partners are all volunteers. They are Christians who volunteer their time to serve and help the people of Thailand. They come from a long history of Christian volunteers who have loved and served Thai people. Click here for a brief outline of how international Christian volunteers have impacted Thailand for many generations. Because they are Christian volunteers you can expect them to have high commitments to excellence in how they serve you. You can also expect them to genuinely care about helping you progress.</span>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_get_started_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">Step 1:</span></h3>\n\n<span class=\"steps\">Sign up online or in person at our Pan Road location for our five-lesson \"You Can Speak!\" conversational English, culture and worldview class. The classes are taught by TESOL certified, native English speakers and are offered at an introductory price of 399 baht! Click here for details and available class times.  We also offer classes on-site classes at businesses and schools. If you would like more information on how your business or school can host on-site \"You Can Speak!\" classes, <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a>.</span>\n\n";
+    return "<h3>Step 1:</h3>\n\n<span>Sign up online or in person at our Pan Road location for our five-lesson \"You Can Speak!\" conversational English, culture and worldview class. The classes are taught by TESOL certified, native English speakers and are offered at an introductory price of 399 baht! Click here for details and available class times.  We also offer classes on-site classes at businesses and schools. If you would like more information on how your business or school can host on-site \"You Can Speak!\" classes, <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a>.</span>\n\n";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_get_started_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h1 class=\"text-center\">Let's Get Started!</h1>\n\n<h3 class=\"get-started-text\">\n  The City English Project is designed to help you excel in conversational English. To take advantage of all we have to offer, you must to become a network member. Becoming a member of the network involves two easy steps:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_get_started_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">Step 2:</span></h3>\n\n<span class=\"steps\">Upon successful completion of the \"You Can Speak!\" course you will be given a FREE one-year membership to the City English Project online network. Network members have exclusive, unlimited access to message boards, online self-study and up-coming on-site classes and events. Members also have the opportunity to be matched with online conversation partners for a nominal fee.</span>";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/english/_helping_friends_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">Serving Thai People</span></h3>\n\n<h3><span class=\"steps\">We understand that studying English (especially with native English speakers) can be VERY expensive in Thailand.  That is one of the main reasons we started the project.  One question we often get asked is, \"How are your English classes and online partnerships so affordable?\" We are able to make our classes and partnerships affordable for two reasons.  First, we are a non-profit project. We exist to serve Thai people, not make money. All income is used to support and expand our services to you. Second, our TESOL certified English teachers and conversation partners are all volunteers. They are Christians who volunteer their time to serve and help the people of Thailand. They come from a long history of Christian volunteers who have loved and served Thai people. Click here for a brief outline of how international Christian volunteers have impacted Thailand for many generations. Because they are Christian volunteers you can expect them to have high commitments to excellence in how they serve you. You can also expect them to genuinely care about helping you progress.</span></h3>";
+    return "<h3>Step 2:</h3>\n\n<span>Upon successful completion of the \"You Can Speak!\" course you will be given a FREE one-year membership to the City English Project online network. Network members have exclusive, unlimited access to message boards, online self-study and up-coming on-site classes and events. Members also have the opportunity to be matched with online conversation partners for a nominal fee.</span>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_holistic_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">A Holistic Model</span></h3>\n\n<h3><span class=\"steps\">The heart of what we do is conversational English. However, everyone knows that learning English is not enough to help you excel in cross-cultural business and personal relationships. That's why our model integrates basic elements of culture and worldview into our classes. For example, in our introductory City Talk class you will learn basic tips like how to shake hands and introduce yourself in a culturally appropriate way. You will also learn an easy-to-remember outline that gives you a basic understanding of the Christian worldview - a worldview that impacts, at least in some ways, over two billion people around the world. Our online network will also offer additional classes on culture and global worldviews. We want to do all we can to equip you for a successful life and career!</span></h3>";
+    return "<h3>A Holistic Model</h3>\n\n<span>The heart of what we do is conversational English. However, everyone knows that learning English is not enough to help you excel in cross-cultural business and personal relationships. That's why our model integrates basic elements of culture and worldview into our classes. For example, in our introductory City Talk class you will learn basic tips like how to shake hands and introduce yourself in a culturally appropriate way. You will also learn an easy-to-remember outline that gives you a basic understanding of the Christian worldview - a worldview that impacts, at least in some ways, over two billion people around the world. Our online network will also offer additional classes on culture and global worldviews. We want to do all we can to equip you for a successful life and career!</span>\n\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18917,163 +19086,21 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["front/main"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"3":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"5":function(depth0,helpers,partials,data) {
-    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
-},"7":function(depth0,helpers,partials,data) {
-    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
-},"9":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_welcome_caption'],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"11":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_welcome_caption'],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"13":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"15":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"17":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"19":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"21":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"23":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"25":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"27":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"29":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"31":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"33":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_ongoing_opportunities'],depth0,{"name":"front/thai/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"35":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_ongoing_opportunities'],depth0,{"name":"front/english/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"37":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_we_look_forward'],depth0,{"name":"front/thai/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"39":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_we_look_forward'],depth0,{"name":"front/english/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"41":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started'],depth0,{"name":"front/thai/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"43":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started'],depth0,{"name":"front/english/_get_started","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"45":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_one'],depth0,{"name":"front/thai/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"47":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_one'],depth0,{"name":"front/english/_get_started_one","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"49":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_two'],depth0,{"name":"front/thai/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"51":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_two'],depth0,{"name":"front/english/_get_started_two","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"53":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_holistic_text'],depth0,{"name":"front/thai/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"55":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_holistic_text'],depth0,{"name":"front/english/_holistic_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"57":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_helping_friends_text'],depth0,{"name":"front/thai/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"59":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_helping_friends_text'],depth0,{"name":"front/english/_helping_friends_text","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper;
-
-  return "<div class=\"front-main-hbs\">\n\n<div class=\"container-fluid\">\n\n<!-- Welcome top -->\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div id=\"welcome-box\" class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n        </div>\n      </div>\n    </div>\n  </div> \n\n  <div class=\"row\">\n    <div id=\"mycarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n      <div class=\"carousel-inner\">\n        <div class=\"item active\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "          <div class=\"carousel-caption\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "          </div>\n        </div>\n      </div>\n    </div>\n  </div> \n</div>\n\n\n<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
-    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
-    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.png\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners.png\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Community+Boards.png\" alt=\"Community Boards\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups.png\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Online+Classes.png\" alt=\"Online Classes\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(29, data, 0),"inverse":this.program(31, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Ongoing+Opportunities.png\" alt=\"Ongoing Opportunities\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(33, data, 0),"inverse":this.program(35, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n  </div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(37, data, 0),"inverse":this.program(39, data, 0),"data":data})) != null ? stack1 : "")
-    + "</div> <!-- Features -->\n\n\n<!-- Get Started -->\n<div class=\"container-full work\" id=\"get-started\">\n  <div class=\"container\">\n    <div class=\"row\" id=\"starts\" >\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(41, data, 0),"inverse":this.program(43, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <div class=\"col-md-5 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"Step 1\" >\n            </div>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(45, data, 0),"inverse":this.program(47, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div style=\"position: relative; margin-top: -5em;\" class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-5 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img style=\"padding: 10px\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.png\" alt=\"Step 2\" >\n            </div>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(49, data, 0),"inverse":this.program(51, data, 0),"data":data})) != null ? stack1 : "")
-    + "          <hr style=\"width: 90%; height: 2px; background-color: white; border: 0; position: relative; top: 5.3em;\">\n        </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\" >\n      <div class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-5 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.png\" alt=\"Holistic Model\" >\n            </div>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(53, data, 0),"inverse":this.program(55, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div> <!-- row -->\n    <div class=\"row\" id=\"starts\">\n      <div style=\"position: relative; margin-top: -5em;\" class=\"col-md-12 col-sm-12 col-xs-12 work-list\">\n        <div class=\"col-md-5 col-sm-12 col-xs-12 work-space\">\n          <a href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\" data-lightbox=\"image-1\">\n            <div class=\"featured-img\">\n              <img style=\"padding: 10px\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\" alt=\"CEP 2\" >\n            </div>\n          </a>\n        </div>\n        <div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(57, data, 0),"inverse":this.program(59, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div> <!-- row -->\n  </div>\n</div> <!-- Get Started -->\n\n</div> <!-- container-fluid -->\n</div> \n\n\n<!-- nested modals in application_form.hbs -->\n"
+  return "<div class=\"front-main-hbs\">\n\n"
+    + ((stack1 = this.invokePartial(partials['front/_welcome'],depth0,{"name":"front/_welcome","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = this.invokePartial(partials['front/_features'],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = this.invokePartial(partials['front/_get_started'],depth0,{"name":"front/_get_started","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "\n<!-- nested modals in application_form.hbs -->\n"
     + ((stack1 = this.invokePartial(partials['front/_nested_modal'],depth0,{"name":"front/_nested_modal","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_christian_worldview'],depth0,{"name":"front/_nested_modal_christian_worldview","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_cost_amount'],depth0,{"name":"front/_nested_modal_cost_amount","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_payment_info'],depth0,{"name":"front/_nested_modal_payment_info","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "<!-- nested modals in application_form.hbs -->\n\n\n\n<script>\n\n  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay\n//   $(\"p.above-radios > a\").on(\"click\", function () {\n// console.log(\"clicked???\");\n//     $('#christianWorldViewModal').modal({\n//       show: true\n//     })\n//   });\n  $(document).on('show.bs.modal', '.modal', function (event) {\n    var zIndex = 1040 + (10 * $('.modal:visible').length);\n    $(this).css('z-index', zIndex);\n    setTimeout(function() {\n      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');\n    }, 0);\n  });\n  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.\n    $('.modal:visible').length && $(document.body).addClass('modal-open');\n  });\n\n\n\n</script>\n\n\n\n\n\n\n\n\n\n\n\n";
+    + "<!-- nested modals in application_form.hbs -->\n\n\n<script>\n\n  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay\n//   $(\"p.above-radios > a\").on(\"click\", function () {\n// console.log(\"clicked???\");\n//     $('#christianWorldViewModal').modal({\n//       show: true\n//     })\n//   });\n  $(document).on('show.bs.modal', '.modal', function (event) {\n    var zIndex = 1040 + (10 * $('.modal:visible').length);\n    $(this).css('z-index', zIndex);\n    setTimeout(function() {\n      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');\n    }, 0);\n  });\n  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.\n    $('.modal:visible').length && $(document.body).addClass('modal-open');\n  });\n\n\n\n</script>\n\n\n\n\n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
 }).call(this);
@@ -19103,28 +19130,28 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/thai/_get_started", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center get-started-text\">มาเริ่มกันเลยดีกว่า!</h2>\n\n<h3 class=\"text-under-get-started\">โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:</h3>";
+  Handlebars.registerPartial("front/thai/_friends_helping", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>บริการรับใช้คนไทย</h3>\n\n<span>เราเข้าใจว่าการเรียนภาษาอังกฤษ (โดยเฉพาะอย่างยิ่งกับเจ้าของภาษา) ในประเทศไทยมีค่าใช้จ่ายที่แพงมาก สิ่งนี้เป็นหนึ่งในเหตุผลหลักที่ทำเราเริ่มต้นโครงการนี้ขึ้นมา คำถามหนึ่งที่เรามักจะถูกถามบ่อยๆ คือ \"ทำไมชั้นเรียนภาษาอังกฤษและการสนทนาภาษาอังกฤษออนไลน์ของคุณจึงมีราคาถูกมาก?\" ประการแรก เราเป็นโครงการที่ไม่แสวงหาผลกำไร โครงการของเราได้จัดตั้งขึ้นเพื่อให้บริการและรับใช้คนไทย ไม่ใช่เพื่อหาเงิน รายได้ทั้งหมดจะถูกนำมาใช้เพื่อสนับสนุนและขยายการให้บริการของเรากับคุณ  ประการที่สอง ผู้สอนภาษาอังกฤษที่ได้รับการรับรองโดย TESOL และผู้ร่วมงานที่เป็นพันธมิตรในการสนทนาออนไลน์ของเราทุกคนเป็นอาสาสมัคร  พวกเขาเป็นคริสเตียนที่อาสาสมัครเข้ามาเพื่อใช้เวลาของพวกเขาสำหรับบริการรับใช้และช่วยคนไทย พวกเขามาจากประวัติศาสตร์ความเป็นมาที่ยาวนานของอาสาสมัครคริสเตียนที่มีความรักและความปรารถนาที่จะรับใช้คนไทย</span>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_get_started_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">ขั้นตอนที่ 1</span></h3>\n\n<span class=\"steps\">ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 399 บาท เท่านั้น! คลิกที่นี่เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a></span>\n\n\n";
+    return "<h3>ขั้นตอนที่ 1</h3>\n\n<span>ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 399 บาท เท่านั้น! คลิกที่นี่เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a></span>\n\n\n";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_get_started_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center get-started-title\">มาเริ่มกันเลยดีกว่า!</h2>\n\n<h3 class=\"get-started-text\">\n  โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_get_started_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">ขั้นตอนที่ 2</span></h3>\n\n<div id=\"get-started-one\"><span class=\"steps\">เมื่อเรียนจบหลักสูตร \"You Can Speak\" คุณจะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายออนไลน์โครงการซิตี้ อิงลิช ฟรี  1 ปี สมาชิกเครือข่ายจะได้รับสิทธิพิเศษที่ไม่จำกัดในการเข้าถึงกระดานข้อมูลข่าวสาร ชั้นเรียนออนไลน์ และชั้นเรียนและกิจกรรมต่างๆ ที่จะจัดขึ้นในพื้นที่กรุงเทพมหานคร นอกจากนี้สมาชิกเครือข่ายจะได้รับโอกาสในการสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาเจ้าของภาษา โดยมีค่าใช้จ่ายในการดำเนินการเพียงเล็กน้อย</span></div>\n";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/thai/_helping_friends_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">บริการรับใช้คนไทย</span></h3>\n\n<h3><span class=\"steps\">เราเข้าใจว่าการเรียนภาษาอังกฤษ (โดยเฉพาะอย่างยิ่งกับเจ้าของภาษา) ในประเทศไทยมีค่าใช้จ่ายที่แพงมาก สิ่งนี้เป็นหนึ่งในเหตุผลหลักที่ทำเราเริ่มต้นโครงการนี้ขึ้นมา คำถามหนึ่งที่เรามักจะถูกถามบ่อยๆ คือ \"ทำไมชั้นเรียนภาษาอังกฤษและการสนทนาภาษาอังกฤษออนไลน์ของคุณจึงมีราคาถูกมาก?\" ประการแรก เราเป็นโครงการที่ไม่แสวงหาผลกำไร โครงการของเราได้จัดตั้งขึ้นเพื่อให้บริการและรับใช้คนไทย ไม่ใช่เพื่อหาเงิน รายได้ทั้งหมดจะถูกนำมาใช้เพื่อสนับสนุนและขยายการให้บริการของเรากับคุณ  ประการที่สอง ผู้สอนภาษาอังกฤษที่ได้รับการรับรองโดย TESOL และผู้ร่วมงานที่เป็นพันธมิตรในการสนทนาออนไลน์ของเราทุกคนเป็นอาสาสมัคร  พวกเขาเป็นคริสเตียนที่อาสาสมัครเข้ามาเพื่อใช้เวลาของพวกเขาสำหรับบริการรับใช้และช่วยคนไทย พวกเขามาจากประวัติศาสตร์ความเป็นมาที่ยาวนานของอาสาสมัครคริสเตียนที่มีความรักและความปรารถนาที่จะรับใช้คนไทย</span></h3>";
+    return "<h3><span class=\"stepTitle\">ขั้นตอนที่ 2</span></h3>\n\n<span>เมื่อเรียนจบหลักสูตร \"You Can Speak\" คุณจะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายออนไลน์โครงการซิตี้ อิงลิช ฟรี  1 ปี สมาชิกเครือข่ายจะได้รับสิทธิพิเศษที่ไม่จำกัดในการเข้าถึงกระดานข้อมูลข่าวสาร ชั้นเรียนออนไลน์ และชั้นเรียนและกิจกรรมต่างๆ ที่จะจัดขึ้นในพื้นที่กรุงเทพมหานคร นอกจากนี้สมาชิกเครือข่ายจะได้รับโอกาสในการสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาเจ้าของภาษา โดยมีค่าใช้จ่ายในการดำเนินการเพียงเล็กน้อย</span>\n";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_holistic_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">ต้นแบบการเรียนรู้แบบองค์รวม</span></h3>\n\n<h3><span class=\"steps\">หัวใจสำคัญของสิ่งที่เราทำ คือ การสนทนาภาษาอังกฤษ อย่างไรก็ดี ทุกคนรู้ว่าการเรียนรู้ภาษาอังกฤษไม่เพียงพอที่จะช่วยให้คุณมีความเชี่ยวชาญในการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในเชิงธุรกิจและความสัมพันธ์ส่วนบุคคล นั่นเป็นเหตุผลที่รูปแบบการเรียนรู้แบบองค์รวมของเราได้รวมเอาข้อมูลและองค์ประกอบพื้นฐานของวัฒนธรรมและโลกทัศน์เข้าไปไว้ในทุกบทเรียนของเราด้วย ตัวอย่างเช่น ในบทนำของบทเรียน City Talk ของเรา คุณจะได้เรียนรู้เกร็ดความรู้เบื้องต้น อย่างเช่น วิธีการจับมือทักทายและการแนะนำตัวเองที่เหมาะสมทางวัฒนธรรม นอกจากนี้คุณยังจะได้เรียนรู้วิธีการง่ายๆ ในการจดจำโครงเรื่องแบบย่อสรุปที่ช่วยให้คุณมีพื้นฐานความเข้าใจเกี่ยวกับโลกทัศน์ของคริสเตียน – มุมมองความเชื่อที่มีอิทธิพลต่อวิถีชีวิตอย่างน้อยในด้านใดด้านหนึ่งของผู้คนมากกว่าสองพันล้านคนทั่วโลก เครือข่ายออนไลน์ของเรายังจะนำเสนอชั้นเรียนเพิ่มเติมเกี่ยวกับวัฒนธรรมและโลกทัศน์กลุ่มอื่นๆในโลก เราต้องการที่จะทำทุกสิ่งทุกอย่างที่เราสามารถทำได้เพื่อให้คุณประสบความสำเร็จในชีวิตและการประกอบอาชีพ!</span></h3>";
+    return "<h3>ต้นแบบการเรียนรู้แบบองค์รวม</h3>\n\n<span>หัวใจสำคัญของสิ่งที่เราทำ คือ การสนทนาภาษาอังกฤษ อย่างไรก็ดี ทุกคนรู้ว่าการเรียนรู้ภาษาอังกฤษไม่เพียงพอที่จะช่วยให้คุณมีความเชี่ยวชาญในการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในเชิงธุรกิจและความสัมพันธ์ส่วนบุคคล นั่นเป็นเหตุผลที่รูปแบบการเรียนรู้แบบองค์รวมของเราได้รวมเอาข้อมูลและองค์ประกอบพื้นฐานของวัฒนธรรมและโลกทัศน์เข้าไปไว้ในทุกบทเรียนของเราด้วย ตัวอย่างเช่น ในบทนำของบทเรียน City Talk ของเรา คุณจะได้เรียนรู้เกร็ดความรู้เบื้องต้น อย่างเช่น วิธีการจับมือทักทายและการแนะนำตัวเองที่เหมาะสมทางวัฒนธรรม นอกจากนี้คุณยังจะได้เรียนรู้วิธีการง่ายๆ ในการจดจำโครงเรื่องแบบย่อสรุปที่ช่วยให้คุณมีพื้นฐานความเข้าใจเกี่ยวกับโลกทัศน์ของคริสเตียน – มุมมองความเชื่อที่มีอิทธิพลต่อวิถีชีวิตอย่างน้อยในด้านใดด้านหนึ่งของผู้คนมากกว่าสองพันล้านคนทั่วโลก เครือข่ายออนไลน์ของเรายังจะนำเสนอชั้นเรียนเพิ่มเติมเกี่ยวกับวัฒนธรรมและโลกทัศน์กลุ่มอื่นๆในโลก เราต้องการที่จะทำทุกสิ่งทุกอย่างที่เราสามารถทำได้เพื่อให้คุณประสบความสำเร็จในชีวิตและการประกอบอาชีพ!</span>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
