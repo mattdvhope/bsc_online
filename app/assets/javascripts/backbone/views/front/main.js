@@ -10,7 +10,9 @@ var MainFrontView = Backbone.View.extend({
       features: this.features_language(),
       step_one: this.step_one(),
       step_two: this.step_two(),
-      helping_friends: this.helping_friends()
+      helping_friends: this.helping_friends(),
+      christian_worldview: this.christian_worldview(),
+      press_enter: this.press_enter()
     }));
   },
   window_width: function() {
@@ -29,7 +31,7 @@ var MainFrontView = Backbone.View.extend({
     return this.choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.choose_language("Features", "คุณลักษณะเด่น");
+    return this.choose_language("Features", "บริการของเรา");
   },
   step_one: function() {
     return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
@@ -39,6 +41,12 @@ var MainFrontView = Backbone.View.extend({
   },
   helping_friends: function() {
     return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
+  },
+  christian_worldview: function() { // in _nested_modal_christian_worldview.hrb
+    return this.choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
+  },
+  press_enter: function() { // in _nested_modal_christian_worldview.hrb
+    return this.choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
   },
   choose_language: function(english, thai) {
     if (this.thai_language()) {

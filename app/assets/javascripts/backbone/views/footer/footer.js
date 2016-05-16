@@ -24,7 +24,7 @@ var FooterFrontView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   telephone: function() {
-    return this.choose_language("Telephone:", "โทรศัพท์");
+    return this.choose_language("Telephone:", "เบอร์โทรศัพท์");
   },
   contact_us: function() {
     return this.choose_language("Contact Us", "ติดต่อเรา");
