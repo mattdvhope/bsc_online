@@ -28,9 +28,9 @@ var ApplicationView = Backbone.View.extend({
   pan_road: function() {
     return this.choose_language("Pan Road", "ถนนปั้น");
   },
-  payment_info: function() {
-    return this.choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
-  },
+  // payment_info: function() {
+  //   return this.choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
+  // },
 
   choose_language: function(english, thai) {
     if (this.thai_language()) {
@@ -54,7 +54,7 @@ var ApplicationView = Backbone.View.extend({
       class_cost: this.class_cost(),
       pay_at_center: this.pay_at_center(),
       pan_road: this.pan_road(),
-      payment_info: this.payment_info(),
+      // payment_info: this.payment_info(),
     }));
 
     return this;

@@ -96,9 +96,9 @@
 
         <fieldset id="payment-options">
           <label class="field-label">{{choose_payment_option}}</label>
-            <p class="above-radios"><a data-toggle="modal" href="#" data-target="#myModal">{{class_cost}}</a></p>
+            <p class="above-radios"><a data-toggle="modal" href="#" data-target="#costAmountModal">{{class_cost}}</a></p>
             <div class="radio-div-applic">
-              <label><input type="radio" name="pay_at_center" class="radio-pay_at_center radio-in-appl">{{pay_at_center}}<a href="">{{pan_road}}</a>.</label>
+              <label><input type="radio" name="pay_at_center" class="radio-pay_at_center radio-in-appl">{{pay_at_center}}{{pan_road}}.</label>
             </div>
             <br>
             <div class="radio-div-applic">
@@ -111,9 +111,9 @@
                 {{/if}}
               </label>
             </div>
-            <p class="under-radios">
+            {{!-- <p class="under-radios">
               <a href="#">{{payment_info}}</a>
-            </p>
+            </p> --}}
         </fieldset>
         <hr>
 
