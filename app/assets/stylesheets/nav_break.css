@@ -4,6 +4,7 @@
     }
     .navbar-toggle {
         display: block;
+        padding-right: 10px;
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
