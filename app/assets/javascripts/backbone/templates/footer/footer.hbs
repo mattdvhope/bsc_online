@@ -1,70 +1,74 @@
-<div class="footer-screen">
+{{!-- new footer --}}
+
+<div id="contact-us" class="footer-screen">
   {{#if window_big}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City_scape.png" id="contact-us" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City_scape.png" class="img-responsive">
   {{else if window_medium}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+medium.png" id="contact-us" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+medium.png" class="img-responsive">
   {{else if window_smaller}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+smaller.png" id="contact-us" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+smaller.png" class="img-responsive">
   {{else}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+mobile.png" id="contact-us" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+mobile.png" class="img-responsive">
   {{/if}}
-  <div class="footer-content">
-    <h2>{{contact_us}}</h2>
+  <div class="container-full">
+    <div class="row">
+      <h2>{{contact_us}}</h2>
+    </div><!-- row -->
+    <div class="row">
+      <div class="fb-div">
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="450"
+          data-show-faces="true">
+        </div>
+      </div> <!--fb share-->
+    </div><!-- row -->
     <br>
-    <div class="row row-eq-height">
-      <div class="col-sm-3 footer-cep-logo">
+    <br>
+    <div class="row footer-contact-info">
+      <div class="col-sm-3 col-xs-12 footer-cep-logo">
         <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo.png" alt="wide picture" class="img-responsive">
       </div>
-      <br>
-      <div class="col-sm-3 footer-address">
-        <div class="footer-left-line">
-          <div class="footer-subtitle">{{telephone}}</div>
-          <div>086-696-7821</div>
-          <br>
-            {{#if thai_language}}
-              {{> footer/thai/_address }}
-            {{^}}
-              {{> footer/english/_address }}
-            {{/if}}
-          <br>
-          <div>
-            <a href="https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Facebook.png" class="social-media-icon"></a>
-            <a href="https://www.instagram.com/cityenglishproject/?hl=en" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Instagram.png" class="social-media-icon"></a>
-          </div>
-          <br>
-          {{!-- <li style="list-style-type: none;"><div class="line-it-button" style="display: none;" data-type="share-d" data-lang="en"></div></li> --}}
-        </div> <!-- class="footer-left-line" -->
+      <div class="col-sm-3 col-xs-12 footer-address">
+        <div class="footer-subtitle">{{telephone}}</div>
+        <div>086-696-7821</div>
+        <br>
+          {{#if thai_language}}
+            {{> footer/thai/_address }}
+          {{^}}
+            {{> footer/english/_address }}
+          {{/if}}
+        <br>
+        <div> <!-- social media icons -->
+          <a href="https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Facebook.png" class="social-media-icon"></a>
+          <a href="https://www.instagram.com/cityenglishproject/?hl=en" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Instagram.png" class="social-media-icon"></a>
+        </div> <!-- social media icons -->
+        <br>
+        {{!-- <li style="list-style-type: none;"><div class="line-it-button" style="display: none;" data-type="share-d" data-lang="en"></div></li> --}}
       </div> <!-- footer-address -->
+      <div class="col-sm-6 col-xs-12 google-map">
+        <div id="googleMap" style="width:300px;height:228px;"></div>
+      </div> <!-- google map -->
+    </div><!-- row -->
       <br>
-      <div id="footer-map" class="col-sm-6">
-
-        <a href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png" data-lightbox="image-1">
-          <div class="featured-img pan-road-map">
-            <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Pan+Road+Map.png" alt="Pan Road Map" >
-          </div>
-          {{!-- <h3>{{step_one}}</h3> --}}
-        </a>
-        {{!-- <div id="googleMap" style="width:500px;height:380px;"></div> --}}
+    <div class="row ">
+      <div class="copyright">
+        <div>Copyright &copy; City English Project 2016</div>
+        <div>All rights reserved.</div>
+        <div>Flag images provided by <a href="http://www.icondrawer.com/" target="_blank">Icon Drawer</a></div>
       </div>
-    </div> {{!-- row --}}
-    <div class="copyright" style="list-style-type: none;">
-      <div>Copyright &copy; City English Project 2016</div>
-      <div>All rights reserved.</div>
-    <div>Flag images provided by <a href="http://www.icondrawer.com/" target="_blank">Icon Drawer</a>
-
-    </div>
-    </div>
-    <div class="fb-div">
-      <div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
-      </div>
-    </div>
-  </div> {{!-- footer-content --}}
-  <br>
+    </div> <!-- row -->
+    <br>
+    <br>
+    <br>
+  </div> <!-- container-full -->
 </div> {{!-- footer-screen --}}
+
+
+
+
+
 
 
 {{!-- ...old stuff below... --}}
