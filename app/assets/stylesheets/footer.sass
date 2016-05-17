@@ -8,13 +8,13 @@
     font-size: 90%
 
 .footer-screen > .container-full
-  h2
-    // text-align: center
-    font-size: 300%
   top: 0%
   left: 2%
   position: absolute
   text-align: center
+  width: 100% // to make text-align: center work in mobile
+  h2
+    font-size: 300%
 
 .footer-contact-info
   display: table  
@@ -45,9 +45,6 @@
   font-size: 200%
 
 .footer-address
-  @media screen and (min-width: 770px)
-    padding-right: 10px
-  @media screen and (min-width: 770px)
   display: table-cell
   border-left: 2px solid #8BC34A
   border-right: 2px solid #8BC34A
@@ -69,7 +66,9 @@
     margin-right: auto
 
 .copyright
-  margin-left: 40px
+  @media screen and (max-width: 930px)
+    text-align: left
+    margin-left: 40px
 
 
 
