@@ -9,34 +9,29 @@
     <link href='https://fonts.googleapis.com/css?family=Muli|Raleway|Lustria|Oswald|BenchNine|Six+Caps' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet' type='text/css'>
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <%= favicon_link_tag "favicon.ico" %>
     
-    <script src="https://maps.googleapis.com/maps/api/js">
-    </script>
-
     <meta property="og:url"         content="http://cityenglishproject.com/" />
     <meta property="og:type"        content="website" />
     <meta property="og:title"       content="CEP Home" />
     <meta property="og:description" content="Our site" />
     <meta property="og:image"       content="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/on_bench.jpg" />
 
+    <script src="https://maps.googleapis.com/maps/api/js">
+    </script>
 
-
-<script>
-// function initialize() {
-//   var mapProp = {
-//     center:new google.maps.LatLng(13.72169, 100.52378),
-//     zoom:16,
-//     mapTypeId:google.maps.MapTypeId.ROADMAP
-//   };
-//   var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-// }
-// google.maps.event.addDomListener(window, 'load', initialize);
-</script>
-
-
+    <script>
+    function initialize() { // google maps js
+      var mapProp = {
+        center:new google.maps.LatLng(13.72169, 100.52378),
+        zoom:16,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+      var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </head>
   <body>
     <%= render 'shared/messages' %>
