@@ -1,0 +1,44 @@
+.features
+  z-index: 0
+  background: #2D3179
+  padding: 60px 0px
+
+.features-text
+  font-family: 'Kanit', sans-serif
+  font-weight: 700
+  letter-spacing: 5px
+  margin-bottom: 30px
+  margin-top: 30px
+  color: #ffffff
+
+h2.features-text::after
+  display: block
+  margin: 17px auto 0px
+  width: 100px
+  height: 1px
+  background: #FFF none repeat scroll 0% 0%
+
+.features-text-bottom
+  font-family: 'Kanit', sans-serif
+  font-weight: 700
+  letter-spacing: 5px
+  margin-bottom: 30px
+  margin-top: 30px
+  color: #ffffff
+
+h2.features-text-bottom
+  &::after
+    display: block
+    margin: 17px auto 0px
+    width: 98%
+    height: 1px
+    background: #FFF none repeat scroll 0% 0%
+    content: ""
+  &::before
+    display: block
+    margin: 17px auto 10px
+    width: 98%
+    height: 1px
+    background: #FFF none repeat scroll 0% 0%
+    content: ""
+
