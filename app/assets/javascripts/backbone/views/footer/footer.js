@@ -12,10 +12,10 @@ var FooterFrontView = Backbone.View.extend({
     }));
   },
   window_big: function() {
-    return $(window).width() >= 1100
+    return $(window).width() >= 1260
   },
   window_medium: function() {
-    return $(window).width() >= 768 && $(window).width() < 1100
+    return $(window).width() >= 768 && $(window).width() < 1260
   },
   window_smaller: function() {
     return $(window).width() >= 550 && $(window).width() < 768
