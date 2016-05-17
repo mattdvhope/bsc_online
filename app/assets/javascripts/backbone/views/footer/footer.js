@@ -3,21 +3,21 @@ var FooterFrontView = Backbone.View.extend({
   templateFooter:  HandlebarsTemplates['footer/footer'],
   render: function() {
     this.$el.html(this.templateFooter({
-      window_big: this.window_width_wide(),
-      window_medium: this.window_width_medium(),
-      window_smaller: this.window_width_smaller(),
+      window_big: this.window_big(),
+      window_medium: this.window_medium(),
+      window_smaller: this.window_smaller(),
       thai_language: this.app_language_is_thai(),
       telephone: this.telephone(),
       contact_us: this.contact_us()
     }));
   },
-  window_width_wide: function() {
-    return $(window).width() >= 1270
+  window_big: function() {
+    return $(window).width() >= 1100
   },
-  window_width_medium: function() {
-    return $(window).width() >= 768 && $(window).width() < 1270
+  window_medium: function() {
+    return $(window).width() >= 768 && $(window).width() < 1100
   },
-  window_width_smaller: function() {
+  window_smaller: function() {
     return $(window).width() >= 550 && $(window).width() < 768
   },
   app_language_is_thai: function() {
