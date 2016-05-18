@@ -34,15 +34,13 @@
     </script>
   </head>
 
-  <body style="-webkit-overflow-scrolling: touch;">
-    <div style="min-height: 101%">
-      <%= render 'shared/messages' %>
+  <body style="overflow: auto; -webkit-overflow-scrolling: touch;">
+    <%= render 'shared/messages' %>
 
-        <%= yield %>
+      <%= yield %>
 
-      <%= javascript_include_tag "application" %>
-      <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer"></script>
-    </div>
+    <%= javascript_include_tag "application" %>
+    <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer"></script>
   </body>
 </html>
 
