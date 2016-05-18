@@ -1,5 +1,5 @@
 <!doctype html>
-<html style="-webkit-overflow-scrolling: touch;">
+<html>
   <head>
     <!-- <title>CEP Online</title> -->
     <title><%= full_title(yield :title)%></title> <!-- see 'helpers/application_helper.rb' -->
@@ -33,7 +33,7 @@
     google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
-  <body>
+  <body style="-webkit-overflow-scrolling: touch;">
     <%= render 'shared/messages' %>
 
       <%= yield %>
@@ -42,3 +42,10 @@
     <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer"></script>
   </body>
 </html>
+
+
+
+
+
+
+
