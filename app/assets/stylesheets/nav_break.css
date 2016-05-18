@@ -1,6 +1,7 @@
 @media (max-width: 730px) {
     .navbar-header {
         float: none;
+        padding-right: 11px;
     }
     .navbar-toggle {
         display: block;
@@ -16,7 +17,9 @@
         float: none!important;
         margin: 7.5px -15px;
     }
-    .navbar-nav>li {
+    .navbar-nav>li.national-flag {
+        margin-left: 150px;
+        width:2px;
     }
     .navbar-nav>li>a {
         padding-top: 10px;

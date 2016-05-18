@@ -17,14 +17,7 @@
 
 
 <script>
-
   // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
-//   $("p.above-radios > a").on("click", function () {
-// console.log("clicked???");
-//     $('#christianWorldViewModal').modal({
-//       show: true
-//     })
-//   });
   $(document).on('show.bs.modal', '.modal', function (event) {
     var zIndex = 1040 + (10 * $('.modal:visible').length);
     $(this).css('z-index', zIndex);
@@ -35,9 +28,6 @@
   $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
     $('.modal:visible').length && $(document.body).addClass('modal-open');
   });
-
-
-
 </script>
 
 

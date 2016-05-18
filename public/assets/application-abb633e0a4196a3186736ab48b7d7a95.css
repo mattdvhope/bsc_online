@@ -8754,25 +8754,25 @@ button.close {
     display: none !important;
   }
 }
-/* line 8, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 3, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 body {
-  font-family: "Kanit", sans-serif;
+  font-family: "Kanit", "Corbert-Regular", sans-serif;
 }
 
-/* line 11, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 6, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* line 15, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 10, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
   padding: 0;
 }
 
-/* line 20, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 15, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .header {
   background: #212a3f;
   height: 60px;
@@ -8781,7 +8781,7 @@ html, body {
   z-index: 1;
 }
 
-/* line 27, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 22, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .logo {
   color: #fa3447;
   font-weight: 100;
@@ -8789,17 +8789,17 @@ html, body {
   padding: 0px !important;
   line-height: 60px;
 }
-/* line 33, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 28, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .logo:hover {
   color: white;
 }
 
-/* line 36, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 31, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 logo:active {
   color: white;
 }
 
-/* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 34, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .navbar-brand > img {
   display: inline;
   margin-top: -11px;
@@ -8808,63 +8808,63 @@ logo:active {
   position: fixed;
 }
 @media screen and (min-width: 550px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 34, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .navbar-brand > img {
     width: 160px;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 34, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .navbar-brand > img {
     width: 55px;
   }
 }
 
-/* line 51, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 48, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .usa_flag img, .thai_flag img {
   border-radius: 50%;
 }
 
-/* line 55, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .header {
   background-color: #8bc34a;
 }
 
 @media screen and (min-width: 550px) {
-  /* line 58, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 55, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .backg {
-    background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scene.jpg") no-repeat fixed;
+    background: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+lower+for+mobile.png") no-repeat fixed;
     background-size: 100% auto;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 58, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 55, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .backg {
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile+buildings.png");
   }
 }
 
 @media screen and (min-width: 550px) {
-  /* line 65, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 62, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .backg-vol {
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg");
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 65, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 62, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .backg-vol {
     background-image: url("https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop_mobile.jpg");
   }
 }
 
-/* line 71, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 68, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .inner {
   display: inline-block;
   border-radius: 40px 0px 0px 40px;
   color: white;
 }
 
-/* line 80, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 77, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .backg, .backg-vol {
   background-color: #645862;
   background-position: top left;
@@ -8878,474 +8878,49 @@ logo:active {
   float: left;
 }
 
-/* line 93, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 90, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box a {
   background-color: #2d3179;
 }
-/* line 95, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 92, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box a.top-click {
   background-color: #8bc34a;
   padding: 9px;
   border-radius: 7%;
 }
-/* line 99, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 96, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box p.intro, .text-box p.intro-thai {
   font-weight: 400;
   border-bottom: 7px #fa3447;
   line-height: 130%;
 }
 @media screen and (min-width: 800px) {
-  /* line 99, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 96, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-box p.intro, .text-box p.intro-thai {
     font-size: 300%;
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 99, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 96, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-box p.intro, .text-box p.intro-thai {
     font-size: 220%;
   }
 }
-/* line 107, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 104, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box p.intro a, .text-box p.intro-thai a {
   color: white;
   text-decoration: underline;
 }
-/* line 110, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 107, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box p.intro {
   font-family: "Corbert-Regular", sans-serif;
 }
-/* line 112, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 109, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .text-box p.intro-thai {
   font-family: "Kanit", sans-serif;
 }
 
-/* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.carousel-caption {
-  -webkit-transform: translateY(-23%);
-      -ms-transform: translateY(-23%);
-          transform: translateY(-23%);
-  text-align: left;
-  bottom: initial;
-  color: black;
-  text-shadow: none;
-}
-@media screen and (min-width: 940px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 570px;
-  }
-}
-@media screen and (max-width: 940px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 510px;
-  }
-}
-@media screen and (max-width: 900px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 460px;
-  }
-}
-@media screen and (max-width: 700px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 350px;
-  }
-}
-@media screen and (max-width: 700px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 350px;
-  }
-}
-@media screen and (max-width: 400px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    width: 280px;
-  }
-}
-@media screen and (min-width: 1000px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 120%;
-  }
-}
-@media screen and (max-width: 1000px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 110%;
-  }
-}
-@media screen and (max-width: 950px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 105%;
-  }
-}
-@media screen and (max-width: 830px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 97%;
-  }
-}
-@media screen and (max-width: 800px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 90%;
-  }
-}
-@media screen and (max-width: 550px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 110%;
-  }
-}
-@media screen and (max-width: 480px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    font-size: 98%;
-  }
-}
-@media screen and (min-width: 840px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    left: 35%;
-  }
-}
-@media screen and (max-width: 840px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    left: 34%;
-  }
-}
-@media screen and (max-width: 550px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    left: 10%;
-    width: 300px;
-  }
-}
-@media screen and (min-width: 850px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    top: 43%;
-  }
-}
-@media screen and (max-width: 850px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    top: 42%;
-  }
-}
-@media screen and (max-width: 800px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    top: 41%;
-  }
-}
-@media screen and (max-width: 720px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    top: 43%;
-  }
-}
-@media screen and (max-width: 550px) {
-  /* line 117, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .carousel-caption {
-    top: 40%;
-  }
-}
-
-/* line 171, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.features {
-  z-index: 0;
-  background: #2d3179;
-  padding: 60px 0px;
-}
-
-/* line 176, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.features-text {
-  font-family: "Kanit", sans-serif;
-  font-weight: 700;
-  letter-spacing: 5px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  color: white;
-}
-
-/* line 184, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-h2.features-text::after {
-  display: block;
-  margin: 17px auto 0px;
-  width: 100px;
-  height: 1px;
-  background: white none repeat scroll 0% 0%;
-}
-
-/* line 191, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.features-text-bottom {
-  font-family: "Kanit", sans-serif;
-  font-weight: 700;
-  letter-spacing: 5px;
-  margin-bottom: 30px;
-  margin-top: 30px;
-  color: white;
-}
-
-/* line 200, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-h2.features-text-bottom::after {
-  display: block;
-  margin: 17px auto 0px;
-  width: 98%;
-  height: 1px;
-  background: white none repeat scroll 0% 0%;
-  content: "";
-}
-/* line 207, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-h2.features-text-bottom::before {
-  display: block;
-  margin: 17px auto 10px;
-  width: 98%;
-  height: 1px;
-  background: white none repeat scroll 0% 0%;
-  content: "";
-}
-
-/* line 217, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-#get-started {
-  background: #8bc34a;
-  color: #2d3179;
-}
-
-/* line 221, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-#get-started-centerer {
-  margin-left: 3em;
-  margin-right: 3em;
-}
-
-/* line 225, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-h2.get-started-top-title {
-  font-size: 2.3em;
-  font-weight: 700;
-}
-
-/* line 229, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-h3.get-started-top-text {
-  font-weight: 500;
-  font-size: 1.7em;
-}
-
-/* line 233, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.get-started-text {
-  font-size: 1.4em;
-}
-
-/* line 245, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.footer-screen {
-  position: relative;
-  color: #2d3179;
-}
-@media screen and (min-width: 840px) {
-  /* line 245, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-screen {
-    font-size: 100%;
-  }
-}
-@media screen and (max-width: 840px) {
-  /* line 245, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-screen {
-    font-size: 90%;
-  }
-}
-
-/* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.footer-content {
-  left: 2%;
-}
-/* line 254, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.footer-content h2 {
-  text-align: center;
-  font-family: "Kanit", sans-serif;
-}
-@media screen and (min-width: 1270px) {
-  /* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content {
-    top: 0;
-  }
-}
-@media screen and (max-width: 1270px) {
-  /* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content {
-    top: 7%;
-  }
-}
-@media screen and (max-width: 1000px) {
-  /* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content {
-    top: 0%;
-  }
-}
-@media screen and (min-width: 410px) {
-  /* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content {
-    position: absolute;
-  }
-  /* line 268, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content [class*="col-"] {
-    margin-bottom: -185px;
-    padding-bottom: 185px;
-  }
-}
-@media screen and (max-width: 410px) {
-  /* line 253, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-content {
-    position: absolute;
-    left: 2%;
-    margin-left: -62px;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  /* line 276, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-cep-logo {
-    padding-right: 2%;
-    padding-left: 2%;
-    border-right: 2px solid #8bc34a;
-  }
-}
-@media screen and (max-width: 767px) {
-  /* line 276, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-cep-logo {
-    padding-right: 31%;
-    padding-left: 31%;
-  }
-}
-@media screen and (max-width: 550px) {
-  /* line 276, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-cep-logo {
-    padding-right: 31%;
-    padding-left: 31%;
-  }
-}
-@media screen and (max-width: 410px) {
-  /* line 276, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-cep-logo {
-    padding-right: 37%;
-    padding-left: 37%;
-  }
-}
-/* line 290, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.footer-cep-logo img {
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* line 295, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.footer-subtitle {
-  font-size: 200%;
-}
-
-@media screen and (min-width: 767px) {
-  /* line 298, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-address {
-    padding-right: 10px;
-  }
-}
-@media screen and (min-width: 767px) {
-  /* line 298, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-address {
-    border-right: 2px solid #8bc34a;
-  }
-}
-
-/* line 304, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.social-media-icon {
-  margin: 1%;
-}
-@media screen and (min-width: 767px) {
-  /* line 304, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .social-media-icon {
-    width: 20%;
-  }
-}
-@media screen and (max-width: 767px) {
-  /* line 304, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .social-media-icon {
-    width: 11%;
-  }
-}
-@media screen and (max-width: 550px) {
-  /* line 304, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .social-media-icon {
-    width: 20%;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  /* line 313, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-left-line {
-    padding-left: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  /* line 313, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .footer-left-line {
-    border-left: 2px solid #8bc34a;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  /* line 322, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  #footer-map {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-/* line 327, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-#footer-map img {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media screen and (min-width: 410px) {
-  /* line 332, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .copyright {
-    margin-top: 20px;
-    margin-left: 45px;
-    margin-right: auto;
-  }
-}
-@media screen and (max-width: 410px) {
-  /* line 332, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .copyright {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 770px) {
-  /* line 340, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .fb-div {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    margin-left: 45px;
-  }
-}
-@media screen and (max-width: 770px) {
-  /* line 340, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-  .fb-div {
-    display: none;
-  }
-}
-
-/* line 349, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 114, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .volunteer-picture img {
   width: 275px;
   height: 170px;
@@ -9353,48 +8928,48 @@ h3.get-started-top-text {
 }
 
 @-webkit-keyframes reveal-banner {
-  /* line 363, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 128, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   0% {
     opacity: 0;
   }
 
-  /* line 366, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 131, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   100% {
     opacity: 1;
   }
 }
 
 @-ms-keyframes reveal-banner {
-  /* line 379, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 144, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   0% {
     opacity: 0;
   }
 
-  /* line 382, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 147, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   100% {
     opacity: 1;
   }
 }
 
 @keyframes reveal-banner {
-  /* line 387, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 152, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   0% {
     opacity: 0;
   }
 
-  /* line 390, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 155, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   100% {
     opacity: 1;
   }
 }
 
-/* line 393, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 158, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .some-notes {
   padding: 40px 0px;
   float: left;
 }
 
-/* line 397, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 162, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .title h2 {
   font-family: "Kanit", sans-serif;
   font-weight: 300;
@@ -9404,7 +8979,7 @@ h3.get-started-top-text {
   text-transform: uppercase;
 }
 
-/* line 406, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 171, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .desc p {
   width: 55%;
   position: relative;
@@ -9417,13 +8992,13 @@ h3.get-started-top-text {
   text-align: center;
   line-height: 25px;
 }
-/* line 417, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 182, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .desc p a {
   text-decoration: none;
   color: #8ab839;
 }
 
-/* line 421, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 186, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .partners {
   text-align: center;
   margin-left: 2em;
@@ -9431,30 +9006,30 @@ h3.get-started-top-text {
 }
 
 @media screen and (min-width: 1170px) {
-  /* line 426, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 191, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-under-circle {
     padding-right: 90px;
   }
 }
 @media screen and (max-width: 1170px) {
-  /* line 426, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 191, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .text-under-circle {
     padding-right: 40px;
   }
 }
 
-/* line 432, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 197, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 p.vol-step {
   font-family: "Kanit", sans-serif;
 }
 @media screen and (min-width: 767px) {
-  /* line 432, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 197, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   p.vol-step {
     width: 11em;
   }
 }
 
-/* line 437, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 202, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .picturing .btn {
   font-size: 20px;
   font-family: "Times New Roman", Georgia, Serif;
@@ -9465,25 +9040,25 @@ p.vol-step {
   font-family: "Kanit", sans-serif;
 }
 @media screen and (min-width: 767px) {
-  /* line 437, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 202, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .picturing .btn {
     margin-left: 2px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 437, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 202, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .picturing .btn {
     margin-left: 20px;
   }
 }
 @media screen and (max-width: 450px) {
-  /* line 437, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 202, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .picturing .btn {
     margin-left: 9px;
   }
 }
 
-/* line 452, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 217, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .picturing img {
   margin: 0 auto;
   font-size: 35px;
@@ -9495,26 +9070,26 @@ p.vol-step {
   line-height: 80px;
 }
 @media screen and (min-width: 780px) {
-  /* line 452, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 217, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .picturing img {
     width: 270px;
     height: 270px;
   }
 }
 @media screen and (max-width: 780px) {
-  /* line 452, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 217, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .picturing img {
     width: 220px;
     height: 220px;
   }
 }
 
-/* line 472, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 237, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .icon-box {
   margin: 30px 0px;
 }
 
-/* line 476, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 241, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .icon-text-box h4 {
   font-family: "Kanit", sans-serif;
   color: white;
@@ -9522,7 +9097,7 @@ p.vol-step {
   font-size: 28px;
   margin: 20px 0 20px 0;
 }
-/* line 482, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 247, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .icon-text-box p {
   font-family: "Kanit", sans-serif;
   font-weight: 400;
@@ -9531,7 +9106,7 @@ p.vol-step {
   margin: 0 0 55px 0;
 }
 
-/* line 489, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 254, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .notes {
   background-attachment: fixed;
   background-color: #645862;
@@ -9546,12 +9121,12 @@ p.vol-step {
   float: left;
 }
 
-/* line 502, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 267, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .notes-bg {
   background: rgba(33, 42, 63, 0.9);
   padding: 80px 0px;
 }
-/* line 505, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 270, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .notes-bg p {
   font-size: 17px;
   margin: 0px !important;
@@ -9560,7 +9135,7 @@ p.vol-step {
   line-height: 30px;
 }
 
-/* line 512, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 277, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .btneff {
   background-color: #8ab839;
   border: none;
@@ -9570,25 +9145,25 @@ p.vol-step {
   font-size: 17px;
 }
 
-/* line 520, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 285, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-list {
   padding: 60px 0px;
 }
 
-/* line 523, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 288, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-list a .featured-img {
   width: 100%;
-  height: 69.93007%;
+  height: 100%/1.43;
 }
-/* line 526, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 291, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-list a .featured-img img {
   width: 100%;
-  height: 69.93007%;
+  height: 100%/1.43;
   float: right;
   position: relative;
 }
 
-/* line 533, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 298, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-list a h3 {
   text-align: center;
   padding: 15px 0px;
@@ -9601,73 +9176,73 @@ p.vol-step {
   margin: 0px;
   font-family: "Kanit", sans-serif;
 }
-/* line 544, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 309, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-list a:hover .image-hover {
   display: block;
   -webkit-animation: 0.4s ease-in 0s normal none 1 running imagehover;
           animation: 0.4s ease-in 0s normal none 1 running imagehover;
 }
 
-/* line 548, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 313, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .work-space {
   margin: 10px 0px;
 }
 
 @-webkit-keyframes imagehover {
-  /* line 552, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 317, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   0% {
     height: 40px;
   }
 
-  /* line 555, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 320, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   25% {
     height: 80px;
   }
 
-  /* line 558, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 323, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   50% {
     height: 120px;
   }
 
-  /* line 561, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 326, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   75% {
     height: 160px;
   }
 
-  /* line 564, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 329, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   100% {
     height: 200px;
   }
 }
 
 @keyframes imagehover {
-  /* line 552, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 317, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   0% {
     height: 40px;
   }
 
-  /* line 555, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 320, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   25% {
     height: 80px;
   }
 
-  /* line 558, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 323, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   50% {
     height: 120px;
   }
 
-  /* line 561, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 326, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   75% {
     height: 160px;
   }
 
-  /* line 564, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 329, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   100% {
     height: 200px;
   }
 }
 
-/* line 568, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 333, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .image-hover {
   display: none;
   position: absolute;
@@ -9677,7 +9252,7 @@ p.vol-step {
   height: 200px;
   float: left;
 }
-/* line 576, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 341, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .image-hover i {
   color: rgba(138, 184, 57, 0);
   font-size: 30px;
@@ -9686,28 +9261,28 @@ p.vol-step {
           transition: 5s color ease-in;
   display: none;
 }
-/* line 582, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 347, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .image-hover:hover i {
   display: block;
   color: #212a3f;
 }
 
-/* line 586, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 351, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .active {
   color: #8ab839 !important;
 }
 
-/* line 590, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 355, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .nav li a:focus {
   background: #212a3f;
   color: white;
 }
-/* line 593, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 358, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .nav li a:active {
   color: white;
 }
 
-/* line 596, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 361, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .countbg {
   background: #212a3f;
   padding: 80px 0px;
@@ -9715,7 +9290,7 @@ p.vol-step {
   float: left;
 }
 
-/* line 602, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 367, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .countspace {
   color: white;
   text-align: center;
@@ -9724,17 +9299,17 @@ p.vol-step {
   background: #212a3f;
 }
 
-/* line 609, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 374, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .counter-item {
   margin-top: 30px;
 }
-/* line 611, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 376, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .counter-item i {
   font-size: 40px;
   color: #8ab839;
 }
 
-/* line 615, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 380, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .timer {
   margin-top: 5px;
   font-weight: 700;
@@ -9742,7 +9317,7 @@ p.vol-step {
   color: #8ab839;
 }
 
-/* line 621, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 386, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .counter-item h5 {
   font-size: 12px;
   font-weight: 700;
@@ -9751,19 +9326,19 @@ p.vol-step {
   font-family: "Kanit", sans-serif;
 }
 
-/* line 628, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 393, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .login {
   padding: 60px 0px;
   float: left;
   width: 100%;
 }
 
-/* line 633, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 398, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .login-form, .address-space {
   margin-top: 20px;
 }
 
-/* line 636, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 401, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .form-effect {
   padding: 12px 12px;
   color: #555555;
@@ -9773,14 +9348,14 @@ p.vol-step {
   margin-bottom: 30px;
   font-family: "Kanit", sans-serif;
 }
-/* line 644, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 409, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .form-effect:focus {
   border-color: rgba(33, 42, 63, 0.2);
   outline: 0px none;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(33, 42, 63, 0.1);
 }
 
-/* line 649, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 414, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .btn-sub {
   color: white;
   background-color: #8ab839;
@@ -9789,42 +9364,42 @@ p.vol-step {
   padding: 10px 30px;
 }
 
-/* line 656, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 421, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #map-canvas {
   height: 150px;
 }
 
-/* line 659, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 424, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 input[placeholder], [placeholder], *[placeholder] {
   color: #212a3f !important;
 }
 
-/* line 662, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 427, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .address p i {
   padding-right: 10px;
   font-size: 15px;
   color: #8ab839;
 }
 
-/* line 667, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 432, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .footer {
   margin: 20px 0px 10px;
   float: left;
   text-align: center;
   width: 100%;
 }
-/* line 672, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 437, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .footer p {
   text-align: center;
   font-family: "Kanit", sans-serif;
 }
-/* line 675, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 440, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 .footer p a {
   color: #8ab839;
   font-family: "Kanit", sans-serif;
 }
 
-/* line 685, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 450, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #overlay {
   display: none;
   position: fixed;
@@ -9835,26 +9410,26 @@ input[placeholder], [placeholder], *[placeholder] {
   z-index: 9;
 }
 @media screen and (max-width: 450px) {
-  /* line 685, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 450, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #overlay {
     background: rgba(0, 0, 0, 0.4);
   }
 }
 @media screen and (min-width: 451px) {
-  /* line 685, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 450, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #overlay {
     background: rgba(0, 0, 0, 0.4);
   }
 }
 
 @media screen and (max-height: 810px) {
-  /* line 699, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 464, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 0% 0% 0% 0%;
   }
 }
 
-/* line 703, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 468, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #entry_form_modal {
   display: none;
   position: fixed;
@@ -9868,26 +9443,375 @@ input[placeholder], [placeholder], *[placeholder] {
   background: white;
 }
 @media screen and (max-width: 450px) {
-  /* line 703, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 468, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 0%;
   }
 }
 @media screen and (min-width: 451px) {
-  /* line 703, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+  /* line 468, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   #entry_form_modal {
     margin: 10%;
     border-radius: 5px;
   }
 }
 
-/* line 721, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
+/* line 486, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
 #entry_form_modal a.close {
   position: absolute;
   top: 25px;
   right: 25px;
   z-index: 1;
   color: #0d0101;
+}
+/* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+.carousel-caption {
+  -webkit-transform: translateY(-23%);
+      -ms-transform: translateY(-23%);
+          transform: translateY(-23%);
+  text-align: left;
+  bottom: initial;
+  color: black;
+  text-shadow: none;
+}
+@media screen and (min-width: 940px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 570px;
+  }
+}
+@media screen and (max-width: 940px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 510px;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 460px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 400px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    width: 280px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 120%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 110%;
+  }
+}
+@media screen and (max-width: 950px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 105%;
+  }
+}
+@media screen and (max-width: 830px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 97%;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 90%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 110%;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    font-size: 98%;
+  }
+}
+@media screen and (min-width: 840px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    left: 35%;
+  }
+}
+@media screen and (max-width: 840px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    left: 34%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    left: 10%;
+    width: 300px;
+  }
+}
+@media screen and (min-width: 850px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    top: 43%;
+  }
+}
+@media screen and (max-width: 850px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    top: 42%;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    top: 41%;
+  }
+}
+@media screen and (max-width: 720px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    top: 43%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .carousel-caption {
+    top: 40%;
+  }
+}
+/* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+.features {
+  z-index: 0;
+  background: #2d3179;
+  padding: 60px 0px;
+}
+
+/* line 6, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+.features-text {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  color: white;
+}
+
+/* line 14, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+h2.features-text::after {
+  display: block;
+  margin: 17px auto 0px;
+  width: 100px;
+  height: 1px;
+  background: white none repeat scroll 0% 0%;
+}
+
+/* line 21, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+.features-text-bottom {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  color: white;
+}
+
+/* line 30, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+h2.features-text-bottom::after {
+  display: block;
+  margin: 17px auto 0px;
+  width: 98%;
+  height: 1px;
+  background: white none repeat scroll 0% 0%;
+  content: "";
+}
+/* line 37, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+h2.features-text-bottom::before {
+  display: block;
+  margin: 17px auto 10px;
+  width: 98%;
+  height: 1px;
+  background: white none repeat scroll 0% 0%;
+  content: "";
+}
+/* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/get_started.sass */
+#get-started {
+  background: #8bc34a;
+  color: #2d3179;
+}
+
+/* line 5, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/get_started.sass */
+#get-started-centerer {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+/* line 9, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/get_started.sass */
+h2.get-started-top-title {
+  font-size: 2.3em;
+  font-weight: 700;
+}
+
+/* line 13, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/get_started.sass */
+h3.get-started-top-text {
+  font-weight: 500;
+  font-size: 1.7em;
+}
+
+/* line 17, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/get_started.sass */
+.get-started-text {
+  font-size: 1.4em;
+}
+/* line 2, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-screen {
+  position: relative;
+  color: #2d3179;
+}
+@media screen and (min-width: 840px) {
+  /* line 2, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-screen {
+    font-size: 100%;
+  }
+}
+@media screen and (max-width: 840px) {
+  /* line 2, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-screen {
+    font-size: 90%;
+  }
+}
+
+/* line 10, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-screen > .container-full {
+  top: 0%;
+  left: 2%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+/* line 16, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-screen > .container-full h2 {
+  font-size: 300%;
+}
+
+/* line 19, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-contact-info {
+  display: table;
+}
+
+/* line 22, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.fb-like {
+  margin-left: 67px;
+}
+
+/* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-cep-logo {
+  display: table-cell;
+}
+@media screen and (min-width: 767px) {
+  /* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-cep-logo {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-cep-logo {
+    padding-right: 31%;
+    padding-left: 31%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-cep-logo {
+    padding-right: 31%;
+    padding-left: 31%;
+  }
+}
+@media screen and (max-width: 410px) {
+  /* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .footer-cep-logo {
+    padding-right: 37%;
+    padding-left: 37%;
+  }
+}
+/* line 38, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-cep-logo img {
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 44, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-subtitle {
+  font-size: 200%;
+}
+
+/* line 47, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.footer-address {
+  display: table-cell;
+  border-left: 2px solid #8bc34a;
+  border-right: 2px solid #8bc34a;
+}
+
+/* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+.social-media-icon {
+  margin: 1%;
+  border-radius: 50%;
+}
+@media screen and (min-width: 767px) {
+  /* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .social-media-icon {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .social-media-icon {
+    width: 11%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .social-media-icon {
+    width: 20%;
+  }
+}
+
+/* line 63, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+#google-map img {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 930px) {
+  /* line 68, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  .copyright {
+    text-align: left;
+    margin-left: 40px;
+  }
 }
 /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 body .modal-dialog {
@@ -10523,6 +10447,7 @@ h3.brown {
 @media (max-width: 730px) {
     .navbar-header {
         float: none;
+        padding-right: 11px;
     }
     .navbar-toggle {
         display: block;
@@ -10538,7 +10463,9 @@ h3.brown {
         float: none!important;
         margin: 7.5px -15px;
     }
-    .navbar-nav>li {
+    .navbar-nav>li.national-flag {
+        margin-left: 150px;
+        width:2px;
     }
     .navbar-nav>li>a {
         padding-top: 10px;
@@ -11461,4 +11388,15 @@ body.stop-scrolling {
  *
  *
  *
+ *
+ *
+ *
+ *
  */
+@font-face {
+  font-family: "Kanit-Medium";
+  src: url("Kanit-Medium.eot");
+  src: url("Kanit-Medium.eot?#iefix") format("embedded-opentype"), url("Kanit-Medium.svg#Kanit-Medium") format("svg"), url("Kanit-Medium.woff") format("woff"), url("Kanit-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
