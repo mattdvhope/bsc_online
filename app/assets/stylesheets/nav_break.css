@@ -1,10 +1,10 @@
 @media (max-width: 730px) {
     .navbar-header {
         float: none;
+        padding-right: 11px;
     }
     .navbar-toggle {
         display: block;
-        padding-right: 10px;
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
