@@ -36,13 +36,20 @@
 
           <li><a href="#page-top" id="place_1" class="page-scroll nav-hover">{{top}}</a></li>
 
+          <li role="separator" class="divider"></li>
+
           {{#if volunteer_page_below}}
             <li><a href="#volunteer-steps" id="place_6" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
           {{^}}
             <li><a href="#features" id="place_2" class="page-scroll nav-hover">{{features}}</a></li>
+
+            <li role="separator" class="divider"></li>
+
             <li><a href="#get-started" id="place_3" class="page-scroll nav-hover">{{get_started}}</a></li>
             {{!-- <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li> --}}
           {{/if}}
+
+          <li role="separator" class="divider"></li>
 
           <li><a href="#contact-us" id="place_5" class="page-scroll nav-hover">{{contact_us}}</a></li>
 
@@ -58,6 +65,8 @@
               </li>
             </ul>
           </li>
+
+          <li role="separator" class="divider"></li>
 
           <li class="dropdown">
             <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
@@ -76,12 +85,13 @@
             </ul>
           </li>
           <li>
-          <li>
+          <li class="national-flag">
             <span class="usa_flag">
               <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
             </span>
           </li>
-          <li>
+          <li role="separator" class="divider"></li>
+          <li class="national-flag">
             <span class="thai_flag">
               <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
             </span>

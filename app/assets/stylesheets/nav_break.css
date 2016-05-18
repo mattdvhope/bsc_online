@@ -17,7 +17,9 @@
         float: none!important;
         margin: 7.5px -15px;
     }
-    .navbar-nav>li {
+    .navbar-nav>li.national-flag {
+        margin-left: 150px;
+        width:2px;
     }
     .navbar-nav>li>a {
         padding-top: 10px;
