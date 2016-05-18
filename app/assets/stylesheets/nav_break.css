@@ -38,6 +38,12 @@
     }*/
 }
 
+
+a#drop-down-link {
+    background-color: #fff;
+    color: black;
+}
+
 .navbar-nav > li > a {
   text-align: center;
 }
