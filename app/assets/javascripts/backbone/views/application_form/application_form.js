@@ -8,7 +8,7 @@ var ApplicationView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   application_title: function() {
-    return this.choose_language("Register for the class, 'You Can Speak'", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน 'You Can Speak'");
+    return this.choose_language("Register for the class, 'You Can Speak' -- University Student Promotion!!", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน 'You Can Speak'");
   },
   schedule_option_one: function() {
     return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");

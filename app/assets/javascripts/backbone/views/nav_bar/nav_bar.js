@@ -12,6 +12,8 @@ var NavBarView = Backbone.View.extend({
       student: this.student(),
       register_new_student: this.register_new_student(),
       login_student: this.login_student(),
+      you_can_speak: this.you_can_speak(),
+      student_promotion: this.student_promotion(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),
@@ -44,10 +46,16 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
-    return this.choose_language("Register New Student", "ลงทะเบียนนักศึกษาใหม่");
+    return this.choose_language("Become Network Member", "กลายเป็นเครือข่ายสมาชิก");
   },
   login_student: function() {
-    return this.choose_language("Student Login", "นักศึกษาล็อคอิน");
+    return this.choose_language("Network Member Login", "เครือข่ายสมาชิกเข้าสู่ระบบ");
+  },
+  you_can_speak: function() {
+    return this.choose_language("'You Can Speak' Registration", "การลงทะเบียน 'You Can Speak'");
+  },
+  student_promotion: function() {
+    return this.choose_language("University Student Summer Promotion", "โปรโมชั่นปิดเทอมสำหรับนักศึกษา");
   },
   volunteer: function() {
     return this.choose_language("Volunteer", "อาสาสมัคร");
