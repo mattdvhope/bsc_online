@@ -18545,17 +18545,17 @@ $(window).on('resize', function() {
 });
 
 // Animate size of logo on nav bar for desktop screens (not mobile)
-$(window).on('scroll', function () {
-  if ($(window).width() > 550) {
-    if ($(window).scrollTop() < 100) {
-        $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
-    } else {
-        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-    } 
-  } else {
-    $('.navbar-brand > img').css("width", "55px");
-  }
-});
+// $(window).on('scroll', function () {
+//   if ($(window).width() > 550) {
+//     if ($(window).scrollTop() < 100) {
+//         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
+//     } else {
+//         $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
+//     } 
+//   } else {
+//     $('.navbar-brand > img').css("width", "55px");
+//   }
+// });
 
 
 
@@ -18674,17 +18674,17 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_bank_transfer", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "Pay by bank transferx to CEP's bank.  If you have questions about this, please call our number on our website.";
+    return "Pay by bank transfer to CEP's bank.  If you have questions about this, please call our number on our website.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_choose_sched_option", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "Choose your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on 66 Pan Street, Silom, Bangrak, Bangkok 10500.  Our office hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.";
+    return "Choose your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on 66 Pan Street, Silom, Bangrak, Bangkok 10500.  Our Registration hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_intro_bullets", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<ul>\n  <li>Only 399 baht!</li>\n  <li>Classes taught by TESOL certified native English speakers from America</li>\n  <li>Focuses on Conversation that builds confidence and clarity</li>\n  <li>Practice speaking while learning about international cultures and worldview</li>\n  <li>Each class consists of five 90-minute sessions</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n</ul>\n\n<ul>\n  <li>Only 299 baht!</li>\n  <li>Classes taught by TESOL certified native English speakers from America</li>\n  <li>Focuses on Conversation that builds confidence and clarity</li>\n  <li>Practice speaking while learning about international cultures and worldview</li>\n  <li>Each class consists of five 90-minute sessions</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n</ul>\n<hr>\n\n<h2>Schedule for onsite registration at universities</h2>\n<h3>Right now, Rajamangala University of Technology Krungthep (UTK)</h3>\n<p>2 Nanlinji Road</p>\n<p>Schedule:</p>\n<p>Monday, 23 May, 11:30am - 1:30pm</p>\n<p>Tuesday, 24 May, 11:30am - 1:30pm</p>\n\n<p>Charoen Khrung Road</p>\n<p>Schedule:</p>\n<p>Monday, 23 May, 11:30am - 1:30pm</p>\n<p>Tuesday, 24 May, 11:30am - 1:30pm</p>";
+    return "<ul>\n  <li>Only 399 baht!</li>\n  <li>Classes taught by TESOL certified native English speakers from America</li>\n  <li>Focuses on Conversation that builds confidence and clarity</li>\n  <li>Practice speaking while learning about international cultures and worldview</li>\n  <li>Each class consists of five 90-minute sessions</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n</ul>\n\n\n\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18704,7 +18704,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_intro_bullets", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<ul>\n  <li>เพียง 399 บาทเท่านั้น</li>\n  <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n  <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n  <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n  <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n</ul>\n\n\n<ul>\n  <li>เพียง 299 บาทเท่านั้น</li>\n  <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n  <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n  <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n  <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n</ul>\n\n<h2>Schedule for onsite registration at universities</h2>\n<h3>Right now, Rajamangala University of Technology Krungthep (UTK)</h3>\n<p>2 Nanlinji Road</p>\n<p>Schedule:</p>\n<p>Monday, 23 May, 11:30am - 1:30pm</p>\n<p>Tuesday, 24 May, 11:30am - 1:30pm</p>\n\n<p>Charoen Khrung Road</p>\n<p>Schedule:</p>\n<p>Monday, 23 May, 11:30am - 1:30pm</p>\n<p>Tuesday, 24 May, 11:30am - 1:30pm</p>";
+    return "<ul>\n  <li>เพียง 399 บาทเท่านั้น</li>\n  <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n  <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n  <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n  <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n</ul>\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
