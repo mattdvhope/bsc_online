@@ -64,13 +64,13 @@
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#applicationmodal">
+                <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
                   {{you_can_speak}}
                 </a>
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#applicationmodal">
+                <a id="drop-down-link" class="modal-initiator university-summer-applic"  href="#" data-toggle="modal" data-target="#applicationmodal">
                   {{student_promotion}}
                 </a>
               </li>
@@ -200,6 +200,16 @@
       });
     });
   }
+
+  // To determine student price in '_intro_bullets.hbs'
+  $(".university-summer-applic").on("click", function() {
+    sessionStorage.setItem("student_type", "university_summer_applicant");
+    App.applcationView.render();
+  });
+  $(".non-summer-university").on("click", function() {
+    sessionStorage.setItem("student_type", "non_summer_university");
+    App.applcationView.render();
+  });
 
 </script>
 

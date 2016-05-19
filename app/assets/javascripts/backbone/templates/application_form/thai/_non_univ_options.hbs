@@ -1,0 +1,38 @@
+          <fieldset id="class-schedule-options">
+            {{> application_form/_choose_options_explained}}
+            <div class="radio-div-applic">
+              <label><input type="radio" id="sched-opt-one" name="class-schedule-options" class="radio-in-appl">{{schedule_option_one}}</label>
+              <select id="five-weeks" name="user[class_time]" class="grayout seminar-session-select" disabled>
+                <option id="option-with-id" value="select_option" disabled selected> -- เลือกตัวเลือก -- </option>
+                <option value="monday_one_five_weeks">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="monday_two_five_weeks">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="tuesday_one_five_weeks">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="tuesday_two_five_weeks">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="saturday_one_five_weeks">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม (5 ครั้ง), 10:30am-12:00pm</option>
+                <option value="saturday_two_five_weeks">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม (5 ครั้ง), 10:30am-12:00pm</option>
+                <option value="saturday_three_five_weeks">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม (5 ครั้ง), 12:30am-2:00pm</option>
+                <option value="saturday_four_five_weeks">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม (5 ครั้ง), 12:30am-2:00pm</option>
+              </select>
+            </div>
+            <br>
+            <div class="radio-div-applic">
+              <label><input type="radio" id="sched-opt-two" name="class-schedule-options" class="radio-in-appl">{{schedule_option_two}}</label>
+              <select id="one-whole-week" name="user[class_time]" class="grayout seminar-session-select" disabled>
+                <option id="option-with-id" value="select_option" disabled selected> -- เลือกตัวเลือก -- </option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 6-10 มิถุนายน (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 6-10 มิถุนายน (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 13-17 มิถุนายน (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 13-17 มิถุนายน (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 20-24 มิถุนายน (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 20-24 มิถุนายน (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 27 มิถุนายน-1 กรกฎาคม (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 27 มิถุนายน-1 กรกฎาคม (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 4-8 กรกฎาคม (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 4-8 กรกฎาคม (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 11-15 กรกฎาคม (5 ครั้ง), 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 11-15 กรกฎาคม (5 ครั้ง), 7:00-8:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 18-22 กรกฎาคม (5 ครั้ง, 5:00-6:30pm</option>
+                <option value="mondayfive">วันจันทร์-วันศุกร์, 18-22 กรกฎาคม (5 ครั้ง, 7:00-8:30pm</option>
+              </select>
+            </div>
+          </fieldset> <!-- class-schedule-options -->

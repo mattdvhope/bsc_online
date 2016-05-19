@@ -4,7 +4,11 @@
   <div class="modal-content application-modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" {{!-- data-dismiss="modal" --}}>&times;</button>
-      <h3 class="modal-title">{{application_title}}</h3>
+      {{#if university_summer_applicant}}
+        <h3 class="modal-title">{{univ_application_title}}</h3>
+      {{^}}
+        <h3 class="modal-title">{{application_title}}</h3>
+      {{/if}}
     </div>
     <div class="modal-body">
       <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
@@ -48,50 +52,25 @@
         <input type="file" name="user[image]" id="user_image">
         <hr> --}}
 
-        <fieldset id="class-schedule-options">
-          <label for="class-schedule" class="field-label">
-            {{#if thai_language}}
-              {{> application_form/thai/_choose_sched_option }}
-            {{^}}
-              {{> application_form/english/_choose_sched_option }}
-            {{/if}}
-          </label>
-          <div class="radio-div-applic">
-            <label><input type="radio" id="sched-opt-one" name="class-schedule-options" class="radio-in-appl">{{schedule_option_one}}</label>
-            <select id="five-weeks" name="user[class_time]" class="grayout seminar-session-select" disabled>
-              <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
-              <option value="monday_one_five_weeks">Mondays, 30 May - 27 June (5 times), 5:00-6:30pm</option>
-              <option value="monday_two_five_weeks">Mondays, 30 May - 27 June (5 times), 7:00-8:30pm</option>
-              <option value="tuesday_one_five_weeks">Tuesdays, 31 May - 28 June (5 times), 5:00-6:30pm</option>
-              <option value="tuesday_two_five_weeks">Tuesdays, 31 May - 28 June (5 times), 7:00-8:30pm</option>
-              <option value="saturday_one_five_weeks">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>
-              <option value="saturday_two_five_weeks">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>
-              <option value="saturday_three_five_weeks">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>
-              <option value="saturday_four_five_weeks">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>
-            </select>
-          </div>
-          <br>
-          <div class="radio-div-applic">
-            <label><input type="radio" id="sched-opt-two" name="class-schedule-options" class="radio-in-appl">{{schedule_option_two}}</label>
-            <select id="one-whole-week" name="user[class_time]" class="grayout seminar-session-select" disabled>
-              <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
-              <option value="mondayfive">Monday-Friday, 6-10 June (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 6-10 June (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 13-17 June (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 13-17 June (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 20-24 June (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 20-24 June (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 27 June-1 July (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 27 June-1 July (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 4-8 July (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 4-8 July (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 11-15 July (5 times), 7:00-8:30pm</option>
-              <option value="mondayfive">Monday-Friday, 18-22 July (5 times, 5:00-6:30pm</option>
-              <option value="mondayfive">Monday-Friday, 18-22 July (5 times, 7:00-8:30pm</option>
-            </select>
-          </div>
-        </fieldset>
+
+        <!-- partials with selectors -->
+        {{#if university_summer_applicant}}
+          {{#if thai_language}}
+            {{> application_form/thai/_univ_options }}
+          {{^}}
+            {{> application_form/english/_univ_options }}
+          {{/if}}
+        {{^}}
+          {{#if thai_language}}
+            {{> application_form/thai/_non_univ_options }}
+          {{^}}
+            {{> application_form/english/_non_univ_options }}
+          {{/if}}
+        </label>
+        {{/if}}
+        
+
+
         <hr>
 
         <fieldset id="payment-options">
