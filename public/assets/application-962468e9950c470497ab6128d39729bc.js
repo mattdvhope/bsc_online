@@ -18545,17 +18545,17 @@ $(window).on('resize', function() {
 });
 
 // Animate size of logo on nav bar for desktop screens (not mobile)
-$(window).on('scroll', function () {
-  if ($(window).width() > 550) {
-    if ($(window).scrollTop() < 100) {
-        $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
-    } else {
-        $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-    } 
-  } else {
-    $('.navbar-brand > img').css("width", "55px");
-  }
-});
+// $(window).on('scroll', function () {
+//   if ($(window).width() > 550) {
+//     if ($(window).scrollTop() < 100) {
+//         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
+//     } else {
+//         $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
+//     } 
+//   } else {
+//     $('.navbar-brand > img').css("width", "55px");
+//   }
+// });
 
 
 
@@ -19008,34 +19008,40 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_welcome", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scene.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
 },"3":function(depth0,helpers,partials,data) {
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+mobile+buildings.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+},"5":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"5":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
+  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"7":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"9":function(depth0,helpers,partials,data) {
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
+},"11":function(depth0,helpers,partials,data) {
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+},"13":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['front/thai/_welcome_caption'],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"11":function(depth0,helpers,partials,data) {
+},"15":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['front/english/_welcome_caption'],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<!-- Welcome top -->\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg\">\n      <div id=\"welcome-box\" class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div>\n  </div> \n</div>\n\n\n\n<div class=\"container-full main\" id=\"welcomeCaption\">\n  <div class=\"row\">\n    <div class=\"welcome-caption-screen\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+  return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"top-front-screen\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "      <div class=\"top-front-caption\">\n        <div class=\"text-box\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n      </div>\n    </div>\n  </div> \n</div>\n\n<div class=\"container-full main\" id=\"welcomeCaption\">\n  <div class=\"row\">\n    <div class=\"welcome-screen\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "      <div class=\"welcome-caption\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div>\n  </div> \n</div>\n\n\n\n\n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true}));
 }).call(this);
@@ -19106,7 +19112,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p class=\"intro\">Want to speak English with greater clarity and confidence?\n\n<p class=\"intro\">Want to connect with American English speakers to practice speaking English?</p>\n\n<p class=\"intro\">\n  If the answer is 'Yes,...'\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" id=\"place_1\" class=\"page-scroll nav-hover top-click\">click here!</a>\n</p>";
+    return "<p class=\"intro\">Want to speak English with greater clarity and confidence?\n\n<p class=\"intro\">Want to connect with American English speakers to practice speaking English?</p>\n\n<p class=\"intro\">\n  If the answer is 'Yes,...'\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" class=\"page-scroll nav-hover top-click\">click here!</a>\n</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19216,7 +19222,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p class=\"intro-thai\">ต้องการพูดภาษาอังกฤษด้วยสำเนียงที่ชัดเจนและมีความมั่นใจมากขึ้นใช่หรือไม่?\n\n<p class=\"intro-thai\">ต้องการติดต่อกับเจ้าของภาษาเพื่อเรียนหรือฝึกพูดภาษาอังกฤษใช่หรือไม่</p>\n\n<p class=\"intro-thai\">\n  ถ้าคำตอบคือ “ใช่...”\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" id=\"place_1\" class=\"page-scroll nav-hover top-click\">คลิ๊กที่นี่!</a>\n</p>";
+    return "<p class=\"intro-thai\">ต้องการพูดภาษาอังกฤษด้วยสำเนียงที่ชัดเจนและมีความมั่นใจมากขึ้นใช่หรือไม่?\n\n<p class=\"intro-thai\">ต้องการติดต่อกับเจ้าของภาษาเพื่อเรียนหรือฝึกพูดภาษาอังกฤษใช่หรือไม่?</p>\n\n<p class=\"intro-thai\">\n  ถ้าคำตอบคือ “ใช่...”\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" class=\"page-scroll nav-hover top-click\">คลิ๊กที่นี่!</a>\n</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19282,7 +19288,7 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
     + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a id=\"drop-down-link\" href=\"/log_in\">"
     + this.escapeExpression(((helper = (helper = helpers.login_volunteer || (depth0 != null ? depth0.login_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_volunteer","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n            </ul>\n          </li>\n          <li>\n          <li class=\"national-flag\">\n            <span class=\"usa_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n            </span>\n          </li>\n          <li role=\"separator\" class=\"divider\"></li>\n          <li class=\"national-flag\">\n            <span class=\"thai_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n            </span>\n          </li>\n\n\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n<script>\n  // Enable scrolling navbar menu in mobile\n  // $(\".navbar-collapse\").css({ maxHeight: $(window).height() - $(\".navbar-header\").height() + \"px\" });\n\n  // Thai / American flag\n  $(\".thai_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"thai\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  $(\".usa_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"english\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  function getCorrectPageWhenFlagClicked() {\n    if ($(\".front-main-hbs\").is(\":visible\")) {\n      App.getFrontMainPage();\n      App.getFooter();\n    } else if ($(\".entire-vol\").is(\":visible\")) {\n      App.getVolunteerPage();\n      App.getFooter();\n    }\n  }\n\n  // in tandem with \"Maintain scroll position when flag clicked\" in transitions.js\n  $(\".thai_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n  $(\".usa_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n\n  $(\".nav-hover\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".nav-hover\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n\n  $(\"#nav-dropdown\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\"#nav-dropdown\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  $(\".dropdown-toggle\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".dropdown-toggle\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  // To ensure the nav link scrolls to correct position\n  if ($(window).width() > 550) {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 1100);\n    scrollPositioning($(\"a#place_2.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_3.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_4.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 1100);\n    scrollPositioning($(\"a#place_6.page-scroll.nav-hover\"), 0, 1100);\n  } else {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 0);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 0);\n  }\n\n  function scrollPositioning($link, position_offset, speed) {\n    $link.on('click', function(e) {\n    e.preventDefault();\n    var hash = this.hash;\n    $('html, body').animate({\n        scrollTop: $(hash).offset().top + position_offset\n      }, speed, function(){\n        window.location.hash = hash;\n      });\n    });\n  }\n\n</script>\n\n<script>\n  if (sessionStorageAvailable(\"fragment\")) {\n    $(\"#home-link\").on(\"click\", function() {\n      sessionStorage.setItem('fragment', \"\");\n    });\n  }\n</script>\n\n</header>\n";
+    + "</a>\n              </li>\n            </ul>\n          </li>\n          <li>\n          <li class=\"national-flag\">\n            <span class=\"usa_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n            </span>\n          </li>\n          <li role=\"separator\" class=\"divider\"></li>\n          <li class=\"national-flag\">\n            <span class=\"thai_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n            </span>\n          </li>\n\n\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n<script>\n  // Enable scrolling navbar menu in mobile\n  // $(\".navbar-collapse\").css({ maxHeight: $(window).height() - $(\".navbar-header\").height() + \"px\" });\n\n  // Thai / American flag\n  $(\".thai_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"thai\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  $(\".usa_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"english\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  function getCorrectPageWhenFlagClicked() {\n    if ($(\".front-main-hbs\").is(\":visible\")) {\n      App.getFrontMainPage();\n      App.getFooter();\n    } else if ($(\".entire-vol\").is(\":visible\")) {\n      App.getVolunteerPage();\n      App.getFooter();\n    }\n  }\n\n  // in tandem with \"Maintain scroll position when flag clicked\" in transitions.js\n  $(\".thai_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n  $(\".usa_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n\n  $(\".nav-hover\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".nav-hover\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n\n  $(\"#nav-dropdown\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\"#nav-dropdown\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  $(\".dropdown-toggle\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".dropdown-toggle\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  // To ensure the nav link scrolls to correct position\n  if ($(window).width() > 1024) {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 1100);\n    scrollPositioning($(\"a#place_2.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_3.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_4.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 1100);\n    scrollPositioning($(\"a#place_6.page-scroll.nav-hover\"), 0, 1100);\n  } else {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 0);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 0);\n  }\n\n  function scrollPositioning($link, position_offset, speed) {\n    $link.on('click', function(e) {\n    e.preventDefault();\n    var hash = this.hash;\n    $('html, body').animate({\n        scrollTop: $(hash).offset().top + position_offset\n      }, speed, function(){\n        window.location.hash = hash;\n      });\n    });\n  }\n\n</script>\n\n<script>\n  if (sessionStorageAvailable(\"fragment\")) {\n    $(\"#home-link\").on(\"click\", function() {\n      sessionStorage.setItem('fragment', \"\");\n    });\n  }\n</script>\n\n</header>\n";
 },"useData":true});
   return this.HandlebarsTemplates["nav_bar/nav_bar"];
 }).call(this);
