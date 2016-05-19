@@ -1,14 +1,25 @@
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {},
+  initialize: function() {
+    $(".university-summer-applic").on("click", function() {
+      sessionStorage.setItem("student_type", "university_summer_applicant");
+    });
+
+    $(".non-summer-university").on("click", function() {
+      sessionStorage.setItem("student_type", "non_summer_university");
+    });
+  },
   events: {},
 
   thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
   },
   application_title: function() {
-    return this.choose_language("Register for the class, 'You Can Speak' -- University Student Promotion!!", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน 'You Can Speak'");
+    return this.choose_language("Register for the class, 'You Can Speak'", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน 'You Can Speak'");
+  },
+  univ_application_title: function() {
+    return this.choose_language("University Student Promotion!!", "โปรโมชั่นสำหรับนักศึกษา!!");
   },
   schedule_option_one: function() {
     return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
@@ -40,6 +51,19 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
+  university_summer_applicant: function() {
+    return sessionStorage.getItem('student_type') === "university_summer_applicant";
+  },
+
+  student_type_price: function() {
+    if (sessionStorage.getItem('student_type') === "university_summer_applicant") {
+      return "Our 'You Can Speak' class, only 299"
+    } else if (sessionStorage.getItem('student_type') === "non_summer_university") {
+      return "Only 399 baht!"
+    }
+  },
+
+
   template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
@@ -48,6 +72,7 @@ var ApplicationView = Backbone.View.extend({
       token: csrf_token,
       thai_language: this.thai_language(),
       application_title: this.application_title(),
+      univ_application_title: this.univ_application_title(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
       choose_payment_option: this.choose_payment_option(),
@@ -55,6 +80,8 @@ var ApplicationView = Backbone.View.extend({
       pay_at_center: this.pay_at_center(),
       pan_road: this.pan_road(),
       payment_info: this.payment_info(),
+      university_summer_applicant: this.university_summer_applicant(),
+      student_type_price: this.student_type_price(),
     }));
 
     return this;
