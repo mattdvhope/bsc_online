@@ -1,66 +1,91 @@
-.welcome-caption-screen
+//// top page photo and intro
+.top-front-screen
   position: relative
 
-.welcome-caption-screen > .welcome-caption
-  top: 30%
+.top-front-screen > .top-front-caption
+  // transform: translateY(-110%)
+  top: 28%
   left: 2%
   position: absolute
   text-align: center
   width: 100% // to make text-align: center work in mobile
 
-
-
-.welcome-caption
-  @media screen and (min-width: 940px)
-    width: 570px
-  @media screen and (max-width: 940px)
-    width: 510px
-  @media screen and (max-width: 900px)
-    width: 460px
-  @media screen and (max-width: 700px)
-    width: 350px
-  @media screen and (max-width: 700px)
-    width: 350px
-  @media screen and (max-width: 400px)
-    width: 280px
-
+.text-box
+  color: #fff
+  margin-left: auto
+  margin-right: auto
+  width: 65%
   @media screen and (min-width: 1000px)
-    font-size: 120%
+    margin-top: -90px
+    font-size: 100%
+    width: 65%
   @media screen and (max-width: 1000px)
-    font-size: 110%
-  @media screen and (max-width: 950px)
-    font-size: 105%
-  @media screen and (max-width: 830px)
-    font-size: 97%
-  @media screen and (max-width: 800px)
+    margin-top: -80px
     font-size: 90%
-  @media screen and (max-width: 550px)
-    font-size: 110%
-  @media screen and (max-width: 480px)
-    font-size: 98%
-
-  @media screen and (min-width: 840px)
-    left: 35%
-  @media screen and (max-width: 840px)
-    left: 34%
-  @media screen and (max-width: 550px)
-    left: 10%
-    width: 300px
-
-  @media screen and (min-width: 850px)
-    top: 43%
-  @media screen and (max-width: 850px)
-    top: 42%
+    width: 65%
+  @media screen and (max-width: 900px)
+    margin-top: -70px
+    font-size: 80%
+    width: 65%
   @media screen and (max-width: 800px)
-    top: 41%
-  @media screen and (max-width: 720px)
-    top: 43%
-  @media screen and (max-width: 550px)
-    top: 40%
+    margin-top: -50px
+    font-size: 80%
+    width: 60%
+  
+  a.top-click
+    background-color: #8BC34A
+    padding: 9px
+    border-radius: 7%
+  p.intro, p.intro-thai
+    @media screen and (min-width: 800px)
+      font-size: 300%
+    @media screen and (max-width: 800px)
+      font-size: 220%
+    font-weight: 400
+    border-bottom: 7px #fa3447
+    line-height: 130%
+    a
+      color: #ffffff
+      text-decoration: underline
+  p.intro
+    font-family: 'Corbert-Regular', sans-serif
+  p.intro-thai
+    font-family: 'Kanit', sans-serif
 
-  transform: translateY(-23%)
+
+
+///// welcome graphic image
+.welcome-screen
+  position: relative
+
+.welcome-screen > .welcome-caption
+  position: absolute
+  top: 32%
   text-align: left
-  bottom: initial
-  color: black
-  text-shadow: none
+  margin-left: 2%
+  left: 33%
+  width: 55%
+  @media screen and (min-width: 1020px)
+    font-size: 130%
+  @media screen and (max-width: 1020px)
+    font-size: 120%
+  @media screen and (max-width: 920px)
+    font-size: 110%
+  @media screen and (max-width: 850px)
+    font-size: 100%
+  @media screen and (max-width: 550px)
+    left: 4%
+    font-size: 120%
+    margin-left: 4%
+    width: 85%
+  @media screen and (max-width: 360px)
+    font-size: 110%
+  @media screen and (max-width: 340px)
+    font-size: 100%
+
+
+
+
+
+
 
