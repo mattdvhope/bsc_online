@@ -3,8 +3,11 @@
   position: relative
 
 .top-front-screen > .top-front-caption
-  // transform: translateY(-110%)
-  top: 28%
+  @media screen and (min-width: 550px)
+    top: 35%
+  @media screen and (max-width: 550px)
+    top: 28%
+
   left: 2%
   position: absolute
   text-align: center
@@ -12,6 +15,7 @@
 
 .text-box
   color: #fff
+  text-shadow: 2px 2px #b3b3cc
   margin-left: auto
   margin-right: auto
   width: 65%
@@ -50,6 +54,7 @@
   p.intro
     font-family: 'Corbert-Regular', sans-serif
   p.intro-thai
+    // font-family: 'ThaiSansNeue-Black', sans-serif
     font-family: 'Kanit', sans-serif
 
 
