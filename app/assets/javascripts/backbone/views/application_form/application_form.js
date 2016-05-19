@@ -57,9 +57,9 @@ var ApplicationView = Backbone.View.extend({
 
   student_type_price: function() {
     if (sessionStorage.getItem('student_type') === "university_summer_applicant") {
-      return "Our 'You Can Speak' class, only 299"
+      return "299"
     } else if (sessionStorage.getItem('student_type') === "non_summer_university") {
-      return "Only 399 baht!"
+      return "399"
     }
   },
 
