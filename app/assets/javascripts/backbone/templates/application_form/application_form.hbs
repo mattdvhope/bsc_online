@@ -52,7 +52,6 @@
         <input type="file" name="user[image]" id="user_image">
         <hr> --}}
 
-
         <!-- partials with selectors -->
         {{#if university_summer_applicant}}
           {{#if thai_language}}
@@ -68,14 +67,11 @@
           {{/if}}
         </label>
         {{/if}}
-        
-
-
         <hr>
 
         <fieldset id="payment-options">
           <label class="field-label">{{choose_payment_option}}</label>
-            <p class="above-radios"><a data-toggle="modal" href="#" data-target="#costAmountModal">{{class_cost}}</a></p>
+            {{!-- <p class="above-radios"><a data-toggle="modal" href="#" data-target="#costAmountModal">{{class_cost}}</a></p> --}}
             <div class="radio-div-applic">
               <label><input type="radio" name="pay_at_center" class="radio-pay_at_center radio-in-appl">{{pay_at_center}}{{pan_road}}.</label>
             </div>
