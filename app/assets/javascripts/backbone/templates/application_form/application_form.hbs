@@ -151,7 +151,7 @@
   }
 
   function resumeScrollingAferModal() {
-console.log($('#applicationmodal').hasClass('in'));
+// console.log($('#applicationmodal').hasClass('in'));
     $('html').removeClass('noscroll');
     if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
       $(window).scrollTop(currentScrollTopUnderModal);
