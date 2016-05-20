@@ -100,7 +100,7 @@
         <hr>
 
         <div class="control-group">
-          <button class="guest-add btn">Submit</button>
+          <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
         </div>
 
         <hr>
@@ -122,7 +122,6 @@
 
   // Open modal & prevent scrolling underneath bootstrap modals
   $("a.modal-initiator").on("click", function() {
-    // $('#applicationmodal').modal();
     currentScrollTopUnderModal = $(window).scrollTop();
     $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
   });
@@ -189,6 +188,12 @@
   });
   //// radio buttons /////
 
+
+  //// for welcome_popup after filling out application
+  $(".guest-add").on("click", function() {
+    
+    sessionStorage.setItem("student_applied", "done");
+  });
 
 </script>
 
