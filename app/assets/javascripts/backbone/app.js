@@ -24,6 +24,10 @@ var App = {
     this.applcationView = new ApplicationView();
     $("#applicationmodal").html(this.applcationView.render().el);
   },
+  instantiateWelcomePopup: function() {
+    this.welcomePopupView = new WelcomePopupView();
+    $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
+  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
