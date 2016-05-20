@@ -51,7 +51,10 @@
             {{^}}
               {{> volunteer/english/_step_one }}
             {{/if}}
-            <span id="backbone-app">
+            {{!-- <span id="backbone-app">
+              <a class="link-button btn btn-success" href="/register_admin">{{register_organization}}</a>
+            </span> --}}
+            <span id="coming-soon-admin">
               <a class="link-button btn btn-success" href="/register_admin">{{register_organization}}</a>
             </span>
           </div>
@@ -69,7 +72,10 @@
             {{^}}
               {{> volunteer/english/_step_two }}
             {{/if}}
-            <span id="backbone-app">
+            {{!-- <span id="backbone-app">
+              <a class="link-button btn btn-success" href="/register_vol">{{volunteer_registration}}</a>
+            </span> --}}
+            <span id="coming-soon-vol">
               <a class="link-button btn btn-success" href="/register_vol">{{volunteer_registration}}</a>
             </span>
           </div>
@@ -97,6 +103,31 @@
 
 </div> <!-- class="entire-vol" -->
 
+<script>
 
-{{!-- <div id="overlay"><!-- .hbs --></div>
- --}}
+  $("#coming-soon-admin>a").on("click", function(e) {
+    e.preventDefault();
+    swal({
+      title: "Coming Soon!",
+      text: "Very soon, you will be able to apply to become a volunteer administrator for your organization!  We're very excited that soon Thai people will have the opportunity to learn English with people in your organization!",
+      timer: 15000,
+      showConfirmButton: true,
+      animation: "slide-from-bottom"
+    });
+  });
+  
+  $("#coming-soon-vol>a").on("click", function(e) {
+    e.preventDefault();
+    swal({
+      title: "Coming Soon!",
+      text: "Very soon, you will be able to get with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!",
+      timer: 15000,
+      showConfirmButton: true,
+      animation: "slide-from-bottom"
+    });
+  });
+
+
+</script>
+
+
