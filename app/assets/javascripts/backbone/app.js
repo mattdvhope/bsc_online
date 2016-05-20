@@ -24,6 +24,10 @@ var App = {
     this.applcationView = new ApplicationView();
     $("#applicationmodal").html(this.applcationView.render().el);
   },
+  instantiateWelcomePopup: function() {
+    this.welcomePopupView = new WelcomePopupView();
+    $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
+  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
@@ -113,6 +117,7 @@ var App = {
     }
     this.getFooter();
     this.instantiateApplicationView();
+    this.instantiateWelcomePopup();
   }
 };
 
@@ -129,6 +134,12 @@ $(document).on("click", "#backbone-app a", function(e) {
 });
 
 App.init();
+
+
+if (sessionStorage.getItem("student_applied") === "done") {
+  $("#welcomepopupmodal").modal();
+  sessionStorage.setItem("student_applied", "");
+}
 
 
 

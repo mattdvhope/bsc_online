@@ -100,7 +100,7 @@
         <hr>
 
         <div class="control-group">
-          <button class="guest-add btn">Submit</button>
+          <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
         </div>
 
         <hr>
@@ -122,7 +122,6 @@
 
   // Open modal & prevent scrolling underneath bootstrap modals
   $("a.modal-initiator").on("click", function() {
-    // $('#applicationmodal').modal();
     currentScrollTopUnderModal = $(window).scrollTop();
     $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
   });
@@ -151,7 +150,7 @@
   }
 
   function resumeScrollingAferModal() {
-console.log($('#applicationmodal').hasClass('in'));
+// console.log($('#applicationmodal').hasClass('in'));
     $('html').removeClass('noscroll');
     if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
       $(window).scrollTop(currentScrollTopUnderModal);
@@ -189,6 +188,12 @@ console.log($('#applicationmodal').hasClass('in'));
   });
   //// radio buttons /////
 
+
+  //// for welcome_popup after filling out application
+  $(".guest-add").on("click", function() {
+    
+    sessionStorage.setItem("student_applied", "done");
+  });
 
 </script>
 

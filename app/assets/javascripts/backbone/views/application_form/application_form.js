@@ -1,15 +1,7 @@
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {
-    $(".university-summer-applic").on("click", function() {
-      sessionStorage.setItem("student_type", "university_summer_applicant");
-    });
-
-    $(".non-summer-university").on("click", function() {
-      sessionStorage.setItem("student_type", "non_summer_university");
-    });
-  },
+  initialize: function() {},
   events: {},
 
   thai_language: function() {
