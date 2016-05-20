@@ -67,10 +67,10 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
   login_volunteer: function() {
-    return this.choose_language("Volunteer Login", "คนอาสาสมัครล็อคอิน");
+    return this.choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
   steps_to_volunteer: function() {
-    return this.choose_language("Steps to Volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+    return this.choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
   choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {
