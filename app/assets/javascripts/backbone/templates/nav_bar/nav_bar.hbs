@@ -88,11 +88,13 @@
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app">
-                <a id="drop-down-link" href="/register_vol">{{register_new_volunteer}}</a>
+                {{!-- <a id="drop-down-link" href="/register_vol">{{register_new_volunteer}}</a> --}}
+                <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{register_new_volunteer}}</a>
               </li>
               <li role="separator" class="divider"></li>
               <li id="backbone-app" class="login-checker">
-                <a id="drop-down-link" href="/log_in">{{login_volunteer}}</a>
+                {{!-- <a id="drop-down-link" href="/log_in">{{login_volunteer}}</a> --}}
+                <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{login_volunteer}}</a>
               </li>
             </ul>
           </li>
@@ -210,6 +212,22 @@
     sessionStorage.setItem("student_type", "non_summer_university");
     App.applcationView.render();
   });
+
+
+  // "Coming soon" sweet alert
+  $("a.coming-soon-vol").on("click", function(e) {
+    e.preventDefault();
+    swal({
+      title: "Coming Soon!",
+      text: "Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!",
+      timer: 15000,
+      showConfirmButton: true,
+      animation: "slide-from-bottom"
+    });
+  });
+
+
+
 
 </script>
 
