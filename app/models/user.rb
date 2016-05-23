@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 50 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }, :unless => :guest?
-  validates_presence_of :district, length: { maximum: 30 }
+  validates_presence_of :district, length: { maximum: 30 }, :unless => :guest?
 
   has_secure_password validations: false
 
