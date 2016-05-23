@@ -29,7 +29,7 @@ var ApplicationView = Backbone.View.extend({
     return this.choose_language("Pay at the CEP Center on ", "ชำระเงินด้วยตนเองที่ศูนย์โครงการซิตี้ อิงลิช ");
   },
   pan_road: function() {
-    return this.choose_language("Pan Road", "ถนนปั้น");
+    return this.choose_language("Pan Road", "ถนนปั้น (สำนักงานจะเปิดในวันที่ 5 มิถุนายน 2559 นี้)");
   },
   payment_info: function() {
     return this.choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
