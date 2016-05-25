@@ -46,6 +46,7 @@ class PagesController < ApplicationController
   end
 
   def student
+    @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
   end
 
   def contact
