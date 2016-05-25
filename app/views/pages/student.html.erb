@@ -22,19 +22,22 @@
     <hr>
     <h2>From here, you can request an American "Skype Conversation Partner."</h2>
     <hr>
-    <h2>Here is a list of available Skype-partner English teachers. </h2>
-    <ul>
-      <% if @%>
-      <% @volunteers.each do |volunteer| %>
-        <li><h3>
+      <% if @volunteers.length == 0 %>
+        <h3><%= "Currently no volunteers available." %></h3>
+      <% else %>
+        <h2>Here is a list of available Skype-partner English teachers. </h2>
+        <ul>
+          <% @volunteers.each do |volunteer| %>
+            <li><h3>
 
-          <span id="backbone-app">
-            <%= link_to volunteer.first_name + " " + volunteer.last_name + " -- request " + "#{volunteer.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + volunteer.id.to_s %>
-          </span>
+              <span id="backbone-app">
+                <%= link_to volunteer.first_name + " " + volunteer.last_name + " -- request " + "#{volunteer.gender == 'male' ? 'him' : 'her'}" + " as a Skype teacher.", "/volunteers/" + volunteer.id.to_s %>
+              </span>
 
-        </h3></li>
+            </h3></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
 
   </div>
 
