@@ -10,14 +10,15 @@
 
 <div class="container">
 
-  <p><%= "Welcome to the \"City English Project,\" #{current_user.first_name}!!" %></p>
+  <h2><%= link_to "Log Out", log_out_path %></h2>
   <hr>
-  <h2><%= "Hi #{current_user.name}, You are here in \"admin\" status." %></h2>
+
+  <h2><%= "Welcome to the \"City English Project,\" #{current_user.name}. You are here in \"admin\" status." %></h2>
   <hr>
     <% if @students.length == 0 %>
       <h3>Currently no new students who've applied.</h3>
     <% else %>
-      <h2>Here is a list of students who have applied:</h2>
+      <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns):</h2>
       <table class="table table-striped">
         <thead>
           <tr>
