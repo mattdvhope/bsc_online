@@ -87,10 +87,10 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getStudentOnDashboardLoad: function() {
-    var student = new User({ id: gon.student_id });
-    this.student = student.fetch();
-  },
+  // getStudentOnDashboardLoad: function() {
+  //   var student = new User({ id: gon.student_id });
+  //   this.student = student.fetch();
+  // },
   getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
     this.volunteers.fetch();

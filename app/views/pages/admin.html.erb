@@ -1,0 +1,60 @@
+<% content_for(:title, "#{current_user.first_name} " + "#{current_user.last_name}")%>
+
+<!-- script disables browser back button for this page -->
+<script type = "text/javascript" >
+  history.pushState(null, null, 'admin');
+  window.addEventListener('popstate', function(event) {
+    history.pushState(null, null, 'admin');
+  });
+</script>
+
+<div class="container">
+
+  <h2><%= link_to "Log Out", log_out_path %></h2>
+  <hr>
+
+  <h2><%= "Welcome to the \"City English Project,\" #{current_user.name}. You are here in \"admin\" status." %></h2>
+  <hr>
+    <% if @students.length == 0 %>
+      <h3>Currently no new students who've applied.</h3>
+    <% else %>
+      <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nick Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Province/District</th>
+            <th>Payment Option</th>
+            <th>Class Time</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.nickname %></td>
+            <td><%= student.first_name %></td>
+            <td><%= student.last_name %></td>
+            <td><%= student.gender %></td>
+            <td><%= student.phone_number %></td>
+            <td><%= student.email %></td>
+            <td><%= student.district %></td>
+            <td><%= student.payment_option %></td>
+            <td><%= student.class_time %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+  <hr>
+  <h2><%= link_to "Log Out", log_out_path %></h2>
+  <hr>
+
+</div>
+
