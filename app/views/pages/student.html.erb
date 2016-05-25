@@ -1,0 +1,30 @@
+<% content_for(:title, "#{current_user.first_name} " + "#{current_user.last_name}")%>
+
+<!-- script disables browser back button for this page -->
+<script type = "text/javascript" >
+  history.pushState(null, null, 'dashboard');
+  window.addEventListener('popstate', function(event) {
+    history.pushState(null, null, 'dashboard');
+  });
+</script>
+
+<section class="bsc-container">
+
+  <div>
+
+    <%= image_tag current_user.image %>
+
+
+    <h1><%= "Welcome to the \"City English Project,\" #{current_user.first_name}!!" %></h1>
+      <hr>
+      <h2>You are here in "student" status.</h2>
+
+  </div>
+
+</section>
+
+<!-- <div id="overlay">
+  for .hbs templates (sessions & registration)
+</div>
+ -->
+
