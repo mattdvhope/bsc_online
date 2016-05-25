@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   get 'volunteer_info', to: "pages#volunteer_info"
 
-  get 'home', to: "pages#dashboard"
-  get 'leader_page', to: 'pages#leader_page'
+  get 'dashboard', to: "pages#dashboard"
+  get 'leader', to: 'pages#leader'
 
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"
