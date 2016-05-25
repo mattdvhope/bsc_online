@@ -40,6 +40,7 @@ class PagesController < ApplicationController
   end
 
   def admin
+    @students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
   end
 
   def volunteer
