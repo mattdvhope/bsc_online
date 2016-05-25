@@ -10,11 +10,13 @@ class SessionsController < ApplicationController
     if user = user_defined
       session[:user_id] = user.id
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
-      if user.role
-        redirect_to root_path
-      else
-        redirect_to curriculums_path
-      end
+      redirect_to dashboard_path
+
+      # if user.role
+      #   redirect_to root_path
+      # else
+      #   redirect_to curriculums_path
+      # end
     else
       flash[:danger] = "Invalid email or password."
       redirect_to root_path
