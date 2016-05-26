@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     return valid_pins
   end
 
-  validates_presence_of :pin #, :unless => lambda { self.pin == "000000" }
+  # validates_presence_of :pin #, :unless => lambda { self.pin == "000000" }
   validates_presence_of :first_name, length: { maximum: 30 }
   validates_presence_of :last_name, length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }, :unless => :guest?
   validates_presence_of :district, length: { maximum: 30 }, :unless => :guest?
 
-  has_secure_password validations: false
+  # has_secure_password validations: false
 
   validates_presence_of :password, :unless => :guest?
   validates :password, length: { minimum: 6 }, :unless => :guest?
