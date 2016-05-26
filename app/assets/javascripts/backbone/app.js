@@ -21,7 +21,8 @@ var App = {
     this.front_page_main = front_page_main;
   },
   instantiateApplicationView: function() {
-    this.applcationView = new ApplicationView();
+    var student = new User();
+    this.applcationView = new ApplicationView({ model: student });
     $("#applicationmodal").html(this.applcationView.render().el);
   },
   instantiateWelcomePopup: function() {

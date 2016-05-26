@@ -1,8 +1,40 @@
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {},
-  events: {},
+  initialize: function() {
+
+  },
+  events: {
+    'click .guest-add': function (e) {
+      e.preventDefault();
+      this.signUp();
+    }
+  },
+
+  signUp: function() {
+    var model = this.model;
+
+    this.$el.find('input[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    this.$el.find('select[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    if($('.radio-pay_at_center').is(':checked')) {
+      model.set({payment_option: "pay_at_center"});
+    }
+
+    if($('.radio-pay_by_transfer').is(':checked')) {
+      model.set({payment_option: "pay_by_transfer"});
+    }
+
+console.log(model);
+    model.save();
+console.log(model);
+
+  },
 
   thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
@@ -80,4 +112,3 @@ var ApplicationView = Backbone.View.extend({
   }
 
 });
-
