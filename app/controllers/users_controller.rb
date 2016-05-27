@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :require_leader, :only => [:index, :show, :volunteers]
+  before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
     @users = User.all
@@ -40,8 +40,6 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
-    params[:pay_at_center] == "on" ? user.payment_option = "pay_at_center" : params[:pay_at_center] = nil
-    params[:pay_by_transfer] == "on" ? user.payment_option = "pay_by_transfer" : params[:pay_by_transfer] = nil
     log_out_path if users_path
     if user.guest
       deal_with_guest(user)
@@ -79,7 +77,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :class_time, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :class_time, :payment_option, :uid_facebook)
     end
 
     # def transition_to_student_status_if_a_guest_in_app(user)
@@ -91,11 +89,12 @@ class UsersController < ApplicationController
 
     def deal_with_guest(user)
       if user.save
-        redirect_to root_path
-        send_new_user_email(user)
+        render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+        if user.email != ""
+          send_new_user_email(user)
+        end
       else
-        flash[:danger] = "Something went wrong. Try signing in again."
-        redirect_to root_path
+        render :json => { :errors => user.errors.full_messages }, :status => 422
       end
     end
 

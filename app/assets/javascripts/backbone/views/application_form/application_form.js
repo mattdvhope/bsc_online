@@ -1,8 +1,105 @@
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {},
-  events: {},
+  initialize: function() {
+
+  },
+  events: {
+    'click .guest-add': function (e) {
+      e.preventDefault();
+      this.signUp();
+    }
+  },
+
+  signUp: function() {
+    var model = this.model;
+
+    this.$el.find('input[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    this.$el.find('select[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    if($('.radio-pay_at_center').is(':checked')) {
+      model.set({payment_option: "pay_at_center"});
+    }
+
+    if($('.radio-pay_by_transfer').is(':checked')) {
+      model.set({payment_option: "pay_by_transfer"});
+    }
+
+    var options = {
+      success: function (model, response, options) {
+        $("#applicationmodal").modal("hide");
+        resumeScrollingAferModal();
+        $("#welcomepopupmodal").modal();
+      },
+      error: function (model, response, options) {
+        $(".form-control").css("border-color", "#cccccc");
+        $("select").css("border-color", "#cccccc");
+        $("h4:contains('invalid')").remove();
+        $("h4:contains('choose')").remove();
+        $("h4:contains('option')").remove();
+
+        if (response.responseJSON) {
+          response.responseJSON.errors.forEach(function(error) {
+            if (error === "Nickname can't be blank") {
+              $(".nickname").css("border-color", "red").attr("placeholder", "Need Nickname");
+            }
+            if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "First name can't be blank");
+            }
+            else if (error === "Last name can't be blank") {
+              $(".last-name").css("border-color", "red").attr("placeholder", "Last name can't be blank");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
+            }
+            else if (error === "Email can't be blank") {
+              $(".email").css("border-color", "red").attr("placeholder", "Email can't be blank");
+            }
+            else if (error === "Email is invalid") {
+              $(".email-label").append("<h4 style='color:red;'>Email format is invalid</h4>");
+            }
+            else if (error === "Email has already been taken") {
+              $(".email-label").append("<h4 style='color:red;'>Email has already been taken</h4>");
+            }
+            else if (error === "District can't be blank") {
+              $(".district").css("border-color", "red").attr("placeholder", "District can't be blank");
+            }
+            else if (error === "Password can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password can't be blank");
+            }
+            else if (error === "Password is too short (minimum is 6 characters)") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password is too short (minimum is 6 characters)");
+            }
+            else if (error === "Password confirmation can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password confirmation can't be blank");
+            }
+            else if (error === "Postal code can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code can't be blank");
+            }
+            else if (error === "Postal code is invalid") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code is invalid");
+            }
+            else if (error === "Class time must be selected") {
+              $(".seminar-session-select").css("border-color", "red");
+              $("h2.schedule-options").append("<h4 style='color:red;'>You must choose a class time</h4>");
+            }
+            else if (error === "Payment option can't be blank") {
+              $("fieldset#payment-options").css("border-color", "red");
+              $(".payment-options-label").append("<h4 style='color:red;'>Payment option can't be blank</h4>");
+            }
+          }); // forEach
+        } // if (response.responseJSON.errors)
+      } // error:
+    }; // options
+    
+    model.save(model.toJSON(), options);
+
+  },
 
   thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
@@ -80,4 +177,3 @@ var ApplicationView = Backbone.View.extend({
   }
 
 });
-

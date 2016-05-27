@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # rescue_from NoMethodError, :with => :guest_timed_out
 
   def require_leader
-    redirect_to root_path unless current_user.leader?
+    redirect_to root_path unless current_user && current_user.leader?
   end
 
   def require_user

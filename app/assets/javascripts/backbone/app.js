@@ -21,7 +21,8 @@ var App = {
     this.front_page_main = front_page_main;
   },
   instantiateApplicationView: function() {
-    this.applcationView = new ApplicationView();
+    var student = new User();
+    this.applcationView = new ApplicationView({ model: student });
     $("#applicationmodal").html(this.applcationView.render().el);
   },
   instantiateWelcomePopup: function() {
@@ -134,18 +135,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });
 
 App.init();
-
-
-if (sessionStorage.getItem("student_applied") === "done") {
-  $("#welcomepopupmodal").modal();
-  sessionStorage.setItem("student_applied", "");
-}
-
-
-
-
-
-
 
 
 
