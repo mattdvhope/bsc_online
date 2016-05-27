@@ -89,7 +89,7 @@ class UsersController < ApplicationController
 
     def deal_with_guest(user)
       if user.save
-        render json: nil, status: :ok # to render nothing, but still retain json response
+        render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
         if user.email != ""
           send_new_user_email(user)
         end
