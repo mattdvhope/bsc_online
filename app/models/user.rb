@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }, :unless => :guest?
   validates_presence_of :district, length: { maximum: 30 }, :unless => :guest?
 
-  # has_secure_password validations: false
+  has_secure_password validations: false
 
   validates_presence_of :password, :unless => :guest?
   validates :password, length: { minimum: 6 }, :unless => :guest?
