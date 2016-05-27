@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  # before_action :require_leader, :only => [:index, :show, :volunteers]
+  before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
     @users = User.all
@@ -92,8 +92,11 @@ class UsersController < ApplicationController
         redirect_to root_path
         send_new_user_email(user)
       else
-        flash[:danger] = "Something went wrong. Try signing in again."
-        redirect_to root_path
+binding.pry
+        @errors = user.errors.full_messages
+        render "errors"
+        # flash[:danger] = "Something went wrong. Try signing in again."
+        # redirect_to root_path
       end
     end
 

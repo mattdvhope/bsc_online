@@ -30,9 +30,23 @@ var ApplicationView = Backbone.View.extend({
       model.set({payment_option: "pay_by_transfer"});
     }
 
-console.log(model);
-    model.save();
-console.log(model);
+    var options = {
+      dataType: "json",
+      success: function (model, response, options) {
+        console.log("success");
+        console.log(model);
+        console.log(response);
+        console.log(options);
+      },
+      error: function (model, response, options) {
+        console.log("error");
+        console.log(model);
+        console.log(response);
+        console.log(options);
+      }
+    };
+    
+    model.save(model.attributes, options);
 
   },
 
