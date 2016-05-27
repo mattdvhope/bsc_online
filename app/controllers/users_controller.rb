@@ -90,10 +90,11 @@ class UsersController < ApplicationController
     def deal_with_guest(user)
       if user.save
         redirect_to root_path
-        send_new_user_email(user)
+        send_new_user_email(user) if user.email
       else
 binding.pry
-        @errors = user.errors.full_messages
+        # render :json => { :errors => user.errors.full_messages }, :status => 422
+        @errors = { :errors => user.errors.full_messages }
         render "errors"
         # flash[:danger] = "Something went wrong. Try signing in again."
         # redirect_to root_path
