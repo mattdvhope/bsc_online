@@ -31,6 +31,11 @@ var ApplicationView = Backbone.View.extend({
     }
 
     var options = {
+      success: function (model, response, options) {
+        $("#applicationmodal").modal("hide");
+        resumeScrollingAferModal();
+        $("#welcomepopupmodal").modal();
+      },
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
         $("select").css("border-color", "#cccccc");

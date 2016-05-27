@@ -89,8 +89,10 @@ class UsersController < ApplicationController
 
     def deal_with_guest(user)
       if user.save
-        redirect_to root_path
-        send_new_user_email(user) if user.email
+        render json: nil, status: :ok # to render nothing, but still retain json response
+        if user.email != ""
+          send_new_user_email(user)
+        end
       else
         render :json => { :errors => user.errors.full_messages }, :status => 422
       end
