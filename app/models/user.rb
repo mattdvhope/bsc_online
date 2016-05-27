@@ -38,15 +38,27 @@ class User < ActiveRecord::Base
   end
 
   # validates_presence_of :pin #, :unless => lambda { self.pin == "000000" }
+  validates_presence_of :nickname, length: { maximum: 20 }
   validates_presence_of :first_name, length: { maximum: 30 }
-  validates_presence_of :last_name, length: { maximum: 30 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates_presence_of :gender, length: { maximum: 30 }
+  validates_presence_of :last_name, length: { maximum: 40 }
+  validates_presence_of :gender
   validates_presence_of :phone_number, length: { maximum: 30 }
-  validates :email, presence: true, length: { maximum: 50 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }, :unless => :guest?
-  validates_presence_of :district, length: { maximum: 30 }, :unless => :guest?
+  validates_presence_of :payment_option
+
+  validate :class_time_choosen
+
+  def class_time_choosen
+    if self.class_time == "select_option"
+      errors.add(:class_time, "must be selected")
+    end
+  end
+
+  validates_presence_of :email, length: { maximum: 40 }, :unless => :guest?
+  VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create, :allow_blank => true
+  validates_uniqueness_of :email, :allow_blank => true
+
+  validates_presence_of :district, length: { maximum: 30 }
 
   has_secure_password validations: false
 

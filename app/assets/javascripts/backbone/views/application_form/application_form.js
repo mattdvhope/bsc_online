@@ -31,22 +31,68 @@ var ApplicationView = Backbone.View.extend({
     }
 
     var options = {
-      dataType: "json",
-      success: function (model, response, options) {
-        console.log("success");
-        console.log(model);
-        console.log(response);
-        console.log(options);
-      },
       error: function (model, response, options) {
-        console.log("error");
-        console.log(model);
-        console.log(response);
-        console.log(options);
-      }
-    };
+        $(".form-control").css("border-color", "#cccccc");
+        $("select").css("border-color", "#cccccc");
+        $("h4:contains('invalid')").remove();
+        $("h4:contains('choose')").remove();
+        $("h4:contains('option')").remove();
+
+        if (response.responseJSON) {
+          response.responseJSON.errors.forEach(function(error) {
+            if (error === "Nickname can't be blank") {
+              $(".nickname").css("border-color", "red").attr("placeholder", "Need Nickname");
+            }
+            if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "First name can't be blank");
+            }
+            else if (error === "Last name can't be blank") {
+              $(".last-name").css("border-color", "red").attr("placeholder", "Last name can't be blank");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
+            }
+            else if (error === "Email can't be blank") {
+              $(".email").css("border-color", "red").attr("placeholder", "Email can't be blank");
+            }
+            else if (error === "Email is invalid") {
+              $(".email-label").append("<h4 style='color:red;'>Email format is invalid</h4>");
+            }
+            else if (error === "Email has already been taken") {
+              $(".email-label").append("<h4 style='color:red;'>Email has already been taken</h4>");
+            }
+            else if (error === "District can't be blank") {
+              $(".district").css("border-color", "red").attr("placeholder", "District can't be blank");
+            }
+            else if (error === "Password can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password can't be blank");
+            }
+            else if (error === "Password is too short (minimum is 6 characters)") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password is too short (minimum is 6 characters)");
+            }
+            else if (error === "Password confirmation can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Password confirmation can't be blank");
+            }
+            else if (error === "Postal code can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code can't be blank");
+            }
+            else if (error === "Postal code is invalid") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code is invalid");
+            }
+            else if (error === "Class time must be selected") {
+              $(".seminar-session-select").css("border-color", "red");
+              $("h2.schedule-options").append("<h4 style='color:red;'>You must choose a class time</h4>");
+            }
+            else if (error === "Payment option can't be blank") {
+              $("fieldset#payment-options").css("border-color", "red");
+              $(".payment-options-label").append("<h4 style='color:red;'>Payment option can't be blank</h4>");
+            }
+          }); // forEach
+        } // if (response.responseJSON.errors)
+      } // error:
+    }; // options
     
-    model.save(model.attributes, options);
+    model.save(model.toJSON(), options);
 
   },
 

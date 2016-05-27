@@ -92,12 +92,7 @@ class UsersController < ApplicationController
         redirect_to root_path
         send_new_user_email(user) if user.email
       else
-binding.pry
-        # render :json => { :errors => user.errors.full_messages }, :status => 422
-        @errors = { :errors => user.errors.full_messages }
-        render "errors"
-        # flash[:danger] = "Something went wrong. Try signing in again."
-        # redirect_to root_path
+        render :json => { :errors => user.errors.full_messages }, :status => 422
       end
     end
 
