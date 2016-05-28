@@ -35,6 +35,8 @@ var ApplicationView = Backbone.View.extend({
         $("#applicationmodal").modal("hide");
         resumeScrollingAferModal();
         $("#welcomepopupmodal").modal();
+        $('.radio-pay_by_transfer').prop('checked', false);
+        $('.radio-pay_at_center').prop('checked', false);
       },
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
