@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
+    assign_class_time_param(user)
     log_out_path if users_path
     if user.guest
       deal_with_guest(user)
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :class_time, :payment_option, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :payment_option, :uid_facebook)
     end
 
     # def transition_to_student_status_if_a_guest_in_app(user)
@@ -86,6 +87,14 @@ class UsersController < ApplicationController
     #   user.grades = current_user.grades if current_user # guest?
     #   current_user.destroy if current_user # guest?
     # end
+
+    def assign_class_time_param(user)
+      if params[:class_time_five_weeks] == "select_option"
+        user.class_time = params[:class_time_one_week]
+      elsif params[:class_time_one_week] == "select_option"
+        user.class_time = params[:class_time_five_weeks]
+      end
+    end
 
     def deal_with_guest(user)
       if user.save
