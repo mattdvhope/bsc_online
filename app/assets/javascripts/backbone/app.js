@@ -13,7 +13,7 @@ var App = {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
-    document.title = 'City English | Home';
+    document.title = 'City English Project | Home';
     this.renderNavBar();
     front_page_main.render();
     $(window).scrollTop(0);
@@ -32,7 +32,7 @@ var App = {
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
-    document.title = 'City English | Volunteers';
+    document.title = 'City English Project | Volunteers';
     this.renderNavBar();
     volunteer_page.render();
 
