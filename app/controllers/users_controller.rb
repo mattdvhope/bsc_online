@@ -89,10 +89,16 @@ class UsersController < ApplicationController
     # end
 
     def assign_class_time_param(user)
-      if params[:class_time_five_weeks] == "select_option"
-        user.class_time = params[:class_time_one_week]
-      elsif params[:class_time_one_week] == "select_option"
-        user.class_time = params[:class_time_five_weeks]
+      if params[:class_time_five_weeks] || params[:class_time_one_week]
+        if params[:class_time_five_weeks] == "select_option"
+          user.class_time = params[:class_time_one_week]
+        elsif params[:class_time_one_week] == "select_option"
+          user.class_time = params[:class_time_five_weeks]
+        end
+      end
+      
+      if params[:class_time_univ]
+        user.class_time = params[:class_time_univ]
       end
     end
 
