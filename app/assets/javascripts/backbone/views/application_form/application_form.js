@@ -44,6 +44,8 @@ var ApplicationView = Backbone.View.extend({
         $("h4:contains('invalid')").remove();
         $("h4:contains('choose')").remove();
         $("h4:contains('option')").remove();
+        $("h4:contains('ควร')").remove();
+        $("h4:contains('อีเมล์')").remove();
 
         if (response.responseJSON) {
           response.responseJSON.errors.forEach(function(error) {
@@ -91,11 +93,11 @@ var ApplicationView = Backbone.View.extend({
             }
             else if (error === "Class time must be selected") {
               $(".seminar-session-select").css("border-color", "red");
-              $("h2.schedule-options").append("<h4 style='color:red;'>You must choose a class time</h4>");
+              $(".non-univ-sched-options").append("<h4 style='color:red;'>คุณควรเลือกช่วงเวลาที่คุณต้องการจะเรียน</h4>");
             }
             else if (error === "Payment option can't be blank") {
               $("fieldset#payment-options").css("border-color", "red");
-              $(".payment-options-label").append("<h4 style='color:red;'>Payment option can't be blank</h4>");
+              $(".payment-options-label").append("<h4 style='color:red;'>Payment option.. คุณควรเลือกตัวเลือกในการชำระเงิน</h4>");
             }
           }); // forEach
         } // if (response.responseJSON.errors)
@@ -162,6 +164,9 @@ var ApplicationView = Backbone.View.extend({
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+    this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
+
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: this.thai_language(),
