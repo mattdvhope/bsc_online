@@ -44,55 +44,60 @@ var ApplicationView = Backbone.View.extend({
         $("h4:contains('invalid')").remove();
         $("h4:contains('choose')").remove();
         $("h4:contains('option')").remove();
+        $("h4:contains('ควร')").remove();
+        $("h4:contains('อีเมล์')").remove();
 
         if (response.responseJSON) {
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
-              $(".nickname").css("border-color", "red").attr("placeholder", "Need Nickname");
+              $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
             }
-            if (error === "First name can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "First name can't be blank");
+            else if (error === "Nickname is too long (maximum is 20 characters)") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ชื่อเล่นยาวเกินไป (ไม่เกิน 20 ตัวอักษร)");
+            }
+            else if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อจริงลงในช่องว่าง");
             }
             else if (error === "Last name can't be blank") {
-              $(".last-name").css("border-color", "red").attr("placeholder", "Last name can't be blank");
+              $(".last-name").css("border-color", "red").attr("placeholder", "ควรกรอกนามสกุลลงในช่องว่าง");
             }
             else if (error === "Phone number can't be blank") {
-              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
+              $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
             }
             else if (error === "Email can't be blank") {
-              $(".email").css("border-color", "red").attr("placeholder", "Email can't be blank");
+              $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
             }
             else if (error === "Email is invalid") {
-              $(".email-label").append("<h4 style='color:red;'>Email format is invalid</h4>");
+              $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้ไม่สามารถใช้งานได้</h4>");
             }
             else if (error === "Email has already been taken") {
-              $(".email-label").append("<h4 style='color:red;'>Email has already been taken</h4>");
+              $(".email").css("border-color", "red").attr("placeholder", "อีเมล์นี้มีผู้ใช้อยู่แล้ว");
             }
             else if (error === "District can't be blank") {
-              $(".district").css("border-color", "red").attr("placeholder", "District can't be blank");
+              $(".district").css("border-color", "red").attr("placeholder", "ควรกรอกจังหวัด/เขต ลงในช่องว่าง");
             }
             else if (error === "Password can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "Password can't be blank");
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสผ่านลงในช่องว่าง");
             }
             else if (error === "Password is too short (minimum is 6 characters)") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "Password is too short (minimum is 6 characters)");
+              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสผ่านสั้นเกินไป(ขั้นต่ำ 6 ตัวอักษร)");
             }
             else if (error === "Password confirmation can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "Password confirmation can't be blank");
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกการยืนยันรหัสผ่านลงในช่องว่าง");
             }
             else if (error === "Postal code can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code can't be blank");
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสไปรษณีย์ลงในช่องว่าง");
             }
             else if (error === "Postal code is invalid") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "Postal code is invalid");
+              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสไปรษณีย์นี้ไม่สามารถใช้งานได้");
             }
             else if (error === "Class time must be selected") {
               $(".seminar-session-select").css("border-color", "red");
-              $("h2.schedule-options").append("<h4 style='color:red;'>You must choose a class time</h4>");
+              $(".non-univ-sched-options").append("<h4 style='color:red;'>คุณควรเลือกช่วงเวลาที่คุณต้องการจะเรียน</h4>");
             }
             else if (error === "Payment option can't be blank") {
               $("fieldset#payment-options").css("border-color", "red");
-              $(".payment-options-label").append("<h4 style='color:red;'>Payment option can't be blank</h4>");
+              $(".payment-options-label").append("<h4 style='color:red;'>Payment option.. คุณควรเลือกตัวเลือกในการชำระเงิน</h4>");
             }
           }); // forEach
         } // if (response.responseJSON.errors)
@@ -159,6 +164,9 @@ var ApplicationView = Backbone.View.extend({
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+    this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
+
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: this.thai_language(),
