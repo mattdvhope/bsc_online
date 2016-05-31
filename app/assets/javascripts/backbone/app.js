@@ -68,6 +68,10 @@ var App = {
     this.log_in_form_modal = new LogInFormView();
     $("#loginmodal").html(this.log_in_form_modal.render().el);
   },
+  instantiateLocationPictures: function() {
+    this.location_pictures_modal = new LocationPicturesView();
+    $("#locationpicturesmodal").html(this.location_pictures_modal.render().el);
+  },
   getStudentRegForm: function(person) {
     var reg_form_modal = new StudentRegFormView();
     reg_form_modal.render(person);
@@ -118,6 +122,7 @@ var App = {
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateLogInForm();
+    this.instantiateLocationPictures();
   }
 };
 

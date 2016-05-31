@@ -1,0 +1,48 @@
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">Location pictures</h3>
+    </div>
+    <div class="modal-body">
+
+      <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Front+entrance+driveway+to+CEP.png" class="img-responsive" alt="CEP's front entrance">
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+<script>
+
+  /// to prevent scrolling when bootstrap modal is open
+  var $html = $(document.documentElement);
+  var $modal = $('#loginmodal');
+
+  function showModal() {
+    $html.css('overflow', 'hidden');
+    $modal.css('overflow', 'auto');
+  }
+
+  function hideModal() {
+    $html.css('overflow', '');
+    $modal.modal("hide");
+  }
+
+  $('.modal-initiator').on('click', showModal);
+  $('.close-modal').on('click', hideModal);
+  /// to prevent scrolling ///////////////////////
+  
+</script>
+
+
+
+
+
+
+
