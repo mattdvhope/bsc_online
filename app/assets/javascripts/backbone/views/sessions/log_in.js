@@ -15,7 +15,7 @@ var LogInFormView = Backbone.View.extend({
 
   submit: function() {
 
-
+console.log("submitting???");
 
   },
 
