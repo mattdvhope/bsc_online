@@ -114,7 +114,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default close-modal"{{!--  data-dismiss="modal" --}}>Close</button>
+      <button type="button" class="btn btn-default close-modal" {{!-- data-dismiss="modal" --}}>Close</button>
     </div>
   </div> <!-- Modal content-->
 </div> <!-- Modal dialog -->
@@ -122,44 +122,24 @@
 
 <script>
 
-  // Open modal & prevent scrolling underneath bootstrap modals
-  $("a.modal-initiator").on("click", function() {
-    currentScrollTopUnderModal = $(window).scrollTop();
-    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');
-  });
+  /// to prevent scrolling when bootstrap modal is open
+  var $html = $(document.documentElement);
+  var $modal = $('#applicationmodal');
 
-  $(".close-modal").on("click", function() {
-    dealWithClosingModal();
-  });
-
-  $(document).on("keyup", function(e) {
-    if (e.keyCode == 27) {
-      resumeScrollingAferModal();
-      dealWithClosingModal();
-    }
-  });
-
-  $("#applicationmodal").on('click', function(event) {
-    var applFormViewDiv = document.getElementById("application-form-modal");
-    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div
-      dealWithClosingModal();
-    }
-  });
-
-  function dealWithClosingModal() {
-    resumeScrollingAferModal();
-    $('#applicationmodal').modal('hide');
+  function showModal() {
+    $html.css('overflow', 'hidden');
+    $modal.css('overflow', 'auto');
   }
 
-  function resumeScrollingAferModal() {
-// console.log($('#applicationmodal').hasClass('in'));
-    $('html').removeClass('noscroll');
-    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load
-      $(window).scrollTop(currentScrollTopUnderModal);
-    } else {
-      $(window).scrollTop(870);
-    }
+  function hideModal() {
+    $html.css('overflow', '');
+    $modal.modal("hide");
   }
+
+  $('.modal-initiator').on('click', showModal);
+  $('.close-modal').on('click', hideModal);
+  /// to prevent scrolling ///////////////////////
+
 
   //// radio buttons /////
   var button1 = document.getElementById("sched-opt-one");
@@ -188,23 +168,6 @@
   $('.radio-pay_by_transfer').on("change", function() {
     $('.radio-pay_at_center').prop('checked', false);
   });
-
-
-  // $(".close-modal").on("click", function() {
-  //   location.reload(); // to reset application_form params
-  // });
-
-//   $(".modal-initiator.non-summer-university").on("click", function() {
-// console.log("non-summer clicked?????");
-//     $('.radio-pay_by_transfer').prop('checked', false);
-//     $('.radio-pay_at_center').prop('checked', false);
-//   });
-
-//   $(".modal-initiator.university-summer-applic").on("click", function() {
-// console.log("univ summer clicked?????");
-//     $('.radio-pay_by_transfer').prop('checked', false);
-//     $('.radio-pay_at_center').prop('checked', false);
-//   });
 
   //// radio buttons /////
 

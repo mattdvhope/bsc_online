@@ -64,11 +64,9 @@ var App = {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
-  getLogInForm: function() {
-    var log_in_form_modal = new LogInFormView();
-    log_in_form_modal.render();
-
-    this.log_in_form_modal = log_in_form_modal;
+  instantiateLogInForm: function() {
+    this.log_in_form_modal = new LogInFormView();
+    $("#loginmodal").html(this.log_in_form_modal.render().el);
   },
   getStudentRegForm: function(person) {
     var reg_form_modal = new StudentRegFormView();
@@ -119,6 +117,7 @@ var App = {
     this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
+    this.instantiateLogInForm();
   }
 };
 

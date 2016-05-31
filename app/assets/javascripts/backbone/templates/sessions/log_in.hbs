@@ -1,34 +1,61 @@
-<a class="close" href="#">Close</a>
+<div class="modal-dialog">
 
-<form class="log_in" action="/sessions" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">Log In</h3>
+    </div>
+    <div class="modal-body">
+      <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/sessions" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
 
-  <header>
-    <h1>Log in</h1>
-  </header>
+        <label class="field-label email-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="อีเมล" name="email">
+        <hr>
 
-  <h3>
-    <label for="email">Email Address</label>
-  </h3>
-  <h3 class="black_field">
-    <input class="user_login" type="email" name="email" id="login_email">
-  </h3>
-  <h3>
-    <label for="password">Password</label>
-  </h3>
-  <h3 class="black_field">
-    <input class="user_login" type="password" name="password" id="login_password">
-  </h3>
-  <br>
-  {{!-- <span id="backbone-app"> --}}
-    <input type="submit" name="commit" value="Let's study English!" class="btn btn-primary login-checker">
-  {{!-- </span> --}}
-  <h4>
-    <a href="#">Forgot Password?</a>
-  </h4>
+        <label class="field-label email-label">Password</label>
+        <input id="login_password" type="password" class="form-control email" placeholder="รหัสผ่าน" name="password">
+        <hr>
 
-  <h4>
-    <a href="/sign_up_student">Click here to register if you are not yet a student.</a>
-  </h4>
+        <div class="control-group">
+          <button class="btn login-submit" href="#">Submit</button>
+        </div>
 
-</form>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+<script>
+
+  /// to prevent scrolling when bootstrap modal is open
+  var $html = $(document.documentElement);
+  var $modal = $('#loginmodal');
+
+  function showModal() {
+    $html.css('overflow', 'hidden');
+    $modal.css('overflow', 'auto');
+  }
+
+  function hideModal() {
+    $html.css('overflow', '');
+    $modal.modal("hide");
+  }
+
+  $('.modal-initiator').on('click', showModal);
+  $('.close-modal').on('click', hideModal);
+  /// to prevent scrolling ///////////////////////
+  
+</script>
+
+
+
+
+
+
 
