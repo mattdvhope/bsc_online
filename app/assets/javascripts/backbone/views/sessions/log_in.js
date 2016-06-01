@@ -14,9 +14,15 @@ var LogInFormView = Backbone.View.extend({
   },
 
   submit: function() {
+    var model = this.model
+    model.set({
+      email: this.$("input[name='email']").val(),
+      password: this.$("input[name='password']").val(),
+    });
 
-console.log("submitting???");
-
+    model.save();
+    $("#loginmodal").modal("hide");
+    
   },
 
   duration: 300,

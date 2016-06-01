@@ -65,7 +65,8 @@ var App = {
     front_page_footer.render();
   },
   instantiateLogInForm: function() {
-    this.log_in_form_modal = new LogInFormView();
+    var session = new Session();
+    this.log_in_form_modal = new LogInFormView({ model: session });
     $("#loginmodal").html(this.log_in_form_modal.render().el);
   },
   instantiateLocationPictures: function() {
