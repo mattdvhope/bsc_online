@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
+
   def log_in
     redirect_to root_path # in case 'log_in' typed into URL
   end
@@ -32,12 +34,18 @@ class SessionsController < ApplicationController
     def user_defined
       if params[:email]
         user = User.where(email: params[:email].downcase).first
-        if user && user.authenticate(params[:password])
+        begin
+          user.authenticate(params[:password])
+        rescue StandardError => error
+          user = nil # user becomes nil if password invalid
+        end
+        if user
           return user
         else
           return false
         end
       else
+binding.pry
         user = User.omniauth(env['omniauth.auth']) # for facebook gem
       end
     end
