@@ -38,11 +38,12 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function() {
+  getDashboardPage: function(user) {
     this.removeNavAndPage();
-    var dashboard_page = new DashboardView();
+    var dashboard_page = new DashboardView({ model: user, collection: guest_students });
     document.title = 'City English Project | Dashboard';
     this.renderNavBar();
+    this.user = user;
     dashboard_page.render();
     this.dashboard = dashboard_page;
   },
@@ -88,10 +89,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  // getStudentOnDashboardLoad: function() {
-  //   var student = new User({ id: gon.student_id });
-  //   this.student = student.fetch();
-  // },
   getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
     this.volunteers.fetch();
@@ -102,9 +99,6 @@ var App = {
     var student = this.student.responseJSON
     this.profile_view.render(volunteer, student);
   },
-  // allowBodyScrolling: function() {
-  //   $('body').css('overflow', 'auto');
-  // },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
@@ -112,16 +106,27 @@ var App = {
   init: function() {
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
-      this.getFooter();
     }
     else if (gon.page_needed === "volunteer_info") {
       this.getVolunteerPage();
-      this.getFooter();
     }
     else if (gon.page_needed === "leader") {
-      this.getDashboardPage();
+      var user = new User({ id: gon.user.id });
+      user.fetch({
+        success: function() {
+          App.getDashboardPage(user);
+        }
+      });
     }
-    // this.getFooter();
+    else if (gon.page_needed === "admin") {
+      var user = new User({ id: gon.user.id });
+      user.fetch({
+        success: function() {
+          App.getDashboardPage(user);
+        }
+      });
+    }
+    this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateLogInForm();

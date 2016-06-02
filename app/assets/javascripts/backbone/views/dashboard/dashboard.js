@@ -8,14 +8,13 @@ var DashboardView = Backbone.View.extend({
     else {
       return false
     }
-
   },
   render: function() {
     this.$el.html(this.template({
-      first_name: gon.user.first_name,
-      role: gon.user.role,
-      no_students: this.no_students(),
-      students: gon.students
+      first_name: this.model.get("first_name"),
+      role: this.model.get("role"),
+      // no_students: this.no_students(),
+      // students: gon.students
     }));
   },
   initialize: function() {

@@ -23,15 +23,13 @@ var LogInFormView = Backbone.View.extend({
     var options = {
       success: function (model, response, options) {
         $("#loginmodal").modal("hide");
-        App.getDashboardPage();
+        user = model
+        App.getDashboardPage(user);
         var $html = $(document.documentElement);
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
-console.log("error");
-console.log(model);
-console.log(response);
-console.log(options);
+        console.log("error");
       }      
     }
     model.save(model.toJSON(), options);

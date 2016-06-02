@@ -32,13 +32,19 @@ class PagesController < ApplicationController
     gon.page_needed = "leader"
     gon.user = current_user
     gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
-
     @admin_applications = AdminApplication.all.order("id ASC")
     @user = current_user
   end
 
   def admin
-    @students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    gon.page_needed = "admin"
+    gon.user = current_user
+    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    @user = current_user
+  end
+
+  def guest_students
+    @guest_students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
   end
 
   def volunteer
