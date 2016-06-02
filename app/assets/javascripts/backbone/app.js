@@ -112,11 +112,16 @@ var App = {
   init: function() {
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
+      this.getFooter();
     }
     else if (gon.page_needed === "volunteer_info") {
       this.getVolunteerPage();
+      this.getFooter();
     }
-    this.getFooter();
+    else if (gon.page_needed === "leader") {
+      this.getDashboardPage();
+    }
+    // this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateLogInForm();

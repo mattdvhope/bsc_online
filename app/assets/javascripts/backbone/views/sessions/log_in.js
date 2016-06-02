@@ -26,10 +26,6 @@ var LogInFormView = Backbone.View.extend({
         App.getDashboardPage();
         var $html = $(document.documentElement);
         $html.css('overflow', '');
-console.log("success");
-console.log(model);
-console.log(response);
-console.log(options);
       },
       error: function (model, response, options) {
 console.log("error");
@@ -38,12 +34,9 @@ console.log(response);
 console.log(options);
       }      
     }
-console.log(model.toJSON());
     model.save(model.toJSON(), options);
-    
   },
 
-  duration: 300,
   templateSession:  HandlebarsTemplates['sessions/log_in'],
   // checkInputs: function(e) {
   //   $(".user_login").css("border-color", "blue");

@@ -29,6 +29,10 @@ class PagesController < ApplicationController
   end
 
   def leader
+    gon.page_needed = "leader"
+    gon.user = current_user
+    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+
     @admin_applications = AdminApplication.all.order("id ASC")
     @user = current_user
   end
