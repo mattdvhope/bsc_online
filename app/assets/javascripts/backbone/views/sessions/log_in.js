@@ -14,14 +14,32 @@ var LogInFormView = Backbone.View.extend({
   },
 
   submit: function() {
-    var model = this.model
+    var model = this.model // Session
     model.set({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
     });
 
-    model.save();
-    $("#loginmodal").modal("hide");
+    var options = {
+      success: function (model, response, options) {
+        $("#loginmodal").modal("hide");
+        App.getDashboardPage();
+        var $html = $(document.documentElement);
+        $html.css('overflow', '');
+console.log("success");
+console.log(model);
+console.log(response);
+console.log(options);
+      },
+      error: function (model, response, options) {
+console.log("error");
+console.log(model);
+console.log(response);
+console.log(options);
+      }      
+    }
+console.log(model.toJSON());
+    model.save(model.toJSON(), options);
     
   },
 

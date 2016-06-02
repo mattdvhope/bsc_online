@@ -40,14 +40,11 @@ var App = {
   },
   getDashboardPage: function() {
     this.removeNavAndPage();
-    // if (sessionStorageAvailable("fragment")) {
-    //   this.retainTemplateOnReload("dashboard");      
-    // }
-    // var dashboard = new DashboardView();
-    // this.renderNavBar();
-    // dashboard.render();
-
-    // this.dashboard = dashboard;
+    var dashboard_page = new DashboardView();
+    document.title = 'City English Project | Dashboard';
+    this.renderNavBar();
+    dashboard_page.render();
+    this.dashboard = dashboard_page;
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
