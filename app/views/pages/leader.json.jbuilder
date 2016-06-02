@@ -14,5 +14,6 @@ json.province               @user.province
 json.postal_code            @user.postal_code
 json.country                @user.country
 json.pin                    @user.pin
+json.role                   @user.role
 
 
