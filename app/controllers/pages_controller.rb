@@ -4,7 +4,6 @@ class PagesController < ApplicationController
 
   def front
     gon.page_needed = "front"
-    @curriculums = Curriculum.all
   end
 
   def volunteer_info
