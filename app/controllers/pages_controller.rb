@@ -5,10 +5,6 @@ class PagesController < ApplicationController
   def front
     gon.page_needed = "front"
     @curriculums = Curriculum.all
-
-    if current_user
-      redirect_to home_path
-    end
   end
 
   def volunteer_info
