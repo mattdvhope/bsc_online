@@ -37,6 +37,7 @@ class PagesController < ApplicationController
 
   def leader
     @admin_applications = AdminApplication.all.order("id ASC")
+    @user = current_user
   end
 
   def admin
