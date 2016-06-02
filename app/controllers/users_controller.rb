@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  protect_from_forgery with: :exception
+
   before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
