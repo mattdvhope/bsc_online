@@ -6,9 +6,7 @@ class PagesController < ApplicationController
     gon.page_needed = "front"
     @curriculums = Curriculum.all
 
-    if current_user && current_user.role == "leader"
-      redirect_to leader_path
-    elsif current_user
+    if current_user
       redirect_to home_path
     end
   end
