@@ -39,13 +39,12 @@ class SessionsController < ApplicationController
         rescue StandardError => error
           user = nil # user becomes nil if password invalid
         end
-        if user
+        if user && user.authenticate(params[:password])
           return user
         else
           return false
         end
       else
-binding.pry
         user = User.omniauth(env['omniauth.auth']) # for facebook gem
       end
     end
