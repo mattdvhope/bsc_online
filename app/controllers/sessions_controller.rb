@@ -12,8 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
       redirect_to dashboard_path
     else
-      flash[:danger] = "Invalid email or password."
-      redirect_to root_path
+      render :json => { :error => "Invalid email address & password" }, :status => 422
     end
   end
 
