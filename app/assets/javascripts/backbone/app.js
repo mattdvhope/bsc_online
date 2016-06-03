@@ -44,8 +44,9 @@ var App = {
     guest_students.fetch({
       success: function (collection, response, options) {
         console.log(collection);
-
         var guest_st_page = new GuestStudentsView({ collection: guest_students });
+        console.log(guest_st_page.collection);
+
         guest_st_page.render();
       },
       error: function (collection, response, options) {
