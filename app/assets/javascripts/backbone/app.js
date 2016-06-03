@@ -38,16 +38,17 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function() {
+  getDashboardPage: function(user) {
     this.removeNavAndPage();
-    // if (sessionStorageAvailable("fragment")) {
-    //   this.retainTemplateOnReload("dashboard");      
-    // }
-    // var dashboard = new DashboardView();
-    // this.renderNavBar();
-    // dashboard.render();
-
-    // this.dashboard = dashboard;
+    var guest_students = new GuestStudents();
+console.log(guest_students);
+    guest_students.fetch();
+console.log(guest_students);
+    var dashboard_page = new DashboardView({ model: user, collection: guest_students });
+    document.title = 'City English Project | Dashboard';
+    this.renderNavBar();
+    dashboard_page.render();
+    this.dashboard = dashboard_page;
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -65,7 +66,8 @@ var App = {
     front_page_footer.render();
   },
   instantiateLogInForm: function() {
-    this.log_in_form_modal = new LogInFormView();
+    var session = new Session();
+    this.log_in_form_modal = new LogInFormView({ model: session });
     $("#loginmodal").html(this.log_in_form_modal.render().el);
   },
   instantiateLocationPictures: function() {
@@ -90,10 +92,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  // getStudentOnDashboardLoad: function() {
-  //   var student = new User({ id: gon.student_id });
-  //   this.student = student.fetch();
-  // },
   getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
     this.volunteers.fetch();
@@ -104,9 +102,6 @@ var App = {
     var student = this.student.responseJSON
     this.profile_view.render(volunteer, student);
   },
-  // allowBodyScrolling: function() {
-  //   $('body').css('overflow', 'auto');
-  // },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
@@ -117,6 +112,14 @@ var App = {
     }
     else if (gon.page_needed === "volunteer_info") {
       this.getVolunteerPage();
+    }
+    else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+      var user = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user);
+      var guest_students = $("#guests-now").data("guest-students");
+      this.guest_student_collection = new Backbone.Collection(guest_students);
+      this.guest_students = guest_students;
+      App.getDashboardPage(user_model);
     }
     this.getFooter();
     this.instantiateApplicationView();

@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
+
   def log_in
     redirect_to root_path # in case 'log_in' typed into URL
   end
@@ -9,11 +11,10 @@ class SessionsController < ApplicationController
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
       session[:user_id] = user.id
-      flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
+      # flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
       redirect_to dashboard_path
     else
-      flash[:danger] = "Invalid email or password."
-      redirect_to root_path
+      render :json => { :error => "Invalid email address & password" }, :status => 422
     end
   end
 
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
       if current_user.pin != "000000" && current_user.role == "student"
         current_user.update_attribute(:pin, "000000")
       end
-      flash[:success] = current_user.guest? ? "Thank you for visiting, #{current_user.first_name}! Please look in your email inbox for your 'Volunteer Administrator Application' form." : "You are logged out #{current_user.first_name}. Have a great day!" if current_user
+      # flash[:success] = current_user.guest? ? "Thank you for visiting, #{current_user.first_name}! Please look in your email inbox for your 'Volunteer Administrator Application' form." : "You are logged out #{current_user.first_name}. Have a great day!" if current_user
       session[:user_id] = nil
     end
     redirect_to root_path
@@ -33,6 +34,11 @@ class SessionsController < ApplicationController
     def user_defined
       if params[:email]
         user = User.where(email: params[:email].downcase).first
+        begin
+          user.authenticate(params[:password])
+        rescue StandardError => error
+          user = nil # user becomes nil if password invalid
+        end
         if user && user.authenticate(params[:password])
           return user
         else

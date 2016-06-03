@@ -4,7 +4,6 @@ var Router = Backbone.Router.extend({
     "register_vol": "registerVol",
     "register_student": "registerStudent",
     "application_form": "apply_to_cep",
-    "log_in": "startSession",
     "volunteer_info": "showVolunteerPage",
     "volunteers/:id": "showProfile"
   },
@@ -21,9 +20,6 @@ var Router = Backbone.Router.extend({
   apply_to_cep: function() {
     var person_registering = "Student";
     App.getStudentRegForm(person_registering);
-  },
-  startSession: function() {
-    App.getLogInForm();
   },
   showVolunteerPage: function() {
     $(window).scrollTop(0);

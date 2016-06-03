@@ -3,10 +3,11 @@ var LogInFormView = Backbone.View.extend({
     id: "login-modal"
   },
 
-  initialize: function() {},
+  initialize: function() {
+    // this.collection.fetch();
+  },
 
   events: {
-    // "click input.login-checker": "checkInputs",
     'click .login-submit': function (e) {
       e.preventDefault();
       this.submit();
@@ -14,12 +15,43 @@ var LogInFormView = Backbone.View.extend({
   },
 
   submit: function() {
+    var model = this.model // Session
+    var collection = this.collection // GuestStudents
+    model.set({
+      email: this.$("input[name='email']").val(),
+      password: this.$("input[name='password']").val(),
+    });
 
-console.log("submitting???");
+    var options = {
+      success: function (model, response, options) {
+        $("#loginmodal").modal("hide");
+        user = model
+        App.getDashboardPage(user);
+        var $html = $(document.documentElement);
+        $html.css('overflow', '');
+      },
+      error: function (model, response, options) {
+        console.log("error");
+      }      
+    }
+    model.save(model.toJSON(), options);
+    collection.fetch({
+      success: function (collection, response, options) {
+console.log("success");
+console.log(collection);
+console.log(response);
+console.log(options);
+      },
+      error: function (collection, response, options) {
+console.log("error");
+console.log(collection);
+console.log(response);
+console.log(options);
+      }
+    });
 
   },
 
-  duration: 300,
   templateSession:  HandlebarsTemplates['sessions/log_in'],
   // checkInputs: function(e) {
   //   $(".user_login").css("border-color", "blue");

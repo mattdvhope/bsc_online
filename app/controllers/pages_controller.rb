@@ -1,16 +1,11 @@
 class PagesController < ApplicationController
 
+  # before_action :require_leader, :only => [:guest_students]
+
   include ApplicationHelper
 
   def front
     gon.page_needed = "front"
-    @curriculums = Curriculum.all
-
-    if current_user && current_user.role == "leader"
-      redirect_to leader_path
-    elsif current_user
-      redirect_to home_path
-    end
   end
 
   def volunteer_info
@@ -37,10 +32,19 @@ class PagesController < ApplicationController
 
   def leader
     @admin_applications = AdminApplication.all.order("id ASC")
+    gon.page_needed = "leader"
+    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    @user = current_user
   end
 
   def admin
-    @students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    gon.page_needed = "admin"
+    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    @user = current_user
+  end
+
+  def guest_students
+    @guest_students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
   end
 
   def volunteer
