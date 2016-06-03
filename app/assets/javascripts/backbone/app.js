@@ -40,20 +40,23 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    var guest_students = new GuestStudents();
+    var guest_students = new GuestStudents(); // collection
     guest_students.fetch({
       success: function (collection, response, options) {
-        console.log("success");
-        var dashboard_page = new DashboardView({ model: user, collection: guest_students });
-        document.title = 'City English Project | Dashboard';
-        App.renderNavBar();
-        dashboard_page.render();
-        App.dashboard = dashboard_page;
+        console.log(collection);
+
+        var guest_st_page = new GuestStudentsView({ collection: guest_students });
+        guest_st_page.render();
       },
       error: function (collection, response, options) {
         console.log("error");
       }
     });
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new DashboardView({ model: user });
+    this.renderNavBar();
+    dashboard_page.render();
+    this.guest_students = guest_students;
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
