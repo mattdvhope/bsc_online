@@ -3,7 +3,9 @@ var LogInFormView = Backbone.View.extend({
     id: "login-modal"
   },
 
-  initialize: function() {},
+  initialize: function() {
+    // this.collection.fetch();
+  },
 
   events: {
     'click .login-submit': function (e) {
@@ -14,6 +16,7 @@ var LogInFormView = Backbone.View.extend({
 
   submit: function() {
     var model = this.model // Session
+    var collection = this.collection // GuestStudents
     model.set({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
@@ -32,8 +35,20 @@ var LogInFormView = Backbone.View.extend({
       }      
     }
     model.save(model.toJSON(), options);
-    var dashboard_router = new DashboardRouter();
-    dashboard_router.navigate("dashboard");
+    collection.fetch({
+      success: function (collection, response, options) {
+console.log("success");
+console.log(collection);
+console.log(response);
+console.log(options);
+      },
+      error: function (collection, response, options) {
+console.log("error");
+console.log(collection);
+console.log(response);
+console.log(options);
+      }
+    });
 
   },
 

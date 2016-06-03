@@ -41,6 +41,9 @@ var App = {
   getDashboardPage: function(user) {
     this.removeNavAndPage();
     var guest_students = new GuestStudents();
+console.log(guest_students);
+    guest_students.fetch();
+console.log(guest_students);
     var dashboard_page = new DashboardView({ model: user, collection: guest_students });
     document.title = 'City English Project | Dashboard';
     this.renderNavBar();
@@ -113,6 +116,9 @@ var App = {
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
+      var guest_students = $("#guests-now").data("guest-students");
+      this.guest_student_collection = new Backbone.Collection(guest_students);
+      this.guest_students = guest_students;
       App.getDashboardPage(user_model);
     }
     this.getFooter();

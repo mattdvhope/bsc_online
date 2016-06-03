@@ -20,4 +20,10 @@
 <% if current_user %>
   <div id="user-now" data-present-user="<%= current_user.to_json %>">
   </div>
+
+  <% guest_students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE") %>
+
+  <div id="guests-now" data-guest-students="<%= guest_students.to_json %>">
+  </div>
+
 <% end %>
