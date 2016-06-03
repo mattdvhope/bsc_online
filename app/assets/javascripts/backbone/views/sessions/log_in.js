@@ -4,7 +4,6 @@ var LogInFormView = Backbone.View.extend({
   },
 
   initialize: function() {
-    // this.collection.fetch();
   },
 
   events: {
@@ -16,7 +15,6 @@ var LogInFormView = Backbone.View.extend({
 
   submit: function() {
     var model = this.model // Session
-    var collection = this.collection // GuestStudents
     model.set({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
@@ -35,20 +33,6 @@ var LogInFormView = Backbone.View.extend({
       }      
     }
     model.save(model.toJSON(), options);
-    collection.fetch({
-      success: function (collection, response, options) {
-console.log("success");
-console.log(collection);
-console.log(response);
-console.log(options);
-      },
-      error: function (collection, response, options) {
-console.log("error");
-console.log(collection);
-console.log(response);
-console.log(options);
-      }
-    });
 
   },
 

@@ -12,52 +12,14 @@
 <br>
 <br>
 
-
-  <h2><a href="/log_out">Log Out</a></h2>
-  <hr>
-
-  <h2>Welcome to the "City English Project," {{first_name}}. You are here in {{role}} status.</h2>
-  <hr>
-    {{#if no_students}}
-      <h3>Currently no new students who've applied.</h3>
-    {{^}}
-      <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nick Name</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Province/District</th>
-            <th>Payment Option</th>
-            <th>Class Time</th>
-          </tr>
-        </thead>
-
-        <tbody>
-        {{#each students}}
-          <tr>
-            <td>{{this.nickname}}</td>
-            <td>{{this.first_name}}</td>
-            <td>{{this.last_name}}</td>
-            <td>{{this.gender}}</td>
-            <td>{{this.phone_number}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.district}}</td>
-            <td>{{this.payment_option}}</td>
-            <td>{{this.class_time}}</td>
-          </tr>
-        {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
-
-  <hr>
-  <h2><a href="/log_out">Log Out</a></h2>
-  <hr>
+  <div>
+    <h2><a href="/log_out">Log Out</a></h2>
+    <hr>
+    <h2>Welcome to the "City English Project," {{first_name}}. You are here in {{role}} status.</h2>
+    <hr>
+  </div>
+  
+  {{!-- guest_students.hbs appended here --}}
 
 </div>
 
