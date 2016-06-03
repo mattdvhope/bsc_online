@@ -1,5 +1,11 @@
 var GuestStudentsView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/guest_students'],
+
+  initialize: function() {
+    // this.listenTo(this.model, 'all', this.render());
+    this.$el.appendTo(".entire");
+  }
+
   no_students: function() {
     var guest_st_num = App.guest_students.length
     if (guest_st_num === 0) { 
@@ -9,6 +15,7 @@ var GuestStudentsView = Backbone.View.extend({
       return false
     }
   },
+
   render: function() {
     this.$el.html(this.template({
       no_students: this.no_students(),
@@ -17,10 +24,6 @@ var GuestStudentsView = Backbone.View.extend({
 
     return this;
   },
-  initialize: function() {
-    this.listenTo(this.model, 'all', this.render());
-    this.$el.appendTo(".entire");
-  }
 });
 
 
