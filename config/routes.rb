@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "pages#dashboard"
   get 'leader', to: 'pages#leader'
   get 'admin', to: 'pages#admin'
-  get 'guestStudents', to: 'pages#guest_students'
+  get 'gueststudents', to: 'pages#guest_students'
   get 'volunteer', to: 'pages#volunteer'
   get 'student', to: 'pages#student'
 

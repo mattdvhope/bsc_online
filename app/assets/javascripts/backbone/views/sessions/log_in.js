@@ -6,7 +6,6 @@ var LogInFormView = Backbone.View.extend({
   initialize: function() {},
 
   events: {
-    // "click input.login-checker": "checkInputs",
     'click .login-submit': function (e) {
       e.preventDefault();
       this.submit();
@@ -33,6 +32,9 @@ var LogInFormView = Backbone.View.extend({
       }      
     }
     model.save(model.toJSON(), options);
+    var dashboard_router = new DashboardRouter();
+    dashboard_router.navigate("dashboard");
+
   },
 
   templateSession:  HandlebarsTemplates['sessions/log_in'],

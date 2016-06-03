@@ -1,20 +1,17 @@
-json.id                     @user.id
-json.nickname               @user.nickname
-json.first_name             @user.first_name
-json.last_name              @user.last_name
-json.age                    @user.age
-json.gender                 @user.gender
-json.occupation             @user.occupation
-json.email                  @user.email
-json.password_digest        @user.password_digest
-json.phone_number           @user.phone_number
-json.address_1              @user.address_1
-json.address_2              @user.address_2
-json.city                   @user.city
-json.province               @user.province
-json.postal_code            @user.postal_code
-json.country                @user.country
-json.pin                    @user.pin
-json.role                   @user.role
+json.array! @guest_students do |guest_student|
+
+  json.id                     guest_student.id
+  json.nickname               guest_student.nickname
+  json.first_name             guest_student.first_name
+  json.last_name              guest_student.last_name
+  json.gender                 guest_student.gender
+  json.phone_number           guest_student.phone_number
+  json.email                  guest_student.email
+  json.province               guest_student.province
+  json.payment_option         guest_student.payment_option
+  json.class_time             guest_student.class_time
+
+end
+
 
 

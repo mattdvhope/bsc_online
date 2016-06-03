@@ -10,6 +10,7 @@ var DashboardView = Backbone.View.extend({
     }
   },
   render: function() {
+console.log(this.model.get("first_name"));
     this.$el.html(this.template({
       first_name: this.model.get("first_name"),
       role: this.model.get("role"),

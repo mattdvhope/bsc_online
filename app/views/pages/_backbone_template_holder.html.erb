@@ -17,8 +17,7 @@
 
 <div id="locationpicturesmodal" class="modal fade" role="dialog"></div>
 
-
-
-<!-- <div id="overlay"> -->
-  <!-- for .hbs templates (sessions & registration) -->
-<!-- </div> -->
+<% if current_user %>
+  <div id="user-now" data-present-user="<%= current_user.to_json %>">
+  </div>
+<% end %>

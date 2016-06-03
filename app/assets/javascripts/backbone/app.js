@@ -40,10 +40,10 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
+    var guest_students = new GuestStudents();
     var dashboard_page = new DashboardView({ model: user, collection: guest_students });
     document.title = 'City English Project | Dashboard';
     this.renderNavBar();
-    this.user = user;
     dashboard_page.render();
     this.dashboard = dashboard_page;
   },
@@ -110,21 +110,10 @@ var App = {
     else if (gon.page_needed === "volunteer_info") {
       this.getVolunteerPage();
     }
-    else if (gon.page_needed === "leader") {
-      var user = new User({ id: gon.user.id });
-      user.fetch({
-        success: function() {
-          App.getDashboardPage(user);
-        }
-      });
-    }
-    else if (gon.page_needed === "admin") {
-      var user = new User({ id: gon.user.id });
-      user.fetch({
-        success: function() {
-          App.getDashboardPage(user);
-        }
-      });
+    else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+      var user = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user);
+      App.getDashboardPage(user_model);
     }
     this.getFooter();
     this.instantiateApplicationView();
