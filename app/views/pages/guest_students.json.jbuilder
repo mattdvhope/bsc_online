@@ -7,7 +7,7 @@ json.array! @guest_students do |guest_student|
   json.gender                 guest_student.gender
   json.phone_number           guest_student.phone_number
   json.email                  guest_student.email
-  json.province               guest_student.province
+  json.district               guest_student.district
   json.payment_option         guest_student.payment_option
   json.class_time             guest_student.class_time
 

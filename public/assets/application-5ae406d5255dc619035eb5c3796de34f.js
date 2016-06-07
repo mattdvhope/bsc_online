@@ -346,6 +346,9 @@ Based on Rails routes of BscOnline::Application
 // about => /about(.:format)
   // function(options)
   about_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"about",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// admin => /admin(.:format)
+  // function(options)
+  admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // admin_application => /admin_applications/:id(.:format)
   // function(id, options)
   admin_application_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"admin_applications",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
@@ -406,6 +409,9 @@ Based on Rails routes of BscOnline::Application
 // curriculums => /curriculums(.:format)
   // function(options)
   curriculums_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"curriculums",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// dashboard => /dashboard(.:format)
+  // function(options)
+  dashboard_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"dashboard",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // edit_admin_application => /admin_applications/:id/edit(.:format)
   // function(id, options)
   edit_admin_application_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"admin_applications",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
@@ -436,12 +442,12 @@ Based on Rails routes of BscOnline::Application
 // grades => /grades(.:format)
   // function(options)
   grades_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"grades",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// home => /home(.:format)
+// gueststudents => /gueststudents(.:format)
   // function(options)
-  home_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"home",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// leader_page => /leader_page(.:format)
+  gueststudents_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"gueststudents",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// leader => /leader(.:format)
   // function(options)
-  leader_page_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"leader_page",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+  leader_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"leader",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // log_in => /log_in(.:format)
   // function(options)
   log_in_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -526,12 +532,18 @@ Based on Rails routes of BscOnline::Application
 // sessions => /sessions(.:format)
   // function(options)
   sessions_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"sessions",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// student => /student(.:format)
+  // function(options)
+  student_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"student",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // user => /users/:id(.:format)
   // function(id, options)
   user_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
 // users => /users(.:format)
   // function(options)
   users_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// volunteer => /volunteer(.:format)
+  // function(options)
+  volunteer_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // volunteer_info => /volunteer_info(.:format)
   // function(options)
   volunteer_info_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_info",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -18602,68 +18614,122 @@ window.fbAsyncInit = function() {
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
 (function() {
-  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["application_form/application_form"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  Handlebars.registerPartial("application_form/_choose_options_explained", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_intro_bullets'],depth0,{"name":"application_form/thai/_intro_bullets","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_choose_sched_option'],depth0,{"name":"application_form/thai/_choose_sched_option","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/english/_intro_bullets'],depth0,{"name":"application_form/english/_intro_bullets","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/english/_choose_sched_option'],depth0,{"name":"application_form/english/_choose_sched_option","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<label for=\"class-schedule\" class=\"field-label non-univ-sched-options\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "</label>";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["application_form/application_form"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "        <h3 class=\"modal-title\">"
+    + this.escapeExpression(((helper = (helper = helpers.univ_application_title || (depth0 != null ? depth0.univ_application_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"univ_application_title","hash":{},"data":data}) : helper)))
+    + "</h3>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "        <h3 class=\"modal-title\">"
+    + this.escapeExpression(((helper = (helper = helpers.application_title || (depth0 != null ? depth0.application_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"application_title","hash":{},"data":data}) : helper)))
+    + "</h3>\n";
 },"5":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_choose_sched_option'],depth0,{"name":"application_form/thai/_choose_sched_option","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_intro_bullets'],depth0,{"name":"application_form/thai/_intro_bullets","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"7":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/english/_choose_sched_option'],depth0,{"name":"application_form/english/_choose_sched_option","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/english/_intro_bullets'],depth0,{"name":"application_form/english/_intro_bullets","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"9":function(depth0,helpers,partials,data) {
     var stack1;
 
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(10, data, 0),"inverse":this.program(12, data, 0),"data":data})) != null ? stack1 : "");
+},"10":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_univ_more_info'],depth0,{"name":"application_form/thai/_univ_more_info","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"12":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_univ_more_info'],depth0,{"name":"application_form/english/_univ_more_info","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"14":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.program(17, data, 0),"data":data})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_univ_options'],depth0,{"name":"application_form/thai/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"17":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_univ_options'],depth0,{"name":"application_form/english/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(20, data, 0),"inverse":this.program(22, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </label>\n";
+},"20":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_non_univ_options'],depth0,{"name":"application_form/thai/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"22":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_non_univ_options'],depth0,{"name":"application_form/english/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"24":function(depth0,helpers,partials,data) {
+    var stack1;
+
   return ((stack1 = this.invokePartial(partials['application_form/thai/_bank_transfer'],depth0,{"name":"application_form/thai/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"11":function(depth0,helpers,partials,data) {
+},"26":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/english/_bank_transfer'],depth0,{"name":"application_form/english/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"13":function(depth0,helpers,partials,data) {
+},"28":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/thai/_after_submit_visit'],depth0,{"name":"application_form/thai/_after_submit_visit","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"15":function(depth0,helpers,partials,data) {
+},"30":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/english/_after_submit_visit'],depth0,{"name":"application_form/english/_after_submit_visit","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content application-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" >&times;</button>\n      <h3 class=\"modal-title\">"
-    + this.escapeExpression(((helper = (helper = helpers.application_title || (depth0 != null ? depth0.application_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"application_title","hash":{},"data":data}) : helper)))
-    + "</h3>\n    </div>\n    <div class=\"modal-body\">\n      <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content application-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <div class=\"modal-body\">\n      <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n        <input type=\"hidden\" name=\"user[guest]\" value=\"true\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <hr>\n        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"user[nickname]\">\n        <hr>\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง\" name=\"user[first_name]\">\n        <hr>\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล\" name=\"user[last_name]\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"user[gender]\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone_number\" placeholder=\"เบอร์โทรศัพท์\" name=\"user[phone_number]\">\n        <hr>\n        <label class=\"field-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"user[email]\">\n        <hr>\n        <label class=\"field-label\">Province / District in Bangkok</label>\n        <input type=\"text\" class=\"form-control district\" placeholder=\"จังหวัด / เขตในกรุงเทพมหานคร\" name=\"user[district]\">\n        <hr>\n\n        <fieldset id=\"class-schedule-options\">\n          <label for=\"class-schedule\" class=\"field-label\">\n"
+    + ">\n\n        <input type=\"hidden\" name=\"guest\" value=\"true\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "          </label>\n          <div class=\"radio-div-applic\">\n            <label><input type=\"radio\" id=\"sched-opt-one\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
-    + this.escapeExpression(((helper = (helper = helpers.schedule_option_one || (depth0 != null ? depth0.schedule_option_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_one","hash":{},"data":data}) : helper)))
-    + "</label>\n            <select id=\"five-weeks\" name=\"user[class_time]\" class=\"grayout seminar-session-select\" disabled>\n              <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n              <option value=\"monday_one_five_weeks\">Mondays, 30 May - 27 June (5 times), 5:00-6:30pm</option>\n              <option value=\"monday_two_five_weeks\">Mondays, 30 May - 27 June (5 times), 7:00-8:30pm</option>\n              <option value=\"tuesday_one_five_weeks\">Tuesdays, 31 May - 28 June (5 times), 5:00-6:30pm</option>\n              <option value=\"tuesday_two_five_weeks\">Tuesdays, 31 May - 28 June (5 times), 7:00-8:30pm</option>\n              <option value=\"saturday_one_five_weeks\">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>\n              <option value=\"saturday_two_five_weeks\">Saturdays, 4 June - 2 July (5 times), 10:30am-12:00pm</option>\n              <option value=\"saturday_three_five_weeks\">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>\n              <option value=\"saturday_four_five_weeks\">Saturdays, 4 June - 2 July (5 times), 12:30am-2:00pm</option>\n            </select>\n          </div>\n          <br>\n          <div class=\"radio-div-applic\">\n            <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
-    + this.escapeExpression(((helper = (helper = helpers.schedule_option_two || (depth0 != null ? depth0.schedule_option_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_two","hash":{},"data":data}) : helper)))
-    + "</label>\n            <select id=\"one-whole-week\" name=\"user[class_time]\" class=\"grayout seminar-session-select\" disabled>\n              <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n              <option value=\"mondayfive\">Monday-Friday, 6-10 June (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 6-10 June (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 13-17 June (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 13-17 June (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 20-24 June (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 20-24 June (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 27 June-1 July (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 27 June-1 July (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 4-8 July (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 4-8 July (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 11-15 July (5 times), 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 11-15 July (5 times), 7:00-8:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 18-22 July (5 times, 5:00-6:30pm</option>\n              <option value=\"mondayfive\">Monday-Friday, 18-22 July (5 times, 7:00-8:30pm</option>\n            </select>\n          </div>\n        </fieldset>\n        <hr>\n\n        <fieldset id=\"payment-options\">\n          <label class=\"field-label\">"
+    + "        <hr>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n        <label class=\"field-label\">Province / District in Bangkok</label>\n        <input type=\"text\" class=\"form-control district\" placeholder=\"จังหวัด / เขตในกรุงเทพมหานคร\" name=\"district\">\n        <hr>\n\n        <!-- partials with selectors -->\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "        <hr>\n\n        <fieldset id=\"payment-options\">\n          <label class=\"field-label payment-options-label\">"
     + this.escapeExpression(((helper = (helper = helpers.choose_payment_option || (depth0 != null ? depth0.choose_payment_option : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"choose_payment_option","hash":{},"data":data}) : helper)))
-    + "</label>\n            <p class=\"above-radios\"><a data-toggle=\"modal\" href=\"#\" data-target=\"#costAmountModal\">"
-    + this.escapeExpression(((helper = (helper = helpers.class_cost || (depth0 != null ? depth0.class_cost : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"class_cost","hash":{},"data":data}) : helper)))
-    + "</a></p>\n            <div class=\"radio-div-applic\">\n              <label><input type=\"radio\" name=\"pay_at_center\" class=\"radio-pay_at_center radio-in-appl\">"
+    + "</label>\n            <div class=\"radio-div-applic\">\n              <label>\n                <input type=\"radio\"  class=\"radio-pay_at_center radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.pay_at_center || (depth0 != null ? depth0.pay_at_center : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pay_at_center","hash":{},"data":data}) : helper)))
     + this.escapeExpression(((helper = (helper = helpers.pan_road || (depth0 != null ? depth0.pan_road : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pan_road","hash":{},"data":data}) : helper)))
-    + ".</label>\n            </div>\n            <br>\n            <div class=\"radio-div-applic\">\n              <label>\n                <input type=\"radio\" name=\"pay_by_transfer\" class=\"radio-pay_by_transfer radio-in-appl\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + ".\n              </label>\n            </div>\n            <br>\n            <div class=\"radio-div-applic\">\n              <label>\n                <input type=\"radio\"  class=\"radio-pay_by_transfer radio-in-appl\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(24, data, 0),"inverse":this.program(26, data, 0),"data":data})) != null ? stack1 : "")
     + "              </label>\n            </div>\n            <p class=\"under-radios\">\n              <a data-toggle=\"modal\" href=\"#\" data-target=\"#paymentInfoModal\">"
     + this.escapeExpression(((helper = (helper = helpers.payment_info || (depth0 != null ? depth0.payment_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"payment_info","hash":{},"data":data}) : helper)))
-    + "</a>\n            </p>\n        </fieldset>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\">Submit</button>\n        </div>\n\n        <hr>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
-    + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  // Open modal & prevent scrolling underneath bootstrap modals\n  $(\"a.modal-initiator\").on(\"click\", function() {\n    // $('#applicationmodal').modal();\n    currentScrollTopUnderModal = $(window).scrollTop();\n    $('html').addClass('noscroll').css('top', '-' + currentScrollTopUnderModal + 'px');\n  });\n\n  $(\".close-modal\").on(\"click\", function() {\n    dealWithClosingModal();\n  });\n\n  $(document).on(\"keyup\", function(e) {\n    if (e.keyCode == 27) {\n      resumeScrollingAferModal();\n      dealWithClosingModal();\n    }\n  });\n\n  $(\"#applicationmodal\").on('click', function(event) {\n    var applFormViewDiv = document.getElementById(\"application-form-modal\");\n    if (!$.contains( applFormViewDiv, event.target )) { // if clicking OUTSIDE the modal div\n      dealWithClosingModal();\n    }\n  });\n\n  function dealWithClosingModal() {\n    resumeScrollingAferModal();\n    $('#applicationmodal').modal('hide');\n  }\n\n  function resumeScrollingAferModal() {\nconsole.log($('#applicationmodal').hasClass('in'));\n    $('html').removeClass('noscroll');\n    if ($('#applicationmodal').hasClass('in')) { // for some reason, sometimes the '$(window).scrollTop();' does not get defined on initial page load\n      $(window).scrollTop(currentScrollTopUnderModal);\n    } else {\n      $(window).scrollTop(870);\n    }\n  }\n\n  //// radio buttons /////\n  var button1 = document.getElementById(\"sched-opt-one\");\n  var button2 = document.getElementById(\"sched-opt-two\");\n\n  $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n    if (button1.checked){ // if #five-weeks selected\n      $('#five-weeks').prop('disabled', false);\n      $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#one-whole-week').val('select_option');\n      $('#one-whole-week').prop('disabled', 'disabled');\n      $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n    else if (button2.checked) { // if #one-whole-week selected\n      $('#one-whole-week').prop('disabled', false);\n      $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#five-weeks').val('select_option');\n      $('#five-weeks').prop('disabled', 'disabled');\n      $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n  });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n  //// radio buttons /////\n\n\n</script>\n\n\n\n\n\n";
+    + "</a>\n            </p>\n        </fieldset>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(28, data, 0),"inverse":this.program(30, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#applicationmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n\n  //// radio buttons /////\n  var button1 = document.getElementById(\"sched-opt-one\");\n  var button2 = document.getElementById(\"sched-opt-two\");\n\n  $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n    if (button1.checked){ // if #five-weeks selected\n      $('#five-weeks').prop('disabled', false);\n      $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#one-whole-week').val('select_option');\n      $('#one-whole-week').prop('disabled', 'disabled');\n      $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n    else if (button2.checked) { // if #one-whole-week selected\n      $('#one-whole-week').prop('disabled', false);\n      $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#five-weeks').val('select_option');\n      $('#five-weeks').prop('disabled', 'disabled');\n      $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n  });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n\n  //// radio buttons /////\n\n</script>\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["application_form/application_form"];
 }).call(this);
@@ -18674,17 +18740,52 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_bank_transfer", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "Pay by bank transfer to CEP's bank.  If you have questions about this, please call our number on our website.";
+    return "Pay by <a data-toggle=\"modal\" href=\"#\" data-target=\"#paymentInfoModal\">bank transfer</a> to CEP's bank.  If you have questions about this, please call our number on our website.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_choose_sched_option", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "Choose your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on 66 Pan Street, Silom, Bangrak, Bangkok 10500.  Our Registration hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.";
+    return "s your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on 66 Pan Road, Silom, Bangrak, Bangkok 10500.  Our Registration hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.  How do we determine your level?  We will test you when you come to our Pan Road office.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_intro_bullets", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<ul>\n  <li>Only 399 baht!</li>\n  <li>Classes taught by TESOL certified native English speakers from America</li>\n  <li>Focuses on Conversation that builds confidence and clarity</li>\n  <li>Practice speaking while learning about international cultures and worldview</li>\n  <li>Each class consists of five 90-minute sessions</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n</ul>\n\n\n\n\n\n\n";
+    var helper;
+
+  return "<ul>\n  <li>Only "
+    + this.escapeExpression(((helper = (helper = helpers.student_type_price || (depth0 != null ? depth0.student_type_price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student_type_price","hash":{},"data":data}) : helper)))
+    + " baht!</li>\n  <li>Classes taught by TESOL certified native English speakers from America</li>\n  <li>Focuses on Conversation that builds confidence and clarity</li>\n  <li>Practice speaking while learning about international cultures and worldview</li>\n  <li>Each class consists of five 90-minute sessions</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n</ul>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_non_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<fieldset id=\"class-schedule-options\">\n"
+    + ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "  <br>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-one\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + this.escapeExpression(((helper = (helper = helpers.schedule_option_one || (depth0 != null ? depth0.schedule_option_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_one","hash":{},"data":data}) : helper)))
+    + "</label>\n    <select id=\"five-weeks\" name=\"class_time_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00-6:30pm\">Mondays, 30 May - 27 June, 5:00-6:30pm</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">Mondays, 30 May - 27 June, 7:00-8:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">Tuesdays, 31 May - 28 June, 5:00-6:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">Tuesdays, 31 May - 28 June, 7:00-8:30pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">Saturdays, 4 June - 2 July, 10:30am-12:00pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">Saturdays, 4 June - 2 July, 12:30am-2:00pm</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + this.escapeExpression(((helper = (helper = helpers.schedule_option_two || (depth0 != null ? depth0.schedule_option_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_two","hash":{},"data":data}) : helper)))
+    + "</label>\n    <select id=\"one-whole-week\" name=\"class_time_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 June, 5:00-6:30pm</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 June, 7:00-8:30pm</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 June, 5:00-6:30pm</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 June, 7:00-8:30pm</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 June, 5:00-6:30pm</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 June, 7:00-8:30pm</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 July, 5:00-6:30pm</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 July, 7:00-8:30pm</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 July, 5:00-6:30pm</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 July, 7:00-8:30pm</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 July, 5:00-6:30pm</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 July, 7:00-8:30pm</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_univ_more_info", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>For more information visit us at...</h4>\n\n<ul style=\"list-style-type:none\">\n  <li>City English Project Office</li>\n  <li>66 Pan Road, Silom,</li>\n  <li>Bangrak, Bangkok 10500</li>\n  <li>Tel. 086-696-7821</li>\n</ul>\n\n<hr>\n<hr>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "<hr>\n<h2 class=\"schedule-options\">Monday - Friday (5 times)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_time_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"Beginner, 6-10 June, 10:00-11:30am\">Beginner, 6-10 June, 10:00-11:30am</option>\n      <option value=\"High Beginner, 6-10 June, 1:30-3:00pm\">High Beginner, 6-10 June, 1:30-3:00pm</option>\n\n      <option value=\"Beginner, 13-17 June, 10:00-11:30am\">Beginner, 13-17 June, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 13-17 June, 1:30-3:00pm\">Low Intermediate, 13-17 June, 1:30-3:00pm</option>\n\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">High Beginner, 20-24 June, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">Low Intermediate, 20-24 June, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">Low Intermediate, 4-8 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">Beginner, 4-8 July, 1:30-3:00pm</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">High Beginner, 11-15 July, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">Low Intermediate, 11-15 July, 1:30-3:00pm</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">Beginner, 18-22 July, 10:00-11:30am</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">High Beginner, 18-22 July, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">Low Intermediate, 25-29 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">Beginner, 25-29 July, 1:30-3:00pm</option>\n</select>";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_welcome_popup_content", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>Please write to us at 'info@cityenglishproject.com' if you have any questions.</h3>\n<hr>\n\n<img class=\"welcome-popup\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"Thank you!\">\n\n<hr>\n<h3>We hope you have a great time learning English with CEP!!</h3>\n\n<hr>\nCopyright © City English Project 2016\nAll rights reserved.";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18694,25 +18795,126 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_bank_transfer", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "ชำระโดยการโอนเงินเข้าบัญชีธนาคารโครงการซิตี้ อิงลิช ถ้ามีคำถามขอโทรเบอร์โทรศัพท์ในเว็บไซต์ของเราครับ";
+    return "ชำระโดย<a data-toggle=\"modal\" href=\"#\" data-target=\"#paymentInfoModal\">การโอนเงิน</a>เข้าบัญชีธนาคารโครงการซิตี้ อิงลิช ถ้ามีคำถามขอโทรเบอร์โทรศัพท์ในเว็บไซต์ของเราครับ";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_choose_sched_option", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "เลือกตารางเวลาเรียนของคุณ ขณะนี้เราได้นำเสนอหลักสูตรของเราในระดับ Beginner, ระดับ High-Beginner และ ระดับ Low-Intermediate หากคุณมีคำถามเกี่ยวกับวิธีการจัดระดับชั้นเรียนให้กับผู้เรียนของเรา กรุณาติดต่อสอบถามได้ที่\nศูนย์โครงการซิตี้ อิงลิช เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร ในเวลาสำหรับการลงทะเบียนเรียนของเราคือ วันจันทร์ - วันอังคาร เวลา 17:00 - 21:00 และวันเสาร์เวลา 10:00 - 15:00 ";
+    return "เลือกตารางเวลาเรียนของคุณ ขณะนี้เราได้นำเสนอหลักสูตรของเราในระดับ Beginner (ระดับต้น), ระดับ High-Beginner (ระดับสูงกว่าระดับต้น) และ ระดับ Low-Intermediate (ระดับต่ำกว่าระดับกลาง)หากคุณมีคำถามเกี่ยวกับวิธีการจัดระดับชั้นเรียนให้กับผู้เรียนของเรา กรุณาติดต่อสอบถามได้ที่\nศูนย์โครงการซิตี้ อิงลิช เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร ในเวลาสำหรับการลงทะเบียนเรียนของเราคือ วันจันทร์ - วันอังคาร เวลา 17:00 - 21:00 และวันเสาร์เวลา 10:00 - 15:00 ถ้าคุณอยากจะรู้ว่าระดับภาษาอังกฤษของคุณอยู่ระดับไหน? เราจะมีการทดสอบเมื่อคุณมาที่สำนักงานของเรา";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_intro_bullets", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<ul>\n  <li>เพียง 399 บาทเท่านั้น</li>\n  <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n  <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n  <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n  <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n</ul>\n\n\n\n";
+    var helper;
+
+  return "<ul>\n  <li>เพียง "
+    + this.escapeExpression(((helper = (helper = helpers.student_type_price || (depth0 != null ? depth0.student_type_price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student_type_price","hash":{},"data":data}) : helper)))
+    + " บาทเท่านั้น</li>\n  <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n  <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n  <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n  <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n  <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n</ul>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_non_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<fieldset id=\"class-schedule-options\">\n"
+    + ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "  <br>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-one\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + this.escapeExpression(((helper = (helper = helpers.schedule_option_one || (depth0 != null ? depth0.schedule_option_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_one","hash":{},"data":data}) : helper)))
+    + "</label>\n    <select id=\"five-weeks\" name=\"class_time_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 10:30 น.-12:00 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 12:30 น.-14:00 น.</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + this.escapeExpression(((helper = (helper = helpers.schedule_option_two || (depth0 != null ? depth0.schedule_option_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_two","hash":{},"data":data}) : helper)))
+    + "</label>\n    <select id=\"one-whole-week\" name=\"class_time_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 กรกฎาคม, 19:00-20:30 น.</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_univ_more_info", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h4>ถ้าต้องการข้อมูลอีกมาเยี่ยมชมเราได้อยู่ที่...</h4>\n\n<ul style=\"list-style-type:none\">\n  <li>66 ถนนปั้น </li>\n  <li>แขวงสีลม เขตบางรัก </li>\n  <li>กรุงเทพฯ 10500</li>\n  <li>โทร. 086-696-7821</li>\n</ul>\n\n<hr>\n<hr>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "<hr>\n<h2 class=\"schedule-options\">วันจันทร์-วันศุกร์ (5 ครั้ง)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_time_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"Beginner, 6-10 June, 10:00-11:30am\">ระดับต้น, 6-10 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"High Beginner, 6-10 June, 1:30-3:00pm\">ระดับสูงกว่าระดับต้น, 6-10 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"Beginner, 13-17 June, 10:00-11:30am\">ระดับต้น, 13-17 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 13-17 June, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 13-17 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 20-24 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 20-24 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 4-8 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">ระดับต้น, 4-8 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 11-15 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 11-15 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">ระดับต้น, 18-22 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">ระดับสูงกว่าระดับต้น, 18-22 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 25-29 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">ระดับต้น, 25-29 กรกฎาคม, 13:30-15:00 น.</option>\n</select>";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_welcome_popup_content", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>ถ้าท่านมีคำถามหรือข้อสงสัยใด สามารถส่งข้อความมาหาเราได้ที่ 'info@cityenglishproject.com'</h3>\n<hr>\n\n<img class=\"welcome-popup\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"ขอบคุณครับ!\">\n\n<hr>\n<h3>เราหวังว่าท่านจะมีความสุขในการเรียนรู้ภาษาอังกฤษกับเรา!!</h3>\n\n<hr>\nCopyright © City English Project 2016\nAll rights reserved.";
 },"useData":true}));
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["application_form/welcome_popup"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_welcome_popup_content'],depth0,{"name":"application_form/thai/_welcome_popup_content","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_welcome_popup_content'],depth0,{"name":"application_form/english/_welcome_popup_content","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h1>"
+    + this.escapeExpression(((helper = (helper = helpers.thank_you || (depth0 != null ? depth0.thank_you : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"thank_you","hash":{},"data":data}) : helper)))
+    + "</h1>\n    </div>\n    <div class=\"modal-body\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#welcomepopupmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n</script>";
+},"usePartial":true,"useData":true});
+  return this.HandlebarsTemplates["application_form/welcome_popup"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h1>DASHBOARD TEMPLATE</h1>";
+    var helper;
+
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n<br>\n<br>\n<br>\n<br>\n\n  <div>\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + ". You are here in "
+    + this.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"role","hash":{},"data":data}) : helper)))
+    + " status.</h2>\n    <hr>\n  </div>\n  \n\n</div>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/dashboard"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/guest_students"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <h3>Currently no new students who've applied.</h3>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>\n    <table class=\"table table-striped\">\n      <thead>\n        <tr>\n          <th>Nick Name</th>\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Gender</th>\n          <th>Phone Number</th>\n          <th>Email</th>\n          <th>Province/District</th>\n          <th>Payment Option</th>\n          <th>Class Time</th>\n        </tr>\n      </thead>\n\n      <tbody>\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "      </tbody>\n    </table>\n";
+},"4":function(depth0,helpers,partials,data) {
+    return "        <tr>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.gender : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.email : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.district : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.payment_option : depth0), depth0))
+    + "</td>\n          <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.class_time : depth0), depth0))
+    + "</td>\n        </tr>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_students : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div>";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/guest_students"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -18747,7 +18949,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("footer/english/_address", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"footer-subtitle\">Address:</div>\n<div>66 Pan Street</div>\n<div>Silom, Bangrak</div>\n<div>Bangkok 10500</div>\n<br>\n<div class=\"footer-subtitle\">Email:</div>\n<div>info@cityenglishproject.com</div>\n`";
+    return "<div class=\"footer-subtitle\">Address:</div>\n<div>66 Pan Road</div>\n<div>Silom, Bangrak</div>\n<div>Bangkok 10500</div>\n<div>(Not open yet)</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("footer/english/_email", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"footer-subtitle\">Email:</div>\n<div>info@cityenglishproject.com</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18771,11 +18978,19 @@ window.fbAsyncInit = function() {
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['footer/thai/_address'],depth0,{"name":"footer/thai/_address","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['footer/thai/_address'],depth0,{"name":"footer/thai/_address","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"13":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['footer/english/_address'],depth0,{"name":"footer/english/_address","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['footer/english/_address'],depth0,{"name":"footer/english/_address","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['footer/thai/_email'],depth0,{"name":"footer/thai/_email","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"17":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['footer/english/_email'],depth0,{"name":"footer/english/_email","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
@@ -18785,15 +19000,29 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.contact_us || (depth0 != null ? depth0.contact_us : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"contact_us","hash":{},"data":data}) : helper)))
     + "</h2>\n    </div><!-- row -->\n    <br>\n    <div class=\"row\">\n      <div class=\"fb-div\">\n        <div\n          class=\"fb-like\"\n          data-share=\"true\"\n          data-width=\"450\"\n          data-show-faces=\"true\">\n        </div>\n      </div> <!--fb share-->\n    </div><!-- row -->\n    <br>\n    <div class=\"row footer-contact-info\">\n      <div class=\"col-sm-3 col-xs-12 footer-cep-logo\">\n        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo.png\" alt=\"wide picture\" class=\"img-responsive\">\n      </div>\n      <div class=\"col-sm-3 col-xs-12 footer-address\">\n        <br>\n        <div class=\"footer-subtitle\">"
     + this.escapeExpression(((helper = (helper = helpers.telephone || (depth0 != null ? depth0.telephone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"telephone","hash":{},"data":data}) : helper)))
-    + "</div>\n        <div>086-696-7821</div>\n        <br>\n"
+    + "</div>\n        <div>086-696-7821</div>\n        <br>\n          <a class=\"modal-initiator location-pictures-modal\" href=\"#\" data-toggle=\"modal\" data-target=\"#locationpicturesmodal\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(13, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <br>\n        <div> <!-- social media icons -->\n          <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Facebook.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Instagram.png\" class=\"social-media-icon\"></a>\n        </div> <!-- social media icons -->\n        <br>\n      </div> <!-- footer-address -->\n      <div class=\"col-sm-6 col-xs-12 google-map\">\n        <div id=\"googleMap\" style=\"width:300px;height:228px;\"></div>\n      </div> <!-- google map -->\n    </div><!-- row -->\n      <br>\n    <div class=\"row \">\n      <div class=\"copyright\">\n        <div>Copyright &copy; City English Project 2016</div>\n        <div>All rights reserved.</div>\n        <div>Flag images provided by <a href=\"http://www.icondrawer.com/\" target=\"_blank\">Icon Drawer</a></div>\n      </div>\n    </div> <!-- row -->\n    <br>\n    <br>\n    <br>\n  </div> <!-- container-full -->\n</div> \n\n\n\n\n\n\n\n";
+    + "          </a>\n          <br>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.program(17, data, 0),"data":data})) != null ? stack1 : "")
+    + "        <br>\n        <div> <!-- social media icons -->\n          <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Facebook.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.youtube.com/channel/UCcqBmxAGOstDdFbRImmnVWg\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+YouTube.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Instagram.png\" class=\"social-media-icon\"></a>\n        </div> <!-- social media icons -->\n        <br>\n      </div> <!-- footer-address -->\n      <div class=\"col-sm-3 col-xs-12 google-map\">\n        <div id=\"googleMap\"></div>\n      </div>\n    </div><!-- row -->\n      <br>\n    <div class=\"row \">\n      <div class=\"copyright\">\n        <div>Copyright &copy; City English Project 2016</div>\n        <div>All rights reserved.</div>\n        <div>Flag images provided by <a href=\"http://www.icondrawer.com/\" target=\"_blank\">Icon Drawer</a></div>\n      </div>\n    </div> <!-- row -->\n    <br>\n    <br>\n    <br>\n  </div> <!-- container-full -->\n</div> \n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["footer/footer"];
 }).call(this);
 (function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["footer/location_pictures"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Location pictures</h3>\n    </div>\n    <div class=\"modal-body\">\n\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Front+entrance+driveway+to+CEP.png\" class=\"img-responsive\" alt=\"CEP's front entrance\">\n\n\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#locationpicturesmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n  \n</script>\n\n\n\n\n\n\n";
+},"useData":true});
+  return this.HandlebarsTemplates["footer/location_pictures"];
+}).call(this);
+(function() {
   Handlebars.registerPartial("footer/thai/_address", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"footer-subtitle\">ที่อยู</div>\n<div>66 ถนน ปั้น</div>\n<div>แขวงสีลม เขตบางรัก</div>\n<div>กรุงเทพมหานคร 10500</div>\n<br>\n<div class=\"footer-subtitle\">อีเมล</div>\n<div>info@cityenglishproject.com</div>";
+    return "<div class=\"footer-subtitle\">ที่อยู</div>\n<div>66 ถนน ปั้น</div>\n<div>แขวงสีลม เขตบางรัก</div>\n<div>กรุงเทพมหานคร 10500</div>\n<div>(สำนักงานจะเปิดในวันที่ 20 มิถุนายน 2559 นี้)</div>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("footer/thai/_email", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"footer-subtitle\">อีเมล</div>\n<div>info@cityenglishproject.com</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18941,11 +19170,11 @@ window.fbAsyncInit = function() {
   Handlebars.registerPartial("front/_nested_modal_christian_worldview", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_friends_helping'],depth0,{"name":"front/thai/_friends_helping","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai_modal/_christian_worldview'],depth0,{"name":"front/thai_modal/_christian_worldview","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_friends_helping'],depth0,{"name":"front/english/_friends_helping","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english_modal/_christian_worldview'],depth0,{"name":"front/english_modal/_christian_worldview","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
@@ -19047,7 +19276,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_city_talk_class", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>\"You Can Speak!\"  Conversational English Class</h4>\n<p>Our \"You Can Speak!\" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here to sign up for a class!</a>\n</p>\n";
+    return "<h4>\"You Can Speak!\"  Conversational English Class</h4>\n<p>Our \"You Can Speak!\" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here to sign up for a class!</a>\n</p>\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19122,7 +19351,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_welcome_caption", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <a href=\"#get-started\">Click here</a> to learn more about us. Or, <a class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak\" English class.\n";
+    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <a href=\"#get-started\">Click here</a> to learn more about us. Or, <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak\" English class.\n";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english_modal/_christian_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"get-started-text\">City Talk will help Thais grow in their understanding of other cultures and worldviews.  With ASEAN opening the trade borders in 2016, Thais not only need to excel in the chosen trade language (English), they also need to understand the cultures and worldviews of people around them.  One important worldview Thais will increasingly interact with is Christianity.  As trade and commerce increase throughout the ASEAN region, Thais will meet and develop relationships with government leaders, business managers, sales executives and students who are Christians.  For these relationships to be mutually beneficial and successful, both sides must understand each other's culture and worldview.  With that in mind, a recent sudy revealed that the majority of Thais (89%) do not understand the basics of the Christian worldview. Therefore, in an effort to help Tahis increase their knowledge of other worldviews, this course offers a 15-minute English lesson about the Christian worldview at the end of each class.  Students will see that the Chrstian worldview is not only interesting, but it is also simple to understand.</span>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19151,13 +19385,13 @@ window.fbAsyncInit = function() {
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_christian_worldview'],depth0,{"name":"front/_nested_modal_christian_worldview","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_cost_amount'],depth0,{"name":"front/_nested_modal_cost_amount","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_payment_info'],depth0,{"name":"front/_nested_modal_payment_info","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "<!-- nested modals in application_form.hbs -->\n\n\n<script>\n  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay\n  $(document).on('show.bs.modal', '.modal', function (event) {\n    var zIndex = 1040 + (10 * $('.modal:visible').length);\n    $(this).css('z-index', zIndex);\n    setTimeout(function() {\n      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');\n    }, 0);\n  });\n  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.\n    $('.modal:visible').length && $(document.body).addClass('modal-open');\n  });\n</script>\n\n\n\n\n\n\n\n\n\n\n\n";
+    + "<!-- nested modals in application_form.hbs -->\n\n\n<script>\n  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay\n  $(document).on('show.bs.modal', '.modal', function (event) {\n    var zIndex = 1040 + (10 * $('.modal:visible').length);\n    $(this).css('z-index', zIndex);\n    setTimeout(function() {\n      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');\n    }, 0);\n  });\n  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.\n    $('.modal:visible').length && $(document.body).addClass('modal-open');\n  });\n\n  $(\".non-summer-university\").on(\"click\", function() {\n    sessionStorage.setItem(\"student_type\", \"non_summer_university\");\n    App.applcationView.render();\n  });\n\n\n</script>\n\n\n\n\n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_city_talk_class", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>\"You Can Speak!\"  ชั้นเรียนภาษาอังกฤษเพื่อการสนทนา</h4>\n<p>\"You Can Speak!\"   ชั้นเรียนเพื่อการสนทนาภาษาอังกฤษ วัฒนธรรมและโลกทัศน์ของเราเป็นชั้นเรียนที่สนุกสนานและมีรูปแบบการสนทนาโต้ตอบที่จะช่วยเสริมสร้างความเชื่อมั่นและการเรียนรู้การพูดภาษาอังกฤษให้มีการออกเสียงที่ชัดเจนมากยิ่งขึ้น เรานำเสนอชั้นเรียนในระดับเบื้องต้น (Beginner) จนถึง ระดับกลาง (Intermediate) ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่เพื่อลงทะเบียนเรียน!</a></p>\n\n  ";
+    return "<h4>\"You Can Speak!\"  ชั้นเรียนภาษาอังกฤษเพื่อการสนทนา</h4>\n<p>\"You Can Speak!\"   ชั้นเรียนเพื่อการสนทนาภาษาอังกฤษ วัฒนธรรมและโลกทัศน์ของเราเป็นชั้นเรียนที่สนุกสนานและมีรูปแบบการสนทนาโต้ตอบที่จะช่วยเสริมสร้างความเชื่อมั่นและการเรียนรู้การพูดภาษาอังกฤษให้มีการออกเสียงที่ชัดเจนมากยิ่งขึ้น เรานำเสนอชั้นเรียนในระดับเบื้องต้น (Beginner) จนถึง ระดับกลาง (Intermediate) ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่เพื่อลงทะเบียนเรียน!</a></p>\n\n  ";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19222,7 +19456,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p class=\"intro-thai\">ต้องการพูดภาษาอังกฤษด้วยสำเนียงที่ชัดเจนและมีความมั่นใจมากขึ้นใช่หรือไม่?\n\n<p class=\"intro-thai\">ต้องการติดต่อกับเจ้าของภาษาเพื่อเรียนหรือฝึกพูดภาษาอังกฤษใช่หรือไม่?</p>\n\n<p class=\"intro-thai\">\n  ถ้าคำตอบคือ “ใช่...”\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" class=\"page-scroll nav-hover top-click\">คลิ๊กที่นี่!</a>\n</p>";
+    return "<p class=\"intro-thai\">ต้องการพูดภาษาอังกฤษด้วยสำเนียงที่ชัดเจนและมีความมั่นใจมากขึ้นใช่หรือไม่?\n\n<p class=\"intro-thai\">ต้องการติดต่อกับผู้ที่ใช้ภาษาอังกฤษชาวอเมริกันเพื่อฝึกพูดภาษาอังกฤษใช่หรือไม่?</p>\n\n<p class=\"intro-thai\">\n  ถ้าคำตอบคือ “ใช่...”\n  <br>\n  <br>\n  <a href=\"#welcomeCaption\" class=\"page-scroll nav-hover top-click\">คลิ๊กที่นี่!</a>\n</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19232,7 +19466,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_welcome_caption", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <a href=\"#get-started\">คลิกที่นี่</a> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak\" ที่เป็นที่นิยมของเรา\n\n";
+    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <a href=\"#get-started\">คลิกที่นี่</a> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak\" ที่เป็นที่นิยมของเรา\n\n";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai_modal/_christian_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"get-started-text\">โครงการซิตี้ ทอล์ค ยังจะช่วยให้คนไทยมีความเข้าใจมากขึ้นเกี่ยวกับวัฒนธรรมและโลกทัศน์ของกลุ่ม อื่นๆ การเปิดพรมแดนการค้าเสรีสมาคมอาเชียนในปี 2016 คนไทยไม่ได้ต้องการเพียงแค่ความเชี่ยวชาญในการใช้ภาษากลางทางการค้า ซึ่งก็คือภาษาอังกฤษเท่านั้น แต่คนไทยจำเป็นจะต้องมีพื้นฐานความรู้ความเข้าใจที่ถูกต้องในวัฒนธรรมและโลกทัษน์ของผู้คนที่อยู่รายรอบพวกเขาด้วย โลกทัศน์กลุ่มหนึ่งที่สำคัญที่คนไทยจะต้องมีการติดต่อปฏิสัมพันธ์ ด้วยมากยิ่งขึ้น คือ คริสเตียน ในขณะที่การทำธุรกิจการค้าและการพาณิชย์ทั่วภูมิภาคอาเชียนจะมีความเข้มข้น ขึ้น คนไทยจะต้องพบปะและพัฒนาความสัมพันธ์กับทั้งกลุ่มผู้นำรัฐบาล ผู้จัดการธุรกิจ ผู้บริหารการขาย และนักเรียนนักศึกษาที่เป็นคริสเตียน เพื่อให้ความสัมพันธ์ดังกล่าวนั้น จะนำมาซึ่งประโยชน์และความสำเร็จร่วมกัน  ทั้งสองฝ่ายจะต้องมีความ เข้าใจซึ่งกันและกันทั้งในเรื่องของภาษา วัฒนธรรมและโลกทัศน์  ด้วยเงื่องไขดังกล่าวข้างต้น ข้อมูลการศึกษาล่าสุดพบว่า คนไทยส่วนใหญ่ (89%) ยังขาดความความรู้เข้าใจเกี่ยวกับพื้นฐานความเชื่อ หรือโลกทศน์ของคริสเตียน  ทั้งนี้ด้วยความพยายาม ที่จะช่วยให้คนไทยมีความรู้เกี่ยวกับโลกทัศน์กลุ่มอื่นๆ มากขึ้น หลักสูตรนี้จึงได้บรรจุเนื้อหาบทเรียนภาษาอังกฤษเกี่ยวกับโลกทัศน์ของ คริสเตียน 15 นาทีไว้ในตอนท้ายของแต่ละคาบเรียน ผู้เรียนจะพบว่าโลกทัศน์หรือมุมมองทางความเชื่อของคริสเตียนไม่ได้เพียงแต่ น่าสนใจเท่านั้นแต่ยังง่ายต่อการทำความเข้าใจด้วย</span>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19242,7 +19481,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai_modal/_payment_info", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>ธนาคารกรุงเทพ</h3>\n<h3>สาขาธนาคาร: ห้างสรรพสินค้าเอ็มโพเรียม</h3>\n<h3>ชื่อบัญชี: Ronald Dale Harmon</h3>\n<h3>หมายเลขบัญชี: 096-0-69011-3</h3>\n";
+    return "<h3>ธนาคาร: ธนาคารกรุงเทพ</h3>\n<h3>สาขา: ดิเอ็มโพเรี่ยม</h3>\n<h3>ชื่อบัญชี: Ronald Dale Harmon</h3>\n<h3>หมายเลขบัญชี: 096-0-69011-3</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19272,23 +19511,19 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.contact_us || (depth0 != null ? depth0.contact_us : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"contact_us","hash":{},"data":data}) : helper)))
     + "</a></li>\n\n          <li class=\"dropdown\">\n            <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
     + this.escapeExpression(((helper = (helper = helpers.student || (depth0 != null ? depth0.student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student","hash":{},"data":data}) : helper)))
-    + "<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" href=\"/register_student\">"
-    + this.escapeExpression(((helper = (helper = helpers.register_new_student || (depth0 != null ? depth0.register_new_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_student","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a id=\"drop-down-link\" href=\"/log_in\">"
-    + this.escapeExpression(((helper = (helper = helpers.login_student || (depth0 != null ? depth0.login_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_student","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n                  "
+    + "<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n                  "
     + this.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"you_can_speak","hash":{},"data":data}) : helper)))
-    + "\n                </a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n                  "
+    + "\n                </a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"modal-initiator university-summer-applic\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n                  "
     + this.escapeExpression(((helper = (helper = helpers.student_promotion || (depth0 != null ? depth0.student_promotion : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student_promotion","hash":{},"data":data}) : helper)))
-    + "\n                </a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n            </ul>\n          </li>\n\n          <li role=\"separator\" class=\"divider\"></li>\n\n          <li class=\"dropdown\">\n            <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
+    + "\n                </a>\n              </li>\n            </ul>\n          </li>\n\n          <li role=\"separator\" class=\"divider\"></li>\n\n          <li class=\"dropdown\">\n            <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
     + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
     + "<span class=\"caret\"></span></a>\n            <ul class=\"dropdown-menu\">\n              <li id=\"backbone-app\" class=\"volunteer_page\">\n                <a id=\"drop-down-link\" href=\"/volunteer_info\">"
     + this.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_info","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" href=\"/register_vol\">"
+    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
     + this.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a id=\"drop-down-link\" href=\"/log_in\">"
+    + "</a>\n              </li>\n              <li role=\"separator\" class=\"divider\"></li>\n              <li id=\"backbone-app\" class=\"login-checker\">\n                <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
     + this.escapeExpression(((helper = (helper = helpers.login_volunteer || (depth0 != null ? depth0.login_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_volunteer","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n            </ul>\n          </li>\n          <li>\n          <li class=\"national-flag\">\n            <span class=\"usa_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n            </span>\n          </li>\n          <li role=\"separator\" class=\"divider\"></li>\n          <li class=\"national-flag\">\n            <span class=\"thai_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n            </span>\n          </li>\n\n\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n<script>\n  // Enable scrolling navbar menu in mobile\n  // $(\".navbar-collapse\").css({ maxHeight: $(window).height() - $(\".navbar-header\").height() + \"px\" });\n\n  // Thai / American flag\n  $(\".thai_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"thai\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  $(\".usa_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"english\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  function getCorrectPageWhenFlagClicked() {\n    if ($(\".front-main-hbs\").is(\":visible\")) {\n      App.getFrontMainPage();\n      App.getFooter();\n    } else if ($(\".entire-vol\").is(\":visible\")) {\n      App.getVolunteerPage();\n      App.getFooter();\n    }\n  }\n\n  // in tandem with \"Maintain scroll position when flag clicked\" in transitions.js\n  $(\".thai_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n  $(\".usa_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n\n  $(\".nav-hover\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".nav-hover\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n\n  $(\"#nav-dropdown\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\"#nav-dropdown\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  $(\".dropdown-toggle\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".dropdown-toggle\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  // To ensure the nav link scrolls to correct position\n  if ($(window).width() > 1024) {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 1100);\n    scrollPositioning($(\"a#place_2.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_3.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_4.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 1100);\n    scrollPositioning($(\"a#place_6.page-scroll.nav-hover\"), 0, 1100);\n  } else {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 0);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 0);\n  }\n\n  function scrollPositioning($link, position_offset, speed) {\n    $link.on('click', function(e) {\n    e.preventDefault();\n    var hash = this.hash;\n    $('html, body').animate({\n        scrollTop: $(hash).offset().top + position_offset\n      }, speed, function(){\n        window.location.hash = hash;\n      });\n    });\n  }\n\n</script>\n\n<script>\n  if (sessionStorageAvailable(\"fragment\")) {\n    $(\"#home-link\").on(\"click\", function() {\n      sessionStorage.setItem('fragment', \"\");\n    });\n  }\n</script>\n\n</header>\n";
+    + "</a>\n              </li>\n\n\n\n              <li role=\"separator\" class=\"divider\"></li>\n\n              <li id=\"backbone-app\">\n                <a id=\"drop-down-link\" class=\"modal-initiator login-modal\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                  Admin Log In\n                </a>\n              </li>\n              \n            </ul>\n          </li>\n          <li>\n          <li class=\"national-flag\">\n            <span class=\"usa_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n            </span>\n          </li>\n          <li role=\"separator\" class=\"divider\"></li>\n          <li class=\"national-flag\">\n            <span class=\"thai_flag\">\n              <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n            </span>\n          </li>\n\n\n        </ul>\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n<script>\n  // Enable scrolling navbar menu in mobile\n  // $(\".navbar-collapse\").css({ maxHeight: $(window).height() - $(\".navbar-header\").height() + \"px\" });\n\n  // Thai / American flag\n  $(\".thai_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"thai\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  $(\".usa_flag\").on(\"click tap\", function() {\n    if (sessionStorageAvailable(\"fragment\")) {\n      sessionStorage.setItem('language', \"english\");\n    }\n    getCorrectPageWhenFlagClicked();\n  });\n\n  function getCorrectPageWhenFlagClicked() {\n    if ($(\".front-main-hbs\").is(\":visible\")) {\n      App.getFrontMainPage();\n      App.getFooter();\n    } else if ($(\".entire-vol\").is(\":visible\")) {\n      App.getVolunteerPage();\n      App.getFooter();\n    }\n  }\n\n  // in tandem with \"Maintain scroll position when flag clicked\" in transitions.js\n  $(\".thai_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n  $(\".usa_flag\").on(\"click\", function() {\n    $(window).scrollTop(sessionStorage.getItem(\"scrollTopPos\"));\n    App.applcationView.render(); // to make modal have correct language\n  });\n\n  $(\".nav-hover\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".nav-hover\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n\n  $(\"#nav-dropdown\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\"#nav-dropdown\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  $(\".dropdown-toggle\").mouseenter(function(){\n    $(this).css(\"background-color\", \"#8BC34A\");\n  });\n  $(\".dropdown-toggle\").mouseleave(function(){\n    $(this).css(\"background-color\", \"#2D3179\");\n  });\n\n  // To ensure the nav link scrolls to correct position\n  if ($(window).width() > 1024) {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 1100);\n    scrollPositioning($(\"a#place_2.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_3.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_4.page-scroll.nav-hover\"), 0, 1100);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 1100);\n    scrollPositioning($(\"a#place_6.page-scroll.nav-hover\"), 0, 1100);\n  } else {\n    scrollPositioning($(\"a#place_1.page-scroll.nav-hover\"), 60, 0);\n    scrollPositioning($(\"a#place_5.page-scroll.nav-hover\"), -60, 0);\n  }\n\n  function scrollPositioning($link, position_offset, speed) {\n    $link.on('click', function(e) {\n    e.preventDefault();\n    var hash = this.hash;\n    $('html, body').animate({\n        scrollTop: $(hash).offset().top + position_offset\n      }, speed, function(){\n        window.location.hash = hash;\n      });\n    });\n  }\n\n  // To determine student price in '_intro_bullets.hbs'\n  $(\".university-summer-applic\").on(\"click\", function() {\n    sessionStorage.setItem(\"student_type\", \"university_summer_applicant\");\n    App.applcationView.render();\n  });\n  $(\".non-summer-university\").on(\"click\", function() {\n    sessionStorage.setItem(\"student_type\", \"non_summer_university\");\n    App.applcationView.render();\n  });\n\n\n  // \"Coming soon\" sweet alert\n  $(\"a.coming-soon-vol\").on(\"click\", function(e) {\n    e.preventDefault();\n    swal({\n      title: \"Coming Soon!\",\n      text: \"Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!\",\n      timer: 15000,\n      showConfirmButton: true,\n      animation: \"slide-from-bottom\"\n    });\n  });\n\n\n\n\n</script>\n\n<script>\n  if (sessionStorageAvailable(\"fragment\")) {\n    $(\"#home-link\").on(\"click\", function() {\n      sessionStorage.setItem('fragment', \"\");\n    });\n  }\n</script>\n\n</header>\n";
 },"useData":true});
   return this.HandlebarsTemplates["nav_bar/nav_bar"];
 }).call(this);
@@ -19310,7 +19545,7 @@ window.fbAsyncInit = function() {
 
   return "<a class=\"close\" href=\"#\">Close</a>\n\n<form novalidate=\"novalidate\" class=\"simple_form new_user\" id=\"new_user\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n  <header>\n    <h1>Open an account at City English Project (CEP)!</h1>\n    <h4>\n      As an English student at CEP, you will have access to all of our free services immediately.  With our paid-for services, we offer multiple payment options.\n    </h4>\n    <hr>\n    <h4>\n      If you do not have a PIN, please contact your CEP English teacher.\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    <label for=\"user_pin\">PIN</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"หมายเลขประจำตัว\" type=\"text\" name=\"user[pin]\" id=\"user_pin\">\n  </h3>\n\n  <h3>\n    <label for=\"user_first_name\">First Name</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"ชื่อเล่น\" type=\"text\" name=\"user[first_name]\" id=\"user_first_name\">\n  </h3>\n\n  <h3>\n    <label for=\"user_last_name\">Last Name</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"นามสกุล\" type=\"text\" name=\"user[last_name]\" id=\"user_last_name\">\n  </h3>\n\n  <h3>\n    <label for=\"user_gender\">Gender</label>\n  </h3>\n  <h3>\n    <select name=\"user[gender]\" id=\"vol_gender\">\n      <option value=\"ผู้ชาย\">ผู้ชาย</option>\n      <option value=\"ผู้หญิง\">ผู้หญิง</option>\n    </select>\n  </h3>\n\n  <h3>\n    <label for=\"user_email\">Email Address</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"อีเมล\" type=\"email\" name=\"user[email]\" id=\"user_email\">\n  </h3>\n\n  <h3>\n    <label for=\"user_password\">Password</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสผ่าน\" type=\"password\" name=\"user[password]\" id=\"user_password\">\n  </h3>\n\n  <h3>\n    <label for=\"user_password_confirmation\">Password Confirmation</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสผ่าน\" type=\"password\" name=\"user[password_confirmation]\" id=\"user_password_confirmation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_postal_code\">Postal Code</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสไปรษณีย์\" type=\"text\" name=\"user[postal_code]\" id=\"user_postal_code\">\n  </h3>\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Join CEP!\" class=\"btn btn-success student_reg_er\">\n</form>\n";
+    + ">\n  <header>\n    <h1>ลงทะเบียนเพื่อรับสิทธิ์การเป็นสมาชิกโครงการซิตี้ อิงลิช (CEP)</h1>\n    <h4>เมื่อคุณเป็นนักเรียนของโครงการซิตี้ อิงลิช (CEP) คุณสามารถเข้าถึงบริการทั้งหมดของเราได้ฟรีทันที โดยการชำระเงินค่าลงทะเบียนสำหรับบริการของเรา เรามีทางเลือกสำหรับการชำระเงินหลายช่องทางด้วยกัน</h4>\n    <br>\n    <h1>Open an account at City English Project (CEP)!</h1>\n    <h4>\n      As an English student at CEP, you will have access to all of our free services immediately.  With our paid-for services, we offer multiple payment options.\n    </h4>\n    <hr>\n    <h4>\n      ถ้าคุณไม่มีรหัส PIN กรุณาติดต่อผู้สอนของคุณ\n    </h4>\n    <h4>\n      If you do not have a PIN, please contact your CEP English teacher.\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    <label for=\"user_pin\">PIN</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"หมายเลขประจำตัว\" type=\"text\" name=\"user[pin]\" id=\"user_pin\">\n  </h3>\n\n  <h3>\n    <label for=\"user_first_name\">First Name</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"ชื่อเล่น\" type=\"text\" name=\"user[first_name]\" id=\"user_first_name\">\n  </h3>\n\n  <h3>\n    <label for=\"user_last_name\">Last Name</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"นามสกุล\" type=\"text\" name=\"user[last_name]\" id=\"user_last_name\">\n  </h3>\n\n  <h3>\n    <label for=\"user_gender\">Gender</label>\n  </h3>\n  <h3>\n    <select name=\"user[gender]\" id=\"vol_gender\">\n      <option value=\"ผู้ชาย\">ผู้ชาย</option>\n      <option value=\"ผู้หญิง\">ผู้หญิง</option>\n    </select>\n  </h3>\n\n  <h3>\n    <label for=\"user_email\">Email Address</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"อีเมล\" type=\"email\" name=\"user[email]\" id=\"user_email\">\n  </h3>\n\n  <h3>\n    <label for=\"user_password\">Password</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสผ่าน\" type=\"password\" name=\"user[password]\" id=\"user_password\">\n  </h3>\n\n  <h3>\n    <label for=\"user_password_confirmation\">Password Confirmation</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสผ่าน\" type=\"password\" name=\"user[password_confirmation]\" id=\"user_password_confirmation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_postal_code\">Postal Code</label>\n  </h3>\n  <h3>\n    <input class=\"student_registration\" placeholder=\"รหัสไปรษณีย์\" type=\"text\" name=\"user[postal_code]\" id=\"user_postal_code\">\n  </h3>\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Join CEP!\" class=\"btn btn-success student_reg_er\">\n</form>\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/student_reg"];
 }).call(this);
@@ -19326,24 +19561,15 @@ window.fbAsyncInit = function() {
   return this.HandlebarsTemplates["registration/vol_reg"];
 }).call(this);
 (function() {
-  Handlebars.registerPartial("sessions/_form", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "";
-},"useData":true}));
-}).call(this);
-(function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["sessions/log_in"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return "<a class=\"close\" href=\"#\">Close</a>\n\n<form class=\"log_in\" action=\"/sessions\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
-    + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n  <header>\n    <h1>Log in</h1>\n  </header>\n\n  <h3>\n    <label for=\"email\">Email Address</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"email\" name=\"email\" id=\"login_email\">\n  </h3>\n  <h3>\n    <label for=\"password\">Password</label>\n  </h3>\n  <h3 class=\"black_field\">\n    <input class=\"user_login\" type=\"password\" name=\"password\" id=\"login_password\">\n  </h3>\n  <br>\n    <input type=\"submit\" name=\"commit\" value=\"Let's study English!\" class=\"btn btn-primary login-checker\">\n  <h4>\n    <a href=\"#\">Forgot Password?</a>\n  </h4>\n\n  <h4>\n    <a href=\"/sign_up_student\">Click here to register if you are not yet a student.</a>\n  </h4>\n\n</form>\n";
+    return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Log In</h3>\n    </div>\n    <div class=\"modal-body\">\n      <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/sessions\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" >\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label email-label\">Password</label>\n        <input id=\"login_password\" type=\"password\" class=\"form-control email\" placeholder=\"รหัสผ่าน\" name=\"password\">\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"btn login-submit\" href=\"#\">Submit</button>\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  // var $html = $(document.documentElement);\n  // var $modal = $('#loginmodal');\n\n  // function showModal() {\n  //   $html.css('overflow', 'hidden');\n  //   $modal.css('overflow', 'auto');\n  // }\n\n  // function hideModal() {\n  //   $html.css('overflow', '');\n  //   $modal.modal(\"hide\");\n  // }\n\n  // $('.modal-initiator').on('click', showModal);\n  // $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n  \n</script>\n\n\n\n\n\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["sessions/log_in"];
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/english/_profile_overview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "There are two ways for volunteers to get involved with City English Project. Volunteers can serve locally in the Bangkok area through teaching our \"You Can Speak!\" English culture and worldview class. If volunteers are interested in serving, but cannot make the trip to Bangkok, they can become an online conversation partner. \n\nIf you are interested in any of the three volunteer options, please look at the details below to find steps on how to become a City English Project (CEP) volunteer.";
+    return "There are two ways for volunteers to get involved with City English Project. Volunteers can serve locally in the Bangkok area through teaching our \"You Can Speak!\" English culture and worldview class. If volunteers are interested in serving, but cannot make the trip to Bangkok, they can become an online conversation partner. If you are interested in any of the two volunteer options, please look at the details below to find steps on how to become a City English Project (CEP) volunteer.";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19368,22 +19594,22 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/thai/_profile_overview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "กกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n\nกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n\nกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n";
+    return "การสมัครเข้าเป็นอาสาสมัครเพื่อร่วมงานกับโครงการซิตี้ อิงลิช มี 2 ช่องทาง อาสาสมัครสามารถทำงานรับใช้ในพื้นที่กรุงเทพมหานครด้วยการเป็นผู้สอนหลักสูตร \"You Can Speak!\" ซึ่งเป็นชั้นเรียนภาษาอังกฤษ วัฒนธรรมและโลกทัศน์  หรือในกรณีที่อาสาสมัครมีความสนใจที่จะร่วมทำงานรับใช้กับโครงการของเราแต่ไม่สามารถเดินทางมาที่กรุงเทพมหานครได้ พวกเขาสามารถสมัครเพื่อเป็นคู่สนทนาภาษาอังกฤษออนไลน์ของโครงการได้ หากคุณมีความสนใจเข้าร่วมเป็นอาสาสมัครของโครงการในช่องทางใดช่องทางหนึ่งใน 2 ช่องทางดังกล่าว  กรุณาดูรายละเอียดด้านล่างเพื่อศึกษาขั้นตอนในการเข้าเป็นอาสาสมัครของโครงการซิตี้ อิงลิช (CEP)\n";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/thai/_step_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>ขั้นตอนที่ 1: ลงทะเบียนคริสตจักรธุรกิจหรือองค์กรของคุณ</h4>\n\n<p class=\"vol-step\">เพื่อให้แน่ใจว่านักเรียน CEP ของเราได้รับประสบการณ์ที่มีคุณภาพการศึกษาภาษาอังกฤษที่สูงที่สุดที่เป็นไปได้ เราขอให้คุณลงทะเบียนครั้งแรกคริสตจักรธุรกิจหรือองค์กรของคุณ</p>";
+    return "<h4>ขั้นตอนที่ 1: ลงทะเบียนคริสตจักร, หน่วยงานธุรกิจ หรือองค์กรของคุณ</h4>\n\n<p class=\"vol-step\">เพื่อให้มั่นใจว่าผู้เรียนของโครงการซิตี้ อิงลิชของเราจะได้รับประสบการณ์ในการเรียนรู้ภาษาอังกฤษที่มีคุณภาพสูงสุดเท่าที่จะเป็นไปได้  เราขอให้คุณลงทะเบียนคริสตจักร, หน่วยงานธุรกิจ หรือองค์กรของคุณกับโครงการซิตี้ อิงลิช เป็นอันดับแรก</p>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/thai/_step_three", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>ขั้นตอนที่ 3: คนอาสาสมัครจะคูณ!</h4>\n<p class=\"vol-step\">ส่งเสริมให้ผู้คนจากคริสตจักรองค์กร ฯลฯ ที่จะเชิญคนอื่น ๆ ที่พวกเขารู้ว่า ที่จะพิจารณาเป็นอาสาสมัคร สำหรับ \"City English Project\"  จากนั้นคุณสามารถให้พวกเขา PIN เช่นกัน สำหรับพวกเขาที่จะลงทะเบียนในสถานะของ \"อาสาสมัคร\"</p>";
+    return "<h4>ขั้นตอนที่ 3: ชักชวนอาสาสมัคร!</h4>\n<p class=\"vol-step\">แนะนำและเชิญชวนสมาชิกในคริสตจักร องค์กรของคุณ ฯลฯ รวมทั้งเชิญชวนคนคุณที่รู้จักให้พิจารณาเพื่อสมัครเป็นอาสาสมัครของโครงการซิตี้ อิงลิช  และคุณสามารถให้พวกเขาใช้รหัส PIN เพื่อลงทะเบียนใน ‘สถานะอาสาสมัคร’ ได้</p>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/thai/_step_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>ขั้นตอนที่ 2: เชิญคนอาสาสมัคร!</h4>\n\n<p class=\"vol-step\">เชิญคนจากคริสตจักรองค์กร ฯลฯ ที่จะมาที่หน้าเว็บนี้เพื่อลงทะเบียนใน \"อาสาสมัคร\" สถานะ  พวกเขาจะต้องได้รับ PIN จากคุณลงทะเบียนใน \"คนอาสาสมัคร\" สถานะ  มิฉะนั้นพวกเขาเท่านั้นที่สามารถลงทะเบียนใน \"นักเรียน\" สถานะ</p>";
+    return "<h4>ขั้นตอนที่ 2: เชิญชวนอาสาสมัครมาลงทะเบียน!</h4>\n\n<p class=\"vol-step\">เมื่อคริสตจักร หน่วยงานธุรกิจ หรือองค์กรของคุณลงทะเบียนและได้รับการตอบรับจากโครงการแล้ว พวกเขาจะได้รับรหัส PIN หลังจากนั้นอาสาสมัครสามารถใช้ PIN เพื่อลงทะเบียนกับโครงการซิตี้ อิงลิช ที่เว็บไซต์นี้ได้</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19402,17 +19628,17 @@ window.fbAsyncInit = function() {
 
   return ((stack1 = this.invokePartial(partials['volunteer/english/_welcome'],depth0,{"name":"volunteer/english/_welcome","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"5":function(depth0,helpers,partials,data) {
-    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Project+Overview.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Project+Overview.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
 },"7":function(depth0,helpers,partials,data) {
-    return "            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Project+Overview+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Project+Overview+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
 },"9":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['volunteer/thai/_profile_overview'],depth0,{"name":"volunteer/thai/_profile_overview","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['volunteer/thai/_profile_overview'],depth0,{"name":"volunteer/thai/_profile_overview","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['volunteer/english/_profile_overview'],depth0,{"name":"volunteer/english/_profile_overview","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['volunteer/english/_profile_overview'],depth0,{"name":"volunteer/english/_profile_overview","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"13":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -19442,33 +19668,45 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"entire-vol\">\n\n<div class=\"container-fluid\">\n\n<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"col-md-12 backg-vol\">\n      <div class=\"col-md-6 col-md-offset-3 inner col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3\">\n        <div class=\"text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div>\n  </div> \n  <div class=\"row\">\n    <div id=\"mycarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n      <div class=\"carousel-inner\">\n        <div class=\"item active\">\n"
+    + "        </div>\n      </div>\n    </div>\n  </div> \n</div>\n\n<div class=\"container-full main\" id=\"welcomeCaption\">\n  <div class=\"row\">\n    <div class=\"project-overview-screen\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "          <div class=\"carousel-caption\">\n"
+    + "      <div class=\"project-overiew-caption\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- Steps to becoming a CEP volunteer -->\n<div class=\"container-full features\" id=\"volunteer-steps\">\n  <h2 class=\"text-center features-text\">"
+    + "      </div>\n    </div>\n  </div> \n</div>\n\n\n<!-- Steps to becoming a CEP volunteer -->\n<div class=\"container-full features\" id=\"volunteer-steps\">\n  <h2 class=\"text-center features-text\">"
     + this.escapeExpression(((helper = (helper = helpers.steps_title || (depth0 != null ? depth0.steps_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"steps_title","hash":{},"data":data}) : helper)))
     + "</h2>\n  <div class=\"row\">\n     <div class=\"col-sm-4\">  \n        <div class=\"volunteer-picture\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Register+Your+Church.png\" alt=\"Register\" align=\"middle\">\n          <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
-    + "            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_admin\">"
+    + "            <span class=\"coming-soon-admin\">\n              <a class=\"link-button btn btn-success\" href=\"/register_admin\">"
     + this.escapeExpression(((helper = (helper = helpers.register_organization || (depth0 != null ? depth0.register_organization : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_organization","hash":{},"data":data}) : helper)))
     + "</a>\n            </span>\n          </div>\n          <br>\n          <br>\n          <br>\n        </div>\n     </div>\n     <div class=\"col-sm-4\"> \n        <div class=\"volunteer-picture\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Invite+Volunteers.png\" alt=\"Invite Volunteers\" align=\"middle\">\n          <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
-    + "            <span id=\"backbone-app\">\n              <a class=\"link-button btn btn-success\" href=\"/register_vol\">"
+    + "            <span class=\"coming-soon-vol\">\n              <a class=\"link-button btn btn-success\" href=\"/register_vol\">"
     + this.escapeExpression(((helper = (helper = helpers.volunteer_registration || (depth0 != null ? depth0.volunteer_registration : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_registration","hash":{},"data":data}) : helper)))
     + "</a>\n            </span>\n          </div>\n          <br>\n          <br>\n          <br>\n        </div>\n     </div>\n     <div class=\"col-sm-4\">\n        <div class=\"volunteer-picture\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Multiply+Volunteers.png\" alt=\"Multiply Volunteers\" align=\"middle\">\n          <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
-    + "          </div>\n        </div>\n     </div>\n  </div>\n</div> <!-- Steps to becoming a CEP volunteer -->\n\n</div> <!-- container-fluid -->\n\n</div> <!-- class=\"entire-vol\" -->\n\n\n";
+    + "          </div>\n        </div>\n     </div>\n  </div>\n</div> <!-- Steps to becoming a CEP volunteer -->\n\n</div> <!-- container-fluid -->\n\n</div> <!-- class=\"entire-vol\" -->\n\n<script>\n\n  $(\".coming-soon-admin>a\").on(\"click\", function(e) {\n    e.preventDefault();\n    swal({\n      title: \"Coming Soon!\",\n      text: \"Very soon, you will be able to apply to become a volunteer administrator for your organization!  We're very excited that soon Thai people will have the opportunity to learn English with people in your organization!\",\n      timer: 15000,\n      showConfirmButton: true,\n      animation: \"slide-from-bottom\"\n    });\n  });\n  \n  $(\".coming-soon-vol>a\").on(\"click\", function(e) {\n    e.preventDefault();\n    swal({\n      title: \"Coming Soon!\",\n      text: \"Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!\",\n      timer: 15000,\n      showConfirmButton: true,\n      animation: \"slide-from-bottom\"\n    });\n  });\n\n\n</script>\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["volunteer/volunteer_info"];
 }).call(this);
+var Session = Backbone.Model.extend({
+
+  urlRoot: 'sessions'
+
+});
 var User = Backbone.Model.extend({
 
-  parse: function(attrs) {
-    attrs.user_url = "/users/" + attrs.email;
-    return attrs;
-  },
+  // parse: function(attrs) {
+  //   attrs.user_url = "/users/" + attrs.email;
+  //   return attrs;
+  // },
+
   urlRoot: 'users'
+
+});
+var GuestStudents = Backbone.Collection.extend({
+
+  model: User,
+  url: "gueststudents"
 
 });
 var Users = Backbone.Collection.extend({
@@ -19486,14 +19724,120 @@ var Volunteers = Backbone.Collection.extend({
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {},
-  events: {},
+  initialize: function() {
+
+  },
+  events: {
+    'click .guest-add': function (e) {
+      e.preventDefault();
+      this.signUp();
+    }
+  },
+
+  signUp: function() {
+    var model = this.model;
+
+    this.$el.find('input[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    this.$el.find('select[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    if($('.radio-pay_at_center').is(':checked')) {
+      model.set({payment_option: "pay_at_center"});
+    }
+
+    if($('.radio-pay_by_transfer').is(':checked')) {
+      model.set({payment_option: "pay_by_transfer"});
+    }
+
+    var options = {
+      success: function (model, response, options) {
+        $("#applicationmodal").modal("hide");
+        $("#welcomepopupmodal").modal();
+        $('.radio-pay_by_transfer').prop('checked', false);
+        $('.radio-pay_at_center').prop('checked', false);
+      },
+      error: function (model, response, options) {
+        $(".form-control").css("border-color", "#cccccc");
+        $("select").css("border-color", "#cccccc");
+        $("h4:contains('invalid')").remove();
+        $("h4:contains('choose')").remove();
+        $("h4:contains('option')").remove();
+        $("h4:contains('ควร')").remove();
+        $("h4:contains('อีเมล์')").remove();
+
+        if (response.responseJSON) {
+          response.responseJSON.errors.forEach(function(error) {
+            if (error === "Nickname can't be blank") {
+              $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
+            }
+            else if (error === "Nickname is too long (maximum is 20 characters)") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ชื่อเล่นยาวเกินไป (ไม่เกิน 20 ตัวอักษร)");
+            }
+            else if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อจริงลงในช่องว่าง");
+            }
+            else if (error === "Last name can't be blank") {
+              $(".last-name").css("border-color", "red").attr("placeholder", "ควรกรอกนามสกุลลงในช่องว่าง");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
+            }
+            else if (error === "Email can't be blank") {
+              $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
+            }
+            else if (error === "Email is invalid") {
+              $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้ไม่สามารถใช้งานได้</h4>");
+            }
+            else if (error === "Email has already been taken") {
+              $(".email").css("border-color", "red").attr("placeholder", "อีเมล์นี้มีผู้ใช้อยู่แล้ว");
+            }
+            else if (error === "District can't be blank") {
+              $(".district").css("border-color", "red").attr("placeholder", "ควรกรอกจังหวัด/เขต ลงในช่องว่าง");
+            }
+            else if (error === "Password can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสผ่านลงในช่องว่าง");
+            }
+            else if (error === "Password is too short (minimum is 6 characters)") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสผ่านสั้นเกินไป(ขั้นต่ำ 6 ตัวอักษร)");
+            }
+            else if (error === "Password confirmation can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกการยืนยันรหัสผ่านลงในช่องว่าง");
+            }
+            else if (error === "Postal code can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสไปรษณีย์ลงในช่องว่าง");
+            }
+            else if (error === "Postal code is invalid") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสไปรษณีย์นี้ไม่สามารถใช้งานได้");
+            }
+            else if (error === "Class time must be selected") {
+              $(".seminar-session-select").css("border-color", "red");
+              $(".non-univ-sched-options").append("<h4 style='color:red;'>คุณควรเลือกช่วงเวลาที่คุณต้องการจะเรียน</h4>");
+            }
+            else if (error === "Payment option can't be blank") {
+              $("fieldset#payment-options").css("border-color", "red");
+              $(".payment-options-label").append("<h4 style='color:red;'>Payment option.. คุณควรเลือกตัวเลือกในการชำระเงิน</h4>");
+            }
+          }); // forEach
+        } // if (response.responseJSON.errors)
+      } // error:
+    }; // options
+    
+    model.save(model.toJSON(), options);
+
+  },
 
   thai_language: function() {
     return sessionStorage.getItem('language') === "thai";
   },
   application_title: function() {
-    return this.choose_language("Register for the class, 'You Can Speak' -- University Student Promotion!!", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน 'You Can Speak'");
+    return this.choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
+  },
+  univ_application_title: function() {
+    return this.choose_language("University Student Promotion!! \"You Can Speak!\" class", "โปรโมชั่นสำหรับนักศึกษา!! ชั้นเรียน \"You Can Speak!\"");
   },
   schedule_option_one: function() {
     return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
@@ -19511,7 +19855,7 @@ var ApplicationView = Backbone.View.extend({
     return this.choose_language("Pay at the CEP Center on ", "ชำระเงินด้วยตนเองที่ศูนย์โครงการซิตี้ อิงลิช ");
   },
   pan_road: function() {
-    return this.choose_language("Pan Road", "ถนนปั้น");
+    return this.choose_language("Pan Road", "ถนนปั้น (สำนักงานจะเปิดในวันที่ 5 มิถุนายน 2559 นี้)");
   },
   payment_info: function() {
     return this.choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
@@ -19525,14 +19869,31 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
+  university_summer_applicant: function() {
+    return sessionStorage.getItem('student_type') === "university_summer_applicant";
+  },
+
+  student_type_price: function() {
+    if (sessionStorage.getItem('student_type') === "university_summer_applicant") {
+      return "299"
+    } else if (sessionStorage.getItem('student_type') === "non_summer_university") {
+      return "399"
+    }
+  },
+
+
   template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+
+    this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
+
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: this.thai_language(),
       application_title: this.application_title(),
+      univ_application_title: this.univ_application_title(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
       choose_payment_option: this.choose_payment_option(),
@@ -19540,6 +19901,43 @@ var ApplicationView = Backbone.View.extend({
       pay_at_center: this.pay_at_center(),
       pan_road: this.pan_road(),
       payment_info: this.payment_info(),
+      university_summer_applicant: this.university_summer_applicant(),
+      student_type_price: this.student_type_price(),
+    }));
+
+    return this;
+  }
+
+});
+var WelcomePopupView = Backbone.View.extend({
+  initialize: function() {},
+  events: {},
+
+  thai_language: function() {
+    return sessionStorage.getItem('language') === "thai";
+  },
+  thank_you: function() {
+    return this.choose_language("Thank you!", "ขอขอบคุณครับ!");
+  },
+
+  choose_language: function(english, thai) {
+    if (this.thai_language()) {
+      return thai
+    } else {
+      return english;
+    }
+  },
+
+  university_summer_applicant: function() {
+    return sessionStorage.getItem('student_type') === "university_summer_applicant";
+  },
+
+  template:  HandlebarsTemplates['application_form/welcome_popup'],
+
+  render: function() {
+    this.$el.html(this.template({
+      thai_language: this.thai_language(),
+      thank_you: this.thank_you(),
     }));
 
     return this;
@@ -19549,18 +19947,46 @@ var ApplicationView = Backbone.View.extend({
 
 var DashboardView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/dashboard'],
-  // fadeOut: function() {
-  //   this.$el.fadeOut(0, function() {
-  //     this.remove();
-  //   }.bind(this));
-  //   App.getFrontMainPage();
-  // },
-  render: function() {
-    this.$el.html(this.template());
-  },
+
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render());
+    this.listenTo(this.model, 'sync', this.render);
     this.$el.appendTo(".entire");
+  },
+
+  render: function() {
+    this.$el.html(this.template({
+      first_name: this.model.get("first_name"),
+      role: this.model.get("role"),
+    }));
+  }
+});
+
+
+var GuestStudentsView = Backbone.View.extend({
+  template:  HandlebarsTemplates['dashboard/guest_students'],
+
+  initialize: function() {
+    // this.listenTo(this.collection, 'all', this.render);
+    this.$el.appendTo(".entire");
+  },
+
+  no_students: function() {
+    var guest_st_num = App.guest_students.length
+    if (guest_st_num === 0) { 
+      return true
+    }
+    else {
+      return false
+    }
+  },
+
+  render: function() {
+    this.$el.html(this.template({
+      no_students: this.no_students(),
+      students: App.guest_students.toJSON()
+    }));
+
+    return this;
   }
 });
 
@@ -19689,6 +20115,29 @@ var FooterFrontView = Backbone.View.extend({
   },
   initialize: function() {
     this.$el.appendTo(".entire-footer");
+  }
+});
+
+
+
+
+
+var LocationPicturesView = Backbone.View.extend({
+  attributes: {
+    id: "location-pictures-modal"
+  },
+
+  initialize: function() {},
+
+  events: {},
+
+  template:  HandlebarsTemplates['footer/location_pictures'],
+
+  render: function() {
+    this.$el.html(this.template({
+    }));
+
+    return this;
   }
 });
 
@@ -19831,10 +20280,10 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
   login_volunteer: function() {
-    return this.choose_language("Volunteer Login", "คนอาสาสมัครล็อคอิน");
+    return this.choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
   steps_to_volunteer: function() {
-    return this.choose_language("Steps to Volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+    return this.choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
   choose_language: function(english, thai) {
     if (this.app_language_is_thai()) {
@@ -20130,68 +20579,82 @@ var VolRegFormView = Backbone.View.extend({
 
 
 
-var $overlay = $("#overlay");
-
 var LogInFormView = Backbone.View.extend({
   attributes: {
-    id: "entry_form_modal"
+    id: "login-modal"
   },
+
+  initialize: function() {
+  },
+
   events: {
-    "click a.close": "close",
-    "click input.login-checker": "checkInputs"
+    'click .login-submit': function (e) {
+      e.preventDefault();
+      this.submit();
+    }
   },
-  duration: 300,
+
+  submit: function() {
+    var model = this.model // Session
+    model.set({
+      email: this.$("input[name='email']").val(),
+      password: this.$("input[name='password']").val(),
+    });
+
+    var options = {
+      success: function (model, response, options) {
+        $("#loginmodal").modal("hide");
+        user = model
+        App.getDashboardPage(user);
+        var $html = $(document.documentElement);
+        $html.css('overflow', '');
+      },
+      error: function (model, response, options) {
+        console.log("error");
+      }      
+    }
+    model.save(model.toJSON(), options);
+
+  },
+
   templateSession:  HandlebarsTemplates['sessions/log_in'],
-  open: function () {
-    this.$el.add($overlay).fadeIn(this.duration);
-    $("#login_email").focus();
-  },
-  checkInputs: function(e) {
-    $(".user_login").css("border-color", "blue");
-    var someEmpty = $('.user_login').filter(function(){
-      return $.trim(this.value).length === 0;
-    }).length > 0;
+  // checkInputs: function(e) {
+  //   $(".user_login").css("border-color", "blue");
+  //   var someEmpty = $('.user_login').filter(function(){
+  //     return $.trim(this.value).length === 0;
+  //   }).length > 0;
 
-    if (someEmpty) {
-      e.preventDefault();
-      this.highlightEmptyField("#login_email", "an email address");
-      this.highlightEmptyField("#login_password", "your password");
-    }
+  //   if (someEmpty) {
+  //     e.preventDefault();
+  //     this.highlightEmptyField("#login_email", "an email address");
+  //     this.highlightEmptyField("#login_password", "your password");
+  //   }
 
-    if (this.verifyEmail($("#login_email").val()) === false) {
-      e.preventDefault();
-      $("input[type='email']").val("").css("border-color", "red").attr("placeholder", "Enter a valid email.");
-    }
-  },
-  highlightEmptyField: function(input_id, text) {
-    if ($(input_id).val() === "") {
-      $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
-    }
-  },
-  verifyEmail: function(email) {
-    return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-  },
-  close: function(e) {
-    e.preventDefault();
-    this.fadeOut();
-    history.back();
-  },
-  fadeOut: function() {
-    $overlay.fadeOut(this.duration);
-    this.$el.fadeOut(this.duration, function() {
-      this.remove();
-    }.bind(this));
-    App.log_in_form = undefined;
-  },
-  render: function(person) {
+  //   if (this.verifyEmail($("#login_email").val()) === false) {
+  //     e.preventDefault();
+  //     $("input[type='email']").val("").css("border-color", "red").attr("placeholder", "Enter a valid email.");
+  //   }
+  // },
+  // highlightEmptyField: function(input_id, text) {
+  //   if ($(input_id).val() === "") {
+  //     $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
+  //   }
+  // },
+  // verifyEmail: function(email) {
+  //   return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+  // },
+  // close: function(e) {
+  //   e.preventDefault();
+  //   this.fadeOut();
+  //   history.back();
+  // },
+  render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateSession({
       token: csrf_token
     }));
-    this.open(); // to fade the overlay in...
-  },
-  initialize: function() {
-    this.$el.appendTo(document.body);
+
+    return this;
   }
 });
 
@@ -20218,7 +20681,7 @@ var VolunteerPageView = Backbone.View.extend({
     return sessionStorage.getItem('language') === "thai";
   },
   steps_title: function() {
-    return this.choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนในการเป็นอาสาสมัคร");
+    return this.choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
   },
   register_organization: function() {
     return this.choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
@@ -20249,7 +20712,6 @@ var Router = Backbone.Router.extend({
     "register_vol": "registerVol",
     "register_student": "registerStudent",
     "application_form": "apply_to_cep",
-    "log_in": "startSession",
     "volunteer_info": "showVolunteerPage",
     "volunteers/:id": "showProfile"
   },
@@ -20266,9 +20728,6 @@ var Router = Backbone.Router.extend({
   apply_to_cep: function() {
     var person_registering = "Student";
     App.getStudentRegForm(person_registering);
-  },
-  startSession: function() {
-    App.getLogInForm();
   },
   showVolunteerPage: function() {
     $(window).scrollTop(0);
@@ -20325,7 +20784,7 @@ var App = {
       this.retainTemplateOnReload("");      
     }
     var front_page_main = new MainFrontView();
-    document.title = 'City English | Home';
+    document.title = 'City English Project | Home';
     this.renderNavBar();
     front_page_main.render();
     $(window).scrollTop(0);
@@ -20333,28 +20792,42 @@ var App = {
     this.front_page_main = front_page_main;
   },
   instantiateApplicationView: function() {
-    this.applcationView = new ApplicationView();
+    var student = new User();
+    this.applcationView = new ApplicationView({ model: student });
     $("#applicationmodal").html(this.applcationView.render().el);
+  },
+  instantiateWelcomePopup: function() {
+    this.welcomePopupView = new WelcomePopupView();
+    $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
   },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
-    document.title = 'City English | Volunteers';
+    document.title = 'City English Project | Volunteers';
     this.renderNavBar();
     volunteer_page.render();
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function() {
+  getDashboardPage: function(user) {
     this.removeNavAndPage();
-    // if (sessionStorageAvailable("fragment")) {
-    //   this.retainTemplateOnReload("dashboard");      
-    // }
-    // var dashboard = new DashboardView();
-    // this.renderNavBar();
-    // dashboard.render();
+    var guest_students = new GuestStudents(); // collection
+    guest_students.fetch({
+      success: function (collection, response, options) {
+        console.log(collection);
+        var guest_st_page = new GuestStudentsView({ collection: guest_students });
 
-    // this.dashboard = dashboard;
+        guest_st_page.render();
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new DashboardView({ model: user });
+    this.renderNavBar();
+    dashboard_page.render();
+    this.guest_students = guest_students;
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -20371,11 +20844,14 @@ var App = {
     var front_page_footer = new FooterFrontView();
     front_page_footer.render();
   },
-  getLogInForm: function() {
-    var log_in_form_modal = new LogInFormView();
-    log_in_form_modal.render();
-
-    this.log_in_form_modal = log_in_form_modal;
+  instantiateLogInForm: function() {
+    var session = new Session();
+    this.log_in_form_modal = new LogInFormView({ model: session });
+    $("#loginmodal").html(this.log_in_form_modal.render().el);
+  },
+  instantiateLocationPictures: function() {
+    this.location_pictures_modal = new LocationPicturesView();
+    $("#locationpicturesmodal").html(this.location_pictures_modal.render().el);
   },
   getStudentRegForm: function(person) {
     var reg_form_modal = new StudentRegFormView();
@@ -20395,10 +20871,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getStudentOnDashboardLoad: function() {
-    var student = new User({ id: gon.student_id });
-    this.student = student.fetch();
-  },
   getVolunteersOnDashboardLoad: function() {
     this.volunteers = new Volunteers();
     this.volunteers.fetch();
@@ -20409,9 +20881,6 @@ var App = {
     var student = this.student.responseJSON
     this.profile_view.render(volunteer, student);
   },
-  // allowBodyScrolling: function() {
-  //   $('body').css('overflow', 'auto');
-  // },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
@@ -20423,8 +20892,19 @@ var App = {
     else if (gon.page_needed === "volunteer_info") {
       this.getVolunteerPage();
     }
+    else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+      var user = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user);
+      var guest_students = $("#guests-now").data("guest-students");
+      this.guest_student_collection = new Backbone.Collection(guest_students);
+      this.guest_students = guest_students;
+      App.getDashboardPage(user_model);
+    }
     this.getFooter();
     this.instantiateApplicationView();
+    this.instantiateWelcomePopup();
+    this.instantiateLogInForm();
+    this.instantiateLocationPictures();
   }
 };
 
@@ -20441,12 +20921,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });
 
 App.init();
-
-
-
-
-
-
 
 
 

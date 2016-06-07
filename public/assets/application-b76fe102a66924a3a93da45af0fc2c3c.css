@@ -9426,7 +9426,7 @@ input[placeholder], [placeholder], *[placeholder] {
   margin-right: auto;
   width: 65%;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   /* line 16, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
   .text-box {
     margin-top: -90px;
@@ -9434,7 +9434,7 @@ input[placeholder], [placeholder], *[placeholder] {
     width: 65%;
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
   /* line 16, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
   .text-box {
     margin-top: -80px;
@@ -9745,22 +9745,112 @@ h3.get-started-top-text {
     width: 11%;
   }
 }
-@media screen and (max-width: 550px) {
-  /* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
-  .social-media-icon {
-    width: 20%;
+
+/* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+#googleMap {
+  border: 1px solid #8bc34a;
+}
+@media screen and (min-width: 1350px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 600px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1350px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 550px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1260px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 450px;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 400px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 790px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 320px;
+    height: 320px;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 420px;
+    height: 280px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 730px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 420px;
+    height: 200px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 645px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 420px;
+    height: 170px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 420px;
+    height: 140px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 350px;
+    height: 140px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 350px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 280px;
+    height: 140px;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 325px) {
+  /* line 60, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  #googleMap {
+    width: 260px;
+    height: 140px;
+    margin: auto;
   }
 }
 
-/* line 63, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
-#google-map img {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 @media screen and (max-width: 930px) {
-  /* line 68, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
+  /* line 110, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
   .copyright {
     text-align: left;
     margin-left: 40px;
@@ -9784,7 +9874,7 @@ body .modal-dialog {
   }
 }
 
-/* line 9, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 13, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 html.noscroll {
   position: fixed;
   width: 100%;
@@ -9794,23 +9884,23 @@ html.noscroll {
   z-index: 10;
 }
 
-/* line 19, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 23, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input.form-control.nickname {
   width: 40%;
 }
 
-/* line 26, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 30, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .field-label {
   font-size: 140%;
   font-family: "Muli", sans-serif;
 }
 
-/* line 30, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 34, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input.form-control {
   font-size: 160%;
 }
 
-/* line 33, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 37, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.gender-select {
   background: white;
   font-size: 30px;
@@ -9820,7 +9910,7 @@ select.gender-select {
   border-color: blue;
 }
 
-/* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.seminar-session-select {
   background: white;
   margin-bottom: 10px;
@@ -9829,42 +9919,42 @@ select.seminar-session-select {
   height: 55px;
 }
 @media screen and (min-width: 768px) {
-  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     font-size: 130%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     font-size: 90%;
   }
 }
 @media screen and (min-width: 768px) {
-  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 600px;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 400px;
   }
 }
 @media screen and (max-width: 550px) {
-  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 200px;
   }
 }
 
-/* line 65, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 69, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 p.above-radios {
   padding-left: 19px;
 }
 
-/* line 68, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 72, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 div.radio-div-applic {
   margin-top: -3px;
   margin-bottom: -3px;
@@ -9872,37 +9962,37 @@ div.radio-div-applic {
   margin-left: 15px;
 }
 
-/* line 74, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 78, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input[type="radio"] {
   margin-right: 12px;
 }
 
-/* line 77, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 81, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .radio-in-appl {
   width: 28px;
   height: 28px;
   vertical-align: middle;
 }
 
-/* line 86, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 90, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 p.under-radios {
   padding-left: 19px;
   margin-top: 20px;
 }
 
-/* line 90, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 94, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.grayout {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
 
-/* line 94, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 98, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.blackin {
   opacity: 1;
   filter: alpha(opacity=100);
 }
 
-/* line 98, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 102, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .guest-add.btn {
   color: #2d3179;
   background-color: #8bc34a;
@@ -9910,7 +10000,7 @@ select.blackin {
   border-width: 2px;
 }
 
-/* line 107, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 111, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .rotate {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
@@ -9918,7 +10008,7 @@ select.blackin {
   -webkit-transition: all 0.5s;
           transition: all 0.5s;
 }
-/* line 110, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 114, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .rotate.in {
   -webkit-transform: rotate(1800deg);
       -ms-transform: rotate(1800deg);
@@ -9927,7 +10017,7 @@ select.blackin {
           transition: all 1.5s;
 }
 
-/* line 116, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 120, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 img.welcome-popup {
   width: 100%;
 }
