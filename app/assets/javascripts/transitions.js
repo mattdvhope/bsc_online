@@ -18,35 +18,35 @@ $(document).on('click', function() {
 });
 
 // Remove overlay form when clicking screen
-$("#overlay").on('click', function(e) {
-  if( !$(e.target).is('form') ) {
-    triggerClose();
-  }
-});
+// $("#overlay").on('click', function(e) {
+//   if( !$(e.target).is('form') ) {
+//     triggerClose();
+//   }
+// });
 
 // If someone presses the esc kep w/in a nested modal, this will ensure that the page is not fixed/frozen for scrolling.
-$(document).on("keydown", function(e) {
-  if (e.keyCode == 27) {
-    location.reload();
-  }
-});
+// $(document).on("keydown", function(e) {
+//   if (e.keyCode == 27) {
+//     location.reload();
+//   }
+// });
 
 function collapseNavBar() {
   $(".navbar-collapse").removeClass("in");
 }
 
-function triggerClose() {
-  // $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
-  $("a.close").trigger("click");
-}
+// function triggerClose() {
+//   // $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
+//   $("a.close").trigger("click");
+// }
 
 
 // for 'Close' link on modals
-$("a.close").on("click tap", function(e) {
-  e.preventDefault();
-  $('body').css('position', "static");
-  $(this).parent().fadeOut(600);
-});
+// $("a.close").on("click tap", function(e) {
+//   e.preventDefault();
+//   $('body').css('position', "static");
+//   $(this).parent().fadeOut(600);
+// });
 
 setTimeout(function(){ 
   $(".alert").fadeOut(2000); 
@@ -116,6 +116,9 @@ function hideButton(element, index) {
 function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
+/// for 'Approve' & 'Disapprove' buttons on leader dashboard///
+
+
 
 // Maintain scroll position when flag clicked; see nav_bar.hbs, 
 $(document).on('scroll', function () {
@@ -123,11 +126,16 @@ $(document).on('scroll', function () {
   sessionStorage.setItem("scrollTopPos", num);
 });
 
+
+
 // Re-render footer when window size changes
 $(window).on('resize', function() {
   App.getFooter();
   $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
 });
+
+
+
 
 // Animate size of logo on nav bar for desktop screens (not mobile)
 // $(window).on('scroll', function () {
