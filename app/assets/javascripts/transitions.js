@@ -121,7 +121,7 @@ function showButton(element, index) {
 
 
 // Maintain scroll position when flag clicked; see nav_bar.hbs, 
-$(window).on('scroll', function () {
+$(document).on('scroll', function () {
   var num = $(window).scrollTop();
   sessionStorage.setItem("scrollTopPos", num);
 });
