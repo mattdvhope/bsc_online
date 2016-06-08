@@ -145,7 +145,7 @@ Backbone.history.start({
 });
 
 $(document).on("click", "#backbone-app a", function(e) {
-  e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not
+  e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not; this ALWAYS needs to be true
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
 
