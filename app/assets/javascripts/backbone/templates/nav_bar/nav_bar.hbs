@@ -155,6 +155,7 @@
   // in tandem with "Maintain scroll position when flag clicked" in transitions.js
   $(".thai_flag").on("click", function() {
     $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
+console.log(sessionStorage.getItem("scrollTopPos"));
     App.applcationView.render(); // to make modal have correct language
   });
   $(".usa_flag").on("click", function() {
