@@ -55,10 +55,12 @@
           <li class="dropdown">
             <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              {{!-- <li id="backbone-app">
-                <a id="drop-down-link" href="/register_student">{{register_new_student}}</a>
+              <li id="backbone-app">
+                <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#registerstudentmodal">
+                  {{register_new_student}}
+                </a>
               </li>
-              <li role="separator" class="divider"></li> --}}
+              <li role="separator" class="divider"></li>
               <li id="backbone-app">
                 <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
                   {{you_can_speak}}
@@ -92,12 +94,10 @@
                 <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{login_volunteer}}</a>
               </li>
 
-
-
               <li role="separator" class="divider"></li>
 
               <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator login-modal"  href="#" data-toggle="modal" data-target="#loginmodal">
+                <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
                   Admin Log In
                 </a>
               </li>
