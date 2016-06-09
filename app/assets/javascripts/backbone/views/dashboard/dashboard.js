@@ -1,4 +1,8 @@
 var DashboardView = Backbone.View.extend({
+  attributes: {
+    id: "dashboard"
+  },
+
   template:  HandlebarsTemplates['dashboard/dashboard'],
 
   initialize: function() {

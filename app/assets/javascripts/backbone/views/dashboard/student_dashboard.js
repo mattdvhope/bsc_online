@@ -1,4 +1,8 @@
 var StudentDashboardView = Backbone.View.extend({
+  attributes: {
+    id: "student-dashboard"
+  },
+
   template:  HandlebarsTemplates['dashboard/student_dashboard'],
 
   initialize: function() {
