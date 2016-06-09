@@ -7,7 +7,8 @@ var GuestStudentsView = Backbone.View.extend({
   },
 
   no_students: function() {
-    var guest_st_num = App.guest_students.length
+    var guest_st_num = this.collection.length
+    // var guest_st_num = App.guest_students.length
     if (guest_st_num === 0) { 
       return true
     }

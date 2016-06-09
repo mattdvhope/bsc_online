@@ -44,7 +44,9 @@ var App = {
     guest_students.fetch({
       success: function (collection, response, options) {
         console.log("success");
-        var guest_st_page = new GuestStudentsView({ collection: guest_students });
+        var guest_st_page = new GuestStudentsView({ collection: collection });
+        App.guest_students = collection;
+        console.log(App.guest_students.length);
 
         guest_st_page.render();
       },
@@ -56,7 +58,7 @@ var App = {
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
-    this.guest_students = guest_students;
+    // this.guest_students = guest_students;
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
