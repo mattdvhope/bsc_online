@@ -83,11 +83,10 @@ var App = {
     this.location_pictures_modal = new LocationPicturesView();
     $("#locationpicturesmodal").html(this.location_pictures_modal.render().el);
   },
-  getStudentRegForm: function(person) {
-    var reg_form_modal = new StudentRegFormView();
-    reg_form_modal.render(person);
-
-    this.reg_form = reg_form_modal;
+  instantiateStudentRegForm: function() {
+    var student = new User();
+    this.reg_form_modal = new StudentRegFormView({ model: student });
+    $("#registerstudentmodal").html(this.reg_form_modal.render().el);
   },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
@@ -133,6 +132,7 @@ var App = {
     this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
+    this.instantiateStudentRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }

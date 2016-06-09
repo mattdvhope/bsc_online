@@ -2,7 +2,6 @@ var Router = Backbone.Router.extend({
   routes: {
     "register_admin": "registerAdmin",
     "register_vol": "registerVol",
-    "register_student": "registerStudent",
     "application_form": "apply_to_cep",
     "volunteer_info": "showVolunteerPage",
     "volunteers/:id": "showProfile"
@@ -12,10 +11,6 @@ var Router = Backbone.Router.extend({
   },
   registerVol: function() {
     App.getVolRegForm();
-  },
-  registerStudent: function() {
-    var person_registering = "Student";
-    App.getStudentRegForm(person_registering);
   },
   apply_to_cep: function() {
     var person_registering = "Student";
