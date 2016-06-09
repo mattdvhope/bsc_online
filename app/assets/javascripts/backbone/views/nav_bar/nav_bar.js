@@ -1,26 +1,10 @@
 var NavBarView = Backbone.View.extend({
   template:  HandlebarsTemplates['nav_bar/nav_bar'],
-  render: function(visible) {
-    this.$el.html(this.template({
-      volunteer_page_below: this.volunteer_page_visible(),
-      thai_language: this.app_language_is_thai(),
-      top: this.top(),
-      features: this.features(),
-      get_started: this.get_started(),
-      holistic: this.holistic(),
-      contact_us: this.contact_us(),
-      student: this.student(),
-      register_new_student: this.register_new_student(),
-      login_student: this.login_student(),
-      you_can_speak: this.you_can_speak(),
-      student_promotion: this.student_promotion(),
-      volunteer: this.volunteer(),
-      volunteer_info: this.volunteer_info(),
-      register_new_volunteer: this.register_new_volunteer(),
-      login_volunteer: this.login_volunteer(),
-      steps_to_volunteer: this.steps_to_volunteer()
-    }));
+
+  initialize: function() {
+    this.$el.appendTo(".entire-nav");
   },
+
   volunteer_page_visible: function() {
     return $(".entire-vol").is(":visible");
   },
@@ -79,8 +63,26 @@ var NavBarView = Backbone.View.extend({
       return english;
     }
   },
-  initialize: function() {
-    this.$el.appendTo(".entire-nav");
+  render: function(visible) {
+    this.$el.html(this.template({
+      volunteer_page_below: this.volunteer_page_visible(),
+      thai_language: this.app_language_is_thai(),
+      top: this.top(),
+      features: this.features(),
+      get_started: this.get_started(),
+      holistic: this.holistic(),
+      contact_us: this.contact_us(),
+      student: this.student(),
+      register_new_student: this.register_new_student(),
+      login_student: this.login_student(),
+      you_can_speak: this.you_can_speak(),
+      student_promotion: this.student_promotion(),
+      volunteer: this.volunteer(),
+      volunteer_info: this.volunteer_info(),
+      register_new_volunteer: this.register_new_volunteer(),
+      login_volunteer: this.login_volunteer(),
+      steps_to_volunteer: this.steps_to_volunteer()
+    }));
   }
 });
 
