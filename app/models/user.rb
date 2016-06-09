@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  include CoderProvidable
+  include CoderProvidable # to generate pins
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
