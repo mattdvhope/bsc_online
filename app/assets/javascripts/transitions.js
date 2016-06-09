@@ -127,15 +127,6 @@ $(document).on('scroll', function () {
 });
 
 
-
-$(document).ready(function(){
-    $(document).click(function(){
-        console.log($(".front-main-hbs").scrollTop() + " px");
-    });
-});
-
-
-
 // Re-render footer when window size changes
 $(window).on('resize', function() {
   App.getFooter();
