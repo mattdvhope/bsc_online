@@ -1,0 +1,30 @@
+<!-- script disables browser back button for this page -->
+<script type = "text/javascript" >
+  history.pushState(null, null, 'dashboard');
+  window.addEventListener('popstate', function(event) {
+    history.pushState(null, null, 'dashboard');
+  });
+</script>
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div>
+    <h2><a href="/log_out">Log Out</a></h2>
+    <hr>
+    <h2>Welcome to the "City English Project," {{first_name}}.</h2>
+    <h2>ยินดีต้อนรับสู่ "โครงการซิตี้ อิงลิช" {{first_name}}.</h2>
+    <br>
+    <h2>In the future, when you come to this home page, you can apply for a "Skype Partnership" with a teacher who lives in America.</h2>
+    <h2>หากคุณเข้ามาในเว็บไซต์ของเราครั้งต่อไป คุณสามารถสมัครเข้าไปที่เมนู "การคุยกับคู่สนทนาผ่านโปรแกรมสไกป์" กับผู้สอนที่อาศัยอยู่ในประเทศอเมริกา</h2>
+    <br>
+    <h2>We will send you an email to inform you when American Skype partners are available.</h2>
+
+    <hr>
+  </div>
+
+</div>
+

@@ -9,13 +9,15 @@
   <!-- templates/front/footer.hbs -->
 </div>
 
-<div id="applicationmodal" class="modal" role="dialog"></div>
+<div id="applicationmodal" class="modal fade" role="dialog"></div>
 
-<div id="welcomepopupmodal" class="modal" role="dialog"></div>
+<div id="welcomepopupmodal" class="modal fade" role="dialog"></div>
 
-<div id="loginmodal" class="modal" role="dialog"></div>
+<div id="registerstudentmodal" class="modal fade" role="dialog"></div>
 
-<div id="locationpicturesmodal" class="modal" role="dialog"></div>
+<div id="loginmodal" class="modal fade" role="dialog"></div>
+
+<div id="locationpicturesmodal" class="modal fade" role="dialog"></div>
 
 <% if current_user %>
   <div id="user-now" data-present-user="<%= current_user.to_json %>">

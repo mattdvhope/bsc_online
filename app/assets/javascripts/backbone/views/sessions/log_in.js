@@ -3,9 +3,6 @@ var LogInFormView = Backbone.View.extend({
     id: "login-modal"
   },
 
-  initialize: function() {
-  },
-
   events: {
     'click .login-submit': function (e) {
       e.preventDefault();
@@ -22,17 +19,25 @@ var LogInFormView = Backbone.View.extend({
 
     var options = {
       success: function (model, response, options) {
+        console.log("in login???");
         $("#loginmodal").modal("hide");
         user = model
-        App.getDashboardPage(user);
-        var $html = $(document.documentElement);
+        console.log(user.get("role"))
+        if (user.get("role") === "leader" || user.get("role") === "admin") {
+          App.getDashboardPage(user);
+        }
+        else if (user.get("role") === "student") {
+          App.getStudentDashboardPage(user);
+        }
+
+        var $html = $(document.documentElement); // to allow scrolling
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
         console.log("error");
       }      
     }
-    model.save(model.toJSON(), options);
+    model.save({}, options);
 
   },
 

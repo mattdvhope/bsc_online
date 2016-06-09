@@ -1,83 +1,49 @@
-<a class="close" href="#">Close</a>
+<div class="modal-dialog">
 
-<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
-  <header>
-    <h1>ลงทะเบียนเพื่อรับสิทธิ์การเป็นสมาชิกโครงการซิตี้ อิงลิช (CEP)</h1>
-    <h4>เมื่อคุณเป็นนักเรียนของโครงการซิตี้ อิงลิช (CEP) คุณสามารถเข้าถึงบริการทั้งหมดของเราได้ฟรีทันที โดยการชำระเงินค่าลงทะเบียนสำหรับบริการของเรา เรามีทางเลือกสำหรับการชำระเงินหลายช่องทางด้วยกัน</h4>
-    <br>
-    <h1>Open an account at City English Project (CEP)!</h1>
-    <h4>
-      As an English student at CEP, you will have access to all of our free services immediately.  With our paid-for services, we offer multiple payment options.
-    </h4>
-    <hr>
-    <h4>
-      ถ้าคุณไม่มีรหัส PIN กรุณาติดต่อผู้สอนของคุณ
-    </h4>
-    <h4>
-      If you do not have a PIN, please contact your CEP English teacher.
-    </h4>
-    <hr>
-  </header>
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">ลงทะเบียน</h3>
+      <h4>ลงทะเบียนเพื่อรับสิทธิ์การเป็นสมาชิกโครงการซิตี้ อิงลิช (CEP)</h4>
+      <h4>เมื่อคุณเป็นนักเรียนของโครงการซิตี้ อิงลิช (CEP) คุณสามารถเข้าถึงบริการทั้งหมดของเราได้ฟรีทันที โดยการชำระเงินค่าลงทะเบียนสำหรับบริการของเรา เรามีทางเลือกสำหรับการชำระเงินหลายช่องทางด้วยกัน</h4>
+      <h4>ถ้าคุณไม่มีรหัส PIN กรุณาติดต่อผู้สอนของคุณ</h4>
+      <br>
+      <h4>Open an account at City English Project (CEP)!</h4>
+      <h4>As an English student at CEP, you will have access to all of our free services immediately.  With our paid-for services, we offer multiple payment options.</h4>
+      <h4>If you do not have a PIN, please contact your CEP English teacher.</h4>
+    </div>
+    <div class="modal-body">
+      <form class="student-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
 
-  <h3>
-    <label for="user_pin">PIN</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="หมายเลขประจำตัว" type="text" name="user[pin]" id="user_pin">
-  </h3>
+        <label class="field-label">PIN</label>
+        <input type="text" class="form-control pin" placeholder="หมายเลขประจำตัว" name="pin">
+        <hr>
 
-  <h3>
-    <label for="user_first_name">First Name</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="ชื่อเล่น" type="text" name="user[first_name]" id="user_first_name">
-  </h3>
+        <label class="field-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="อีเมล" name="email">
+        <hr>
 
-  <h3>
-    <label for="user_last_name">Last Name</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="นามสกุล" type="text" name="user[last_name]" id="user_last_name">
-  </h3>
+        <label class="field-label">Password</label>
+        <input id="student-registration-password" type="password" class="form-control" placeholder="รหัสผ่าน" name="password">
+        <hr>
 
-  <h3>
-    <label for="user_gender">Gender</label>
-  </h3>
-  <h3>
-    <select name="user[gender]" id="vol_gender">
-      <option value="ผู้ชาย">ผู้ชาย</option>
-      <option value="ผู้หญิง">ผู้หญิง</option>
-    </select>
-  </h3>
+        <label class="field-label">Password Confirmation</label>
+        <input id="student-registration-password" type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="password_confirmation">
+        <hr>
 
-  <h3>
-    <label for="user_email">Email Address</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="อีเมล" type="email" name="user[email]" id="user_email">
-  </h3>
+        <div class="control-group">
+          <button class="btn registration-submit" href="#">Submit</button>
+        </div>
 
-  <h3>
-    <label for="user_password">Password</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="รหัสผ่าน" type="password" name="user[password]" id="user_password">
-  </h3>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
 
-  <h3>
-    <label for="user_password_confirmation">Password Confirmation</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="รหัสผ่าน" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-  </h3>
-
-  <h3>
-    <label for="user_postal_code">Postal Code</label>
-  </h3>
-  <h3>
-    <input class="student_registration" placeholder="รหัสไปรษณีย์" type="text" name="user[postal_code]" id="user_postal_code">
-  </h3>
-  <br>
-  <input type="submit" name="commit" value="Join CEP!" class="btn btn-success student_reg_er">
-</form>
 

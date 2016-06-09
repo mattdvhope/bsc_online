@@ -45,8 +45,7 @@ var App = {
       success: function (collection, response, options) {
         console.log("success");
         var guest_st_page = new GuestStudentsView({ collection: collection });
-        App.guest_students = collection;
-        console.log(App.guest_students.length);
+        console.log(collection.length);
 
         guest_st_page.render();
       },
@@ -58,7 +57,14 @@ var App = {
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
-    // this.guest_students = guest_students;
+  },
+  getStudentDashboardPage: function(student) {
+    this.removeNavAndPage();
+
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new StudentDashboardView({ model: student });
+    this.renderNavBar();
+    dashboard_page.render();
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -84,11 +90,10 @@ var App = {
     this.location_pictures_modal = new LocationPicturesView();
     $("#locationpicturesmodal").html(this.location_pictures_modal.render().el);
   },
-  getStudentRegForm: function(person) {
-    var reg_form_modal = new StudentRegFormView();
-    reg_form_modal.render(person);
-
-    this.reg_form = reg_form_modal;
+  instantiateStudentRegForm: function() {
+    var student = new User();
+    this.reg_form_modal = new StudentRegFormView({ model: student });
+    $("#registerstudentmodal").html(this.reg_form_modal.render().el);
   },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
@@ -131,9 +136,15 @@ var App = {
       this.guest_students = guest_students;
       App.getDashboardPage(user_model);
     }
+    else if (gon.page_needed === "student") {
+      var user = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user);
+      App.getStudentDashboardPage(user_model);
+    }
     this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();
+    this.instantiateStudentRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }

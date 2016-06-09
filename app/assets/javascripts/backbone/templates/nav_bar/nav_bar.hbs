@@ -33,92 +33,105 @@
           </li> --}}
           {{!-- <li style="padding: 1em; padding-top: 1.1em;"><div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en"></div></li> --}}
           {{!-- <li><a href="/auth/facebook">Facebook</a></li> --}}
-          <li><a href="#page-top" id="place_1" class="page-scroll nav-hover">{{top}}</a></li>
 
-          <li role="separator" class="divider"></li>
-
-          {{#if volunteer_page_below}}
-            <li><a href="#volunteer-steps" id="place_6" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
-          {{^}}
-            <li><a href="#features" id="place_2" class="page-scroll nav-hover">{{features}}</a></li>
+          {{#unless dashboard_visible}}
+            <li><a href="#page-top" id="place_1" class="page-scroll nav-hover">{{top}}</a></li>
 
             <li role="separator" class="divider"></li>
 
-            <li><a href="#get-started" id="place_3" class="page-scroll nav-hover">{{get_started}}</a></li>
-            {{!-- <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li> --}}
-          {{/if}}
-
-          <li role="separator" class="divider"></li>
-
-          <li><a href="#contact-us" id="place_5" class="page-scroll nav-hover">{{contact_us}}</a></li>
-
-          <li class="dropdown">
-            <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              {{!-- <li id="backbone-app">
-                <a id="drop-down-link" href="/register_student">{{register_new_student}}</a>
-              </li>
-              <li role="separator" class="divider"></li> --}}
-              <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
-                  {{you_can_speak}}
-                </a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator university-summer-applic"  href="#" data-toggle="modal" data-target="#applicationmodal">
-                  {{student_promotion}}
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li role="separator" class="divider"></li>
-
-          <li class="dropdown">
-            <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li id="backbone-app" class="volunteer_page">
-                <a id="drop-down-link" href="/volunteer_info">{{volunteer_info}}</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li id="backbone-app">
-                {{!-- <a id="drop-down-link" href="/register_vol">{{register_new_volunteer}}</a> --}}
-                <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{register_new_volunteer}}</a>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li id="backbone-app" class="login-checker">
-                {{!-- <a id="drop-down-link" href="/log_in">{{login_volunteer}}</a> --}}
-                <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{login_volunteer}}</a>
-              </li>
-
-
+            {{#if volunteer_page_visible}}
+              <li><a href="#volunteer-steps" id="place_6" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
+            {{^}}
+              <li><a href="#features" id="place_2" class="page-scroll nav-hover">{{features}}</a></li>
 
               <li role="separator" class="divider"></li>
 
-              <li id="backbone-app">
-                <a id="drop-down-link" class="modal-initiator login-modal"  href="#" data-toggle="modal" data-target="#loginmodal">
-                  Admin Log In
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          <li>
-          <li class="national-flag">
-            <span class="usa_flag">
-              <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
-            </span>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li class="national-flag">
-            <span class="thai_flag">
-              <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
-            </span>
-          </li>
+              <li><a href="#get-started" id="place_3" class="page-scroll nav-hover">{{get_started}}</a></li>
+              {{!-- <li><a href="#holistic" id="place_4" class="page-scroll">{{holistic}}</a></li> --}}
+            {{/if}}
 
+            <li role="separator" class="divider"></li>
 
-        </ul>
+            <li><a href="#contact-us" id="place_5" class="page-scroll nav-hover">{{contact_us}}</a></li>
+
+            <li class="dropdown">
+              <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{student}}<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li id="backbone-app">
+                  <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
+                    {{login_student}}
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li id="backbone-app">
+                  <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#registerstudentmodal">
+                    {{register_new_student}}
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li id="backbone-app">
+                  <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
+                    {{you_can_speak}}
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li id="backbone-app">
+                  <a id="drop-down-link" class="modal-initiator university-summer-applic"  href="#" data-toggle="modal" data-target="#applicationmodal">
+                    {{student_promotion}}
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li role="separator" class="divider"></li>
+
+            <li class="dropdown">
+              <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li id="backbone-app" class="volunteer_page">
+                  <a id="drop-down-link" href="/volunteer_info">{{volunteer_info}}</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li id="backbone-app">
+                  {{!-- <a id="drop-down-link" href="/register_vol">{{register_new_volunteer}}</a> --}}
+                  <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{register_new_volunteer}}</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li id="backbone-app" class="login-checker">
+                  {{!-- <a id="drop-down-link" href="/log_in">{{login_volunteer}}</a> --}}
+                  <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{login_volunteer}}</a>
+                </li>
+
+                <li role="separator" class="divider"></li>
+
+                <li id="backbone-app">
+                  <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
+                    Admin Log In
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+            <li>
+            <li class="national-flag">
+              <span class="usa_flag">
+                <img style="cursor: pointer;" src="/assets/usa.png" alt="Usa">
+              </span>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li class="national-flag">
+              <span class="thai_flag">
+                <img style="cursor: pointer;" src="/assets/thailand.png" alt="Usa">
+              </span>
+            </li>
+
+          {{^}} <!-- for unless.. dashboard_visible -->
+
+            <li><a id="place_5" href="/log_out">Log Out (ออกจากระบบ)</a></li>
+
+          {{/unless }} <!-- unless.. dashboard_visible -->
+
+        </ul> <!-- nav navbar-nav navbar-right -->
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

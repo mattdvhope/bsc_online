@@ -1,9 +1,9 @@
-var DashboardView = Backbone.View.extend({
+var StudentDashboardView = Backbone.View.extend({
   attributes: {
-    id: "dashboard"
+    id: "student-dashboard"
   },
 
-  template:  HandlebarsTemplates['dashboard/dashboard'],
+  template:  HandlebarsTemplates['dashboard/student_dashboard'],
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);

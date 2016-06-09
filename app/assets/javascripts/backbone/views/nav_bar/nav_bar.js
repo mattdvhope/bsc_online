@@ -1,28 +1,15 @@
 var NavBarView = Backbone.View.extend({
   template:  HandlebarsTemplates['nav_bar/nav_bar'],
-  render: function(visible) {
-    this.$el.html(this.template({
-      volunteer_page_below: this.volunteer_page_visible(),
-      thai_language: this.app_language_is_thai(),
-      top: this.top(),
-      features: this.features(),
-      get_started: this.get_started(),
-      holistic: this.holistic(),
-      contact_us: this.contact_us(),
-      student: this.student(),
-      register_new_student: this.register_new_student(),
-      login_student: this.login_student(),
-      you_can_speak: this.you_can_speak(),
-      student_promotion: this.student_promotion(),
-      volunteer: this.volunteer(),
-      volunteer_info: this.volunteer_info(),
-      register_new_volunteer: this.register_new_volunteer(),
-      login_volunteer: this.login_volunteer(),
-      steps_to_volunteer: this.steps_to_volunteer()
-    }));
+
+  initialize: function() {
+    this.$el.appendTo(".entire-nav");
   },
+
   volunteer_page_visible: function() {
     return $(".entire-vol").is(":visible");
+  },
+  dashboard_visible: function() {
+    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible");
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
@@ -66,6 +53,9 @@ var NavBarView = Backbone.View.extend({
   register_new_volunteer: function() {
     return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
+  login_student: function() {
+    return this.choose_language("Login", "ล็อกอิน");
+  },
   login_volunteer: function() {
     return this.choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
@@ -79,8 +69,28 @@ var NavBarView = Backbone.View.extend({
       return english;
     }
   },
-  initialize: function() {
-    this.$el.appendTo(".entire-nav");
+  render: function(visible) {
+    this.$el.html(this.template({
+      volunteer_page_visible: this.volunteer_page_visible(),
+      dashboard_visible: this.dashboard_visible(),
+      thai_language: this.app_language_is_thai(),
+      top: this.top(),
+      features: this.features(),
+      get_started: this.get_started(),
+      holistic: this.holistic(),
+      contact_us: this.contact_us(),
+      student: this.student(),
+      register_new_student: this.register_new_student(),
+      login_student: this.login_student(),
+      you_can_speak: this.you_can_speak(),
+      student_promotion: this.student_promotion(),
+      volunteer: this.volunteer(),
+      volunteer_info: this.volunteer_info(),
+      register_new_volunteer: this.register_new_volunteer(),
+      login_student: this.login_student(),
+      login_volunteer: this.login_volunteer(),
+      steps_to_volunteer: this.steps_to_volunteer()
+    }));
   }
 });
 

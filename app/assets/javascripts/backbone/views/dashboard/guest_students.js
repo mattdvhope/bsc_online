@@ -8,7 +8,6 @@ var GuestStudentsView = Backbone.View.extend({
 
   no_students: function() {
     var guest_st_num = this.collection.length
-    // var guest_st_num = App.guest_students.length
     if (guest_st_num === 0) { 
       return true
     }
@@ -20,7 +19,7 @@ var GuestStudentsView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       no_students: this.no_students(),
-      students: App.guest_students.toJSON()
+      students: this.collection.toJSON()
     }));
 
     return this;
