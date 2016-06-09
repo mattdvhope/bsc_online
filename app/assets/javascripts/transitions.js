@@ -25,11 +25,11 @@ $(document).on('click', function() {
 // });
 
 // If someone presses the esc kep w/in a nested modal, this will ensure that the page is not fixed/frozen for scrolling.
-// $(document).on("keydown", function(e) {
-//   if (e.keyCode == 27) {
-//     location.reload();
-//   }
-// });
+$(document).on("keydown", function(e) {
+  if (e.keyCode == 27) {
+    location.reload();
+  }
+});
 
 function collapseNavBar() {
   $(".navbar-collapse").removeClass("in");
