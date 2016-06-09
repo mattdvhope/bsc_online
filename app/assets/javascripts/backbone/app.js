@@ -60,6 +60,7 @@ var App = {
   },
   getStudentDashboardPage: function(student) {
     this.removeNavAndPage();
+
     document.title = 'City English Project | Dashboard';
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();

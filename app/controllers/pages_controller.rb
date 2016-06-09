@@ -13,21 +13,25 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    case current_user.role
-    when "admin_applicant"
-      redirect_to log_out_path
-    when "leader"
-      redirect_to leader_path
-    when "admin"
-      redirect_to admin_path
-    when "volunteer"
-      redirect_to volunteer_path
-    when "student"
-      redirect_to student_path
-    end
+    if current_user
+      case current_user.role
+      when "admin_applicant"
+        redirect_to log_out_path
+      when "leader"
+        redirect_to leader_path
+      when "admin"
+        redirect_to admin_path
+      when "volunteer"
+        redirect_to volunteer_path
+      when "student"
+        redirect_to student_path
+      end
 
-    gon.student_id = current_user.id
-    @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
+      gon.student_id = current_user.id
+      @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
+    else
+      redirect_to root_path
+    end
   end
 
   def leader

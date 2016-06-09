@@ -124,15 +124,14 @@ class UsersController < ApplicationController
           old_guest_student.guest = false
           old_guest_student.password = params[:password]
           old_guest_student.password_confirmation = params[:password_confirmation]
-          old_guest_student.class_time = nil
           old_guest_student.save
           @user = old_guest_student
-          render "show"
+          render "show" # to get JSON in jbuilder
         else
-          render :json => { :errors => "No email" }, :status => 422
+          render :json => { :errors => "Incorrect email" }, :status => 422
         end
       else
-        render :json => { :errors => "Wrong PIN" }, :status => 422
+        render :json => { :errors => "Incorrect PIN" }, :status => 422
       end
     end
 

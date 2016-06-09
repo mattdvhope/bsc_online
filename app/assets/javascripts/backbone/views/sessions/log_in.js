@@ -19,6 +19,7 @@ var LogInFormView = Backbone.View.extend({
 
     var options = {
       success: function (model, response, options) {
+        console.log("in login???");
         $("#loginmodal").modal("hide");
         user = model
         console.log(user.get("role"))
@@ -33,7 +34,6 @@ var LogInFormView = Backbone.View.extend({
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
-        console.log(model);
         console.log("error");
       }      
     }
