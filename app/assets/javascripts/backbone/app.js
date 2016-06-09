@@ -135,6 +135,11 @@ var App = {
       this.guest_students = guest_students;
       App.getDashboardPage(user_model);
     }
+    else if (gon.page_needed === "student") {
+      var user = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user);
+      App.getStudentDashboardPage(user_model);
+    }
     this.getFooter();
     this.instantiateApplicationView();
     this.instantiateWelcomePopup();

@@ -21,15 +21,23 @@ var LogInFormView = Backbone.View.extend({
       success: function (model, response, options) {
         $("#loginmodal").modal("hide");
         user = model
-        App.getDashboardPage(user);
-        var $html = $(document.documentElement);
+        console.log(user.get("role"))
+        if (user.get("role") === "leader" || user.get("role") === "admin") {
+          App.getDashboardPage(user);
+        }
+        else if (user.get("role") === "student") {
+          App.getStudentDashboardPage(user);
+        }
+
+        var $html = $(document.documentElement); // to allow scrolling
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
+        console.log(model);
         console.log("error");
       }      
     }
-    model.save(model.toJSON(), options);
+    model.save({}, options);
 
   },
 

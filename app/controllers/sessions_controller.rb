@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
       session[:user_id] = user.id
-      # flash[:success] = "You are logged in #{user.first_name} #{user.last_name}, enjoy!"
       redirect_to dashboard_path
     else
       render :json => { :error => "Invalid email address & password" }, :status => 422
