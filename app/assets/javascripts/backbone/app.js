@@ -45,8 +45,7 @@ var App = {
       success: function (collection, response, options) {
         console.log("success");
         var guest_st_page = new GuestStudentsView({ collection: collection });
-        App.guest_students = collection;
-        console.log(App.guest_students.length);
+        console.log(collection.length);
 
         guest_st_page.render();
       },
