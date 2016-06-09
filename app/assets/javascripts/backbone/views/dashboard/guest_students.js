@@ -19,7 +19,7 @@ var GuestStudentsView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       no_students: this.no_students(),
-      students: App.guest_students.toJSON()
+      students: this.collection.toJSON()
     }));
 
     return this;
