@@ -43,7 +43,7 @@ var App = {
     var guest_students = new GuestStudents(); // collection
     guest_students.fetch({
       success: function (collection, response, options) {
-        console.log(collection);
+        console.log("success");
         var guest_st_page = new GuestStudentsView({ collection: guest_students });
 
         guest_st_page.render();
