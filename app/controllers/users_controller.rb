@@ -40,10 +40,12 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
-    assign_class_time_param(user)
     log_out_path if users_path
     if user.guest
+      assign_class_time_param(user)
       deal_with_guest(user)
+    elsif user.pin
+      deal_with_pin(user)
     else
       deal_with_non_guest(user)
     end
@@ -112,6 +114,28 @@ class UsersController < ApplicationController
         render :json => { :errors => user.errors.full_messages }, :status => 422
       end
     end
+
+    def deal_with_pin(user)
+      if (User.pins_available =~ user.pin) == 0
+        students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+        old_guest_student = User.find_by(email: user.email.downcase)
+        if old_guest_student
+          old_guest_student.pin = params[:pin]
+          old_guest_student.guest = false
+          old_guest_student.password = params[:password]
+          old_guest_student.password_confirmation = params[:password_confirmation]
+          old_guest_student.class_time = nil
+          old_guest_student.save
+          @user = old_guest_student
+          render "show"
+        else
+          render :json => { :errors => "No email" }, :status => 422
+        end
+      else
+        render :json => { :errors => "Wrong PIN" }, :status => 422
+      end
+    end
+
 
     def deal_with_non_guest(user)
       if (User.pins_available =~ user.pin) == 0

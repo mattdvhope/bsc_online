@@ -4,10 +4,10 @@ var StudentRegFormView = Backbone.View.extend({
   },
 
   events: {
-    // "click .registration-submit": function (e) {
-    //   e.preventDefault();
-    //   this.submit();
-    // }
+    "click .registration-submit": function (e) {
+      e.preventDefault();
+      this.submit();
+    }
   },
 
   submit: function() {
@@ -16,25 +16,25 @@ var StudentRegFormView = Backbone.View.extend({
       pin: this.$("input[name='pin']").val(),
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
+      password_confirmation: this.$("input[name='password_confirmation']").val(),
     });
 
     var options = {
       success: function (model, response, options) {
-        $("#loginmodal").modal("hide");
+        console.log("success");
+        $("#registerstudentmodal").modal("hide");
         user = model
         App.getDashboardPage(user);
-        var $html = $(document.documentElement);
+        var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
         console.log("error");
       }      
     }
-    model.save(model.toJSON(), options);
 
+    model.save({}, options, {patch: true});
   },
-
-
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
