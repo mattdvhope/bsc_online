@@ -127,7 +127,6 @@ $(document).on('scroll', function () {
 });
 
 
-
 // Re-render footer when window size changes
 $(window).on('resize', function() {
   App.getFooter();
