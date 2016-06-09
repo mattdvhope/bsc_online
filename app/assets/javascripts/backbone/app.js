@@ -57,7 +57,13 @@ var App = {
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
-    // this.guest_students = guest_students;
+  },
+  getStudentDashboardPage: function(student) {
+    this.removeNavAndPage();
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new StudentDashboardView({ model: student });
+    this.renderNavBar();
+    dashboard_page.render();
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();

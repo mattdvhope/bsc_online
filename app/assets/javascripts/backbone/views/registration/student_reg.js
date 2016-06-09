@@ -21,10 +21,8 @@ var StudentRegFormView = Backbone.View.extend({
 
     var options = {
       success: function (model, response, options) {
-        console.log("success");
         $("#registerstudentmodal").modal("hide");
-        user = model
-        App.getDashboardPage(user);
+        App.getStudentDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
@@ -33,7 +31,7 @@ var StudentRegFormView = Backbone.View.extend({
       }      
     }
 
-    model.save({}, options, {patch: true});
+    model.save({}, options);
   },
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
