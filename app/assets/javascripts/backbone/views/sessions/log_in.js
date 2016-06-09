@@ -3,9 +3,6 @@ var LogInFormView = Backbone.View.extend({
     id: "login-modal"
   },
 
-  initialize: function() {
-  },
-
   events: {
     'click .login-submit': function (e) {
       e.preventDefault();
