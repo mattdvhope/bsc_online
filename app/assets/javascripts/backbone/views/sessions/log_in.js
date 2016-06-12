@@ -19,10 +19,8 @@ var LogInFormView = Backbone.View.extend({
 
     var options = {
       success: function (model, response, options) {
-        console.log("in login???");
         $("#loginmodal").modal("hide");
         user = model
-        console.log(user.get("role"))
         if (user.get("role") === "leader" || user.get("role") === "admin") {
           App.getDashboardPage(user);
         }
