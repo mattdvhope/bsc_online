@@ -43,7 +43,8 @@ class PagesController < ApplicationController
 
   def admin
     gon.page_needed = "admin"
-    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    # gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+    gon.students = User.where("users.role = ?", "student")
     @user = current_user
   end
 
