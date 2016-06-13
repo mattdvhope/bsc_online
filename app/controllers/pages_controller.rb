@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  # before_action :require_leader, :only => [:guest_students]
+  # before_action :require_leader, :only => [:students]
 
   include ApplicationHelper
 
@@ -37,19 +37,16 @@ class PagesController < ApplicationController
   def leader
     @admin_applications = AdminApplication.all.order("id ASC")
     gon.page_needed = "leader"
-    gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
     @user = current_user
   end
 
   def admin
     gon.page_needed = "admin"
-    # gon.students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
-    gon.students = User.where("users.role = ?", "student")
     @user = current_user
   end
 
-  def guest_students
-    @guest_students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
+  def students
+    @students = User.where("users.role = ?", "student")
   end
 
   def volunteer

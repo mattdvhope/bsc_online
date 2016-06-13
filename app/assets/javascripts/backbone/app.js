@@ -40,14 +40,13 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    var guest_students = new GuestStudents(); // collection
-    guest_students.fetch({
+    var students = new Students(); // collection
+    students.fetch({
       success: function (collection, response, options) {
-        console.log("success");
-        var guest_st_page = new GuestStudentsView({ collection: collection });
+        var student_page = new StudentsView({ collection: collection });
         console.log(collection.length);
 
-        guest_st_page.render();
+        student_page.render();
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -131,9 +130,9 @@ var App = {
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
-      var guest_students = $("#guests-now").data("guest-students");
-      this.guest_student_collection = new Backbone.Collection(guest_students);
-      this.guest_students = guest_students;
+      var students = $("#students-now").data("students");
+      this.student_collection = new Backbone.Collection(students);
+      this.students = students;
       App.getDashboardPage(user_model);
     }
     else if (gon.page_needed === "student") {
