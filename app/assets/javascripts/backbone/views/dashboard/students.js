@@ -1,5 +1,5 @@
-var GuestStudentsView = Backbone.View.extend({
-  template:  HandlebarsTemplates['dashboard/guest_students'],
+var StudentsView = Backbone.View.extend({
+  template:  HandlebarsTemplates['dashboard/students'],
 
   initialize: function() {
     // this.listenTo(this.collection, 'all', this.render);
@@ -7,8 +7,8 @@ var GuestStudentsView = Backbone.View.extend({
   },
 
   no_students: function() {
-    var guest_st_num = this.collection.length
-    if (guest_st_num === 0) { 
+    var student_num = this.collection.length
+    if (student_num === 0) { 
       return true
     }
     else {

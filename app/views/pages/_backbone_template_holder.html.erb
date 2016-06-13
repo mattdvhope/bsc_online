@@ -23,9 +23,9 @@
   <div id="user-now" data-present-user="<%= current_user.to_json %>">
   </div>
 
-  <% guest_students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE") %>
+  <% students = User.where("users.role = ?", "student") %>
 
-  <div id="guests-now" data-guest-students="<%= guest_students.to_json %>">
+  <div id="students-now" data-students="<%= students.to_json %>">
   </div>
 
 <% end %>
