@@ -77,6 +77,15 @@ class UsersController < ApplicationController
     render :nothing => true
   end
 
+  def unsubscribe
+    if user = User.read_access_token(params[:signature])
+      user.update_attribute :guest, false # maybe add a boolean attribute, "email_opt_in" or something like that... this attribute would be made false here
+      render text: "คุณได้รับการยกเลิกการเป็นสมาชิก / You have been unsubscribed."
+    else
+      render text: "Invalid Link"
+    end
+  end
+
   private
 
     def user_params
