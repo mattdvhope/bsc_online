@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
+
   before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
@@ -39,6 +41,7 @@ class UsersController < ApplicationController
 
   def create
     # @uploader.update_attribute :image_key, params[:key]
+binding.pry
     user = User.new(user_params)
     log_out_path if users_path
     if user.guest
