@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
 
   # rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
   # rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
