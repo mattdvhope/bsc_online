@@ -39,7 +39,6 @@ class UsersController < ApplicationController
 
   def create
     # @uploader.update_attribute :image_key, params[:key]
-binding.pry
     user = User.new(user_params)
     log_out_path if users_path
     if user.guest
