@@ -257,6 +257,7 @@ GEM
     mailgun-ruby (1.0.3)
       json (~> 1.8)
       rest-client (~> 1.6)
+    mailkick (0.1.4)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.2)
@@ -452,6 +453,7 @@ DEPENDENCIES
   launchy
   letter_opener
   mailgun-ruby (~> 1.0.3)
+  mailkick
   mini_magick
   omniauth
   omniauth-facebook
