@@ -103,7 +103,7 @@ var ApplicationView = Backbone.View.extend({
       } // error:
     }; // options
     
-    model.save(model.toJSON(), options);
+    model.save({}, options);
 
   },
 
