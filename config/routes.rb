@@ -86,6 +86,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
   get 'log_out', to: "sessions#destroy"
 
+  # for unsubscribing from an email sent from this app
+  get '/users/unsubscribe/:signature' => 'users#unsubscribe', as: 'unsubscribe'
+
   get 'ui(/:action)', controller: 'ui'
 
   # This 'match' MUST BE AT THE BOTTOM OF THIS FILE!!!!
