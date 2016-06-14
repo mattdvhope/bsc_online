@@ -33,7 +33,7 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
-    return this.choose_language("Become Network Member", "สมัครเป็นสมาชิกเครือข่าย");
+    return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
   login_student: function() {
     return this.choose_language("Network Member Login", "เครือข่ายสมาชิกเข้าสู่ระบบ");
