@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
-
   before_action :require_leader, :only => [:index, :show, :volunteers]
 
   def index
