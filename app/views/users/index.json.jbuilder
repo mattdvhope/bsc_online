@@ -16,6 +16,7 @@ json.array! @users do |user|
   json.postal_code            user.postal_code
   json.country                user.country
   json.pin                    user.pin
+  json.class_time_id          user.class_time_id
   json.class_period           user.class_period
 
 end
