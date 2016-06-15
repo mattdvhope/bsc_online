@@ -388,6 +388,12 @@ Based on Rails routes of BscOnline::Application
 // choices => /choices(.:format)
   // function(options)
   choices_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"choices",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// class_time => /class_times/:id(.:format)
+  // function(id, options)
+  class_time_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"class_times",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
+// class_times => /class_times(.:format)
+  // function(options)
+  class_times_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"class_times",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // contact => /contact(.:format)
   // function(options)
   contact_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"contact",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -466,6 +472,9 @@ Based on Rails routes of BscOnline::Application
 // new_admin_part => /admin/parts/new(.:format)
   // function(options)
   new_admin_part_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"parts",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
+// new_class_time => /class_times/new(.:format)
+  // function(options)
+  new_class_time_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"class_times",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
 // new_curriculum_course_admin_assessment => /curriculums/:curriculum_id/courses/:course_id/admin/assessments/new(.:format)
   // function(curriculum_id, course_id, options)
   new_curriculum_course_admin_assessment_path: Utils.route(["curriculum_id","course_id"], ["format"], [2,[7,"/",false],[2,[6,"curriculums",false],[2,[7,"/",false],[2,[3,"curriculum_id",false],[2,[7,"/",false],[2,[6,"courses",false],[2,[7,"/",false],[2,[3,"course_id",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"assessments",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], arguments),
@@ -535,6 +544,9 @@ Based on Rails routes of BscOnline::Application
 // students => /students(.:format)
   // function(options)
   students_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"students",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+// unsubscribe => /users/unsubscribe/:signature(.:format)
+  // function(signature, options)
+  unsubscribe_path: Utils.route(["signature"], ["format"], [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"unsubscribe",false],[2,[7,"/",false],[2,[3,"signature",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
 // user => /users/:id(.:format)
   // function(id, options)
   user_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
@@ -18736,7 +18748,7 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.payment_info || (depth0 != null ? depth0.payment_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"payment_info","hash":{},"data":data}) : helper)))
     + "</a>\n            </p>\n        </fieldset>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(28, data, 0),"inverse":this.program(30, data, 0),"data":data})) != null ? stack1 : "")
-    + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#applicationmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n\n  //// radio buttons /////\n  var button1 = document.getElementById(\"sched-opt-one\");\n  var button2 = document.getElementById(\"sched-opt-two\");\n\n  $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n    if (button1.checked){ // if #five-weeks selected\n      $('#five-weeks').prop('disabled', false);\n      $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#one-whole-week').val('select_option');\n      $('#one-whole-week').prop('disabled', 'disabled');\n      $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n    else if (button2.checked) { // if #one-whole-week selected\n      $('#one-whole-week').prop('disabled', false);\n      $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n      $('#five-weeks').val('select_option');\n      $('#five-weeks').prop('disabled', 'disabled');\n      $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n    }\n  });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n\n  //// radio buttons /////\n\n</script>\n\n\n\n\n\n";
+    + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#applicationmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n\n  //// radio buttons /////\n  // var button1 = document.getElementById(\"sched-opt-one\");\n  // var button2 = document.getElementById(\"sched-opt-two\");\n\n  // $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n  //   if (button1.checked){ // if #five-weeks selected\n  //     $('#five-weeks').prop('disabled', false);\n  //     $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#one-whole-week').val('select_option');\n  //     $('#one-whole-week').prop('disabled', 'disabled');\n  //     $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  //   else if (button2.checked) { // if #one-whole-week selected\n  //     $('#one-whole-week').prop('disabled', false);\n  //     $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#five-weeks').val('select_option');\n  //     $('#five-weeks').prop('disabled', 'disabled');\n  //     $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  // });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n\n  //// radio buttons /////\n\n</script>\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["application_form/application_form"];
 }).call(this);
@@ -18766,15 +18778,23 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/english/_non_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "<br>\n<br>\n  <select id=\"one-whole-week\" name=\"class_period_one_week\" class=\"seminar-session-select\">\n    <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- Choice -- </option>\n    <option value=\"20-24 June, 5:00-6:30pm\">20-24 June, 5:00-6:30pm</option>\n    <option value=\"20-24 June, 7:00-8:30pm\">20-24 June, 7:00-8:30pm</option>\n    <option value=\"4-8 July, 5:00-6:30pm\">4-8 July, 5:00-6:30pm</option>\n    <option value=\"4-8 July, 7:00-8:30pm\">4-8 July, 7:00-8:30pm</option>\n    <option value=\"11-15 July, 5:00-6:30pm\">11-15 July, 5:00-6:30pm</option>\n    <option value=\"11-15 July, 7:00-8:30pm\">11-15 July, 7:00-8:30pm</option>\n    <option value=\"18-22 July, 5:00-6:30pm\">18-22 July, 5:00-6:30pm</option>\n    <option value=\"18-22 July, 7:00-8:30pm\">18-22 July, 7:00-8:30pm</option>\n  </select>\n\n";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_non_univ_options_old", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<fieldset id=\"class-schedule-options\">\n"
     + ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "  <br>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-one\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.schedule_option_one || (depth0 != null ? depth0.schedule_option_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_one","hash":{},"data":data}) : helper)))
-    + "</label>\n    <select id=\"five-weeks\" name=\"class_time_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00-6:30pm\">Mondays, 30 May - 27 June, 5:00-6:30pm</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">Mondays, 30 May - 27 June, 7:00-8:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">Tuesdays, 31 May - 28 June, 5:00-6:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">Tuesdays, 31 May - 28 June, 7:00-8:30pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">Saturdays, 4 June - 2 July, 10:30am-12:00pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">Saturdays, 4 June - 2 July, 12:30am-2:00pm</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + "</label>\n    <select id=\"five-weeks\" name=\"class_period_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00-6:30pm\">Mondays, 30 May - 27 June, 5:00-6:30pm</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">Mondays, 30 May - 27 June, 7:00-8:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">Tuesdays, 31 May - 28 June, 5:00-6:30pm</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">Tuesdays, 31 May - 28 June, 7:00-8:30pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">Saturdays, 4 June - 2 July, 10:30am-12:00pm</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">Saturdays, 4 June - 2 July, 12:30am-2:00pm</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.schedule_option_two || (depth0 != null ? depth0.schedule_option_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_two","hash":{},"data":data}) : helper)))
-    + "</label>\n    <select id=\"one-whole-week\" name=\"class_time_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 June, 5:00-6:30pm</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 June, 7:00-8:30pm</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 June, 5:00-6:30pm</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 June, 7:00-8:30pm</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 June, 5:00-6:30pm</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 June, 7:00-8:30pm</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 July, 5:00-6:30pm</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 July, 7:00-8:30pm</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 July, 5:00-6:30pm</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 July, 7:00-8:30pm</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 July, 5:00-6:30pm</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 July, 7:00-8:30pm</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
+    + "</label>\n    <select id=\"one-whole-week\" name=\"class_period_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 June, 5:00-6:30pm</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 June, 7:00-8:30pm</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 June, 5:00-6:30pm</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 June, 7:00-8:30pm</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 June, 5:00-6:30pm</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 June, 7:00-8:30pm</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 July, 5:00-6:30pm</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 July, 7:00-8:30pm</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 July, 5:00-6:30pm</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 July, 7:00-8:30pm</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 July, 5:00-6:30pm</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 July, 7:00-8:30pm</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -18787,7 +18807,7 @@ window.fbAsyncInit = function() {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "<hr>\n<h2 class=\"schedule-options\">Monday - Friday (5 times)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_time_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"Beginner, 6-10 June, 10:00-11:30am\">Beginner, 6-10 June, 10:00-11:30am</option>\n      <option value=\"High Beginner, 6-10 June, 1:30-3:00pm\">High Beginner, 6-10 June, 1:30-3:00pm</option>\n\n      <option value=\"Beginner, 13-17 June, 10:00-11:30am\">Beginner, 13-17 June, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 13-17 June, 1:30-3:00pm\">Low Intermediate, 13-17 June, 1:30-3:00pm</option>\n\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">High Beginner, 20-24 June, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">Low Intermediate, 20-24 June, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">Low Intermediate, 4-8 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">Beginner, 4-8 July, 1:30-3:00pm</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">High Beginner, 11-15 July, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">Low Intermediate, 11-15 July, 1:30-3:00pm</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">Beginner, 18-22 July, 10:00-11:30am</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">High Beginner, 18-22 July, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">Low Intermediate, 25-29 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">Beginner, 25-29 July, 1:30-3:00pm</option>\n</select>";
+    + "<hr>\n<h2 class=\"schedule-options\">Monday - Friday (5 times)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_period_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- select an option -- </option>\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">High Beginner, 20-24 June, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">Low Intermediate, 20-24 June, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">Low Intermediate, 4-8 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">Beginner, 4-8 July, 1:30-3:00pm</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">High Beginner, 11-15 July, 10:00-11:30am</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">Low Intermediate, 11-15 July, 1:30-3:00pm</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">Beginner, 18-22 July, 10:00-11:30am</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">High Beginner, 18-22 July, 1:30-3:00pm</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">Low Intermediate, 25-29 July, 10:00-11:30am</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">Beginner, 25-29 July, 1:30-3:00pm</option>\n</select>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -18821,15 +18841,23 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_non_univ_options", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "<br>\n<br>\n  <select id=\"one-whole-week\" name=\"class_period_one_week\" class=\"seminar-session-select\">\n    <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n    <option value=\"20-24 June, 5:00-6:30pm\">20-24 มิถุนายน, 17:00-18:30 น.</option>\n    <option value=\"20-24 June, 7:00-8:30pm\">20-24 มิถุนายน, 19:00-20:30 น.</option>\n    <option value=\"4-8 July, 5:00-6:30pm\">4-8 กรกฎาคม, 17:00-18:30 น.</option>\n    <option value=\"4-8 July, 7:00-8:30pm\">4-8 กรกฎาคม, 19:00-20:30 น.</option>\n    <option value=\"11-15 July, 5:00-6:30pm\">11-15 กรกฎาคม, 17:00-18:30 น.</option>\n    <option value=\"11-15 July, 7:00-8:30pm\">11-15 กรกฎาคม, 19:00-20:30 น.</option>\n    <option value=\"18-22 July, 5:00-6:30pm\">18-22 กรกฎาคม, 17:00-18:30 น.</option>\n    <option value=\"18-22 July, 7:00-8:30pm\">18-22 กรกฎาคม, 19:00-20:30 น.</option>\n  </select>";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_non_univ_options_old", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<fieldset id=\"class-schedule-options\">\n"
     + ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "  <br>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-one\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.schedule_option_one || (depth0 != null ? depth0.schedule_option_one : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_one","hash":{},"data":data}) : helper)))
-    + "</label>\n    <select id=\"five-weeks\" name=\"class_time_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 10:30 น.-12:00 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 12:30 น.-14:00 น.</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
+    + "</label>\n    <select id=\"five-weeks\" name=\"class_period_five_weeks\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"Mondays, 30 May - 27 June, 5:00\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Mondays, 30 May - 27 June, 7:00-8:30pm\">วันจันทร์, 30 พฤษภาคม - 27 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 5:00-6:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"Tuesdays, 31 May - 28 June, 7:00-8:30pm\">วันอังคาร, 31 พฤษภาคม - 28 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 10:30am-12:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 10:30 น.-12:00 น.</option>\n      <option value=\"Saturdays, 4 June - 2 July, 12:30am-2:00pm\">วันเสาร์, 4 มิถุนายน - 2 กรกฎาคม, 12:30 น.-14:00 น.</option>\n    </select>\n  </div>\n  <br>\n  <div class=\"radio-div-applic\">\n    <label><input type=\"radio\" id=\"sched-opt-two\" name=\"class-schedule-options\" class=\"radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.schedule_option_two || (depth0 != null ? depth0.schedule_option_two : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule_option_two","hash":{},"data":data}) : helper)))
-    + "</label>\n    <select id=\"one-whole-week\" name=\"class_time_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 กรกฎาคม, 19:00-20:30 น.</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
+    + "</label>\n    <select id=\"one-whole-week\" name=\"class_period_one_week\" class=\"grayout seminar-session-select\" disabled>\n      <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"6-10 June, 5:00-6:30pm\">6-10 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"6-10 June, 7:00-8:30pm\">6-10 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"13-17 June, 5:00-6:30pm\">13-17 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"13-17 June, 7:00-8:30pm\">13-17 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"20-24 June, 5:00-6:30pm\">20-24 มิถุนายน, 17:00-18:30 น.</option>\n      <option value=\"20-24 June, 7:00-8:30pm\">20-24 มิถุนายน, 19:00-20:30 น.</option>\n      <option value=\"4-8 July, 5:00-6:30pm\">4-8 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"4-8 July, 7:00-8:30pm\">4-8 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"11-15 July, 5:00-6:30pm\">11-15 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"11-15 July, 7:00-8:30pm\">11-15 กรกฎาคม, 19:00-20:30 น.</option>\n      <option value=\"18-22 July, 5:00-6:30pm\">18-22 กรกฎาคม, 17:00-18:30 น.</option>\n      <option value=\"18-22 July, 7:00-8:30pm\">18-22 กรกฎาคม, 19:00-20:30 น.</option>\n    </select>\n  </div>\n</fieldset> <!-- class-schedule-options -->";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -18842,7 +18870,7 @@ window.fbAsyncInit = function() {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/_choose_options_explained'],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "<hr>\n<h2 class=\"schedule-options\">วันจันทร์-วันศุกร์ (5 ครั้ง)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_time_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"Beginner, 6-10 June, 10:00-11:30am\">ระดับต้น, 6-10 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"High Beginner, 6-10 June, 1:30-3:00pm\">ระดับสูงกว่าระดับต้น, 6-10 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"Beginner, 13-17 June, 10:00-11:30am\">ระดับต้น, 13-17 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 13-17 June, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 13-17 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 20-24 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 20-24 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 4-8 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">ระดับต้น, 4-8 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 11-15 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 11-15 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">ระดับต้น, 18-22 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">ระดับสูงกว่าระดับต้น, 18-22 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 25-29 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">ระดับต้น, 25-29 กรกฎาคม, 13:30-15:00 น.</option>\n</select>";
+    + "<hr>\n<h2 class=\"schedule-options\">วันจันทร์-วันศุกร์ (5 ครั้ง)</h2>\n<hr>\n<select id=\"five-weeks\" name=\"class_period_univ\" class=\"seminar-session-select\">\n  <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตัวเลือก -- </option>\n      <option value=\"High Beginner, 20-24 June, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 20-24 มิถุนายน, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 20-24 June, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 20-24 มิถุนายน, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 4-8 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 4-8 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 4-8 July, 1:30-3:00pm\">ระดับต้น, 4-8 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"High Beginner, 11-15 July, 10:00-11:30am\">ระดับสูงกว่าระดับต้น, 11-15 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Low Intermediate, 11-15 July, 1:30-3:00pm\">ระดับต่ำกว่าระดับกลาง, 11-15 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Beginner, 18-22 July, 10:00-11:30am\">ระดับต้น, 18-22 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"High Beginner, 18-22 July, 1:30-3:00pm\">ระดับสูงกว่าระดับต้น, 18-22 กรกฎาคม, 13:30-15:00 น.</option>\n\n      <option value=\"Low Intermediate, 25-29 July, 10:00-11:30am\">ระดับต่ำกว่าระดับกลาง, 25-29 กรกฎาคม, 10:00-11:30 น.</option>\n      <option value=\"Beginner, 25-29 July, 1:30-3:00pm\">ระดับต้น, 25-29 กรกฎาคม, 13:30-15:00 น.</option>\n</select>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -18876,7 +18904,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n<br>\n<br>\n<br>\n<br>\n\n  <div>\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n  <h2><a href=\"/class_times/new\">Create new class time</a></h2>\n  <hr>\n\n    <h2>Welcome to the \"City English Project,\" "
     + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + this.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"role","hash":{},"data":data}) : helper)))
@@ -18917,6 +18945,50 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/schedule"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <h3>No students scheduled for any classes</h3>\n";
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <div class=\"table-responsive\">\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Nick Name</th>\n            <th>First Name</th>\n            <th>Last Name</th>\n            <th>Gender</th>\n            <th>Phone Number</th>\n            <th>Email</th>\n            <th>Province/District</th>\n            <th>Payment Option</th>\n            <th>Class Time</th>\n          </tr>\n        </thead>\n\n        <tbody>\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        </tbody>\n      </table>\n    </div>\n";
+},"4":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_students : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n\n";
+},"5":function(depth0,helpers,partials,data) {
+    return "\n          <tr>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.gender : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.email : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.district : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.payment_option : depth0), depth0))
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.class_period : depth0), depth0))
+    + "</td>\n          </tr>\n\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_students : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n\n</div>";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/schedule"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/student_dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -18935,29 +19007,29 @@ window.fbAsyncInit = function() {
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "    <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>\n    <table class=\"table table-striped\">\n      <thead>\n        <tr>\n          <th>Nick Name</th>\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Gender</th>\n          <th>Phone Number</th>\n          <th>Email</th>\n          <th>Province/District</th>\n          <th>Payment Option</th>\n          <th>Class Time</th>\n        </tr>\n      </thead>\n\n      <tbody>\n"
+  return "    <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>\n    <div class=\"table-responsive\">\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Nick Name</th>\n            <th>First Name</th>\n            <th>Last Name</th>\n            <th>Gender</th>\n            <th>Phone Number</th>\n            <th>Email</th>\n            <th>Province/District</th>\n            <th>Payment Option</th>\n            <th>Class Time</th>\n          </tr>\n        </thead>\n\n        <tbody>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "      </tbody>\n    </table>\n";
+    + "        </tbody>\n      </table>\n    </div>\n";
 },"4":function(depth0,helpers,partials,data) {
-    return "        <tr>\n          <td>"
+    return "          <tr>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.gender : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.email : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.district : depth0), depth0))
-    + "</td>\n          <td>"
+    + "</td>\n            <td>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.payment_option : depth0), depth0))
-    + "</td>\n          <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.class_time : depth0), depth0))
-    + "</td>\n        </tr>\n";
+    + "</td>\n            <td>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.class_period : depth0), depth0))
+    + "</td>\n          </tr>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -19724,6 +19796,16 @@ window.fbAsyncInit = function() {
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["volunteer/volunteer_info"];
 }).call(this);
+var ClassTime = Backbone.Model.extend({
+
+  // parse: function(attrs) {
+  //   attrs.user_url = "/users/" + attrs.email;
+  //   return attrs;
+  // },
+
+  urlRoot: 'class_times'
+
+});
 var Session = Backbone.Model.extend({
 
   urlRoot: 'sessions'
@@ -19739,6 +19821,12 @@ var User = Backbone.Model.extend({
   urlRoot: 'users'
 
 });
+var ClassTimes = Backbone.Collection.extend({
+
+  model: ClassTime,
+  url : 'class_times'
+
+}); 
 var Students = Backbone.Collection.extend({
 
   model: User,
@@ -19862,7 +19950,7 @@ var ApplicationView = Backbone.View.extend({
       } // error:
     }; // options
     
-    model.save(model.toJSON(), options);
+    model.save({}, options);
 
   },
 
@@ -20086,6 +20174,37 @@ var ProfileFormView = Backbone.View.extend({
 
 
 
+var ScheduleView = Backbone.View.extend({
+  template:  HandlebarsTemplates['dashboard/schedule'],
+
+  initialize: function() {
+    // this.listenTo(this.collection, 'all', this.render);
+    this.$el.appendTo(".entire");
+  },
+
+  no_students: function() {
+    var student_num = this.collection.length
+    if (student_num === 0) { 
+      return true
+    }
+    else {
+      return false
+    }
+  },
+
+  
+
+  render: function() {
+    this.$el.html(this.template({
+      no_students: this.no_students()
+
+    }));
+
+    return this;
+  }
+});
+
+
 var StudentDashboardView = Backbone.View.extend({
   attributes: {
     id: "student-dashboard"
@@ -20307,7 +20426,7 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
-    return this.choose_language("Become Network Member", "สมัครเป็นสมาชิกเครือข่าย");
+    return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
   login_student: function() {
     return this.choose_language("Network Member Login", "เครือข่ายสมาชิกเข้าสู่ระบบ");
@@ -20901,8 +21020,10 @@ var App = {
       success: function (collection, response, options) {
         var student_page = new StudentsView({ collection: collection });
         console.log(collection.length);
-
         student_page.render();
+
+        var schedule = new ScheduleView({ collection: collection });
+        schedule.render();
       },
       error: function (collection, response, options) {
         console.log("error");
