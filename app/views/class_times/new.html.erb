@@ -1,4 +1,21 @@
-<%= form_for @class_time do |f| %>
-  Period: <%= f.text_field :period %><br />
-  <%= f.submit %>
-<% end %>
+<div class="container">
+
+  <h2>In this form, you as a CEP Administrator can add a new class period for CEP students.</h2>
+
+  <hr>
+  <h3>Please add it using a format similar to these examples...</h3>
+  <h3>"20-24 June, 5:00-6:30pm"</h3>
+  <h4>...or...</h4>
+  <h3>"High Beginner, 20-24 June, 10:00-11:30am"</h3>
+
+  <hr>
+  <%= form_for @class_time do |f| %>
+    <h2>Period: <%= f.text_field :period %></h2>
+    <br>
+    <%= f.submit 'Add Class Time', :class => 'btn btn-default' %>
+  <% end %>
+  <hr>
+  <h2><%= link_to "Exit", dashboard_path %></h2>
+  <hr>
+
+</div>
