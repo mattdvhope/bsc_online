@@ -45,8 +45,10 @@ var App = {
       success: function (collection, response, options) {
         var student_page = new StudentsView({ collection: collection });
         console.log(collection.length);
-
         student_page.render();
+
+        var schedule = new ScheduleView({ collection: collection });
+        schedule.render();
       },
       error: function (collection, response, options) {
         console.log("error");

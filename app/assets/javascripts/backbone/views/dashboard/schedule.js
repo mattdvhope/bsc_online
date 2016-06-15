@@ -16,9 +16,11 @@ var ScheduleView = Backbone.View.extend({
     }
   },
 
+  
+
   render: function() {
     this.$el.html(this.template({
-
+      no_students: this.no_students()
 
     }));
 
