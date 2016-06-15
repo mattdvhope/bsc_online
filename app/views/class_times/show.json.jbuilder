@@ -1,2 +1,2 @@
-json.id                     @user.id
-json.period                 @user.period
+json.id                     @class_time.id
+json.period                 @class_time.period
