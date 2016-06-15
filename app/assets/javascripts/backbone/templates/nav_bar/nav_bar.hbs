@@ -226,11 +226,11 @@ console.log(sessionStorage.getItem("scrollTopPos"));
   // To determine student price in '_intro_bullets.hbs'
   $(".university-summer-applic").on("click", function() {
     sessionStorage.setItem("student_type", "university_summer_applicant");
-    App.applcationView.render();
+    App.applicationView.render();
   });
   $(".non-summer-university").on("click", function() {
     sessionStorage.setItem("student_type", "non_summer_university");
-    App.applcationView.render();
+    App.applicationView.render();
   });
 
 
