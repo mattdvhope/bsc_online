@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
+  belongs_to :class_time
+
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
   has_many :curriculums, through: :plans
   has_many :choices, :foreign_key=>"student_id", :dependent => :destroy
