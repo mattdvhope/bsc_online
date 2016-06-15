@@ -47,11 +47,11 @@ class User < ActiveRecord::Base
   validates_presence_of :phone_number, length: { maximum: 30 }
   validates_presence_of :payment_option
 
-  validate :class_time_choosen
+  validate :class_period_choosen
 
-  def class_time_choosen
-    if self.class_time == "select_option"
-      errors.add(:class_time, "must be selected")
+  def class_period_choosen
+    if self.class_period == "select_option"
+      errors.add(:class_period, "must be selected")
     end
   end
 

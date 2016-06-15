@@ -9,7 +9,7 @@ json.array! @students do |student|
   json.email                  student.email
   json.district               student.district
   json.payment_option         student.payment_option
-  json.class_time             student.class_time
+  json.class_period           student.class_period
 
 end
 

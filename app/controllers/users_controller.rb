@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     log_out_path if users_path
     if user.guest
-      assign_class_time_param(user)
+      assign_class_period_param(user)
       deal_with_guest(user)
     elsif user.pin
       deal_with_pin(user)
@@ -99,17 +99,19 @@ class UsersController < ApplicationController
     #   current_user.destroy if current_user # guest?
     # end
 
-    def assign_class_time_param(user)
-      if params[:class_time_one_week]
-        user.class_time = params[:class_time_one_week]
+    def assign_class_period_param(user)
+      if params[:class_period_one_week]
+        user.class_period = params[:class_period_one_week]
       end
       
-      if params[:class_time_univ]
-        user.class_time = params[:class_time_univ]
+      if params[:class_period_univ]
+        user.class_period = params[:class_period_univ]
       end
     end
 
     def deal_with_guest(user)
+      class_time = ClassTime.new
+      class_time.period = user.class_period
       if user.save
         render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
         if user.email != ""
