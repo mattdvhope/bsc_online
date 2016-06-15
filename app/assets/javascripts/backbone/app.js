@@ -47,13 +47,19 @@ var App = {
         console.log(collection.length);
         student_page.render();
 
-        var schedule = new ClassTimesView({ collection: collection });
-        schedule.render();
+        var class_time_view = new ClassTimesView();
+        class_time_view.render();
       },
       error: function (collection, response, options) {
         console.log("error");
       }
     });
+    var class_times = new ClassTimes(); // collection
+    class_times.fetch({
+      success: function (collection, response, options) {},
+      error: function (collection, response, options) {}
+    });
+
     document.title = 'City English Project | Dashboard';
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
