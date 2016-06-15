@@ -22,8 +22,8 @@ var App = {
   },
   instantiateApplicationView: function() {
     var student = new User();
-    this.applcationView = new ApplicationView({ model: student });
-    $("#applicationmodal").html(this.applcationView.render().el);
+    this.applicationView = new ApplicationView({ model: student });
+    $("#applicationmodal").html(this.applicationView.render().el);
   },
   instantiateWelcomePopup: function() {
     this.welcomePopupView = new WelcomePopupView();
