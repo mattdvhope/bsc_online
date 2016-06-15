@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
 
-  resources :class_times, only: [:new, :create, :index, :show]
+  resources :class_times, only: [:index, :show]
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
