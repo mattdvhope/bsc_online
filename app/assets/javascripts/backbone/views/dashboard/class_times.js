@@ -1,4 +1,4 @@
-var ScheduleView = Backbone.View.extend({
+var ClassTimesView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/schedule'],
 
   initialize: function() {

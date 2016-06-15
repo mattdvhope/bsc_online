@@ -47,7 +47,7 @@ var App = {
         console.log(collection.length);
         student_page.render();
 
-        var schedule = new ScheduleView({ collection: collection });
+        var schedule = new ClassTimesView({ collection: collection });
         schedule.render();
       },
       error: function (collection, response, options) {
