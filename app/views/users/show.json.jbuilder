@@ -15,5 +15,6 @@ json.postal_code            @user.postal_code
 json.country                @user.country
 json.pin                    @user.pin
 json.role                   @user.role
+json.class_time             @user.class_time
 
 
