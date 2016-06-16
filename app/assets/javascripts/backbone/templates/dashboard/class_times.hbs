@@ -1,47 +1,20 @@
 <div class="container">
 
-  {{#if no_students}}
-    <h3>No students scheduled for any classes</h3>
+  <h2>Here is a list of CEP class times.</h2>
+  <br>
+  {{#if no_class_times}}
+    <h3>No class times scheduled at this time</h3>
   {{^}}
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nick Name</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Province/District</th>
-            <th>Payment Option</th>
-            <th>Class Time</th>
-          </tr>
-        </thead>
-
-        <tbody>
-        {{#each students}}
-          {{#if no_students}}
-
-          <tr>
-            <td>{{this.nickname}}</td>
-            <td>{{this.first_name}}</td>
-            <td>{{this.last_name}}</td>
-            <td>{{this.gender}}</td>
-            <td>{{this.phone_number}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.district}}</td>
-            <td>{{this.payment_option}}</td>
-            <td>{{this.class_period}}</td>
-          </tr>
-
-          {{/if}}
-
-
-        {{/each}}
-        </tbody>
-      </table>
-    </div>
+    <h3>Class Times</h3>
+    <ul style="list-style-type:none">
+      <hr>
+    {{#each class_times}}
+      <li >
+        <h4>{{this.period}}</h4>
+        <hr>
+      </li>
+    {{/each}}
+    </ul>
   {{/if}}
 
 

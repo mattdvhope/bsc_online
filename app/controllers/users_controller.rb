@@ -94,7 +94,7 @@ class UsersController < ApplicationController
     def deal_with_guest(user)
       user.class_period = params[:class_time_scheduled]
       if user.save
-        create_class_time(user)
+        relate_user_to_class_time(user)
         render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
         if user.email != ""
           send_new_user_email(user)
@@ -104,23 +104,27 @@ class UsersController < ApplicationController
       end
     end
 
-    def create_class_time(user)
-      if ClassTime.all.empty? == true
-        class_time = ClassTime.create({period: user.class_period})
-        class_time.users << user
-      else
-        i = 0
-        ClassTime.all.each do |class_time|
-          if class_time.attributes.has_value?(user.class_period)
-            i = i + 1
-            class_time.users << user
-          end
-        end
-        if i == 0
-          class_time = ClassTime.create({period: user.class_period})
-          class_time.users << user
-        end
-      end
+    def relate_user_to_class_time(user)
+      class_time = ClassTime.find_by(period: user.class_period)
+      class_time.users << user
+binding.pry
+
+      # if ClassTime.all.empty? == true
+      #   class_time = ClassTime.create({period: user.class_period})
+      #   class_time.users << user
+      # else
+      #   i = 0
+      #   ClassTime.all.each do |class_time|
+      #     if class_time.attributes.has_value?(user.class_period)
+      #       i = i + 1
+      #       class_time.users << user
+      #     end
+      #   end
+      #   if i == 0
+      #     class_time = ClassTime.create({period: user.class_period})
+      #     class_time.users << user
+      #   end
+      # end
 
     end
 

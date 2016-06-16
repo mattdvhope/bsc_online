@@ -1,12 +1,11 @@
 var ClassTimesView = Backbone.View.extend({
-  template:  HandlebarsTemplates['dashboard/schedule'],
+  template:  HandlebarsTemplates['dashboard/class_times'],
 
   initialize: function() {
-    // this.listenTo(this.collection, 'all', this.render);
     this.$el.appendTo(".entire");
   },
 
-  no_students: function() {
+  no_class_times: function() {
     var student_num = this.collection.length
     if (student_num === 0) { 
       return true
@@ -20,8 +19,8 @@ var ClassTimesView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      no_students: this.no_students()
-
+      no_class_times: this.no_class_times(),
+      class_times: this.collection.toJSON()
     }));
 
     return this;

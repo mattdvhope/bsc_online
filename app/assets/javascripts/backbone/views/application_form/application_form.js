@@ -1,9 +1,10 @@
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
-  initialize: function() {
-
+  initialize: function(class_times) {
+    this.class_times = class_times || {};
   },
+
   events: {
     'click .guest-add': function (e) {
       e.preventDefault();
@@ -158,11 +159,11 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
-
   template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+console.log(this.class_times.options);
 
     this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
 
@@ -180,6 +181,7 @@ var ApplicationView = Backbone.View.extend({
       payment_info: this.payment_info(),
       university_summer_applicant: this.university_summer_applicant(),
       student_type_price: this.student_type_price(),
+      class_times: this.class_times.options
     }));
 
     return this;
