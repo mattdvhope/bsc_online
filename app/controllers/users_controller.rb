@@ -107,25 +107,6 @@ class UsersController < ApplicationController
     def relate_user_to_class_time(user)
       class_time = ClassTime.find_by(period: user.class_period)
       class_time.users << user
-binding.pry
-
-      # if ClassTime.all.empty? == true
-      #   class_time = ClassTime.create({period: user.class_period})
-      #   class_time.users << user
-      # else
-      #   i = 0
-      #   ClassTime.all.each do |class_time|
-      #     if class_time.attributes.has_value?(user.class_period)
-      #       i = i + 1
-      #       class_time.users << user
-      #     end
-      #   end
-      #   if i == 0
-      #     class_time = ClassTime.create({period: user.class_period})
-      #     class_time.users << user
-      #   end
-      # end
-
     end
 
     def deal_with_pin(user)

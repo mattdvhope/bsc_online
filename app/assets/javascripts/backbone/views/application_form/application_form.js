@@ -163,7 +163,6 @@ var ApplicationView = Backbone.View.extend({
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-console.log(this.class_times.options);
 
     this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
 
