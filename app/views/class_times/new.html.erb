@@ -8,11 +8,20 @@
   <h4>...or...</h4>
   <h3>"Low Intermediate, 20-24 June, 1:30-3:00pm"</h3>
   <h4>(but don't add quotes)</h4>
-  <hr>
+  <hr><hr>
 
   <%= form_for @class_time do |f| %>
+    <h3><%= f.label :name, "Period, in English" %>:</h3>
     <h3><%= f.text_area :period %></h3>
+    <br>
+    <h3><%= f.label :name, "Period, in Thai" %>:</h3>
+    <h3><%= f.text_area :period_thai %></h3>
+    <br>
+    <h3><%= f.label :name, 'Category' %></h3>
+    <h3><%= f.text_field :category %></h3>
+    <br>
     <%= f.submit "Create", :class => 'btn btn-success' %>
+    <hr>
   <% end %>
   <hr>
   <h3><%= link_to "Exit", dashboard_path %></h3>

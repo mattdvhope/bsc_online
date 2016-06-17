@@ -5,7 +5,6 @@ json.array! @volunteers do |volunteer|
   json.last_name              volunteer.last_name
   json.age                    volunteer.age
   json.gender                 volunteer.gender
-  json.occupation             volunteer.occupation
   json.email                  volunteer.email
   json.password_digest        volunteer.password_digest
   json.phone_number           volunteer.phone_number

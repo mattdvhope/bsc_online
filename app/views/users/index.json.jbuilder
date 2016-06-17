@@ -5,7 +5,6 @@ json.array! @users do |user|
   json.last_name              user.last_name
   json.age                    user.age
   json.gender                 user.gender
-  json.occupation             user.occupation
   json.email                  user.email
   json.password_digest        user.password_digest
   json.phone_number           user.phone_number

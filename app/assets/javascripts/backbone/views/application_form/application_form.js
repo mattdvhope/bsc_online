@@ -159,6 +159,20 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
+  univ_summer_class_times: function() {
+    var result = this.class_times.options.filter(function(obj) {
+      return obj.category == "univ_summer";
+    });
+    return result;
+  },
+
+  regular_class_times: function() {
+    var result = this.class_times.options.filter(function(obj) {
+      return obj.category == "regular";
+    });
+    return result;
+  },
+
   template:  HandlebarsTemplates['application_form/application_form'],
 
   render: function() {
@@ -180,7 +194,8 @@ var ApplicationView = Backbone.View.extend({
       payment_info: this.payment_info(),
       university_summer_applicant: this.university_summer_applicant(),
       student_type_price: this.student_type_price(),
-      class_times: this.class_times.options
+      univ_summer_class_times: this.univ_summer_class_times(),
+      regular_class_times: this.regular_class_times()
     }));
 
     return this;
