@@ -15,8 +15,6 @@ var ClassTimesView = Backbone.View.extend({
     }
   },
 
-  
-
   render: function() {
     this.$el.html(this.template({
       no_class_times: this.no_class_times(),
