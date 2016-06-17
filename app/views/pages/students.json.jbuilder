@@ -14,7 +14,7 @@ json.array! @students do |student|
   json.country                  student.country
   json.class_time_id            student.class_time_id
   json.class_period             student.class_period
-  json.date_student_registered  student.date_student_registered
+  json.date_format              student.date_format
 
 end
 
