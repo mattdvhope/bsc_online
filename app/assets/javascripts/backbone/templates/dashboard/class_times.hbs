@@ -5,12 +5,12 @@
   {{#if no_class_times}}
     <h3>No class times scheduled at this time</h3>
   {{^}}
-    <h3>Class Times</h3>
     <ul style="list-style-type:none">
       <hr>
     {{#each class_times}}
       <li >
-        <h4>{{this.period}}</h4>
+        <h3 style="text-decoration: underline;">{{this.period}}</h3>
+        <h4>{{this.students}}</h4>
         <hr>
       </li>
     {{/each}}
