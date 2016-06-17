@@ -1,14 +1,12 @@
 {{> application_form/_choose_options_explained}}
 <br>
 <br>
-  <select id="one-whole-week" name="class_time_one_week" class="seminar-session-select">
+  <select id="non-univ-select" name="class_time_scheduled" class="seminar-session-select">
+
     <option id="option-with-id" value="select_option" disabled selected> -- เลือกตัวเลือก -- </option>
-    <option value="20-24 June, 5:00-6:30pm">20-24 มิถุนายน, 17:00-18:30 น.</option>
-    <option value="20-24 June, 7:00-8:30pm">20-24 มิถุนายน, 19:00-20:30 น.</option>
-    <option value="4-8 July, 5:00-6:30pm">4-8 กรกฎาคม, 17:00-18:30 น.</option>
-    <option value="4-8 July, 7:00-8:30pm">4-8 กรกฎาคม, 19:00-20:30 น.</option>
-    <option value="11-15 July, 5:00-6:30pm">11-15 กรกฎาคม, 17:00-18:30 น.</option>
-    <option value="11-15 July, 7:00-8:30pm">11-15 กรกฎาคม, 19:00-20:30 น.</option>
-    <option value="18-22 July, 5:00-6:30pm">18-22 กรกฎาคม, 17:00-18:30 น.</option>
-    <option value="18-22 July, 7:00-8:30pm">18-22 กรกฎาคม, 19:00-20:30 น.</option>
+
+    {{#each class_times}}
+      <option value="{{this.period}}">{{this.period_thai}}</option>
+    {{/each}}
+
   </select>

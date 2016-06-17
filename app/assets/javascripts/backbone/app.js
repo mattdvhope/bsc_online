@@ -20,11 +20,6 @@ var App = {
 
     this.front_page_main = front_page_main;
   },
-  instantiateApplicationView: function() {
-    var student = new User();
-    this.applcationView = new ApplicationView({ model: student });
-    $("#applicationmodal").html(this.applcationView.render().el);
-  },
   instantiateWelcomePopup: function() {
     this.welcomePopupView = new WelcomePopupView();
     $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
@@ -40,18 +35,28 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    var students = new Students(); // collection
-    students.fetch({
+    // var students = new Students(); // collection
+    // students.fetch({
+    //   success: function (collection, response, options) {
+    //     var student_page = new StudentsView({ collection: collection });
+    //     student_page.render();
+    //   },
+    //   error: function (collection, response, options) {
+    //     console.log("error");
+    //   }
+    // });
+    var class_times = new ClassTimes(); // collection
+    class_times.fetch({
       success: function (collection, response, options) {
-        var student_page = new StudentsView({ collection: collection });
-        console.log(collection.length);
-
-        student_page.render();
+        // console.log("success");
+        var class_time_view = new ClassTimesView({ collection: collection });
+        class_time_view.render();
       },
       error: function (collection, response, options) {
         console.log("error");
       }
     });
+
     document.title = 'City English Project | Dashboard';
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
@@ -141,7 +146,7 @@ var App = {
       App.getStudentDashboardPage(user_model);
     }
     this.getFooter();
-    this.instantiateApplicationView();
+    // this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateStudentRegForm();
     this.instantiateLogInForm();

@@ -2,20 +2,12 @@
 <hr>
 <h2 class="schedule-options">Monday - Friday (5 times)</h2>
 <hr>
-<select id="five-weeks" name="class_time_univ" class="seminar-session-select">
+<select id="univ-select" name="class_time_scheduled" class="seminar-session-select">
+
   <option id="option-with-id" value="select_option" disabled selected> -- select an option -- </option>
-      <option value="High Beginner, 20-24 June, 10:00-11:30am">High Beginner, 20-24 June, 10:00-11:30am</option>
-      <option value="Low Intermediate, 20-24 June, 1:30-3:00pm">Low Intermediate, 20-24 June, 1:30-3:00pm</option>
 
-      <option value="Low Intermediate, 4-8 July, 10:00-11:30am">Low Intermediate, 4-8 July, 10:00-11:30am</option>
-      <option value="Beginner, 4-8 July, 1:30-3:00pm">Beginner, 4-8 July, 1:30-3:00pm</option>
-
-      <option value="High Beginner, 11-15 July, 10:00-11:30am">High Beginner, 11-15 July, 10:00-11:30am</option>
-      <option value="Low Intermediate, 11-15 July, 1:30-3:00pm">Low Intermediate, 11-15 July, 1:30-3:00pm</option>
-
-      <option value="Beginner, 18-22 July, 10:00-11:30am">Beginner, 18-22 July, 10:00-11:30am</option>
-      <option value="High Beginner, 18-22 July, 1:30-3:00pm">High Beginner, 18-22 July, 1:30-3:00pm</option>
-
-      <option value="Low Intermediate, 25-29 July, 10:00-11:30am">Low Intermediate, 25-29 July, 10:00-11:30am</option>
-      <option value="Beginner, 25-29 July, 1:30-3:00pm">Beginner, 25-29 July, 1:30-3:00pm</option>
+  {{#each class_times}}
+      <option value="{{this.period}}">{{this.period}}</option>
+  {{/each}}
+ 
 </select>

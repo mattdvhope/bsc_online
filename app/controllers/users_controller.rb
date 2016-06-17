@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     log_out_path if users_path
     if user.guest
-      assign_class_time_param(user)
       deal_with_guest(user)
     elsif user.pin
       deal_with_pin(user)
@@ -92,25 +91,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :payment_option, :uid_facebook)
     end
 
-    # def transition_to_student_status_if_a_guest_in_app(user)
-    #   user.plans = current_user.plans if current_user # guest?
-    #   user.choices = current_user.choices if current_user # guest?
-    #   user.grades = current_user.grades if current_user # guest?
-    #   current_user.destroy if current_user # guest?
-    # end
-
-    def assign_class_time_param(user)
-      if params[:class_time_one_week]
-        user.class_time = params[:class_time_one_week]
-      end
-      
-      if params[:class_time_univ]
-        user.class_time = params[:class_time_univ]
-      end
-    end
-
     def deal_with_guest(user)
+      user.class_period = params[:class_time_scheduled]
       if user.save
+        relate_user_to_class_time(user)
         render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
         if user.email != ""
           send_new_user_email(user)
@@ -118,6 +102,11 @@ class UsersController < ApplicationController
       else
         render :json => { :errors => user.errors.full_messages }, :status => 422
       end
+    end
+
+    def relate_user_to_class_time(user)
+      class_time = ClassTime.find_by(period: user.class_period)
+      class_time.users << user
     end
 
     def deal_with_pin(user)
@@ -183,8 +172,7 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_production_email(user)
-        # send_development_email(user)
+        send_development_email(user)
       end
     end
 

@@ -2,20 +2,12 @@
 <hr>
 <h2 class="schedule-options">วันจันทร์-วันศุกร์ (5 ครั้ง)</h2>
 <hr>
-<select id="five-weeks" name="class_time_univ" class="seminar-session-select">
+<select id="univ-select" name="class_time_scheduled" class="seminar-session-select">
+
   <option id="option-with-id" value="select_option" disabled selected> -- เลือกตัวเลือก -- </option>
-      <option value="High Beginner, 20-24 June, 10:00-11:30am">ระดับสูงกว่าระดับต้น, 20-24 มิถุนายน, 10:00-11:30 น.</option>
-      <option value="Low Intermediate, 20-24 June, 1:30-3:00pm">ระดับต่ำกว่าระดับกลาง, 20-24 มิถุนายน, 13:30-15:00 น.</option>
 
-      <option value="Low Intermediate, 4-8 July, 10:00-11:30am">ระดับต่ำกว่าระดับกลาง, 4-8 กรกฎาคม, 10:00-11:30 น.</option>
-      <option value="Beginner, 4-8 July, 1:30-3:00pm">ระดับต้น, 4-8 กรกฎาคม, 13:30-15:00 น.</option>
-
-      <option value="High Beginner, 11-15 July, 10:00-11:30am">ระดับสูงกว่าระดับต้น, 11-15 กรกฎาคม, 10:00-11:30 น.</option>
-      <option value="Low Intermediate, 11-15 July, 1:30-3:00pm">ระดับต่ำกว่าระดับกลาง, 11-15 กรกฎาคม, 13:30-15:00 น.</option>
-
-      <option value="Beginner, 18-22 July, 10:00-11:30am">ระดับต้น, 18-22 กรกฎาคม, 10:00-11:30 น.</option>
-      <option value="High Beginner, 18-22 July, 1:30-3:00pm">ระดับสูงกว่าระดับต้น, 18-22 กรกฎาคม, 13:30-15:00 น.</option>
-
-      <option value="Low Intermediate, 25-29 July, 10:00-11:30am">ระดับต่ำกว่าระดับกลาง, 25-29 กรกฎาคม, 10:00-11:30 น.</option>
-      <option value="Beginner, 25-29 July, 1:30-3:00pm">ระดับต้น, 25-29 กรกฎาคม, 13:30-15:00 น.</option>
+  {{#each class_times}}
+      <option value="{{this.period}}">{{this.period_thai}}</option>
+  {{/each}}
+ 
 </select>
