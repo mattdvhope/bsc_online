@@ -35,16 +35,16 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    var students = new Students(); // collection
-    students.fetch({
-      success: function (collection, response, options) {
-        var student_page = new StudentsView({ collection: collection });
-        student_page.render();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
+    // var students = new Students(); // collection
+    // students.fetch({
+    //   success: function (collection, response, options) {
+    //     var student_page = new StudentsView({ collection: collection });
+    //     student_page.render();
+    //   },
+    //   error: function (collection, response, options) {
+    //     console.log("error");
+    //   }
+    // });
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
