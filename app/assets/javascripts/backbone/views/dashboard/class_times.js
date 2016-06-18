@@ -15,10 +15,16 @@ var ClassTimesView = Backbone.View.extend({
     }
   },
 
+  sorted_class_times: function() {
+    return this.collection.toJSON().sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   render: function() {
     this.$el.html(this.template({
       no_class_times: this.no_class_times(),
-      class_times: this.collection.toJSON()
+      class_times: this.sorted_class_times()
     }));
 
     return this;
