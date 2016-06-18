@@ -10,6 +10,13 @@
     {{#each class_times}}
       <li >
         <h3 style="text-decoration: underline;">{{this.period}}</h3>
+        {{#if this.cancelled }}
+          <h4 style="color: red;">This class is cancelled.</h4>
+        {{/if}}
+        {{#if this.completed }}
+          <h4 style="color: green;">This class is completed.</h4>
+        {{/if}}
+
         {{#if this.users}}
             <div class="table-responsive">
               <table class="table table-striped">
@@ -59,4 +66,16 @@
 
 </div> <!-- container -->
 
+<script>
+  
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if (a == b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
+
+
+</script>
 
