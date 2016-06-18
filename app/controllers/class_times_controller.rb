@@ -26,7 +26,7 @@ class ClassTimesController < ApplicationController
   private
 
   def class_time_params
-    params.require(:class_time).permit(:period, :period_thai, :category)
+    params.require(:class_time).permit(:period, :period_thai, :category, :order_no)
   end
 
 end
