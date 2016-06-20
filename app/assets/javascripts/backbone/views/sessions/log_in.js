@@ -1,4 +1,8 @@
 var LogInFormView = Backbone.View.extend({
+  initialize: function() {
+console.log(this.model);
+  },
+
   attributes: {
     id: "login-modal"
   },
