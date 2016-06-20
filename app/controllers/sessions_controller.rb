@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    destroy_old_admin_applicants
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
       session[:user_id] = user.id
@@ -16,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    destroy_old_admin_applicants
     if current_user
       if current_user.pin != "000000" && current_user.role == "student"
         current_user.update_attribute(:pin, "000000")

@@ -35,20 +35,9 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    // var students = new Students(); // collection
-    // students.fetch({
-    //   success: function (collection, response, options) {
-    //     var student_page = new StudentsView({ collection: collection });
-    //     student_page.render();
-    //   },
-    //   error: function (collection, response, options) {
-    //     console.log("error");
-    //   }
-    // });
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
-        // console.log("success");
         var class_time_view = new ClassTimesView({ collection: collection });
         class_time_view.render();
       },
@@ -56,7 +45,6 @@ var App = {
         console.log("error");
       }
     });
-
     document.title = 'City English Project | Dashboard';
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
@@ -135,9 +123,6 @@ var App = {
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
-      var students = $("#students-now").data("students");
-      this.student_collection = new Backbone.Collection(students);
-      this.students = students;
       App.getDashboardPage(user_model);
     }
     else if (gon.page_needed === "student") {

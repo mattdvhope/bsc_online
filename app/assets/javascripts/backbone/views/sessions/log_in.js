@@ -11,32 +11,14 @@ var LogInFormView = Backbone.View.extend({
   },
 
   submit: function() {
-    var model = this.model // Session
-    model.set({
+    var user = this.model // Session
+    user.set({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
     });
-
-    var options = {
-      success: function (model, response, options) {
-        $("#loginmodal").modal("hide");
-        user = model
-        if (user.get("role") === "leader" || user.get("role") === "admin") {
-          App.getDashboardPage(user);
-        }
-        else if (user.get("role") === "student") {
-          App.getStudentDashboardPage(user);
-        }
-
-        var $html = $(document.documentElement); // to allow scrolling
-        $html.css('overflow', '');
-      },
-      error: function (model, response, options) {
-        console.log("error");
-      }      
-    }
-    model.save({}, options);
-
+    user.save();
+    $("#loginmodal").modal("hide");
+    App.getDashboardPage(user);
   },
 
   templateSession:  HandlebarsTemplates['sessions/log_in'],

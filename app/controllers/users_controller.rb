@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
+    user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
       deal_with_guest(user)
