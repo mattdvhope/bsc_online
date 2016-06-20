@@ -48,13 +48,15 @@ var App = {
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
-        // console.log("success");
         var class_time_view = new ClassTimesView({ collection: collection });
         class_time_view.render();
       },
       error: function (collection, response, options) {
         console.log("error");
       }
+      // var class_time_view = new ClassTimesView({ collection: collection });
+      // class_time_view.render();
+
     });
 
     document.title = 'City English Project | Dashboard';
@@ -136,7 +138,7 @@ var App = {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
       var students = $("#students-now").data("students");
-      this.student_collection = new Backbone.Collection(students);
+console.log(students);
       this.students = students;
       App.getDashboardPage(user_model);
     }
