@@ -15,27 +15,19 @@ console.log(this.model);
   },
 
   submit: function() {
-    var user = this.model // Session
-console.log(user);
-    user.set({
+    var session = this.model // Session
+    session.set({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
     });
 
     var promise = new Promise(function(resolve, reject) {
-      if (user.save()) {
-console.log(user);
-        resolve(user);
-      }
-      else {
-        reject(Error("You could not log in for some reason."));
-      }
+      resolve(session.save());
     });
 
     promise.then(function(result) {
-      console.log(result); // result = user
       $("#loginmodal").modal("hide");
-      App.getDashboardPage(result);
+      App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
     })
     .catch(function(error) {
       console.log(error);
