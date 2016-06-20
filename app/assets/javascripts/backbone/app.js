@@ -121,9 +121,8 @@ var App = {
       this.getVolunteerPage();
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      var user = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user);
-      App.getDashboardPage(user_model);
+      var user_object = $("#user-now").data("present-user");
+      App.getDashboardPage(user_object);
     }
     else if (gon.page_needed === "student") {
       var user = $("#user-now").data("present-user");
