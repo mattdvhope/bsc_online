@@ -33,8 +33,7 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function(user) {
-console.log(user);
+  getDashboardPage: function(user_object) {
     this.removeNavAndPage();
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
@@ -46,7 +45,7 @@ console.log(user);
         console.log("error");
       }
     });
-    var dashboard_page = new DashboardView({ model: user });
+    var dashboard_page = new DashboardView({ user_object: user_object });
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Dashboard';
