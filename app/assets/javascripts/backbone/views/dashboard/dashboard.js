@@ -16,8 +16,8 @@ console.log(this.user_object);
     this.$el.html(this.template({
       // first_name: this.model.get("first_name"),
       // role: this.model.get("role"),
-      first_name: this.user_object.first_name,
-      role: this.user_object.role
+      first_name: this.user_object.user_object.first_name,
+      role: this.user_object.user_object.role
     }));
   }
 });
