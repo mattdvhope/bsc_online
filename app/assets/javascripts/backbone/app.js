@@ -138,8 +138,6 @@ var App = {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
       var students = $("#students-now").data("students");
-console.log(students);
-      this.students = students;
       App.getDashboardPage(user_model);
     }
     else if (gon.page_needed === "student") {
