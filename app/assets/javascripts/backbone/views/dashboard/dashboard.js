@@ -7,7 +7,7 @@ var DashboardView = Backbone.View.extend({
 
   initialize: function(options) {
     this.user_object = options
-    this.listenTo(this.model, 'sync', this.render);
+    // this.listenTo(this.model, 'sync', this.render);
     this.$el.appendTo(".entire");
   },
 
