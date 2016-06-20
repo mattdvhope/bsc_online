@@ -35,16 +35,6 @@ var App = {
   },
   getDashboardPage: function(user) {
     this.removeNavAndPage();
-    // var students = new Students(); // collection
-    // students.fetch({
-    //   success: function (collection, response, options) {
-    //     var student_page = new StudentsView({ collection: collection });
-    //     student_page.render();
-    //   },
-    //   error: function (collection, response, options) {
-    //     console.log("error");
-    //   }
-    // });
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -54,9 +44,6 @@ var App = {
       error: function (collection, response, options) {
         console.log("error");
       }
-      // var class_time_view = new ClassTimesView({ collection: collection });
-      // class_time_view.render();
-
     });
 
     document.title = 'City English Project | Dashboard';
