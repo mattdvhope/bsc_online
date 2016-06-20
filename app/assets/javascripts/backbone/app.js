@@ -137,7 +137,7 @@ var App = {
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user = $("#user-now").data("present-user");
       user_model = new Backbone.Model(user);
-      var students = $("#students-now").data("students");
+      // var students = $("#students-now").data("students");
       App.getDashboardPage(user_model);
     }
     else if (gon.page_needed === "student") {
