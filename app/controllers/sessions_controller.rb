@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
   private
 
     def user_defined
-      if params[:email].downcase
+      if params[:email]
         user = User.where(email: params[:email].downcase).first
         begin
           user.authenticate(params[:password])
