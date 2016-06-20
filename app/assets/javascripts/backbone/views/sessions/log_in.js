@@ -19,15 +19,15 @@ var LogInFormView = Backbone.View.extend({
 
     var promise = new Promise(function(resolve, reject) {
       if (user.save()) {
-        resolve("Stuff worked!");
+        resolve(user);
       }
       else {
         reject(Error("The user could not log in."));
       }
     });
 
-    promise.then(function(result) {
-      console.log(result); // "Stuff worked!"
+    promise.then(function(user) {
+      console.log(user); // result = user
       $("#loginmodal").modal("hide");
       App.getDashboardPage(user);
     }, function(err) {
