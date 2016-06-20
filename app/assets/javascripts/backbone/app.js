@@ -45,10 +45,10 @@ var App = {
         console.log("error");
       }
     });
-    document.title = 'City English Project | Dashboard';
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Dashboard';
   },
   getStudentDashboardPage: function(student) {
     this.removeNavAndPage();

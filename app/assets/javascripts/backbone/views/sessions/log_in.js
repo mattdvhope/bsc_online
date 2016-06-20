@@ -16,9 +16,24 @@ var LogInFormView = Backbone.View.extend({
       email: this.$("input[name='email']").val(),
       password: this.$("input[name='password']").val(),
     });
-    user.save();
-    $("#loginmodal").modal("hide");
-    App.getDashboardPage(user);
+
+    var promise = new Promise(function(resolve, reject) {
+      if (user.save()) {
+        resolve("Stuff worked!");
+      }
+      else {
+        reject(Error("The user could not log in."));
+      }
+    });
+
+    promise.then(function(result) {
+      console.log(result); // "Stuff worked!"
+      $("#loginmodal").modal("hide");
+      App.getDashboardPage(user);
+    }, function(err) {
+      console.log(err); // Error: "It broke"
+    });
+    
   },
 
   templateSession:  HandlebarsTemplates['sessions/log_in'],
