@@ -4,7 +4,7 @@ var StudentRegFormView = Backbone.View.extend({
   },
 
   events: {
-    "click .registration-submit": function (e) {
+    "click .student-registration-submit": function (e) {
       e.preventDefault();
       this.submit();
     }
