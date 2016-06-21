@@ -18,13 +18,16 @@ var LogInFormView = Backbone.View.extend({
     });
 
     var promise = new Promise(function(resolve, reject) {
+      $("#loginmodal").modal("hide");
       resolve(session.save());
     });
 
-    promise.then(function(result) {
-      $("#loginmodal").modal("hide");
+    promise
+    .then(function(result) {
       App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
     })
+    // .then(function(result) {
+    // })
     .catch(function(error) {
       console.log(error);
     });
