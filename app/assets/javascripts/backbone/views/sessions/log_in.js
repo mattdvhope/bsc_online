@@ -30,6 +30,7 @@ var LogInFormView = Backbone.View.extend({
       App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
     })
     .catch(function(error) {
+      App.getFrontMainPage();
       console.log(error.responseJSON.error);
     });
 
