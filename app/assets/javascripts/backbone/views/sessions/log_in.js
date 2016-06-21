@@ -3,6 +3,8 @@ var LogInFormView = Backbone.View.extend({
     id: "login-modal"
   },
 
+  templateSession:  HandlebarsTemplates['sessions/log_in'],
+
   events: {
     'click .login-submit': function (e) {
       e.preventDefault();
@@ -19,6 +21,7 @@ var LogInFormView = Backbone.View.extend({
 
     var promise = new Promise(function(resolve, reject) {
       $("#loginmodal").modal("hide");
+      App.removeNavAndPage();
       resolve(session.save());
     });
 
@@ -26,15 +29,12 @@ var LogInFormView = Backbone.View.extend({
     .then(function(result) {
       App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
     })
-    // .then(function(result) {
-    // })
     .catch(function(error) {
-      console.log(error);
+      console.log(error.responseJSON.error);
     });
 
   },
 
-  templateSession:  HandlebarsTemplates['sessions/log_in'],
   // checkInputs: function(e) {
   //   $(".user_login").css("border-color", "blue");
   //   var someEmpty = $('.user_login').filter(function(){
@@ -65,6 +65,7 @@ var LogInFormView = Backbone.View.extend({
   //   this.fadeOut();
   //   history.back();
   // },
+  
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateSession({

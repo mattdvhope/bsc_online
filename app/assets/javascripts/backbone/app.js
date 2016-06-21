@@ -34,7 +34,6 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user_object) {
-    this.removeNavAndPage();
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
