@@ -1,73 +1,75 @@
-<a class="close" href="#">Close</a>
+<div class="modal-dialog">
 
-<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
-  <header>
-    <h1>Register as a new volunteer with City English Project (CEP)!</h1>
-    <hr>
-    <h4>
-      For information about how to be a volunteer, <a href="#">click here</a>.
-    </h4>
-    <hr>
-  </header>
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">Register to become a CEP volunteer</h3>
+      <h4>If you do not have a PIN, please contact the CEP volunteer administrator for your organization or church.</h4>
+    </div>
+    <div class="modal-body">
+      <form class="volunteer-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
 
-  <h3>
-    <label for="vol_pin">PIN</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="text" name="user[pin]" id="vol_pin">
-  </h3>
+        <label class="field-label">PIN</label>
+        <input type="text" class="form-control pin" placeholder="PIN" name="pin">
+        <hr>
 
-  <h3>
-    <label for="vol_first_name">First Name</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="text" name="user[first_name]" id="vol_first_name">
-  </h3>
+        <label class="field-label">First Name</label>
+        <input type="text" class="form-control first_name" placeholder="First Name" name="first_name">
+        <hr>
 
-  <h3>
-    <label for="vol_last_name">Last Name</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="text" name="user[last_name]" id="vol_last_name">
-  </h3>
+        <label class="field-label">Last Name</label>
+        <input type="text" class="form-control last_name" placeholder="Last Name" name="last_name">
+        <hr>
 
-  <h3>
-    <label for="vol_gender">Gender</label>
-  </h3>
-  <h3>
-    <select name="user[gender]" id="vol_gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-  </h3>
+        <label class="field-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="Email Address" name="email">
+        <hr>
 
-  <h3>
-    <label for="user_last_name">Church, Business or Organization Name</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="text" name="user[occupation]" id="user_occupation">
-  </h3>
+        <label class="field-label">Gender</label>
+        <div>
+          <select name="gender" class="gender-select">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <hr>
 
-  <h3>
-    <label for="user_email">Email Address</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="email" name="user[email]" id="user_email">
-  </h3>
+        <label class="field-label">Church, Business or Organization Name</label>
+        <input type="text" class="form-control organization" placeholder="Organization" name="organization">
+        <hr>
 
-  <h3>
-    <label for="vol_password">Password</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="password" name="user[password]" id="vol_password">
-  </h3>
+        <label class="field-label">Password</label>
+        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password" name="password">
+        <hr>
 
-  <h3>
-    <label for="vol_password_confirmation">Password Confirmation</label>
-  </h3>
-  <h3>
-    <input class="vol_registration" type="password" name="user[password_confirmation]" id="vol_password_confirmation">
-  </h3>
+        <label class="field-label">Password Confirmation</label>
+        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password Confirmation" name="password_confirmation">
+        <hr>
+
+        <label class="field-label">Phone Number</label>
+        <input type="text" class="form-control phone_number" placeholder="Phone Number" name="phone_number">
+        <hr>
+
+
+
+        <div class="control-group">
+          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary volunteer-registration-submit">
+
+          {{!-- <button class="btn btn-primary registration-submit" href="#">Submit</button> --}}
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+
 
   <h3>
     <label for="user_phone_number">Phone Number</label>

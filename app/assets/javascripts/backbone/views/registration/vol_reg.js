@@ -1,19 +1,21 @@
-var $overlay = $("#overlay");
-
 var VolRegFormView = Backbone.View.extend({
   attributes: {
-    id: "entry_form_modal"
+    id: "volunteer-registration-modal"
   },
+
+  initialize: function() {
+    this.$el.appendTo(document.body);
+  },
+
   events: {
-    "click a.close": "close",
-    "click input.vol_reg_er": "checkInputs"
+    "click .volunteer-registration-submit": function (e) {
+      e.preventDefault();
+      this.submit();
+    }
   },
-  duration: 300,
+
   templateVolReg:  HandlebarsTemplates['registration/vol_reg'],
-  open: function () {
-    this.$el.add($overlay).fadeIn(this.duration);
-    $("#vol_pin").focus();
-  },
+
   checkInputs: function(e) {
     $(".vol_registration").css("border-color", "blue");
     var someEmpty = $('.vol_registration').filter(function(){
@@ -65,28 +67,13 @@ var VolRegFormView = Backbone.View.extend({
     return (/^(\d{5})?$/.test(post))
   }, // FIX this REGEX to correspond to the Ruby REGEX in 'user.rb'!!!
 
-  close: function(e) {
-    e.preventDefault();
-    this.fadeOut();
-    history.back();
-  },
-  fadeOut: function() {
-    // App.allowBodyScrolling();
-    $overlay.fadeOut(this.duration);
-    this.$el.fadeOut(this.duration, function() {
-      this.remove();
-    }.bind(this));
-    App.reg_form = undefined;
-  },
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateVolReg({
       token: csrf_token
     }));
-    this.open(); // to fade the overlay in...
-  },
-  initialize: function() {
-    this.$el.appendTo(document.body);
+
+    return this;
   }
 });
 
