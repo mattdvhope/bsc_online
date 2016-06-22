@@ -9,7 +9,7 @@ var NavBarView = Backbone.View.extend({
     return $(".entire-vol").is(":visible");
   },
   dashboard_visible: function() {
-    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible");
+    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
