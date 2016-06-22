@@ -39,16 +39,18 @@ class UsersController < ApplicationController
 
   def create
     # @uploader.update_attribute :image_key, params[:key]
+binding.pry
     user = User.new(user_params)
+binding.pry
     user.email = user.email.downcase
     log_out_path if users_path
-    if user.guest
-      deal_with_guest(user)
-    elsif user.pin
-      deal_with_pin(user)
-    else
-      deal_with_non_guest(user)
-    end
+    # if user.guest
+    #   deal_with_guest(user)
+    # elsif user.pin
+    #   deal_with_pin(user)
+    # else
+    #   deal_with_non_guest(user)
+    # end
   end
 
   def update
@@ -89,7 +91,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :pin, :payment_option, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :payment_option, :uid_facebook)
     end
 
     def deal_with_guest(user)
@@ -114,7 +116,7 @@ class UsersController < ApplicationController
     def deal_with_pin(user)
       if (User.pins_available =~ user.pin) == 0
         students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
-        old_guest_student = User.find_by(email: user.email.downcase)
+        old_guest_student = students.find_by(email: user.email.downcase)
         if old_guest_student
           old_guest_student.pin = params[:pin]
           old_guest_student.guest = false
