@@ -22,7 +22,7 @@ var LogInFormView = Backbone.View.extend({
     var promise = new Promise(function(resolve, reject) {
       $("#loginmodal").modal("hide");
       App.removeNavAndPage();
-      resolve(session.save());
+      resolve(session.save()); // gives object-not model-from ruby
     });
 
     promise
