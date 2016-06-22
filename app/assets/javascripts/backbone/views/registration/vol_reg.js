@@ -3,10 +3,6 @@ var VolRegFormView = Backbone.View.extend({
     id: "volunteer-registration-modal"
   },
 
-  initialize: function() {
-    this.$el.appendTo(document.body);
-  },
-
   events: {
     "click .volunteer-registration-submit": function (e) {
       e.preventDefault();
