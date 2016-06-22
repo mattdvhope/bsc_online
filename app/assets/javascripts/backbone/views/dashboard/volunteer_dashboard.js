@@ -12,8 +12,8 @@ var VolunteerDashboardView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
-      role: this.model.get("role"),
+      // first_name: this.model.get("first_name"),
+      // role: this.model.get("role"),
     }));
   }
 });
