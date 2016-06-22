@@ -33,7 +33,7 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function(user_object) {
+  getDashboardPage: function(user) {
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -44,7 +44,7 @@ var App = {
         console.log("error");
       }
     });
-    var dashboard_page = new DashboardView({ user_object });
+    var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Dashboard';
@@ -128,7 +128,8 @@ var App = {
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user_object = $("#user-now").data("present-user");
-      App.getDashboardPage(user_object);
+      user_model = new Backbone.Model(user_object);
+      App.getDashboardPage(user_model);
     }
     else if (gon.page_needed === "volunteer") {
       var user_object = $("#user-now").data("present-user");
