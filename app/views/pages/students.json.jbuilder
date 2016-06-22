@@ -1,20 +1,23 @@
-json.array! @students do |student|
+json.array! @users do |user|
 
-  json.id                       student.id
-  json.pin                      student.pin
-  json.nickname                 student.nickname
-  json.first_name               student.first_name
-  json.last_name                student.last_name
-  json.age                      student.age
-  json.gender                   student.gender
-  json.email                    student.email
-  json.password_digest          student.password_digest
-  json.phone_number             student.phone_number
-  json.province                 student.district
-  json.country                  student.country
-  json.class_time_id            student.class_time_id
-  json.class_period             student.class_period
-  json.date_format              student.date_format
+  json.id                     user.id
+  json.nickname               user.nickname
+  json.first_name             user.first_name
+  json.last_name              user.last_name
+  json.age                    user.age
+  json.gender                 user.gender
+  json.email                  user.email
+  json.password_digest        user.password_digest
+  json.phone_number           user.phone_number
+  json.address_1              user.address_1
+  json.address_2              user.address_2
+  json.city                   user.city
+  json.district               user.district
+  json.province               user.province
+  json.postal_code            user.postal_code
+  json.country                user.country
+  json.pin                    user.pin
+  json.role                   user.role
 
 end
 
