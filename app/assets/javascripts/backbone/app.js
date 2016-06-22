@@ -49,6 +49,14 @@ var App = {
     dashboard_page.render();
     document.title = 'City English Project | Dashboard';
   },
+  getVolunteerDashboardPage: function(volunteer) {
+    this.removeNavAndPage();
+
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
+    this.renderNavBar();
+    dashboard_page.render();
+  },
   getStudentDashboardPage: function(student) {
     this.removeNavAndPage();
 
