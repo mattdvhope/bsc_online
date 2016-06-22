@@ -18,13 +18,14 @@ class PagesController < ApplicationController
       when "admin_applicant"
         redirect_to log_out_path
       when "leader"
-        @admin_applications = AdminApplication.all.order("id ASC")
+        # @admin_applications = AdminApplication.all.order("id ASC")
         gon.page_needed = "leader"
       when "admin"
         gon.page_needed = "admin"
       when "volunteer"
         gon.page_needed = "volunteer"
       when "student"
+        # @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
         gon.page_needed = "student"
       end
       @user = current_user
@@ -33,30 +34,8 @@ class PagesController < ApplicationController
     end
   end
 
-  def leader
-    @admin_applications = AdminApplication.all.order("id ASC")
-    gon.page_needed = "leader"
-    @user = current_user
-    # redirect_to dashboard_path
-  end
-
-  def admin
-    gon.page_needed = "admin"
-    @user = current_user
-    # redirect_to dashboard_path
-  end
-
   def students
     @students = User.where("users.role = ?", "student")
-  end
-
-  def volunteer
-  end
-
-  def student
-    # @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
-    gon.page_needed = "student"
-    @user = current_user
   end
 
   def contact
