@@ -39,18 +39,16 @@ class UsersController < ApplicationController
 
   def create
     # @uploader.update_attribute :image_key, params[:key]
-binding.pry
     user = User.new(user_params)
-binding.pry
     user.email = user.email.downcase
     log_out_path if users_path
-    # if user.guest
-    #   deal_with_guest(user)
-    # elsif user.pin
-    #   deal_with_pin(user)
-    # else
-    #   deal_with_non_guest(user)
-    # end
+    if user.guest
+      deal_with_guest(user)
+    elsif user.role == "volunteer" && user.pin != "000000"
+      deal_with_volunteer(user)
+    elsif user.pin
+      fully_register_student(user)
+    end
   end
 
   def update
@@ -113,7 +111,7 @@ binding.pry
       class_time.users << user
     end
 
-    def deal_with_pin(user)
+    def fully_register_student(user)
       if (User.pins_available =~ user.pin) == 0
         students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
         old_guest_student = students.find_by(email: user.email.downcase)
@@ -123,25 +121,25 @@ binding.pry
           old_guest_student.password = params[:password]
           old_guest_student.password_confirmation = params[:password_confirmation]
           old_guest_student.save
+          session[:user_id] = user.id
           @user = old_guest_student
           render "show" # to get JSON in jbuilder
         else
           render :json => { :errors => "Incorrect email" }, :status => 422
         end
       else
-        render :json => { :errors => "Incorrect PIN" }, :status => 422
+        deal_with_bad_pin
       end
     end
 
-
-    def deal_with_non_guest(user)
+    def deal_with_volunteer(user)
       if (User.pins_available =~ user.pin) == 0
-        set_up(user)
+        user.password = params[:password]
+        user.password_confirmation = params[:password_confirmation]       
         if user.save
-          flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
           session[:user_id] = user.id
-          redirect_to home_path
-          send_new_user_email(user)
+          @user = user
+          render "show" # to get JSON in jbuilder
         else
           if user.errors.messages[:password]
             flash[:danger] = "Password #{user.errors.messages[:password].first}."
@@ -168,8 +166,7 @@ binding.pry
     end
 
     def deal_with_bad_pin
-      flash[:danger] = "PIN incorrect"
-      redirect_to root_path
+      render :json => { :errors => "Incorrect PIN" }, :status => 422
     end
 
     def send_new_user_email(user)
