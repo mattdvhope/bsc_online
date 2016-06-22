@@ -1,0 +1,26 @@
+<!-- script disables browser back button for this page -->
+<script type = "text/javascript" >
+  history.pushState(null, null, 'dashboard');
+  window.addEventListener('popstate', function(event) {
+    history.pushState(null, null, 'dashboard');
+  });
+</script>
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div>
+    <h2><a href="/log_out">Log Out</a></h2>
+    <hr>
+    <h2>Welcome to the "City English Project," {{first_name}} as a volunteer!!.</h2>
+    <br>
+    <h2>Here you can do Skype partnerships</h2>
+    <br>
+    <hr>
+  </div>
+
+</div>
+
