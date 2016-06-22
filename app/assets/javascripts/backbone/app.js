@@ -33,7 +33,7 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function(user_object) {
+  getDashboardPage: function(user) {
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -44,10 +44,18 @@ var App = {
         console.log("error");
       }
     });
-    var dashboard_page = new DashboardView({ user_object: user_object });
+    var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Dashboard';
+  },
+  getVolunteerDashboardPage: function(volunteer) {
+    this.removeNavAndPage();
+
+    document.title = 'City English Project | Dashboard';
+    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
+    this.renderNavBar();
+    dashboard_page.render();
   },
   getStudentDashboardPage: function(student) {
     this.removeNavAndPage();
@@ -86,14 +94,13 @@ var App = {
     this.reg_form_modal = new StudentRegFormView({ model: student });
     $("#registerstudentmodal").html(this.reg_form_modal.render().el);
   },
+  instantiateVolunteerRegForm: function() {
+    var volunteer = new User();
+    this.reg_form_modal = new VolRegFormView({ model: volunteer });
+    $("#registervolunteermodal").html(this.reg_form_modal.render().el);
+  },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
-    reg_form_modal.render();
-
-    this.reg_form = reg_form_modal;
-  },
-  getVolRegForm: function() {
-    var reg_form_modal = new VolRegFormView();
     reg_form_modal.render();
 
     this.reg_form = reg_form_modal;
@@ -121,7 +128,13 @@ var App = {
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
       var user_object = $("#user-now").data("present-user");
-      App.getDashboardPage(user_object);
+      user_model = new Backbone.Model(user_object);
+      App.getDashboardPage(user_model);
+    }
+    else if (gon.page_needed === "volunteer") {
+      var user_object = $("#user-now").data("present-user");
+      user_model = new Backbone.Model(user_object);
+      App.getVolunteerDashboardPage(user_model);
     }
     else if (gon.page_needed === "student") {
       var user = $("#user-now").data("present-user");
@@ -132,6 +145,7 @@ var App = {
     // this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateStudentRegForm();
+    this.instantiateVolunteerRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }

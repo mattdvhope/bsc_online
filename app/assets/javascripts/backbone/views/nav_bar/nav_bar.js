@@ -5,11 +5,11 @@ var NavBarView = Backbone.View.extend({
     this.$el.appendTo(".entire-nav");
   },
 
-  volunteer_page_visible: function() {
+  volunteer_info_visible: function() {
     return $(".entire-vol").is(":visible");
   },
   dashboard_visible: function() {
-    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible");
+    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
@@ -71,7 +71,7 @@ var NavBarView = Backbone.View.extend({
   },
   render: function(visible) {
     this.$el.html(this.template({
-      volunteer_page_visible: this.volunteer_page_visible(),
+      volunteer_info_visible: this.volunteer_info_visible(),
       dashboard_visible: this.dashboard_visible(),
       thai_language: this.app_language_is_thai(),
       top: this.top(),

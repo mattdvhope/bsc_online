@@ -44,10 +44,10 @@ class UsersController < ApplicationController
     log_out_path if users_path
     if user.guest
       deal_with_guest(user)
+    elsif user.role == "volunteer" && user.pin != "000000"
+      deal_with_volunteer(user)
     elsif user.pin
-      deal_with_pin(user)
-    else
-      deal_with_non_guest(user)
+      fully_register_student(user)
     end
   end
 
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :age, :gender, :occupation, :university_name, :religion, :studied_english_before?, :studied_english_how_long, :interested_in_follow_up?, :guest, :role_id, :pin, :payment_option, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :payment_option, :uid_facebook)
     end
 
     def deal_with_guest(user)
@@ -111,35 +111,35 @@ class UsersController < ApplicationController
       class_time.users << user
     end
 
-    def deal_with_pin(user)
+    def fully_register_student(user)
       if (User.pins_available =~ user.pin) == 0
         students = User.where("users.role = ?", "student").where("users.guest = ?", "TRUE")
-        old_guest_student = User.find_by(email: user.email.downcase)
+        old_guest_student = students.find_by(email: user.email.downcase)
         if old_guest_student
           old_guest_student.pin = params[:pin]
           old_guest_student.guest = false
           old_guest_student.password = params[:password]
           old_guest_student.password_confirmation = params[:password_confirmation]
           old_guest_student.save
+          session[:user_id] = user.id
           @user = old_guest_student
           render "show" # to get JSON in jbuilder
         else
           render :json => { :errors => "Incorrect email" }, :status => 422
         end
       else
-        render :json => { :errors => "Incorrect PIN" }, :status => 422
+        deal_with_bad_pin
       end
     end
 
-
-    def deal_with_non_guest(user)
+    def deal_with_volunteer(user)
       if (User.pins_available =~ user.pin) == 0
-        set_up(user)
+        user.password = params[:password]
+        user.password_confirmation = params[:password_confirmation]       
         if user.save
-          flash[:success] = "You now have a 'member account' with City English Project, #{user.first_name}. Welcome aboard!"
           session[:user_id] = user.id
-          redirect_to home_path
-          send_new_user_email(user)
+          @user = user
+          render "show" # to get JSON in jbuilder
         else
           if user.errors.messages[:password]
             flash[:danger] = "Password #{user.errors.messages[:password].first}."
@@ -166,8 +166,7 @@ class UsersController < ApplicationController
     end
 
     def deal_with_bad_pin
-      flash[:danger] = "PIN incorrect"
-      redirect_to root_path
+      render :json => { :errors => "Incorrect PIN" }, :status => 422
     end
 
     def send_new_user_email(user)

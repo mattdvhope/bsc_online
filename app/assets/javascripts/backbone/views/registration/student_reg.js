@@ -4,7 +4,7 @@ var StudentRegFormView = Backbone.View.extend({
   },
 
   events: {
-    "click .registration-submit": function (e) {
+    "click .student-registration-submit": function (e) {
       e.preventDefault();
       this.submit();
     }
@@ -34,7 +34,7 @@ var StudentRegFormView = Backbone.View.extend({
           console.log(response.responseText);
         }
         else if (response.responseText === '{"errors":"Incorrect email"}') {
-          $(".pin").css("border-color", "blue");
+          $(".email").css("border-color", "blue");
           $(".email").css("border-color", "red");
           console.log(response.responseText);
         }
