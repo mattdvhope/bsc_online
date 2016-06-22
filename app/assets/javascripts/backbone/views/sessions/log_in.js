@@ -27,11 +27,19 @@ var LogInFormView = Backbone.View.extend({
 
     promise
     .then(function(result) {
-      App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      if (result.role === "leader" || result.role === "admin") {
+        App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      }
+      else if (result.role === "volunteer") {
+        App.getVolunteerDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      }
+      else if (result.role === "student") {
+        App.getStudentDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      }
     })
     .catch(function(error) {
       App.getFrontMainPage();
-      console.log(error.responseJSON.error);
+      console.log(error);
     });
 
   },
