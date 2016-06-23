@@ -54,8 +54,8 @@ var App = {
     document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
-    var volunteers = new VolunteersAvailable(); // collection
-    volunteers.fetch({
+    this.volunteers = new VolunteersAvailable(); // collection
+    this.volunteers.fetch({
       success: function (collection, response, options) {
         var view = new VolunteersAvailableView({ collection: collection });
         view.render();
@@ -68,6 +68,15 @@ var App = {
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Student';
+  },
+  instantiateVolunteerProfile: function() {
+    this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
+console.log(this.volunteers);
+    $("#volunteerprofile").html(this.profile_view_modal.render().el);
+
+    // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
+    // var student = this.student.responseJSON
+    // this.profile_view.render(volunteer, student);
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -109,16 +118,6 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getVolunteersOnDashboardLoad: function() {
-    this.volunteers = new Volunteers();
-    this.volunteers.fetch();
-  },
-  getProfileForm: function(id) {
-    this.profile_view = new ProfileFormView({ collection: this.volunteers });
-    var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
-    var student = this.student.responseJSON
-    this.profile_view.render(volunteer, student);
-  },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
@@ -142,6 +141,7 @@ var App = {
     }
     else if (gon.page_needed === "student") {
       this.getStudentDashboardPage(this.presentUserModel());
+      this.instantiateVolunteerProfile();
     }
     this.getFooter();
     // this.instantiateApplicationView();

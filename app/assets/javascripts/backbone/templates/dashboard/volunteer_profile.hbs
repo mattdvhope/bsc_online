@@ -1,24 +1,44 @@
-<a class="close" href="#">Close</a>
+<div class="modal-dialog">
 
-  <header>
-    <h1>Profile of {{first_name}}!</h1>
-    <h4>
-      Here is some information about {{pronoun}}.
-    </h4>
-    <hr>
-  </header>
-
-  <h3>
-    {{first_name}} {{last_name}} is a {{age}}-year-old {{gender}} who is available as a Skype-partner for you, {{student.first_name}}.
-  </h3>
-  <br>
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h1>Profile Modal</h1>
+    </div>
 
 
-  <a class="btn btn-success" href="/student_connect_with_volunteer/{{student.id}}/{{volunteer.id}}">
-    Get in touch with {{first_name}}
-  </a>
+    <div class="modal-body">
 
-  <a class="btn btn-warning" href="#">Not choose {{first_name}} yet</a>
+      <header>
+        <h1>Profile of {{first_name}}!</h1>
+        <h4>
+          Here is some information about {{pronoun}}.
+        </h4>
+        <hr>
+      </header>
+
+      <h3>
+        {{first_name}} {{last_name}} is a {{age}}-year-old {{gender}} who is available as a Skype-partner for you, {{student.first_name}}.
+      </h3>
+      <br>
+
+
+      <a class="btn btn-success" href="/student_connect_with_volunteer/{{student.id}}/{{volunteer.id}}">
+        Get in touch with {{first_name}}
+      </a>
+
+      <a class="btn btn-warning" href="#">Not choose {{first_name}} yet</a>
+
+    </div> <!-- modal-body -->
+
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
 
 
 
