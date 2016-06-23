@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
 
-  # before_action :require_leader, :only => [:students]
-
   include ApplicationHelper
 
   def front
@@ -32,10 +30,6 @@ class PagesController < ApplicationController
     else
       redirect_to root_path
     end
-  end
-
-  def students
-    @students = User.where("users.role = ?", "student")
   end
 
   def contact
