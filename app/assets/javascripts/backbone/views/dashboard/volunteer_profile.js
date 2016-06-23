@@ -6,6 +6,7 @@ var VolunteerProfileView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/volunteer_profile'],
 
   render: function(volunteer, student) {
+console.log(this.collection.toJSON());
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     // var gender = volunteer.gender
     // var pronoun;

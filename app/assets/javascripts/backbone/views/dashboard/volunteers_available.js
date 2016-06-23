@@ -5,6 +5,12 @@ var VolunteersAvailableView = Backbone.View.extend({
     this.$el.appendTo(".entire");
   },
 
+  events: {
+    'click .modal-initiator': function (e) {
+      console.log($(e.target));
+    }
+  },
+
   no_volunteers: function() {
     var vol_num = this.collection.length
     if (vol_num === 0) { 

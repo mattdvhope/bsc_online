@@ -59,6 +59,9 @@ var App = {
       success: function (collection, response, options) {
         var view = new VolunteersAvailableView({ collection: collection });
         view.render();
+        var profile_view_modal = new VolunteerProfileView({ collection: collection });
+    console.log(collection);
+        $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -70,9 +73,9 @@ var App = {
     document.title = 'City English Project | Student';
   },
   instantiateVolunteerProfile: function() {
-    this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
-console.log(this.volunteers);
-    $("#volunteerprofile").html(this.profile_view_modal.render().el);
+//     this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
+// console.log(this.volunteers);
+//     $("#volunteerprofile").html(this.profile_view_modal.render().el);
 
     // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
     // var student = this.student.responseJSON
@@ -141,7 +144,7 @@ console.log(this.volunteers);
     }
     else if (gon.page_needed === "student") {
       this.getStudentDashboardPage(this.presentUserModel());
-      this.instantiateVolunteerProfile();
+      // this.instantiateVolunteerProfile();
     }
     this.getFooter();
     // this.instantiateApplicationView();

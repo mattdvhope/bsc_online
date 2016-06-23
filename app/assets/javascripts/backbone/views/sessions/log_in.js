@@ -35,7 +35,7 @@ var LogInFormView = Backbone.View.extend({
       }
       else if (result.role === "student") {
         App.getStudentDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
-        App.instantiateVolunteerProfile();
+        // App.instantiateVolunteerProfile();
       }
     })
     .catch(function(error) {
@@ -48,11 +48,6 @@ var LogInFormView = Backbone.View.extend({
         showConfirmButton: true,
         animation: "slide-from-bottom"
       });
-    })
-    .then(function(result) {
-      if (result.role === "student") {
-        App.instantiateVolunteerProfile();
-      }
     });
 
     function makeModel(result) {

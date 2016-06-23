@@ -8,10 +8,10 @@
     <ul style="list-style-type:none">
       <hr>
     {{#each volunteers}}
-      <li id="backbone-app">
-        <a class="modal-initiator"  href="#" data-toggle="modal" data-target="#volunteerprofile">
-          <h3 style="text-decoration: underline;">{{this.first_name}} {{this.last_name}}</h3>
-        </a>
+      <li>
+        <h3 style="cursor: pointer; text-decoration: underline;" class="modal-initiator" data-toggle="modal" data-target="#volunteerprofile">
+          {{this.first_name}} {{this.last_name}}
+        </h3>
         <h4>Gender: {{this.gender}}</h4>
         <h4>Age: {{this.age}}</h4>
         <h4>State: {{this.province}}</h4>
