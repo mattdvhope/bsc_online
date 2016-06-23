@@ -48,20 +48,26 @@ var App = {
     document.title = 'City English Project | Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
-    this.removeNavAndPage();
-
-    document.title = 'City English Project | Dashboard';
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
-    this.removeNavAndPage();
-
-    document.title = 'City English Project | Dashboard';
+    var volunteers = new VolunteersAvailable(); // collection
+    volunteers.fetch({
+      success: function (collection, response, options) {
+        var view = new VolunteersAvailableView({ collection: collection });
+        view.render();
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Student';
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();

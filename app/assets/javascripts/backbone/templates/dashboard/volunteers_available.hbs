@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h2>Here is a list of potential Skype partners for you.  Click</h2>
+  <br>
+  {{#if no_volunteers}}
+    <h3>There are currently no volunteers available.</h3>
+  {{^}}
+    <ul style="list-style-type:none">
+      <hr>
+    {{#each volunteers}}
+      <li >
+        <h3 style="text-decoration: underline;">{{this.first_name}} {{this.last_name}}</h3>
+        <h4>{{this.first_name}}</h4>
+        <h4>{{this.last_name}}</h4>
+        <h4>{{this.gender}}</h4>
+        <h4>{{this.age}}</h4>
+        <hr>
+      </li>
+    {{/each}} <!-- each class times -->
+    </ul>
+  {{/if}}
+
+  <hr>
+  <h2><a href="/log_out">Log Out</a></h2>
+  <hr>
+
+</div> <!-- container -->
+
+
