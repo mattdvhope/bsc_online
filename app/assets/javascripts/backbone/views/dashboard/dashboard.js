@@ -14,7 +14,7 @@ var DashboardView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       first_name: this.model.get("first_name"),
-      first_name: this.model.get("role")
+      role: this.model.get("role")
     }));
   }
 });
