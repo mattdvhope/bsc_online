@@ -25,7 +25,7 @@ class PagesController < ApplicationController
       when "volunteer"
         gon.page_needed = "volunteer"
       when "student"
-        # @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
+        @volunteers = User.where("users.role = ? OR users.role = ?", "admin", "volunteer")
         gon.page_needed = "student"
       end
       @user = current_user
