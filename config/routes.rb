@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: "pages#dashboard"
 
-  resources :volunteers_available, only: [:index, :show]
-
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
@@ -23,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
+
+  resources :volunteers_available, only: [:index, :show]
 
   get 'student_connect_with_volunteer/:id/:volunteer_id', to: "users#student_connect_with_volunteer"
   get 'register_student', to: "users#new"
