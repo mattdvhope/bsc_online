@@ -4,8 +4,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-var $entire = $(document).find(".entire");
-
 var App = {
   getFrontMainPage: function() {
     this.removeNavAndPage();
@@ -73,7 +71,7 @@ var App = {
   },
   removeNavAndPage: function() {
     $(".entire-nav").children().remove();
-    $entire.children().remove();
+    $(document).find(".entire").children().remove();
   },
   getFooter: function() {
     $(".entire-footer").children().remove();
