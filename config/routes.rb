@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: "pages#dashboard"
 
+  resources :volunteers_available, only: [:index, :show]
+
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
