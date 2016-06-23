@@ -119,6 +119,10 @@ var App = {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
   },
+  presentUserModel: function() {
+    var user_object = $("#user-now").data("present-user");
+    return new Backbone.Model(user_object);
+  },
   init: function() {
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
@@ -127,19 +131,13 @@ var App = {
       this.getVolunteerPage();
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      var user_object = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user_object);
-      App.getDashboardPage(user_model);
+      App.getDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "volunteer") {
-      var user_object = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user_object);
-      App.getVolunteerDashboardPage(user_model);
+      App.getVolunteerDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "student") {
-      var user = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user);
-      App.getStudentDashboardPage(user_model);
+      App.getStudentDashboardPage(this.presentUserModel());
     }
     this.getFooter();
     // this.instantiateApplicationView();
