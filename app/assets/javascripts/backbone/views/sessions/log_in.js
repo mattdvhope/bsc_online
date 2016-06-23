@@ -40,6 +40,13 @@ var LogInFormView = Backbone.View.extend({
     .catch(function(error) {
       App.getFrontMainPage();
       console.log(error);
+      swal({
+        title: "Problem logging into app",
+        text: "There was a problem logging into the app because of the server.  It may be because your internet service is slow.  Please try logging in again.",
+        timer: 15000,
+        showConfirmButton: true,
+        animation: "slide-from-bottom"
+      });
     });
 
     function makeModel(result) {
