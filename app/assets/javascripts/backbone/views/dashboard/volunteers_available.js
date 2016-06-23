@@ -1,15 +1,22 @@
 var VolunteersAvailableView = Backbone.View.extend({
-  template:  HandlebarsTemplates['dashboard/volunteers_available'],
-
   initialize: function() {
     this.$el.appendTo(".entire");
   },
 
   events: {
-    'click .modal-initiator': function (e) {
-      console.log($(e.target));
+    'click .volunteer-profile-modal': function (e) {
+      // console.log($(e.target)[0].dataset.firstName);
+      var volunteerName = $(e.target)[0].dataset.firstName;
+      console.log(volunteerName);
+      $(".modal-body #volunteer-name").text( volunteerName );
     }
   },
+
+
+
+
+
+  template:  HandlebarsTemplates['dashboard/volunteers_available'],
 
   no_volunteers: function() {
     var vol_num = this.collection.length
