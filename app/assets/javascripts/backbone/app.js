@@ -75,8 +75,8 @@ var App = {
   },
   getFooter: function() {
     $(".entire-footer").children().remove();
-    var front_page_footer = new FooterFrontView();
-    front_page_footer.render();
+    this.front_page_footer = new FooterFrontView();
+    this.front_page_footer.render();
   },
   instantiateLogInForm: function() {
     var session = new Session();
