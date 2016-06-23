@@ -18,10 +18,6 @@ class UsersController < ApplicationController
     redirect_to volunteer_info_path
   end
 
-  def volunteers
-    @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
-  end
-
   def student_connect_with_volunteer
     student = User.find(params[:id])
     volunteer = User.find(params[:volunteer_id])
