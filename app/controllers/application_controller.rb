@@ -2,16 +2,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
 
-  # rescue_from ActiveRecord::RecordNotFound, :with => :not_found_render_404
-  # rescue_from ActionController::InvalidAuthenticityToken, :with => :invalid_authenticity
-  # rescue_from NoMethodError, :with => :guest_timed_out
-
   def require_leader
     redirect_to root_path unless current_user && current_user.leader?
   end
 
   def require_user
-    destroy_guest_if_timed_out
     redirect_to root_path unless current_user
   end
 
@@ -46,34 +41,6 @@ class ApplicationController < ActionController::Base
     def guest_timed_out
       flash[:danger] = "Your Guest Status timed out after one hour. Feel free to visit again as a guest!"
       redirect_to root_path
-    end
-
-    # def destroy_guest_if_timed_out # in 'require_user' method
-    #   if current_user
-    #     if current_user.guest?
-    #       if current_user.guest_session_time_limit_expired?
-    #         current_user.destroy
-    #       end
-    #     end
-    #   end
-    # end
-
-    def clear_out_extra_guests_from_app
-      clear_out_expired_guests_from_app
-      delete_glut_of_guests            
-    end
-
-    # def clear_out_expired_guests_from_app
-    #   User.where(guest: true).each do |user|
-    #     user.destroy if user.guest_session_time_limit_expired?
-    #   end
-    # end
-
-    def delete_glut_of_guests
-      guests_in_app_now = User.where(guest: true)
-      if guests_in_app_now.count > 100
-        guests_in_app_now.first.destroy
-      end
     end
 
 end
