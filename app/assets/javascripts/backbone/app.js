@@ -129,13 +129,13 @@ var App = {
       this.getVolunteerPage();
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      App.getDashboardPage(this.presentUserModel());
+      this.getDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "volunteer") {
-      App.getVolunteerDashboardPage(this.presentUserModel());
+      this.getVolunteerDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "student") {
-      App.getStudentDashboardPage(this.presentUserModel());
+      this.getStudentDashboardPage(this.presentUserModel());
     }
     this.getFooter();
     // this.instantiateApplicationView();
