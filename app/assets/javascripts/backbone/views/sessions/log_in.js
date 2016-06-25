@@ -43,7 +43,7 @@ var LogInFormView = Backbone.View.extend({
       console.log(error);
       swal({
         title: "Problem logging into app",
-        text: "Maybe your internet service is slow.  Please try again.",
+        text: "Internet service is slow or some data incorrect.  Please try again.",
         timer: 15000,
         showConfirmButton: true,
         animation: "slide-from-bottom"
