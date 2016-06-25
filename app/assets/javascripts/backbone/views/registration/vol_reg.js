@@ -24,6 +24,7 @@ var VolRegFormView = Backbone.View.extend({
     var options = {
       success: function (model, response, options) {
         $("#registervolunteermodal").modal("hide");
+        App.removeNavAndPage();
         App.getVolunteerDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
