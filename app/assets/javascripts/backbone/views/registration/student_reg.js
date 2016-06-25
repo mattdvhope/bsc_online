@@ -22,6 +22,7 @@ var StudentRegFormView = Backbone.View.extend({
     var options = {
       success: function (model, response, options) {
         $("#registerstudentmodal").modal("hide");
+        App.removeNavAndPage();
         App.getStudentDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
