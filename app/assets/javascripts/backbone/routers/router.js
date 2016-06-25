@@ -2,8 +2,7 @@ var Router = Backbone.Router.extend({
   routes: {
     "register_admin": "registerAdmin",
     "application_form": "apply_to_cep",
-    "volunteer_info": "showVolunteerPage",
-    "volunteers/:id": "showProfile"
+    "volunteer_info": "showVolunteerPage"
   },
   registerAdmin: function() {
     App.getAdminRegForm();
@@ -22,9 +21,6 @@ var Router = Backbone.Router.extend({
     } else {
       App.getVolunteerPage();      
     }
-  },
-  showProfile: function(id) {
-    App.getProfileForm(id);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;

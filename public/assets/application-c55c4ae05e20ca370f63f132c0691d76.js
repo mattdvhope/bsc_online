@@ -346,9 +346,6 @@ Based on Rails routes of BscOnline::Application
 // about => /about(.:format)
   // function(options)
   about_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"about",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// admin => /admin(.:format)
-  // function(options)
-  admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // admin_application => /admin_applications/:id(.:format)
   // function(id, options)
   admin_application_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"admin_applications",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
@@ -448,9 +445,6 @@ Based on Rails routes of BscOnline::Application
 // grades => /grades(.:format)
   // function(options)
   grades_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"grades",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// leader => /leader(.:format)
-  // function(options)
-  leader_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"leader",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // log_in => /log_in(.:format)
   // function(options)
   log_in_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"log_in",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
@@ -538,12 +532,6 @@ Based on Rails routes of BscOnline::Application
 // sessions => /sessions(.:format)
   // function(options)
   sessions_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"sessions",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// student => /student(.:format)
-  // function(options)
-  student_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"student",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// students => /students(.:format)
-  // function(options)
-  students_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"students",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // unsubscribe => /users/unsubscribe/:signature(.:format)
   // function(signature, options)
   unsubscribe_path: Utils.route(["signature"], ["format"], [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"unsubscribe",false],[2,[7,"/",false],[2,[3,"signature",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], arguments),
@@ -553,15 +541,15 @@ Based on Rails routes of BscOnline::Application
 // users => /users(.:format)
   // function(options)
   users_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// volunteer => /volunteer(.:format)
-  // function(options)
-  volunteer_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // volunteer_info => /volunteer_info(.:format)
   // function(options)
   volunteer_info_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteer_info",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
-// volunteers => /volunteers(.:format)
+// volunteers_available => /volunteers_available/:id(.:format)
+  // function(id, options)
+  volunteers_available_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"volunteers_available",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments),
+// volunteers_available_index => /volunteers_available(.:format)
   // function(options)
-  volunteers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteers",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
+  volunteers_available_index_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteers_available",false],[1,[2,[8,".",false],[3,"format",false]],false]]], arguments),
 // volunteers_volunteers => /volunteers/volunteers(.:format)
   // function(options)
   volunteers_volunteers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"volunteers",false],[2,[7,"/",false],[2,[6,"volunteers",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], arguments)}
@@ -18686,41 +18674,49 @@ window.fbAsyncInit = function() {
 },"14":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.program(17, data, 0),"data":data})) != null ? stack1 : "");
-},"15":function(depth0,helpers,partials,data) {
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_email_explanation'],depth0,{"name":"application_form/thai/_email_explanation","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"16":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_univ_options'],depth0,{"name":"application_form/thai/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"17":function(depth0,helpers,partials,data) {
+  return ((stack1 = this.invokePartial(partials['application_form/english/_email_explanation'],depth0,{"name":"application_form/english/_email_explanation","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"18":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/english/_univ_options'],depth0,{"name":"application_form/english/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(19, data, 0),"inverse":this.program(21, data, 0),"data":data})) != null ? stack1 : "");
 },"19":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(20, data, 0),"inverse":this.program(22, data, 0),"data":data})) != null ? stack1 : "")
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_univ_options'],depth0,{"name":"application_form/thai/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"21":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_univ_options'],depth0,{"name":"application_form/english/_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"23":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(24, data, 0),"inverse":this.program(26, data, 0),"data":data})) != null ? stack1 : "")
     + "        </label>\n";
-},"20":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_non_univ_options'],depth0,{"name":"application_form/thai/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"22":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['application_form/english/_non_univ_options'],depth0,{"name":"application_form/english/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"24":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_bank_transfer'],depth0,{"name":"application_form/thai/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_non_univ_options'],depth0,{"name":"application_form/thai/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"26":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/english/_bank_transfer'],depth0,{"name":"application_form/english/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/english/_non_univ_options'],depth0,{"name":"application_form/english/_non_univ_options","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"28":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['application_form/thai/_after_submit_visit'],depth0,{"name":"application_form/thai/_after_submit_visit","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_bank_transfer'],depth0,{"name":"application_form/thai/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"30":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/english/_bank_transfer'],depth0,{"name":"application_form/english/_bank_transfer","data":data,"indent":"                  ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"32":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['application_form/thai/_after_submit_visit'],depth0,{"name":"application_form/thai/_after_submit_visit","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"34":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['application_form/english/_after_submit_visit'],depth0,{"name":"application_form/english/_after_submit_visit","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -18731,23 +18727,25 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "    </div>\n    <div class=\"modal-body\">\n      <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n        <input type=\"hidden\" name=\"guest\" value=\"true\">\n"
+    + ">\n      <input type=\"hidden\" name=\"guest\" value=\"true\">\n\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "        <hr>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n        <label class=\"field-label\">Province / District in Bangkok</label>\n        <input type=\"text\" class=\"form-control district\" placeholder=\"จังหวัด / เขตในกรุงเทพมหานคร\" name=\"district\">\n        <hr>\n\n        <!-- partials with selectors -->\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
+    + "        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"อายุ\" name=\"age\">\n        <hr>\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n        <label class=\"field-label email-label\">Email Address <h4>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.program(16, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n        <label class=\"field-label\">Province / District in Bangkok</label>\n        <input type=\"text\" class=\"form-control district\" placeholder=\"จังหวัด / เขตในกรุงเทพมหานคร\" name=\"district\">\n        <hr>\n\n        <!-- partials with selectors -->\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.university_summer_applicant : depth0),{"name":"if","hash":{},"fn":this.program(18, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
     + "        <hr>\n\n        <fieldset id=\"payment-options\">\n          <label class=\"field-label payment-options-label\">"
     + this.escapeExpression(((helper = (helper = helpers.choose_payment_option || (depth0 != null ? depth0.choose_payment_option : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"choose_payment_option","hash":{},"data":data}) : helper)))
     + "</label>\n            <div class=\"radio-div-applic\">\n              <label>\n                <input type=\"radio\"  class=\"radio-pay_at_center radio-in-appl\">"
     + this.escapeExpression(((helper = (helper = helpers.pay_at_center || (depth0 != null ? depth0.pay_at_center : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pay_at_center","hash":{},"data":data}) : helper)))
     + this.escapeExpression(((helper = (helper = helpers.pan_road || (depth0 != null ? depth0.pan_road : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pan_road","hash":{},"data":data}) : helper)))
     + ".\n              </label>\n            </div>\n            <br>\n            <div class=\"radio-div-applic\">\n              <label>\n                <input type=\"radio\"  class=\"radio-pay_by_transfer radio-in-appl\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(24, data, 0),"inverse":this.program(26, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(28, data, 0),"inverse":this.program(30, data, 0),"data":data})) != null ? stack1 : "")
     + "              </label>\n            </div>\n            <p class=\"under-radios\">\n              <a data-toggle=\"modal\" href=\"#\" data-target=\"#paymentInfoModal\">"
     + this.escapeExpression(((helper = (helper = helpers.payment_info || (depth0 != null ? depth0.payment_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"payment_info","hash":{},"data":data}) : helper)))
     + "</a>\n            </p>\n        </fieldset>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(28, data, 0),"inverse":this.program(30, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(32, data, 0),"inverse":this.program(34, data, 0),"data":data})) != null ? stack1 : "")
     + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#applicationmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n\n  //// radio buttons /////\n  // var button1 = document.getElementById(\"sched-opt-one\");\n  // var button2 = document.getElementById(\"sched-opt-two\");\n\n  // $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n  //   if (button1.checked){ // if #five-weeks selected\n  //     $('#five-weeks').prop('disabled', false);\n  //     $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#one-whole-week').val('select_option');\n  //     $('#one-whole-week').prop('disabled', 'disabled');\n  //     $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  //   else if (button2.checked) { // if #one-whole-week selected\n  //     $('#one-whole-week').prop('disabled', false);\n  //     $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#five-weeks').val('select_option');\n  //     $('#five-weeks').prop('disabled', 'disabled');\n  //     $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  // });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n\n  //// radio buttons /////\n\n</script>\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["application_form/application_form"];
@@ -18765,6 +18763,11 @@ window.fbAsyncInit = function() {
 (function() {
   Handlebars.registerPartial("application_form/english/_choose_sched_option", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "Choose your schedule option.  Currently we are offering our classes at the Beginner, High-Beginner and Low-Intermediate Levels.  If you have questions about how we assign levels to our students, please visit our CEP center on 66 Pan Road, Silom, Bangrak, Bangkok 10500.  Our Registration hours are 5:00pm-9:00pm, Monday-Tuesday and 10:00am-3:00pm, Saturday.  How do we determine your level?  We will test you when you come to our Pan Road office.";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/english/_email_explanation", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "(Since our domain name is very new, many email providers (like \"Hotmail\" and others) will automatically put emails from \"info@cityenglishproject\" into your \"Junk\" mailbox.  If you do not see our follow-up email to you in your regular inbox, please look in your \"Junk\" mailbox. If you see it there, please move it to your regular \"Inbox.\"  If you do that, then future emails from \"info@cityenglishproject.com\" will automatically go to your inbox.  Also, you will help improve CEP's relationship with \"Hotmail,\" etc and help other people automatically receive emails in their inboxes in the future!  If you do not receive an email at all, please write to use at info@cityenglishproject.com for information about your classes.  Thank you very much!)";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18844,6 +18847,11 @@ window.fbAsyncInit = function() {
 (function() {
   Handlebars.registerPartial("application_form/thai/_choose_sched_option", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "เลือกตารางเวลาเรียนของคุณ ขณะนี้เราได้นำเสนอหลักสูตรของเราในระดับ Beginner (ระดับต้น), ระดับ High-Beginner (ระดับสูงกว่าระดับต้น) และ ระดับ Low-Intermediate (ระดับต่ำกว่าระดับกลาง)หากคุณมีคำถามเกี่ยวกับวิธีการจัดระดับชั้นเรียนให้กับผู้เรียนของเรา กรุณาติดต่อสอบถามได้ที่\nศูนย์โครงการซิตี้ อิงลิช เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร ในเวลาสำหรับการลงทะเบียนเรียนของเราคือ วันจันทร์ - วันอังคาร เวลา 17:00 - 21:00 และวันเสาร์เวลา 10:00 - 15:00 ถ้าคุณอยากจะรู้ว่าระดับภาษาอังกฤษของคุณอยู่ระดับไหน? เราจะมีการทดสอบเมื่อคุณมาที่สำนักงานของเรา";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("application_form/thai/_email_explanation", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "เนื่องจากชื่อโดเมนของโครงการเราเป็นโดเมนที่ใหม่มาก ดังนั้นผู้ให้บริการอีเมลจำนวนมาก (อย่างเช่น \"Hotmail\" และอื่น ๆ ) จะนำอีเมลที่รับจาก \"info@cityenglishproject\" ไปเก็บไว้ในกล่องรับจดหมาย \"Junk\" ของคุณโดยอัตโนมัติ หากคุณไม่เห็นอีเมลตอบรับการลงทะเบียนเรียนจากเราในกล่องรับจดหมาย “Inbox” ของคุณ กรุณาเข้าไปดูในกล่องรับจดหมาย \"Junk\"  ของคุณ ถ้าคุณเจออีเมลตอบรับของเราในนั้น กรุณาย้ายอีเมลนั้นไปเก็บไว้ใน \" Inbox \" ของคุณ เมื่อคุณทำอย่างนั้นแล้ว ต่อไปอีเมลจาก info@cityenglishproject.com จะถูกรับและนำไปเก็บไว้ในกล่องจดหมาย \" Inbox \" ปกติของคุณโดยอัตโนมัติ นอกจากนี้คุณยังจะช่วยปรับปรุงความสัมพันธ์ของโครงการ City English Project กับ \"Hotmail,\" และ ฯลฯ และจะช่วยให้คนอื่นๆได้รับอีเมลจาก City English Project ไปไว้ในกล่องจดหมาย \" Inbox \" ปกติของพวกเขาโดยอัตโนมัติในอนาคตด้วย! ในกรณีที่คุณไม่ได้รับอีเมลตอบรับจากโครงการเลย กรุณาส่งอีเมลแจ้งชื่อและข้อมูลเกี่ยวกับการสมัครเรียนของคุณมาที่ info@cityenglishproject.com ขอบคุณมาก!";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -18989,7 +18997,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container\">\n\n  <h2>Here is a list of CEP class times and the students who have registered for them.</h2>\n  <br>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_class_times : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + " <!-- if no class times -->\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n\n<script>\n  \nHandlebars.registerHelper('if_eq', function(a, b, opts) {\n    if (a == b) {\n        return opts.fn(this);\n    } else {\n        return opts.inverse(this);\n    }\n});\n\n\n</script>\n";
+    + " <!-- if no class times -->\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/class_times"];
 }).call(this);
@@ -19008,37 +19016,6 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["dashboard/profile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper;
-
-  return "<a class=\"close\" href=\"#\">Close</a>\n\n  <header>\n    <h1>Profile of "
-    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
-    + "!</h1>\n    <h4>\n      Here is some information about "
-    + this.escapeExpression(((helper = (helper = helpers.pronoun || (depth0 != null ? depth0.pronoun : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pronoun","hash":{},"data":data}) : helper)))
-    + ".\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    "
-    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
-    + " "
-    + this.escapeExpression(((helper = (helper = helpers.last_name || (depth0 != null ? depth0.last_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"last_name","hash":{},"data":data}) : helper)))
-    + " is a "
-    + this.escapeExpression(((helper = (helper = helpers.age || (depth0 != null ? depth0.age : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"age","hash":{},"data":data}) : helper)))
-    + "-year-old "
-    + this.escapeExpression(((helper = (helper = helpers.gender || (depth0 != null ? depth0.gender : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"gender","hash":{},"data":data}) : helper)))
-    + " who is available as a Skype-partner for you, "
-    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + ".\n  </h3>\n  <br>\n\n\n  <a class=\"btn btn-success\" href=\"/student_connect_with_volunteer/"
-    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.id : stack1), depth0))
-    + "/"
-    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.id : stack1), depth0))
-    + "\">\n    Get in touch with "
-    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
-    + "\n  </a>\n\n  <a class=\"btn btn-warning\" href=\"#\">Not choose "
-    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
-    + " yet</a>\n\n\n";
-},"useData":true});
-  return this.HandlebarsTemplates["dashboard/profile"];
-}).call(this);
-(function() {
-  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/student_dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -19052,42 +19029,80 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["dashboard/students"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "    <h3>Currently no new students who've applied.</h3>\n";
+  this.HandlebarsTemplates["dashboard/volunteer_dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + " as a volunteer!!.</h2>\n    <br>\n    <h2>Here you can do Skype partnerships</h2>\n    <br>\n    <hr>\n  </div>\n\n</div>\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/volunteer_dashboard"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/volunteer_profile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h1>Profile Modal</h1>\n    </div>\n\n\n    <div class=\"modal-body\">\n\n      <header>\n        <h1>Profile of "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + "!</h1>\n        <h4>\n          Here is some information about "
+    + this.escapeExpression(((helper = (helper = helpers.pronoun || (depth0 != null ? depth0.pronoun : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"pronoun","hash":{},"data":data}) : helper)))
+    + ".\n        </h4>\n        <hr>\n      </header>\n\n      <h3>\n        "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + " "
+    + this.escapeExpression(((helper = (helper = helpers.last_name || (depth0 != null ? depth0.last_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"last_name","hash":{},"data":data}) : helper)))
+    + " is a "
+    + this.escapeExpression(((helper = (helper = helpers.age || (depth0 != null ? depth0.age : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"age","hash":{},"data":data}) : helper)))
+    + "-year-old "
+    + this.escapeExpression(((helper = (helper = helpers.gender || (depth0 != null ? depth0.gender : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"gender","hash":{},"data":data}) : helper)))
+    + " who is available as a Skype-partner for you, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + ".\n      </h3>\n      \n      <hr>\n      <h3 id=\"volunteer-name\"></h3>\n      <hr>\n\n      <br>\n\n\n      <a class=\"btn btn-success\" href=\"/student_connect_with_volunteer/"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.id : stack1), depth0))
+    + "/"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.id : stack1), depth0))
+    + "\">\n        Get in touch with "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + "\n      </a>\n\n      <button type=\"button\" class=\"btn btn-warning close-modal\" data-dismiss=\"modal\">Not choose "
+    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
+    + " yet</button>\n\n    </div> <!-- modal-body -->\n\n\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/volunteer_profile"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/volunteers_available"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <h3>There are currently no volunteers available.</h3>\n";
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "    <h2>Here is a list of students who have applied (make sure your window screen is wide enough to read all of the columns)....</h2>\n    <div class=\"table-responsive\">\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Nick Name</th>\n            <th>First Name</th>\n            <th>Last Name</th>\n            <th>Gender</th>\n            <th>Phone Number</th>\n            <th>Email</th>\n            <th>Province/District</th>\n            <th>Payment Option</th>\n            <th>Class Time</th>\n          </tr>\n        </thead>\n\n        <tbody>\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "        </tbody>\n      </table>\n    </div>\n";
+  return "    <ul style=\"list-style-type:none\">\n      <hr>\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.volunteers : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- each class times -->\n    </ul>\n";
 },"4":function(depth0,helpers,partials,data) {
-    return "          <tr>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
-    + "</td>\n            <td>"
+    return "      <li>\n        <h3 style=\"cursor: pointer; text-decoration: underline;\" class=\"modal-initiator volunteer-profile-modal\" data-toggle=\"modal\" data-target=\"#volunteerprofile\" data-first-name="
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + "</td>\n            <td>"
+    + " value=\"crazy value\">\n          "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + " "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + "</td>\n            <td>"
+    + "\n        </h3>\n        <h4>Gender: "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.gender : depth0), depth0))
-    + "</td>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
-    + "</td>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.email : depth0), depth0))
-    + "</td>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.district : depth0), depth0))
-    + "</td>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.payment_option : depth0), depth0))
-    + "</td>\n            <td>"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.class_period : depth0), depth0))
-    + "</td>\n          </tr>\n";
+    + "</h4>\n        <h4>Age: "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.age : depth0), depth0))
+    + "</h4>\n        <h4>State: "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.province : depth0), depth0))
+    + "</h4>\n        <h4>Country: "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.country : depth0), depth0))
+    + "</h4>\n        <hr>\n      </li>\n    ";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container\">\n\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_students : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div>";
+  return "<div class=\"container\">\n\n  <h2>Here is a list of potential Skype partners for you.  Click</h2>\n  <br>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_volunteers : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n\n";
 },"useData":true});
-  return this.HandlebarsTemplates["dashboard/students"];
+  return this.HandlebarsTemplates["dashboard/volunteers_available"];
 }).call(this);
 (function() {
   Handlebars.registerPartial("footer/english/_address", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -19634,7 +19649,7 @@ window.fbAsyncInit = function() {
   return "            <li><a href=\"#page-top\" id=\"place_1\" class=\"page-scroll nav-hover\">"
     + this.escapeExpression(((helper = (helper = helpers.top || (depth0 != null ? depth0.top : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"top","hash":{},"data":data}) : helper)))
     + "</a></li>\n\n            <li role=\"separator\" class=\"divider\"></li>\n\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.volunteer_page_visible : depth0),{"name":"if","hash":{},"fn":this.program(2, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.volunteer_info_visible : depth0),{"name":"if","hash":{},"fn":this.program(2, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
     + "\n            <li role=\"separator\" class=\"divider\"></li>\n\n            <li><a href=\"#contact-us\" id=\"place_5\" class=\"page-scroll nav-hover\">"
     + this.escapeExpression(((helper = (helper = helpers.contact_us || (depth0 != null ? depth0.contact_us : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"contact_us","hash":{},"data":data}) : helper)))
     + "</a></li>\n\n            <li class=\"dropdown\">\n              <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
@@ -19651,9 +19666,9 @@ window.fbAsyncInit = function() {
     + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
     + "<span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\">\n                <li id=\"backbone-app\" class=\"volunteer_page\">\n                  <a id=\"drop-down-link\" href=\"/volunteer_info\">"
     + this.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_info","hash":{},"data":data}) : helper)))
-    + "</a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
+    + "</a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#registervolunteermodal\">\n                    "
     + this.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
-    + "</a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\" class=\"login-checker\">\n                  <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
+    + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\" class=\"login-checker\">\n                  <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
     + this.escapeExpression(((helper = (helper = helpers.login_volunteer || (depth0 != null ? depth0.login_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_volunteer","hash":{},"data":data}) : helper)))
     + "</a>\n                </li>\n\n                <li role=\"separator\" class=\"divider\"></li>\n\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                    Admin Log In\n                  </a>\n                </li>\n                \n              </ul>\n            </li>\n            <li>\n            <li class=\"national-flag\">\n              <span class=\"usa_flag\">\n                <img style=\"cursor: pointer;\" src=\"/assets/usa.png\" alt=\"Usa\">\n              </span>\n            </li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li class=\"national-flag\">\n              <span class=\"thai_flag\">\n                <img style=\"cursor: pointer;\" src=\"/assets/thailand.png\" alt=\"Usa\">\n              </span>\n            </li>\n\n          ";
 },"2":function(depth0,helpers,partials,data) {
@@ -19699,7 +19714,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">ลงทะเบียน</h3>\n      <h4>ลงทะเบียนเพื่อรับสิทธิ์การเป็นสมาชิกโครงการซิตี้ อิงลิช (CEP)</h4>\n      <h4>เมื่อคุณเป็นนักเรียนของโครงการซิตี้ อิงลิช (CEP) คุณสามารถเข้าถึงบริการทั้งหมดของเราได้ฟรีทันที โดยการชำระเงินค่าลงทะเบียนสำหรับบริการของเรา เรามีทางเลือกสำหรับการชำระเงินหลายช่องทางด้วยกัน</h4>\n      <h4>ถ้าคุณไม่มีรหัส PIN กรุณาติดต่อผู้สอนของคุณ</h4>\n      <br>\n      <h4>Open an account at City English Project (CEP)!</h4>\n      <h4>As an English student at CEP, you will have access to all of our free services immediately.  With our paid-for services, we offer multiple payment options.</h4>\n      <h4>If you do not have a PIN, please contact your CEP English teacher.</h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"student-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n        <label class=\"field-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"หมายเลขประจำตัว\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label\">Password</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"รหัสผ่าน\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label\">Password Confirmation</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"ยืนยันรหัสผ่าน\" name=\"password_confirmation\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary registration-submit\">\n\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n";
+    + ">\n\n        <label class=\"field-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"หมายเลขประจำตัว\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label\">Password</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"รหัสผ่าน\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label\">Password Confirmation</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"ยืนยันรหัสผ่าน\" name=\"password_confirmation\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary student-registration-submit\">\n\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/student_reg"];
 }).call(this);
@@ -19708,9 +19723,9 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["registration/vol_reg"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<a class=\"close\" href=\"#\">Close</a>\n\n<form novalidate=\"novalidate\" class=\"simple_form new_user\" id=\"new_user\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register to become a CEP volunteer</h3>\n      <h4>If you do not yet have a PIN, please contact the \"CEP volunteer administrator\" from your organization or church.</h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"volunteer-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n  <header>\n    <h1>Register as a new volunteer with City English Project (CEP)!</h1>\n    <hr>\n    <h4>\n      For information about how to be a volunteer, <a href=\"#\">click here</a>.\n    </h4>\n    <hr>\n  </header>\n\n  <h3>\n    <label for=\"vol_pin\">PIN</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[pin]\" id=\"vol_pin\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_first_name\">First Name</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[first_name]\" id=\"vol_first_name\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_last_name\">Last Name</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[last_name]\" id=\"vol_last_name\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_gender\">Gender</label>\n  </h3>\n  <h3>\n    <select name=\"user[gender]\" id=\"vol_gender\">\n      <option value=\"male\">Male</option>\n      <option value=\"female\">Female</option>\n    </select>\n  </h3>\n\n  <h3>\n    <label for=\"user_last_name\">Church, Business or Organization Name</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[occupation]\" id=\"user_occupation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_email\">Email Address</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"email\" name=\"user[email]\" id=\"user_email\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_password\">Password</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"password\" name=\"user[password]\" id=\"vol_password\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_password_confirmation\">Password Confirmation</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"password\" name=\"user[password_confirmation]\" id=\"vol_password_confirmation\">\n  </h3>\n\n  <h3>\n    <label for=\"user_phone_number\">Phone Number</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[phone_number]\" id=\"user_phone_number\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_1\">Address 1</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[address_1]\" id=\"user_address_1\">\n  </h3>\n\n  <h3>\n    <label for=\"user_address_2\">Address 2</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[address_2]\" id=\"user_address_2\">\n  </h3>\n\n  <h3>\n    <label for=\"user_city\">Town or City</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[city]\" id=\"user_city\">\n  </h3>\n\n  <h3>\n    <label for=\"user_province\">State or Province</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[province]\" id=\"user_province\">\n  </h3>\n\n  <h3>\n    <label for=\"vol_postal_code\">Zip / Postal Code</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[postal_code]\" id=\"vol_postal_code\">\n  </h3>\n\n  <h3>\n    <label for=\"country\">Country</label>\n  </h3>\n  <h3>\n    <input class=\"vol_registration\" type=\"text\" name=\"user[country]\" id=\"user_country\">\n  </h3>\n\n  <br>\n  <input type=\"submit\" name=\"commit\" value=\"Send this form to CEP\" class=\"btn btn-success vol_reg_er\">\n</form>\n";
+    + ">\n      <input type=\"hidden\" name=\"role\" value=\"volunteer\">\n\n        <label class=\"field-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"PIN\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label\">Password</label>\n        <input id=\"volunteer-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label\">Password Confirmation</label>\n        <input id=\"volunteer-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label\">Address One</label>\n        <input type=\"text\" class=\"form-control address-one\" placeholder=\"Address One\" name=\"address_1\">\n        <hr>\n\n        <label class=\"field-label\">Address Two</label>\n        <input type=\"text\" class=\"form-control address-two\" placeholder=\"Address Two\" name=\"address_2\">\n        <hr>\n\n        <label class=\"field-label\">Town or City</label>\n        <input type=\"text\" class=\"form-control city\" placeholder=\"Town or City\" name=\"city\">\n        <hr>\n\n        <label class=\"field-label\">State or Province</label>\n        <input type=\"text\" class=\"form-control province\" placeholder=\"State or Province\" name=\"province\">\n        <hr>\n\n        <label class=\"field-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Postal Code\" name=\"postal_code\">\n        <hr>\n\n        <label class=\"field-label\">Country</label>\n        <input type=\"text\" class=\"form-control country\" placeholder=\"State or Province\" name=\"country\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary volunteer-registration-submit\">\n\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/vol_reg"];
 }).call(this);
@@ -19877,24 +19892,18 @@ var ClassTimes = Backbone.Collection.extend({
   url : 'class_times'
 
 }); 
-var Students = Backbone.Collection.extend({
-
-  model: User,
-  url: "students"
-
-});
 var Users = Backbone.Collection.extend({
 
   model: User,
   url : 'users'
 
 }); 
-var Volunteers = Backbone.Collection.extend({
+var VolunteersAvailable = Backbone.Collection.extend({
 
   model: User,
-  url: "volunteers"
+  url: "volunteers_available"
 
-}); 
+});
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
@@ -19958,6 +19967,9 @@ var ApplicationView = Backbone.View.extend({
             else if (error === "Last name can't be blank") {
               $(".last-name").css("border-color", "red").attr("placeholder", "ควรกรอกนามสกุลลงในช่องว่าง");
             }
+            else if (error === "Age can't be blank") {
+              $(".age").css("border-color", "red").attr("placeholder", "ควรกรอกอายุลงในช่องว่าง");
+            }
             else if (error === "Phone number can't be blank") {
               $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
             }
@@ -19981,12 +19993,6 @@ var ApplicationView = Backbone.View.extend({
             }
             else if (error === "Password confirmation can't be blank") {
               $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกการยืนยันรหัสผ่านลงในช่องว่าง");
-            }
-            else if (error === "Postal code can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสไปรษณีย์ลงในช่องว่าง");
-            }
-            else if (error === "Postal code is invalid") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสไปรษณีย์นี้ไม่สามารถใช้งานได้");
             }
             else if (error === "Class time must be selected") {
               $(".seminar-session-select").css("border-color", "red");
@@ -20177,105 +20183,18 @@ var DashboardView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/dashboard'],
 
   initialize: function(options) {
-    this.user_object = options
+    this.options = options
     // this.listenTo(this.model, 'sync', this.render);
     this.$el.appendTo(".entire");
   },
 
   render: function() {
-console.log(this.user_object);
     this.$el.html(this.template({
-      // first_name: this.model.get("first_name"),
-      // role: this.model.get("role"),
-      first_name: this.user_object.user_object.first_name,
-      role: this.user_object.user_object.role
+      first_name: this.model.get("first_name"),
+      role: this.model.get("role")
     }));
   }
 });
-
-
-var $overlay = $("#overlay");
-
-var ProfileFormView = Backbone.View.extend({
-  attributes: {
-    id: "entry_form_modal"
-  },
-  events: {
-    "click a.close": "close",
-    "click a.btn-success": "close",
-    "click a.btn-warning": "close",
-    "click input.student_reg_er": "checkInputs"
-  },
-  duration: 300,
-  templateProfile:  HandlebarsTemplates['dashboard/profile'],
-  open: function () {
-    this.$el.add($overlay).fadeIn(this.duration);
-  },
-  checkInputs: function(e) {
-    $(".profile").css("border-color", "blue");
-    var someEmpty = $('.profile').filter(function(){
-      return $.trim(this.value).length === 0;
-    }).length > 0;
-
-    if (someEmpty) {
-      e.preventDefault();
-      this.highlightEmptyField("#volunteer_note", "your note");
-    }
-  },
-  highlightEmptyField: function(input_id, text) {
-    if ($(input_id).val() === "") {
-      $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
-    }
-  },
-  close: function(e) {
-    e.preventDefault();
-    this.fadeOut();
-    history.back();
-  },
-  fadeOut: function() {
-    // App.allowBodyScrolling();
-    $overlay.fadeOut(this.duration);
-    this.$el.fadeOut(this.duration, function() {
-      this.remove();
-    }.bind(this));
-  },
-  render: function(volunteer, student) {
-    var csrf_token = $('meta[name=csrf-token]').attr('content');
-    var gender = volunteer.gender
-    var pronoun;
-    if (gender === "male") {
-      pronoun = "him";
-      gender = "man";
-    } else if (gender === "female") {
-      pronoun = "her";
-      gender = "woman";
-    } else if (gender === "ผู้ชาย") {
-      pronoun = "him";
-      gender = "man";
-    } else if (gender === "ผู้หญิง") {
-      pronoun = "her";
-      gender = "woman";
-    }
-    this.$el.html(this.templateProfile({
-      token: csrf_token,
-      first_name: volunteer.first_name,
-      last_name: volunteer.last_name,
-      gender: gender,
-      age: volunteer.age,
-      pronoun: pronoun,
-      volunteer: volunteer,
-      student: student
-    }));
-    this.open(); // to fade the overlay in...
-  },
-  initialize: function() {
-    this.$el.appendTo(document.body);
-    // this.listenTo(this.collection, "change", this.render);
-  }
-});
-
-
-
 
 
 var StudentDashboardView = Backbone.View.extend({
@@ -20293,23 +20212,98 @@ var StudentDashboardView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       first_name: this.model.get("first_name"),
-      role: this.model.get("role"),
     }));
   }
 });
 
 
-var StudentsView = Backbone.View.extend({
-  template:  HandlebarsTemplates['dashboard/students'],
+var VolunteerDashboardView = Backbone.View.extend({
+  attributes: {
+    id: "volunteer-dashboard"
+  },
+
+  template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
 
   initialize: function() {
-    // this.listenTo(this.collection, 'all', this.render);
+    this.listenTo(this.model, 'sync', this.render);
     this.$el.appendTo(".entire");
   },
 
-  no_students: function() {
-    var student_num = this.collection.length
-    if (student_num === 0) { 
+  render: function() {
+    this.$el.html(this.template({
+      first_name: this.model.get("first_name")
+    }));
+  }
+});
+
+
+var VolunteerProfileView = Backbone.View.extend({
+  attributes: {
+    id: "volunteer-profile"
+  },
+
+  template:  HandlebarsTemplates['dashboard/volunteer_profile'],
+
+  render: function(volunteer, student) {
+console.log(this.collection.toJSON());
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    // var gender = volunteer.gender
+    // var pronoun;
+    // if (gender === "male") {
+    //   pronoun = "him";
+    //   gender = "man";
+    // } else if (gender === "female") {
+    //   pronoun = "her";
+    //   gender = "woman";
+    // } else if (gender === "ผู้ชาย") {
+    //   pronoun = "him";
+    //   gender = "man";
+    // } else if (gender === "ผู้หญิง") {
+    //   pronoun = "her";
+    //   gender = "woman";
+    // }
+    this.$el.html(this.template({
+      // token: csrf_token,
+      // first_name: volunteer.first_name,
+      // last_name: volunteer.last_name,
+      // gender: gender,
+      // age: volunteer.age,
+      // pronoun: pronoun,
+      // volunteer: volunteer,
+      // student: student
+    }));
+
+    return this;
+  }
+});
+
+
+
+
+
+var VolunteersAvailableView = Backbone.View.extend({
+  initialize: function() {
+    this.$el.appendTo(".entire");
+  },
+
+  events: {
+    'click .volunteer-profile-modal': function (e) {
+      // console.log($(e.target)[0].dataset.firstName);
+      var volunteerName = $(e.target)[0].dataset.firstName;
+      console.log(volunteerName);
+      $(".modal-body #volunteer-name").text( volunteerName );
+    }
+  },
+
+
+
+
+
+  template:  HandlebarsTemplates['dashboard/volunteers_available'],
+
+  no_volunteers: function() {
+    var vol_num = this.collection.length
+    if (vol_num === 0) { 
       return true
     }
     else {
@@ -20319,8 +20313,9 @@ var StudentsView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      no_students: this.no_students(),
-      students: this.collection.toJSON()
+      no_volunteers: this.no_volunteers(),
+      volunteers: this.collection.toJSON()
+
     }));
 
     return this;
@@ -20471,11 +20466,11 @@ var NavBarView = Backbone.View.extend({
     this.$el.appendTo(".entire-nav");
   },
 
-  volunteer_page_visible: function() {
+  volunteer_info_visible: function() {
     return $(".entire-vol").is(":visible");
   },
   dashboard_visible: function() {
-    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible");
+    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
@@ -20537,7 +20532,7 @@ var NavBarView = Backbone.View.extend({
   },
   render: function(visible) {
     this.$el.html(this.template({
-      volunteer_page_visible: this.volunteer_page_visible(),
+      volunteer_info_visible: this.volunteer_info_visible(),
       dashboard_visible: this.dashboard_visible(),
       thai_language: this.app_language_is_thai(),
       top: this.top(),
@@ -20660,7 +20655,7 @@ var StudentRegFormView = Backbone.View.extend({
   },
 
   events: {
-    "click .registration-submit": function (e) {
+    "click .student-registration-submit": function (e) {
       e.preventDefault();
       this.submit();
     }
@@ -20690,7 +20685,7 @@ var StudentRegFormView = Backbone.View.extend({
           console.log(response.responseText);
         }
         else if (response.responseText === '{"errors":"Incorrect email"}') {
-          $(".pin").css("border-color", "blue");
+          $(".email").css("border-color", "blue");
           $(".email").css("border-color", "red");
           console.log(response.responseText);
         }
@@ -20762,95 +20757,114 @@ var StudentRegFormView = Backbone.View.extend({
 
 
 
-var $overlay = $("#overlay");
-
 var VolRegFormView = Backbone.View.extend({
   attributes: {
-    id: "entry_form_modal"
+    id: "volunteer-registration-modal"
   },
+
   events: {
-    "click a.close": "close",
-    "click input.vol_reg_er": "checkInputs"
+    "click .volunteer-registration-submit": function (e) {
+      e.preventDefault();
+      this.signUp();
+    }
   },
-  duration: 300,
+
+  signUp: function() {
+    var model = this.model;
+
+    this.$el.find('input[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    this.$el.find('select[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    var options = {
+      success: function (model, response, options) {
+        $("#registervolunteermodal").modal("hide");
+        App.getVolunteerDashboardPage(model);
+        var $html = $(document.documentElement); // allow scrolling
+        $html.css('overflow', '');
+      },
+      error: function (model, response, options) {
+        console.log("error");
+        if (response.responseText === '{"errors":"Incorrect PIN"}') {
+          $(".pin").css("border-color", "blue");
+          $(".pin").css("border-color", "red");
+          console.log(response.responseText);
+        }
+        else if (response.responseText === '{"errors":"Incorrect email"}') {
+          $(".email").css("border-color", "blue");
+          $(".email").css("border-color", "red");
+          console.log(response.responseText);
+        }
+      }      
+    }
+
+    model.save({}, options);
+  },
+
   templateVolReg:  HandlebarsTemplates['registration/vol_reg'],
-  open: function () {
-    this.$el.add($overlay).fadeIn(this.duration);
-    $("#vol_pin").focus();
-  },
-  checkInputs: function(e) {
-    $(".vol_registration").css("border-color", "blue");
-    var someEmpty = $('.vol_registration').filter(function(){
-      return $.trim(this.value).length === 0;
-    }).length > 0;
 
-    if (someEmpty) {
-      e.preventDefault();
-      this.highlightEmptyField("#vol_pin", "your PIN");
-      this.highlightEmptyField("#vol_first_name", "your first name");
-      this.highlightEmptyField("#vol_last_name", "your last name");
-      this.highlightEmptyField("#user_occupation", "your occupation");
-      this.highlightEmptyField("#user_email", "an email address");
-      this.highlightEmptyField("#vol_password", "your password");
-      this.highlightEmptyField("#vol_password_confirmation", "your password confirmation");
-      this.highlightEmptyField("#user_phone_number", "a phone number");
-      this.highlightEmptyField("#user_address_1", "an address");
-      this.highlightEmptyField("#user_city", "a city or town");
-      this.highlightEmptyField("#user_province", "a state or province");
-      this.highlightEmptyField("#vol_postal_code", "a postal code");
-      this.highlightEmptyField("#user_country", "a country/nation");
-    }
+  // checkInputs: function(e) {
+  //   $(".vol_registration").css("border-color", "blue");
+  //   var someEmpty = $('.vol_registration').filter(function(){
+  //     return $.trim(this.value).length === 0;
+  //   }).length > 0;
 
-    if ($("#vol_password").val() !== $("#vol_password_confirmation").val()) {
-      e.preventDefault();
-      $("input[type='password']").val("").css("border-color", "red").attr("placeholder", "Your passwords must match.");
-    }
+  //   if (someEmpty) {
+  //     e.preventDefault();
+  //     this.highlightEmptyField("#vol_pin", "your PIN");
+  //     this.highlightEmptyField("#vol_first_name", "your first name");
+  //     this.highlightEmptyField("#vol_last_name", "your last name");
+  //     this.highlightEmptyField("#user_occupation", "your occupation");
+  //     this.highlightEmptyField("#user_email", "an email address");
+  //     this.highlightEmptyField("#vol_password", "your password");
+  //     this.highlightEmptyField("#vol_password_confirmation", "your password confirmation");
+  //     this.highlightEmptyField("#user_phone_number", "a phone number");
+  //     this.highlightEmptyField("#user_address_1", "an address");
+  //     this.highlightEmptyField("#user_city", "a city or town");
+  //     this.highlightEmptyField("#user_province", "a state or province");
+  //     this.highlightEmptyField("#vol_postal_code", "a postal code");
+  //     this.highlightEmptyField("#user_country", "a country/nation");
+  //   }
 
-    if (this.verifyEmail($("#user_email").val()) === false) {
-      e.preventDefault();
-      $("input[type='email']").val("").css("border-color", "red").attr("placeholder", "Enter a valid email.");
-    }
+  //   if ($("#vol_password").val() !== $("#vol_password_confirmation").val()) {
+  //     e.preventDefault();
+  //     $("input[type='password']").val("").css("border-color", "red").attr("placeholder", "Your passwords must match.");
+  //   }
 
-    if (this.verifyPostalCode($("#vol_postal_code").val()) === false) {
-      e.preventDefault();
-      $("input[id='vol_postal_code']").val("").css("border-color", "red").attr("placeholder", "Enter a valid postal code.");
-    }
+  //   if (this.verifyEmail($("#user_email").val()) === false) {
+  //     e.preventDefault();
+  //     $("input[type='email']").val("").css("border-color", "red").attr("placeholder", "Enter a valid email.");
+  //   }
 
-  },
-  highlightEmptyField: function(input_id, text) {
-    if ($(input_id).val() === "") {
-      $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
-    }
-  },
-  verifyEmail: function(email) {
-    return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-  },
-  verifyPostalCode: function(post) {
-    return (/^(\d{5})?$/.test(post))
-  }, // FIX this REGEX to correspond to the Ruby REGEX in 'user.rb'!!!
+  //   if (this.verifyPostalCode($("#vol_postal_code").val()) === false) {
+  //     e.preventDefault();
+  //     $("input[id='vol_postal_code']").val("").css("border-color", "red").attr("placeholder", "Enter a valid postal code.");
+  //   }
 
-  close: function(e) {
-    e.preventDefault();
-    this.fadeOut();
-    history.back();
-  },
-  fadeOut: function() {
-    // App.allowBodyScrolling();
-    $overlay.fadeOut(this.duration);
-    this.$el.fadeOut(this.duration, function() {
-      this.remove();
-    }.bind(this));
-    App.reg_form = undefined;
-  },
+  // },
+  // highlightEmptyField: function(input_id, text) {
+  //   if ($(input_id).val() === "") {
+  //     $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
+  //   }
+  // },
+  // verifyEmail: function(email) {
+  //   return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+  // },
+  // verifyPostalCode: function(post) {
+  //   return (/^(\d{5})?$/.test(post))
+  // }, // FIX this REGEX to correspond to the Ruby REGEX in 'user.rb'!!!
+
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateVolReg({
       token: csrf_token
     }));
-    this.open(); // to fade the overlay in...
-  },
-  initialize: function() {
-    this.$el.appendTo(document.body);
+
+    return this;
   }
 });
 
@@ -20862,6 +20876,8 @@ var LogInFormView = Backbone.View.extend({
   attributes: {
     id: "login-modal"
   },
+
+  templateSession:  HandlebarsTemplates['sessions/log_in'],
 
   events: {
     'click .login-submit': function (e) {
@@ -20879,22 +20895,41 @@ var LogInFormView = Backbone.View.extend({
 
     var promise = new Promise(function(resolve, reject) {
       $("#loginmodal").modal("hide");
-      resolve(session.save());
+      App.removeNavAndPage();
+      resolve(session.save()); // gives object-not model-from ruby
     });
 
     promise
     .then(function(result) {
-      App.getDashboardPage(result); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      if (result.role === "leader" || result.role === "admin") {
+        App.getDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      }
+      else if (result.role === "volunteer") {
+        App.getVolunteerDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+      }
+      else if (result.role === "student") {
+        App.getStudentDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+        // App.instantiateVolunteerProfile();
+      }
     })
-    // .then(function(result) {
-    // })
     .catch(function(error) {
+      App.getFrontMainPage();
       console.log(error);
+      swal({
+        title: "Problem logging into app",
+        text: "Maybe your internet service is slow.  Please try again.",
+        timer: 15000,
+        showConfirmButton: true,
+        animation: "slide-from-bottom"
+      });
     });
+
+    function makeModel(result) {
+      return new Backbone.Model(result);
+    }
 
   },
 
-  templateSession:  HandlebarsTemplates['sessions/log_in'],
   // checkInputs: function(e) {
   //   $(".user_login").css("border-color", "blue");
   //   var someEmpty = $('.user_login').filter(function(){
@@ -20925,6 +20960,7 @@ var LogInFormView = Backbone.View.extend({
   //   this.fadeOut();
   //   history.back();
   // },
+  
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateSession({
@@ -20986,16 +21022,11 @@ var VolunteerPageView = Backbone.View.extend({
 var Router = Backbone.Router.extend({
   routes: {
     "register_admin": "registerAdmin",
-    "register_vol": "registerVol",
     "application_form": "apply_to_cep",
-    "volunteer_info": "showVolunteerPage",
-    "volunteers/:id": "showProfile"
+    "volunteer_info": "showVolunteerPage"
   },
   registerAdmin: function() {
     App.getAdminRegForm();
-  },
-  registerVol: function() {
-    App.getVolRegForm();
   },
   apply_to_cep: function() {
     var person_registering = "Student";
@@ -21011,9 +21042,6 @@ var Router = Backbone.Router.extend({
     } else {
       App.getVolunteerPage();      
     }
-  },
-  showProfile: function(id) {
-    App.getProfileForm(id);
   },
   index: function() {
     var modal = App.reg_form || App.log_in_form;
@@ -21047,8 +21075,6 @@ var Router = Backbone.Router.extend({
 
 
 
-var $entire = $(document).find(".entire");
-
 var App = {
   getFrontMainPage: function() {
     this.removeNavAndPage();
@@ -21076,8 +21102,7 @@ var App = {
 
     this.volunteer_page = volunteer_page;
   },
-  getDashboardPage: function(user_object) {
-    this.removeNavAndPage();
+  getDashboardPage: function(user) {
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -21088,18 +21113,44 @@ var App = {
         console.log("error");
       }
     });
-    var dashboard_page = new DashboardView({ user_object: user_object });
+    var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Dashboard';
   },
+  getVolunteerDashboardPage: function(volunteer) {
+    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
+    this.renderNavBar();
+    dashboard_page.render();
+    document.title = 'City English Project | Volunteer';
+  },
   getStudentDashboardPage: function(student) {
-    this.removeNavAndPage();
-
-    document.title = 'City English Project | Dashboard';
+    this.volunteers = new VolunteersAvailable(); // collection
+    this.volunteers.fetch({
+      success: function (collection, response, options) {
+        var view = new VolunteersAvailableView({ collection: collection });
+        view.render();
+        var profile_view_modal = new VolunteerProfileView({ collection: collection });
+    console.log(collection);
+        $("#volunteerprofile").html(profile_view_modal.render().el);
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Student';
+  },
+  instantiateVolunteerProfile: function() {
+//     this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
+// console.log(this.volunteers);
+//     $("#volunteerprofile").html(this.profile_view_modal.render().el);
+
+    // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
+    // var student = this.student.responseJSON
+    // this.profile_view.render(volunteer, student);
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -21109,12 +21160,12 @@ var App = {
   },
   removeNavAndPage: function() {
     $(".entire-nav").children().remove();
-    $entire.children().remove();
+    $(document).find(".entire").children().remove();
   },
   getFooter: function() {
     $(".entire-footer").children().remove();
-    var front_page_footer = new FooterFrontView();
-    front_page_footer.render();
+    this.front_page_footer = new FooterFrontView();
+    this.front_page_footer.render();
   },
   instantiateLogInForm: function() {
     var session = new Session();
@@ -21130,31 +21181,24 @@ var App = {
     this.reg_form_modal = new StudentRegFormView({ model: student });
     $("#registerstudentmodal").html(this.reg_form_modal.render().el);
   },
+  instantiateVolunteerRegForm: function() {
+    var volunteer = new User();
+    this.reg_form_modal = new VolRegFormView({ model: volunteer });
+    $("#registervolunteermodal").html(this.reg_form_modal.render().el);
+  },
   getAdminRegForm: function() {
     var reg_form_modal = new AdminRegFormView();
     reg_form_modal.render();
 
     this.reg_form = reg_form_modal;
   },
-  getVolRegForm: function() {
-    var reg_form_modal = new VolRegFormView();
-    reg_form_modal.render();
-
-    this.reg_form = reg_form_modal;
-  },
-  getVolunteersOnDashboardLoad: function() {
-    this.volunteers = new Volunteers();
-    this.volunteers.fetch();
-  },
-  getProfileForm: function(id) {
-    this.profile_view = new ProfileFormView({ collection: this.volunteers });
-    var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
-    var student = this.student.responseJSON
-    this.profile_view.render(volunteer, student);
-  },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
+  },
+  presentUserModel: function() {
+    var user_object = $("#user-now").data("present-user");
+    return new Backbone.Model(user_object);
   },
   init: function() {
     if (gon.page_needed === "front") {
@@ -21164,18 +21208,20 @@ var App = {
       this.getVolunteerPage();
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      var user_object = $("#user-now").data("present-user");
-      App.getDashboardPage(user_object);
+      this.getDashboardPage(this.presentUserModel());
+    }
+    else if (gon.page_needed === "volunteer") {
+      this.getVolunteerDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "student") {
-      var user = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user);
-      App.getStudentDashboardPage(user_model);
+      this.getStudentDashboardPage(this.presentUserModel());
+      // this.instantiateVolunteerProfile();
     }
     this.getFooter();
     // this.instantiateApplicationView();
     this.instantiateWelcomePopup();
     this.instantiateStudentRegForm();
+    this.instantiateVolunteerRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }

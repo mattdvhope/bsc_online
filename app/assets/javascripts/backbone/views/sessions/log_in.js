@@ -35,11 +35,19 @@ var LogInFormView = Backbone.View.extend({
       }
       else if (result.role === "student") {
         App.getStudentDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
+        // App.instantiateVolunteerProfile();
       }
     })
     .catch(function(error) {
       App.getFrontMainPage();
       console.log(error);
+      swal({
+        title: "Problem logging into app",
+        text: "Maybe your internet service is slow.  Please try again.",
+        timer: 15000,
+        showConfirmButton: true,
+        animation: "slide-from-bottom"
+      });
     });
 
     function makeModel(result) {

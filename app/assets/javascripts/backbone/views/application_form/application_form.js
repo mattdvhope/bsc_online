@@ -61,6 +61,9 @@ var ApplicationView = Backbone.View.extend({
             else if (error === "Last name can't be blank") {
               $(".last-name").css("border-color", "red").attr("placeholder", "ควรกรอกนามสกุลลงในช่องว่าง");
             }
+            else if (error === "Age can't be blank") {
+              $(".age").css("border-color", "red").attr("placeholder", "ควรกรอกอายุลงในช่องว่าง");
+            }
             else if (error === "Phone number can't be blank") {
               $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
             }
@@ -84,12 +87,6 @@ var ApplicationView = Backbone.View.extend({
             }
             else if (error === "Password confirmation can't be blank") {
               $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกการยืนยันรหัสผ่านลงในช่องว่าง");
-            }
-            else if (error === "Postal code can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสไปรษณีย์ลงในช่องว่าง");
-            }
-            else if (error === "Postal code is invalid") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "รหัสไปรษณีย์นี้ไม่สามารถใช้งานได้");
             }
             else if (error === "Class time must be selected") {
               $(".seminar-session-select").css("border-color", "red");

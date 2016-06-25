@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
 
-  # before_action :require_leader, :only => [:students]
-
   include ApplicationHelper
 
   def front
@@ -25,17 +23,12 @@ class PagesController < ApplicationController
       when "volunteer"
         gon.page_needed = "volunteer"
       when "student"
-        # @volunteers = User.where("users.role = ? OR users.role = ? OR users.role = ?", "leader", "admin", "volunteer")
         gon.page_needed = "student"
       end
       @user = current_user
     else
       redirect_to root_path
     end
-  end
-
-  def students
-    @students = User.where("users.role = ?", "student")
   end
 
   def contact

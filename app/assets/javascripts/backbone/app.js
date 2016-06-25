@@ -4,8 +4,6 @@
 //= require_tree ./views
 //= require_tree ./routers
 
-var $entire = $(document).find(".entire");
-
 var App = {
   getFrontMainPage: function() {
     this.removeNavAndPage();
@@ -50,20 +48,38 @@ var App = {
     document.title = 'City English Project | Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
-    this.removeNavAndPage();
-
-    document.title = 'City English Project | Dashboard';
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
-    this.removeNavAndPage();
-
-    document.title = 'City English Project | Dashboard';
+    this.volunteers = new VolunteersAvailable(); // collection
+    this.volunteers.fetch({
+      success: function (collection, response, options) {
+        var view = new VolunteersAvailableView({ collection: collection });
+        view.render();
+        var profile_view_modal = new VolunteerProfileView({ collection: collection });
+    console.log(collection);
+        $("#volunteerprofile").html(profile_view_modal.render().el);
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
+    document.title = 'City English Project | Student';
+  },
+  instantiateVolunteerProfile: function() {
+//     this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
+// console.log(this.volunteers);
+//     $("#volunteerprofile").html(this.profile_view_modal.render().el);
+
+    // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
+    // var student = this.student.responseJSON
+    // this.profile_view.render(volunteer, student);
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -73,12 +89,12 @@ var App = {
   },
   removeNavAndPage: function() {
     $(".entire-nav").children().remove();
-    $entire.children().remove();
+    $(document).find(".entire").children().remove();
   },
   getFooter: function() {
     $(".entire-footer").children().remove();
-    var front_page_footer = new FooterFrontView();
-    front_page_footer.render();
+    this.front_page_footer = new FooterFrontView();
+    this.front_page_footer.render();
   },
   instantiateLogInForm: function() {
     var session = new Session();
@@ -105,19 +121,13 @@ var App = {
 
     this.reg_form = reg_form_modal;
   },
-  getVolunteersOnDashboardLoad: function() {
-    this.volunteers = new Volunteers();
-    this.volunteers.fetch();
-  },
-  getProfileForm: function(id) {
-    this.profile_view = new ProfileFormView({ collection: this.volunteers });
-    var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
-    var student = this.student.responseJSON
-    this.profile_view.render(volunteer, student);
-  },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
     Backbone.history.navigate(fragment);
+  },
+  presentUserModel: function() {
+    var user_object = $("#user-now").data("present-user");
+    return new Backbone.Model(user_object);
   },
   init: function() {
     if (gon.page_needed === "front") {
@@ -127,19 +137,14 @@ var App = {
       this.getVolunteerPage();
     }
     else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      var user_object = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user_object);
-      App.getDashboardPage(user_model);
+      this.getDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "volunteer") {
-      var user_object = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user_object);
-      App.getVolunteerDashboardPage(user_model);
+      this.getVolunteerDashboardPage(this.presentUserModel());
     }
     else if (gon.page_needed === "student") {
-      var user = $("#user-now").data("present-user");
-      user_model = new Backbone.Model(user);
-      App.getStudentDashboardPage(user_model);
+      this.getStudentDashboardPage(this.presentUserModel());
+      // this.instantiateVolunteerProfile();
     }
     this.getFooter();
     // this.instantiateApplicationView();
