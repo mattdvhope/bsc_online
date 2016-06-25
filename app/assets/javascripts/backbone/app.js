@@ -65,6 +65,8 @@ var App = {
       },
       error: function (collection, response, options) {
         console.log("error");
+        console.log(response);
+        console.log(options);
       }
     });
     var dashboard_page = new StudentDashboardView({ model: student });
