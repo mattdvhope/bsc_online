@@ -113,13 +113,17 @@ class UsersController < ApplicationController
         old_guest_student = students.find_by(email: user.email.downcase)
         if old_guest_student
           old_guest_student.pin = params[:pin]
+          old_guest_student.age = params[:age]
           old_guest_student.guest = false
           old_guest_student.password = params[:password]
           old_guest_student.password_confirmation = params[:password_confirmation]
-          old_guest_student.save
-          session[:user_id] = user.id
-          @user = old_guest_student
-          render "show" # to get JSON in jbuilder
+          if old_guest_student.save
+            session[:user_id] = user.id
+            @user = old_guest_student
+            render "show" # to get JSON in jbuilder
+          else
+            render :json => { :errors => old_guest_student.errors.full_messages }, :status => 422
+          end
         else
           render :json => { :errors => "Incorrect email" }, :status => 422
         end
