@@ -15,18 +15,23 @@ var StudentRegFormView = Backbone.View.extend({
     model.set({
       pin: this.$("input[name='pin']").val(),
       email: this.$("input[name='email']").val(),
+      age: this.$("input[name='age']").val(),
       password: this.$("input[name='password']").val(),
       password_confirmation: this.$("input[name='password_confirmation']").val(),
     });
 
-    var options = {
+    var options = { // need PROMISE HERE!!! ..TO HAVE ACCESS TO (NEW) USER; first 'user' needs to SAVE (& enter a SESSION!!) and THEN we getStudentDashboardPage...the problem here is an attempted "success within a success (in App)" which just doesn't work!
       success: function (model, response, options) {
         $("#registerstudentmodal").modal("hide");
+        App.removeNavAndPage();
         App.getStudentDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
       error: function (model, response, options) {
+        console.log(model);
+        console.log(response);
+        console.log(options);
         console.log("error");
         if (response.responseText === '{"errors":"Incorrect PIN"}') {
           $(".pin").css("border-color", "blue");
@@ -36,6 +41,11 @@ var StudentRegFormView = Backbone.View.extend({
         else if (response.responseText === '{"errors":"Incorrect email"}') {
           $(".email").css("border-color", "blue");
           $(".email").css("border-color", "red");
+          console.log(response.responseText);
+        }
+        else if (response.responseText === '{"errors":["Age cannot be blank"]}') {
+          $(".age").css("border-color", "blue");
+          $(".age").css("border-color", "red");
           console.log(response.responseText);
         }
       }      
