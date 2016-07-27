@@ -60,7 +60,6 @@ var App = {
         var view = new VolunteersAvailableView({ collection: collection });
         view.render();
         var profile_view_modal = new VolunteerProfileView({ collection: collection });
-    console.log(collection);
         $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
