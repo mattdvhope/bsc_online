@@ -59,7 +59,7 @@ var App = {
       success: function (collection, response, options) {
         var view = new VolunteersAvailableView({ collection: collection });
         view.render();
-        var profile_view_modal = new VolunteerProfileView({ collection: collection });
+        var profile_view_modal = new VolunteerProfileView({ model: student });
         $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {

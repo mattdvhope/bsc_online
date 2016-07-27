@@ -5,8 +5,9 @@ var VolunteerProfileView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['dashboard/volunteer_profile'],
 
-  render: function(volunteer, student) {
+  render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
+console.log(this.model.toJSON());
     // var gender = volunteer.gender
     // var pronoun;
     // if (gender === "male") {
@@ -24,8 +25,8 @@ var VolunteerProfileView = Backbone.View.extend({
     // }
     this.$el.html(this.template({
       // token: csrf_token,
-      // first_name: volunteer.first_name,
-      // last_name: volunteer.last_name,
+      first_name: this.model.toJSON().first_name,
+      last_name: this.model.toJSON().last_name,
       // gender: gender,
       // age: volunteer.age,
       // pronoun: pronoun,
