@@ -11,20 +11,17 @@
     <div class="modal-body">
 
       <header>
-        <h1>Profile of {{first_name}}!</h1>
+        <h1>Profile of <span id="volunteer-first-name"></span>!</h1>
         <h4>
           Here is some information about {{pronoun}}.
         </h4>
         <hr>
       </header>
 
-      <h3>
-        {{first_name}} {{last_name}} is a {{age}}-year-old {{gender}} who is available as a Skype-partner for you, {{student.first_name}}.
+      <h3> <!-- The data for these spans comes from 'click .volunteer-profile-modal' in volunteers_available.js-->
+        <span id="volunteer-first-name"></span> <span id="volunteer-last-name"></span> is a <span id="volunteer-age"></span>-year-old <span id="volunteer-gender"></span> who is available as a Skype-partner for you, {{student.first_name}}.
       </h3>
       
-      <hr>
-      <h3 id="volunteer-name"></h3>
-      {{!-- <input type="text" id="volunteer-name" value=""/> --}}
       <hr>
 
       <br>

@@ -5,10 +5,14 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   events: {
     'click .volunteer-profile-modal': function (e) {
-      // console.log($(e.target)[0].dataset.firstName);
-      var volunteerName = $(e.target)[0].dataset.firstName;
-      console.log(volunteerName);
-      $(".modal-body #volunteer-name").text( volunteerName );
+      var volunteerFirstName = $(e.target)[0].dataset.firstName;
+      var volunteerLastName = $(e.target)[0].dataset.lastName;
+      var volunteerAge = $(e.target)[0].dataset.age;
+      var volunteerGender = $(e.target)[0].dataset.gender;
+      $(".modal-body #volunteer-first-name").text( volunteerFirstName );
+      $(".modal-body #volunteer-last-name").text( volunteerLastName );
+      $(".modal-body #volunteer-age").text( volunteerAge );
+      $(".modal-body #volunteer-gender").text( volunteerGender );
     }
   },
 
