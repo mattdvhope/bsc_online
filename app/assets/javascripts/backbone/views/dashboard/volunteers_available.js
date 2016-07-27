@@ -16,10 +16,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
   },
 
-
-
-
-
   template:  HandlebarsTemplates['dashboard/volunteers_available'],
 
   no_volunteers: function() {
