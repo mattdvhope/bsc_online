@@ -29,6 +29,32 @@
     $('.modal:visible').length && $(document.body).addClass('modal-open');
   });
 
+  // To determine student price in '_intro_bullets.hbs'
+  $(".university-summer-applic").on("click", function() {
+    sessionStorage.setItem("student_type", "university_summer_applicant");
+    openApplicationForm()
+  });
+  $(".non-summer-university").on("click", function() {
+    sessionStorage.setItem("student_type", "non_summer_university");
+    openApplicationForm()
+  });
+
+  function openApplicationForm() {
+    var class_times_collection = new ClassTimes();
+    class_times_collection.fetch({
+      success: function (class_times) {
+        var student = new User();
+        this.applicationView = new ApplicationView({ model: student, options: class_times.toJSON() });
+        $("#applicationmodal").html(this.applicationView.render().el);
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
+  }
+
+
+
 </script>
 
 
