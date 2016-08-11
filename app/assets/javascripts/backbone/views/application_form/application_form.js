@@ -111,6 +111,11 @@ var ApplicationView = Backbone.View.extend({
   application_title: function() {
     return this.choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
   },
+
+  please_click_here: function() {
+    return this.choose_language("Please click for details about this class", "กรุณาคลิ๊กเพื่อดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+  },
+
   schedule_option_one: function() {
     return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
   },
@@ -159,6 +164,7 @@ var ApplicationView = Backbone.View.extend({
       token: csrf_token,
       thai_language: this.thai_language(),
       application_title: this.application_title(),
+      please_click_here: this.please_click_here(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
       choose_payment_option: this.choose_payment_option(),
