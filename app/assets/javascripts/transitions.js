@@ -17,13 +17,6 @@ $(document).on('click', function() {
   collapseNavBar();
 });
 
-// Remove overlay form when clicking screen
-// $("#overlay").on('click', function(e) {
-//   if( !$(e.target).is('form') ) {
-//     triggerClose();
-//   }
-// });
-
 // If someone presses the esc kep w/in a nested modal, this will ensure that the page is not fixed/frozen for scrolling.
 $(document).on("keydown", function(e) {
   if (e.keyCode == 27) {
@@ -34,19 +27,6 @@ $(document).on("keydown", function(e) {
 function collapseNavBar() {
   $(".navbar-collapse").removeClass("in");
 }
-
-// function triggerClose() {
-//   // $('body').css('overflow','scroll'); // scrolling on body resumed when modal is closed
-//   $("a.close").trigger("click");
-// }
-
-
-// for 'Close' link on modals
-// $("a.close").on("click tap", function(e) {
-//   e.preventDefault();
-//   $('body').css('position', "static");
-//   $(this).parent().fadeOut(600);
-// });
 
 setTimeout(function(){ 
   $(".alert").fadeOut(2000); 
@@ -116,8 +96,6 @@ function hideButton(element, index) {
 function showButton(element, index) {
   $($(element).parent().children()[index]).show();
 }
-/// for 'Approve' & 'Disapprove' buttons on leader dashboard///
-
 
 
 // Maintain scroll position when flag clicked; see nav_bar.hbs, 
@@ -133,21 +111,6 @@ $(window).on('resize', function() {
   $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
 });
 
-
-
-
-// Animate size of logo on nav bar for desktop screens (not mobile)
-// $(window).on('scroll', function () {
-//   if ($(window).width() > 550) {
-//     if ($(window).scrollTop() < 100) {
-//         $('.navbar-brand > img').stop().animate({width: "160px"}, 80);   
-//     } else {
-//         $('.navbar-brand > img').stop().animate({width: "55px"}, 50);
-//     } 
-//   } else {
-//     $('.navbar-brand > img').css("width", "55px");
-//   }
-// });
 
 
 
