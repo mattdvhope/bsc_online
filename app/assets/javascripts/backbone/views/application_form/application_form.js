@@ -111,9 +111,6 @@ var ApplicationView = Backbone.View.extend({
   application_title: function() {
     return this.choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
   },
-  univ_application_title: function() {
-    return this.choose_language("University Student Promotion!! \"You Can Speak!\" class", "โปรโมชั่นสำหรับนักศึกษา!! ชั้นเรียน \"You Can Speak!\"");
-  },
   schedule_option_one: function() {
     return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
   },
@@ -144,25 +141,6 @@ var ApplicationView = Backbone.View.extend({
     }
   },
 
-  university_summer_applicant: function() {
-    return sessionStorage.getItem('student_type') === "university_summer_applicant";
-  },
-
-  student_type_price: function() {
-    if (sessionStorage.getItem('student_type') === "university_summer_applicant") {
-      return "299"
-    } else if (sessionStorage.getItem('student_type') === "non_summer_university") {
-      return "399"
-    }
-  },
-
-  univ_summer_class_times: function() {
-    var result = this.class_times.options.filter(function(obj) {
-      return obj.category == "univ_summer";
-    });
-    return result;
-  },
-
   regular_class_times: function() {
     var result = this.class_times.options.filter(function(obj) {
       return obj.category == "regular";
@@ -181,7 +159,6 @@ var ApplicationView = Backbone.View.extend({
       token: csrf_token,
       thai_language: this.thai_language(),
       application_title: this.application_title(),
-      univ_application_title: this.univ_application_title(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
       choose_payment_option: this.choose_payment_option(),
@@ -189,9 +166,6 @@ var ApplicationView = Backbone.View.extend({
       pay_at_center: this.pay_at_center(),
       pan_road: this.pan_road(),
       payment_info: this.payment_info(),
-      university_summer_applicant: this.university_summer_applicant(),
-      student_type_price: this.student_type_price(),
-      univ_summer_class_times: this.univ_summer_class_times(),
       regular_class_times: this.regular_class_times()
     }));
 
