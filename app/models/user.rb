@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
   validates_presence_of :gender
   validates_presence_of :age
   validates_presence_of :phone_number, length: { maximum: 30 }
-  validates_presence_of :payment_option, :if => :guest?
 
   validate :class_period_choosen
 
