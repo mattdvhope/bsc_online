@@ -29,7 +29,7 @@
     $('.modal:visible').length && $(document.body).addClass('modal-open');
   });
 
-  // To determine student price in '_intro_bullets.hbs'
+  // To open application form
   $(".non-summer-university").on("click", function() {
     sessionStorage.setItem("student_type", "non_summer_university");
     openApplicationForm()
