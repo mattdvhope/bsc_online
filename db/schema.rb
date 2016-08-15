@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621084524) do
+ActiveRecord::Schema.define(version: 20160815064051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,11 +205,11 @@ ActiveRecord::Schema.define(version: 20160621084524) do
     t.string   "uid_facebook"
     t.string   "nickname"
     t.string   "image"
-    t.string   "payment_option"
     t.integer  "class_time_id"
     t.string   "class_period"
     t.string   "date_format"
     t.string   "organization"
+    t.string   "national_id"
   end
 
 end
