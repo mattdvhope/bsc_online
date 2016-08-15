@@ -23,14 +23,6 @@ var ApplicationView = Backbone.View.extend({
       model.set(this.name, this.value);
     })
 
-    if($('.radio-pay_at_center').is(':checked')) {
-      model.set({payment_option: "pay_at_center"});
-    }
-
-    if($('.radio-pay_by_transfer').is(':checked')) {
-      model.set({payment_option: "pay_by_transfer"});
-    }
-
     var options = {
       success: function (model, response, options) {
         $("#applicationmodal").modal("hide");
@@ -122,9 +114,6 @@ var ApplicationView = Backbone.View.extend({
   schedule_option_two: function() {
     return this.choose_language("Option 2: All 5 sessions in one week,  Monday-Friday.", "ทางเลือกที่ 2: เรียนทั้ง 5 คาบเรียนในเวลา 1 สัปดาห์, วันจันทร์ – วันศุกร์");
   },
-  choose_payment_option: function() {
-    return this.choose_language("Choose your payment option", "ช่องทางการชำระเงิน");
-  },
   class_cost: function() {
     return this.choose_language("How much does each class cost?", "แต่ละชั้นเรียนมีค่าใช้จ่ายเท่าไหร่?");
   },
@@ -158,8 +147,6 @@ var ApplicationView = Backbone.View.extend({
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
 
-    this.model.set("payment_option", ""); // to clear it out for a new model (new application being filled out for user model)
-
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: this.thai_language(),
@@ -167,10 +154,8 @@ var ApplicationView = Backbone.View.extend({
       please_click_here: this.please_click_here(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
-      choose_payment_option: this.choose_payment_option(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      payment_info: this.payment_info(),
       regular_class_times: this.regular_class_times()
     }));
 
