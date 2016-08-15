@@ -4,39 +4,33 @@
   <div class="modal-content application-modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
-      {{#if university_summer_applicant}}
-        <h3 class="modal-title">{{univ_application_title}}</h3>
-      {{^}}
-        <h3 class="modal-title">{{application_title}}</h3>
-      {{/if}}
+      <h3 class="modal-title">{{application_title}}</h3>
     </div>
     <div class="modal-body">
       <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
       <input type="hidden" name="guest" value="true">
-
         {{#if thai_language}}
           {{> application_form/thai/_intro_bullets }}
         {{^}}
           {{> application_form/english/_intro_bullets }}
         {{/if}}
         <hr>
-        {{#if university_summer_applicant}}
-          {{#if thai_language}}
-            {{> application_form/thai/_univ_more_info }}
-          {{^}}
-            {{> application_form/english/_univ_more_info }}
-          {{/if}}
+        {{#if thai_language}}
+          {{> application_form/thai/_please_fill_out }}
+        {{^}}
+          {{> application_form/english/_please_fill_out }}
         {{/if}}
+        <hr>
         <label class="field-label">Nickname</label>
         <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="nickname">
         <hr>
-        <label class="field-label">First Name</label>
-        <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="first_name">
+        <label class="field-label">First Name (in English)</label>
+        <input type="text" class="form-control first-name" placeholder="ชื่อจริง (ภาษาอังกฤษ)" name="first_name">
         <hr>
-        <label class="field-label">Last Name</label>
-        <input type="text" class="form-control last-name" placeholder="นามสกุล" name="last_name">
+        <label class="field-label">Last Name (in English)</label>
+        <input type="text" class="form-control last-name" placeholder="นามสกุล (ภาษาอังกฤษ)" name="last_name">
         <hr>
         <label class="field-label">Gender</label>
         <div>
@@ -61,54 +55,19 @@
         </h4></label>
         <input type="text" class="form-control email" placeholder="อีเมล" name="email">
         <hr>
-        <label class="field-label">Province / District in Bangkok</label>
-        <input type="text" class="form-control district" placeholder="จังหวัด / เขตในกรุงเทพมหานคร" name="district">
-        <hr>
         {{!-- <label for="user_image">Image</label><br>
         <input type="file" name="image" id="user_image">
         <hr> --}}
 
         <!-- partials with selectors -->
-        {{#if university_summer_applicant}}
-          {{#if thai_language}}
-            {{> application_form/thai/_univ_options }}
-          {{^}}
-            {{> application_form/english/_univ_options }}
-          {{/if}}
+        {{#if thai_language}}
+          {{> application_form/thai/_non_univ_options }}
         {{^}}
-          {{#if thai_language}}
-            {{> application_form/thai/_non_univ_options }}
-          {{^}}
-            {{> application_form/english/_non_univ_options }}
-          {{/if}}
-        </label>
+          {{> application_form/english/_non_univ_options }}
         {{/if}}
+        </label>
         <hr>
 
-        <fieldset id="payment-options">
-          <label class="field-label payment-options-label">{{choose_payment_option}}</label>
-            {{!-- <p class="above-radios"><a data-toggle="modal" href="#" data-target="#costAmountModal">{{class_cost}}</a></p> --}}
-            <div class="radio-div-applic">
-              <label>
-                <input type="radio" {{!-- name="pay_at_center" --}} class="radio-pay_at_center radio-in-appl">{{pay_at_center}}{{pan_road}}.
-              </label>
-            </div>
-            <br>
-            <div class="radio-div-applic">
-              <label>
-                <input type="radio" {{!-- name="pay_by_transfer" --}} class="radio-pay_by_transfer radio-in-appl">
-                {{#if thai_language}}
-                  {{> application_form/thai/_bank_transfer }}
-                {{^}}
-                  {{> application_form/english/_bank_transfer }}
-                {{/if}}
-              </label>
-            </div>
-            <p class="under-radios">
-              <a data-toggle="modal" href="#" data-target="#paymentInfoModal">{{payment_info}}</a>
-            </p>
-        </fieldset>
-        <hr>
 
         <div class="control-group">
           <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
