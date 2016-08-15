@@ -68,9 +68,6 @@ var ApplicationView = Backbone.View.extend({
             else if (error === "Email has already been taken") {
               $(".email").css("border-color", "red").attr("placeholder", "อีเมล์นี้มีผู้ใช้อยู่แล้ว");
             }
-            else if (error === "District can't be blank") {
-              $(".district").css("border-color", "red").attr("placeholder", "ควรกรอกจังหวัด/เขต ลงในช่องว่าง");
-            }
             else if (error === "Password can't be blank") {
               $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสผ่านลงในช่องว่าง");
             }
