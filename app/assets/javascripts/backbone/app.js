@@ -18,10 +18,6 @@ var App = {
 
     this.front_page_main = front_page_main;
   },
-  instantiateWelcomePopup: function() {
-    this.welcomePopupView = new WelcomePopupView();
-    $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
-  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
@@ -149,7 +145,6 @@ var App = {
     }
     this.getFooter();
     // this.instantiateApplicationView();
-    this.instantiateWelcomePopup();
     this.instantiateStudentRegForm();
     this.instantiateVolunteerRegForm();
     this.instantiateLogInForm();
