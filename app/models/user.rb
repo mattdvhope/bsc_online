@@ -60,8 +60,6 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create, :allow_blank => true
   validates_uniqueness_of :email, :allow_blank => true
 
-  validates_presence_of :district, length: { maximum: 30 }, :if => :guest?
-
   has_secure_password validations: false
 
   validates_presence_of :password, :unless => :guest?
