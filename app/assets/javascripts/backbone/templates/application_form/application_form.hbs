@@ -55,10 +55,9 @@
         </h4></label>
         <input type="text" class="form-control email" placeholder="อีเมล" name="email">
         <hr>
-        {{!-- <label for="user_image">Image</label><br>
-        <input type="file" name="image" id="user_image">
-        <hr> --}}
-
+        <label class="field-label">National ID</label>
+        <input type="text" class="form-control national-id" placeholder="หมายเลขประจำตัวประชาชน" name="national_id">
+        <hr>
         <!-- partials with selectors -->
         {{#if thai_language}}
           {{> application_form/thai/_non_univ_options }}
