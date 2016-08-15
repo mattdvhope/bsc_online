@@ -26,6 +26,8 @@ var ApplicationView = Backbone.View.extend({
     var options = {
       success: function (model, response, options) {
         $("#applicationmodal").modal("hide");
+        this.welcomePopupView = new WelcomePopupView({ model: model });
+        $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
         $("#welcomepopupmodal").modal();
         $('.radio-pay_by_transfer').prop('checked', false);
         $('.radio-pay_at_center').prop('checked', false);
