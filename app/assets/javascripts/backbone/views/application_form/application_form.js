@@ -113,7 +113,7 @@ var ApplicationView = Backbone.View.extend({
   },
 
   please_click_here: function() {
-    return this.choose_language("Please click for details about this class", "กรุณาคลิ๊กเพื่อดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+    return this.choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
   },
 
   schedule_option_one: function() {
@@ -169,7 +169,6 @@ var ApplicationView = Backbone.View.extend({
       schedule_option_two: this.schedule_option_two(),
       choose_payment_option: this.choose_payment_option(),
       class_cost: this.class_cost(),
-      pay_at_center: this.pay_at_center(),
       pan_road: this.pan_road(),
       payment_info: this.payment_info(),
       regular_class_times: this.regular_class_times()

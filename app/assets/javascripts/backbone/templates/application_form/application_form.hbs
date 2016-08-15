@@ -27,10 +27,10 @@
         <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="nickname">
         <hr>
         <label class="field-label">First Name (in English)</label>
-        <input type="text" class="form-control first-name" placeholder="ชื่อจริง" name="first_name">
+        <input type="text" class="form-control first-name" placeholder="ชื่อจริง (ภาษาอังกฤษ)" name="first_name">
         <hr>
         <label class="field-label">Last Name (in English)</label>
-        <input type="text" class="form-control last-name" placeholder="นามสกุล" name="last_name">
+        <input type="text" class="form-control last-name" placeholder="นามสกุล (ภาษาอังกฤษ)" name="last_name">
         <hr>
         <label class="field-label">Gender</label>
         <div>
@@ -68,30 +68,6 @@
         </label>
         <hr>
 
-        <fieldset id="payment-options">
-          <label class="field-label payment-options-label">{{choose_payment_option}}</label>
-            {{!-- <p class="above-radios"><a data-toggle="modal" href="#" data-target="#costAmountModal">{{class_cost}}</a></p> --}}
-            <div class="radio-div-applic">
-              <label>
-                <input type="radio" {{!-- name="pay_at_center" --}} class="radio-pay_at_center radio-in-appl">{{pay_at_center}}{{pan_road}}.
-              </label>
-            </div>
-            <br>
-            <div class="radio-div-applic">
-              <label>
-                <input type="radio" {{!-- name="pay_by_transfer" --}} class="radio-pay_by_transfer radio-in-appl">
-                {{#if thai_language}}
-                  {{> application_form/thai/_bank_transfer }}
-                {{^}}
-                  {{> application_form/english/_bank_transfer }}
-                {{/if}}
-              </label>
-            </div>
-            <p class="under-radios">
-              <a data-toggle="modal" href="#" data-target="#paymentInfoModal">{{payment_info}}</a>
-            </p>
-        </fieldset>
-        <hr>
 
         <div class="control-group">
           <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
