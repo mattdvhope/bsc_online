@@ -40,7 +40,17 @@
     class_times_collection.fetch({
       success: function (class_times) {
         var student = new User();
-        this.applicationView = new ApplicationView({ model: student, options: class_times.toJSON() });
+        this.applicationView = new ApplicationView({ model: student, options: class_times.toJSON().sort(function (a, b) {
+            if (a.order_no > b.order_no) {
+              return 1;
+            }
+            if (a.order_no < b.order_no) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          })
+        });
         $("#applicationmodal").html(this.applicationView.render().el);
       },
       error: function (collection, response, options) {
