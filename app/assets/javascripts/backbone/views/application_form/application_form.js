@@ -133,8 +133,8 @@ var ApplicationView = Backbone.View.extend({
   },
 
   regular_class_times: function() {
-    result = this.class_times.options;
-    return result;
+console.log(this.class_times.options);
+    return this.class_times.options;
   },
 
   template:  HandlebarsTemplates['application_form/application_form'],
