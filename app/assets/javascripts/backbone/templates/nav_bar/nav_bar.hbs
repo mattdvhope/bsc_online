@@ -240,16 +240,19 @@ console.log(sessionStorage.getItem("scrollTopPos"));
     class_times_collection.fetch({
       success: function (class_times) {
         var student = new User();
-        this.applicationView = new ApplicationView({ model: student, options: class_times.toJSON().sort(function (a, b) {
-            if (a.order_no > b.order_no) {
-              return 1;
-            }
-            if (a.order_no < b.order_no) {
-              return -1;
-            }
-            // a must be equal to b
-            return 0;
-          })
+        var class_times = class_times.toJSON().sort(function (a, b) {
+          if (a.order_no > b.order_no) {
+            return 1;
+          }
+          if (a.order_no < b.order_no) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        this.applicationView = new ApplicationView({
+          model: student,
+          options: class_times
         });
         $("#applicationmodal").html(this.applicationView.render().el);
       },
