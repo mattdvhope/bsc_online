@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
   validates_presence_of :gender
   validates_presence_of :age
   validates_presence_of :phone_number, length: { maximum: 30 }
-  validates_presence_of :payment_option, :if => :guest?
 
   validate :class_period_choosen
 
@@ -60,8 +59,6 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create, :allow_blank => true
   validates_uniqueness_of :email, :allow_blank => true
-
-  validates_presence_of :district, length: { maximum: 30 }, :if => :guest?
 
   has_secure_password validations: false
 

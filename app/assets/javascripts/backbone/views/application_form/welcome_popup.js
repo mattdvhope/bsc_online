@@ -27,6 +27,7 @@ var WelcomePopupView = Backbone.View.extend({
     this.$el.html(this.template({
       thai_language: this.thai_language(),
       thank_you: this.thank_you(),
+      class_time: this.model.toJSON().class_time_scheduled
     }));
 
     return this;
