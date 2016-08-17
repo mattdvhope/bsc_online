@@ -240,6 +240,7 @@ console.log(sessionStorage.getItem("scrollTopPos"));
     class_times_collection.fetch({
       success: function (class_times) {
         var student = new User();
+console.log(class_times);
         var class_times = class_times.toJSON().sort(function (a, b) {
           if (a.order_no > b.order_no) {
             return 1;
@@ -250,6 +251,7 @@ console.log(sessionStorage.getItem("scrollTopPos"));
           // a must be equal to b
           return 0;
         });
+console.log(class_times);
         this.applicationView = new ApplicationView({
           model: student,
           options: class_times
