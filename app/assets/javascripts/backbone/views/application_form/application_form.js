@@ -133,7 +133,6 @@ var ApplicationView = Backbone.View.extend({
   },
 
   regular_class_times: function() {
-console.log(this.class_times.options);
     return this.class_times.options;
   },
 
