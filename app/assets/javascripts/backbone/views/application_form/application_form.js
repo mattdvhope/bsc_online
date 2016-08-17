@@ -146,6 +146,7 @@ var ApplicationView = Backbone.View.extend({
       // a must be equal to b
       return 0;
     });
+console.log(result);
     return result;
   },
 
