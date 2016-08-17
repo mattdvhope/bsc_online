@@ -133,19 +133,7 @@ var ApplicationView = Backbone.View.extend({
   },
 
   regular_class_times: function() {
-    var result = this.class_times.options.filter(function(obj) {
-      return obj.category == "regular";
-    });
-    result = result.sort(function (a, b) {
-      if (a.order_no > b.order_no) {
-        return 1;
-      }
-      if (a.order_no < b.order_no) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
-    });
+    result = this.class_times.options;
 console.log(result);
     return result;
   },
