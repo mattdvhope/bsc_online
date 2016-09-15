@@ -231,38 +231,38 @@ console.log(sessionStorage.getItem("scrollTopPos"));
   });
 
   // To open application form
-  $(".non-summer-university").on("click", function() {
-    sessionStorage.setItem("student_type", "non_summer_university");
-    openApplicationForm()
-  });
+//   $(".non-summer-university").on("click", function() {
+//     sessionStorage.setItem("student_type", "non_summer_university");
+//     openApplicationForm()
+//   });
 
-// YOU MAY NOT NEED THIS!!! TEST SOME MORE AND MAKE 'DRY'!!!!!! (also in 'main.hbs' :-( )
-  function openApplicationForm() {
-    var class_times_collection = new ClassTimes();
-    class_times_collection.fetch({
-      success: function (class_times) {
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
-  }
+// // YOU MAY NOT NEED THIS!!! TEST SOME MORE AND MAKE 'DRY'!!!!!! (also in 'main.hbs' :-( )
+//   function openApplicationForm() {
+//     var class_times_collection = new ClassTimes();
+//     class_times_collection.fetch({
+//       success: function (class_times) {
+//         var student = new User();
+//         var class_times = class_times.toJSON().sort(function (a, b) {
+//           if (a.order_no > b.order_no) {
+//             return 1;
+//           }
+//           if (a.order_no < b.order_no) {
+//             return -1;
+//           }
+//           // a must be equal to b
+//           return 0;
+//         });
+//         this.applicationView = new ApplicationView({
+//           model: student,
+//           options: class_times
+//         });
+//         $("#applicationmodal").html(this.applicationView.render().el);
+//       },
+//       error: function (collection, response, options) {
+//         console.log("error");
+//       }
+//     });
+//   }
 
 </script>
 
