@@ -78,7 +78,6 @@ var NavBarView = Backbone.View.extend({
       contact_us: this.contact_us(),
       student: this.student(),
       register_new_student: this.register_new_student(),
-      login_student: this.login_student(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
