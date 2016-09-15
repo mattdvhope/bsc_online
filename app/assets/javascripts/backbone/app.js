@@ -113,10 +113,9 @@ var App = {
     $("#registervolunteermodal").html(this.reg_form_modal.render().el);
   },
   getAdminRegForm: function() {
-    var reg_form_modal = new AdminRegFormView();
-    reg_form_modal.render();
-
-    this.reg_form = reg_form_modal;
+    var admin = new User();
+    this.reg_form_modal = new AdminRegFormView({ model: admin });
+    $("#adminregformmodal").html(this.reg_form_modal.render().el);
   },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
