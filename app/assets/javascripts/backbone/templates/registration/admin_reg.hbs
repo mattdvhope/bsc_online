@@ -18,7 +18,7 @@
       </h4>
     </div>
     <div class="modal-body">
-      <form class="volunteer-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <form class="admin-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
       <input type="hidden" name="role" value="admin_applicant">
@@ -61,11 +61,11 @@
         <hr>
 
         <label class="field-label">Password</label>
-        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password" name="password">
+        <input id="admin-registration-password" type="password" class="form-control" placeholder="Password" name="password">
         <hr>
 
         <label class="field-label">Password Confirmation</label>
-        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password Confirmation" name="password_confirmation">
+        <input id="admin-registration-password" type="password" class="form-control" placeholder="Password Confirmation" name="password_confirmation">
         <hr>
 
         <label class="field-label">Phone Number</label>
@@ -97,7 +97,7 @@
         <hr>
 
         <div class="control-group">
-          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary volunteer-registration-submit">
+          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary admin-registration-submit">
         </div>
 
       </form>
