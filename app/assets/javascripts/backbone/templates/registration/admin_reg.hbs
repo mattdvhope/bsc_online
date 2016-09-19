@@ -1,125 +1,114 @@
-<a class="close" href="#">Close</a>
+<div class="modal-dialog">
 
-<form novalidate="novalidate" class="simple_form new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
-  <header>
-    <h1>Register your church, business or organization with City English Project (CEP)!</h1>
-    <hr>
-    <h4>
-      When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Application Form." After you fill it out and submit it, will respond to you within 48 hours. 
-    </h4>
-    <hr>
-    <h4>
-      Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "student status" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain "admin" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.
-    </h4>
-    <hr>
-    <h4>
-      Every box is required to be filled in except 'Address 2.'
-    </h4>
-    <hr>
-  </header>
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">Register your church, business or organization with City English Project (CEP)!</h3>
+      <h4>
+        When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Application Form." After you fill it out and submit it, will respond to you within 48 hours. 
+      </h4>
+      <hr>
+      <h4>
+        Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "student status" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain "admin" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.
+      </h4>
+      <hr>
+      <h4>
+        Every box is required to be filled in except 'Address 2.'
+      </h4>
+    </div>
+    <div class="modal-body">
+      <form class="volunteer-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
+      <input type="hidden" name="role" value="admin">
 
-  <h3>
-    <label for="admin_first_name">First Name</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[first_name]" id="admin_first_name">
-  </h3>
+        <label class="field-label">PIN</label>
+        <input type="text" class="form-control pin" placeholder="PIN" name="pin">
+        <hr>
 
-  <h3>
-    <label for="admin_last_name">Last Name</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[last_name]" id="admin_last_name">
-  </h3>
+        <label class="field-label">First Name</label>
+        <input type="text" class="form-control first-name" placeholder="First Name" name="first_name">
+        <hr>
 
-  <h3>
-    <label for="admin_gender">Gender</label>
-  </h3>
-  <h3>
-    <select name="user[gender]" id="admin_gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-  </h3>
+        <label class="field-label">Last Name</label>
+        <input type="text" class="form-control last-name" placeholder="Last Name" name="last_name">
+        <hr>
 
-  <h3>
-    <label for="user_occupation">Church, Business or Organization Name</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[occupation]" id="user_occupation">
-  </h3>
+        <label class="field-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="Email Address" name="email">
+        <hr>
 
-  <h3>
-    <label for="user_email">Email Address</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="email" name="user[email]" id="user_email">
-  </h3>
+        <label class="field-label">Gender</label>
+        <div>
+          <select name="gender" class="gender-select">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <hr>
 
-  <h3>
-    <label for="admin_password">Password</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="password" name="user[password]" id="admin_password">
-  </h3>
+        <label class="field-label">Church, Business or Organization Name</label>
+        <input type="text" class="form-control organization" placeholder="Organization" name="organization">
+        <hr>
 
-  <h3>
-    <label for="admin_password_confirmation">Password Confirmation</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="password" name="user[password_confirmation]" id="admin_password_confirmation">
-  </h3>
+        <label class="field-label">Age</label>
+        <input type="text" class="form-control age" placeholder="Age" name="age">
+        <hr>
 
-  <h3>
-    <label for="user_phone_number">Phone Number</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[phone_number]" id="user_phone_number">
-  </h3>
+        <label class="field-label">Church, Business or Organization Name</label>
+        <input type="text" class="form-control organization" placeholder="Organization" name="organization">
+        <hr>
 
-  <h3>
-    <label for="user_address_1">Address 1</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[address_1]" id="user_address_1">
-  </h3>
+        <label class="field-label">Password</label>
+        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password" name="password">
+        <hr>
 
-  <h3>
-    <label for="user_address_2">Address 2</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[address_2]" id="user_address_2">
-  </h3>
+        <label class="field-label">Password Confirmation</label>
+        <input id="volunteer-registration-password" type="password" class="form-control" placeholder="Password Confirmation" name="password_confirmation">
+        <hr>
 
-  <h3>
-    <label for="user_city">Town or City</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[city]" id="user_city">
-  </h3>
+        <label class="field-label">Phone Number</label>
+        <input type="text" class="form-control phone-number" placeholder="Phone Number" name="phone_number">
+        <hr>
 
-  <h3>
-    <label for="user_province">State or Province</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[province]" id="user_province">
-  </h3>
+        <label class="field-label">Address One</label>
+        <input type="text" class="form-control address-one" placeholder="Address One" name="address_1">
+        <hr>
 
-  <h3>
-    <label for="admin_postal_code">Zip / Postal Code</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[postal_code]" id="admin_postal_code">
-  </h3>
+        <label class="field-label">Address Two</label>
+        <input type="text" class="form-control address-two" placeholder="Address Two" name="address_2">
+        <hr>
 
-  <h3>
-    <label for="country">Country</label>
-  </h3>
-  <h3>
-    <input class="admin_registration" type="text" name="user[country]" id="user_country">
-  </h3>
+        <label class="field-label">Town or City</label>
+        <input type="text" class="form-control city" placeholder="Town or City" name="city">
+        <hr>
 
-  <br>
-  <input type="submit" name="commit" value="Send this form to CEP" class="btn btn-success admin_reg_er">
-</form>
+        <label class="field-label">State or Province</label>
+        <input type="text" class="form-control province" placeholder="State or Province" name="province">
+        <hr>
+
+        <label class="field-label">Zip / Postal Code</label>
+        <input type="text" class="form-control postal-code" placeholder="Postal Code" name="postal_code">
+        <hr>
+
+        <label class="field-label">Country</label>
+        <input type="text" class="form-control country" placeholder="State or Province" name="country">
+        <hr>
+
+        <div class="control-group">
+          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary volunteer-registration-submit">
+
+          {{!-- <button class="btn btn-primary registration-submit" href="#">Submit</button> --}}
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+
 
