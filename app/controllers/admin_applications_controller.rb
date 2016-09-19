@@ -41,13 +41,13 @@ class AdminApplicationsController < ApplicationController
 
     def send_application_emails(applicant)
       if Rails.env.production?
-        send_production_emails(applicant)
+        send_production_email(applicant)
       else
         send_development_email(applicant)
       end
     end
 
-    def send_production_emails(applicant)
+    def send_production_email(applicant)
       AppMailer.send_cep_application_form(applicant).deliver_later
       AppMailer.send_admin_application_form(applicant).deliver_later
     end
