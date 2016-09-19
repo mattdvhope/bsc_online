@@ -112,7 +112,7 @@ var App = {
     this.reg_form_modal = new VolRegFormView({ model: volunteer });
     $("#registervolunteermodal").html(this.reg_form_modal.render().el);
   },
-  getAdminRegForm: function() {
+  instantiateAdminRegForm: function() {
     var admin = new User();
     this.reg_form_modal = new AdminRegFormView({ model: admin });
     $("#adminregformmodal").html(this.reg_form_modal.render().el);
@@ -146,6 +146,7 @@ var App = {
     // this.instantiateApplicationView();
     this.instantiateStudentRegForm();
     this.instantiateVolunteerRegForm();
+    this.instantiateAdminRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }
