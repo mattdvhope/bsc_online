@@ -21,7 +21,7 @@
       <form class="volunteer-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
-      <input type="hidden" name="role" value="admin">
+      <input type="hidden" name="role" value="admin_applicant">
 
         <label class="field-label">PIN</label>
         <input type="text" class="form-control pin" placeholder="PIN" name="pin">
@@ -98,8 +98,6 @@
 
         <div class="control-group">
           <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary volunteer-registration-submit">
-
-          {{!-- <button class="btn btn-primary registration-submit" href="#">Submit</button> --}}
         </div>
 
       </form>
