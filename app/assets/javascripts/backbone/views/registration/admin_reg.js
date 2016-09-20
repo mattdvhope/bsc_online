@@ -1,9 +1,47 @@
 var AdminRegFormView = Backbone.View.extend({
 
   events: {
-    "click a.close": "close",
-    "click input.admin_reg_er": "checkInputs"
+    "click .admin-registration-submit": function (e) {
+      e.preventDefault();
+      this.signUp();
+    }
   },
+
+  signUp: function() {
+    var model = this.model;
+    this.$el.find('input[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    this.$el.find('select[name]').each(function() {
+      model.set(this.name, this.value);
+    })
+
+    var options = {
+      success: function (model, response, options) {
+        $("#adminregformmodal").modal("hide");
+        // App.getVolunteerDashboardPage(model);
+        var $html = $(document.documentElement); // allow scrolling
+        $html.css('overflow', '');
+      },
+      error: function (model, response, options) {
+        console.log("error");
+        if (response.responseText === '{"errors":"Incorrect PIN"}') {
+          $(".pin").css("border-color", "blue");
+          $(".pin").css("border-color", "red");
+          console.log(response.responseText);
+        }
+        else if (response.responseText === '{"errors":"Incorrect email"}') {
+          $(".email").css("border-color", "blue");
+          $(".email").css("border-color", "red");
+          console.log(response.responseText);
+        }
+      }      
+    }
+
+    model.save({}, options);
+  },
+
   template:  HandlebarsTemplates['registration/admin_reg'],
 
   highlightEmptyField: function(input_id, text) {
