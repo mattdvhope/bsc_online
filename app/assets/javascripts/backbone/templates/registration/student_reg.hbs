@@ -16,6 +16,7 @@
       <form class="student-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
+      <input type="hidden" name="role" value="student">
 
         <label class="field-label">PIN</label>
         <input type="text" class="form-control pin" placeholder="หมายเลขประจำตัว" name="pin">
