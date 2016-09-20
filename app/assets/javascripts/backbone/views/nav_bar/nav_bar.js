@@ -35,9 +35,6 @@ var NavBarView = Backbone.View.extend({
   register_new_student: function() {
     return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
-  login_student: function() {
-    return this.choose_language("Network Member Login", "เครือข่ายสมาชิกเข้าสู่ระบบ");
-  },
   you_can_speak: function() {
     return this.choose_language("'You Can Speak' Registration", "การลงทะเบียน 'You Can Speak'");
   },
@@ -78,7 +75,6 @@ var NavBarView = Backbone.View.extend({
       contact_us: this.contact_us(),
       student: this.student(),
       register_new_student: this.register_new_student(),
-      login_student: this.login_student(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),

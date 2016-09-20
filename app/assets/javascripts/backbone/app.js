@@ -112,11 +112,10 @@ var App = {
     this.reg_form_modal = new VolRegFormView({ model: volunteer });
     $("#registervolunteermodal").html(this.reg_form_modal.render().el);
   },
-  getAdminRegForm: function() {
-    var reg_form_modal = new AdminRegFormView();
-    reg_form_modal.render();
-
-    this.reg_form = reg_form_modal;
+  instantiateAdminRegForm: function() {
+    var admin = new User();
+    this.reg_form_modal = new AdminRegFormView({ model: admin });
+    $("#adminregformmodal").html(this.reg_form_modal.render().el);
   },
   retainTemplateOnReload: function(fragment) {
     sessionStorage.setItem('fragment', fragment);
@@ -147,6 +146,7 @@ var App = {
     // this.instantiateApplicationView();
     this.instantiateStudentRegForm();
     this.instantiateVolunteerRegForm();
+    this.instantiateAdminRegForm();
     this.instantiateLogInForm();
     this.instantiateLocationPictures();
   }
