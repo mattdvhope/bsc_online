@@ -14,8 +14,14 @@ var StudentRegFormView = Backbone.View.extend({
     var model = this.model // Session
     model.set({
       pin: this.$("input[name='pin']").val(),
+      nickname: this.$("input[name='nickname']").val(),
+      first_name: this.$("input[name='first_name']").val(),
+      last_name: this.$("input[name='last_name']").val(),
+      gender: this.$("select[name='gender']").val(),
       email: this.$("input[name='email']").val(),
+      national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
+      phone_number: this.$("input[name='phone_number']").val(),
       password: this.$("input[name='password']").val(),
       password_confirmation: this.$("input[name='password_confirmation']").val(),
     });
