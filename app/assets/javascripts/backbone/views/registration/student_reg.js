@@ -34,78 +34,86 @@ var StudentRegFormView = Backbone.View.extend({
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
+
       error: function (model, response, options) {
-        console.log(model);
-        console.log(response);
-        console.log(options);
-        console.log("error");
-        if (response.responseText === '{"errors":"Incorrect PIN"}') {
-          $(".pin").css("border-color", "blue");
-          $(".pin").css("border-color", "red");
-          console.log(response.responseText);
-        }
-        else if (response.responseText === '{"errors":"Incorrect email"}') {
-          $(".email").css("border-color", "blue");
-          $(".email").css("border-color", "red");
-          console.log(response.responseText);
-        }
-        else if (response.responseText === '{"errors":["Age cannot be blank"]}') {
-          $(".age").css("border-color", "blue");
-          $(".age").css("border-color", "red");
-          console.log(response.responseText);
-        }
-      }      
+        $(".form-control").css("border-color", "#cccccc");
+        $("select").css("border-color", "#cccccc");
+        $("h4:contains('invalid')").remove();
+        $("h4:contains('choose')").remove();
+        $("h4:contains('option')").remove();
+        $("h4:contains('ควร')").remove();
+        $("h4:contains('อีเมล์')").remove();
+        $("h4.appended-pass").remove();
+        $("h4.appended-pass-conf").remove();
+        $("h4.appended-pin-note").remove();
+        $("h4.appended-nat-id-note").remove();
+
+        if (response.responseJSON) {
+          if (response.responseJSON["errors"] === "Incorrect PIN") {
+            $(".pin").css("border-color", "red");
+            $(".pin-label").append("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
+          }
+          response.responseJSON.errors.forEach(function(error) {
+            if (error === "Nickname can't be blank") {
+              $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
+            }
+            else if (error === "Nickname is too long (maximum is 20 characters)") {
+              $(".nickname").css("border-color", "red").attr("placeholder", "ชื่อเล่นยาวเกินไป (ไม่เกิน 20 ตัวอักษร)");
+            }
+            else if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อจริงลงในช่องว่าง");
+            }
+            else if (error === "Last name can't be blank") {
+              $(".last-name").css("border-color", "red").attr("placeholder", "ควรกรอกนามสกุลลงในช่องว่าง");
+            }
+            else if (error === "Age can't be blank") {
+              $(".age").css("border-color", "red").attr("placeholder", "ควรกรอกอายุลงในช่องว่าง");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
+            }
+            else if (error === "Email can't be blank") {
+              $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
+            }
+            else if (error === "Email is invalid") {
+              $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้ไม่สามารถใช้งานได้</h4>");
+            }
+            else if (error === "Email has already been taken") {
+              $(".email").css("border-color", "red").attr("placeholder", "อีเมล์นี้มีผู้ใช้อยู่แล้ว");
+            }
+            else if (error === "Password can't be blank") {
+              $(".password").css("border-color", "red").attr("placeholder", "ควรกรอกรหัสผ่านลงในช่องว่าง");
+            }
+            else if (error === "Password is too short (minimum is 6 characters)") {
+              $(".password").css("border-color", "red");
+              $(".password-label").append("<h4 class='appended-pass' style='color:red;'>รหัสผ่านสั้นเกินไป(ขั้นต่ำ 6 ตัวอักษร)</h4>");
+            }
+            else if (error === "Password confirmation can't be blank") {
+              $(".password-confirmation").css("border-color", "red").attr("placeholder", "ควรกรอกการยืนยันรหัสผ่านลงในช่องว่าง");
+            }
+            else if (error === "Password confirmation doesn't match Password") {
+              $(".password-confirmation").css("border-color", "red");
+              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>Password confirmation doesn't match Password</h4>");
+            }
+            else if (error === "National can't be blank") {
+              $(".national-id").css("border-color", "red").attr("placeholder", "ควรกรอกหมายเลขประจำตัวประชาชนลงในช่องว่าง");
+            }
+            else if (error === "National is invalid") {
+              $(".national-id-label").css("border-color", "red").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้ไม่สามารถใช้งานได้</h4>");
+            }
+            else if (error === "National has already been taken") {
+              $(".national-id").css("border-color", "red");
+              $(".national-id-label").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้มีผู้ใช้อยู่แล้ว</h4>");
+            }
+          }); // forEach
+        } // if (response.responseJSON.errors)
+      } // error:
     }
 
     model.save({}, options);
   },
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
-
-  // checkInputs: function(e) {
-  //   $(".student_registration").css("border-color", "blue");
-  //   var someEmpty = $('.student_registration').filter(function(){
-  //     return $.trim(this.value).length === 0;
-  //   }).length > 0;
-
-  //   if (someEmpty) {
-  //     e.preventDefault();
-  //     this.highlightEmptyField("#user_pin", "your PIN");
-  //     this.highlightEmptyField("#user_first_name", "your first name");
-  //     this.highlightEmptyField("#user_last_name", "your last name");
-  //     this.highlightEmptyField("#user_email", "an email address");
-  //     this.highlightEmptyField("#user_password", "your password");
-  //     this.highlightEmptyField("#user_password_confirmation", "your password confirmation");
-  //     this.highlightEmptyField("#user_postal_code", "a postal code");
-  //   }
-
-  //   if ($("#user_password").val() !== $("#user_password_confirmation").val()) {
-  //     e.preventDefault();
-  //     $("input[type='password']").val("").css("border-color", "red").attr("placeholder", "Your passwords must match.");
-  //   }
-
-  //   if (this.verifyEmail($("#user_email").val()) === false) {
-  //     e.preventDefault();
-  //     $("input[type='email']").val("").css("border-color", "red").attr("placeholder", "Enter a valid email.");
-  //   }
-
-  //   if (this.verifyPostalCode($("#user_postal_code").val()) === false) {
-  //     e.preventDefault();
-  //     $("input[id='user_postal_code']").val("").css("border-color", "red").attr("placeholder", "Enter a valid postal code.");
-  //   }
-
-  // },  
-  // highlightEmptyField: function(input_id, text) {
-  //   if ($(input_id).val() === "") {
-  //     $(input_id).css("border-color", "red").attr("placeholder", "You must enter " + text);
-  //   }
-  // },
-  // verifyEmail: function(email) {
-  //   return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-  // },
-  // verifyPostalCode: function(post) {
-  //   return (/^(\d{5})?$/.test(post))
-  // }, // FIX this REGEX to correspond to the Ruby REGEX in 'user.rb'!!!
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');

@@ -123,6 +123,8 @@ class UsersController < ApplicationController
           set_password(user)
           if user.save
             student_render(user)
+          else
+            render :json => { :errors => user.errors.full_messages }, :status => 422
           end
         end
       else
