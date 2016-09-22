@@ -153,12 +153,7 @@ class UsersController < ApplicationController
           @user = user
           render "show" # to get JSON in jbuilder
         else
-          if user.errors.messages[:password]
-            flash[:danger] = "Password #{user.errors.messages[:password].first}."
-          elsif user.errors.messages[:postal_code]
-            flash[:danger] = "Postal Code #{user.errors.messages[:postal_code].first}."
-          end
-          redirect_to root_path
+          render :json => { :errors => user.errors.full_messages }, :status => 422
         end
       else
         deal_with_bad_pin
