@@ -67,8 +67,8 @@ var VolRegFormView = Backbone.View.extend({
             else if (error === "Age can't be blank") {
               $(".age").css("border-color", "red").attr("placeholder", "Age can't be blank");
             }
-            else if (error === "Phone number can't be blank") {
-              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
+            else if (error === "Organization can't be blank") {
+              $(".organization").css("border-color", "red").attr("placeholder", "Organization can't be blank");
             }
             else if (error === "Password can't be blank") {
               $(".password").css("border-color", "red").attr("placeholder", "Password can't be blank");
@@ -83,6 +83,9 @@ var VolRegFormView = Backbone.View.extend({
             else if (error === "Password confirmation doesn't match Password") {
               $(".password-confirmation").css("border-color", "red");
               $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>Password confirmation does not match Password</h4>");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
             }
             else if (error === "Address 1 can't be blank") {
               $(".address-one").css("border-color", "red").attr("placeholder", "Address one can't be blank");
