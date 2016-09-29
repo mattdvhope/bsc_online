@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :volunteers_available, only: [:index, :show]
 
+  resources :students_available, only: [:index, :show]
+
   get 'student_connect_with_volunteer/:id/:volunteer_id', to: "users#student_connect_with_volunteer"
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
