@@ -50,6 +50,11 @@ var App = {
     document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
+    document.title = 'City English Project | Student';
+    this.renderNavBar();
+    var dashboard_page = new StudentDashboardView({ model: student });
+    dashboard_page.render();
+
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
@@ -64,19 +69,6 @@ var App = {
         console.log(options);
       }
     });
-    var dashboard_page = new StudentDashboardView({ model: student });
-    this.renderNavBar();
-    dashboard_page.render();
-    document.title = 'City English Project | Student';
-  },
-  instantiateVolunteerProfile: function() {
-//     this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
-// console.log(this.volunteers);
-//     $("#volunteerprofile").html(this.profile_view_modal.render().el);
-
-    // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
-    // var student = this.student.responseJSON
-    // this.profile_view.render(volunteer, student);
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -140,10 +132,8 @@ var App = {
     }
     else if (gon.page_needed === "student") {
       this.getStudentDashboardPage(this.presentUserModel());
-      // this.instantiateVolunteerProfile();
     }
     this.getFooter();
-    // this.instantiateApplicationView();
     this.instantiateStudentRegForm();
     this.instantiateVolunteerRegForm();
     this.instantiateAdminRegForm();
