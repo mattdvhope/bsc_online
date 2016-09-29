@@ -50,11 +50,6 @@ var App = {
     document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
-    document.title = 'City English Project | Student';
-    this.renderNavBar();
-    var dashboard_page = new StudentDashboardView({ model: student });
-    dashboard_page.render();
-
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
@@ -69,6 +64,10 @@ var App = {
         console.log(options);
       }
     });
+    var dashboard_page = new StudentDashboardView({ model: student });
+    this.renderNavBar();
+    dashboard_page.render();
+    document.title = 'City English Project | Student';
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
