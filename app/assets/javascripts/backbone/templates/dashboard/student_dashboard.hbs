@@ -15,15 +15,26 @@
   <div>
     <h2><a href="/log_out">Log Out</a></h2>
     <hr>
-    <h2>Welcome to the "City English Project," {{first_name}}.</h2>
-    <h2>ยินดีต้อนรับสู่ "โครงการซิตี้ อิงลิช" {{first_name}}.</h2>
+    <h2>{{welcome_note}}</h2>
+
     <br>
-    <h2>In the future, when you come to this home page, you can apply for a "Skype Partnership" with a teacher who lives in America.</h2>
-    <h2>ในอนาคต เมื่อคุณเข้ามาที่โฮมเพจนี้ คุณสามารถสมัครเพื่อขอ "คู่สนทนาทางโปรแกรม Skype" กับคู่สนทนาที่อยู่ในประเทศอเมริกา</h2>
+    <h2>
+      {{#if thai_language}}
+        {{> dashboard/thai/_in_future }}
+      {{^}}
+        {{> dashboard/english/_in_future }}
+      {{/if}}
+    </h2>
+
     <br>
-    <h2>We will send you an email to inform you when American Skype partners are available.</h2>
-    <h2>เราจะส่งอีเมลแจ้งให้คุณทราบเมื่อเราสามารถหาคู่สนทนาทางโปรแกรม Skype ในประเทศอเมริกาให้คุณได้</h2>
-    <hr>
+    <h2>
+      {{#if thai_language}}
+        {{> dashboard/thai/_send_email }}
+      {{^}}
+        {{> dashboard/english/_send_email }}
+      {{/if}}
+    </h2>
+
   </div>
 
 </div>
