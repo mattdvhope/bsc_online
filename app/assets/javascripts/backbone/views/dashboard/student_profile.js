@@ -1,9 +1,9 @@
-var VolunteerProfileView = Backbone.View.extend({
+var StudentProfileView = Backbone.View.extend({
   attributes: {
-    id: "volunteer-profile"
+    id: "student-profile"
   },
 
-  template:  HandlebarsTemplates['dashboard/volunteer_profile'],
+  template:  HandlebarsTemplates['dashboard/student_profile'],
 
   render: function() {
     this.$el.html(this.template({

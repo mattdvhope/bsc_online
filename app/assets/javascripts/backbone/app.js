@@ -44,19 +44,13 @@ var App = {
     document.title = 'City English Project | Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
-    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
-    this.renderNavBar();
-    dashboard_page.render();
-    document.title = 'City English Project | Volunteer';
-  },
-  getStudentDashboardPage: function(student) {
-    this.volunteers = new VolunteersAvailable(); // collection
-    this.volunteers.fetch({
+    this.students = new StudentsNeedingSkype(); // collection
+    this.students.fetch({
       success: function (collection, response, options) {
-        var view = new VolunteersAvailableView({ collection: collection });
+        var view = new StudentsNeedingSkypeView({ collection: collection });
         view.render();
-        var profile_view_modal = new VolunteerProfileView({ model: student });
-        $("#volunteerprofile").html(profile_view_modal.render().el);
+        var profile_view_modal = new StudentProfileView({ model: volunteer });
+        $("#studentprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -64,19 +58,16 @@ var App = {
         console.log(options);
       }
     });
+    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
+    this.renderNavBar();
+    dashboard_page.render();
+    document.title = 'City English Project | Volunteer';
+  },
+  getStudentDashboardPage: function(student) {
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
     document.title = 'City English Project | Student';
-  },
-  instantiateVolunteerProfile: function() {
-//     this.profile_view_modal = new VolunteerProfileView({ collection: this.volunteers });
-// console.log(this.volunteers);
-//     $("#volunteerprofile").html(this.profile_view_modal.render().el);
-
-    // var volunteer = this.volunteers.findWhere({ id: parseInt(id) }).toJSON();
-    // var student = this.student.responseJSON
-    // this.profile_view.render(volunteer, student);
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
@@ -140,10 +131,8 @@ var App = {
     }
     else if (gon.page_needed === "student") {
       this.getStudentDashboardPage(this.presentUserModel());
-      // this.instantiateVolunteerProfile();
     }
     this.getFooter();
-    // this.instantiateApplicationView();
     this.instantiateStudentRegForm();
     this.instantiateVolunteerRegForm();
     this.instantiateAdminRegForm();

@@ -1,16 +1,9 @@
 var FooterFrontView = Backbone.View.extend({
   // id: "contact-us",
-  templateFooter:  HandlebarsTemplates['footer/footer'],
-  render: function() {
-    this.$el.html(this.templateFooter({
-      window_big: this.window_big(),
-      window_medium: this.window_medium(),
-      window_smaller: this.window_smaller(),
-      thai_language: this.app_language_is_thai(),
-      telephone: this.telephone(),
-      contact_us: this.contact_us()
-    }));
+  initialize: function() {
+    this.$el.appendTo(".entire-footer");
   },
+  templateFooter:  HandlebarsTemplates['footer/footer'],
   window_big: function() {
     return $(window).width() >= 1260
   },
@@ -36,8 +29,15 @@ var FooterFrontView = Backbone.View.extend({
       return english;
     }
   },
-  initialize: function() {
-    this.$el.appendTo(".entire-footer");
+  render: function() {
+    this.$el.html(this.templateFooter({
+      window_big: this.window_big(),
+      window_medium: this.window_medium(),
+      window_smaller: this.window_smaller(),
+      thai_language: this.app_language_is_thai(),
+      telephone: this.telephone(),
+      contact_us: this.contact_us()
+    }));
   }
 });
 
