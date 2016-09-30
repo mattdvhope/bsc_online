@@ -64,20 +64,6 @@ var App = {
     document.title = 'City English Project | Volunteer';
   },
   getStudentDashboardPage: function(student) {
-    this.volunteers = new VolunteersAvailable(); // collection
-    this.volunteers.fetch({
-      success: function (collection, response, options) {
-        var view = new VolunteersAvailableView({ collection: collection });
-        view.render();
-        var profile_view_modal = new VolunteerProfileView({ model: student });
-        $("#volunteerprofile").html(profile_view_modal.render().el);
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-        console.log(response);
-        console.log(options);
-      }
-    });
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
