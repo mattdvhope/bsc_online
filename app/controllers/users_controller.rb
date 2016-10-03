@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     redirect_to volunteer_info_path
   end
 
-  def student_connect_with_volunteer
+  def volunteer_connect_with_student
     student = User.find(params[:id])
     volunteer = User.find(params[:volunteer_id])
     email_from_student_to_volunteer(student, volunteer)
