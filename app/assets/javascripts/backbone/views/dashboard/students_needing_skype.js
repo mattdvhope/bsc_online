@@ -15,7 +15,7 @@ console.log($(e.target)[0].dataset.id);
       $(".modal-body #student-last-name").text( studentLastName );
       $(".modal-body #student-age").text( studentAge );
       $(".modal-body #student-gender").text( studentGender );
-      $("a.btn-success").attr('href', "/volunteer_connect_with_student/" + $(e.target)[0].dataset.id);
+      $("a.btn-success").attr('href', "/volunteer_connect_with_student/" + this.model.get('id') + "/" + $(e.target)[0].dataset.id);
     }
   },
 

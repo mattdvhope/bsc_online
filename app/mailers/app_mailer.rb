@@ -81,15 +81,15 @@ class AppMailer < ActionMailer::Base
     mg_client.send_message ENV["domain"], message_params
   end
 
-  def student_to_volunteer(student, volunteer)
-    @student = student
+  def volunteer_to_student(volunteer, student)
     @volunteer = volunteer
+    @student = student
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
       :from    => "City English Project <" + ENV["username"] + ">",
       :to      => volunteer.email,
-      :subject => "Hi #{volunteer.first_name}, #{student.first_name} wants a Skype partnership!",
-      :html => (render_to_string(template: "../views/app_mailer/student_to_volunteer")).to_str
+      :subject => "Hi #{student.first_name}, #{volunteer.first_name} wants a Skype partnership!",
+      :html => (render_to_string(template: "../views/app_mailer/volunteer_to_student")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
   end
