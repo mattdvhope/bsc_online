@@ -19,9 +19,9 @@ class UsersController < ApplicationController
   end
 
   def volunteer_connect_with_student
-    student = User.find(params[:student_id])
     volunteer = User.find(params[:volunteer_id])
-    email_from_student_to_volunteer(student, volunteer)
+    student = User.find(params[:student_id])
+    email_from_volunteer_to_student(volunteer, student)
     redirect_to dashboard_path
   end
 

@@ -87,7 +87,7 @@ class AppMailer < ActionMailer::Base
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
       :from    => "City English Project <" + ENV["username"] + ">",
-      :to      => volunteer.email,
+      :to      => student.email,
       :subject => "Hi #{student.first_name}, #{volunteer.first_name} wants a Skype partnership!",
       :html => (render_to_string(template: "../views/app_mailer/volunteer_to_student")).to_str
     }
