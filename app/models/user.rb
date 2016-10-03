@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, length: { maximum: 40 }
   validates_presence_of :gender
   validates_presence_of :age
-  validates_presence_of :organization
   validates_presence_of :phone_number, length: { maximum: 30 }
+  validates_presence_of :organization, :if => :non_student?
 
   validates_presence_of :email, length: { maximum: 40 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
@@ -87,6 +87,15 @@ class User < ActiveRecord::Base
 
   def name
     guest ? "Admin Applicant" : first_name
+  end
+
+  def non_student?
+    if self.role
+      if self.role == "leader" || self.role == "admin" || self.role == "volunteer"
+        return true
+      end
+    end
+    false
   end
 
   def leader?

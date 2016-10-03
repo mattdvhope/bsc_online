@@ -47,7 +47,7 @@ var App = {
     this.students = new StudentsNeedingSkype(); // collection
     this.students.fetch({
       success: function (collection, response, options) {
-        var view = new StudentsNeedingSkypeView({ collection: collection });
+        var view = new StudentsNeedingSkypeView({ collection: collection, model: volunteer });
         view.render();
         var profile_view_modal = new StudentProfileView({ model: volunteer });
         $("#studentprofile").html(profile_view_modal.render().el);
