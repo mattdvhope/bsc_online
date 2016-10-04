@@ -5,7 +5,6 @@ var StudentsNeedingSkypeView = Backbone.View.extend({
 
   events: {
     'click .student-profile-modal': function (e) {
-console.log($(e.target)[0].dataset.id);
       var studentFirstName = $(e.target)[0].dataset.firstName;
       var studentLastName = $(e.target)[0].dataset.lastName;
       var studentAge = $(e.target)[0].dataset.age;
