@@ -155,6 +155,14 @@ $(document).on("click", "#backbone-app a", function(e) {
 
 App.init();
 
-
+Handlebars.registerHelper('genderTranslate', function(gender) {
+  if(gender === "ผู้ชาย" || gender === "male") {
+    return "Gender: Male";
+  } else if (gender === "ผู้หญิง" || gender === "female") {
+    return "Gender: Female";
+  } else {
+    return "Gender: Unknown";
+  }
+});
 
 

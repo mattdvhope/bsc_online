@@ -5,17 +5,19 @@ var StudentsNeedingSkypeView = Backbone.View.extend({
 
   events: {
     'click .student-profile-modal': function (e) {
-console.log($(e.target)[0].dataset.id);
       var studentFirstName = $(e.target)[0].dataset.firstName;
       var studentLastName = $(e.target)[0].dataset.lastName;
       var studentAge = $(e.target)[0].dataset.age;
       var studentGender = $(e.target)[0].dataset.gender;
-      var studentId = $(e.target)[0].dataset.id;
+      if (studentGender === "ผู้ชาย") { studentGender = "male" }
+      if (studentGender === "ผู้หญิง") { studentGender = "female" }
       $(".modal-body #student-first-name").text( studentFirstName );
       $(".modal-body #student-last-name").text( studentLastName );
       $(".modal-body #student-age").text( studentAge );
       $(".modal-body #student-gender").text( studentGender );
-      $("a.btn-success").attr('href', "/volunteer_connect_with_student/" + this.model.get('id') + "/" + $(e.target)[0].dataset.id);
+      var volunteerId = this.model.get('id')
+      var studentId = $(e.target)[0].dataset.id;
+      $("a.btn-success").attr('href', "/volunteer_connect_with_student/" + volunteerId + "/" + studentId);
     }
   },
 
