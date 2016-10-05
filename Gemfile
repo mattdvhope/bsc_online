@@ -26,7 +26,6 @@ gem 'haml-rails'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
 # gem 'nokogiri'
 # gem 'premailer-rails'
 
