@@ -149,7 +149,7 @@ class UsersController < ApplicationController
         user.password_confirmation = params[:password_confirmation]       
         if user.save
           send_new_user_email(user)
-          session[:user_id] = user.id
+          session[:user_id] = user.id unless user.role == "admin_applicant"
           @user = user
           render "show" # to get JSON in jbuilder
         else
