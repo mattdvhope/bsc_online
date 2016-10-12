@@ -40,8 +40,10 @@ class UsersController < ApplicationController
     log_out_path if users_path
     if user.guest
       deal_with_guest(user)
-    elsif (user.role == "volunteer" || user.role == "admin_applicant") && user.pin != "000000"
-      deal_with_volunteer_and_admin(user)
+    elsif user.role == "volunteer" && user.pin != "000000"
+      deal_with_volunteer(user)
+    elsif user.role == "admin_applicant"
+      deal_with_admin_applicant(user)
     elsif user.role == "student" && user.pin != "000000"
       fully_register_student(user)
     end
@@ -143,37 +145,37 @@ class UsersController < ApplicationController
       render "show" # to get JSON in jbuilder
     end
 
-    def deal_with_volunteer_and_admin(user)
+    def deal_with_volunteer(user)
       if (User.pins_available =~ user.pin) == 0
-        user.password = params[:password]
-        user.password_confirmation = params[:password_confirmation]       
-        if user.save
-          send_new_user_email(user)
-          session[:user_id] = user.id unless user.role == "admin_applicant"
-          @user = user
-          render "show" # to get JSON in jbuilder
-        else
-          render :json => { :errors => user.errors.full_messages }, :status => 422
-        end
+        save_vol_or_admin_applicant(user)
       else
         deal_with_bad_pin
       end
     end
 
-    def set_up(user)
-      if user.city && user.pin == "000000"
-        valid_pin = User.pins_available.inspect[4..-5].split("|").sample
-        user.pin = valid_pin
-        # user.guest = true
-        user.role = "admin_applicant"
-      elsif user.city
-        user.role = "volunteer"
-      end
-      user
-    end
-
     def deal_with_bad_pin
       render :json => { :errors => "Incorrect PIN" }, :status => 422
+    end
+
+    def deal_with_admin_applicant(user)
+      save_vol_or_admin_applicant(user)
+    end
+
+    def save_vol_or_admin_applicant(user)
+      deal_with_password(user) 
+      if user.save
+        session[:user_id] = user.id unless user.role == "admin_applicant"
+        send_new_user_email(user)
+        @user = user
+        render "show" # to get JSON in jbuilder
+      else
+        render :json => { :errors => user.errors.full_messages }, :status => 422
+      end
+    end
+
+    def deal_with_password(user)
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]       
     end
 
     def send_new_user_email(user)
