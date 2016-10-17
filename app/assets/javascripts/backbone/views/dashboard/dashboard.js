@@ -11,9 +11,14 @@ var DashboardView = Backbone.View.extend({
     this.$el.appendTo(".entire");
   },
 
+  role_is_leader: function() {
+    return this.model.get("role") === "leader"
+  },
+
   render: function() {
     this.$el.html(this.template({
       first_name: this.model.get("first_name"),
+      role_is_leader: this.role_is_leader(),
       role: this.model.get("role")
     }));
   }

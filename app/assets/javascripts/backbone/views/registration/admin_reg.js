@@ -26,12 +26,7 @@ var AdminRegFormView = Backbone.View.extend({
       },
       error: function (model, response, options) {
         console.log("error");
-        if (response.responseText === '{"errors":"Incorrect PIN"}') {
-          $(".pin").css("border-color", "blue");
-          $(".pin").css("border-color", "red");
-          console.log(response.responseText);
-        }
-        else if (response.responseText === '{"errors":"Incorrect email"}') {
+        if (response.responseText === '{"errors":"Incorrect email"}') {
           $(".email").css("border-color", "blue");
           $(".email").css("border-color", "red");
           console.log(response.responseText);
