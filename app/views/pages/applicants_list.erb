@@ -1,11 +1,3 @@
-<!-- script disables browser back button for this page -->
-<script type = "text/javascript" >
-  history.pushState(null, null, 'dashboard');
-  window.addEventListener('popstate', function(event) {
-    history.pushState(null, null, 'dashboard');
-  });
-</script>
-
 <section class="bsc-container">
 
   <div>
@@ -76,6 +68,3 @@
 
 </section>
 
-<div id="overlay">
-  <!-- for .hbs templates (sessions & registration) -->
-</div>

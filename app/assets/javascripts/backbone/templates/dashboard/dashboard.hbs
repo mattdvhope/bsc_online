@@ -15,8 +15,13 @@
   <div>
     <h2><a href="/log_out">Log Out</a></h2>
     <hr>
-    <h2><a href="/class_times/new">Create new class time</a></h2>
+    <h2><a href="/class_times/new" target="_blank">Create new class time</a></h2>
     <hr>
+
+    {{#if role_is_leader}}
+      <h2><a href="/applicants_list" target="_blank">Check on applicants for Volunteer Coordinator</a></h2>
+      <hr>
+    {{/if}}
 
     <h2>Welcome to the "City English Project," {{first_name}}. You are here in {{role}} status.</h2>
     <hr>

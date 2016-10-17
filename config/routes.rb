@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # resources :photos, only: [:index, :new]
   
   get 'volunteer_info', to: "pages#volunteer_info"
-
   get 'dashboard', to: "pages#dashboard"
+  get 'applicants_list', to: "pages#applicants_list"
 
   get 'build', to: "pages#build"
   get 'contact', to: "pages#contact"

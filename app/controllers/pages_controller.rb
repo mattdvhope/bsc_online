@@ -31,6 +31,13 @@ class PagesController < ApplicationController
     end
   end
 
+  def applicants_list
+    @admin_applications = AdminApplication.all
+    if !current_user
+      redirect_to root_path
+    end
+  end
+
   def contact
   end
 
