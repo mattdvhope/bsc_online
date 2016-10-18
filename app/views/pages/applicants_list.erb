@@ -6,7 +6,7 @@
     
     <h1><%= "Welcome to the \"Volunteer Administrator Applicants\" list page, #{current_user.first_name}!!" %></h1>
     <hr>
-    <h2>Each applicant that you 'Approve' here will recieve a PIN in the automated email he or she receives.  The new "Volunteer Administrator" can in turn give that PIN to volunteers that he or she screens.</h2>
+    <h2>Each applicant that you 'Approve' here will recieve a PIN in the automated email he or she receives.  This new "Volunteer Administrator" can in turn give that PIN to volunteers that he or she personally screens.</h2>
 
     <% if AdminApplication.all == [] %>
       <h3> No applications now. </h3>
