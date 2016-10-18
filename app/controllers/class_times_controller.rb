@@ -9,7 +9,11 @@ class ClassTimesController < ApplicationController
   end
 
   def new
-    @class_time = ClassTime.new
+    if current_user
+      @class_time = ClassTime.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
