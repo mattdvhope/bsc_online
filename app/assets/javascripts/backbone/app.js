@@ -41,7 +41,7 @@ var App = {
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
     dashboard_page.render();
-    document.title = 'City English Project | Dashboard';
+    document.title = 'Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
     this.students = new StudentsNeedingSkype(); // collection
