@@ -1,7 +1,10 @@
 <div class="container">
 
-  <h2>Here is a list of CEP class times and the students who have registered for them.</h2>
-  <br>
+  <h2 class="txt" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseClassTimes" aria-expanded="false" aria-controls="collapseClassTimes">
+    Click here to see a list of CEP class times and the students who have registered for them.
+  </h2>
+  <div class="collapse" id="collapseClassTimes">
+
   {{#if no_class_times}}
     <h3>....please wait for classtimes to load....</h3>
   {{^}}
@@ -55,6 +58,8 @@
     {{/each}} <!-- each class times -->
     </ul>
   {{/if}} <!-- if no class times -->
+
+  </div>
 
   <hr>
   <h2><a href="/log_out">Log Out</a></h2>
