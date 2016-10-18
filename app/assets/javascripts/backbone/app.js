@@ -21,7 +21,7 @@ var App = {
   getVolunteerPage: function() {
     this.removeNavAndPage();
     var volunteer_page = new VolunteerPageView();
-    document.title = 'City English Project | Volunteers';
+    document.title = 'Volunteer Information';
     this.renderNavBar();
     volunteer_page.render();
 
@@ -61,13 +61,13 @@ var App = {
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     dashboard_page.render();
-    document.title = 'City English Project | Volunteer';
+    document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
   },
   getStudentDashboardPage: function(student) {
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
-    document.title = 'City English Project | Student';
+    document.title = student.get("first_name") + " " + student.get("last_name");
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();
