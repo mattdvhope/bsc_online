@@ -16,7 +16,34 @@
     <h2><a href="/log_out">Log Out</a></h2>
     <hr>
     <h2>Welcome to the "City English Project," {{first_name}} as a volunteer!</h2>
+    <hr>
+    <h2>Click </h2>
+
+    <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeOne" aria-expanded="false" aria-controls="collapseSkypeTimeOne">
+      <span>First Skype session time slot</span>
+    </h2>
+    <div class="collapse" id="collapseSkypeTimeOne">
+      {{> select_day}}
+    </div>
     <br>
+
+    <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeTwo" aria-expanded="false" aria-controls="collapseSkypeTimeTwo">
+      <span>Second Skype session time slot</span>
+    </h2>
+    <div class="collapse" id="collapseSkypeTimeTwo">
+      {{> select_day}}
+    </div>
+    <br>
+
+    <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeThree" aria-expanded="false" aria-controls="collapseSkypeTimeThree">
+      <span>Third Skype session time slot</span>
+    </h2>
+    <div class="collapse" id="collapseSkypeTimeThree">
+      {{> select_day}}
+    </div>
+    <br>
+
+    <h2><a href="/log_out">Log Out</a></h2>
     <hr>
   </div>
 

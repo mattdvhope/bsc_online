@@ -8,6 +8,7 @@ var VolunteerDashboardView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);
     this.$el.appendTo(".entire");
+    Handlebars.registerPartial('select_day', HandlebarsTemplates['dashboard/select_day']);
   },
 
   render: function() {
