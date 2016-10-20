@@ -44,13 +44,19 @@ var App = {
     document.title = 'Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
-    this.students = new StudentsNeedingSkype(); // collection
-    this.students.fetch({
+    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
+    this.renderNavBar();
+    dashboard_page.render();
+    document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+  },
+  getStudentDashboardPage: function(student) {
+    this.volunteers = new VolunteersAvailable(); // collection
+    this.volunteers.fetch({
       success: function (collection, response, options) {
-        var view = new StudentsNeedingSkypeView({ collection: collection, model: volunteer });
+        var view = new VolunteersAvailableView({ collection: collection, model: student });
         view.render();
-        var profile_view_modal = new StudentProfileView({ model: volunteer });
-        $("#studentprofile").html(profile_view_modal.render().el);
+        var profile_view_modal = new VolunteerProfileView({ model: student });
+        $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -58,12 +64,6 @@ var App = {
         console.log(options);
       }
     });
-    var dashboard_page = new VolunteerDashboardView({ model: volunteer });
-    this.renderNavBar();
-    dashboard_page.render();
-    document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
-  },
-  getStudentDashboardPage: function(student) {
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
     dashboard_page.render();
