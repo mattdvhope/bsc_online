@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :choices, :foreign_key=>"student_id", :dependent => :destroy
   has_many :grades, :foreign_key=>"student_id", :dependent => :destroy
   has_one :admin_application, :dependent => :destroy
+  has_many :skype_time_slots, :dependent => :destroy
 
   def self.omniauth(auth)
     string_number = (auth.uid.to_i * rand(10000)).to_s
