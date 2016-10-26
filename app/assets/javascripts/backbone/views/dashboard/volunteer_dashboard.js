@@ -14,6 +14,8 @@ var VolunteerDashboardView = Backbone.View.extend({
       e.preventDefault();
       this.removeErrorMsg();
       this.add_skype_slots();
+      App.removeNavAndPage();
+      App.getVolunteerDashboardPage(this.model);
     }
   },
 
@@ -43,18 +45,17 @@ console.log("failed regex!!");
 console.log("no time slots");
     }
 
-
     if (time_slots.length === 3) {
       var time_slot_1 = new SkypeTimeSlot();
-      time_slot_1.set({day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
+      time_slot_1.set({user_id: volunteer.get("id"), day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
       time_slots = [time_slot_1];
       saveTimeSlots(time_slots);
     }
     else if (time_slots.length === 6) {
       var time_slot_1 = new SkypeTimeSlot();
       var time_slot_2 = new SkypeTimeSlot();
-      time_slot_1.set({day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
-      time_slot_2.set({day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
+      time_slot_1.set({user_id: volunteer.get("id"), day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
+      time_slot_2.set({user_id: volunteer.get("id"), day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
       time_slots = [time_slot_1, time_slot_2];
       saveTimeSlots(time_slots);
     }
@@ -62,9 +63,9 @@ console.log("no time slots");
       var time_slot_1 = new SkypeTimeSlot();
       var time_slot_2 = new SkypeTimeSlot();
       var time_slot_3 = new SkypeTimeSlot();
-      time_slot_1.set({day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
-      time_slot_2.set({day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
-      time_slot_3.set({day: time_slots[6], time_period: time_slots[7], am_pm: time_slots[8]});
+      time_slot_1.set({user_id: volunteer.get("id"), day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
+      time_slot_2.set({user_id: volunteer.get("id"), day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
+      time_slot_3.set({user_id: volunteer.get("id"), day: time_slots[6], time_period: time_slots[7], am_pm: time_slots[8]});
       time_slots = [time_slot_1, time_slot_2, time_slot_3];
       saveTimeSlots(time_slots);
     }
@@ -73,10 +74,10 @@ console.log("no time slots");
       var time_slot_2 = new SkypeTimeSlot();
       var time_slot_3 = new SkypeTimeSlot();
       var time_slot_4 = new SkypeTimeSlot();
-      time_slot_1.set({day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
-      time_slot_2.set({day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
-      time_slot_3.set({day: time_slots[6], time_period: time_slots[7], am_pm: time_slots[8]});
-      time_slot_4.set({day: time_slots[9], time_period: time_slots[10], am_pm: time_slots[11]});
+      time_slot_1.set({user_id: volunteer.get("id"), day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
+      time_slot_2.set({user_id: volunteer.get("id"), day: time_slots[3], time_period: time_slots[4], am_pm: time_slots[5]});
+      time_slot_3.set({user_id: volunteer.get("id"), day: time_slots[6], time_period: time_slots[7], am_pm: time_slots[8]});
+      time_slot_4.set({user_id: volunteer.get("id"), day: time_slots[9], time_period: time_slots[10], am_pm: time_slots[11]});
       time_slots = [time_slot_1, time_slot_2, time_slot_3, time_slot_4];
       saveTimeSlots(time_slots);
     }
@@ -139,8 +140,11 @@ console.log("no time slots");
   template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
 
   render: function() {
+console.log(this.model.get("skype_time_slots"));
     this.$el.html(this.template({
-      first_name: this.model.get("first_name")
+      first_name: this.model.get("first_name"),
+      volunteer_skype_time_slots: this.model.get("skype_time_slots")
+      // volunteer_skype_time_slots: this.model.get("skype_time_slots");
     }));
   }
 });
