@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930064641) do
+ActiveRecord::Schema.define(version: 20161025093934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,15 @@ ActiveRecord::Schema.define(version: 20160930064641) do
     t.integer  "correct_answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "skype_time_slots", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "day"
+    t.text     "time_period"
+    t.text     "am_pm"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "stories", force: :cascade do |t|

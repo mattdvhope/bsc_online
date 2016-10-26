@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :volunteers_available, only: [:index, :show]
 
+  resources :skype_time_slots, only: [:index, :show, :create]
+
   resources :students_needing_skype, only: [:index, :show]
 
   get 'student_connect_with_volunteer/:volunteer_id/:student_id', to: "users#student_connect_with_volunteer"
