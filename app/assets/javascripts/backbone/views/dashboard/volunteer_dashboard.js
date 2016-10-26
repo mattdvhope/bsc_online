@@ -140,13 +140,36 @@ console.log("no time slots");
   template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
 
   render: function() {
-console.log(this.model.get("skype_time_slots"));
-    this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
-      volunteer_skype_time_slots: this.model.get("skype_time_slots")
-      // volunteer_skype_time_slots: this.model.get("skype_time_slots");
-    }));
-  }
+    var view_context = this;
+    var collection = new SkypeTimeSlots();
+    collection.fetch({
+      success: function (collection, response, options) {
+        var time_slots = [];
+        collection.forEach(function(skypetimeslot) {
+          time_slots.push(skypetimeslot.get("day") + " " + skypetimeslot.get("time_period") + " " + skypetimeslot.get("am_pm"));
+        });
+        function noTimeSlots() {
+          return collection.length === 0;
+        }
+
+        view_context.$el.html(view_context.template({
+          first_name: view_context.model.get("first_name"),
+          no_time_slots: noTimeSlots(),
+          time_slots: time_slots
+        }));
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
+
+    // this.$el.html(this.template({
+    //   first_name: this.model.get("first_name"),
+    //   volunteer_skype_time_slots: this.model.get("skype_time_slots")
+    //   // volunteer_skype_time_slots: this.model.get("skype_time_slots");
+    // }));
+  } // render:
+
 });
 
 

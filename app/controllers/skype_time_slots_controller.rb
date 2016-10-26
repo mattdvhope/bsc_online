@@ -3,9 +3,11 @@ class SkypeTimeSlotsController < ApplicationController
   before_action :require_user
 
   def index
+    @skype_time_slots = SkypeTimeSlot.where(user_id: current_user.id)
   end
 
   def show
+    @skype_time_slot = SkypeTimeSlot.find(params[:id])
   end
 
   def create
