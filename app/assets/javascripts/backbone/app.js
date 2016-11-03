@@ -155,6 +155,15 @@ $(document).on("click", "#backbone-app a", function(e) {
 
 App.init();
 
+window.addEventListener('popstate', function(event) { // navigating with back & forward buttons
+  if (Backbone.history.getFragment() === "") {
+    App.getFrontMainPage();
+  }
+  else if (Backbone.history.getFragment() === "volunteer_info") {
+    App.getVolunteerPage();
+  }
+}, false);
+
 Handlebars.registerHelper('genderTranslate', function(gender) {
   if(gender === "ผู้ชาย" || gender === "male") {
     return "Gender: Male";
