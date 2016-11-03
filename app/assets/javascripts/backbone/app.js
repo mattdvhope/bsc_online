@@ -153,6 +153,11 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
 
+window.addEventListener('popstate', function(event) {
+  console.log(event);
+  App.getFrontMainPage();
+}, false);
+
 App.init();
 
 Handlebars.registerHelper('genderTranslate', function(gender) {
