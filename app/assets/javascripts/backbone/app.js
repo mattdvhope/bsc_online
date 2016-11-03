@@ -153,11 +153,16 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
 
-window.addEventListener('popstate', function(event) { // for when the back button is pressed to get back to Main page
-  App.getFrontMainPage();
-}, false);
-
 App.init();
+
+window.addEventListener('popstate', function(event) { // navigating with back & forward buttons
+  if (Backbone.history.getFragment() === "") {
+    App.getFrontMainPage();
+  }
+  else if (Backbone.history.getFragment() === "volunteer_info") {
+    App.getVolunteerPage();
+  }
+}, false);
 
 Handlebars.registerHelper('genderTranslate', function(gender) {
   if(gender === "ผู้ชาย" || gender === "male") {
