@@ -154,7 +154,6 @@ $(document).on("click", "#backbone-app a", function(e) {
 });
 
 window.addEventListener('popstate', function(event) { // for when the back button is pressed to get back to Main page
-  console.log(event);
   App.getFrontMainPage();
 }, false);
 
