@@ -5,6 +5,29 @@ var NavBarView = Backbone.View.extend({
     this.$el.appendTo(".entire-nav");
   },
 
+  events: {
+    'click #top-point': function (e) {
+      var el = document.getElementById("page-top");
+      el.scrollIntoView();
+    },
+    'click #features-point': function (e) {
+      var el = document.getElementById("features");
+      el.scrollIntoView();
+    },
+    'click #get-started-point': function (e) {
+      var el = document.getElementById("get-started");
+      el.scrollIntoView();
+    },
+    'click #contact-us-point': function (e) {
+      var el = document.getElementById("contact-us");
+      el.scrollIntoView();
+    },
+    'click #volunteer-steps-point': function (e) {
+      var el = document.getElementById("volunteer-steps");
+      el.scrollIntoView();
+    }
+  },
+
   volunteer_info_visible: function() {
     return $(".entire-vol").is(":visible");
   },

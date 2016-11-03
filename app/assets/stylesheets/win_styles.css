@@ -23,10 +23,10 @@ p.paragraph {
   font-family: 'Muli', sans-serif;
 }
 
-a#home-link, a#place_1, a#place_2, a#place_3, a#place_4, a#place_5, a#place_6, a#nav-dropdown  {
+#home-link, #top-point, #features-point, #get-started-point, a#place_4, #contact-us-point, #volunteer-steps-point, #nav-dropdown  {
   color: #ffffff;
-    border: 2px;
- 
+  border: 2px;
+  cursor: pointer;
 }
 
 a#drop-down-link {
