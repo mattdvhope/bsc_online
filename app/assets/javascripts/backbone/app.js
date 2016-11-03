@@ -153,8 +153,6 @@ $(document).on("click", "#backbone-app a", function(e) {
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
 
-App.init();
-
 window.addEventListener('popstate', function(event) { // navigating with back & forward buttons
   if (Backbone.history.getFragment() === "") {
     App.getFrontMainPage();
@@ -163,6 +161,8 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
     App.getVolunteerPage();
   }
 }, false);
+
+App.init();
 
 Handlebars.registerHelper('genderTranslate', function(gender) {
   if(gender === "ผู้ชาย" || gender === "male") {
