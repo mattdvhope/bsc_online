@@ -7,6 +7,7 @@
 var App = {
   getFrontMainPage: function() {
     this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
     if (sessionStorageAvailable("fragment")) {
       this.retainTemplateOnReload("");      
     }
@@ -14,12 +15,12 @@ var App = {
     document.title = 'City English Project | Home';
     this.renderNavBar();
     front_page_main.render();
-    $(window).scrollTop(0);
 
     this.front_page_main = front_page_main;
   },
   getVolunteerPage: function() {
     this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
     var volunteer_page = new VolunteerPageView();
     document.title = 'Volunteer Information';
     this.renderNavBar();
@@ -40,12 +41,14 @@ var App = {
     });
     var dashboard_page = new DashboardView({ model: user });
     this.renderNavBar();
+    this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = 'Dashboard';
   },
   getVolunteerDashboardPage: function(volunteer) {
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
+    this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
   },
@@ -66,8 +69,13 @@ var App = {
     });
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
+    this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = student.get("first_name") + " " + student.get("last_name");
+  },
+  scrollUpToTopOfPage: function() {
+    var el = document.getElementById("page-here");
+    el.scrollIntoView();
   },
   renderNavBar: function() {
     var nav_bar = new NavBarView();

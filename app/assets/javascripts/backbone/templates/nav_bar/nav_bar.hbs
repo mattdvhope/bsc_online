@@ -160,17 +160,6 @@
     }
   }
 
-  // in tandem with "Maintain scroll position when flag clicked" in transitions.js
-  $(".thai_flag").on("click", function() {
-    $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
-console.log(sessionStorage.getItem("scrollTopPos"));
-    App.applcationView.render(); // to make modal have correct language
-  });
-  $(".usa_flag").on("click", function() {
-    $(window).scrollTop(sessionStorage.getItem("scrollTopPos"));
-    App.applcationView.render(); // to make modal have correct language
-  });
-
   $(".nav-hover").mouseenter(function(){
     $(this).css("background-color", "#8BC34A");
   });
@@ -193,31 +182,6 @@ console.log(sessionStorage.getItem("scrollTopPos"));
     $(this).css("background-color", "#2D3179");
   });
 
-  // To ensure the nav link scrolls to correct position
-  if ($(window).width() > 1024) {
-    scrollPositioning($("a#place_1.page-scroll.nav-hover"), 60, 1100);
-    scrollPositioning($("a#place_2.page-scroll.nav-hover"), 0, 1100);
-    scrollPositioning($("a#place_3.page-scroll.nav-hover"), 0, 1100);
-    scrollPositioning($("a#place_4.page-scroll.nav-hover"), 0, 1100);
-    scrollPositioning($("a#place_5.page-scroll.nav-hover"), -60, 1100);
-    scrollPositioning($("a#place_6.page-scroll.nav-hover"), 0, 1100);
-  } else {
-    scrollPositioning($("a#place_1.page-scroll.nav-hover"), 60, 0);
-    scrollPositioning($("a#place_5.page-scroll.nav-hover"), -60, 0);
-  }
-
-  function scrollPositioning($link, position_offset, speed) {
-    $link.on('click', function(e) {
-    e.preventDefault();
-    var hash = this.hash;
-    $('html, body').animate({
-        scrollTop: $(hash).offset().top + position_offset
-      }, speed, function(){
-        window.location.hash = hash;
-      });
-    });
-  }
-
   // "Coming soon" sweet alert
   $("a.coming-soon-vol").on("click", function(e) {
     e.preventDefault();
@@ -231,38 +195,37 @@ console.log(sessionStorage.getItem("scrollTopPos"));
   });
 
   // To open application form
-//   $(".non-summer-university").on("click", function() {
-//     sessionStorage.setItem("student_type", "non_summer_university");
-//     openApplicationForm()
-//   });
+  $(".non-summer-university").on("click", function() {
+    sessionStorage.setItem("student_type", "non_summer_university");
+    openApplicationForm()
+  });
 
-// // YOU MAY NOT NEED THIS!!! TEST SOME MORE AND MAKE 'DRY'!!!!!! (also in 'main.hbs' :-( )
-//   function openApplicationForm() {
-//     var class_times_collection = new ClassTimes();
-//     class_times_collection.fetch({
-//       success: function (class_times) {
-//         var student = new User();
-//         var class_times = class_times.toJSON().sort(function (a, b) {
-//           if (a.order_no > b.order_no) {
-//             return 1;
-//           }
-//           if (a.order_no < b.order_no) {
-//             return -1;
-//           }
-//           // a must be equal to b
-//           return 0;
-//         });
-//         this.applicationView = new ApplicationView({
-//           model: student,
-//           options: class_times
-//         });
-//         $("#applicationmodal").html(this.applicationView.render().el);
-//       },
-//       error: function (collection, response, options) {
-//         console.log("error");
-//       }
-//     });
-//   }
+  function openApplicationForm() {
+    var class_times_collection = new ClassTimes();
+    class_times_collection.fetch({
+      success: function (class_times) {
+        var student = new User();
+        var class_times = class_times.toJSON().sort(function (a, b) {
+          if (a.order_no > b.order_no) {
+            return 1;
+          }
+          if (a.order_no < b.order_no) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        this.applicationView = new ApplicationView({
+          model: student,
+          options: class_times
+        });
+        $("#applicationmodal").html(this.applicationView.render().el);
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
+  }
 
 </script>
 

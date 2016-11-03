@@ -1,17 +1,3 @@
-// Scrolling up & down pages with nav links/////////
-$("#place_1").addClass("active");
-
-$(".page-scroll").on("click", function(e) { // to remove coloring from previously clicked nav links
-  e.preventDefault();
-  $("#place_1").removeClass("active");
-  $("#place_2").removeClass("active");
-  $("#place_3").removeClass("active");
-  $("#place_4").removeClass("active");
-  $("#place_5").removeClass("active");
-  $("#place_6").removeClass("active");
-  $(this).addClass("active");
-});
-
 // Collapse hamburger menu from document
 $(document).on('click', function() {
   collapseNavBar();
