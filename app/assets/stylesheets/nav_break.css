@@ -44,6 +44,10 @@ a#drop-down-link {
     color: black;
 }
 
+a#log-out {
+    color: white;
+}
+
 .navbar-nav > li > a {
   text-align: center;
 }
