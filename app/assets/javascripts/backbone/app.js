@@ -125,6 +125,8 @@ var App = {
     return new Backbone.Model(user_object);
   },
   init: function() {
+    $("body").css("font-family", "'HelveticaNeueW31-Light', sans-serif");
+
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
     }
