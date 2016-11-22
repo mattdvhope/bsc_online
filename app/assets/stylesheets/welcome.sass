@@ -57,11 +57,15 @@
     font-family: 'HelveticaNeueW31-Light', sans-serif
     // font-family: 'Neue Frutiger W31 Modern Rg', sans-serif
 
+// welcome, green click button
+#welcome-caption
+  cursor: pointer
+
 ///// welcome graphic image
 .welcome-screen
   position: relative
 
-.welcome-screen > .welcome-caption
+.welcome-screen > .welcome-caption-content
   position: absolute
   top: 35%
   text-align: left
@@ -86,9 +90,15 @@
   @media screen and (max-width: 340px)
     font-size: 100%
 
+span#get-to-get-started
+  color: #77ac39
+  cursor: pointer
+  &:hover
+    text-decoration: underline
 
-
-
+.non-summer-university
+  color: #77ac39
+  
 
 
 
