@@ -1,21 +1,28 @@
 var MainFrontView = Backbone.View.extend({
   template:  HandlebarsTemplates['front/main'],
-  render: function() {
-    this.$el.html(this.template({
-      window_big: this.window_width(),
-      thai_language: this.thai_language(),
-      login: this.login_button_language(),
-      register: this.register_button_language(),
-      volunteer: this.volunteer_button_language(),
-      features: this.features_language(),
-      step_one: this.step_one(),
-      step_two: this.step_two(),
-      helping_friends: this.helping_friends(),
-      christian_worldview: this.christian_worldview(),
-      cost_amount: this.cost_amount(),
-      press_enter: this.press_enter()
-    }));
+  initialize: function() {
+    this.$el.appendTo(".entire");
   },
+
+  events: {
+    'click #welcome-caption': function (e) {
+      var el = document.getElementById("welcome-caption-id");
+      el.scrollIntoView();
+    },
+    'click #get-started-point': function (e) {
+      var el = document.getElementById("get-started");
+      el.scrollIntoView();
+    },
+    'click #contact-us-point': function (e) {
+      var el = document.getElementById("contact-us");
+      el.scrollIntoView();
+    },
+    'click #volunteer-steps-point': function (e) {
+      var el = document.getElementById("volunteer-steps");
+      el.scrollIntoView();
+    }
+  },
+
   window_width: function() {
     return $(window).width() > 550
   },
@@ -59,8 +66,21 @@ var MainFrontView = Backbone.View.extend({
       return english;
     }
   },
-  initialize: function() {
-    this.$el.appendTo(".entire");
+  render: function() {
+    this.$el.html(this.template({
+      window_big: this.window_width(),
+      thai_language: this.thai_language(),
+      login: this.login_button_language(),
+      register: this.register_button_language(),
+      volunteer: this.volunteer_button_language(),
+      features: this.features_language(),
+      step_one: this.step_one(),
+      step_two: this.step_two(),
+      helping_friends: this.helping_friends(),
+      christian_worldview: this.christian_worldview(),
+      cost_amount: this.cost_amount(),
+      press_enter: this.press_enter()
+    }));
   }
 });
 
