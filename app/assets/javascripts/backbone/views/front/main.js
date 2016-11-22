@@ -9,18 +9,10 @@ var MainFrontView = Backbone.View.extend({
       var el = document.getElementById("welcome-caption-id");
       el.scrollIntoView();
     },
-    'click #get-started-point': function (e) {
+    'click #get-to-get-started': function (e) {
       var el = document.getElementById("get-started");
       el.scrollIntoView();
     },
-    'click #contact-us-point': function (e) {
-      var el = document.getElementById("contact-us");
-      el.scrollIntoView();
-    },
-    'click #volunteer-steps-point': function (e) {
-      var el = document.getElementById("volunteer-steps");
-      el.scrollIntoView();
-    }
   },
 
   window_width: function() {
