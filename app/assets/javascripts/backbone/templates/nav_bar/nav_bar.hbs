@@ -152,7 +152,7 @@
   });
 
   function getCorrectPageWhenFlagClicked() {
-    if ($(".front-main-hbs").is(":visible")) {
+    if ($("#front-main-hbs").is(":visible")) {
       App.getFrontMainPage();
       App.getFooter();
     } else if ($(".entire-vol").is(":visible")) {
