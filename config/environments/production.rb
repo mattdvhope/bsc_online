@@ -57,7 +57,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Set up CDN for serving up assets.
-  config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
+  # config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
   config.static_cache_control = 'public, max-age=31536000'
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -83,6 +83,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Set up Angular for production
-  # config.assets.js_compressor = Uglifier.new(mangle: false)
 end
