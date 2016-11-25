@@ -14,7 +14,7 @@ gem 'paratrooper' # for setting up the Heroku staging environment
 # gem 'carrierwave-aws'
 # gem 'fog-aws' #, require: 'fog/aws' # for AWS cloud storage
 # gem 'carrierwave' # file upload solution
-gem 'carrierwave_direct'
+# gem 'carrierwave_direct' # This may be better: https://devcenter.heroku.com/articles/direct-to-s3-image-uploads-in-rails
 gem 'mini_magick' # photo resizing
 
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
