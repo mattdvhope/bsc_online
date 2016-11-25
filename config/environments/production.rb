@@ -57,7 +57,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Set up CDN for serving up assets.
-  # config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
+  config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
   config.static_cache_control = 'public, max-age=31536000'
 
   # Ignore bad email addresses and do not raise email delivery errors.
