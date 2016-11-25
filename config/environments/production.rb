@@ -29,7 +29,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-  config.assets.compile = false
+  config.assets.compile = true
 
 
   # Generate digests for assets URLs.
