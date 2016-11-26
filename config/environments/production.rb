@@ -29,7 +29,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-  config.assets.compile = true
+  config.assets.compile = false
 
 
   # Generate digests for assets URLs.
@@ -58,7 +58,6 @@ Rails.application.configure do
 
   # Set up CDN for serving up assets.
   config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
-  config.static_cache_control = 'public, max-age=31536000'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
