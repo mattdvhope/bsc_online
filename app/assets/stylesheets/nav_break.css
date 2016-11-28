@@ -52,6 +52,10 @@ a#log-out {
   text-align: center;
 }
 
+.crazy-shirts {
+  background: image-url('tv.png')
+}
+
 /*.page-scroll {
   text-align: center;
   border-style: solid;

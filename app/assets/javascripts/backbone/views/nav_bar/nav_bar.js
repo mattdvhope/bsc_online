@@ -59,7 +59,7 @@ var NavBarView = Backbone.View.extend({
     return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
   you_can_speak: function() {
-    return this.choose_language("'You Can Speak' Registration", "การลงทะเบียน 'You Can Speak'");
+    return this.choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
   },
   volunteer: function() {
     return this.choose_language("Volunteer", "อาสาสมัคร");
