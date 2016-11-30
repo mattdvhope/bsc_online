@@ -16,6 +16,9 @@ var App = {
     this.renderNavBar();
     front_page_main.render();
 
+    var view = new ClassDetailsView();
+    $("#classdetailsmodal").html(view.render().el);
+
     this.front_page_main = front_page_main;
   },
   getVolunteerPage: function() {
