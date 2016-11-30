@@ -9,6 +9,10 @@ var ClassDetailsView = Backbone.View.extend({
     return this.choose_language("Thank you!", "ขอขอบคุณครับ!");
   },
 
+  content: function() {
+    return this.choose_language("We offer on-site \"You Can Speak!\" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.", "เรานำเสนอชั้นเรียนว่า \"You Can Speak!\" (โทร. 086-696-7821 หรือ LINE: 'cityenglishproject')");
+  },
+
   choose_language: function(english, thai) {
     if (this.thai_language()) {
       return thai
@@ -23,7 +27,7 @@ var ClassDetailsView = Backbone.View.extend({
     this.$el.html(this.template({
       thai_language: this.thai_language(),
       thank_you: this.thank_you(),
-      // class_time: this.model.toJSON().class_time_scheduled
+      content: this.content()
     }));
 
     return this;
