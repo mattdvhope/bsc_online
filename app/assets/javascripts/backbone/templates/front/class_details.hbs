@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h1>{{thank_you}}</h1>
+    </div>
+    <div class="modal-body">
+      <h3>We offer on-site "You Can Speak!" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.</h3>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+<script>
+
+  /// to prevent scrolling when bootstrap modal is open
+  var $html = $(document.documentElement);
+  var $modal = $('#classdetailsmodal');
+
+  function showModal() {
+    $html.css('overflow', 'hidden');
+    $modal.css('overflow', 'auto');
+  }
+
+  function hideModal() {
+    $html.css('overflow', '');
+    $modal.modal("hide");
+  }
+
+  $('.modal-initiator').on('click', showModal);
+  $('.close-modal').on('click', hideModal);
+  /// to prevent scrolling ///////////////////////
+
+</script>
