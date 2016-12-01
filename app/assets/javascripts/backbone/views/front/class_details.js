@@ -10,7 +10,7 @@ var ClassDetailsView = Backbone.View.extend({
   },
 
   content: function() {
-    return this.choose_language("We offer on-site \"You Can Speak!\" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.", "เรานำเสนอชั้นเรียนว่า \"You Can Speak!\" (โทร. 086-696-7821 หรือ LINE: 'cityenglishproject')");
+    return this.choose_language("We offer on-site \"You Can Speak!\" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.", "เราให้บริการจัดชั้นเรียน \"You Can Speak!\" นอกสถานที่ หากคุณต้องการจัดชั้นเรียนในสถานที่ทำงานหรือสถานศึกษาของคุณ กรุณาติดต่อคุณโสภาพร โทร 086-696-7821 หรือ Line ID: cityenglishproject");
   },
 
   choose_language: function(english, thai) {
