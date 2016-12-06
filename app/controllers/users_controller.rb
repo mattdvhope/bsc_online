@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_leader, :only => [:index, :show]
+  before_action :require_leader, :only => [:index]
 
   def index
     @users = User.all
