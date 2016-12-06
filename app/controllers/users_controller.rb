@@ -18,13 +18,6 @@ class UsersController < ApplicationController
     redirect_to volunteer_info_path
   end
 
-  def student_connect_with_volunteer
-    volunteer = User.find(params[:volunteer_id])
-    student = User.find(params[:student_id])
-    email_from_student_to_volunteer(volunteer, student)
-    redirect_to dashboard_path
-  end
-
   def new
     redirect_to root_path
   end
@@ -193,14 +186,6 @@ class UsersController < ApplicationController
         AppMailer.volunteer_welcome(user).deliver_later
       else
         AppMailer.student_welcome(user).deliver_later
-      end
-    end
-
-    def email_from_student_to_volunteer(volunteer, student)
-      if Rails.env.production?
-        AppMailer.student_to_volunteer(volunteer, student).deliver_later
-      else
-        send_development_email(student)
       end
     end
 
