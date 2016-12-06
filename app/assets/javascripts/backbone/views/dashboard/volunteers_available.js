@@ -15,9 +15,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       $(".modal-body #volunteer-last-name").text( volunteerLastName );
       $(".modal-body #volunteer-age").text( volunteerAge );
       $(".modal-body #volunteer-gender").text( volunteerGender );
-      var studentId = this.model.get('id')
-      var volunteerId = $(e.target)[0].dataset.id;
-      $("a.btn-success").attr('href', "/volunteer_connect_with_student/" + volunteerId + "/" + studentId);
+      this.student_id = this.model.get('id')
+      this.volunteer_id = $(e.target)[0].dataset.id;
+
+      $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
     }
   },
 

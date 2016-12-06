@@ -28,8 +28,6 @@ Rails.application.routes.draw do
 
   resources :students_needing_skype, only: [:index, :show]
 
-  get 'student_connect_with_volunteer/:volunteer_id/:student_id', to: "users#student_connect_with_volunteer"
-
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
 

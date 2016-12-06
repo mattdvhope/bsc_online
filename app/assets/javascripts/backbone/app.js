@@ -56,11 +56,12 @@ var App = {
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
   },
   getStudentDashboardPage: function(student) {
+    var this_app = this;
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
-        var view = new VolunteersAvailableView({ collection: collection, model: student });
-        view.render();
+        this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
+        this_app.volunteers_avail_view.render();
         var profile_view_modal = new VolunteerProfileView({ model: student });
         $("#volunteerprofile").html(profile_view_modal.render().el);
       },
