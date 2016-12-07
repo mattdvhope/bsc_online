@@ -146,6 +146,7 @@
   $(".usa_flag").on("click tap", function() {
     if (sessionStorageAvailable("fragment")) {
       sessionStorage.setItem('language', "english");
+      App.getGeneralSchedModal();
     }
     getCorrectPageWhenFlagClicked();
     $("body").css("font-family", "'Century Gothic W02', sans-serif");
