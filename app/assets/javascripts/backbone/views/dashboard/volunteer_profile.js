@@ -15,7 +15,7 @@ console.log(volunteer_id);
         success: function (model, response, options) {
           console.log("success");
           swal({
-            title: "Thank you!" //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+            title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
             text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
             timer: 20000,
             showConfirmButton: true,
