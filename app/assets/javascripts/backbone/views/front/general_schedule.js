@@ -9,35 +9,41 @@ var GeneralScheduleView = Backbone.View.extend({
 
   bring_appl_form: function() {
     event.preventDefault();
-    $("#generalschedulemodal").modal('hide');
+
+    // $("#generalschedulemodal").modal('hide');
+    location.reload();
+    $("#applicationmodal").modal();
 
 // MAKE THIS DRY!!!!!!! (See 'main.hbs' & 'nav_bar.hbs'...put all three into App...or maybe a new file?? watch out for $("#applicationmodal").modal(); below though)
-    var class_times_collection = new ClassTimes();
-    class_times_collection.fetch({
-      success: function (class_times) {
-console.log(class_times);
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-        $("#applicationmodal").modal();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
+// Fix the application pop-up from the link (doesn't scroll on some browsers)...maybe place this js code in a <script> tag in .hbs ...maybe need a Promise for production environ
+// Make link "Click here" much bigger font for mobile.
+
+//     var class_times_collection = new ClassTimes();
+//     class_times_collection.fetch({
+//       success: function (class_times) {
+// console.log(class_times);
+//         var student = new User();
+//         var class_times = class_times.toJSON().sort(function (a, b) {
+//           if (a.order_no > b.order_no) {
+//             return 1;
+//           }
+//           if (a.order_no < b.order_no) {
+//             return -1;
+//           }
+//           // a must be equal to b
+//           return 0;
+//         });
+//         this.applicationView = new ApplicationView({
+//           model: student,
+//           options: class_times
+//         });
+//         $("#applicationmodal").html(this.applicationView.render().el);
+//         $("#applicationmodal").modal();
+//       },
+//       error: function (collection, response, options) {
+//         console.log("error");
+//       }
+//     });
 
   },
 
