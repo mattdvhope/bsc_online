@@ -13,7 +13,7 @@ var GeneralScheduleView = Backbone.View.extend({
     $("#generalschedulemodal").modal('hide');
 
 // MAKE THIS DRY!!!!!!! (See 'main.hbs' & 'nav_bar.hbs'...put all three into App...or maybe a new file?? watch out for $("#applicationmodal").modal(); below though)
-// Fix the application pop-up from the link (doesn't scroll on some browsers)...maybe place this js code in a <script> tag in .hbs
+// Fix the application pop-up from the link (doesn't scroll on some browsers)...maybe place this js code in a <script> tag in .hbs ...maybe need a Promise for production environ
 // Make link "Click here" much bigger font for mobile.
 
     var class_times_collection = new ClassTimes();
