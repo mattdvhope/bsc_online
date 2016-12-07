@@ -16,10 +16,28 @@ var App = {
     this.renderNavBar();
     front_page_main.render();
 
-    var view = new ClassDetailsView();
-    $("#classdetailsmodal").html(view.render().el);
+    if (sessionStorage.getItem('genSched') !== 'closed') {
+      this.getGeneralSchedModal();
+    }
+
+    var cls_dtls_view = new ClassDetailsView();
+    $("#classdetailsmodal").html(cls_dtls_view.render().el);
 
     this.front_page_main = front_page_main;
+  },
+  getGeneralSchedModal: function() {
+    var class_times = new ClassTimes(); // collection
+    class_times.fetch({
+      success: function (collection, response, options) {
+        var gen_sch_view = new GeneralScheduleView({ collection: collection });
+        $("#generalschedulemodal").html(gen_sch_view.render().el);
+        $("#generalschedulemodal").css("font-family", "'HelveticaNeueW31-Light', sans-serif");
+        $("#generalschedulemodal").modal();
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
   },
   getVolunteerPage: function() {
     this.removeNavAndPage();
