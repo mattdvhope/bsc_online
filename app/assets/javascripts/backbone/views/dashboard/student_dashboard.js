@@ -15,10 +15,6 @@ var StudentDashboardView = Backbone.View.extend({
     return this.choose_language("Welcome to the \"City English Project,\" " + this.model.get("first_name"), "ยินดีต้อนรับสู่ \"โครงการซิตี้ อิงลิช\" " + this.model.get("first_name"));
   },
 
-  want_skype: function() {
-    return this.choose_language("I want a Skype partner!", "ฉันต้องการเพื่อนใน Skype ทำให้เป็น");
-  },
-
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
   },
@@ -34,7 +30,6 @@ var StudentDashboardView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       welcome_note: this.welcome_note(),
-      want_skype: this.want_skype(),
       thai_language: this.app_language_is_thai()
     }));
   }
