@@ -7,7 +7,11 @@ var VolunteerProfileView = Backbone.View.extend({
     'click #connect-with-volunteer': function (e) {
       $('#volunteerprofile').modal('hide');
       var volunteer_id = $(e.target)[0].dataset.id;
+      var volunteer_first_name = $(e.target)[0].dataset.firstname;
+      var volunteer_last_name = $(e.target)[0].dataset.lastname;
 console.log(volunteer_id);
+console.log(volunteer_first_name);
+console.log(volunteer_last_name);
       var volunteer = new User({id: volunteer_id});
       volunteer.fetch({
         success: function (model, response, options) {
@@ -27,8 +31,8 @@ console.log(volunteer_id);
           console.log("error");
           swal({
             title: "Error",
-            text: "There was an error with database. Please try again.",
-            timer: 15000,
+            text: "There was an error with database. Please click on the name of '" + volunteer_first_name + " " + volunteer_last_name + "' again.",
+            timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
           });
