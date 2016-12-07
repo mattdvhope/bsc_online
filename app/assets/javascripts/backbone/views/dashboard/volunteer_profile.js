@@ -1,7 +1,4 @@
 var VolunteerProfileView = Backbone.View.extend({
-  attributes: {
-    id: "student-profile"
-  },
 
   events: {
     'click #connect-with-volunteer': function (e) {
