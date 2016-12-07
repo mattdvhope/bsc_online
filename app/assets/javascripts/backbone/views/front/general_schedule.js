@@ -11,7 +11,9 @@ var GeneralScheduleView = Backbone.View.extend({
     event.preventDefault();
 
     $("#generalschedulemodal").modal('hide');
-    $("#applicationmodal").modal();
+
+    // location.reload();
+    // $("#applicationmodal").modal();
 
 // MAKE THIS DRY!!!!!!! (See 'main.hbs' & 'nav_bar.hbs'...put all three into App...or maybe a new file?? watch out for $("#applicationmodal").modal(); below though)
 // Fix the application pop-up from the link (doesn't scroll on some browsers)...maybe place this js code in a <script> tag in .hbs ...maybe need a Promise for production environ
