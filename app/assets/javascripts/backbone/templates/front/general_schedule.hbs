@@ -18,6 +18,7 @@
       {{^}}
         {{> front/english/_general_sched_list_title }}
       {{/if}}
+      {{!-- get each 'class_time' in the right order using 'order_no'!!!!!! (see application_form) --}}
       <ul style="list-style: none;">
         {{#each class_times}}
           <li><h4>{{this}}</h4></li>
