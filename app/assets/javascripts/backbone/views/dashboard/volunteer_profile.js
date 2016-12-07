@@ -6,25 +6,32 @@ var VolunteerProfileView = Backbone.View.extend({
   events: {
     'click #connect-with-volunteer': function (e) {
       $('#volunteerprofile').modal('hide');
-      swal({
-        title: "สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-        text: "The Skype teacher will receive an email from CEP with your name and email on it, and will contact you soon.",
-        timer: 20000,
-        showConfirmButton: true,
-        animation: "slide-from-top"
-      });
       var volunteer_id = $(e.target)[0].dataset.id;
 console.log(volunteer_id);
       var volunteer = new User({id: volunteer_id});
       volunteer.fetch({
         success: function (model, response, options) {
           console.log("success");
+          swal({
+            title: "สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+            text: "The Skype teacher will receive an email from CEP with your name and email on it, and will contact you soon.",
+            timer: 20000,
+            showConfirmButton: true,
+            animation: "slide-from-top"
+          });
           console.log(model);
           // $("entire-main").html(model.get("first_name"));
 
         },
         error: function (model, response, options) {
           console.log("error");
+          swal({
+            title: "Error",
+            text: "There was an error with database. Please try again.",
+            timer: 15000,
+            showConfirmButton: true,
+            animation: "slide-from-top"
+          });
           console.log(response);
         }
       });
