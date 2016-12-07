@@ -19,6 +19,8 @@ var VolunteersAvailableView = Backbone.View.extend({
       this.volunteer_id = $(e.target)[0].dataset.id;
 
       $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
+      $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
+      $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     }
   },
 

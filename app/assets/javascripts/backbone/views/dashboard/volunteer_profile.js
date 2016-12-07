@@ -10,15 +10,13 @@ var VolunteerProfileView = Backbone.View.extend({
       var volunteer_first_name = $(e.target)[0].dataset.firstname;
       var volunteer_last_name = $(e.target)[0].dataset.lastname;
 console.log(volunteer_id);
-console.log(volunteer_first_name);
-console.log(volunteer_last_name);
       var volunteer = new User({id: volunteer_id});
       volunteer.fetch({
         success: function (model, response, options) {
           console.log("success");
           swal({
             title: "สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: "The Skype teacher will receive an email from CEP with your name and email on it, and will contact you soon.",
+            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
@@ -31,7 +29,7 @@ console.log(volunteer_last_name);
           console.log("error");
           swal({
             title: "Error",
-            text: "There was an error with database. Please click on the same name again.",
+            text: "There was an error with database. Please click on the same person's name again.",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
