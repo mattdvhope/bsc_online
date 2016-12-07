@@ -31,7 +31,7 @@ console.log(volunteer_last_name);
           console.log("error");
           swal({
             title: "Error",
-            text: "There was an error with database. Please click on the name of '" + volunteer_first_name + " " + volunteer_last_name + "' again.",
+            text: "There was an error with database. Please click on the same name again.",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
