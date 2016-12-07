@@ -112,6 +112,7 @@ class UsersController < ApplicationController
           set_password(old_guest_student)
           if old_guest_student.save
             student_render(old_guest_student)
+            send_new_user_email(old_guest_student)
           else
             render :json => { :errors => old_guest_student.errors.full_messages }, :status => 422
           end
@@ -119,6 +120,7 @@ class UsersController < ApplicationController
           set_password(user)
           if user.save
             student_render(user)
+            send_new_user_email(user)
           else
             render :json => { :errors => user.errors.full_messages }, :status => 422
           end
