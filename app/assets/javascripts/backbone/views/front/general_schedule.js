@@ -10,9 +10,9 @@ var GeneralScheduleView = Backbone.View.extend({
   bring_appl_form: function() {
     event.preventDefault();
 
-    // $("#generalschedulemodal").modal('hide');
-    sessionStorage.setItem('genSched', 'closed');
-    location.reload();
+    $("#generalschedulemodal").modal('hide');
+
+    // location.reload();
     // $("#applicationmodal").modal();
 
 // MAKE THIS DRY!!!!!!! (See 'main.hbs' & 'nav_bar.hbs'...put all three into App...or maybe a new file?? watch out for $("#applicationmodal").modal(); below though)
