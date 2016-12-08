@@ -7,7 +7,7 @@ var GeneralScheduleView = Backbone.View.extend({
     'click a#appl-form-city': 'bring_appl_form'
   },
 
-  bring_appl_form: function() {
+  bring_appl_form: function(event) {
     event.preventDefault();
 
     $("#generalschedulemodal").modal('hide');
