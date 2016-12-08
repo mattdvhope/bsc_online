@@ -52,7 +52,7 @@ console.log(class_times);
     return sessionStorage.getItem('language') === "thai";
   },
   welcome: function() {
-    return this.choose_language("Welcome!", "ยินดีต้อนรับ!");
+    return this.choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
   },
 
   list_title: function() {
