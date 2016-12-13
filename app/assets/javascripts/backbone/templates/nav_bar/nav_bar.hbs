@@ -130,114 +130,16 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+{{!-- 
 <script>
-  // Enable scrolling navbar menu in mobile
-  $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
-
-  // Thai / American flag
-  $(".thai_flag").on("click tap", function() {
-    if (sessionStorageAvailable("fragment")) {
-      sessionStorage.setItem('language', "thai");
-    }
-    getCorrectPageWhenFlagClicked();
-    $("body").css("font-family", "'HelveticaNeueW31-Light', sans-serif");
-  });
-
-  $(".usa_flag").on("click tap", function() {
-    if (sessionStorageAvailable("fragment")) {
-      sessionStorage.setItem('language', "english");
-      App.getGeneralSchedModal();
-    }
-    getCorrectPageWhenFlagClicked();
-    $("body").css("font-family", "'Century Gothic W02', sans-serif");
-  });
-
-  function getCorrectPageWhenFlagClicked() {
-    if ($("#front-main-hbs").is(":visible")) {
-      App.getFrontMainPage();
-      App.getFooter();
-    } else if ($(".entire-vol").is(":visible")) {
-      App.getVolunteerPage();
-      App.getFooter();
-    }
-  }
-
-  $(".nav-hover").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $(".nav-hover").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-
-  $("#nav-dropdown").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $("#nav-dropdown").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-  $(".dropdown-toggle").mouseenter(function(){
-    $(this).css("background-color", "#8BC34A");
-  });
-  $(".dropdown-toggle").mouseleave(function(){
-    $(this).css("background-color", "#2D3179");
-  });
-
-  // "Coming soon" sweet alert
-  $("a.coming-soon-vol").on("click", function(e) {
-    e.preventDefault();
-    swal({
-      title: "Coming Soon!",
-      text: "Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!",
-      timer: 15000,
-      showConfirmButton: true,
-      animation: "slide-from-bottom"
-    });
-  });
-
-  // To open application form
-  $(".non-summer-university").on("click", function() {
-    sessionStorage.setItem("student_type", "non_summer_university");
-    openApplicationForm()
-  });
-
-  function openApplicationForm() {
-    var class_times_collection = new ClassTimes();
-    class_times_collection.fetch({
-      success: function (class_times) {
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
-  }
-
+  // if (sessionStorageAvailable("fragment")) {
+  //   $("#home-link").on("click", function() {
+  //     sessionStorage.setItem('fragment', "");
+  //   });
+  // }
 </script>
 
-<script>
-  if (sessionStorageAvailable("fragment")) {
-    $("#home-link").on("click", function() {
-      sessionStorage.setItem('fragment', "");
-    });
-  }
-</script>
+ --}}
 
 </header>
 
