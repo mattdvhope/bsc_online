@@ -5,7 +5,7 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    'click #welcome-caption': function (e) {
+    'click #click-welcome': function (e) {
       var el = document.getElementById("welcome-caption-id");
       el.scrollIntoView();
     },
