@@ -3,27 +3,11 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+//= require_tree ./app_methods
 
 var App = {
   getFrontMainPage: function() {
-    this.removeNavAndPage();
-    this.scrollUpToTopOfPage();
-    if (sessionStorageAvailable("fragment")) {
-      this.retainTemplateOnReload("");      
-    }
-    var front_page_main = new MainFrontView();
-    document.title = 'City English Project | Home';
-    this.renderNavBar();
-    front_page_main.render();
-
-    if (sessionStorage.getItem('genSched') !== 'closed') {
-      this.getGeneralSchedModal();
-    }
-
-    var cls_dtls_view = new ClassDetailsView();
-    $("#classdetailsmodal").html(cls_dtls_view.render().el);
-
-    this.front_page_main = front_page_main;
+    getFrontMainPage(); // in 'app_methods' folder
   },
   getGeneralSchedModal: function() {
     var class_times = new ClassTimes(); // collection
@@ -37,6 +21,18 @@ var App = {
       error: function (collection, response, options) {
         console.log("error");
       }
+    });
+  },
+  allowForNestedModals: function() { // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
+    $(document).on('show.bs.modal', '.modal', function (event) {
+      var zIndex = 1040 + (10 * $('.modal:visible').length);
+      $(this).css('z-index', zIndex);
+      setTimeout(function() {
+        $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+      }, 0);
+    });
+    $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
+      $('.modal:visible').length && $(document.body).addClass('modal-open');
     });
   },
   getVolunteerPage: function() {
