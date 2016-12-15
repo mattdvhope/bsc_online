@@ -23,6 +23,8 @@ var App = {
     var cls_dtls_view = new ClassDetailsView();
     $("#classdetailsmodal").html(cls_dtls_view.render().el);
 
+    this.allowForNestedModals();
+
     this.front_page_main = front_page_main;
   },
   getGeneralSchedModal: function() {
@@ -37,6 +39,18 @@ var App = {
       error: function (collection, response, options) {
         console.log("error");
       }
+    });
+  },
+  allowForNestedModals: function() { // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
+    $(document).on('show.bs.modal', '.modal', function (event) {
+      var zIndex = 1040 + (10 * $('.modal:visible').length);
+      $(this).css('z-index', zIndex);
+      setTimeout(function() {
+        $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+      }, 0);
+    });
+    $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
+      $('.modal:visible').length && $(document.body).addClass('modal-open');
     });
   },
   getVolunteerPage: function() {
