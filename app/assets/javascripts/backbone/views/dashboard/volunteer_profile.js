@@ -6,7 +6,6 @@ var VolunteerProfileView = Backbone.View.extend({
       var volunteer_id = $(e.target)[0].dataset.id;
       var volunteer_first_name = $(e.target)[0].dataset.firstname;
       var volunteer_last_name = $(e.target)[0].dataset.lastname;
-console.log(volunteer_id);
       var volunteer = new User({id: volunteer_id});
       volunteer.fetch({
         success: function (model, response, options) {
