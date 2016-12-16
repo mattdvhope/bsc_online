@@ -19528,7 +19528,7 @@ window.fbAsyncInit = function() {
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_christian_worldview'],depth0,{"name":"front/_nested_modal_christian_worldview","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_cost_amount'],depth0,{"name":"front/_nested_modal_cost_amount","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_payment_info'],depth0,{"name":"front/_nested_modal_payment_info","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "<!-- nested modals in application_form.hbs -->\n\n<script>\n  // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay\n  $(document).on('show.bs.modal', '.modal', function (event) {\n    var zIndex = 1040 + (10 * $('.modal:visible').length);\n    $(this).css('z-index', zIndex);\n    setTimeout(function() {\n      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');\n    }, 0);\n  });\n  $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.\n    $('.modal:visible').length && $(document.body).addClass('modal-open');\n  });\n\n</script>";
+    + "<!-- nested modals in application_form.hbs -->";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
 }).call(this);
@@ -20644,14 +20644,20 @@ var GeneralScheduleView = Backbone.View.extend({
     return this.choose_language("List of class sessions...", "รายการชั้นเรียน...");
   },
 
+  sorted_class_times: function() {
+    return this.collection.toJSON().sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   class_times: function() {
     var using_thai_language = this.thai_language();
     var class_time_list = [];
-    this.collection.forEach(function(element) {
+    this.sorted_class_times().forEach(function(time) {
       if (using_thai_language) {
-        class_time_list.push(element.toJSON().period_thai);
+        class_time_list.push(time.period_thai);
       } else {
-        class_time_list.push(element.toJSON().period);
+        class_time_list.push(time.period);
       }
     });
 
@@ -21401,6 +21407,31 @@ var Router = Backbone.Router.extend({
 
 
 
+function getFrontMainPage() {
+    App.removeNavAndPage();
+    App.scrollUpToTopOfPage();
+    if (sessionStorageAvailable("fragment")) {
+      App.retainTemplateOnReload("");      
+    }
+    var front_page_main = new MainFrontView();
+    document.title = 'City English Project | Home';
+    App.renderNavBar();
+    front_page_main.render();
+
+    if (sessionStorage.getItem('genSched') !== 'closed') {
+      App.getGeneralSchedModal();
+    }
+
+    var cls_dtls_view = new ClassDetailsView();
+    $("#classdetailsmodal").html(cls_dtls_view.render().el);
+
+    App.allowForNestedModals();
+
+    App.front_page_main = front_page_main;
+}
+;
+
+
 
 
 
@@ -21408,24 +21439,7 @@ var Router = Backbone.Router.extend({
 
 var App = {
   getFrontMainPage: function() {
-    this.removeNavAndPage();
-    this.scrollUpToTopOfPage();
-    if (sessionStorageAvailable("fragment")) {
-      this.retainTemplateOnReload("");      
-    }
-    var front_page_main = new MainFrontView();
-    document.title = 'City English Project | Home';
-    this.renderNavBar();
-    front_page_main.render();
-
-    if (sessionStorage.getItem('genSched') !== 'closed') {
-      this.getGeneralSchedModal();
-    }
-
-    var cls_dtls_view = new ClassDetailsView();
-    $("#classdetailsmodal").html(cls_dtls_view.render().el);
-
-    this.front_page_main = front_page_main;
+    getFrontMainPage(); // in 'app_methods' folder
   },
   getGeneralSchedModal: function() {
     var class_times = new ClassTimes(); // collection
@@ -21439,6 +21453,18 @@ var App = {
       error: function (collection, response, options) {
         console.log("error");
       }
+    });
+  },
+  allowForNestedModals: function() { // Nested modals ... see http://stackoverflow.com/questions/19305821/multiple-modals-overlay
+    $(document).on('show.bs.modal', '.modal', function (event) {
+      var zIndex = 1040 + (10 * $('.modal:visible').length);
+      $(this).css('z-index', zIndex);
+      setTimeout(function() {
+        $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+      }, 0);
+    });
+    $(document).on('hidden.bs.modal', '.modal', function () { // This restores the scrolling ability of the underlying modal.
+      $('.modal:visible').length && $(document.body).addClass('modal-open');
     });
   },
   getVolunteerPage: function() {
