@@ -25,14 +25,20 @@ var GeneralScheduleView = Backbone.View.extend({
     return this.choose_language("List of class sessions...", "รายการชั้นเรียน...");
   },
 
+  sorted_class_times: function() {
+    return this.collection.toJSON().sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   class_times: function() {
     var using_thai_language = this.thai_language();
     var class_time_list = [];
-    this.collection.forEach(function(element) {
+    this.sorted_class_times().forEach(function(time) {
       if (using_thai_language) {
-        class_time_list.push(element.toJSON().period_thai);
+        class_time_list.push(time.period_thai);
       } else {
-        class_time_list.push(element.toJSON().period);
+        class_time_list.push(time.period);
       }
     });
 
