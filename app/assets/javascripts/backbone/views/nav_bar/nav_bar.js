@@ -6,9 +6,8 @@ var NavBarView = Backbone.View.extend({
   },
 
   events: {
-    'click #top-point': function (e) {
-      var el = document.getElementById("page-top");
-      el.scrollIntoView();
+    'click #home-point': function (e) {
+      App.getFrontMainPage();
     },
     'click #features-point': function (e) {
       var el = document.getElementById("features");
@@ -37,8 +36,8 @@ var NavBarView = Backbone.View.extend({
   app_language_is_thai: function() {
     return sessionStorage.getItem('language') === "thai";
   },
-  top: function() {
-    return this.choose_language("Top", "หน้าแรก");
+  sign_up: function() {
+    return this.choose_language("Sign Up!", "สมัครเรียน!");
   },
   features: function() {
     return this.choose_language("Features", "บริการของเรา");
@@ -91,7 +90,7 @@ var NavBarView = Backbone.View.extend({
       volunteer_info_visible: this.volunteer_info_visible(),
       dashboard_visible: this.dashboard_visible(),
       thai_language: this.app_language_is_thai(),
-      top: this.top(),
+      sign_up: this.sign_up(),
       features: this.features(),
       get_started: this.get_started(),
       holistic: this.holistic(),
