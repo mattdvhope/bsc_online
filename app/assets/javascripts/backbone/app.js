@@ -190,7 +190,8 @@ var App = {
         the_app.getGeneralSchedModal();
       }
       getCorrectPageWhenFlagClicked();
-      $("body").css("font-family", "'Century Gothic W02', sans-serif");
+      $("body").css("font-family", "'Josefin Sans', sans-serif");
+      // $("body").css("font-family", "'Century Gothic W02', sans-serif");
     });
 
     function getCorrectPageWhenFlagClicked() {
@@ -239,7 +240,8 @@ var App = {
 
   },
   init: function() {
-    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+    // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+    $("#page-here, .entire-footer").css("font-family", "'Athiti', sans-serif");
 
     if (gon.page_needed === "front") {
       this.getFrontMainPage();

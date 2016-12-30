@@ -19305,9 +19305,9 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_welcome", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Group+scene+2-small.jpg\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/NewYears4web.jpg\" class=\"img-responsive\">\n";
 },"3":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Group+scene+mobile+small.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/NewYears4Mobile.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
 },"5":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -19444,7 +19444,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<a id=\"click-welcome\">Learn with us!</a>";
+    return "\n<a id=\"click-welcome\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Learn with us!</a>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19647,7 +19647,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<a id=\"click-welcome\">เรียนรู้กับเรา!</a>";
+    return "\n<a id=\"click-welcome\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">เรียนรู้กับเรา!</a>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19720,7 +19720,7 @@ window.fbAsyncInit = function() {
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<header class=\"header\">\n\n  <nav id=\"nav\" class=\"navbar navbar-default\" id=\"nav-text-color\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n\n        <div> \n          <a class=\"navbar-brand\" id=\"home-point\">\n            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.png\" alt=\"logo\" class=\"img-responsive\">\n          </a>\n        </div>\n\n        <div class=\"sign-up\">\n          <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">"
+  return "<header class=\"header\">\n\n  <nav id=\"nav\" class=\"navbar navbar-default\" id=\"nav-text-color\" style=\"font-family: 'Athiti'\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n\n        <div> \n          <a class=\"navbar-brand\" id=\"home-point\">\n            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.png\" alt=\"logo\" class=\"img-responsive\">\n          </a>\n        </div>\n\n        <div class=\"sign-up\">\n          <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">"
     + this.escapeExpression(((helper = (helper = helpers.sign_up || (depth0 != null ? depth0.sign_up : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"sign_up","hash":{},"data":data}) : helper)))
     + "</a>\n        </div>\n\n      </div> \n\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n"
     + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(6, data, 0),"data":data})) != null ? stack1 : "")
@@ -20759,10 +20759,10 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    'click #click-welcome': function (e) {
-      var el = document.getElementById("welcome-caption-id");
-      el.scrollIntoView();
-    },
+    // 'click #click-welcome': function (e) {
+    //   var el = document.getElementById("welcome-caption-id");
+    //   el.scrollIntoView();
+    // },
     'click #get-to-get-started': function (e) {
       var el = document.getElementById("get-started");
       el.scrollIntoView();
@@ -21482,9 +21482,9 @@ function getFrontMainPage() {
     App.renderNavBar();
     front_page_main.render();
 
-    if (sessionStorage.getItem('genSched') !== 'closed') {
-      App.getGeneralSchedModal();
-    }
+    // if (sessionStorage.getItem('genSched') !== 'closed') {
+    //   App.getGeneralSchedModal();
+    // }
 
     var cls_dtls_view = new ClassDetailsView();
     $("#classdetailsmodal").html(cls_dtls_view.render().el);
@@ -21689,7 +21689,8 @@ var App = {
         the_app.getGeneralSchedModal();
       }
       getCorrectPageWhenFlagClicked();
-      $("body").css("font-family", "'Century Gothic W02', sans-serif");
+      $("body").css("font-family", "'Josefin Sans', sans-serif");
+      // $("body").css("font-family", "'Century Gothic W02', sans-serif");
     });
 
     function getCorrectPageWhenFlagClicked() {
@@ -21738,7 +21739,8 @@ var App = {
 
   },
   init: function() {
-    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+    // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+    $("#page-here, .entire-footer").css("font-family", "'Athiti', sans-serif");
 
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
