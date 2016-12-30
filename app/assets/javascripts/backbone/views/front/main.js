@@ -5,10 +5,10 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    'click #click-welcome': function (e) {
-      var el = document.getElementById("welcome-caption-id");
-      el.scrollIntoView();
-    },
+    // 'click #click-welcome': function (e) {
+    //   var el = document.getElementById("welcome-caption-id");
+    //   el.scrollIntoView();
+    // },
     'click #get-to-get-started': function (e) {
       var el = document.getElementById("get-started");
       el.scrollIntoView();
