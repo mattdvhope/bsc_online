@@ -240,8 +240,7 @@ var App = {
 
   },
   init: function() {
-    // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
-    $("#page-here, .entire-footer").css("font-family", "'Athiti', sans-serif");
+    $("#page-here, .entire-footer").css("font-family", "'Athiti', 'Neue Frutiger W31 Modern Light', sans-serif");
 
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
