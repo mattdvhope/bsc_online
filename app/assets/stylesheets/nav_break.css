@@ -3,25 +3,25 @@
         margin-top: 0.4em;
         color: #8BC34A;
         margin-left: 9.4em;
-        font-size: 170%;
+        font-size: 150%;
     }
 }
 
 @media (max-width: 950px) {
     .sign-up {
-        margin-top: 0.6em;
+        margin-top: 0.7em;
         color: #8BC34A;
         margin-left: 5.5em;
-        font-size: 150%;
+        font-size: 140%;
     }
 }
 
 @media (max-width: 835px) {
     .sign-up {
-        margin-top: 0.8em;
+        margin-top: 1.4em;
         color: #8BC34A;
-        margin-left: 4.2em;
-        font-size: 120%;
+        margin-left: 5.8em;
+        font-size: 90%;
     }
 }
 
