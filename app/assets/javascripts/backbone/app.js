@@ -239,7 +239,7 @@ var App = {
 
   },
   init: function() {
-    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'UtSaHaGumm LT W31'");
+    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'UtSaHaGumm LT W31'"); //
 
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
