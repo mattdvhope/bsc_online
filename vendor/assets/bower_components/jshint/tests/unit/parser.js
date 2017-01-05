@@ -21,6 +21,50 @@ exports.unsafe = function (test) {
   test.done();
 };
 
+exports.peekOverDirectives = function (test) {
+  var code = fs.readFileSync(__dirname + "/fixtures/peek-over-directives.js", "utf8");
+
+  TestRun(test)
+    // Within object literal
+    .addError(18, "This character may get silently deleted by one or more browsers.")
+    .addError(18, "Unexpected control character in regular expression.")
+    .addError(19, "Unexpected escaped character '<' in regular expression.")
+    .addError(20, "Line is too long.")
+    .addError(21, "Control character in string: <non-printable>.")
+    .addError(21, "This character may get silently deleted by one or more browsers.")
+    .addError(22, "'Octal integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(23, "'Binary integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(24, "'template literal syntax' is only available in ES6 (use 'esversion: 6').")
+    .addError(25, "'Sticky RegExp flag' is only available in ES6 (use 'esversion: 6').")
+
+    // Within array literal:
+    .addError(44, "This character may get silently deleted by one or more browsers.")
+    .addError(44, "Unexpected control character in regular expression.")
+    .addError(45, "Unexpected escaped character '<' in regular expression.")
+    .addError(46, "Line is too long.")
+    .addError(47, "Control character in string: <non-printable>.")
+    .addError(47, "This character may get silently deleted by one or more browsers.")
+    .addError(48, "'Octal integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(49, "'Binary integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(50, "'template literal syntax' is only available in ES6 (use 'esversion: 6').")
+    .addError(51, "'Sticky RegExp flag' is only available in ES6 (use 'esversion: 6').")
+
+    // Within grouping operator:
+    .addError(70, "This character may get silently deleted by one or more browsers.")
+    .addError(70, "Unexpected control character in regular expression.")
+    .addError(71, "Unexpected escaped character '<' in regular expression.")
+    .addError(72, "Line is too long.")
+    .addError(73, "Control character in string: <non-printable>.")
+    .addError(73, "This character may get silently deleted by one or more browsers.")
+    .addError(74, "'Octal integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(75, "'Binary integer literal' is only available in ES6 (use 'esversion: 6').")
+    .addError(76, "'template literal syntax' is only available in ES6 (use 'esversion: 6').")
+    .addError(77, "'Sticky RegExp flag' is only available in ES6 (use 'esversion: 6').")
+    .test(code);
+
+  test.done();
+};
+
 exports.other = function (test) {
   var code = [
     "\\",
@@ -458,6 +502,11 @@ exports.comments = function (test) {
   TestRun(test).test(src);
   TestRun(test).test(fs.readFileSync(__dirname + "/fixtures/gruntComment.js", "utf8"));
 
+  TestRun(test)
+    .addError(1, "Unmatched '{'.")
+    .addError(1, "Unrecoverable syntax error. (100% scanned).")
+    .test("({");
+
   test.done();
 };
 
@@ -604,6 +653,34 @@ exports.testRegexRegressions = function (test) {
   TestRun(test).test("var exp = /\\[\\]/;", {moz: true});
 
   test.done();
+};
+
+exports.regexpSticky = function (test) {
+ TestRun(test)
+   .addError(1, "'Sticky RegExp flag' is only available in ES6 (use 'esversion: 6').")
+   .test("var exp = /./y;", { esversion: 5 });
+
+ TestRun(test).test("var exp = /./y;", { esversion: 6 });
+ TestRun(test).test("var exp = /./gy;", { esversion: 6 });
+ TestRun(test).test("var exp = /./yg;", { esversion: 6 });
+
+ TestRun(test, "Invalid due to repetition")
+   .addError(1, "Invalid regular expression.")
+   .addError(2, "Invalid regular expression.")
+   .test([
+      "var exp = /./yy;",
+      "var exp = /./ygy;"
+      ], { esversion: 6 });
+
+ TestRun(test, "Invalid due to other conditions")
+   .addError(1, "Invalid regular expression.")
+   .addError(2, "Invalid regular expression.")
+   .test([
+     "var exp = /./gyg;",
+     "var exp = /?/y;"
+     ] , { esversion: 6 });
+
+ test.done();
 };
 
 exports.strings = function (test) {
@@ -3426,6 +3503,7 @@ exports["esnext generator with yield delegation, gh-1544"] = function(test) {
 
 
   TestRun(test).test(code, {esnext: true, noyield: true});
+  TestRun(test).test(code, {esnext: true, noyield: true, moz: true});
 
   test.done();
 };
@@ -3468,6 +3546,11 @@ exports["mozilla generator as esnext"] = function (test) {
     .addError(4,
      "A yield statement shall be within a generator function (with syntax: `function*`)")
     .test(code, {esnext: true, unused: true, undef: true, predef: ["print", "Iterator"]});
+
+  TestRun(test)
+    .addError(4,
+     "A yield statement shall be within a generator function (with syntax: `function*`)")
+    .test(code, {esnext: true, moz: true});
 
   test.done();
 };
@@ -3720,6 +3803,11 @@ exports["moz-style array comprehension as esnext"] = function (test) {
     .addError(7, "Expected 'for' and instead saw 'i'.")
     .addError(7, "'for each' is only available in Mozilla JavaScript extensions (use moz option).")
     .test(code, {esnext: true, unused: true, undef: true, predef: ["print"]});
+
+  TestRun(test)
+    .addError(3, "A yield statement shall be within a generator function (with syntax: " +
+      "`function*`)")
+    .test(code, {esnext: true, moz: true});
 
   test.done();
 };
@@ -5138,7 +5226,8 @@ exports["regression test for crash from GH-964"] = function (test) {
   test.done();
 };
 
-exports["automatic comma insertion GH-950"] = function (test) {
+exports.ASI = {};
+exports.ASI.gh950 = function (test) {
   var code = [
     "var a = b",
     "instanceof c;",
@@ -5153,14 +5242,23 @@ exports["automatic comma insertion GH-950"] = function (test) {
     "  return",
     "      { a: 1 }",
     "}",
+
+    "a",
+    "++",
+    "a",
+    "a",
+    "--",
+    "a",
   ];
 
   var run = TestRun(test)
-    .addError(2, "Bad line breaking before 'instanceof'.")
-    .addError(6, "Bad line breaking before '&&'.")
+    .addError(2, "Misleading line break before 'instanceof'; readers may interpret this as an expression boundary.")
+    .addError(6, "Misleading line break before '&&'; readers may interpret this as an expression boundary.")
     .addError(8, "Line breaking error 'return'.")
     .addError(9, "Label 'a' on 1 statement.")
-    .addError(9, "Expected an assignment or function call and instead saw an expression.");
+    .addError(9, "Expected an assignment or function call and instead saw an expression.")
+    .addError(11, "Expected an assignment or function call and instead saw an expression.")
+    .addError(14, "Expected an assignment or function call and instead saw an expression.");
 
   run.test(code, {es3: true, asi: true});
   run.test(code, {asi: true}); // es5
@@ -5168,20 +5266,65 @@ exports["automatic comma insertion GH-950"] = function (test) {
   run.test(code, {moz: true, asi: true});
 
   run = TestRun(test)
-    .addError(2, "Bad line breaking before 'instanceof'.")
+    .addError(2, "Misleading line break before 'instanceof'; readers may interpret this as an expression boundary.")
     .addError(3, "Missing semicolon.")
     .addError(4, "Missing semicolon.")
-    .addError(6, "Bad line breaking before '&&'.")
+    .addError(6, "Misleading line break before '&&'; readers may interpret this as an expression boundary.")
     .addError(8, "Line breaking error 'return'.")
     .addError(8, "Missing semicolon.")
     .addError(9, "Label 'a' on 1 statement.")
     .addError(9, "Expected an assignment or function call and instead saw an expression.")
-    .addError(9, "Missing semicolon.");
+    .addError(9, "Missing semicolon.")
+    .addError(11, "Expected an assignment or function call and instead saw an expression.")
+    .addError(11, "Missing semicolon.")
+    .addError(13, "Missing semicolon.")
+    .addError(14, "Expected an assignment or function call and instead saw an expression.")
+    .addError(14, "Missing semicolon.")
+    .addError(16, "Missing semicolon.");
 
   run.test(code, {es3: true, asi: false});
   run.test(code, {asi: false}); // es5
   run.test(code, {esnext: true, asi: false});
   run.test(code, {moz: true, asi: false});
+
+  test.done();
+};
+
+// gh-3037 - weird behaviour (yield related)
+// https://github.com/jshint/jshint/issues/3037
+exports.ASI.followingYield = function (test) {
+  var code = [
+    "function* g() {",
+    "  void 0",
+    "  yield;",
+    "}"
+  ];
+
+  TestRun(test)
+    .addError(2, "Missing semicolon.")
+    .test(code, { esversion: 6 });
+
+  TestRun(test)
+    .test(code, { esversion: 6, asi: true });
+
+  test.done();
+};
+
+exports.ASI.followingPostfix = function (test) {
+  var code = [
+    "x++",
+    "void 0;",
+    "x--",
+    "void 0;"
+  ];
+
+  TestRun(test)
+    .addError(1, "Missing semicolon.")
+    .addError(3, "Missing semicolon.")
+    .test(code);
+
+  TestRun(test)
+    .test(code, { asi: true });
 
   test.done();
 };
@@ -5347,6 +5490,15 @@ exports["expressions in place of arrow function parameters"] = function (test) {
   TestRun(test)
     .addError(1, "Expected an identifier and instead saw '1'.")
     .test("(1) => {};", { expr: true, esnext: true });
+
+  test.done();
+};
+
+exports["arrow function parameter containing semicolon (gh-3002)"] = function (test) {
+  TestRun(test)
+    .addError(1, "Unnecessary semicolon.", { character: 19 })
+    .addError(1, "Expected an assignment or function call and instead saw an expression.", { character: 27 })
+    .test("(x = function() { ; }) => 0;", { esversion: 6 });
 
   test.done();
 };
@@ -5974,7 +6126,7 @@ exports["class method this"] = function (test) {
   ];
 
   TestRun(test)
-    .addError(10, "Possible strict violation.")
+    .addError(10, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(code, {esnext: true});
 
   test.done();
@@ -6249,11 +6401,46 @@ exports["test for crash with invalid condition"] = function (test) {
 exports["test 'yield' in compound expressions."] = function (test) {
   var code = fs.readFileSync(path.join(__dirname, "./fixtures/yield-expressions.js"), "utf8");
 
-  var run = TestRun(test)
+  var run = TestRun(test);
+
+  run
+    .addError(22, "Did you mean to return a conditional instead of an assignment?")
+    .addError(23, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 22 })
+    .addError(31, "Did you mean to return a conditional instead of an assignment?")
+    .addError(32, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 20 })
+    .addError(32, "Bad operand.", { character: 17 })
+    .addError(51, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 10 })
+    .addError(53, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 10 })
+    .addError(54, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 16 })
+    .addError(57, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 10 })
+    .addError(58, "Bad operand.", { character: 11 })
+    .addError(59, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 10 })
+    .addError(59, "Bad operand.", { character: 16 })
+    .addError(60, "Bad operand.", { character: 11 })
+    .addError(60, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 14 })
+    .addError(64, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 6 })
+    .addError(65, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 7 })
+    .addError(66, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 6 })
+    .addError(67, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 7 })
+    .addError(70, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 6 })
+    .addError(71, "Invalid position for 'yield' expression (consider wrapping in parenthesis).", { character: 7 })
+    .addError(77, "Bad operand.", { character: 11 })
+    .addError(78, "Bad operand.", { character: 11 })
+    .addError(78, "Bad operand.", { character: 19 })
+    .addError(79, "Bad operand.", { character: 11 })
+    .addError(79, "Bad operand.", { character: 19 })
+    .addError(79, "Bad operand.", { character: 47 })
+    .addError(82, "Bad operand.", { character: 11 })
+    .addError(83, "Bad operand.", { character: 11 })
+    .addError(83, "Bad operand.", { character: 19 })
+    .addError(84, "Bad operand.", { character: 11 })
+    .addError(84, "Bad operand.", { character: 19 })
+    .addError(84, "Bad operand.", { character: 43 })
+    .test(code, {maxerr: 1000, expr: true, esnext: true});
+
+  run = TestRun(test)
     .addError(22, "Did you mean to return a conditional instead of an assignment?")
     .addError(31, "Did you mean to return a conditional instead of an assignment?");
-
-  run.test(code, {maxerr: 1000, expr: true, esnext: true});
 
   // These are line-column pairs for the Mozilla paren errors.
   var needparen = [
@@ -6282,6 +6469,105 @@ exports["test 'yield' in compound expressions."] = function (test) {
     .addError(74, "'function*' is only available in ES6 (use 'esversion: 6').");
 
   run.test(code, {maxerr: 1000, expr: true, moz: true});
+
+  test.done();
+};
+
+exports["test 'yield' in invalid positions"] = function (test) {
+  var testRun = TestRun(test, "as an invalid operand")
+    .addError(1, "Invalid position for 'yield' expression (consider wrapping in parenthesis).");
+
+  testRun.test("function* g() { null || yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { null || yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { null || yield* g(); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { null && yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { null && yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { null && yield* g(); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !yield* g(); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !!yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !!yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { !!yield* g(); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 + yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 + yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 + yield* g(); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 - yield; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 - yield null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { 1 - yield* g(); }", { esversion: 6, expr: true });
+
+  testRun = TestRun(test, "with an invalid operand")
+    .addError(1, "Bad operand.");
+
+  testRun.test("function* g() { yield.x; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { yield*.x; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { yield ? null : null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { yield* ? null : null; }", { esversion: 6, expr: true });
+  testRun.test("function* g() { (yield ? 1 : 1); }", { esversion: 6, expr: true });
+  testRun.test("function* g() { (yield* ? 1 : 1); }", { esversion: 6, expr: true });
+  TestRun(test)
+    .addError(1, "Unclosed regular expression.")
+    .addError(1, "Unrecoverable syntax error. (100% scanned).")
+    .test("function* g() { yield* / 1; }", { esversion: 6, expr: true });
+
+  TestRun(test, 'as a valid operand')
+    .test([
+      "function* g() {",
+      "  (yield);",
+      "  var x = yield;",
+      "  x = yield;",
+      "  x = (yield, null);",
+      "  x = (null, yield);",
+      "  x = (null, yield, null);",
+      "  x += yield;",
+      "  x -= yield;",
+      "  x *= yield;",
+      "  x /= yield;",
+      "  x %= yield;",
+      "  x <<= yield;",
+      "  x >>= yield;",
+      "  x >>>= yield;",
+      "  x &= yield;",
+      "  x ^= yield;",
+      "  x |= yield;",
+      "  x = (yield) ? 0 : 0;",
+      "  x = yield 0 ? 0 : 0;",
+      "  x = 0 ? yield : 0;",
+      "  x = 0 ? 0 : yield;",
+      "  x = 0 ? yield : yield;",
+      "  yield yield;",
+      "}"
+    ], { esversion: 6 });
+
+  TestRun(test, "with a valid operand")
+    .test([
+      "function *g() {",
+      "  yield g;",
+      "  yield{};",
+      // Misleading cases; potential future warning.
+      "  yield + 1;",
+      "  yield - 1;",
+      "  yield[0];",
+      "}"
+    ], { esversion: 6 });
+
+  var code = [
+    "function* g() {",
+    "  var x;",
+    "  x++",
+    "  yield;",
+    "  x--",
+    "  yield;",
+    "}"
+  ];
+
+  TestRun(test, "asi")
+    .addError(3, "Missing semicolon.")
+    .addError(5, "Missing semicolon.")
+    .test(code, { esversion: 6, expr: true });
+
+  TestRun(test, "asi (ignoring warnings)")
+    .test(code, { esversion: 6, expr: true, asi: true });
 
   test.done();
 };
@@ -6320,12 +6606,22 @@ exports["test for line breaks with 'yield'"] = function (test) {
   ];
 
   var run = TestRun(test)
-    .addError(3, "Bad line breaking before 'c'.")
-    .addError(6, "Bad line breaking before '+'.")
+    .addError(3, "Expected ')' to match '(' from line 2 and instead saw 'c'.")
+    .addError(3, "Missing semicolon.")
+    .addError(4, "Expected an identifier and instead saw ')'.")
+    .addError(4, "Expected an assignment or function call and instead saw an expression.")
+    .addError(5, "Missing semicolon.")
+    .addError(6, "Expected an assignment or function call and instead saw an expression.")
+    .addError(7, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(8, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(7, "Bad line breaking before ','.")
-    .addError(10, "Bad line breaking before '?'.")
-    .addError(14, "Bad line breaking before '+'.");
+    .addError(9, "Missing semicolon.")
+    .addError(10, "Expected an identifier and instead saw '?'.")
+    .addError(10, "Expected an assignment or function call and instead saw an expression.")
+    .addError(10, "Missing semicolon.")
+    .addError(10, "Label 'i' on j statement.")
+    .addError(10, "Expected an assignment or function call and instead saw an expression.")
+    .addError(13, "Missing semicolon.")
+    .addError(14, "Expected an assignment or function call and instead saw an expression.");
 
   run.test(code, {esnext: true});
 
@@ -6345,7 +6641,7 @@ exports["test for line breaks with 'yield'"] = function (test) {
     .addError(4, "Expected an assignment or function call and instead saw an expression.")
     .addError(6, "Expected an assignment or function call and instead saw an expression.")
     .addError(8, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(7, "Bad line breaking before ','.")
+    .addError(7, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(10, "Expected an identifier and instead saw '?'.")
     .addError(10, "Missing semicolon.")
     .addError(10, "Expected an assignment or function call and instead saw an expression.")
@@ -6378,14 +6674,65 @@ exports["test for line breaks with 'yield'"] = function (test) {
     "}"
   ];
 
-  TestRun(test, "gh-2530")
-    .addError(5, "Bad line breaking before 'fn'.")
+  TestRun(test, "gh-2530 (asi: true)")
+    .addError(5, "Misleading line break before 'fn'; readers may interpret this as an expression boundary.")
     .test(code2, { esnext: true, undef: false, asi: true });
 
-  TestRun(test, "gh-2530")
-    .addError(3, "Bad line breaking before 'fn'.")
-    .addError(5, "Bad line breaking before 'fn'.")
+  TestRun(test, "gh-2530 (asi: false)")
+    .addError(2, "Missing semicolon.")
+    .addError(5, "Misleading line break before 'fn'; readers may interpret this as an expression boundary.")
     .test(code2, { esnext: true, undef: false });
+
+  test.done();
+};
+
+// Regression test for gh-2956
+exports.yieldRegExp = function (test) {
+  var code = [
+    "function* g() {",
+    "  yield /./;",
+    "  yield/./;",
+    "  yield",
+    "  /./;",
+    "  yield /* comment */;",
+    "  yield /* comment *//./;",
+    "  yield 1 / 1;",
+    "}"
+  ];
+
+  TestRun(test)
+    .addError(1, "'function*' is only available in ES6 (use 'esversion: 6').")
+    .addError(2, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(3, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(4, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(4, "Missing semicolon.")
+    .addError(5, "Expected an assignment or function call and instead saw an expression.")
+    .addError(6, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(7, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .addError(8, "'yield' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).")
+    .test(code);
+
+  TestRun(test)
+    .addError(4, "Missing semicolon.")
+    .addError(5, "Expected an assignment or function call and instead saw an expression.")
+    .test(code, { esversion: 6 });
+
+  code = [
+    "function* g() {",
+    "  yield / 2;",
+    "}"
+  ];
+
+  TestRun(test)
+    .addError(1, "'function*' is only available in ES6 (use 'esversion: 6').")
+    .addError(2, "Unclosed regular expression.")
+    .addError(2, "Unrecoverable syntax error. (66% scanned).")
+    .test(code);
+
+  TestRun(test)
+    .addError(2, "Unclosed regular expression.")
+    .addError(2, "Unrecoverable syntax error. (66% scanned).")
+    .test(code, { esversion: 6 });
 
   test.done();
 };
@@ -6968,24 +7315,51 @@ exports.testES6BlockExports = function (test) {
   TestRun(test)
     .addError(1, "'broken' is defined but never used.")
     .addError(2, "'broken2' is defined but never used.")
-    .addError(4, "Export declaration must be in global scope.")
-    .addError(5, "Export declaration must be in global scope.")
-    .addError(6, "Export declaration must be in global scope.")
-    .addError(7, "Export declaration must be in global scope.")
-    .addError(8, "Export declaration must be in global scope.")
-    .addError(14, "Export declaration must be in global scope.")
-    .addError(15, "Export declaration must be in global scope.")
-    .addError(16, "Export declaration must be in global scope.")
-    .addError(17, "Export declaration must be in global scope.")
+    .addError(4, "Export declarations are only allowed at the top level of module scope.")
+    .addError(5, "Export declarations are only allowed at the top level of module scope.")
+    .addError(6, "Export declarations are only allowed at the top level of module scope.")
+    .addError(7, "Export declarations are only allowed at the top level of module scope.")
+    .addError(8, "Export declarations are only allowed at the top level of module scope.")
+    .addError(14, "Export declarations are only allowed at the top level of module scope.")
+    .addError(15, "Export declarations are only allowed at the top level of module scope.")
+    .addError(16, "Export declarations are only allowed at the top level of module scope.")
+    .addError(17, "Export declarations are only allowed at the top level of module scope.")
     .addError(17, "Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function.")
-    .addError(18, "Export declaration must be in global scope.")
+    .addError(18, "Export declarations are only allowed at the top level of module scope.")
     .test(code, { esnext: true, unused: true });
 
   test.done();
 };
 
+exports.testES6BlockImports = function (test) {
+  var code = [
+    "{",
+    " import x from './m.js';",
+    "}",
+    "function limitScope(){",
+    " import {x} from './m.js';",
+    "}",
+    "(function(){",
+    " import './m.js';",
+    "}());",
+    "{",
+    " import {x as y} from './m.js';",
+    "}",
+    "limitScope();"
+  ];
+
+  TestRun(test)
+    .addError(2, "Import declarations are only allowed at the top level of module scope.")
+    .addError(5, "Import declarations are only allowed at the top level of module scope.")
+    .addError(8, "Import declarations are only allowed at the top level of module scope.")
+    .addError(11, "Import declarations are only allowed at the top level of module scope.")
+    .test(code, { esversion: 6, module: true });
+
+  test.done();
+};
+
 exports.testStrictDirectiveASI = function (test) {
-  var options = { strict: true, asi: true, globalstrict: true };
+  var options = { strict: true, asi: true, globalstrict: true, predef: ["x"] };
 
   TestRun(test, 1)
     .test("'use strict'\nfunction fn() {}\nfn();", options);
@@ -6997,7 +7371,8 @@ exports.testStrictDirectiveASI = function (test) {
     .test("'use strict';function fn() {} fn();", options);
 
   TestRun(test, 4)
-    .addError(1, "Missing semicolon.")
+    .addError(2, "Bad invocation.")
+    .addError(2, "Missing \"use strict\" statement.")
     .test("'use strict'\n(function fn() {})();", options);
 
   TestRun(test, 5)
@@ -7005,9 +7380,8 @@ exports.testStrictDirectiveASI = function (test) {
     .test("'use strict'\n[0] = '6';", options);
 
   TestRun(test, 6)
-    .addError(1, "Missing semicolon.")
-    .addError(1, "Expected an identifier and instead saw ','.")
     .addError(1, "Expected an assignment or function call and instead saw an expression.")
+    .addError(2, "Missing \"use strict\" statement.")
     .test("'use strict',function fn() {}\nfn();", options);
 
   TestRun(test, 7)
@@ -7017,6 +7391,41 @@ exports.testStrictDirectiveASI = function (test) {
   TestRun(test, 8)
     .addError(1, "Missing \"use strict\" statement.")
     .test("(function() { var x; \"use strict\"; return x; }());", { strict: true, expr: true });
+
+  TestRun(test, 9)
+    .addError(1, "Missing \"use strict\" statement.")
+    .addError(1, "Expected an assignment or function call and instead saw an expression.")
+    .test("'use strict', 'use strict';", options);
+
+  TestRun(test, 10)
+    .addError(1, "Missing \"use strict\" statement.")
+    .addError(1, "Expected an assignment or function call and instead saw an expression.")
+    .test("'use strict' * 'use strict';", options);
+
+  TestRun(test, 11)
+    .addError(2, "Expected an assignment or function call and instead saw an expression.")
+    .test("'use strict'\n!x;", options);
+
+  TestRun(test, 12)
+    .addError(2, "Misleading line break before '+'; readers may interpret this as an expression boundary.")
+    .addError(2, "Missing \"use strict\" statement.")
+    .addError(2, "Expected an assignment or function call and instead saw an expression.")
+    .test("'use strict'\n+x;", options);
+
+  TestRun(test, 13)
+    .test("'use strict'\n++x;", options);
+
+  TestRun(test, 14)
+    .addError(1, "Bad operand.")
+    .addError(2, "Missing \"use strict\" statement.")
+    .addError(2, "Missing \"use strict\" statement.")
+    .addError(2, "Expected an assignment or function call and instead saw an expression.")
+    .test("'use strict'++\nx;", options);
+
+  TestRun(test, 15)
+    .addError(1, "Bad operand.")
+    .addError(1, "Missing \"use strict\" statement.")
+    .test("'use strict'++;", options);
 
   test.done();
 };
@@ -7179,7 +7588,9 @@ exports.extraRestOperator = function (test) {
     .addError(1, "Unexpected '...'.")
     .addError(2, "Unexpected '...'.")
     .addError(3, "Unexpected '...'.")
+    .addError(3, "Unexpected ')'.")
     .addError(4, "Unexpected '...'.")
+    .addError(4, "Unexpected ')'.")
     .addError(5, "Unexpected '...'.")
     .addError(6, "Unexpected '...'.")
     .addError(7, "Unexpected '...'.")
@@ -7215,16 +7626,16 @@ exports.restOperatorWithoutIdentifier = function (test) {
   ];
 
   TestRun(test)
-    .addError(1, "Unexpected '...'.")
-    .addError(2, "Unexpected '...'.")
-    .addError(3, "Unexpected '...'.")
-    .addError(4, "Unexpected '...'.")
-    .addError(5, "Unexpected '...'.")
-    .addError(6, "Unexpected '...'.")
-    .addError(7, "Unexpected '...'.")
-    .addError(8, "Unexpected '...'.")
-    .addError(9, "Unexpected '...'.")
-    .addError(10, "Unexpected '...'.")
+    .addError(1, "Unexpected ']'.")
+    .addError(2, "Unexpected ']'.")
+    .addError(3, "Unexpected ')'.")
+    .addError(4, "Unexpected ')'.")
+    .addError(5, "Unexpected ']'.")
+    .addError(6, "Unexpected ']'.")
+    .addError(7, "Unexpected ')'.")
+    .addError(8, "Unexpected ')'.")
+    .addError(9, "Unexpected ']'.")
+    .addError(10, "Unexpected ']'.")
     .test(code, { esnext: true });
 
   test.done();
@@ -7423,7 +7834,7 @@ exports.parsingCommas = function (test) {
   TestRun(test)
     .addError(2, "Unexpected ','.")
     .addError(2, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(1, "Bad line breaking before ','.")
+    .addError(1, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(2, "Expected an identifier and instead saw ';'.")
     .addError(2, "Expected an identifier and instead saw ')'.")
     .addError(2, "Expected ';' and instead saw '{'.")
@@ -7443,6 +7854,93 @@ exports.parsingCommas = function (test) {
     .addError(6, "Expected an assignment or function call and instead saw an expression.")
     .addError(6, "Missing semicolon.")
     .test(src);
+
+  test.done();
+};
+
+exports.instanceOfLiterals = function (test) {
+  var code = [
+    "var x;",
+    "var y = [x];",
+
+    // okay
+    "function Y() {}",
+    "function template() { return Y; }",
+    "var a = x instanceof Y;",
+    "a = new X() instanceof function() { return X; }();",
+    "a = x instanceof template``;",
+    "a = x instanceof /./.constructor;",
+    "a = x instanceof \"\".constructor;",
+    "a = x instanceof [y][0];",
+    "a = x instanceof {}[constructor];",
+    "function Z() {",
+    "  let undefined = function() {};",
+    "  a = x instanceof undefined;",
+    "}",
+
+    // error: literals and unary operators cannot be used
+    "a = x instanceof +x;",
+    "a = x instanceof -x;",
+    "a = x instanceof 0;",
+    "a = x instanceof '';",
+    "a = x instanceof null;",
+    "a = x instanceof undefined;",
+    "a = x instanceof {};",
+    "a = x instanceof [];",
+    "a = x instanceof /./;",
+    "a = x instanceof ``;",
+    "a = x instanceof `${x}`;",
+
+    // warning: functions declarations should not be used
+    "a = x instanceof function() {};",
+    "a = x instanceof function MyUnusableFunction() {};",
+  ];
+
+  var errorMessage = "Non-callable values cannot be used as the second operand to instanceof.";
+  var warningMessage = "Function expressions should not be used as the second operand to instanceof.";
+
+  var run = TestRun(test)
+    .addError(13, "Expected an identifier and instead saw 'undefined' (a reserved word).")
+    .addError(16, errorMessage)
+    .addError(17, errorMessage)
+    .addError(18, errorMessage)
+    .addError(19, errorMessage)
+    .addError(20, errorMessage)
+    .addError(21, errorMessage)
+    .addError(22, errorMessage)
+    .addError(23, errorMessage)
+    .addError(24, errorMessage)
+    .addError(25, errorMessage)
+    .addError(26, errorMessage)
+    .addError(27, warningMessage)
+    .addError(28, warningMessage);
+
+  run.test(code, { esversion: 6 });
+
+  TestRun(test)
+    .addError(1, "Expected an identifier and instead saw ';'.")
+    .addError(1, "Expected an assignment or function call and instead saw an expression.")
+    .addError(1, "Missing semicolon.")
+    .test('0 instanceof;');
+
+  test.done();
+};
+
+exports.forInExpr = function (test) {
+  TestRun(test)
+    .test([
+      "for (var x in [], []) {}"
+    ]);
+
+  TestRun(test)
+    .addError(2, "Expected ')' to match '(' from line 2 and instead saw ','.")
+    .addError(2, "Expected an identifier and instead saw ')'.")
+    .addError(2, "Expected an assignment or function call and instead saw an expression.")
+    .addError(2, "Missing semicolon.")
+    .test([
+      "for (var x in [], []) {}",
+      "for (var x of {}, {}) {}"
+    ], { esversion: 6 });
 
   test.done();
 };

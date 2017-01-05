@@ -116,7 +116,9 @@ exports.shadowEs6 = function (test) {
     [344, "'zzi' has already been declared."],
     [345, "'zzj' has already been declared."],
     [349, "'zzl' has already been declared."],
+    [349, "'zzl' was used before it was declared, which is illegal for 'const' variables."],
     [350, "'zzm' has already been declared."],
+    [350, "'zzm' was used before it was declared, which is illegal for 'let' variables."],
     [364, "'zj' has already been declared."]
   ];
 
@@ -607,6 +609,23 @@ exports.asi = function (test) {
   TestRun(test, 2)
     .test(src, { es3: true, asi: true });
 
+  var code = [
+    "function a() { 'code' }",
+    "function b() { 'code'; 'code' }",
+    "function c() { 'code', 'code' }",
+    "function d() {",
+    "  'code' }",
+    "function e() { 'code' 'code' }"
+  ];
+
+  TestRun(test, "gh-2714")
+    .addError(2, "Unnecessary directive \"code\".")
+    .addError(3, "Expected an assignment or function call and instead saw an expression.")
+    .addError(6, "Missing semicolon.", { code: "E058" })
+    .addError(6, "Expected an assignment or function call and instead saw an expression.", { character: 16 })
+    .addError(6, "Expected an assignment or function call and instead saw an expression.", { character: 23 })
+    .test(code, { asi: true });
+
   test.done();
 };
 
@@ -617,7 +636,7 @@ exports.safeasi = function (test) {
   TestRun(test, 1)
     // TOOD consider setting an option to suppress these errors so that
     // the tests don't become tightly interdependent
-    .addError(10, "Bad line breaking before '/'.")
+    .addError(10, "Misleading line break before '/'; readers may interpret this as an expression boundary.")
     .addError(10, "Expected an identifier and instead saw '.'.")
     .addError(10, "Expected an assignment or function call and instead saw an expression.")
     .addError(10, "Missing semicolon.")
@@ -627,10 +646,10 @@ exports.safeasi = function (test) {
     .test(src, {});
 
   TestRun(test, 2)
-    .addError(5, "Bad line breaking before '('.")
-    .addError(8, "Bad line breaking before '('.")
-    .addError(10, "Bad line breaking before '/'.")
-    .addError(10, "Bad line breaking before '/'.")
+    .addError(5, "Misleading line break before '('; readers may interpret this as an expression boundary.")
+    .addError(8, "Misleading line break before '('; readers may interpret this as an expression boundary.")
+    .addError(10, "Misleading line break before '/'; readers may interpret this as an expression boundary.")
+    .addError(10, "Misleading line break before '/'; readers may interpret this as an expression boundary.")
     .addError(10, "Expected an identifier and instead saw '.'.")
     .addError(10, "Expected an assignment or function call and instead saw an expression.")
     .addError(10, "Missing semicolon.")
@@ -742,11 +761,8 @@ exports.undef = function (test) {
 
   // block scope cannot use themselves in the declaration
   TestRun(test)
-    // JSHint does not currently enforce the correct temporal dead zone
-    // semantics in this case. Once this is fixed, the following errors
-    // should be thrown:
-    //.addError(1, "'a' was used before it was declared, which is illegal for 'let' variables.")
-    //.addError(2, "'b' was used before it was declared, which is illegal for 'const' variables.")
+    .addError(1, "'a' was used before it was declared, which is illegal for 'let' variables.")
+    .addError(2, "'b' was used before it was declared, which is illegal for 'const' variables.")
     .addError(5, "'e' is already defined.")
     .test([
       'let a = a;',
@@ -1689,7 +1705,7 @@ exports.strict = function (test) {
 
   // Test for strict mode violations
   run = TestRun(test)
-    .addError(4, 'Possible strict violation.')
+    .addError(4, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .addError(7, 'Strict violation.')
     .addError(8, 'Strict violation.');
   run.test(src, { es3: true, strict: true });
@@ -1945,9 +1961,9 @@ exports.laxbreak = function (test) {
   var src = fs.readFileSync(__dirname + '/fixtures/laxbreak.js', 'utf8');
 
   TestRun(test)
-    .addError(2, "Bad line breaking before ','.")
+    .addError(2, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(3, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(12, "Bad line breaking before ','.")
+    .addError(12, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .test(src, { es3: true });
 
   var ops = [ '||', '&&', '*', '/', '%', '+', '-', '>=',
@@ -1956,7 +1972,7 @@ exports.laxbreak = function (test) {
   for (var i = 0, op, code; op = ops[i]; i += 1) {
     code = ['var a = b ', op + ' c;'];
     TestRun(test)
-      .addError(2, "Bad line breaking before '" + op + "'.")
+      .addError(2, "Misleading line break before '" + op + "'; readers may interpret this as an expression boundary.")
       .test(code, { es3: true });
 
     TestRun(test).test(code, { es3: true, laxbreak: true });
@@ -1964,7 +1980,7 @@ exports.laxbreak = function (test) {
 
   code = [ 'var a = b ', '? c : d;' ];
   TestRun(test)
-    .addError(2, "Bad line breaking before '?'.")
+    .addError(2, "Misleading line break before '?'; readers may interpret this as an expression boundary.")
     .test(code, { es3: true });
 
   TestRun(test).test(code, { es3: true, laxbreak: true });
@@ -1976,9 +1992,9 @@ exports.validthis = function (test) {
   var src = fs.readFileSync(__dirname + '/fixtures/strict_this.js', 'utf8');
 
   TestRun(test)
-    .addError(8, "Possible strict violation.")
-    .addError(9, "Possible strict violation.")
-    .addError(11, "Possible strict violation.")
+    .addError(8, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
+    .addError(9, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
+    .addError(11, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(src, {es3: true});
 
   src = fs.readFileSync(__dirname + '/fixtures/strict_this2.js', 'utf8');
@@ -2223,26 +2239,26 @@ exports.laxcomma = function (test) {
 
   // All errors.
   TestRun(test)
-    .addError(1, "Bad line breaking before ','.")
+    .addError(1, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(2, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(2, "Bad line breaking before ','.")
-    .addError(6, "Bad line breaking before ','.")
-    .addError(10, "Bad line breaking before '&&'.")
-    .addError(15, "Bad line breaking before '?'.")
+    .addError(2, "Misleading line break before ','; readers may interpret this as an expression boundary.")
+    .addError(6, "Misleading line break before ','; readers may interpret this as an expression boundary.")
+    .addError(10, "Misleading line break before '&&'; readers may interpret this as an expression boundary.")
+    .addError(15, "Misleading line break before '?'; readers may interpret this as an expression boundary.")
     .test(src, {es3: true});
 
   // Allows bad line breaking, but not on commas.
   TestRun(test)
-    .addError(1, "Bad line breaking before ','.")
+    .addError(1, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .addError(2, "Comma warnings can be turned off with 'laxcomma'.")
-    .addError(2, "Bad line breaking before ','.")
-    .addError(6, "Bad line breaking before ','.")
+    .addError(2, "Misleading line break before ','; readers may interpret this as an expression boundary.")
+    .addError(6, "Misleading line break before ','; readers may interpret this as an expression boundary.")
     .test(src, {es3: true, laxbreak: true });
 
   // Allows comma-first style but warns on bad line breaking
   TestRun(test)
-    .addError(10, "Bad line breaking before '&&'.")
-    .addError(15, "Bad line breaking before '?'.")
+    .addError(10, "Misleading line break before '&&'; readers may interpret this as an expression boundary.")
+    .addError(15, "Misleading line break before '?'; readers may interpret this as an expression boundary.")
     .test(src, {es3: true, laxcomma: true });
 
   // No errors if both laxbreak and laxcomma are turned on
@@ -2596,6 +2612,7 @@ exports.enforceall = function (test) {
 
   // Throws errors not normally on be default
   TestRun(test)
+    .addError(1, "This line contains non-breaking spaces: http://jshint.com/docs/options/#nonbsp")
     .addError(1, "['key'] is better written in dot notation.")
     .addError(1, "'obj' is not defined.")
     .addError(1, "Missing semicolon.")
@@ -2710,6 +2727,7 @@ singleGroups.bindingPower.singleExpr = function (test) {
     "var v = a % (b / c);",
     "var w = a * (b * c);",
     "var x = z === (b === c);",
+    "x = typeof (a + b);",
     // Invalid forms:
     "var j = 2 * ((3 - 4) - 5) * 6;",
     "var l = 2 * ((3 - 4 - 5)) * 6;",
@@ -2731,7 +2749,6 @@ singleGroups.bindingPower.singleExpr = function (test) {
   ];
 
   TestRun(test)
-    .addError(18, "Unnecessary grouping operator.")
     .addError(19, "Unnecessary grouping operator.")
     .addError(20, "Unnecessary grouping operator.")
     .addError(21, "Unnecessary grouping operator.")
@@ -2748,6 +2765,7 @@ singleGroups.bindingPower.singleExpr = function (test) {
     .addError(32, "Unnecessary grouping operator.")
     .addError(33, "Unnecessary grouping operator.")
     .addError(34, "Unnecessary grouping operator.")
+    .addError(35, "Unnecessary grouping operator.")
     .test(code, { singleGroups: true });
 
   code = [
@@ -2810,7 +2828,6 @@ singleGroups.multiExpr = function (test) {
   ];
 
   TestRun(test)
-    .addError(5, "Unnecessary grouping operator.")
     .test(code, { singleGroups: true });
 
   test.done();
@@ -2897,6 +2914,111 @@ singleGroups.generatorExpression = function (test) {
   TestRun(test)
     .addError(19, "Unnecessary grouping operator.")
     .test(code, { singleGroups: true, asi: true, esnext: true });
+
+  test.done();
+};
+
+singleGroups.yield = function (test) {
+  TestRun(test, "otherwise-invalid position")
+    .test([
+      "function* g() {",
+      "  var x;",
+      "  x = 0 || (yield);",
+      "  x = 0 || (yield 0);",
+      "  x = 0 && (yield);",
+      "  x = 0 && (yield 0);",
+      "  x = !(yield);",
+      "  x = !(yield 0);",
+      "  x = !!(yield);",
+      "  x = !!(yield 0);",
+      "  x = 0 + (yield);",
+      "  x = 0 + (yield 0);",
+      "  x = 0 - (yield);",
+      "  x = 0 - (yield 0);",
+      "}"
+    ], { singleGroups: true, esversion: 6 });
+
+  TestRun(test, "operand delineation")
+    .test([
+      "function* g() {",
+      "  (yield).x = 0;",
+      "  x = (yield) ? 0 : 0;",
+      "  x = (yield 0) ? 0 : 0;",
+      "  x = (yield) / 0;",
+      "}"
+    ], { singleGroups: true, esversion: 6 });
+
+  TestRun(test)
+    .addError(2, "Unnecessary grouping operator.")
+    .addError(3, "Unnecessary grouping operator.")
+    .addError(4, "Unnecessary grouping operator.")
+    .addError(5, "Unnecessary grouping operator.")
+    .addError(6, "Unnecessary grouping operator.")
+    .addError(7, "Unnecessary grouping operator.")
+    .addError(8, "Unnecessary grouping operator.")
+    .addError(9, "Unnecessary grouping operator.")
+    .addError(10, "Unnecessary grouping operator.")
+    .addError(11, "Unnecessary grouping operator.")
+    .addError(12, "Unnecessary grouping operator.")
+    .addError(13, "Unnecessary grouping operator.")
+    .addError(14, "Unnecessary grouping operator.")
+    .addError(15, "Unnecessary grouping operator.")
+    .addError(16, "Unnecessary grouping operator.")
+    .addError(17, "Unnecessary grouping operator.")
+    .addError(18, "Unnecessary grouping operator.")
+    .addError(19, "Unnecessary grouping operator.")
+    .addError(20, "Unnecessary grouping operator.")
+    .addError(21, "Unnecessary grouping operator.")
+    .addError(22, "Unnecessary grouping operator.")
+    .addError(23, "Unnecessary grouping operator.")
+    .addError(24, "Unnecessary grouping operator.")
+    .addError(25, "Unnecessary grouping operator.")
+    .addError(26, "Unnecessary grouping operator.")
+    .addError(27, "Unnecessary grouping operator.")
+    .addError(28, "Unnecessary grouping operator.")
+    .addError(29, "Unnecessary grouping operator.")
+    .addError(30, "Unnecessary grouping operator.")
+    .addError(31, "Unnecessary grouping operator.")
+    .addError(32, "Unnecessary grouping operator.")
+    .addError(33, "Unnecessary grouping operator.")
+    .addError(34, "Unnecessary grouping operator.")
+    .test([
+      "function* g() {",
+      "  (yield);",
+      "  (yield 0);",
+      "  var x = (yield);",
+      "  var y = (yield 0);",
+      "  x = (yield);",
+      "  x = (yield 0);",
+      "  x += (yield);",
+      "  x += (yield 0);",
+      "  x -= (yield);",
+      "  x -= (yield 0);",
+      "  x *= (yield);",
+      "  x *= (yield 0);",
+      "  x /= (yield);",
+      "  x /= (yield 0);",
+      "  x %= (yield);",
+      "  x %= (yield 0);",
+      "  x <<= (yield 0);",
+      "  x <<= (yield);",
+      "  x >>= (yield);",
+      "  x >>= (yield 0);",
+      "  x >>>= (yield);",
+      "  x >>>= (yield 0);",
+      "  x &= (yield);",
+      "  x &= (yield 0);",
+      "  x ^= (yield);",
+      "  x ^= (yield 0);",
+      "  x |= (yield);",
+      "  x |= (yield 0);",
+      "  x = 0 ? (yield) : 0;",
+      "  x = 0 ? (yield 0) : 0;",
+      "  x = 0 ? 0 : (yield);",
+      "  x = 0 ? 0 : (yield 0);",
+      "  yield (yield);",
+      "}"
+    ], { singleGroups: true, esversion: 6 });
 
   test.done();
 };
@@ -3140,7 +3262,18 @@ exports.futureHostile = function (test) {
     "var Set = function() {};",
     "var Symbol = function() {};",
     "var WeakMap = function() {};",
-    "var WeakSet = function() {};"
+    "var WeakSet = function() {};",
+    "var ArrayBuffer = function() {};",
+    "var DataView = function() {};",
+    "var Int8Array = function() {};",
+    "var Int16Array = function() {};",
+    "var Int32Array = function() {};",
+    "var Uint8Array = function() {};",
+    "var Uint16Array = function() {};",
+    "var Uint32Array = function() {};",
+    "var Uint8ClampledArray = function() {};",
+    "var Float32Array = function() {};",
+    "var Float64Array = function() {};"
   ];
 
   TestRun(test, "ES3 without option")
@@ -3153,6 +3286,17 @@ exports.futureHostile = function (test) {
     .addError(7, "'Symbol' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .addError(8, "'WeakMap' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .addError(9, "'WeakSet' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(10, "'ArrayBuffer' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(11, "'DataView' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(12, "'Int8Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(13, "'Int16Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(14, "'Int32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(15, "'Uint8Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(16, "'Uint16Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(17, "'Uint32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(18, "'Uint8ClampledArray' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(19, "'Float32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(20, "'Float64Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .test(code, { es3: true, es5: false, futurehostile: false });
 
   TestRun(test, "ES3 with option")
@@ -3168,6 +3312,17 @@ exports.futureHostile = function (test) {
     .addError(7, "'Symbol' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .addError(8, "'WeakMap' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .addError(9, "'WeakSet' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(10, "'ArrayBuffer' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(11, "'DataView' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(12, "'Int8Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(13, "'Int16Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(14, "'Int32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(15, "'Uint8Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(16, "'Uint16Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(17, "'Uint32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(18, "'Uint8ClampledArray' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(19, "'Float32Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
+    .addError(20, "'Float64Array' is defined in a future version of JavaScript. Use a different variable name to avoid migration issues.")
     .test(code, { futurehostile: false });
 
   TestRun(test, "ES5 with option")
@@ -3189,6 +3344,17 @@ exports.futureHostile = function (test) {
     .addError(7, "Redefinition of 'Symbol'.")
     .addError(8, "Redefinition of 'WeakMap'.")
     .addError(9, "Redefinition of 'WeakSet'.")
+    .addError(10, "Redefinition of 'ArrayBuffer'.")
+    .addError(11, "Redefinition of 'DataView'.")
+    .addError(12, "Redefinition of 'Int8Array'.")
+    .addError(13, "Redefinition of 'Int16Array'.")
+    .addError(14, "Redefinition of 'Int32Array'.")
+    .addError(15, "Redefinition of 'Uint8Array'.")
+    .addError(16, "Redefinition of 'Uint16Array'.")
+    .addError(17, "Redefinition of 'Uint32Array'.")
+    .addError(18, "Redefinition of 'Uint8ClampledArray'.")
+    .addError(19, "Redefinition of 'Float32Array'.")
+    .addError(20, "Redefinition of 'Float64Array'.")
     .test(code, { esnext: true, futurehostile: false });
 
   TestRun(test, "ESNext with option")
@@ -3201,6 +3367,17 @@ exports.futureHostile = function (test) {
     .addError(7, "Redefinition of 'Symbol'.")
     .addError(8, "Redefinition of 'WeakMap'.")
     .addError(9, "Redefinition of 'WeakSet'.")
+    .addError(10, "Redefinition of 'ArrayBuffer'.")
+    .addError(11, "Redefinition of 'DataView'.")
+    .addError(12, "Redefinition of 'Int8Array'.")
+    .addError(13, "Redefinition of 'Int16Array'.")
+    .addError(14, "Redefinition of 'Int32Array'.")
+    .addError(15, "Redefinition of 'Uint8Array'.")
+    .addError(16, "Redefinition of 'Uint16Array'.")
+    .addError(17, "Redefinition of 'Uint32Array'.")
+    .addError(18, "Redefinition of 'Uint8ClampledArray'.")
+    .addError(19, "Redefinition of 'Float32Array'.")
+    .addError(20, "Redefinition of 'Float64Array'.")
     .test(code, { esnext: true });
 
   TestRun(test, "ESNext with opt-out")
@@ -3216,7 +3393,18 @@ exports.futureHostile = function (test) {
         "-Set",
         "-Symbol",
         "-WeakMap",
-        "-WeakSet"
+        "-WeakSet",
+        "-ArrayBuffer",
+        "-DataView",
+        "-Int8Array",
+        "-Int16Array",
+        "-Int32Array",
+        "-Uint8Array",
+        "-Uint16Array",
+        "-Uint32Array",
+        "-Uint8ClampledArray",
+        "-Float32Array",
+        "-Float64Array"
       ]
     });
 
@@ -3229,7 +3417,18 @@ exports.futureHostile = function (test) {
     "let Set = function() {};",
     "let Symbol = function() {};",
     "let WeakMap = function() {};",
-    "let WeakSet = function() {};"
+    "let WeakSet = function() {};",
+    "let ArrayBuffer = function() {};",
+    "let DataView = function() {};",
+    "let Int8Array = function() {};",
+    "let Int16Array = function() {};",
+    "let Int32Array = function() {};",
+    "let Uint8Array = function() {};",
+    "let Uint16Array = function() {};",
+    "let Uint32Array = function() {};",
+    "let Uint8ClampledArray = function() {};",
+    "let Float32Array = function() {};",
+    "let Float64Array = function() {};"
   ];
 
   TestRun(test, "ESNext with option")
@@ -3242,6 +3441,17 @@ exports.futureHostile = function (test) {
     .addError(7, "Redefinition of 'Symbol'.")
     .addError(8, "Redefinition of 'WeakMap'.")
     .addError(9, "Redefinition of 'WeakSet'.")
+    .addError(10, "Redefinition of 'ArrayBuffer'.")
+    .addError(11, "Redefinition of 'DataView'.")
+    .addError(12, "Redefinition of 'Int8Array'.")
+    .addError(13, "Redefinition of 'Int16Array'.")
+    .addError(14, "Redefinition of 'Int32Array'.")
+    .addError(15, "Redefinition of 'Uint8Array'.")
+    .addError(16, "Redefinition of 'Uint16Array'.")
+    .addError(17, "Redefinition of 'Uint32Array'.")
+    .addError(18, "Redefinition of 'Uint8ClampledArray'.")
+    .addError(19, "Redefinition of 'Float32Array'.")
+    .addError(20, "Redefinition of 'Float64Array'.")
     .test(code, { esnext: true });
 
   TestRun(test, "ESNext with opt-out")
@@ -3257,7 +3467,18 @@ exports.futureHostile = function (test) {
         "-Set",
         "-Symbol",
         "-WeakMap",
-        "-WeakSet"
+        "-WeakSet",
+        "-ArrayBuffer",
+        "-DataView",
+        "-Int8Array",
+        "-Int16Array",
+        "-Int32Array",
+        "-Uint8Array",
+        "-Uint16Array",
+        "-Uint32Array",
+        "-Uint8ClampledArray",
+        "-Float32Array",
+        "-Float64Array"
       ]
     });
 
@@ -3270,7 +3491,18 @@ exports.futureHostile = function (test) {
     "const Set = function() {};",
     "const Symbol = function() {};",
     "const WeakMap = function() {};",
-    "const WeakSet = function() {};"
+    "const WeakSet = function() {};",
+    "const ArrayBuffer = function() {};",
+    "const DataView = function() {};",
+    "const Int8Array = function() {};",
+    "const Int16Array = function() {};",
+    "const Int32Array = function() {};",
+    "const Uint8Array = function() {};",
+    "const Uint16Array = function() {};",
+    "const Uint32Array = function() {};",
+    "const Uint8ClampledArray = function() {};",
+    "const Float32Array = function() {};",
+    "const Float64Array = function() {};"
   ];
 
   TestRun(test, "ESNext with option")
@@ -3283,6 +3515,17 @@ exports.futureHostile = function (test) {
     .addError(7, "Redefinition of 'Symbol'.")
     .addError(8, "Redefinition of 'WeakMap'.")
     .addError(9, "Redefinition of 'WeakSet'.")
+    .addError(10, "Redefinition of 'ArrayBuffer'.")
+    .addError(11, "Redefinition of 'DataView'.")
+    .addError(12, "Redefinition of 'Int8Array'.")
+    .addError(13, "Redefinition of 'Int16Array'.")
+    .addError(14, "Redefinition of 'Int32Array'.")
+    .addError(15, "Redefinition of 'Uint8Array'.")
+    .addError(16, "Redefinition of 'Uint16Array'.")
+    .addError(17, "Redefinition of 'Uint32Array'.")
+    .addError(18, "Redefinition of 'Uint8ClampledArray'.")
+    .addError(19, "Redefinition of 'Float32Array'.")
+    .addError(20, "Redefinition of 'Float64Array'.")
     .test(code, { esnext: true });
 
   TestRun(test, "ESNext with opt-out")
@@ -3298,7 +3541,18 @@ exports.futureHostile = function (test) {
         "-Set",
         "-Symbol",
         "-WeakMap",
-        "-WeakSet"
+        "-WeakSet",
+        "-ArrayBuffer",
+        "-DataView",
+        "-Int8Array",
+        "-Int16Array",
+        "-Int32Array",
+        "-Uint8Array",
+        "-Uint16Array",
+        "-Uint32Array",
+        "-Uint8ClampledArray",
+        "-Float32Array",
+        "-Float64Array"
       ]
     });
 
@@ -3342,12 +3596,12 @@ exports.module.behavior = function(test) {
   TestRun(test)
     .addError(0, "The 'module' option is only available when linting ECMAScript 6 code.")
     .addError(1, "Expected an identifier and instead saw 'package' (a reserved word).")
-    .addError(2, "Possible strict violation.")
+    .addError(2, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(code, { module: true });
 
   TestRun(test)
     .addError(1, "Expected an identifier and instead saw 'package' (a reserved word).")
-    .addError(2, "Possible strict violation.")
+    .addError(2, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(code, { module: true, esnext: true });
 
   code = [
@@ -3359,14 +3613,14 @@ exports.module.behavior = function(test) {
   TestRun(test)
     .addError(1, "The 'module' option is only available when linting ECMAScript 6 code.")
     .addError(2, "Expected an identifier and instead saw 'package' (a reserved word).")
-    .addError(3, "Possible strict violation.")
+    .addError(3, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(code);
 
   code[0] = "/* jshint module: true, esnext: true */";
 
   TestRun(test)
     .addError(2, "Expected an identifier and instead saw 'package' (a reserved word).")
-    .addError(3, "Possible strict violation.")
+    .addError(3, "If a strict mode function is executed using function invocation, its 'this' value will be undefined.")
     .test(code);
 
   test.done();
