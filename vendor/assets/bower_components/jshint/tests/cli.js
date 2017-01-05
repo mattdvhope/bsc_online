@@ -158,7 +158,6 @@ exports.group = {
         var msg = out.args[1][0];
         test.equal(msg.slice(0, 24), "Can't parse config file:");
         test.equal(msg.slice(25, 35), "file1.json");
-        test.equal(msg.slice(msg.length - 37), "Error:SyntaxError: Unexpected token w");
         test.equal(err, "ProcessExit");
       }
 
@@ -631,6 +630,16 @@ exports.group = {
 
     test.equal(shjs.cat.args.length, 0);
 
+    test.done();
+  },
+
+  testIgnoresWithSpecialChars: function (test) {
+    this.sinon.stub(process, "cwd").returns(path.resolve(__dirname, "special++chars"));
+    this.sinon.stub(shjs, "test").withArgs(sinon.match(/-[ed]/), ".").returns(true);
+    this.sinon.stub(shjs, "ls").withArgs(".").returns([]);
+    test.doesNotThrow(function() {
+      cli.interpret(["node", "jshint", ".", "--exclude=exclude1.js"]);
+    });
     test.done();
   },
 

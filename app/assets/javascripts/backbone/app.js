@@ -15,7 +15,7 @@ var App = {
       success: function (collection, response, options) {
         var gen_sch_view = new GeneralScheduleView({ collection: collection });
         $("#generalschedulemodal").html(gen_sch_view.render().el);
-        $("#generalschedulemodal").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+        $("#generalschedulemodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'UtSaHaGumm LT W31'");
         $("#generalschedulemodal").modal();
       },
       error: function (collection, response, options) {
@@ -181,7 +181,7 @@ var App = {
         sessionStorage.setItem('language', "thai");
       }
       getCorrectPageWhenFlagClicked();
-      $("body").css("font-family", "'Neue Frutiger W31 Modern Light', sans-serif");
+      $("body").css("font-family", "'Neue Frutiger W31 Modern Light', 'UtSaHaGumm LT W31'");
     });
 
     $(".usa_flag").on("click tap", function() {
@@ -190,8 +190,7 @@ var App = {
         the_app.getGeneralSchedModal();
       }
       getCorrectPageWhenFlagClicked();
-      $("body").css("font-family", "'Josefin Sans', sans-serif");
-      // $("body").css("font-family", "'Century Gothic W02', sans-serif");
+      $("body").css("font-family", "'Century Gothic W01', sans-serif");
     });
 
     function getCorrectPageWhenFlagClicked() {
@@ -240,7 +239,7 @@ var App = {
 
   },
   init: function() {
-    $("#page-here, .entire-footer").css("font-family", "'Athiti', 'Neue Frutiger W31 Modern Light', sans-serif");
+    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'UtSaHaGumm LT W31'");
 
     if (gon.page_needed === "front") {
       this.getFrontMainPage();
