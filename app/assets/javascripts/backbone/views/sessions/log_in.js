@@ -38,7 +38,7 @@ var LogInFormView = Backbone.View.extend({
         // App.instantiateVolunteerProfile();
       }
     })
-    .catch(function(error) {
+    .catch(function(error) { // 'error' means 'onRejected'
       App.getFrontMainPage();
       console.log(error.responseJSON.error);
       swal({
