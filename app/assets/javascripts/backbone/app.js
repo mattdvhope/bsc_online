@@ -240,9 +240,19 @@ var App = {
   },
   init: function() {
     var app_obj = this;
+
+    function timer(time) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(reject, time);
+      });
+    }
+
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    font.load().then(function(val) {
+    Promise.race([
+      timer(10000),
+      font.load()
+    ]).then(function(val) {
       console.log(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
