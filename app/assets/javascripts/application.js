@@ -1,6 +1,7 @@
 //= require js-routes
 //= require jquery
 //= require jquery_ujs
+//= require fontfaceobserver
 //= require cocoon
 //= require handlebars.runtime
 //= require underscore/underscore

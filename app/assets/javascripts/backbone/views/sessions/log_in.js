@@ -26,7 +26,7 @@ var LogInFormView = Backbone.View.extend({
     });
 
     promise
-    .then(function(result) {
+    .then(function(result) { // 'result' means 'onFulfilled'
       if (result.role === "leader" || result.role === "admin") {
         App.getDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
       }
@@ -38,7 +38,7 @@ var LogInFormView = Backbone.View.extend({
         // App.instantiateVolunteerProfile();
       }
     })
-    .catch(function(error) {
+    .catch(function(error) { // 'error' means 'onRejected'
       App.getFrontMainPage();
       console.log(error.responseJSON.error);
       swal({
