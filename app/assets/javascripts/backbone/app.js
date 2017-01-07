@@ -244,11 +244,10 @@ var App = {
 
     font.load().then(function(val) {
       console.log(val);
-      renderPageWhenFontHere(val.family)
+      renderPageWhenFontHere(val.family);
     }).catch(function(valError){
-      renderPageWhenFontHere("Athiti")
+      renderPageWhenFontHere("Athiti");
       console.log(valError.family);
-      alert(valError.family);
     }); // font.load()...
 
     function renderPageWhenFontHere(font_family) {
