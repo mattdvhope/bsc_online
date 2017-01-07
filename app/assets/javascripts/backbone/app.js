@@ -248,7 +248,7 @@ var App = {
 
     }).catch(function(valError){
       renderPageWhenFontHere("Athiti")
-      console.log(valError);
+      alert(valError);
     }); // font.load()...
 
     function renderPageWhenFontHere(font_family) {
