@@ -240,10 +240,19 @@ var App = {
   },
   init: function() {
     var app_obj = this;
-    // var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
-    var font = new FontFaceObserver('Athiti');
 
-    font.load().then(function(val) {
+    function timer(time) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(reject, time);
+      });
+    }
+
+    var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
+
+    Promise.race([
+      timer(10000),
+      font.load()
+    ]).then(function(val) {
       console.log(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
