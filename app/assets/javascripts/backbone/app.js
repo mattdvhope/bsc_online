@@ -240,7 +240,8 @@ var App = {
   },
   init: function() {
     var app_obj = this;
-    var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
+    // var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
+    var font = new FontFaceObserver('Athiti');
 
     font.load().then(function(val) {
       console.log(val);
