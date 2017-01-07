@@ -239,32 +239,47 @@ var App = {
 
   },
   init: function() {
-    $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti', 'UtSaHaGumm LT W31'"); //
+    var app_obj = this;
+    var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    if (gon.page_needed === "front") {
-      this.getFrontMainPage();
+    font.load().then(function(val) {
+      console.log(val);
+      renderPageWhenFontHere(val.family)
+
+    }).catch(function(valError){
+      renderPageWhenFontHere("Athiti")
+      console.log(valError);
+    }); // font.load()...
+
+    function renderPageWhenFontHere(font_family) {
+      $("#page-here, .entire-footer").css("font-family", font_family); //
+      // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti', 'UtSaHaGumm LT W31'"); //
+
+      if (gon.page_needed === "front") {
+        app_obj.getFrontMainPage();
+      }
+      else if (gon.page_needed === "volunteer_info") {
+        app_obj.getVolunteerPage();
+      }
+      else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+        app_obj.getDashboardPage(app_obj.presentUserModel());
+      }
+      else if (gon.page_needed === "volunteer") {
+        app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
+      }
+      else if (gon.page_needed === "student") {
+        app_obj.getStudentDashboardPage(app_obj.presentUserModel());
+      }
+      app_obj.getFooter();
+      app_obj.instantiateStudentRegForm();
+      app_obj.instantiateVolunteerRegForm();
+      app_obj.instantiateAdminRegForm();
+      app_obj.instantiateLogInForm();
+      app_obj.instantiateLocationPictures();
+      app_obj.openApplicationForm();
+      app_obj.nav_bar_control();
     }
-    else if (gon.page_needed === "volunteer_info") {
-      this.getVolunteerPage();
-    }
-    else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
-      this.getDashboardPage(this.presentUserModel());
-    }
-    else if (gon.page_needed === "volunteer") {
-      this.getVolunteerDashboardPage(this.presentUserModel());
-    }
-    else if (gon.page_needed === "student") {
-      this.getStudentDashboardPage(this.presentUserModel());
-    }
-    this.getFooter();
-    this.instantiateStudentRegForm();
-    this.instantiateVolunteerRegForm();
-    this.instantiateAdminRegForm();
-    this.instantiateLogInForm();
-    this.instantiateLocationPictures();
-    this.openApplicationForm();
-    this.nav_bar_control();
-  }
+  } // init
 };
 
 var router = new Router();
