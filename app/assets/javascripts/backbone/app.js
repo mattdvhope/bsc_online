@@ -241,15 +241,16 @@ var App = {
   init: function() {
     var app_obj = this;
 
+      renderPageWhenFontHere("Neue Frutiger W31 Modern Light");
+
     // var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
-    var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
-    font.load().then(function(val) {
-      console.log(val);
-      renderPageWhenFontHere(val.family);
-    }).catch(function(valError){
-      console.log("Athiti");
-      renderPageWhenFontHere("Athiti");
-    }); // font.load()...
+    // font.load().then(function(val) {
+    //   console.log(val);
+    //   renderPageWhenFontHere(val.family);
+    // }).catch(function(valError){
+    //   console.log("Athiti");
+    //   renderPageWhenFontHere("Athiti");
+    // }); // font.load()...
 
     function renderPageWhenFontHere(font_family) {
       $("#page-here, .entire-footer").css("font-family", font_family); //
