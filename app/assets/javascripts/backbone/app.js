@@ -242,13 +242,11 @@ var App = {
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    alert(font.load());
-
     font.load().then(function(val) {
-      console.log(val);
+      console.trace(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
-      console.log("Athiti");
+      console.trace("Athiti");
       renderPageWhenFontHere("Athiti");
     }); // font.load()...
 
