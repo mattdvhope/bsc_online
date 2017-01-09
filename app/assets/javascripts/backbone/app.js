@@ -253,6 +253,7 @@ var App = {
     // }); // font.load()...
 
     function renderPageWhenFontHere(font_family) {
+alert("new version");
       $("#page-here, .entire-footer").css("font-family", font_family); //
       // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'"); //
 
