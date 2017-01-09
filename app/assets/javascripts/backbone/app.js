@@ -242,7 +242,7 @@ var App = {
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    console.log(font.load());
+    alert(font.load());
 
     font.load().then(function(val) {
       console.log(val);
@@ -254,7 +254,6 @@ var App = {
 
     function renderPageWhenFontHere(font_family) {
       $("#page-here, .entire-footer").css("font-family", font_family); //
-      // $("#page-here, .entire-footer").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'"); //
 
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
