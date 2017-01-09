@@ -6,7 +6,7 @@ try {
     sessionStorage.setItem("fragment", "");
   }
   if (sessionStorage.getItem("language") === null) {
-    sessionStorage.setItem("language", "thai");
+    sessionStorage.setItem("language", "english");
   }
   //////////////////////////////////////////////////////
 }
