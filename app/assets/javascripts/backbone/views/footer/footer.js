@@ -13,28 +13,18 @@ var FooterFrontView = Backbone.View.extend({
   window_smaller: function() {
     return $(window).width() >= 550 && $(window).width() < 768
   },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   telephone: function() {
-    return this.choose_language("Telephone:", "เบอร์โทรศัพท์");
+    return choose_language("Telephone:", "เบอร์โทรศัพท์");
   },
   contact_us: function() {
-    return this.choose_language("Contact Us", "ติดต่อเรา");
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Contact Us", "ติดต่อเรา");
   },
   render: function() {
     this.$el.html(this.templateFooter({
       window_big: this.window_big(),
       window_medium: this.window_medium(),
       window_smaller: this.window_smaller(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       telephone: this.telephone(),
       contact_us: this.contact_us()
     }));

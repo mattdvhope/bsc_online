@@ -14,15 +14,12 @@ var GeneralScheduleView = Backbone.View.extend({
     $("#applicationmodal").modal();
   },
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   welcome: function() {
-    return this.choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
+    return choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
   },
 
   list_title: function() {
-    return this.choose_language("List of class sessions...", "รายการชั้นเรียน...");
+    return choose_language("List of class sessions...", "รายการชั้นเรียน...");
   },
 
   sorted_class_times: function() {
@@ -32,7 +29,7 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   class_times: function() {
-    var using_thai_language = this.thai_language();
+    var using_thai_language = thai_language();
     var class_time_list = [];
     this.sorted_class_times().forEach(function(time) {
       if (using_thai_language) {
@@ -45,19 +42,11 @@ var GeneralScheduleView = Backbone.View.extend({
     return class_time_list;
   },
 
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
-  },
-
   template:  HandlebarsTemplates['front/general_schedule'],
 
   render: function() {
     this.$el.html(this.template({
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       welcome: this.welcome(),
       list_title: this.list_title(),
       class_times: this.class_times()
