@@ -1,6 +1,7 @@
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./called
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ./app_methods
@@ -243,10 +244,10 @@ var App = {
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
     font.load().then(function(val) {
-      console.trace(val);
+      // console.trace(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
-      console.trace("Athiti");
+      // console.trace("Athiti");
       renderPageWhenFontHere("Athiti");
     }); // font.load()...
 
