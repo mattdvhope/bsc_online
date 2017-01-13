@@ -10,11 +10,6 @@ function getFrontMainPage() {
     App.renderNavBar();
     front_page_main.render();
 
-    // if (sessionStorage.getItem('genSched') !== 'closed') {
-    //   App.getGeneralSchedModal();
-    // }
-
-console.log("in getFrontMainPage");
     var cls_dtls_view = new ClassDetailsView();
     $("#classdetailsmodal").html(cls_dtls_view.render().el);
 

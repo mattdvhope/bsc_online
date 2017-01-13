@@ -183,6 +183,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+      the_app.openApplicationForm();
     });
 
     $(".usa_flag").on("click tap", function() {
@@ -192,6 +193,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Century Gothic W01', 'Athiti', sans-serif");
+      the_app.openApplicationForm();
     });
 
     function getCorrectPageWhenFlagClicked() {
