@@ -33,63 +33,53 @@ var NavBarView = Backbone.View.extend({
   dashboard_visible: function() {
     return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   sign_up: function() {
-    return this.choose_language("Sign Up!", "สมัครเรียน!");
+    return choose_language("Sign Up!", "สมัครเรียน!");
   },
   features: function() {
-    return this.choose_language("Features", "บริการของเรา");
+    return choose_language("Features", "บริการของเรา");
   },
   get_started: function() {
-    return this.choose_language("Get Started", "เริ่มต้นกับเรา");
+    return choose_language("Get Started", "เริ่มต้นกับเรา");
   },
   holistic: function() {
-    return this.choose_language("Holistic", "แบบองค์รวมรุ่น");
+    return choose_language("Holistic", "แบบองค์รวมรุ่น");
   },
   contact_us: function() {
-    return this.choose_language("Contact Us", "ติดต่อเรา");
+    return choose_language("Contact Us", "ติดต่อเรา");
   },
   student: function() {
-    return this.choose_language("Student", "ผู้เรียน");
+    return choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
-    return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
+    return choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
   you_can_speak: function() {
-    return this.choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
+    return choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
   },
   volunteer: function() {
-    return this.choose_language("Volunteer", "อาสาสมัคร");
+    return choose_language("Volunteer", "อาสาสมัคร");
   },
   volunteer_info: function() {
-    return this.choose_language("Volunteer Info", "ข้อมูลอาสาสมัคร");
+    return choose_language("Volunteer Info", "ข้อมูลอาสาสมัคร");
   },
   register_new_volunteer: function() {
-    return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+    return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
   login_student: function() {
-    return this.choose_language("Login", "ล็อกอิน");
+    return choose_language("Login", "ล็อกอิน");
   },
   login_volunteer: function() {
-    return this.choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
+    return choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
   steps_to_volunteer: function() {
-    return this.choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
   render: function(visible) {
     this.$el.html(this.template({
       volunteer_info_visible: this.volunteer_info_visible(),
       dashboard_visible: this.dashboard_visible(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
       get_started: this.get_started(),

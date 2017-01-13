@@ -18,50 +18,40 @@ var MainFrontView = Backbone.View.extend({
   window_width: function() {
     return $(window).width() > 550
   },
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   login_button_language: function() {
-    return this.choose_language("Login", "เข้าสู่ระบบ");
+    return choose_language("Login", "เข้าสู่ระบบ");
   },
   register_button_language: function() {
-    return this.choose_language("Register", "ลงทะเบียน");
+    return choose_language("Register", "ลงทะเบียน");
   },
   volunteer_button_language: function() {
-    return this.choose_language("Volunteer!", "รับอาสา!");
+    return choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.choose_language("Features", "บริการของเรา");
+    return choose_language("Features", "บริการของเรา");
   },
   step_one: function() {
-    return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
+    return choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
   step_two: function() {
-    return this.choose_language("Step Two", "ขั้นตอนที่สอง");
+    return choose_language("Step Two", "ขั้นตอนที่สอง");
   },
   helping_friends: function() {
-    return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
+    return choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
   christian_worldview: function() { // in _nested_modal_christian_worldview.hrb
-    return this.choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
+    return choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
   },
   cost_amount: function() {
-    return this.choose_language("Cost amount", "จำนวนเงินค่าใช้จ่าย");
+    return choose_language("Cost amount", "จำนวนเงินค่าใช้จ่าย");
   },
   press_enter: function() { // in _nested_modal_christian_worldview.hrb
-    return this.choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
-  },
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
   },
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),

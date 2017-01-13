@@ -18443,7 +18443,7 @@ try {
     sessionStorage.setItem("fragment", "");
   }
   if (sessionStorage.getItem("language") === null) {
-    sessionStorage.setItem("language", "english");
+    sessionStorage.setItem("language", "thai");
   }
   //////////////////////////////////////////////////////
 }
@@ -19984,6 +19984,18 @@ var VolunteersAvailable = Backbone.Collection.extend({
   url: "volunteers_available"
 
 });
+function thai_language() {
+  return sessionStorage.getItem('language') === "thai";
+}
+
+function choose_language(english, thai) {
+  if (thai_language()) {
+    return thai
+  } else {
+    return english;
+  }
+}
+;
 var ApplicationView = Backbone.View.extend({
   id: "application-form-modal",
 
@@ -20087,42 +20099,31 @@ var ApplicationView = Backbone.View.extend({
 
   },
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   application_title: function() {
-    return this.choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
+    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
   },
 
   please_click_here: function() {
-    return this.choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+    return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
   },
 
   schedule_option_one: function() {
-    return this.choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
+    return choose_language("Option 1: Study one time per week for five weeks.", "ทางเลือกที่ 1: เรียนสัปดาห์ละ 1 ครั้ง ในเวลา 5 สัปดาห์");
   },
   schedule_option_two: function() {
-    return this.choose_language("Option 2: All 5 sessions in one week,  Monday-Friday.", "ทางเลือกที่ 2: เรียนทั้ง 5 คาบเรียนในเวลา 1 สัปดาห์, วันจันทร์ – วันศุกร์");
+    return choose_language("Option 2: All 5 sessions in one week,  Monday-Friday.", "ทางเลือกที่ 2: เรียนทั้ง 5 คาบเรียนในเวลา 1 สัปดาห์, วันจันทร์ – วันศุกร์");
   },
   class_cost: function() {
-    return this.choose_language("How much does each class cost?", "แต่ละชั้นเรียนมีค่าใช้จ่ายเท่าไหร่?");
+    return choose_language("How much does each class cost?", "แต่ละชั้นเรียนมีค่าใช้จ่ายเท่าไหร่?");
   },
   pay_at_center: function() {
-    return this.choose_language("Pay at the CEP Center on ", "ชำระเงินด้วยตนเองที่ศูนย์โครงการซิตี้ อิงลิช ");
+    return choose_language("Pay at the CEP Center on ", "ชำระเงินด้วยตนเองที่ศูนย์โครงการซิตี้ อิงลิช ");
   },
   pan_road: function() {
-    return this.choose_language("Pan Road", "ถนนปั้น (สำนักงานจะเปิดในวันที่ 5 มิถุนายน 2559 นี้)");
+    return choose_language("Pan Road", "ถนนปั้น (สำนักงานจะเปิดในวันที่ 5 มิถุนายน 2559 นี้)");
   },
   payment_info: function() {
-    return this.choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
-  },
-
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
   },
 
   regular_class_times: function() {
@@ -20133,10 +20134,9 @@ var ApplicationView = Backbone.View.extend({
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
-
     this.$el.html(this.template({
       token: csrf_token,
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       application_title: this.application_title(),
       please_click_here: this.please_click_here(),
       schedule_option_one: this.schedule_option_one(),
@@ -20154,19 +20154,8 @@ var WelcomePopupView = Backbone.View.extend({
   initialize: function() {},
   events: {},
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   thank_you: function() {
-    return this.choose_language("Thank you!", "ขอขอบคุณครับ!");
-  },
-
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Thank you!", "ขอขอบคุณครับ!");
   },
 
   university_summer_applicant: function() {
@@ -20177,7 +20166,7 @@ var WelcomePopupView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       thank_you: this.thank_you(),
       class_time: this.model.toJSON().class_time_scheduled
     }));
@@ -20262,25 +20251,13 @@ var StudentDashboardView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/student_dashboard'],
 
   welcome_note: function() {
-    return this.choose_language("Welcome to the \"City English Project,\" " + this.model.get("first_name"), "ยินดีต้อนรับสู่ \"โครงการซิตี้ อิงลิช\" " + this.model.get("first_name"));
-  },
-
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
-
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Welcome to the \"City English Project,\" " + this.model.get("first_name"), "ยินดีต้อนรับสู่ \"โครงการซิตี้ อิงลิช\" " + this.model.get("first_name"));
   },
 
   render: function() {
     this.$el.html(this.template({
       welcome_note: this.welcome_note(),
-      thai_language: this.app_language_is_thai()
+      thai_language: thai_language(),
     }));
   }
 
@@ -20579,28 +20556,18 @@ var FooterFrontView = Backbone.View.extend({
   window_smaller: function() {
     return $(window).width() >= 550 && $(window).width() < 768
   },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   telephone: function() {
-    return this.choose_language("Telephone:", "เบอร์โทรศัพท์");
+    return choose_language("Telephone:", "เบอร์โทรศัพท์");
   },
   contact_us: function() {
-    return this.choose_language("Contact Us", "ติดต่อเรา");
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Contact Us", "ติดต่อเรา");
   },
   render: function() {
     this.$el.html(this.templateFooter({
       window_big: this.window_big(),
       window_medium: this.window_medium(),
       window_smaller: this.window_smaller(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       telephone: this.telephone(),
       contact_us: this.contact_us()
     }));
@@ -20638,30 +20605,19 @@ var ClassDetailsView = Backbone.View.extend({
   initialize: function() {},
   events: {},
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   thank_you: function() {
-    return this.choose_language("Thank you!", "ขอขอบคุณครับ!");
+    return choose_language("Thank you!", "ขอขอบคุณครับ!");
   },
 
   content: function() {
-    return this.choose_language("We offer on-site \"You Can Speak!\" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.", "เราให้บริการจัดชั้นเรียน \"You Can Speak!\" นอกสถานที่ หากคุณต้องการจัดชั้นเรียนในสถานที่ทำงานหรือสถานศึกษาของคุณ กรุณาติดต่อคุณโสภาพร โทร 086-696-7821 หรือ Line ID: cityenglishproject");
-  },
-
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("We offer on-site \"You Can Speak!\" classes. If you would like to host one at your business or university, contact Khun So at 086-696-7821 or Line ID: cityenglishproject.", "เราให้บริการจัดชั้นเรียน \"You Can Speak!\" นอกสถานที่ หากคุณต้องการจัดชั้นเรียนในสถานที่ทำงานหรือสถานศึกษาของคุณ กรุณาติดต่อคุณโสภาพร โทร 086-696-7821 หรือ Line ID: cityenglishproject");
   },
 
   template:  HandlebarsTemplates['front/class_details'],
 
   render: function() {
     this.$el.html(this.template({
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       thank_you: this.thank_you(),
       content: this.content()
     }));
@@ -20687,15 +20643,12 @@ var GeneralScheduleView = Backbone.View.extend({
     $("#applicationmodal").modal();
   },
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   welcome: function() {
-    return this.choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
+    return choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
   },
 
   list_title: function() {
-    return this.choose_language("List of class sessions...", "รายการชั้นเรียน...");
+    return choose_language("List of class sessions...", "รายการชั้นเรียน...");
   },
 
   sorted_class_times: function() {
@@ -20705,7 +20658,7 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   class_times: function() {
-    var using_thai_language = this.thai_language();
+    var using_thai_language = thai_language();
     var class_time_list = [];
     this.sorted_class_times().forEach(function(time) {
       if (using_thai_language) {
@@ -20718,19 +20671,11 @@ var GeneralScheduleView = Backbone.View.extend({
     return class_time_list;
   },
 
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
-  },
-
   template:  HandlebarsTemplates['front/general_schedule'],
 
   render: function() {
     this.$el.html(this.template({
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       welcome: this.welcome(),
       list_title: this.list_title(),
       class_times: this.class_times()
@@ -20742,29 +20687,16 @@ var GeneralScheduleView = Backbone.View.extend({
 });
 
 var HistoryView = Backbone.View.extend({
-  initialize: function() {},
-  events: {},
 
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   history: function() {
-    return this.choose_language("History...", "ประวัติศาสตร์...");
-  },
-
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("History...", "ประวัติศาสตร์...");
   },
 
   template:  HandlebarsTemplates['front/history'],
 
   render: function() {
     this.$el.html(this.template({
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       history: this.history()
     }));
 
@@ -20793,50 +20725,40 @@ var MainFrontView = Backbone.View.extend({
   window_width: function() {
     return $(window).width() > 550
   },
-  thai_language: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   login_button_language: function() {
-    return this.choose_language("Login", "เข้าสู่ระบบ");
+    return choose_language("Login", "เข้าสู่ระบบ");
   },
   register_button_language: function() {
-    return this.choose_language("Register", "ลงทะเบียน");
+    return choose_language("Register", "ลงทะเบียน");
   },
   volunteer_button_language: function() {
-    return this.choose_language("Volunteer!", "รับอาสา!");
+    return choose_language("Volunteer!", "รับอาสา!");
   },
   features_language: function() {
-    return this.choose_language("Features", "บริการของเรา");
+    return choose_language("Features", "บริการของเรา");
   },
   step_one: function() {
-    return this.choose_language("Step One", "ขั้นตอนหนึ่ง");
+    return choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
   step_two: function() {
-    return this.choose_language("Step Two", "ขั้นตอนที่สอง");
+    return choose_language("Step Two", "ขั้นตอนที่สอง");
   },
   helping_friends: function() {
-    return this.choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
+    return choose_language("Friends Helping Friends", "ช่วยให้เพื่อน ๆ ซึ่งกันและกัน");
   },
   christian_worldview: function() { // in _nested_modal_christian_worldview.hrb
-    return this.choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
+    return choose_language("Christian Worldview", "โลกทัศน์ของคริสเตียน");
   },
   cost_amount: function() {
-    return this.choose_language("Cost amount", "จำนวนเงินค่าใช้จ่าย");
+    return choose_language("Cost amount", "จำนวนเงินค่าใช้จ่าย");
   },
   press_enter: function() { // in _nested_modal_christian_worldview.hrb
-    return this.choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
-  },
-  choose_language: function(english, thai) {
-    if (this.thai_language()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Press 'Enter' or click 'Close' when complete", " กดที่ 'Return / Enter' หรือคลิกที่ 'Close' ที่จะออกจากที่นี่");
   },
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.thai_language(),
+      thai_language: thai_language(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
@@ -20886,63 +20808,53 @@ var NavBarView = Backbone.View.extend({
   dashboard_visible: function() {
     return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
   sign_up: function() {
-    return this.choose_language("Sign Up!", "สมัครเรียน!");
+    return choose_language("Sign Up!", "สมัครเรียน!");
   },
   features: function() {
-    return this.choose_language("Features", "บริการของเรา");
+    return choose_language("Features", "บริการของเรา");
   },
   get_started: function() {
-    return this.choose_language("Get Started", "เริ่มต้นกับเรา");
+    return choose_language("Get Started", "เริ่มต้นกับเรา");
   },
   holistic: function() {
-    return this.choose_language("Holistic", "แบบองค์รวมรุ่น");
+    return choose_language("Holistic", "แบบองค์รวมรุ่น");
   },
   contact_us: function() {
-    return this.choose_language("Contact Us", "ติดต่อเรา");
+    return choose_language("Contact Us", "ติดต่อเรา");
   },
   student: function() {
-    return this.choose_language("Student", "ผู้เรียน");
+    return choose_language("Student", "ผู้เรียน");
   },
   register_new_student: function() {
-    return this.choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
+    return choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
   },
   you_can_speak: function() {
-    return this.choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
+    return choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
   },
   volunteer: function() {
-    return this.choose_language("Volunteer", "อาสาสมัคร");
+    return choose_language("Volunteer", "อาสาสมัคร");
   },
   volunteer_info: function() {
-    return this.choose_language("Volunteer Info", "ข้อมูลอาสาสมัคร");
+    return choose_language("Volunteer Info", "ข้อมูลอาสาสมัคร");
   },
   register_new_volunteer: function() {
-    return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+    return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
   login_student: function() {
-    return this.choose_language("Login", "ล็อกอิน");
+    return choose_language("Login", "ล็อกอิน");
   },
   login_volunteer: function() {
-    return this.choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
+    return choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
   steps_to_volunteer: function() {
-    return this.choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
+    return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
   render: function(visible) {
     this.$el.html(this.template({
       volunteer_info_visible: this.volunteer_info_visible(),
       dashboard_visible: this.dashboard_visible(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
       get_started: this.get_started(),
@@ -21398,45 +21310,35 @@ var LogInFormView = Backbone.View.extend({
 
 
 var VolunteerPageView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'sync', this.render());
+    this.$el.appendTo(".entire");
+  },
   template:  HandlebarsTemplates['volunteer/volunteer_info'],
+  window_width: function() {
+    return $(window).width() > 550
+  },
+  steps_title: function() {
+    return choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
+  },
+  register_organization: function() {
+    return choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
+  },
+  volunteer_registration: function() {
+    return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+  },
+  fadeOut: function() {
+    App.getFrontMainPage()
+  },
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       steps_title: this.steps_title(),
       register_organization: this.register_organization(),
       volunteer_registration: this.volunteer_registration()
 
     }));
-  },
-  window_width: function() {
-    return $(window).width() > 550
-  },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
-  steps_title: function() {
-    return this.choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
-  },
-  register_organization: function() {
-    return this.choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
-  },
-  volunteer_registration: function() {
-    return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
-  },
-  fadeOut: function() {
-    App.getFrontMainPage()
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
-  },
-  initialize: function() {
-    this.listenTo(this.model, 'sync', this.render());
-    this.$el.appendTo(".entire");
   }
 });
 
@@ -21507,6 +21409,7 @@ function getFrontMainPage() {
     //   App.getGeneralSchedModal();
     // }
 
+console.log("in getFrontMainPage");
     var cls_dtls_view = new ClassDetailsView();
     $("#classdetailsmodal").html(cls_dtls_view.render().el);
 
@@ -21518,6 +21421,7 @@ function getFrontMainPage() {
     App.front_page_main = front_page_main;
 }
 ;
+
 
 
 
@@ -21762,13 +21666,11 @@ var App = {
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    alert(font.load());
-
     font.load().then(function(val) {
-      console.log(val);
+      // console.trace(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
-      console.log("Athiti");
+      // console.trace("Athiti");
       renderPageWhenFontHere("Athiti");
     }); // font.load()...
 

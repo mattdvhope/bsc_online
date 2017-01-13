@@ -1,6 +1,7 @@
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./collections
+//= require_tree ./called
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ./app_methods
@@ -182,6 +183,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+      the_app.openApplicationForm();
     });
 
     $(".usa_flag").on("click tap", function() {
@@ -191,6 +193,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Century Gothic W01', 'Athiti', sans-serif");
+      the_app.openApplicationForm();
     });
 
     function getCorrectPageWhenFlagClicked() {
@@ -242,13 +245,11 @@ var App = {
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
-    alert(font.load());
-
     font.load().then(function(val) {
-      console.log(val);
+      // console.trace(val);
       renderPageWhenFontHere(val.family);
     }).catch(function(valError){
-      console.log("Athiti");
+      // console.trace("Athiti");
       renderPageWhenFontHere("Athiti");
     }); // font.load()...
 

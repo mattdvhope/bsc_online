@@ -1,43 +1,33 @@
 var VolunteerPageView = Backbone.View.extend({
+  initialize: function() {
+    this.listenTo(this.model, 'sync', this.render());
+    this.$el.appendTo(".entire");
+  },
   template:  HandlebarsTemplates['volunteer/volunteer_info'],
+  window_width: function() {
+    return $(window).width() > 550
+  },
+  steps_title: function() {
+    return choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
+  },
+  register_organization: function() {
+    return choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
+  },
+  volunteer_registration: function() {
+    return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+  },
+  fadeOut: function() {
+    App.getFrontMainPage()
+  },
   render: function() {
     this.$el.html(this.template({
       window_big: this.window_width(),
-      thai_language: this.app_language_is_thai(),
+      thai_language: thai_language(),
       steps_title: this.steps_title(),
       register_organization: this.register_organization(),
       volunteer_registration: this.volunteer_registration()
 
     }));
-  },
-  window_width: function() {
-    return $(window).width() > 550
-  },
-  app_language_is_thai: function() {
-    return sessionStorage.getItem('language') === "thai";
-  },
-  steps_title: function() {
-    return this.choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
-  },
-  register_organization: function() {
-    return this.choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
-  },
-  volunteer_registration: function() {
-    return this.choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
-  },
-  fadeOut: function() {
-    App.getFrontMainPage()
-  },
-  choose_language: function(english, thai) {
-    if (this.app_language_is_thai()) {
-      return thai
-    } else {
-      return english;
-    }
-  },
-  initialize: function() {
-    this.listenTo(this.model, 'sync', this.render());
-    this.$el.appendTo(".entire");
   }
 });
 
