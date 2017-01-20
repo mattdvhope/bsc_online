@@ -13,10 +13,15 @@ class SkypeTimeSlotsController < ApplicationController
   def create
     @skype_time_slot = SkypeTimeSlot.new(skype_time_slot_params)
     if @skype_time_slot.save
-      redirect_to dashboard_path
+      render "show"
     else
       render :json => { :errors => @skype_time_slot.errors.full_messages }, :status => 422
     end
+  end
+
+  def destroy
+    skype_time_slot = SkypeTimeSlot.find(params[:id])
+    skype_time_slot.destroy
   end
 
   private

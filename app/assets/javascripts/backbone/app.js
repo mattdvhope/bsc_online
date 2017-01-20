@@ -96,7 +96,7 @@ var App = {
     var el = document.getElementById("page-here");
     el.scrollIntoView();
   },
-  renderNavBar: function() {
+  renderNavBar: function() { //!!!causing main page to render TWICE when flag clicked after 'init'
     var nav_bar = new NavBarView();
     nav_bar.render();
     this.nav_bar_control();
@@ -164,6 +164,7 @@ var App = {
           options: class_times
         });
         $("#applicationmodal").html(this.applicationView.render().el);
+        $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -189,7 +190,6 @@ var App = {
     $(".usa_flag").on("click tap", function() {
       if (sessionStorageAvailable("fragment")) {
         sessionStorage.setItem('language', "english");
-        the_app.getGeneralSchedModal();
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Century Gothic W01', 'Athiti', sans-serif");
@@ -212,7 +212,6 @@ var App = {
     $(".nav-hover").mouseleave(function(){
       $(this).css("background-color", "#2D3179");
     });
-
 
     $("#nav-dropdown").mouseenter(function(){
       $(this).css("background-color", "#8BC34A");
@@ -278,7 +277,6 @@ var App = {
       app_obj.instantiateLogInForm();
       app_obj.instantiateLocationPictures();
       app_obj.openApplicationForm();
-      app_obj.nav_bar_control();
     }
   } // init
 };
@@ -315,5 +313,3 @@ Handlebars.registerHelper('genderTranslate', function(gender) {
     return "Gender: Unknown";
   }
 });
-
-

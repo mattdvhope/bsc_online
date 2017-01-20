@@ -6,6 +6,7 @@
   });
 </script>
 
+
 <div class="container">
   <br>
   <br>
@@ -13,73 +14,43 @@
   <br>
 
   <div>
-    <h2><a href="/log_out">Log Out</a></h2>
-    <hr>
     <h2>Welcome to the "City English Project," {{first_name}} as a volunteer!</h2>
     <hr>
-
-    {{#if no_time_slots}}
-      <h3>You have not scheduled any time slots yet.</h3>
-    {{^}}
-      <ul>
-        {{#each time_slots}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    {{/if}}
-    <hr>
-    <h2>Click to choose up to 4 Skype-partnership time slots per week.</h2>
 
     <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
 
-      <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeOne" aria-expanded="false" aria-controls="collapseSkypeTimeOne">
-        <span>First Skype session time slot</span>
+      <h2>Click here to add a Skype time slot to your list of available time slots.</h2>
+      <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTime" aria-expanded="false" aria-controls="collapseSkypeTime">
+        <span id="open-to-add">Add time slot</span>
       </h2>
-      <div class="collapse" id="collapseSkypeTimeOne">
-        {{> select_day}}
-      </div>
-      <br>
-
-      <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeTwo" aria-expanded="false" aria-controls="collapseSkypeTimeTwo">
-        <span>Second Skype session time slot</span>
-      </h2>
-      <div class="collapse" id="collapseSkypeTimeTwo">
-        {{> select_day}}
-      </div>
-      <br>
-
-      <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeThree" aria-expanded="false" aria-controls="collapseSkypeTimeThree">
-        <span>Third Skype session time slot</span>
-      </h2>
-      <div class="collapse" id="collapseSkypeTimeThree">
-        {{> select_day}}
-      </div>
-      <br>
-
-      <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTimeFour" aria-expanded="false" aria-controls="collapseSkypeTimeFour">
-        <span>Fourth Skype session time slot</span>
-      </h2>
-      <div class="collapse" id="collapseSkypeTimeFour">
-        {{> select_day}}
+      <div class="collapse" id="collapseSkypeTime">
+        {{> select_skype_time}}
       </div>
 
-      <h2>After you have set up your time slots, press "Submit" below.  Your name will automatically put on a list of "American Volunteers" from which Thais can choose.</h2>
-
-      <div class="button-for-skype">
-        <button class="add-skype-slots btn btn-primary">Submit</button>
-      </div>
+      <h4 id="choosing-many-slots">(You can choose as many slots as you like.)</h4>
 
     </form>
+    <hr>
 
+    {{#if no_time_slots}}
+      <h3>You have not scheduled any time slots yet.</h3>
+    {{^}}
+      <h3>List of your available time slots:</h3>
+      {{!-- {{> dashboard/_skype_time_slots }} --}}
+
+      <span id="test-slot-list"></span>
+      <ul id="ul-list-of-time-slots">
+        {{#each time_slots}}
+          <li><span>{{this}}</span>  <a href=""><span class="glyphicon glyphicon-trash"></span></a></li>
+        {{/each}}
+      </ul>
+
+
+    {{/if}}
     <hr>
-    <h2><a href="/log_out">Log Out</a></h2>
-    <hr>
+
   </div>
 
 </div>
-
-<script>
-  
-</script>
