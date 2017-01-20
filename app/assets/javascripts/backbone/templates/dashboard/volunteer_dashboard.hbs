@@ -7,7 +7,7 @@
 </script>
 
 
-<div class="container">
+<div id="volunteer-dashboard-template" class="container">
   <br>
   <br>
   <br>
@@ -21,7 +21,7 @@
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
 
-      <h2>Click here to add a Skype time slot to your list of available time slots.</h2>
+      <h2>Click here to add one or more Skype time slots to your list of available time slots.</h2>
       <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTime" aria-expanded="false" aria-controls="collapseSkypeTime">
         <span id="open-to-add">Add time slot</span>
       </h2>
@@ -34,21 +34,8 @@
     </form>
     <hr>
 
-    {{#if no_time_slots}}
-      <h3>You have not scheduled any time slots yet.</h3>
-    {{^}}
-      <h3>List of your available time slots:</h3>
-      {{!-- {{> dashboard/_skype_time_slots }} --}}
-
-      <span id="test-slot-list"></span>
-      <ul id="ul-list-of-time-slots">
-        {{#each time_slots}}
-          <li><span>{{this}}</span>  <a href=""><span class="glyphicon glyphicon-trash"></span></a></li>
-        {{/each}}
-      </ul>
-
-
-    {{/if}}
+    <h3 id="list-avail-skype">List of your available time slots:</h3>
+    <!-- insert 'SkypeTimeSlotsView' template here-->
     <hr>
 
   </div>

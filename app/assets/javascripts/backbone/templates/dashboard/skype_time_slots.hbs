@@ -1,5 +1,13 @@
-<ul id="ul-list-of-time-slots">
-  {{#each time_slots}}
-    <li><span>{{this}}</span>  <a href=""><span class="glyphicon glyphicon-trash"></span></a></li>
-  {{/each}}
-</ul>
+<span id="time-slot-template">
+  {{#if no_time_slots}}
+    <h4>(You have not scheduled any time slots yet.)</h4>
+  {{^}}
+    <span id="test-slot-list">
+      <ul>
+        {{#each time_slots}}
+          <li><span>{{this}}</span>  <a href="">Delete</a></li>
+        {{/each}}
+      </ul>
+    </span>
+  {{/if}}
+</span>

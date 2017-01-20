@@ -22,32 +22,31 @@ var VolunteerDashboardView = Backbone.View.extend({
 
   add_skype_slots: function() {
     var volunteer = this.model;
-    var time_slots = [];
-    var time_slot;
+    var time_slot_parts = [];
+    var view_context = this;
 
     this.$el.find('select[name]').each(function() {
-      time_slots.push(this.value);
-      var blanks_to_remove = time_slots.indexOf("select_option");
+      time_slot_parts.push(this.value);
+      var blanks_to_remove = time_slot_parts.indexOf("select_option");
       if (blanks_to_remove > -1) {
-        time_slots.splice(blanks_to_remove, 1);
+        time_slot_parts.splice(blanks_to_remove, 1);
       }
     });
 
     var regex = /(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\d\d?:(00|30)\s-\s\d\d?:(00|30)(AM|PM)\sEST/
-    if (time_slots.length === 0) {
+    if (time_slot_parts.length === 0) {
       this.addErrorMsgToDOM();
     }
-    else if (!regex.test(time_slots[0] + time_slots[1] + time_slots[2])) {
+    else if (!regex.test(time_slot_parts[0] + time_slot_parts[1] + time_slot_parts[2])) {
       this.addErrorMsgToDOM();
     }
     else {
-      if (time_slots.length === 3) {
+      if (time_slot_parts.length === 3) {
         var time_slot = new SkypeTimeSlot();
-        time_slot.set({user_id: volunteer.get("id"), day: time_slots[0], time_period: time_slots[1], am_pm: time_slots[2]});
+        time_slot.set({user_id: volunteer.get("id"), day: time_slot_parts[0], time_period: time_slot_parts[1], am_pm: time_slot_parts[2]});
         time_slot.save({}, {
           success: function (model, response, options) {
-            var skype_time_slots = new SkypeTimeSlotsView();
-            skype_time_slots.render();
+            view_context.renderTimeSlotView();
           },
           error: function (model, response, options) {
             console.log(response);
@@ -57,6 +56,11 @@ var VolunteerDashboardView = Backbone.View.extend({
     } // else
 
   }, // 'add_skype_slots' method
+
+  renderTimeSlotView: function() {
+    var skype_time_slots = new SkypeTimeSlotsView();
+    skype_time_slots.render();
+  },
 
   removeErrorMsg: function() {
     $(".skype-red").remove();
@@ -69,28 +73,11 @@ var VolunteerDashboardView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
 
   render: function() {
-    var view_context = this;
-    var collection = new SkypeTimeSlots();
-    collection.fetch({
-      success: function (collection, response, options) {
-        var time_slots = [];
-        collection.forEach(function(skypetimeslot) {
-          time_slots.push(skypetimeslot.get("day") + " " + skypetimeslot.get("time_period") + " " + skypetimeslot.get("am_pm"));
-        });
-        function noTimeSlots() {
-          return collection.length === 0;
-        }
+    this.$el.html(this.template({
+      first_name: this.model.get("first_name"),
+    }));
 
-        view_context.$el.html(view_context.template({
-          first_name: view_context.model.get("first_name"),
-          no_time_slots: noTimeSlots(),
-          time_slots: time_slots
-        }));
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
-  } // render:
+    this.renderTimeSlotView();
+  }
 
 });

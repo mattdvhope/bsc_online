@@ -5,28 +5,31 @@ var SkypeTimeSlotsView = Backbone.View.extend({
   render: function() {
     var view_context = this;
     var collection = new SkypeTimeSlots();
-    collection.fetch({
-      success: function (collection, response, options) {
-        var time_slots = [];
-        collection.forEach(function(skypetimeslot) {
-          time_slots.push(skypetimeslot.get("day") + " " + skypetimeslot.get("time_period") + " " + skypetimeslot.get("am_pm"));
-        });
-        function noTimeSlots() {
-          return collection.length === 0;
-        }
+    var promise = new Promise(function(resolve, reject) {
+      resolve(collection.fetch());
+    });
 
-        $("#ul-list-of-time-slots").remove();
-        $("#test-slot-list").append(
-          view_context.template({
-            time_slots: time_slots
-          })
-        );
+    promise
+    .then(function(collection_objects) {
+      var time_slots = [];
+      collection_objects.forEach(function(skypetimeslot) {
+        time_slots.push(skypetimeslot.day + " " + skypetimeslot.time_period + " " + skypetimeslot.am_pm);
+      });
 
-      }, // success
-      error: function (collection, response, options) {
-        console.log("error");
+      $("#time-slot-template").remove();
+      $("#list-avail-skype").after(
+        view_context.template({
+          no_time_slots: noTimeSlots(),
+          time_slots: time_slots
+        })
+      );
+      function noTimeSlots() {
+        return collection_objects.length === 0;
       }
-    }); // collection.fetch
-  } // render:
+    }) // then
+    .catch(function(error) {
+      console.log(error);
+    });
+  }
 
 });
