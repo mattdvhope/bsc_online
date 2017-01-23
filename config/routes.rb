@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :volunteers_available, only: [:index]
 
-  resources :skype_time_slots, only: [:index, :show, :create, :destroy]
+  resources :skype_time_slots, only: [:index, :show, :create, :update, :destroy]
 
   resources :students_needing_skype, only: [:index, :show]
 
