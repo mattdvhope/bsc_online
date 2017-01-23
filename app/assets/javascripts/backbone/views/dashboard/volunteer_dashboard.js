@@ -57,11 +57,6 @@ var VolunteerDashboardView = Backbone.View.extend({
 
   }, // 'add_skype_slots' method
 
-  renderTimeSlotView: function() {
-    var skype_time_slots = new SkypeTimeSlotsView();
-    skype_time_slots.render();
-  },
-
   removeErrorMsg: function() {
     $(".skype-red").remove();
   },
@@ -71,6 +66,11 @@ var VolunteerDashboardView = Backbone.View.extend({
   },
 
   template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
+
+  renderTimeSlotView: function() {
+    var skype_time_slots = new SkypeTimeSlotsView();
+    skype_time_slots.render();
+  },
 
   render: function() {
     this.$el.html(this.template({
