@@ -19,6 +19,15 @@ class SkypeTimeSlotsController < ApplicationController
     end
   end
 
+  def update
+    @skype_time_slot = SkypeTimeSlot.find(params[:id])
+    if @skype_time_slot.update(available: false)
+      render "show"
+    else
+      render :json => { :errors => @skype_time_slot.errors.full_messages }, :status => 422
+    end
+  end
+
   def destroy
     skype_time_slot = SkypeTimeSlot.find(params[:id])
     skype_time_slot.destroy
