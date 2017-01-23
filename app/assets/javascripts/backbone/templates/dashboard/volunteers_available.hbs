@@ -19,6 +19,15 @@
         <h4>Age: {{this.age}}</h4>
         <h4>State: {{this.province}}</h4>
         <h4>Country: {{this.country}}</h4>
+        <h4 id="choose-skype-time">Choose skype times with {{this.first_name}}:</h4>
+          {{#each this.skype_time_slots}}
+            <div>
+            {{#if this.available}}
+              <input class="checkers" data-id={{this.id}} data-user-id={{this.user_id}} type="checkbox">
+              <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
+            {{/if}}
+            </div>
+          {{/each}}
         <hr>
       </li>
     {{/each}} <!-- each class times -->

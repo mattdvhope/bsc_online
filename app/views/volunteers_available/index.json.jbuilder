@@ -16,6 +16,7 @@ json.array! @volunteers do |volunteer|
   json.gender                 volunteer.gender
   json.pin                    volunteer.pin
   json.role                   volunteer.role
+  json.skype_time_slots       volunteer.skype_time_slots
 
 end
 

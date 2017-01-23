@@ -21,6 +21,26 @@ var VolunteersAvailableView = Backbone.View.extend({
       $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
       $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
       $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
+    },
+
+    'click .checkers': function (e) {
+      if ($(e.target)[0].checked) {
+        var slot_id = parseInt($(e.target)[0].attributes[1].value);
+        // var slot_user_id = parseInt($(e.target)[0].dataset.userId);
+        var slot = new SkypeTimeSlot({id: slot_id, available: false});
+        slot.save({
+          success: function(model, response, options) {
+            console.log(model.toJSON());
+
+          },
+          error: function(model, response, options) {
+            console.log(response);
+          }
+        });
+
+
+
+      }
     }
   },
 
