@@ -19,6 +19,14 @@
         <h4>Age: {{this.age}}</h4>
         <h4>State: {{this.province}}</h4>
         <h4>Country: {{this.country}}</h4>
+        <h4>Skype times available:</h4>
+          {{#each this.skype_time_slots}}
+            {{#if this.available}}
+              <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
+            {{/if}}
+            <br>
+          {{/each}}
+        <hr>
         <hr>
       </li>
     {{/each}} <!-- each class times -->
