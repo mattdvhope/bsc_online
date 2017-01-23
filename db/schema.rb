@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025093934) do
+ActiveRecord::Schema.define(version: 20170123043807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,8 +177,9 @@ ActiveRecord::Schema.define(version: 20161025093934) do
     t.text     "day"
     t.text     "time_period"
     t.text     "am_pm"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "available",   default: true
   end
 
   create_table "stories", force: :cascade do |t|
