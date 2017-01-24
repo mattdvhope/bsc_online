@@ -26,7 +26,7 @@ var VolunteersAvailableView = Backbone.View.extend({
     'click .checkers': function (e) {
       if ($(e.target)[0].checked) {
         var slot_id = parseInt($(e.target)[0].dataset.id);
-        var slot_user_id = parseInt($(e.target)[0].dataset.userId);
+        var slot_volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
         var slot = new SkypeTimeSlot({id: slot_id, available: false});
 
         var promise = new Promise(function(resolve, reject) {

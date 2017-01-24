@@ -23,7 +23,7 @@
           {{#each this.skype_time_slots}}
             <div>
             {{#if this.available}}
-              <input class="checkers" data-id={{this.id}} data-user-id={{this.user_id}} type="checkbox">
+              <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
               <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
             {{/if}}
             </div>
