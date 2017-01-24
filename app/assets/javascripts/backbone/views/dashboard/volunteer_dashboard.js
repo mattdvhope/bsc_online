@@ -43,7 +43,7 @@ var VolunteerDashboardView = Backbone.View.extend({
     else {
       if (time_slot_parts.length === 3) {
         var time_slot = new SkypeTimeSlot();
-        time_slot.set({user_id: volunteer.get("id"), day: time_slot_parts[0], time_period: time_slot_parts[1], am_pm: time_slot_parts[2]});
+        time_slot.set({volunteer_id: volunteer.get("id"), day: time_slot_parts[0], time_period: time_slot_parts[1], am_pm: time_slot_parts[2]});
         time_slot.save({}, {
           success: function (model, response, options) {
             view_context.renderTimeSlotView();
