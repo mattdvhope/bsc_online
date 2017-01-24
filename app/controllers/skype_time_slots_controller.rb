@@ -3,7 +3,6 @@ class SkypeTimeSlotsController < ApplicationController
   before_action :require_user
 
   def index
-binding.pry
     @skype_time_slots = SkypeTimeSlot.where(volunteer_id: current_user.id)
   end
 
