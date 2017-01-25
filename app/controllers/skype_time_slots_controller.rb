@@ -3,7 +3,7 @@ class SkypeTimeSlotsController < ApplicationController
   before_action :require_user
 
   def index
-    @skype_time_slots = SkypeTimeSlot.where(user_id: current_user.id)
+    @skype_time_slots = SkypeTimeSlot.where(volunteer_id: current_user.id)
   end
 
   def show
@@ -21,7 +21,7 @@ class SkypeTimeSlotsController < ApplicationController
 
   def update
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
-    if @skype_time_slot.update(available: false)
+    if @skype_time_slot.update(student_id: params[:student_id], available: false)
       render "show"
     else
       render :json => { :errors => @skype_time_slot.errors.full_messages }, :status => 422
@@ -36,7 +36,7 @@ class SkypeTimeSlotsController < ApplicationController
   private
 
     def skype_time_slot_params
-      params.require(:skype_time_slot).permit(:user_id, :day, :time_period, :am_pm, :available)
+      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available)
     end
 
 end

@@ -1,11 +1,9 @@
 <div class="container">
 
-  <h2>นี่คือรายชื่อของคู่สนทนาภาษาอังกฤษทาง Skype สำหรับคุณ กรุณาเลือกหนึ่งคน ในกรณีที่คุณต้องการเปลี่ยน คุณสามารถทำได้ง่ายๆโดยการเลือกคู่สนทนาคนใหม่</h2>
-  <br>
   {{#if no_volunteers}}
     <h3>There are currently no volunteers available.</h3>
   {{^}}
-    <ul style="list-style-type:none">
+    <ul  style="list-style-type:none">
       <hr>
     {{#each volunteers}}
       <li>
@@ -23,8 +21,11 @@
           {{#each this.skype_time_slots}}
             <div>
             {{#if this.available}}
-              <input class="checkers" data-id={{this.id}} data-user-id={{this.user_id}} type="checkbox">
+              <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
               <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
+            {{else}}
+              {{> skype_time_slot_input }}
+              <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day}} {{this.time_period}} {{this.am_pm}} with you, {{../../../first_name}}</span>
             {{/if}}
             </div>
           {{/each}}
