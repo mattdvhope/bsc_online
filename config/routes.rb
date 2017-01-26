@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   resources :skype_time_slots, only: [:index, :show, :create, :update, :destroy]
 
-  resources :skype_time_slots_open, only: [:index]
+  resources :skype_time_slots_openings, only: [:index]
 
   resources :students_needing_skype, only: [:index, :show]
 

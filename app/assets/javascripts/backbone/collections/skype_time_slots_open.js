@@ -1,6 +1,6 @@
-var SkypeTimeSlotsOpen = Backbone.Collection.extend({
+var SkypeTimeSlotsOpenings = Backbone.Collection.extend({
 
   model: SkypeTimeSlot,
-  url : 'skype_time_slots_open'
+  url : 'skype_time_slots_openings'
 
 }); 

@@ -5,6 +5,20 @@ var VolunteersAvailableView = Backbone.View.extend({
     Handlebars.registerPartial('skype_time_slot_input', HandlebarsTemplates['dashboard/skype_time_slot_input']);
     Handlebars.registerPartial('skype_time_slot_span', HandlebarsTemplates['dashboard/skype_time_slot_span']);
     Handlebars.registerPartial('skype_time_slot_unchecked', HandlebarsTemplates['dashboard/skype_time_slot_unchecked']);
+
+    var openings = new SkypeTimeSlotsOpenings();
+    openings.fetch({
+      success: function(collection) {
+        console.log(collection);
+// debugger;
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    })
+
+    console.log();
+
   },
 
   events: {
