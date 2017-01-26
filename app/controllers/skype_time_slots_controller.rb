@@ -7,6 +7,7 @@ class SkypeTimeSlotsController < ApplicationController
   end
 
   def show
+binding.pry
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
   end
 
