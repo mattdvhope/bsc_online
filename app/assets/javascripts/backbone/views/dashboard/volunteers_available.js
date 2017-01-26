@@ -5,20 +5,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     Handlebars.registerPartial('skype_time_slot_input', HandlebarsTemplates['dashboard/skype_time_slot_input']);
     Handlebars.registerPartial('skype_time_slot_span', HandlebarsTemplates['dashboard/skype_time_slot_span']);
     Handlebars.registerPartial('skype_time_slot_unchecked', HandlebarsTemplates['dashboard/skype_time_slot_unchecked']);
-
-    var openings = new SkypeTimeSlotsOpenings();
-    openings.fetch({
-      success: function(collection) {
-        console.log(collection);
-// debugger;
-      },
-      error: function(error) {
-        console.log(error);
-      }
-    })
-
-    console.log();
-
   },
 
   events: {
@@ -105,13 +91,43 @@ var VolunteersAvailableView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({
-      no_volunteers: this.no_volunteers(),
-      volunteers: this.collection.toJSON(),
-      first_name: this.model.get("first_name")
-    }));
+    this.collection.map(function(vol) { // preparing to add them back in b/c they were not included in provided json
+      // vol.set("skype_time_slots", new SkypeTimeSlots());
+      vol.set("skype_time_slots", []);
+    });
 
-    return this;
+    // console.log(this.collection);
+
+    var openings = new SkypeTimeSlotsOpenings();
+    promise = new Promise(function(resolve, reject) {
+      resolve(openings.fetch());
+    });
+
+    var view_context = this;
+    promise
+    .then(function(result) { // result = all the slot objects
+      view_context.collection.forEach(function(vol) {
+        result.forEach(function(slot) {
+          var skype_time_slots = vol.get("skype_time_slots");
+          if (slot.volunteer_id === vol.get("id")) {
+            vol.get("skype_time_slots").push(slot);
+          }
+      console.log(vol);
+
+        });
+      });
+      console.log(view_context.collection.toJSON());
+      view_context.$el.html(view_context.template({
+        no_volunteers: view_context.no_volunteers(),
+        volunteers: view_context.collection.toJSON(),
+        first_name: view_context.model.get("first_name")
+      }));
+      return view_context;
+
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   }
 });
 
