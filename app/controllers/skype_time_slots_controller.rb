@@ -7,6 +7,7 @@ class SkypeTimeSlotsController < ApplicationController
   end
 
   def show
+binding.pry
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
   end
 
@@ -21,7 +22,7 @@ class SkypeTimeSlotsController < ApplicationController
 
   def update
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
-    if @skype_time_slot.update(student_id: params[:student_id], available: false)
+    if @skype_time_slot.update(student_id: params[:student_id], available: params[:available])
       render "show"
     else
       render :json => { :errors => @skype_time_slot.errors.full_messages }, :status => 422
