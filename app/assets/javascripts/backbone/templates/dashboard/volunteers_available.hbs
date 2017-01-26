@@ -18,6 +18,8 @@
         <h4>State: {{this.province}}</h4>
         <h4>Country: {{this.country}}</h4>
         <h4 id="choose-skype-time">Choose skype times with {{this.first_name}}:</h4>
+
+{{!-- convert lines 23-33 to a VIEW TEMPLATE!! --}}
           {{#each this.skype_time_slots}}
             <div>
             {{#if this.available}}
@@ -29,6 +31,9 @@
             {{/if}}
             </div>
           {{/each}}
+{{!-- convert lines 23-33 to a VIEW TEMPLATE!! --}}
+
+
         <hr>
       </li>
     {{/each}} <!-- each class times -->
