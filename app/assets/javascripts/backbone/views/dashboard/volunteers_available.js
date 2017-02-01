@@ -90,45 +90,36 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
   },
 
-  render: function() {
-    this.collection.map(function(vol) { // preparing to add them back in b/c they were not included in provided json
-      // vol.set("skype_time_slots", new SkypeTimeSlots());
-      vol.set("skype_time_slots", []);
-    });
-
-    // console.log(this.collection);
-
-    var openings = new SkypeTimeSlotsOpenings();
-    promise = new Promise(function(resolve, reject) {
-      resolve(openings.fetch());
-    });
-
+  render: function() { // see page 32 in book, "JS with Promises"
     var view_context = this;
-    promise
-    .then(function(result) { // result = all the slot objects
-      view_context.collection.forEach(function(vol) {
-        result.forEach(function(slot) {
-          var skype_time_slots = vol.get("skype_time_slots");
-          if (slot.volunteer_id === vol.get("id")) {
-            vol.get("skype_time_slots").push(slot);
-          }
-      console.log(vol);
-
+    function sequence(volunteers, callback) {
+      return volunteers.reduce(function chain(promise, volunteer) {
+        return promise.then(function () {
+          return callback(volunteer);
         });
-      });
-      console.log(view_context.collection.toJSON());
-      view_context.$el.html(view_context.template({
-        no_volunteers: view_context.no_volunteers(),
-        volunteers: view_context.collection.toJSON(),
-        first_name: view_context.model.get("first_name")
-      }));
-      return view_context;
+      }, Promise.resolve());
+    }
 
+    sequence(this.collection, function(volunteer) {
+      return getVolunteerSlots(volunteer).then(function(slots) {
+        volunteer.set({skype_time_slots: slots});
+        view_context.$el.html(view_context.template({
+          no_volunteers: view_context.no_volunteers(),
+          volunteers: view_context.collection.toJSON(),
+          first_name: view_context.model.get("first_name")
+        }));
+        return view_context;
+      })
     })
-    .catch(function(error) {
-      console.log(error);
+    .catch(function (reason) {
+      console.log(reason);
     });
-  }
+
+    function getVolunteerSlots(volunteer) {
+      var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
+      return volunteer_available.fetch();
+    }
+  } // render
 });
 
 

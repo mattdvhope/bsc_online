@@ -257,6 +257,7 @@ var App = {
 
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
+        app_obj.openApplicationForm();
       }
       else if (gon.page_needed === "volunteer_info") {
         app_obj.getVolunteerPage();
@@ -276,7 +277,6 @@ var App = {
       app_obj.instantiateAdminRegForm();
       app_obj.instantiateLogInForm();
       app_obj.instantiateLocationPictures();
-      app_obj.openApplicationForm();
     }
   } // init
 };
