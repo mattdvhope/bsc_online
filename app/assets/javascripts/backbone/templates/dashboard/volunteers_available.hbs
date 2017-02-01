@@ -18,22 +18,17 @@
         <h4>State: {{this.province}}</h4>
         <h4>Country: {{this.country}}</h4>
         <h4 id="choose-skype-time">Choose skype times with {{this.first_name}}:</h4>
-
-{{!-- convert lines 23-33 to a VIEW TEMPLATE!! --}}
-          {{#each this.skype_time_slots}}
-            <div>
-            {{#if this.available}}
-              <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
-              <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
-            {{else}}
-              {{> skype_time_slot_input }}
-              <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day}} {{this.time_period}} {{this.am_pm}} with you, {{../../../first_name}}</span>
-            {{/if}}
-            </div>
-          {{/each}}
-{{!-- convert lines 23-33 to a VIEW TEMPLATE!! --}}
-
-
+        {{#each this.skype_time_slots}}
+          <div>
+          {{#if this.available}}
+            <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
+            <span id="skype-time-slot-available">{{this.day}} {{this.time_period}} {{this.am_pm}}</span>
+          {{else}}
+            {{> skype_time_slot_input }}
+            <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day}} {{this.time_period}} {{this.am_pm}} with you, {{../../../first_name}}</span>
+          {{/if}}
+          </div>
+        {{/each}}
         <hr>
       </li>
     {{/each}} <!-- each class times -->
