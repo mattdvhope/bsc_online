@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
 
-  resources :volunteers_available, only: [:index]
+  resources :volunteers_available, only: [:index, :show]
 
   resources :skype_time_slots, only: [:index, :show, :create, :update, :destroy]
 
