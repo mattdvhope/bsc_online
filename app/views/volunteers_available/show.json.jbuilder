@@ -7,5 +7,8 @@ json.array! @skype_time_slots do |skype_time_slot|
   json.time_period        skype_time_slot.time_period
   json.am_pm              skype_time_slot.am_pm
   json.available          skype_time_slot.available
+  json.orderday           skype_time_slot.orderday
+  json.ordertime          skype_time_slot.ordertime
+  json.orderam            skype_time_slot.orderam
 
 end
