@@ -69,9 +69,6 @@ var App = {
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
-
-    var skype_time_slots_view = new SkypeTimeSlotsView();
-    skype_time_slots_view.render();
   },
   getStudentDashboardPage: function(student) {
     var this_app = this;

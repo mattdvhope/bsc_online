@@ -22,8 +22,20 @@ var VolunteerDashboardView = Backbone.View.extend({
   },
 
   deleteSkypeTimeSlot: function(e) { // on 'skype_time_slots.hbs' template
-    console.log(e);
     e.preventDefault();
+    var slot = new SkypeTimeSlot({id: parseInt($(e.target)[0].dataset.id)});
+    var promise = new Promise(function(resolve, reject) {
+      resolve(slot.destroy());
+    });
+
+    promise
+    .then(function(slot) {
+      var skype_time_slots_view = new SkypeTimeSlotsView();
+      skype_time_slots_view.render();
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   },
 
   add_skype_slots: function() {
@@ -60,7 +72,6 @@ var VolunteerDashboardView = Backbone.View.extend({
         });
       }
     } // else
-
   }, // 'add_skype_slots' method
 
   removeErrorMsg: function() {
@@ -71,12 +82,19 @@ var VolunteerDashboardView = Backbone.View.extend({
     $(".button-for-skype").prepend("<h3 class='skype-red' style='color:red;'>You left out some information.</h3>");
   },
 
+  renderTimeSlotView: function() {
+    var skype_time_slots_view = new SkypeTimeSlotsView();
+    skype_time_slots_view.render();
+  },
+
   template:  HandlebarsTemplates['dashboard/volunteer_dashboard'],
 
   render: function() {
     this.$el.html(this.template({
       first_name: this.model.get("first_name"),
     }));
+
+    this.renderTimeSlotView();
   }
 
 });
