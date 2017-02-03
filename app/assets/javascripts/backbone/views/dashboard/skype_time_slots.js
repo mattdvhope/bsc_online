@@ -11,16 +11,16 @@ var SkypeTimeSlotsView = Backbone.View.extend({
 
     promise
     .then(function(collection_objects) {
-      var time_slots = [];
-      collection_objects.forEach(function(skypetimeslot) {
-        time_slots.push(skypetimeslot.day + " " + skypetimeslot.time_period + " " + skypetimeslot.am_pm);
+      return collection_objects.sort(function (a, b) {
+        return a.id - b.id;
       });
-
+    })
+    .then(function(collection_objects) {
       $("#time-slot-template").remove();
       $("#list-avail-skype").after(
         view_context.template({
           no_time_slots: noTimeSlots(),
-          time_slots: time_slots
+          time_slots: collection_objects
         })
       );
       function noTimeSlots() {

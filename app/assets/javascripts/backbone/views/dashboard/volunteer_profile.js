@@ -33,8 +33,6 @@ var VolunteerProfileView = Backbone.View.extend({
           console.log(response);
         }
       });
-
-
     }
   },
 

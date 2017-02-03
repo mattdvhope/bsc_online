@@ -31,6 +31,7 @@ class SkypeTimeSlotsController < ApplicationController
   def destroy
     skype_time_slot = SkypeTimeSlot.find(params[:id])
     skype_time_slot.destroy
+    render "index"
   end
 
   private

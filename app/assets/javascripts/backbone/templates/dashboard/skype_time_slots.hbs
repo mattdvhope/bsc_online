@@ -5,7 +5,7 @@
     <span id="test-slot-list">
       <ul>
         {{#each time_slots}}
-          <li><span>{{this}}</span>  <a href="">Delete</a></li>
+          <li><span>{{this.day}} {{this.time_period}} {{am_pm}}</span>  <a data-id={{this.id}} id="delete-skype-slot" href="">Delete</a></li>
         {{/each}}
       </ul>
     </span>
