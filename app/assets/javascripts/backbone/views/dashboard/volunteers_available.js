@@ -121,6 +121,7 @@ console.log("in then orderday");
           });
         })
         .then(function(slots) {
+console.log(slots);
           volunteer.set({skype_time_slots: slots});
           view_context.$el.html(view_context.template({
             no_volunteers: view_context.no_volunteers(),

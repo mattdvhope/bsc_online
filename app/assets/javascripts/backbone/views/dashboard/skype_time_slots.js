@@ -29,6 +29,7 @@ console.log("in then orderday");
       });
     })
     .then(function(collection_objects) {
+console.log(collection_objects);
       $("#time-slot-template").remove();
       $("#list-avail-skype").after(
         view_context.template({
