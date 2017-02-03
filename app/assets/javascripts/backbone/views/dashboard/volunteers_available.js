@@ -104,20 +104,24 @@ var VolunteersAvailableView = Backbone.View.extend({
       return getVolunteerSlots(volunteer)
         .then(function(slots) {
           return slots.sort(function (a, b) {
+console.log("in then ordertime");
             return a.ordertime - b.ordertime;
           });
         })
         .then(function(slots) {
           return slots.sort(function (a, b) {
+console.log("in then orderam");
             return a.orderam - b.orderam;
           });
         })
         .then(function(slots) {
           return slots.sort(function (a, b) {
+console.log("in then orderday");
             return a.orderday - b.orderday;
           });
         })
         .then(function(slots) {
+console.log(slots);
           volunteer.set({skype_time_slots: slots});
           view_context.$el.html(view_context.template({
             no_volunteers: view_context.no_volunteers(),
