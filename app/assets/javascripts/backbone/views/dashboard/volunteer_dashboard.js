@@ -50,15 +50,13 @@ var VolunteerDashboardView = Backbone.View.extend({
 
       var selected = $(this).find('option:selected');
       var day = selected.data('orderday'); 
+      if (day) time_slot_orders.push(day);
       var time = selected.data('ordertime'); 
+      if (time) time_slot_orders.push(time);
       var am_pm = selected.data('orderam'); 
+      if (am_pm) time_slot_orders.push(am_pm);
 
       time_slot_parts.push(this.value);
-      if (day) time_slot_orders.push(day);
-      if (time) time_slot_orders.push(time);
-      if (am_pm) time_slot_orders.push(am_pm);
-      console.log(time_slot_orders);
-
       var blanks_to_remove = time_slot_parts.indexOf("select_option");
       if (blanks_to_remove > -1) {
         time_slot_parts.splice(blanks_to_remove, 1);
@@ -84,7 +82,6 @@ var VolunteerDashboardView = Backbone.View.extend({
           ordertime: time_slot_orders[1],
           orderam: time_slot_orders[2]
         });
-        console.log(time_slot);
 
         time_slot.save({}, {
           success: function (model, response, options) {

@@ -11,7 +11,6 @@ class SkypeTimeSlotsController < ApplicationController
   end
 
   def create
-binding.pry
     @skype_time_slot = SkypeTimeSlot.new(skype_time_slot_params)
     if @skype_time_slot.save
       render "show"
