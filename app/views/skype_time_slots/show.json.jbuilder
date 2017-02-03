@@ -5,3 +5,6 @@ json.day                @skype_time_slot.day
 json.time_period        @skype_time_slot.time_period
 json.am_pm              @skype_time_slot.am_pm
 json.available          @skype_time_slot.available
+json.orderday           @skype_time_slot.orderday
+json.ordertime          @skype_time_slot.ordertime
+json.orderam            @skype_time_slot.orderam

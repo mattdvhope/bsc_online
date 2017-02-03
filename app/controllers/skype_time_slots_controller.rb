@@ -11,6 +11,7 @@ class SkypeTimeSlotsController < ApplicationController
   end
 
   def create
+binding.pry
     @skype_time_slot = SkypeTimeSlot.new(skype_time_slot_params)
     if @skype_time_slot.save
       render "show"
@@ -37,7 +38,7 @@ class SkypeTimeSlotsController < ApplicationController
   private
 
     def skype_time_slot_params
-      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available)
+      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available, :orderday, :ordertime, :orderam)
     end
 
 end

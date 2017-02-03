@@ -39,12 +39,26 @@ var VolunteerDashboardView = Backbone.View.extend({
   },
 
   add_skype_slots: function() {
+    var view_context = this;
     var volunteer = this.model;
     var time_slot_parts = [];
-    var view_context = this;
+    var time_slot_orders = [];
+
+
 
     this.$el.find('select[name]').each(function() {
+
+      var selected = $(this).find('option:selected');
+      var day = selected.data('orderday'); 
+      var time = selected.data('ordertime'); 
+      var am_pm = selected.data('orderam'); 
+
       time_slot_parts.push(this.value);
+      if (day) time_slot_orders.push(day);
+      if (time) time_slot_orders.push(time);
+      if (am_pm) time_slot_orders.push(am_pm);
+      console.log(time_slot_orders);
+
       var blanks_to_remove = time_slot_parts.indexOf("select_option");
       if (blanks_to_remove > -1) {
         time_slot_parts.splice(blanks_to_remove, 1);
@@ -61,7 +75,17 @@ var VolunteerDashboardView = Backbone.View.extend({
     else {
       if (time_slot_parts.length === 3) {
         var time_slot = new SkypeTimeSlot();
-        time_slot.set({volunteer_id: volunteer.get("id"), day: time_slot_parts[0], time_period: time_slot_parts[1], am_pm: time_slot_parts[2]});
+        time_slot.set({
+          volunteer_id: volunteer.get("id"),
+          day: time_slot_parts[0],
+          time_period: time_slot_parts[1],
+          am_pm: time_slot_parts[2],
+          orderday: time_slot_orders[0],
+          ordertime: time_slot_orders[1],
+          orderam: time_slot_orders[2]
+        });
+        console.log(time_slot);
+
         time_slot.save({}, {
           success: function (model, response, options) {
             view_context.renderTimeSlotView();
