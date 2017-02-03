@@ -37,7 +37,7 @@ class SkypeTimeSlotsController < ApplicationController
   private
 
     def skype_time_slot_params
-      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available)
+      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available, :orderday, :ordertime, :orderam)
     end
 
 end

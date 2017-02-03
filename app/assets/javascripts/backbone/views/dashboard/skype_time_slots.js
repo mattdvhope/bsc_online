@@ -12,7 +12,17 @@ var SkypeTimeSlotsView = Backbone.View.extend({
     promise
     .then(function(collection_objects) {
       return collection_objects.sort(function (a, b) {
-        return a.id - b.id;
+        return a.ordertime - b.ordertime;
+      });
+    })
+    .then(function(collection_objects) {
+      return collection_objects.sort(function (a, b) {
+        return a.orderam - b.orderam;
+      });
+    })
+    .then(function(collection_objects) {
+      return collection_objects.sort(function (a, b) {
+        return a.orderday - b.orderday;
       });
     })
     .then(function(collection_objects) {
