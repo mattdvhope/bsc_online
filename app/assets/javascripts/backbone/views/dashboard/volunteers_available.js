@@ -101,15 +101,31 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
 
     sequence(this.collection, function(volunteer) {
-      return getVolunteerSlots(volunteer).then(function(slots) {
-        volunteer.set({skype_time_slots: slots});
-        view_context.$el.html(view_context.template({
-          no_volunteers: view_context.no_volunteers(),
-          volunteers: view_context.collection.toJSON(),
-          first_name: view_context.model.get("first_name")
-        }));
-        return view_context;
-      })
+      return getVolunteerSlots(volunteer)
+        .then(function(slots) {
+          return slots.sort(function (a, b) {
+            return a.ordertime - b.ordertime;
+          });
+        })
+        .then(function(slots) {
+          return slots.sort(function (a, b) {
+            return a.orderam - b.orderam;
+          });
+        })
+        .then(function(slots) {
+          return slots.sort(function (a, b) {
+            return a.orderday - b.orderday;
+          });
+        })
+        .then(function(slots) {
+          volunteer.set({skype_time_slots: slots});
+          view_context.$el.html(view_context.template({
+            no_volunteers: view_context.no_volunteers(),
+            volunteers: view_context.collection.toJSON(),
+            first_name: view_context.model.get("first_name")
+          }));
+          return view_context;
+        })
     })
     .catch(function (reason) {
       console.log(reason);
@@ -117,7 +133,7 @@ var VolunteersAvailableView = Backbone.View.extend({
 
     function getVolunteerSlots(volunteer) {
       var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
-      return volunteer_available.fetch();
+      return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer (not the volunteer himself)
     }
   } // render
 });
