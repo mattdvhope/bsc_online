@@ -70,8 +70,8 @@ var App = {
     dashboard_page.render();
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
 
-    var skype_time_slots = new SkypeTimeSlotsView();
-    skype_time_slots.render();
+    var skype_time_slots_view = new SkypeTimeSlotsView();
+    skype_time_slots_view.render();
   },
   getStudentDashboardPage: function(student) {
     var this_app = this;
