@@ -1,8 +1,8 @@
 var VolunteerProfileView = Backbone.View.extend({
 
   initialize: function(options) {
-    // this.options = options;
-    // console.log(options);
+    this.options = options;
+    console.log(options);
     _.bindAll(this, 'render');
   },
 
