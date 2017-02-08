@@ -82,7 +82,7 @@ var VolunteersAvailableView = Backbone.View.extend({
       var volunteer_id = $(e.target)[0].dataset.id;
       var volunteer_first_name = $(e.target)[0].dataset.firstname;
       var volunteer_last_name = $(e.target)[0].dataset.lastname;
-      var volunteer = new User({id: volunteer_id});
+      var volunteer = new VolunteerForStudent({id: volunteer_id});
       volunteer.fetch({
         success: function (model, response, options) {
           console.log("success");
@@ -110,8 +110,6 @@ var VolunteersAvailableView = Backbone.View.extend({
         }
       });
     }
-
-
 
   },
 

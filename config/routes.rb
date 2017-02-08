@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'volunteer_for_student/index'
+
+  get 'home/index'
+
   root to: "pages#front"
 
   # root to: "photos#index"
@@ -33,6 +37,8 @@ Rails.application.routes.draw do
 
   get "/users/:id/approve_admin", to: "users#approve_admin"
   get "/users/:id/disapprove_admin", to: "users#disapprove_admin"
+
+  resources :volunteer_for_student, only: [:index, :show]
 
   resources :admin_applications, only: [:edit, :update]
   get "/admin_applications/:id/email_admin_application_approval", to: "admin_applications#email_admin_application_approval"
