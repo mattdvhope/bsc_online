@@ -4,17 +4,18 @@ class VolunteerForStudentController < ApplicationController
 
   def show
     @volunteer = User.find(params[:id]) # the volunteer (not current_user)
-    slots_of_student = @volunteer.skype_time_slots.where(student_id: current_user.id)
-    send_volunteer_email(@volunteer, slots_of_student)
+    # slots = @volunteer.skype_time_slots.where(student_id: current_user.id)
+    send_volunteer_email(@volunteer, current_user)
   end
 
   private
 
-    def send_volunteer_email(volunteer, slots_of_student)
+    def send_volunteer_email(volunteer, student)
       if Rails.env.production?
-        AppMailer.volunteer_welcome(volunteer).deliver_later
+        AppMailer.volunteer_for_student(volunteer, student).deliver_later
       else
-        AppMailer.development_env_email(volunteer).deliver_later
+        AppMailer.volunteer_for_student(volunteer, student).deliver_later
+        # AppMailer.development_env_email(volunteer).deliver_later
       end
     end
 
