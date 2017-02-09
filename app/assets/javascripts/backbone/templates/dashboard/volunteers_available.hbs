@@ -7,7 +7,7 @@
       <hr>
     {{#each volunteers}}
       <li>
-        <h3 style="cursor: pointer; text-decoration: underline;" class="modal-initiator volunteer-profile-modal" data-toggle="modal" data-target="#volunteerprofile" data-id={{this.id}} data-first-name={{this.first_name}} data-last-name={{this.last_name}} data-gender={{this.gender}} data-age={{this.age}}>
+        <h3 style="cursor: pointer; text-decoration: underline;" class="modal-initiator volunteer-profile-modal" data-toggle="modal" data-target="#volunteerprofile" data-id={{this.id}} data-first-name={{this.first_name}} data-last-name={{this.last_name}} data-gender={{this.gender}} data-age={{this.age}} data-slots='{{this.stringified_slots}}'>
           {{this.first_name}} {{this.last_name}}
         </h3>
         <h4>
@@ -29,6 +29,12 @@
           {{/if}}
           </div>
         {{/each}}
+        <h4>After you choose some slots from {{this.first_name}}, please click on this green button.  An auto-email will be sent to inform {{this.first_name}} that you want to be a Skype partner, {{../first_name}}.</h4>
+        <button id="connect-with-volunteer" class="btn btn-success" data-id={{this.id}} data-firstname={{this.first_name}} data-lastname={{this.last_name}}>
+          Auto-email to {{this.first_name}}
+        </button>
+
+
         <hr>
       </li>
     {{/each}} <!-- each class times -->

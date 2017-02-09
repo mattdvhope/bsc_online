@@ -21,6 +21,11 @@ var VolunteersAvailableView = Backbone.View.extend({
       $(".modal-body #volunteer-gender").text( volunteerGender );
       this.volunteer_id = $(e.target)[0].dataset.id;
 
+      var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
+      console.log(vol_slots);
+      $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
+
+
       $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
       $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
       $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
@@ -71,7 +76,41 @@ var VolunteersAvailableView = Backbone.View.extend({
           resolve(slot.save());
         });
       }
+    },
+
+    'click #connect-with-volunteer': function (e) {
+      var volunteer_id = $(e.target)[0].dataset.id;
+      var volunteer_first_name = $(e.target)[0].dataset.firstname;
+      var volunteer_last_name = $(e.target)[0].dataset.lastname;
+      var volunteer = new VolunteerForStudent({id: volunteer_id});
+      volunteer.fetch({
+        success: function (model, response, options) {
+          console.log("success");
+          swal({
+            title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
+            timer: 20000,
+            showConfirmButton: true,
+            animation: "slide-from-top"
+          });
+          console.log(model);
+          // $("entire-main").html(model.get("first_name"));
+
+        },
+        error: function (model, response, options) {
+          console.log("error");
+          swal({
+            title: "Error with database",
+            text: "Please click on the same person's name again.",
+            timer: 20000,
+            showConfirmButton: true,
+            animation: "slide-from-top"
+          });
+          console.log(response);
+        }
+      });
     }
+
   },
 
   template:  HandlebarsTemplates['dashboard/volunteers_available'],
@@ -104,25 +143,23 @@ var VolunteersAvailableView = Backbone.View.extend({
       return getVolunteerSlots(volunteer)
         .then(function(slots) {
           return slots.sort(function (a, b) {
-console.log("in then ordertime");
             return a.ordertime - b.ordertime;
           });
         })
         .then(function(slots) {
           return slots.sort(function (a, b) {
-console.log("in then orderam");
             return a.orderam - b.orderam;
           });
         })
         .then(function(slots) {
           return slots.sort(function (a, b) {
-console.log("in then orderday");
             return a.orderday - b.orderday;
           });
         })
         .then(function(slots) {
-console.log(slots);
           volunteer.set({skype_time_slots: slots});
+// console.log(JSON.stringify(slots));
+          volunteer.set({stringified_slots: JSON.stringify(slots)});
           view_context.$el.html(view_context.template({
             no_volunteers: view_context.no_volunteers(),
             volunteers: view_context.collection.toJSON(),
@@ -137,7 +174,7 @@ console.log(slots);
 
     function getVolunteerSlots(volunteer) {
       var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
-      return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer (not the volunteer himself)
+      return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
     }
   } // render
 });
