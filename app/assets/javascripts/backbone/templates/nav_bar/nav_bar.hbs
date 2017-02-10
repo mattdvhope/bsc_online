@@ -78,10 +78,12 @@
             <li class="dropdown">
               <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li id="backbone-app" class="volunteer_page">
-                  <a id="drop-down-link" href="/volunteer_info">{{volunteer_info}}</a>
-                </li>
-                <li role="separator" class="divider"></li>
+                {{#unless volunteer_info_visible}}
+                  <li id="backbone-app" class="volunteer_page">
+                    <a id="drop-down-link" href="/volunteer_info">{{volunteer_info}}</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                {{/unless }} <!-- unless.. volunteer_info_visible -->
                 <li id="backbone-app">
                   <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#registervolunteermodal">
                     {{register_new_volunteer}}
