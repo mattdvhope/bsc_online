@@ -69,9 +69,6 @@ var NavBarView = Backbone.View.extend({
   login_student: function() {
     return choose_language("Login", "ล็อกอิน");
   },
-  login_volunteer: function() {
-    return choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
-  },
   steps_to_volunteer: function() {
     return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
@@ -92,7 +89,6 @@ var NavBarView = Backbone.View.extend({
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),
       login_student: this.login_student(),
-      login_volunteer: this.login_volunteer(),
       steps_to_volunteer: this.steps_to_volunteer()
     }));
   }

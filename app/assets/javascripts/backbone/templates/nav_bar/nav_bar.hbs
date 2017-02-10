@@ -18,9 +18,11 @@
           </a>
         </div>
 
-        <div class="sign-up">
-          <a class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">{{sign_up}}</a>
-        </div>
+        {{#unless dashboard_visible}}
+          <div class="sign-up">
+            <a class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">{{sign_up}}</a>
+          </div>
+        {{/unless }} <!-- unless.. dashboard_visible -->
 
       </div> {{!-- .navbar-header --}}
 
@@ -86,13 +88,6 @@
                   </a>
                 </li>
                 <li role="separator" class="divider"></li>
-                <li id="backbone-app" class="login-checker">
-                  {{!-- <a id="drop-down-link" href="/log_in">{{login_volunteer}}</a> --}}
-                  <a id="drop-down-link" class="coming-soon-vol" href="/volunteer_info">{{login_volunteer}}</a>
-                </li>
-
-                <li role="separator" class="divider"></li>
-
                 <li id="backbone-app">
                   <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
                     Admin Log In

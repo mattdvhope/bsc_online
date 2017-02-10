@@ -226,19 +226,6 @@ var App = {
     $(".dropdown-toggle").mouseleave(function(){
       $(this).css("background-color", "#2D3179");
     });
-
-    // "Coming soon" sweet alert
-    $("a.coming-soon-vol").on("click", function(e) {
-      e.preventDefault();
-      swal({
-        title: "Coming Soon!",
-        text: "Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!",
-        timer: 15000,
-        showConfirmButton: true,
-        animation: "slide-from-bottom"
-      });
-    });
-
   },
   init: function() {
     var app_obj = this;
