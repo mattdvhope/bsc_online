@@ -43,9 +43,6 @@ var VolunteerDashboardView = Backbone.View.extend({
     var volunteer = this.model;
     var time_slot_parts = [];
     var time_slot_orders = [];
-
-
-
     this.$el.find('select[name]').each(function() {
 
       var selected = $(this).find('option:selected');
