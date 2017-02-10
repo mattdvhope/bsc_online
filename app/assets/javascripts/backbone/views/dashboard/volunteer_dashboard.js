@@ -46,12 +46,23 @@ var VolunteerDashboardView = Backbone.View.extend({
     this.$el.find('select[name]').each(function() {
 
       var selected = $(this).find('option:selected');
+      if (selected.data('daythai')) {
+console.log(volunteerIsInDaylightSavingsTime());
+// Do the logic in here to figure out how to convert the 
+// EST day-time into Thai day-time
+        view_context.day_thai = selected.data('daythai')
+      }
+      if (selected.data('timethai')) {
+// Do the logic in here to figure out how to convert the 
+// EST day-time into Thai day-time
+        view_context.time_thai = selected.data('timethai')
+      }
       var day = selected.data('orderday'); 
-      if (day) time_slot_orders.push(day);
+      if (day) {time_slot_orders.push(day)};
       var time = selected.data('ordertime'); 
-      if (time) time_slot_orders.push(time);
+      if (time) {time_slot_orders.push(time)};
       var am_pm = selected.data('orderam'); 
-      if (am_pm) time_slot_orders.push(am_pm);
+      if (am_pm) {time_slot_orders.push(am_pm)};
 
       time_slot_parts.push(this.value);
       var blanks_to_remove = time_slot_parts.indexOf("select_option");
@@ -73,7 +84,9 @@ var VolunteerDashboardView = Backbone.View.extend({
         time_slot.set({
           volunteer_id: volunteer.get("id"),
           day: time_slot_parts[0],
+          day_thai: this.day_thai,
           time_period: time_slot_parts[1],
+          time_thai: this.time_thai,
           am_pm: time_slot_parts[2],
           orderday: time_slot_orders[0],
           ordertime: time_slot_orders[1],
