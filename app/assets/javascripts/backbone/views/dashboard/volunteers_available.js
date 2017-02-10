@@ -5,6 +5,19 @@ var VolunteersAvailableView = Backbone.View.extend({
     Handlebars.registerPartial('skype_time_slot_input', HandlebarsTemplates['dashboard/skype_time_slot_input']);
     Handlebars.registerPartial('skype_time_slot_span', HandlebarsTemplates['dashboard/skype_time_slot_span']);
     Handlebars.registerPartial('skype_time_slot_unchecked', HandlebarsTemplates['dashboard/skype_time_slot_unchecked']);
+
+    Handlebars.registerHelper('genderTranslate', function(gender) {
+      if(gender === "ผู้ชาย" || gender === "male") {
+        return "เพศ: ผู้ชาย";
+      } else if (gender === "ผู้หญิง" || gender === "female") {
+        return "เพศ: ผู้หญิง";
+      } else {
+        return "เพศ: ไม่ทราบ";
+      }
+    });
+
+
+
   },
 
   events: {
