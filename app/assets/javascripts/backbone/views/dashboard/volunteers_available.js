@@ -5,31 +5,41 @@ var VolunteersAvailableView = Backbone.View.extend({
     Handlebars.registerPartial('skype_time_slot_input', HandlebarsTemplates['dashboard/skype_time_slot_input']);
     Handlebars.registerPartial('skype_time_slot_span', HandlebarsTemplates['dashboard/skype_time_slot_span']);
     Handlebars.registerPartial('skype_time_slot_unchecked', HandlebarsTemplates['dashboard/skype_time_slot_unchecked']);
+
+    Handlebars.registerHelper('genderTranslate', function(gender) {
+      if(gender === "ผู้ชาย" || gender === "male") {
+        return "เพศ: ผู้ชาย";
+      } else if (gender === "ผู้หญิง" || gender === "female") {
+        return "เพศ: ผู้หญิง";
+      } else {
+        return "เพศ: ไม่ทราบ";
+      }
+    });
   },
 
   events: {
-    'click .volunteer-profile-modal': function (e) {
-      var volunteerFirstName = $(e.target)[0].dataset.firstName;
-      var volunteerLastName = $(e.target)[0].dataset.lastName;
-      var volunteerAge = $(e.target)[0].dataset.age;
-      var volunteerGender = $(e.target)[0].dataset.gender;
-      if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
-      if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
-      $(".modal-body #volunteer-first-name").text( volunteerFirstName );
-      $(".modal-body #volunteer-last-name").text( volunteerLastName );
-      $(".modal-body #volunteer-age").text( volunteerAge );
-      $(".modal-body #volunteer-gender").text( volunteerGender );
-      this.volunteer_id = $(e.target)[0].dataset.id;
+    // 'click .volunteer-profile-modal': function (e) {
+    //   var volunteerFirstName = $(e.target)[0].dataset.firstName;
+    //   var volunteerLastName = $(e.target)[0].dataset.lastName;
+    //   var volunteerAge = $(e.target)[0].dataset.age;
+    //   var volunteerGender = $(e.target)[0].dataset.gender;
+    //   if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
+    //   if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
+    //   $(".modal-body #volunteer-first-name").text( volunteerFirstName );
+    //   $(".modal-body #volunteer-last-name").text( volunteerLastName );
+    //   $(".modal-body #volunteer-age").text( volunteerAge );
+    //   $(".modal-body #volunteer-gender").text( volunteerGender );
+    //   this.volunteer_id = $(e.target)[0].dataset.id;
 
-      var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
-      console.log(vol_slots);
-      $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
+    //   var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
+    //   console.log(vol_slots);
+    //   $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
 
 
-      $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
-      $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
-      $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
-    },
+    //   $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
+    //   $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
+    //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
+    // },
 
     'click .checkers': function (e) {
       var view_context = this;
@@ -93,7 +103,6 @@ var VolunteersAvailableView = Backbone.View.extend({
             showConfirmButton: true,
             animation: "slide-from-top"
           });
-          console.log(model);
           // $("entire-main").html(model.get("first_name"));
 
         },
