@@ -150,6 +150,79 @@ var VolunteersAvailableView = Backbone.View.extend({
 
     sequence(this.collection, function(volunteer) {
       return getVolunteerSlots(volunteer)
+        .then(function(slots) { // convert to Thai lang/T.Z.
+
+// console.log(volunteerIsInDaylightSavingsTime());
+
+
+          slots.map(function(slot) {
+            if (slot.day === "Sunday") {slot.day = "วันอาทิตย์";}
+            if (slot.day === "Monday") {slot.day = "วันจันทร์";}
+            if (slot.day === "Tuesday") {slot.day = "วันอังคาร";}
+            if (slot.day === "Wednesday") {slot.day = "วันพุธ";}
+            if (slot.day === "Thursday") {slot.day = "วันพฤหัสบดี";}
+            if (slot.day === "Friday") {slot.day = "วันศุกร์";}
+            if (slot.day === "Saturday") {slot.day = "วันเสาร์";}
+
+if (volunteerIsInDaylightSavingsTime()) {
+  console.log("in dst");
+  if (slot.time_period === "12:00 - 1:00" && slot.am_pm === "AM EST") {slot.time_period = "11:00 - 12:00"; slot.am_pm = "น."}
+  if (slot.time_period === "1:00 - 2:00" && slot.am_pm === "AM EST") {slot.time_period = "12:00 - 13:00"; slot.am_pm = "น."}
+  if (slot.time_period === "2:00 - 3:00" && slot.am_pm === "AM EST") {slot.time_period = "13:00 - 14:00"; slot.am_pm = "น."}
+  if (slot.time_period === "3:00 - 4:00" && slot.am_pm === "AM EST") {slot.time_period = "14:00 - 15:00"; slot.am_pm = "น."}
+  if (slot.time_period === "4:00 - 5:00" && slot.am_pm === "AM EST") {slot.time_period = "15:00 - 16:00"; slot.am_pm = "น."}
+  if (slot.time_period === "5:00 - 6:00" && slot.am_pm === "AM EST") {slot.time_period = "16:00 - 17:00"; slot.am_pm = "น."}
+  if (slot.time_period === "6:00 - 7:00" && slot.am_pm === "AM EST") {slot.time_period = "17:00 - 18:00"; slot.am_pm = "น."}
+  if (slot.time_period === "7:00 - 8:00" && slot.am_pm === "AM EST") {slot.time_period = "18:00 - 19:00"; slot.am_pm = "น."}
+  if (slot.time_period === "8:00 - 9:00" && slot.am_pm === "AM EST") {slot.time_period = "19:00 - 20:00"; slot.am_pm = "น."}
+  if (slot.time_period === "9:00 - 10:00" && slot.am_pm === "AM EST") {slot.time_period = "20:00 - 21:00"; slot.am_pm = "น."}
+  if (slot.time_period === "10:00 - 11:00" && slot.am_pm === "AM EST") {slot.time_period = "21:00 - 22:00"; slot.am_pm = "น."}
+  if (slot.time_period === "11:00 - 12:00" && slot.am_pm === "AM EST") {slot.time_period = "22:00 - 23:00"; slot.am_pm = "น."}
+
+  if (slot.time_period === "12:00 - 1:00" && slot.am_pm === "PM EST") {slot.time_period = "0:00 - 1:00"; slot.am_pm = "น."}
+  if (slot.time_period === "1:00 - 2:00" && slot.am_pm === "PM EST") {slot.time_period = "1:00 - 2:00"; slot.am_pm = "น."}
+  if (slot.time_period === "2:00 - 3:00" && slot.am_pm === "PM EST") {slot.time_period = "2:00 - 3:00"; slot.am_pm = "น."}
+  if (slot.time_period === "3:00 - 4:00" && slot.am_pm === "PM EST") {slot.time_period = "3:00 - 4:00"; slot.am_pm = "น."}
+  if (slot.time_period === "4:00 - 5:00" && slot.am_pm === "PM EST") {slot.time_period = "4:00 - 5:00"; slot.am_pm = "น."}
+  if (slot.time_period === "5:00 - 6:00" && slot.am_pm === "PM EST") {slot.time_period = "5:00 - 6:00"; slot.am_pm = "น."}
+  if (slot.time_period === "6:00 - 7:00" && slot.am_pm === "PM EST") {slot.time_period = "6:00 - 7:00"; slot.am_pm = "น."}
+  if (slot.time_period === "7:00 - 8:00" && slot.am_pm === "PM EST") {slot.time_period = "7:00 - 8:00"; slot.am_pm = "น."}
+  if (slot.time_period === "8:00 - 9:00" && slot.am_pm === "PM EST") {slot.time_period = "8:00 - 9:00"; slot.am_pm = "น."}
+  if (slot.time_period === "9:00 - 10:00" && slot.am_pm === "PM EST") {slot.time_period = "9:00 - 10:00"; slot.am_pm = "น."}
+  if (slot.time_period === "10:00 - 11:00" && slot.am_pm === "PM EST") {slot.time_period = "10:00 - 11:00"; slot.am_pm = "น."}
+  if (slot.time_period === "11:00 - 12:00" && slot.am_pm === "PM EST") {slot.time_period = "11:00 - 12:00"; slot.am_pm = "น."}
+} else {
+  console.log("not dst");
+  if (slot.time_period === "12:00 - 1:00" && slot.am_pm === "AM EST") {slot.time_period = "12:00 - 13:00"; slot.am_pm = "น."}
+  if (slot.time_period === "1:00 - 2:00" && slot.am_pm === "AM EST") {slot.time_period = "13:00 - 14:00"; slot.am_pm = "น."}
+  if (slot.time_period === "2:00 - 3:00" && slot.am_pm === "AM EST") {slot.time_period = "14:00 - 15:00"; slot.am_pm = "น."}
+  if (slot.time_period === "3:00 - 4:00" && slot.am_pm === "AM EST") {slot.time_period = "15:00 - 16:00"; slot.am_pm = "น."}
+  if (slot.time_period === "4:00 - 5:00" && slot.am_pm === "AM EST") {slot.time_period = "16:00 - 17:00"; slot.am_pm = "น."}
+  if (slot.time_period === "5:00 - 6:00" && slot.am_pm === "AM EST") {slot.time_period = "17:00 - 18:00"; slot.am_pm = "น."}
+  if (slot.time_period === "6:00 - 7:00" && slot.am_pm === "AM EST") {slot.time_period = "18:00 - 19:00"; slot.am_pm = "น."}
+  if (slot.time_period === "7:00 - 8:00" && slot.am_pm === "AM EST") {slot.time_period = "19:00 - 20:00"; slot.am_pm = "น."}
+  if (slot.time_period === "8:00 - 9:00" && slot.am_pm === "AM EST") {slot.time_period = "20:00 - 21:00"; slot.am_pm = "น."}
+  if (slot.time_period === "9:00 - 10:00" && slot.am_pm === "AM EST") {slot.time_period = "21:00 - 22:00"; slot.am_pm = "น."}
+  if (slot.time_period === "10:00 - 11:00" && slot.am_pm === "AM EST") {slot.time_period = "22:00 - 23:00"; slot.am_pm = "น."}
+  if (slot.time_period === "11:00 - 12:00" && slot.am_pm === "AM EST") {slot.time_period = "23:00 - 0:00"; slot.am_pm = "น."}
+
+  if (slot.time_period === "12:00 - 1:00" && slot.am_pm === "PM EST") {slot.time_period = "0:00 - 1:00"; slot.am_pm = "น."}
+  if (slot.time_period === "1:00 - 2:00" && slot.am_pm === "PM EST") {slot.time_period = "1:00 - 2:00"; slot.am_pm = "น."}
+  if (slot.time_period === "2:00 - 3:00" && slot.am_pm === "PM EST") {slot.time_period = "2:00 - 3:00"; slot.am_pm = "น."}
+  if (slot.time_period === "3:00 - 4:00" && slot.am_pm === "PM EST") {slot.time_period = "3:00 - 4:00"; slot.am_pm = "น."}
+  if (slot.time_period === "4:00 - 5:00" && slot.am_pm === "PM EST") {slot.time_period = "4:00 - 5:00"; slot.am_pm = "น."}
+  if (slot.time_period === "5:00 - 6:00" && slot.am_pm === "PM EST") {slot.time_period = "5:00 - 6:00"; slot.am_pm = "น."}
+  if (slot.time_period === "6:00 - 7:00" && slot.am_pm === "PM EST") {slot.time_period = "6:00 - 7:00"; slot.am_pm = "น."}
+  if (slot.time_period === "7:00 - 8:00" && slot.am_pm === "PM EST") {slot.time_period = "7:00 - 8:00"; slot.am_pm = "น."}
+  if (slot.time_period === "8:00 - 9:00" && slot.am_pm === "PM EST") {slot.time_period = "8:00 - 9:00"; slot.am_pm = "น."}
+  if (slot.time_period === "9:00 - 10:00" && slot.am_pm === "PM EST") {slot.time_period = "9:00 - 10:00"; slot.am_pm = "น."}
+  if (slot.time_period === "10:00 - 11:00" && slot.am_pm === "PM EST") {slot.time_period = "10:00 - 11:00"; slot.am_pm = "น."}
+  if (slot.time_period === "11:00 - 12:00" && slot.am_pm === "PM EST") {slot.time_period = "11:00 - 12:00"; slot.am_pm = "น."}
+}
+}); // map
+
+return slots;
+        }) // then
         .then(function(slots) {
           return slots.sort(function (a, b) {
             return a.ordertime - b.ordertime;

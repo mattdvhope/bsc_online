@@ -12,6 +12,7 @@ class SkypeTimeSlotsController < ApplicationController
 
   def create
     @skype_time_slot = SkypeTimeSlot.new(skype_time_slot_params)
+    # @skype_time_slot.add_in_thai
     if @skype_time_slot.save
       render "show"
     else
@@ -37,7 +38,7 @@ class SkypeTimeSlotsController < ApplicationController
   private
 
     def skype_time_slot_params
-      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :time_period, :am_pm, :available, :orderday, :ordertime, :orderam)
+      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :day_thai, :time_period, :time_thai, :am_pm, :available, :orderday, :ordertime, :orderam)
     end
 
 end
