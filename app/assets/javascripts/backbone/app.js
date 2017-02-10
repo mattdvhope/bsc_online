@@ -303,13 +303,3 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
 }, false);
 
 App.init();
-
-Handlebars.registerHelper('genderTranslate', function(gender) {
-  if(gender === "ผู้ชาย" || gender === "male") {
-    return "Gender: Male";
-  } else if (gender === "ผู้หญิง" || gender === "female") {
-    return "Gender: Female";
-  } else {
-    return "Gender: Unknown";
-  }
-});
