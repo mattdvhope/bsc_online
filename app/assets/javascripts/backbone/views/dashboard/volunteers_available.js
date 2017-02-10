@@ -93,7 +93,6 @@ var VolunteersAvailableView = Backbone.View.extend({
             showConfirmButton: true,
             animation: "slide-from-top"
           });
-          console.log(model);
           // $("entire-main").html(model.get("first_name"));
 
         },
