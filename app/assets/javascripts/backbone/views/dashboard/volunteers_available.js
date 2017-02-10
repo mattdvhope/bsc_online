@@ -15,9 +15,6 @@ var VolunteersAvailableView = Backbone.View.extend({
         return "เพศ: ไม่ทราบ";
       }
     });
-
-
-
   },
 
   events: {
