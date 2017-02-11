@@ -12,7 +12,6 @@ class SkypeTimeSlotsController < ApplicationController
 
   def create
     @skype_time_slot = SkypeTimeSlot.new(skype_time_slot_params)
-    # @skype_time_slot.add_in_thai
     if @skype_time_slot.save
       render "show"
     else
