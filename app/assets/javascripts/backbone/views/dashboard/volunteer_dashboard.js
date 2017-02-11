@@ -47,14 +47,9 @@ var VolunteerDashboardView = Backbone.View.extend({
 
       var selected = $(this).find('option:selected');
       if (selected.data('daythai')) {
-console.log(volunteerIsInDaylightSavingsTime());
-// Do the logic in here to figure out how to convert the 
-// EST day-time into Thai day-time
         view_context.day_thai = selected.data('daythai')
       }
       if (selected.data('timethai')) {
-// Do the logic in here to figure out how to convert the 
-// EST day-time into Thai day-time
         view_context.time_thai = selected.data('timethai')
       }
       var day = selected.data('orderday'); 
@@ -69,7 +64,7 @@ console.log(volunteerIsInDaylightSavingsTime());
       if (blanks_to_remove > -1) {
         time_slot_parts.splice(blanks_to_remove, 1);
       }
-    });
+    }); // each
 
     var regex = /(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\d\d?:(00|30)\s-\s\d\d?:(00|30)(AM|PM)\sEST/
     if (time_slot_parts.length === 0) {
@@ -81,12 +76,11 @@ console.log(volunteerIsInDaylightSavingsTime());
     else {
       if (time_slot_parts.length === 3) {
         var time_slot = new SkypeTimeSlot();
+        setThaiAttributes(time_slot, time_slot_parts[0], time_slot_parts[1], time_slot_parts[2]);
         time_slot.set({
           volunteer_id: volunteer.get("id"),
           day: time_slot_parts[0],
-          day_thai: this.day_thai,
           time_period: time_slot_parts[1],
-          time_thai: this.time_thai,
           am_pm: time_slot_parts[2],
           orderday: time_slot_orders[0],
           ordertime: time_slot_orders[1],
