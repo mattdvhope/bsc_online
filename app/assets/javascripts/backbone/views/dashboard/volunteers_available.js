@@ -52,9 +52,8 @@ var VolunteersAvailableView = Backbone.View.extend({
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(400, function() {
             span.replaceWith($(view_context.template_for_slot_span({
-              day: result.day,
-              time_period: result.time_period,
-              am_pm: result.am_pm,
+              day_thai: result.day_thai,
+              time_thai: result.time_thai,
               first_name: student.get("first_name")
             }) ).fadeIn(400) );
           });
@@ -68,9 +67,8 @@ var VolunteersAvailableView = Backbone.View.extend({
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(400, function() {
             span.replaceWith($(view_context.template_for_unchecked_slot_span({
-              day: result.day,
-              time_period: result.time_period,
-              am_pm: result.am_pm
+              day_thai: result.day_thai,
+              time_thai: result.time_thai,
             }) ).fadeIn(400) );
           });
         })
@@ -146,6 +144,7 @@ var VolunteersAvailableView = Backbone.View.extend({
         });
       }, Promise.resolve());
     }
+
 
     sequence(this.collection, function(volunteer) {
       return getVolunteerSlots(volunteer)

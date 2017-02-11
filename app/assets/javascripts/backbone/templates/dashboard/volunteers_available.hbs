@@ -25,10 +25,10 @@
           <div>
           {{#if this.available}}
             <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
-            <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day}} {{this.time_period}}{{this.am_pm}}</span>
+            <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day_thai}} {{this.time_thai}}</span>
           {{else}}
             {{> skype_time_slot_input }}
-            <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day}} {{this.time_period}}{{this.am_pm}} กับคุณ, {{../../../first_name}}</span>
+            <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day_thai}} {{this.time_thai}} กับคุณ, {{../../../first_name}}</span>
           {{/if}}
           </div>
         {{/each}}
@@ -36,8 +36,6 @@
         <button id="connect-with-volunteer" class="btn btn-success" data-id={{this.id}} data-firstname={{this.first_name}} data-lastname={{this.last_name}}>
           Auto-email to {{this.first_name}}
         </button>
-
-
         <hr>
       </li>
     {{/each}} <!-- each class times -->
