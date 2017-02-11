@@ -1,8 +1,7 @@
 function volunteerIsInDaylightSavingsTime() {
 
-  // var today = new Date(2020, 2, 8, 2);
-  
-  var today = new Date();
+  var today = new Date(2017, 2, 12, 3);
+  // var today = new Date();
   Date.prototype.stdTimezoneOffset = function() {
     if (this.getFullYear() === 2017) {
       return largerTzOffset(12, 5);
