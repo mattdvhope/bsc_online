@@ -125,7 +125,7 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   template_for_unchecked_slot_span:  HandlebarsTemplates['dashboard/skype_time_slot_unchecked'],
 
-  no_volunteers: function() {
+  no_vol_with_slots: function() {
     var stu_num = this.collection.length
     if (stu_num === 0) { 
       return true
@@ -136,53 +136,60 @@ var VolunteersAvailableView = Backbone.View.extend({
   },
 
   render: function() { // see page 32 in book, "JS with Promises"
-console.log("no volunteers??: " + this.no_volunteers());
-    var view_context = this;
-    function sequence(volunteers, callback) {
-      return volunteers.reduce(function chain(promise, volunteer) {
-        return promise.then(function () {
-          return callback(volunteer);
-        });
-      }, Promise.resolve());
-    }
 
+    if (this.no_vol_with_slots()) { // render the template here w/o Promises
+      this.$el.html(this.template({
+        no_vol_with_slots: this.no_vol_with_slots()
+      }));
+      return this;
+    } else { // render the template here WITH Promises
+      var view_context = this;
+      function sequence(volunteers, callback) {
+        return volunteers.reduce(function chain(promise, volunteer) {
+          return promise.then(function () {
+            return callback(volunteer);
+          });
+        }, Promise.resolve());
+      }
+      sequence(this.collection, function(volunteer) {
+        return getVolunteerSlots(volunteer)
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.ordertime - b.ordertime;
+            });
+          })
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.orderam - b.orderam;
+            });
+          })
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.orderday - b.orderday;
+            });
+          })
+          .then(function(slots) {
+            volunteer.set({skype_time_slots: slots});
+            volunteer.set({stringified_slots: JSON.stringify(slots)});
+            view_context.$el.html(view_context.template({
+              no_vol_with_slots: view_context.no_vol_with_slots(),
+              volunteers: view_context.collection.toJSON(),
+              first_name: view_context.model.get("first_name")
+            }));
+            return view_context;
+          })
+      })
+      .catch(function (reason) {
+        console.log(reason);
+      });
 
-    sequence(this.collection, function(volunteer) {
-      return getVolunteerSlots(volunteer)
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.ordertime - b.ordertime;
-          });
-        })
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.orderam - b.orderam;
-          });
-        })
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.orderday - b.orderday;
-          });
-        })
-        .then(function(slots) {
-          volunteer.set({skype_time_slots: slots});
-          volunteer.set({stringified_slots: JSON.stringify(slots)});
-          view_context.$el.html(view_context.template({
-            no_volunteers: view_context.no_volunteers(),
-            volunteers: view_context.collection.toJSON(),
-            first_name: view_context.model.get("first_name")
-          }));
-          return view_context;
-        })
-    })
-    .catch(function (reason) {
-      console.log(reason);
-    });
+      function getVolunteerSlots(volunteer) {
+        var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
+        return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
+      }
 
-    function getVolunteerSlots(volunteer) {
-      var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
-      return volunteer_available.fetch() || []; // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
-    }
+    } // else
+
   } // render
 });
 
