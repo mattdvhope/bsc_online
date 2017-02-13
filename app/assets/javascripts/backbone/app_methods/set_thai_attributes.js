@@ -5,6 +5,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
   var thai_first_time;
   var time_thai;
   var day_thai;
+console.log("At top: " + first_time);
 
   if (volunteerIsInDaylightSavingsTime()) {
     if (am_pm == "AM EST") {
@@ -21,6 +22,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
       if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
       if (day == "Friday") {day_thai = "วันศุกร์"}
       if (day == "Saturday") {day_thai = "วันเสาร์"}
+console.log("In dst/AM: " + day_thai);
     } 
     else if (am_pm == "PM EST") {
       thai_first_time = first_time - 1;
@@ -38,6 +40,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
         if (day == "Thursday") {day_thai = "วันศุกร์"}
         if (day == "Friday") {day_thai = "วันเสาร์"}
         if (day == "Saturday") {day_thai = "วันอาทิตย์"}
+console.log("In dst/PM/not 12: " + day_thai);
       } else {
         if (day == "Sunday") {day_thai = "วันอาทิตย์"}
         if (day == "Monday") {day_thai = "วันจันทร์"}
@@ -46,6 +49,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
         if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
         if (day == "Friday") {day_thai = "วันศุกร์"}
         if (day == "Saturday") {day_thai = "วันเสาร์"}
+console.log("In dst/PM/yes 12: " + day_thai);
       }
     }
   }
@@ -64,6 +68,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
       if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
       if (day == "Friday") {day_thai = "วันศุกร์"}
       if (day == "Saturday") {day_thai = "วันเสาร์"}
+console.log("Not in dst/AM: " + day_thai);
     } 
     else if (am_pm == "PM EST") {
       thai_first_time = first_time;
@@ -79,6 +84,7 @@ function setThaiAttributes(time_slot, day, time_period, am_pm) {
       if (day == "Thursday") {day_thai = "วันศุกร์"}
       if (day == "Friday") {day_thai = "วันเสาร์"}
       if (day == "Saturday") {day_thai = "วันอาทิตย์"}
+console.log("Not in dst/PM: " + day_thai);
     }
   } // if-else 'dst'
   time_slot.set({

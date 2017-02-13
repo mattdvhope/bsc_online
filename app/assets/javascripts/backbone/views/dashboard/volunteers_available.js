@@ -166,6 +166,7 @@ var VolunteersAvailableView = Backbone.View.extend({
         .then(function(slots) {
           volunteer.set({skype_time_slots: slots});
           volunteer.set({stringified_slots: JSON.stringify(slots)});
+console.log("volunteer??: " + view_context.no_volunteers());
           view_context.$el.html(view_context.template({
             no_volunteers: view_context.no_volunteers(),
             volunteers: view_context.collection.toJSON(),
