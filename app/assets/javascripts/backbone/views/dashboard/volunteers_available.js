@@ -135,7 +135,7 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
   },
 
-  render: function() { // see page 32 in book, "JS with Promises"
+  render: function() {
 
     if (this.no_vol_with_slots()) { // render the template here w/o Promises
       this.$el.html(this.template({
@@ -144,7 +144,7 @@ var VolunteersAvailableView = Backbone.View.extend({
       return this;
     } else { // render the template here WITH Promises
       var view_context = this;
-      function sequence(volunteers, callback) {
+      function sequence(volunteers, callback) { // see page 32 in book, "JS with Promises"
         return volunteers.reduce(function chain(promise, volunteer) {
           return promise.then(function () {
             return callback(volunteer);
