@@ -181,7 +181,7 @@ console.log("no volunteers??: " + this.no_volunteers());
 
     function getVolunteerSlots(volunteer) {
       var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
-      return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
+      return volunteer_available.fetch() || []; // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
     }
   } // render
 });
