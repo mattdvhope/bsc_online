@@ -69,7 +69,7 @@ var App = {
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
-    var skype_docs_view = new SkypeDocumentsView({ model: volunteer });
+    var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
     skype_docs_view.render();
   },
   getStudentDashboardPage: function(student) {
@@ -92,6 +92,8 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    skype_docs_view.render();
     document.title = student.get("first_name") + " " + student.get("last_name");
   },
   scrollUpToTopOfPage: function() {

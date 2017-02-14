@@ -138,7 +138,7 @@ var VolunteersAvailableView = Backbone.View.extend({
   render: function() {
 
     if (this.no_vol_with_slots()) { // render the template here w/o Promises
-      this.$el.html(this.template({
+      $("#volunteers-avail-view-to-be-attached").html(this.template({
         no_vol_with_slots: true
       }));
       return this;
@@ -171,7 +171,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           .then(function(slots) {
             volunteer.set({skype_time_slots: slots});
             volunteer.set({stringified_slots: JSON.stringify(slots)});
-            view_context.$el.html(view_context.template({
+            $("#volunteers-avail-view-to-be-attached").html(view_context.template({
               no_vol_with_slots: false,
               volunteers: view_context.collection.toJSON(),
               first_name: view_context.model.get("first_name")
