@@ -125,9 +125,9 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   template_for_unchecked_slot_span:  HandlebarsTemplates['dashboard/skype_time_slot_unchecked'],
 
-  no_vol_with_slots: function() {
-    var stu_num = this.collection.length
-    if (stu_num === 0) { 
+  no_vol_with_slots: function() { // if a vol has no slots avail, then vol not in this view/collection
+    var vols_in_view = this.collection.length
+    if (vols_in_view === 0) { 
       return true
     }
     else {
@@ -135,16 +135,16 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
   },
 
-  render: function() { // see page 32 in book, "JS with Promises"
+  render: function() {
 
     if (this.no_vol_with_slots()) { // render the template here w/o Promises
-      this.$el.html(this.template({
-        no_vol_with_slots: this.no_vol_with_slots()
+      $("#volunteers-avail-view-to-be-attached").html(this.template({
+        no_vol_with_slots: true
       }));
       return this;
     } else { // render the template here WITH Promises
       var view_context = this;
-      function sequence(volunteers, callback) {
+      function sequence(volunteers, callback) { // see page 32 in book, "JS with Promises"
         return volunteers.reduce(function chain(promise, volunteer) {
           return promise.then(function () {
             return callback(volunteer);
@@ -171,8 +171,8 @@ var VolunteersAvailableView = Backbone.View.extend({
           .then(function(slots) {
             volunteer.set({skype_time_slots: slots});
             volunteer.set({stringified_slots: JSON.stringify(slots)});
-            view_context.$el.html(view_context.template({
-              no_vol_with_slots: view_context.no_vol_with_slots(),
+            $("#volunteers-avail-view-to-be-attached").html(view_context.template({
+              no_vol_with_slots: false,
               volunteers: view_context.collection.toJSON(),
               first_name: view_context.model.get("first_name")
             }));
