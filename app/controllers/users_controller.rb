@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def create
-binding.pry
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
     user.email = user.email.downcase
