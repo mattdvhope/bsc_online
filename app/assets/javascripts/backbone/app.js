@@ -69,6 +69,8 @@ var App = {
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+    var skype_docs_view = new SkypeDocumentsView({ model: volunteer });
+    skype_docs_view.render();
   },
   getStudentDashboardPage: function(student) {
     var this_app = this;
