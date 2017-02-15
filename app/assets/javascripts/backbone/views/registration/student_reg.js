@@ -115,7 +115,7 @@ var StudentRegFormView = Backbone.View.extend({
     }
 
     model.save({}, options);
-  },
+  }, // 'submit' method
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
