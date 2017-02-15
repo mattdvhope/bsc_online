@@ -1,7 +1,7 @@
 <div class="container">
 
   <header>
-    <h1>CEP Volunteer Administrator Application Form</h1>
+    <h1>CEP Volunteer Administrator Questionnaire</h1>
     <h4>
       <%= "Hello #{@admin_application.user.first_name}!" %>
     </h4>
@@ -37,10 +37,10 @@
         </div>
         <br/>
         <h4>
-          <%= "Thanks for filling this out #{@admin_application.user.first_name}! Press 'Submit Application' here and this Volunteer Administrator Application will be automatically sent to CEP & you will also receive a copy of it in your inbox." %>
+          <%= "Thanks for filling this out #{@admin_application.user.first_name}! Press 'Submit Questionnaire' here and this will automatically be sent to CEP. You will also receive a copy of it in your inbox." %>
         </h4>
 
-        <%= f.button :submit, "Submit Application", :class => "btn btn-success" %>
+        <%= f.button :submit, "Submit Questionnaire", :class => "btn btn-success" %>
       </div>
     </fieldset>
   <% end %>
