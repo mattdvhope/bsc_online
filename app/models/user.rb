@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
 
   def non_student?
     if self.role
-      if self.role == "leader" || self.role == "admin" || self.role == "volunteer"
+      if self.role == "leader" || self.role == "admin" || self.role == "admin_applicant" || self.role == "volunteer"
         return true
       end
     end
