@@ -4,9 +4,9 @@
 
   <div>
     
-    <h1><%= "Welcome to the \"Volunteer Administrator Applicants\" list page, #{current_user.first_name}!!" %></h1>
+    <h2><%= "Welcome to the \"Volunteer Administrator Applicants\" list page, #{current_user.first_name}!!" %></h2>
     <hr>
-    <h2>Each applicant that you 'Approve' here will recieve a PIN in the automated email he or she receives.  This new "Volunteer Administrator" can in turn give that PIN to volunteers that he or she personally screens.</h2>
+    <h3>Each applicant that you 'Approve' here will recieve a PIN in the automated email he or she receives.  This new "Volunteer Administrator" can in turn give that PIN to volunteers that he or she personally screens.</h3>
 
     <% if AdminApplication.all == [] %>
       <h3> No applications now. </h3>
