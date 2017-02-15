@@ -43,6 +43,11 @@
         </div>
         <hr>
 
+        <label class="field-label skype-address-label">Skype Address <h4>
+        </h4></label>
+        <input type="text" class="form-control skype-address" placeholder="ที่อยู่ Skype" name="skype_address">
+        <hr>
+
         <label class="field-label email-label">Email Address <h4>
           {{#if thai_language}}
             {{> application_form/thai/_email_explanation }}
@@ -73,10 +78,8 @@
         <input id="student-registration-password" type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="password_confirmation">
         <hr>
 
-        <div class="control-group">
+        <div id="submit-input-button" class="control-group">
           <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary student-registration-submit">
-
-          {{!-- <button class="btn btn-primary registration-submit" href="#">Submit</button> --}}
         </div>
 
       </form>
