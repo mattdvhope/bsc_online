@@ -14,6 +14,8 @@ var VolunteersAvailableView = Backbone.View.extend({
         return "เพศ: ไม่ทราบ";
       }
     });
+
+    this.setElement($("#volunteers-avail-view-to-be-attached"));
   },
 
   events: {
@@ -40,7 +42,7 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
 
-    'click .checkers': function (e) {
+    'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
       var volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
@@ -83,7 +85,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           resolve(slot.save());
         });
       }
-    },
+    }, // 'click .checkers': function(e)
 
     'click #connect-with-volunteer': function (e) {
       var volunteer_id = $(e.target)[0].dataset.id;
@@ -119,6 +121,53 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   },
 
+  click_checkers: function(e) {
+
+    var view_context = this;
+    var slot_id = parseInt($(e.target)[0].dataset.id);
+    var volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
+    var student_id = this.model.get('id');
+    var student = this.model;
+    if ($(e.target)[0].checked) {
+console.log($(e.target)[0]);
+      saveSlot(student_id, false)
+      .then(function(result) {
+        var span = $(e.target).next();
+        $($(e.target).next()).fadeOut(400, function() {
+          span.replaceWith($(view_context.template_for_slot_span({
+            day_thai: result.day_thai,
+            time_thai: result.time_thai,
+            first_name: student.get("first_name")
+          }) ).fadeIn(400) );
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    } else if (!$(e.target)[0].checked) {
+      saveSlot(null, true)
+      .then(function(result) {
+        var span = $(e.target).next();
+        $($(e.target).next()).fadeOut(400, function() {
+          span.replaceWith($(view_context.template_for_unchecked_slot_span({
+            day_thai: result.day_thai,
+            time_thai: result.time_thai,
+          }) ).fadeIn(400) );
+        });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    } // if - else
+
+    function saveSlot(student_id, availability) {
+      var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability});
+      return new Promise(function(resolve, reject) {
+        resolve(slot.save());
+      });
+    }
+  }, // click_checkers
+
   template:  HandlebarsTemplates['dashboard/volunteers_available'],
 
   template_for_slot_span:  HandlebarsTemplates['dashboard/skype_time_slot_span'],
@@ -138,7 +187,10 @@ var VolunteersAvailableView = Backbone.View.extend({
   render: function() {
 
     if (this.no_vol_with_slots()) { // render the template here w/o Promises
-      $("#volunteers-avail-view-to-be-attached").html(this.template({
+      // $("#volunteers-avail-view-to-be-attached").html(this.template({
+      this.$el.html(this.template({
+
+
         no_vol_with_slots: true
       }));
       return this;
@@ -171,7 +223,8 @@ var VolunteersAvailableView = Backbone.View.extend({
           .then(function(slots) {
             volunteer.set({skype_time_slots: slots});
             volunteer.set({stringified_slots: JSON.stringify(slots)});
-            $("#volunteers-avail-view-to-be-attached").html(view_context.template({
+            // $("#volunteers-avail-view-to-be-attached").html(view_context.template({
+            view_context.$el.html(view_context.template({
               no_vol_with_slots: false,
               volunteers: view_context.collection.toJSON(),
               first_name: view_context.model.get("first_name")

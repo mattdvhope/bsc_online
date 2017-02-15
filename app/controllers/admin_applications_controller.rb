@@ -10,7 +10,7 @@ class AdminApplicationsController < ApplicationController
       user = @admin_application.user
       user.update_attribute(:pin, user.generate_pin)
       user.save!(:validate => false)
-      flash[:success] = "Thank you for sending in this CEP Volunteer Administrator Application!"
+      flash[:success] = "Thank you for sending in this CEP Volunteer Administrator Questionnaire!"
       send_application_emails(@admin_application.user)
       redirect_to root_path
     else

@@ -6,11 +6,11 @@
       <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
       <h3 class="modal-title">Register your church, business or organization with City English Project (CEP)!</h3>
       <h4>
-        When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Application Form." After you fill it out and submit it, will respond to you within 72 hours. 
+        When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Questionnaire." After you fill it out and submit it, we will respond to you within 72 hours. 
       </h4>
       <hr>
       <h4>
-        Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "student status" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain "admin" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.
+        Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "admin applicant status." You will not yet enter the City English app. If and when you are approved as an administrator for volunteers, you will then gain "admin" status.  In this status, you will be able to provide an access PIN to future volunteers (Skype partners, etc) for CEP.  You will also be able to log in to CEP using your email and password.
       </h4>
       <hr>
       <h4>
@@ -24,15 +24,11 @@
       <input type="hidden" name="role" value="admin_applicant">
 
         <label class="field-label">First Name</label>
-        <input type="text" class="form-control first-name" placeholder="First Name" name="first_name">
+        <input id="applicant-first-name" type="text" class="form-control first-name" placeholder="First Name" name="first_name">
         <hr>
 
         <label class="field-label">Last Name</label>
         <input type="text" class="form-control last-name" placeholder="Last Name" name="last_name">
-        <hr>
-
-        <label class="field-label">Email Address</label>
-        <input type="text" class="form-control email" placeholder="Email Address" name="email">
         <hr>
 
         <label class="field-label">Gender</label>
@@ -44,8 +40,13 @@
         </div>
         <hr>
 
-        <label class="field-label">Church, Business or Organization Name</label>
-        <input type="text" class="form-control organization" placeholder="Organization" name="organization">
+        <label class="field-label email-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="Email Address" name="email">
+        <hr>
+
+        <label class="field-label skype-name-label">Skype Name<h4>
+        </h4></label>
+        <input type="text" class="form-control skype-name" placeholder="ชื่อ Skype" name="skype_name">
         <hr>
 
         <label class="field-label">Age</label>
@@ -56,12 +57,12 @@
         <input type="text" class="form-control organization" placeholder="Organization" name="organization">
         <hr>
 
-        <label class="field-label">Password</label>
-        <input id="admin-registration-password" type="password" class="form-control" placeholder="Password" name="password">
+        <label class="field-label password-label">Password</label>
+        <input id="admin-registration-password" type="password" class="form-control password" placeholder="Password" name="password">
         <hr>
 
-        <label class="field-label">Password Confirmation</label>
-        <input id="admin-registration-password" type="password" class="form-control" placeholder="Password Confirmation" name="password_confirmation">
+        <label class="field-label password-confirmation-label">Password Confirmation</label>
+        <input id="admin-registration-password" type="password" class="form-control password-confirmation" placeholder="Password Confirmation" name="password_confirmation">
         <hr>
 
         <label class="field-label">Phone Number</label>
@@ -84,8 +85,8 @@
         <input type="text" class="form-control province" placeholder="State or Province" name="province">
         <hr>
 
-        <label class="field-label">Zip / Postal Code</label>
-        <input type="text" class="form-control postal-code" placeholder="Postal Code" name="postal_code">
+        <label class="field-label postal-code-label">Zip / Postal Code</label>
+        <input type="text" class="form-control postal-code" placeholder="Zip Code" name="postal_code">
         <hr>
 
         <label class="field-label">Country</label>

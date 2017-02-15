@@ -77,8 +77,8 @@ class AppMailer < ActionMailer::Base
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
       :from    => "City English Project <" + ENV["username"] + ">",
-      :to      => ENV["other_username"],
-      :subject => "CEP Volunteer Administrator Application from #{applicant.first_name} #{applicant.last_name}",
+      :to      => ENV["username"],
+      :subject => "CEP Volunteer Administrator Questionnaire from #{applicant.first_name} #{applicant.last_name}",
       :html => (render_to_string(template: "../views/app_mailer/send_cep_application_form")).to_str
     }
     mg_client.send_message ENV["domain"], message_params

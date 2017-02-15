@@ -18,6 +18,7 @@ var StudentRegFormView = Backbone.View.extend({
       first_name: this.$("input[name='first_name']").val(),
       last_name: this.$("input[name='last_name']").val(),
       gender: this.$("select[name='gender']").val(),
+      skype_address: this.$("input[name='skype_address']").val(),
       email: this.$("input[name='email']").val(),
       national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
@@ -34,7 +35,6 @@ var StudentRegFormView = Backbone.View.extend({
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
-
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
         $("select").css("border-color", "#cccccc");
@@ -52,6 +52,7 @@ var StudentRegFormView = Backbone.View.extend({
           if (response.responseJSON["errors"] === "Incorrect PIN") {
             $(".pin").css("border-color", "red");
             $(".pin-label").append("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
+            $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
           }
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
@@ -71,6 +72,9 @@ var StudentRegFormView = Backbone.View.extend({
             }
             else if (error === "Phone number can't be blank") {
               $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
+            }
+            else if (error === "Skype name can't be blank") {
+              $(".skype-address").css("border-color", "red").attr("placeholder", "ควรกรอกที่อยู่ Skype ลงในช่องว่าง");
             }
             else if (error === "Email can't be blank") {
               $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
@@ -106,18 +110,19 @@ var StudentRegFormView = Backbone.View.extend({
               $(".national-id-label").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้มีผู้ใช้อยู่แล้ว</h4>");
             }
           }); // forEach
-        } // if (response.responseJSON.errors)
+        } // if (response.responseJSON)
       } // error:
     }
 
     model.save({}, options);
-  },
+  }, // 'submit' method
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateStudentReg({
+      thai_language: thai_language(),
       token: csrf_token
     }));
 
