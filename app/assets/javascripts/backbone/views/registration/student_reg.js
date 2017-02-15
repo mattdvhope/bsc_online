@@ -110,7 +110,7 @@ var StudentRegFormView = Backbone.View.extend({
               $(".national-id-label").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้มีผู้ใช้อยู่แล้ว</h4>");
             }
           }); // forEach
-        } // if (response.responseJSON.errors)
+        } // if (response.responseJSON)
       } // error:
     }
 
