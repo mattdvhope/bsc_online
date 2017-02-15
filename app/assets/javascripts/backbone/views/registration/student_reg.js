@@ -35,11 +35,6 @@ var StudentRegFormView = Backbone.View.extend({
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
-
-
-
-// set up validations in ruby & here for 'skype_name'!!!!!!!!!
-
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
         $("select").css("border-color", "#cccccc");
