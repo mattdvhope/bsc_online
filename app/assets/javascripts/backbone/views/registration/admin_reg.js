@@ -22,7 +22,7 @@ var AdminRegFormView = Backbone.View.extend({
         $("#adminregformmodal").modal("hide");
         swal({
           title: "Thank you, " + response.first_name + "!",
-          text: "We will send an email to \"" + response.email + ".\" The email will show you how to access the online CEP \"Volunteer Administrator Application\" form.",
+          text: "We will send an email to \"" + response.email + ".\" The email will show you how to access the online \"CEP Volunteer Administrator Questionnaire\" form.",
           timer: 30000,
           showConfirmButton: true
         });
