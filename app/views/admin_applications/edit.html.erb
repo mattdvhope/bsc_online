@@ -1,13 +1,15 @@
-<div class="container">
+<div id="edit-volunteer-admin-quest" class="container">
 
   <header>
+    <br>
+    <br>
     <h1>CEP Volunteer Administrator Questionnaire</h1>
     <h4>
       <%= "Hello #{@admin_application.user.first_name}!" %>
     </h4>
 
     <h4>
-      <%= "After you fill out this form, and then click the button below, we will respond to you within 72 hours. We will also automatically send a copy of this application to '#{@admin_application.user.email}' for your records." %>
+      <%= "After you fill out this form, and then click the \"Submit Questionnaire\" button below, we will respond to you within 72 hours. We will also automatically send a copy of this application to '#{@admin_application.user.email}' for your records." %>
     </h4>
   </header>
 
@@ -15,32 +17,35 @@
     <fieldset>
       <div class="form-group">
         <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :response_first, as: :text, label: "Our first question to you..." %>
-            </h3>
+          <div class="col-lg-4">
+            <p class="questionnaire-question">What are your thoughts about the <a href="http://www.sbc.net/bfm2000/bfm2000.asp" target="_blank" id="sbc-message-link">Baptist Faith and Message</a>?</p>
+            <textarea rows="7" class="optional form-control" name="admin_application[response_first]" id="admin_application_response_first"></textarea>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :response_second, as: :text, label: "Our second question to you..." %>
-            </h3>
+          <div class="col-lg-4">
+            <p class="questionnaire-question">What is your role in your church / organization?</p>
+            <textarea rows="7" class="optional form-control" name="admin_application[response_second]" id="admin_application_response_second"></textarea>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-4">
-            <h3>
-              <%= f.input :response_third, as: :text, label: "Our third (really prying!!) question to you..." %>
-            </h3>
+          <div class="col-lg-4">
+            <p class="questionnaire-question">How would you describe your church / organization?  What is its website address (if any)?</p>
+            <textarea rows="7" class="optional form-control" name="admin_application[response_second]" id="admin_application_response_second"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <p class="questionnaire-question">Why do you want to serve as a 'Volunteer Administrator' for CEP Skype conversation partnerships?</p>
+            <textarea rows="7" class="optional form-control" name="admin_application[response_third]" id="admin_application_response_third"></textarea>
           </div>
         </div>
         <br/>
         <h4>
-          <%= "Thanks for filling this out #{@admin_application.user.first_name}! Press 'Submit Questionnaire' here and this will automatically be sent to CEP. You will also receive a copy of it in your inbox." %>
+          <%= "Thanks for filling this out #{@admin_application.user.first_name}! Press 'Submit Questionnaire' here and your responses to the questions here will automatically be sent to CEP. You will also receive a copy of them in your inbox." %>
         </h4>
 
-        <%= f.button :submit, "Submit Questionnaire", :class => "btn btn-success" %>
+        <%= f.button :submit, "Submit Questionnaire", :class => "btn,", :id => "questionnaire-button" %>
       </div>
     </fieldset>
   <% end %>
