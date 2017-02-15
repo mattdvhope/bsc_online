@@ -76,13 +76,13 @@ class User < ActiveRecord::Base
   validates_format_of :national_id, :with => VALID_NATIONAL_ID_REGEX, :on => :create, :allow_blank => true
   validates_uniqueness_of :national_id, :allow_blank => true
 
-  validates_presence_of :address_1, :if => :volunteer?
-  validates_presence_of :city, :if => :volunteer?
-  validates_presence_of :province, :if => :volunteer?
+  validates_presence_of :address_1, :if => :applicant_or_volunteer?
+  validates_presence_of :city, :if => :applicant_or_volunteer?
+  validates_presence_of :province, :if => :applicant_or_volunteer?
   VALID_POSTAL_CODE_REGEX = /\A\d{5}(-\d{4})?\z/
   validates :postal_code, presence: true,
-            format: { with:  VALID_POSTAL_CODE_REGEX }, :if => :volunteer?
-  validates_presence_of :country, :if => :volunteer?
+            format: { with:  VALID_POSTAL_CODE_REGEX }, :if => :applicant_or_volunteer?
+  validates_presence_of :country, :if => :applicant_or_volunteer?
 
   def self.new_guest
     new { |u| u.guest = true } # Doing this in a block to protect the guest attribute from mass assignment.
@@ -95,6 +95,15 @@ class User < ActiveRecord::Base
   def non_student?
     if self.role
       if self.role == "leader" || self.role == "admin" || self.role == "admin_applicant" || self.role == "volunteer"
+        return true
+      end
+    end
+    false
+  end
+
+  def applicant_or_volunteer?
+    if self.role
+      if self.role == "admin_applicant" || self.role == "volunteer"
         return true
       end
     end

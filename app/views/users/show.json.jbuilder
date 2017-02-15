@@ -1,9 +1,11 @@
 json.id                     @user.id
 json.first_name             @user.first_name
 json.last_name              @user.last_name
-json.age                    @user.age
 json.gender                 @user.gender
 json.email                  @user.email
+json.skype_name             @user.skype_name
+json.age                    @user.age
+json.organization           @user.organization
 json.password_digest        @user.password_digest
 json.phone_number           @user.phone_number
 json.address_1              @user.address_1

@@ -1,15 +1,17 @@
-<section class="bsc-container">
-  <%= simple_form_for @admin_application do |f| %>
-    <header>
-      <h1>CEP Volunteer Administrator Application Form</h1>
-      <h4>
-        <%= "Hello #{@admin_application.user.first_name}!" %>
-      </h4>
+<div class="container">
 
-      <h4>
-        <%= "After you fill out this form, and then click the button below, we will respond to you within 72 hours. We will also automatically send a copy of this application to '#{@admin_application.user.email}' for your records." %>
-      </h4>
-    </header>
+  <header>
+    <h1>CEP Volunteer Administrator Application Form</h1>
+    <h4>
+      <%= "Hello #{@admin_application.user.first_name}!" %>
+    </h4>
+
+    <h4>
+      <%= "After you fill out this form, and then click the button below, we will respond to you within 72 hours. We will also automatically send a copy of this application to '#{@admin_application.user.email}' for your records." %>
+    </h4>
+  </header>
+
+  <%= simple_form_for @admin_application do |f| %>
     <fieldset>
       <div class="form-group">
         <div class="row">
@@ -42,4 +44,5 @@
       </div>
     </fieldset>
   <% end %>
-</section>
+
+</div> <!-- class="container" -->

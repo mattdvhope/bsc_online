@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
+    user.first_name = user.first_name.capitalize
+    user.last_name = user.last_name.capitalize
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
@@ -81,7 +83,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :skype_address, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :national_id, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :skype_name, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :national_id, :uid_facebook)
     end
 
     def deal_with_guest(user)
@@ -158,7 +160,7 @@ class UsersController < ApplicationController
     end
 
     def save_vol_or_admin_applicant(user)
-      deal_with_password(user) 
+      deal_with_password(user)
       if user.save
         session[:user_id] = user.id unless user.role == "admin_applicant"
         send_new_user_email(user)
@@ -178,7 +180,8 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_development_email(user)
+        send_production_email(user)
+        # send_development_email(user)
       end
     end
 
