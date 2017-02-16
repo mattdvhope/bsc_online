@@ -53,7 +53,10 @@ var StudentRegFormView = Backbone.View.extend({
             $(".pin").css("border-color", "red");
             $(".pin-label").append("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
             $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
+          } else {
+            $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>ข้อมูลข้างบนไม่ถูกต้อง</h4>");
           }
+
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
               $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
