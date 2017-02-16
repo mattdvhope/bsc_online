@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   validates_presence_of :age
   validates_presence_of :phone_number, length: { maximum: 30 }
   validates_presence_of :organization, :if => :non_student?
-  validates_presence_of :skype_name
+  validates_presence_of :skype_name, :unless => :guest?
 
   validates_presence_of :email, length: { maximum: 40 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
@@ -76,13 +76,13 @@ class User < ActiveRecord::Base
   validates_format_of :national_id, :with => VALID_NATIONAL_ID_REGEX, :on => :create, :allow_blank => true
   validates_uniqueness_of :national_id, :allow_blank => true
 
-  validates_presence_of :address_1, :if => :applicant_or_volunteer?
-  validates_presence_of :city, :if => :applicant_or_volunteer?
-  validates_presence_of :province, :if => :applicant_or_volunteer?
+  validates_presence_of :address_1, :if => :admin_applicant?
+  validates_presence_of :city, :if => :admin_applicant?
+  validates_presence_of :province, :if => :admin_applicant?
   VALID_POSTAL_CODE_REGEX = /\A\d{5}(-\d{4})?\z/
   validates :postal_code, presence: true,
-            format: { with:  VALID_POSTAL_CODE_REGEX }, :if => :applicant_or_volunteer?
-  validates_presence_of :country, :if => :applicant_or_volunteer?
+            format: { with:  VALID_POSTAL_CODE_REGEX }, :if => :admin_applicant?
+  validates_presence_of :country, :if => :admin_applicant?
 
   def self.new_guest
     new { |u| u.guest = true } # Doing this in a block to protect the guest attribute from mass assignment.
@@ -101,15 +101,6 @@ class User < ActiveRecord::Base
     false
   end
 
-  def applicant_or_volunteer?
-    if self.role
-      if self.role == "admin_applicant" || self.role == "volunteer"
-        return true
-      end
-    end
-    false
-  end
-
   def leader?
     if self.role
       if self.role == "leader"
@@ -122,6 +113,15 @@ class User < ActiveRecord::Base
   def admin?
     if self.role
       if self.role == "admin"
+        return true
+      end
+    end
+    false
+  end
+
+  def admin_applicant?
+    if self.role
+      if self.role == "admin_applicant"
         return true
       end
     end

@@ -36,8 +36,11 @@ var AdminRegFormView = Backbone.View.extend({
         $("h4:contains('option')").remove();
         $("h4:contains('password')").remove();
         $("h4:contains('email')").remove();
+        $("h4:contains('inputs')").remove();
         $("h4.appended-pass").remove();
         $("h4.appended-pass-conf").remove();
+
+        $("#admin-reg-submit-button").prepend("<h4 class='appended-pin-note' style='color:red;'>Your inputs above were incorrect.</h4>");
 
         if (response.responseJSON) {
           response.responseJSON.errors.forEach(function(error) {
