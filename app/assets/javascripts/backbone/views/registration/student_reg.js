@@ -18,7 +18,7 @@ var StudentRegFormView = Backbone.View.extend({
       first_name: this.$("input[name='first_name']").val(),
       last_name: this.$("input[name='last_name']").val(),
       gender: this.$("select[name='gender']").val(),
-      skype_address: this.$("input[name='skype_address']").val(),
+      skype_name: this.$("input[name='skype_name']").val(),
       email: this.$("input[name='email']").val(),
       national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
@@ -56,7 +56,7 @@ var StudentRegFormView = Backbone.View.extend({
           } else {
             $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>ข้อมูลข้างบนไม่ถูกต้อง</h4>");
           }
-
+console.log(response.responseJSON);
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
               $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
@@ -77,7 +77,7 @@ var StudentRegFormView = Backbone.View.extend({
               $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
             }
             else if (error === "Skype name can't be blank") {
-              $(".skype-address").css("border-color", "red").attr("placeholder", "ควรกรอกที่อยู่ Skype ลงในช่องว่าง");
+              $(".skype-name").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อ Skype ลงในช่องว่าง");
             }
             else if (error === "Email can't be blank") {
               $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
