@@ -51,7 +51,6 @@ var VolRegFormView = Backbone.View.extend({
           } else {
             $("#vol-submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>Your inputs above were incorrect.</h4>");
           }
-console.log(response.responseJSON);
           response.responseJSON.errors.forEach(function(error) {
             if (error === "First name can't be blank") {
               $(".first-name").css("border-color", "red").attr("placeholder", error);
@@ -113,8 +112,4 @@ console.log(response.responseJSON);
     return this;
   }
 });
-
-
-
-
 
