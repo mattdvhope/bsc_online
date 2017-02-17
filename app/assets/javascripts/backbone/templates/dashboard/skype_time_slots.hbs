@@ -10,4 +10,12 @@
       </ul>
     </span>
   {{/if}}
+
+  <select name="skype-day" id="number-of-slots">
+    <option id="option-with-id" value="select_option" selected>Number of slots you'll teach</option>
+    {{#each number_of_slots}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
 </span>

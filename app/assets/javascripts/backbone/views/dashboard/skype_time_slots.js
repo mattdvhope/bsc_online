@@ -27,10 +27,17 @@ var SkypeTimeSlotsView = Backbone.View.extend({
     })
     .then(function(collection_objects) {
       $("#time-slot-template").remove();
+      var number_of_slots = collection_objects.length;
+      var num_slots_array = [];
+      for (i = 0; i < number_of_slots; i++) { 
+        num_slots_array.push(i + 1);
+      }
+      var slot_number_array = 
       $("#list-avail-skype").after(
         view_context.template({
           no_time_slots: noTimeSlots(),
-          time_slots: collection_objects
+          time_slots: collection_objects,
+          number_of_slots: num_slots_array
         })
       );
       function noTimeSlots() {
