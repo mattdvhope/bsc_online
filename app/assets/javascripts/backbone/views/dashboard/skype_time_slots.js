@@ -32,7 +32,6 @@ var SkypeTimeSlotsView = Backbone.View.extend({
       for (i = 0; i < number_of_slots; i++) { 
         num_slots_array.push(i + 1);
       }
-      var slot_number_array = 
       $("#list-avail-skype").after(
         view_context.template({
           no_time_slots: noTimeSlots(),
