@@ -185,11 +185,8 @@ console.log($(e.target)[0]);
   },
 
   render: function() {
-
     if (this.no_vol_with_slots()) { // render the template here w/o Promises
       this.$el.html(this.template({
-
-
         no_vol_with_slots: true
       }));
       return this;
