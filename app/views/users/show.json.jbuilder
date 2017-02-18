@@ -3,6 +3,7 @@ json.first_name             @user.first_name
 json.last_name              @user.last_name
 json.gender                 @user.gender
 json.email                  @user.email
+json.skype_time_slots       @user.skype_time_slots
 json.skype_name             @user.skype_name
 json.number_of_slots        @user.number_of_slots
 json.age                    @user.age

@@ -5,6 +5,9 @@ json.last_name              @user.last_name
 json.age                    @user.age
 json.gender                 @user.gender
 json.email                  @user.email
+json.skype_name             @user.skype_name
+json.number_of_slots        @user.number_of_slots
+json.skype_time_slots       @user.skype_time_slots
 json.national_id            @user.national_id
 json.password_digest        @user.password_digest
 json.phone_number           @user.phone_number
