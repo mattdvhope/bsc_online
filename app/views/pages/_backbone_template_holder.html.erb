@@ -33,6 +33,7 @@
 
 <% if current_user %>
   <div id="user-now" data-present-user="<%= current_user.to_json %>"></div>
+  <div id="user-slots" data-user-slots="<%= current_user.skype_time_slots.to_json %>"></div>
 <% end %>
 
 

@@ -47,8 +47,21 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    render :nothing => true
+    if params[:number_of_slots] #|| params[:number_of_slots] == 0
+      @user.number_of_slots = params[:number_of_slots]
+      add_number_of_slots_to_volunteer(@user)
+    else
+      @user.update_attributes(user_params)
+      render :nothing => true
+    end
+  end
+
+  def add_number_of_slots_to_volunteer(user)
+    if user.save!(:validate => false)
+      render "show"
+    else
+      render :json => { :errors => user.errors.full_messages }, :status => 422
+    end
   end
 
   def approve_admin
@@ -83,7 +96,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :skype_name, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :national_id, :uid_facebook)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :skype_name, :number_of_slots, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :national_id, :uid_facebook)
     end
 
     def deal_with_guest(user)

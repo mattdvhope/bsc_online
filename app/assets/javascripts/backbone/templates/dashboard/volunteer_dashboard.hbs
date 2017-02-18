@@ -14,14 +14,19 @@
   <br>
 
   <div>
-    <h2>Welcome to the "City English Project," {{first_name}} as a volunteer!</h2>
+    <h2 id="volunteer-welcome">Welcome to the "City English Project," {{volunteer.first_name}} as a Skype-partner!</h2>
+    {{!-- {{#if one_slot}}
+      <h4 id="current-numbers-slots">You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>
+    {{^}}
+      <h4 id="current-numbers-slots">You have currently decided to be available for {{volunteer.number_of_slots}} Skype-partner time periods, but you can change/edit that below.</h4>
+    {{/if}} --}}
     <hr>
 
     <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
 
-      <h2>Click here to add one or more Skype time slots to your list of available time slots.</h2>
+      <h2>Click here to select the Skype time slots.  The slots are for once a week (half hour each time) for 8 weeks.</h2>
       <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTime" aria-expanded="false" aria-controls="collapseSkypeTime">
         <span id="open-to-add">Add time slot</span>
       </h2>

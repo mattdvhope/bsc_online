@@ -12,17 +12,44 @@ var VolunteerDashboardView = Backbone.View.extend({
   events: {
     'click #delete-skype-slot': "deleteSkypeTimeSlot",
     'click #add-skype-slots': function (e) {
+console.log(e);
       e.preventDefault();
       this.removeErrorMsg();
       this.add_skype_slots();
     },
     'click #open-to-add': function (e) {
       $("#choosing-many-slots").toggle();
-    }
+    },
+    "change #number-of-slots": 'changeVolunteerSlotNumber'
+  },
+
+  changeVolunteerSlotNumber: function() {
+    var view_context = this;
+    var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
+    var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
+
+    var promise = new Promise(function(resolve, reject) {
+      resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
+    });
+
+    promise
+    .then(function(volunteer_obj) {
+      $("#current-numbers-slots").remove();
+      if (volunteer_obj.number_of_slots == 1) {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>")
+      } else {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " Skype-partner time periods, but you can change/edit that below.</h4>")
+      }
+      $("#skype-time-partial").remove();
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   },
 
   deleteSkypeTimeSlot: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
+    var view_context = this;
     var slot = new SkypeTimeSlot({id: parseInt($(e.target)[0].dataset.id)});
     var promise = new Promise(function(resolve, reject) {
       resolve(slot.destroy());
@@ -30,8 +57,14 @@ var VolunteerDashboardView = Backbone.View.extend({
 
     promise
     .then(function(slot) {
-      var skype_time_slots_view = new SkypeTimeSlotsView();
-      skype_time_slots_view.render();
+      view_context.renderTimeSlotView();
+      return view_context.model;
+    })
+    .then(function(volunteer) {
+      var volunteer = new User({id: volunteer.get("id"), number_of_slots: 0});
+      volunteer.save();
+      $("#current-numbers-slots").remove();
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time periods (because you deleted a slot), but you can change/edit that below.</h4>")
     })
     .catch(function(error) {
       console.log(error);
@@ -66,6 +99,10 @@ var VolunteerDashboardView = Backbone.View.extend({
       }
     }); // each
 
+    if (time_slot_parts.length === 4) { 
+      time_slot_parts.pop(); // to remove 'number_of_slots' when it is selected; keeps time_slot_parts.length equal to 3
+    }
+
     var regex = /(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\d\d?:(00|30)\s-\s\d\d?:(00|30)(AM|PM)\sEST/
     if (time_slot_parts.length === 0) {
       this.addErrorMsgToDOM();
@@ -89,9 +126,11 @@ var VolunteerDashboardView = Backbone.View.extend({
 
         time_slot.save({}, {
           success: function (model, response, options) {
+// console.log(model);
             view_context.renderTimeSlotView();
           },
           error: function (model, response, options) {
+// console.log(response);
             console.log(response);
           }
         });
@@ -108,7 +147,7 @@ var VolunteerDashboardView = Backbone.View.extend({
   },
 
   renderTimeSlotView: function() {
-    var skype_time_slots_view = new SkypeTimeSlotsView();
+    var skype_time_slots_view = new SkypeTimeSlotsView({model: this.model});
     skype_time_slots_view.render();
   },
 
@@ -116,10 +155,13 @@ var VolunteerDashboardView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
+      volunteer: this.model.toJSON(),
+      one_slot: this.model.toJSON().number_of_slots == 1
     }));
 
     this.renderTimeSlotView();
+
+    return this;
   }
 
 });
