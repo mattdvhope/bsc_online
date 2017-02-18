@@ -34,10 +34,10 @@ var VolunteerDashboardView = Backbone.View.extend({
     promise
     .then(function(volunteer_obj) {
       $("#current-numbers-slots").remove();
-      if (volunteer_obj.number_of_slots == 1) {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 1 Skype-partner time slot, but you can change/edit that below.</h4>")
+      if (volunteer_obj.number_of_slots == 0) {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
       } else {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " Skype-partner time slots, but you can change/edit that below.</h4>")
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " of your Skype-partner time slots, but you can change/edit that below.</h4>")
       }
       $("#skype-time-partial").remove();
     })
