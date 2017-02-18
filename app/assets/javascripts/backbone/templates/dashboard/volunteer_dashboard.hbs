@@ -14,7 +14,12 @@
   <br>
 
   <div>
-    <h2>Welcome to the "City English Project," {{first_name}} as a Skype-partner!</h2>
+    <h2 id="volunteer-welcome">Welcome to the "City English Project," {{volunteer.first_name}} as a Skype-partner!</h2>
+    {{!-- {{#if one_slot}}
+      <h4 id="current-numbers-slots">You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>
+    {{^}}
+      <h4 id="current-numbers-slots">You have currently decided to be available for {{volunteer.number_of_slots}} Skype-partner time periods, but you can change/edit that below.</h4>
+    {{/if}} --}}
     <hr>
 
     <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">

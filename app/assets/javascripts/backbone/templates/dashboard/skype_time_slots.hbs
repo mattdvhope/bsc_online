@@ -1,4 +1,5 @@
 <span id="time-slot-template">
+
   {{#if no_time_slots}}
     <h4>(You have not scheduled any time slots yet.)</h4>
   {{^}}
@@ -11,10 +12,10 @@
     </span>
   {{/if}}
 
-  <select name="skype-day" id="number-of-slots">
-    <option id="option-with-id" value="select_option" selected>Number of slots you'll teach</option>
-    {{#each number_of_slots}}
-      <option value="{{this}}">{{this}}</option>
+  <select name="number-of-slots" id="number-of-slots">
+    <option id="option-with-id" value="select_option" selected>Select number of slots you'll teach</option>
+    {{#each all_slots}}
+      <option class="slot-numbers" value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
 

@@ -68,6 +68,12 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
+    if (volunteer.get("number_of_slots") == 1) {
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>")
+    }
+    else {
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " Skype-partner time periods, but you can change/edit that below.</h4>")
+    }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
     skype_docs_view.render();
@@ -146,6 +152,8 @@ var App = {
   },
   presentUserModel: function() {
     var user_object = $("#user-now").data("present-user");
+    var skype_time_slots = $("#user-slots").data("user-slots");
+    user_object.skype_time_slots = skype_time_slots
     return new Backbone.Model(user_object);
   },
   openApplicationForm: function() {
