@@ -12,7 +12,6 @@ var VolunteerDashboardView = Backbone.View.extend({
   events: {
     'click #delete-skype-slot': "deleteSkypeTimeSlot",
     'click #add-skype-slots': function (e) {
-console.log(e);
       e.preventDefault();
       this.removeErrorMsg();
       this.add_skype_slots();
