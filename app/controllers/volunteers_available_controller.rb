@@ -26,8 +26,8 @@ class VolunteersAvailableController < ApplicationController
   end
 
   def show # available skype time slots of each volunteer
-    slots = SkypeTimeSlot.where("skype_time_slots.available = ? OR skype_time_slots.student_id = ?", true, current_user.id)
-    @skype_time_slots = slots.where("skype_time_slots.volunteer_id = ?", params[:id])
+    slots = SkypeTimeSlot.where("skype_time_slots.volunteer_id = ?", params[:id])
+    @skype_time_slots = slots.where("skype_time_slots.available = ? OR skype_time_slots.student_id = ?", true, current_user.id)
   end
 
 end
