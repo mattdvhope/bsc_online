@@ -24,6 +24,10 @@ var NavBarView = Backbone.View.extend({
     'click #volunteer-steps-point': function (e) {
       var el = document.getElementById("volunteer-steps");
       el.scrollIntoView();
+    },
+    'click #schedule-point': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
     }
   },
 
@@ -38,6 +42,9 @@ var NavBarView = Backbone.View.extend({
   },
   features: function() {
     return choose_language("Features", "บริการของเรา");
+  },
+  schedule: function() {
+    return choose_language("Schedule", "ตารางเวลา");
   },
   get_started: function() {
     return choose_language("Get Started", "เริ่มต้นกับเรา");
@@ -79,6 +86,7 @@ var NavBarView = Backbone.View.extend({
       thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
+      schedule: this.schedule(),
       get_started: this.get_started(),
       holistic: this.holistic(),
       contact_us: this.contact_us(),

@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:number_of_slots] #|| params[:number_of_slots] == 0
+    if params[:number_of_slots]
       @user.number_of_slots = params[:number_of_slots]
       add_number_of_slots_to_volunteer(@user)
     else

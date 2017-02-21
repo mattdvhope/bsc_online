@@ -68,11 +68,11 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    if (volunteer.get("number_of_slots") == 1) {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>")
+    if (volunteer.get("number_of_slots") == 0) {
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
     }
     else {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " Skype-partner time periods, but you can change/edit that below.</h4>")
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
@@ -257,6 +257,7 @@ var App = {
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
         app_obj.openApplicationForm();
+        // app_obj.getGeneralSchedModal();
       }
       else if (gon.page_needed === "volunteer_info") {
         app_obj.getVolunteerPage();

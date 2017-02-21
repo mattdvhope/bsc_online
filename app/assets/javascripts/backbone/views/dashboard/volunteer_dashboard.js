@@ -12,7 +12,6 @@ var VolunteerDashboardView = Backbone.View.extend({
   events: {
     'click #delete-skype-slot': "deleteSkypeTimeSlot",
     'click #add-skype-slots': function (e) {
-console.log(e);
       e.preventDefault();
       this.removeErrorMsg();
       this.add_skype_slots();
@@ -35,10 +34,10 @@ console.log(e);
     promise
     .then(function(volunteer_obj) {
       $("#current-numbers-slots").remove();
-      if (volunteer_obj.number_of_slots == 1) {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 1 Skype-partner time period, but you can change/edit that below.</h4>")
+      if (volunteer_obj.number_of_slots == 0) {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
       } else {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " Skype-partner time periods, but you can change/edit that below.</h4>")
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
       }
       $("#skype-time-partial").remove();
     })
@@ -64,7 +63,7 @@ console.log(e);
       var volunteer = new User({id: volunteer.get("id"), number_of_slots: 0});
       volunteer.save();
       $("#current-numbers-slots").remove();
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time periods (because you deleted a slot), but you can change/edit that below.</h4>")
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots (because you deleted a slot) out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     })
     .catch(function(error) {
       console.log(error);

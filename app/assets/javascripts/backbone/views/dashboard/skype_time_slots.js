@@ -32,11 +32,14 @@ var SkypeTimeSlotsView = Backbone.View.extend({
       for (i = 0; i < all_slots+1; i++) { 
         num_slots_array.push(i);
       }
+
+      var hours_ahead = volunteerIsInDaylightSavingsTime() ? 11 : 12;
       $("#list-avail-skype").after(
         view_context.template({
           no_time_slots: noTimeSlots(),
           time_slots: collection_objects,
-          all_slots: num_slots_array
+          all_slots: num_slots_array,
+          hours_ahead: hours_ahead
         })
       );
       function noTimeSlots() {
