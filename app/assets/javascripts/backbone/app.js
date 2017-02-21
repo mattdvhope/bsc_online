@@ -257,6 +257,7 @@ var App = {
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
         app_obj.openApplicationForm();
+        // app_obj.getGeneralSchedModal();
       }
       else if (gon.page_needed === "volunteer_info") {
         app_obj.getVolunteerPage();

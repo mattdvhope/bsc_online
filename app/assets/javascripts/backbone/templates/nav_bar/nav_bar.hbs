@@ -39,7 +39,12 @@
             {{#if volunteer_info_visible}}
               <li><a id="volunteer-steps-point" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
             {{^}}
-              <li><a id="features-point" class="page-scroll nav-hover">{{features}}</a></li>
+              {{!-- <li><a id="features-point" class="page-scroll nav-hover">{{features}}</a></li> --}}
+
+              <li><a id="schedule-point" class="modal-initiator nav-hover"  href="#" data-toggle="modal" data-target="#generalschedulemodal">
+                {{schedule}}
+              </a></li>
+
 
               <li role="separator" class="divider"></li>
 
