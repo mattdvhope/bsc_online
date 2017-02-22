@@ -5,18 +5,21 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    // 'click #click-welcome': function (e) {
-    //   var el = document.getElementById("welcome-caption-id");
-    //   el.scrollIntoView();
-    // },
     'click #get-to-get-started': function (e) {
       var el = document.getElementById("get-started");
       el.scrollIntoView();
     },
+    'click #click-schedule': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
+    }
   },
 
   window_width: function() {
     return $(window).width() > 550
+  },
+  schedule: function() {
+    return choose_language("Schedule", "ตารางเวลา");
   },
   login_button_language: function() {
     return choose_language("Login", "เข้าสู่ระบบ");
@@ -52,6 +55,7 @@ var MainFrontView = Backbone.View.extend({
     this.$el.html(this.template({
       window_big: this.window_width(),
       thai_language: thai_language(),
+      schedule: this.schedule(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
