@@ -8,11 +8,9 @@
       {{/if}}
       <div class="top-front-caption">
         <div class="text-box">
-          {{#if thai_language}}
-              {{> front/thai/_top_welcome }}
-            {{^}}
-              {{> front/english/_top_welcome }}
-          {{/if}}
+          <a id="click-schedule" class="modal-initiator nav-hover"  href="#" data-toggle="modal" data-target="#generalschedulemodal">
+            {{schedule}}
+          </a>
         </div>
       </div>
     </div>
