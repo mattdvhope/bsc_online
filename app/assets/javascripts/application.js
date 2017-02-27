@@ -7,6 +7,7 @@
 //= require underscore/underscore
 //= require backbone/backbone
 //= require backbone-nested-attributes/all
+//= require backbone.stickit/backbone.stickit
 //= require bootstrap-sass-official
 //= require sweetalert
 

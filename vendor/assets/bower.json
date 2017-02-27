@@ -6,6 +6,7 @@
     "backbone": "latest",
     "jshint": "latest",
     "sweetalert": "latest",
-    "fontfaceobserver": "latest"
+    "fontfaceobserver": "latest",
+    "backbone.stickit": "latest"
   }
 }
