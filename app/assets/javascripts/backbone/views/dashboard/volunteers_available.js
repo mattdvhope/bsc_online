@@ -15,8 +15,35 @@ var VolunteersAvailableView = Backbone.View.extend({
       }
     });
 
+    window.Handlebars.registerHelper('disableSomeSlots', function(context, options) {
+      var ret = "";
+      var one_slot_chosen = false;
+      for(var i = 0; i < context.length; i++) {
+        if (context[i].available == false) {
+          one_slot_chosen = true;
+          break;
+        }
+      }
+
+      if (one_slot_chosen === true) {
+        for(var i=0, j=context.length; i<j; i++) {
+          var $el = $(options.fn(context[i]));
+          ret = ret + '<div id="checkArray">' + $el.html() + '</div>';
+        }
+      } else {
+        for(var i=0, j=context.length; i<j; i++) {
+          var $el = $(options.fn(context[i]));
+          $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').attr("disabled", false);
+          ret = ret + '<div id="checkArray">' + $el.html() + '</div>';
+        }
+      }
+      return ret;
+    }); // registerHelper
+
+    // this.first_vol_id = _.first(this.collection.toJSON()).id; // used in 'render'
+
     this.setElement($("#volunteers-avail-view-to-be-attached"));
-  },
+  }, // initialize
 
   events: {
     // 'click .volunteer-profile-modal': function (e) {
@@ -153,6 +180,7 @@ var VolunteersAvailableView = Backbone.View.extend({
       return this;
     } else { // render the template here WITH Promises
       var view_context = this;
+
       function sequence(volunteers, callback) { // see page 32 in book, "JS with Promises"
         return volunteers.reduce(function chain(promise, volunteer) {
           return promise.then(function () {
@@ -160,6 +188,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           });
         }, Promise.resolve());
       }
+
       sequence(this.collection, function(volunteer) {
         return getVolunteerSlots(volunteer)
           .then(function(slots) {
@@ -178,21 +207,16 @@ var VolunteersAvailableView = Backbone.View.extend({
             });
           })
           .then(function(slots) {
-            volunteer.set({skype_time_slots: slots});
-            volunteer.set({number_of_slots_listed: slots.length});
-            view_context.$el.html(view_context.template({
-              no_vol_with_slots: false,
-              volunteers: view_context.collection.toJSON(),
-              first_name: view_context.model.get("first_name")
-            }));
-
-            slots.forEach(function (slot) {
-              if (!$(".checkers[data-id=" + slot.id + "]").prop('checked')) {
-                $(".checkers[data-id=" + slot.id + "]").attr("disabled", true);
-              }
-            });
-
-            return view_context;
+            // if (volunteer.get("id") === view_context.first_vol_id) { // to prevent multiple renderings
+              volunteer.set({skype_time_slots: slots});
+              volunteer.set({number_of_slots_listed: slots.length});
+              view_context.$el.html(view_context.template({
+                no_vol_with_slots: false,
+                volunteers: view_context.collection.toJSON(),
+                first_name: view_context.model.get("first_name")
+              }));
+              return view_context;
+            // } 
           })
       })
       .catch(function (reason) {
@@ -208,5 +232,3 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   } // render
 });
-
-
