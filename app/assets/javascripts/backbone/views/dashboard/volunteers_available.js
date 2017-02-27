@@ -45,11 +45,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     this.setElement($("#volunteers-avail-view-to-be-attached"));
   }, // initialize
 
-  bindings: {
-    '#title': 'title',
-    '#author': 'authorName'
-  },
-
   events: {
     // 'click .volunteer-profile-modal': function (e) {
     //   var volunteerFirstName = $(e.target)[0].dataset.firstName;
@@ -220,7 +215,6 @@ var VolunteersAvailableView = Backbone.View.extend({
                 volunteers: view_context.collection.toJSON(),
                 first_name: view_context.model.get("first_name")
               }));
-              view_context.stickit();
               return view_context;
             // } 
           })
