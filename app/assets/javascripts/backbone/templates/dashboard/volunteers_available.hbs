@@ -22,7 +22,7 @@
         {{#disableSomeSlots this.skype_time_slots}}
           <div id="checkArray">
           {{#if this.available}}
-            <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox" disabled="disabled">
+            <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
             <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day_thai}} {{this.time_thai}}</span>
           {{else}}
             {{> skype_time_slot_input }}
