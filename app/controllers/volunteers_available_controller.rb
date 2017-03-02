@@ -12,12 +12,10 @@ class VolunteersAvailableController < ApplicationController
       end
     end
 
-    avail_vols = [] #eliminate volunteers w/ slots all filled
+    avail_vols = [] #eliminate volunteers w/ one slot filled
     vols_with_any_slots.each do |vol|
-      vol.skype_time_slots.each do |slot|
-        if slot.available == true || slot.student_id == current_user.id
-          avail_vols.push(vol) 
-        end
+      unless vol.skype_time_slots.any?{|slot| slot.available == false && slot.student_id != current_user.id}
+        avail_vols.push(vol)
       end
     end
 
