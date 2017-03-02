@@ -29,7 +29,6 @@ var VolunteersAvailableView = Backbone.View.extend({
 
       if (one_slot_chosen === true) {
         any_slot_chosen++
-console.log(any_slot_chosen);
         for(var i=0, j=context.length; i<j; i++) {
           var $el = $(options.fn(context[i]));
           if (context[i].student_id) {
