@@ -153,12 +153,15 @@ var VolunteersAvailableView = Backbone.View.extend({
       var volunteer_first_name = $(e.target)[0].dataset.firstname;
       var volunteer_last_name = $(e.target)[0].dataset.lastname;
       var volunteer = new VolunteerForStudent({id: volunteer_id});
+      var student = this.model;
+      var gender_particle = student.gender === "male" || "Male" || "ผู้ชาย" ? "ครับ" : "ค่ะ";
       volunteer.fetch({
         success: function (model, response, options) {
           console.log("success");
+          console.log(student.toJSON());
           swal({
-            title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
+            title: "ขอบคุณ" + gender_particle + "!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
