@@ -17,7 +17,7 @@
         <h4>อายุ: {{this.age}}</h4>
         <h4>รัฐ: {{this.province}}</h4>
         <h4>ประเทศ: {{this.country}}</h4>
-        <h4 id="choose-skype-time">Choose skype times with {{this.first_name}}.  {{this.first_name}} is available for only 1{{!-- {{this.number_of_slots}} --}} of these {{this.number_of_slots_listed}} slots:</h4>
+        <h4 id="choose-skype-time">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ {{this.first_name}}.  {{this.first_name}} is available for only 1{{!-- {{this.number_of_slots}} --}} of these {{this.number_of_slots_listed}} slots:</h4>
 
         {{#disableSomeSlots this.skype_time_slots}}
           <div id="checkArray">
@@ -30,10 +30,9 @@
           {{/if}}
           </div>
         {{/disableSomeSlots}}
-
-        <h4>After you choose some slots from {{this.first_name}}, please click on this green button.  An auto-email will be sent to inform {{this.first_name}} that you want to be a Skype partner, {{../first_name}}.</h4>
+        <h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก {{this.first_name}} กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง {{this.first_name}} ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย {{this.first_name}}</h4>
         <button id="connect-with-volunteer" class="btn btn-success" data-id={{this.id}} data-firstname={{this.first_name}} data-lastname={{this.last_name}}>
-          Auto-email to {{this.first_name}}
+          ส่งอีเมลอัตโนมัติถึง {{this.first_name}}
         </button>
         <hr>
       </li>

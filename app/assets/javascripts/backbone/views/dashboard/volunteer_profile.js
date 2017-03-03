@@ -17,7 +17,7 @@ var VolunteerProfileView = Backbone.View.extend({
           console.log("success");
           swal({
             title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
+            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
