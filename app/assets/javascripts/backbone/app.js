@@ -259,10 +259,10 @@ var App = {
         app_obj.openApplicationForm();
         // app_obj.getGeneralSchedModal();
       }
-      else if (gon.page_needed === "volunteer_info") {
+      else if (gon.page_needed === "volunteer_info" || gon.page_needed === "admin") {
         app_obj.getVolunteerPage();
       }
-      else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+      else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "volunteer") {
