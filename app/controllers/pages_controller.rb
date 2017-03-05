@@ -19,7 +19,7 @@ class PagesController < ApplicationController
         # @admin_applications = AdminApplication.all.order("id ASC")
         gon.page_needed = "leader"
       when "admin"
-        gon.page_needed = "admin"
+        gon.page_needed = "volunteer"
       when "volunteer"
         gon.page_needed = "volunteer"
       when "student"
