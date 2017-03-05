@@ -27,10 +27,10 @@ var LogInFormView = Backbone.View.extend({
 
     promise
     .then(function(result) { // 'result' means 'onFulfilled'
-      if (result.role === "leader" || result.role === "admin") {
+      if (result.role === "leader") {
         App.getDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
       }
-      else if (result.role === "volunteer") {
+      else if (result.role === "volunteer" || result.role === "admin") {
         App.getVolunteerDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
       }
       else if (result.role === "student") {
