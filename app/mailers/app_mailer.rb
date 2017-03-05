@@ -51,7 +51,6 @@ class AppMailer < ActionMailer::Base
     @skype_time_slots = @volunteer.skype_time_slots.where(student_id: @student.id)
     mg_client = Mailgun::Client.new ENV["api_key"]
     message_params = {
-      # :from    => "City English Project <" + ENV["username"] + ">",
       :from    => "City English Project <" + ENV["username"] + ">",
       :to      => @volunteer.email,
       :subject => "A Thai student wants to Skype with you, #{@volunteer.first_name}!",
