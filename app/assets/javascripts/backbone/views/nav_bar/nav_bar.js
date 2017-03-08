@@ -51,8 +51,8 @@ var NavBarView = Backbone.View.extend({
   courses: function() {
     return choose_language("Courses", "หลักสูตร");
   },
-  register_new_student: function() {
-    return choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
+  converse_online: function() {
+    return choose_language("Converse Online", "สมัครสนทนาออนไลน์");
   },
   you_can_speak: function() {
     return choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
@@ -83,7 +83,7 @@ var NavBarView = Backbone.View.extend({
       be_a_member: this.be_a_member(),
       contact_us: this.contact_us(),
       courses: this.courses(),
-      register_new_student: this.register_new_student(),
+      converse_online: this.converse_online(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),

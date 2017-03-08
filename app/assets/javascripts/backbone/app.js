@@ -134,7 +134,7 @@ var App = {
   instantiateStudentRegForm: function() {
     var student = new User();
     this.reg_form_modal = new StudentRegFormView({ model: student });
-    $("#registerstudentmodal").html(this.reg_form_modal.render().el);
+    $("#converseonlinemodal").html(this.reg_form_modal.render().el);
   },
   instantiateVolunteerRegForm: function() {
     var volunteer = new User();

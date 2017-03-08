@@ -29,7 +29,7 @@ var StudentRegFormView = Backbone.View.extend({
 
     var options = { // need PROMISE HERE!!! ..TO HAVE ACCESS TO (NEW) USER; first 'user' needs to SAVE (& enter a SESSION!!) and THEN we getStudentDashboardPage...the problem here is an attempted "success within a success (in App)" which just doesn't work!
       success: function (model, response, options) {
-        $("#registerstudentmodal").modal("hide");
+        $("#converseonlinemodal").modal("hide");
         App.removeNavAndPage();
         App.getStudentDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling

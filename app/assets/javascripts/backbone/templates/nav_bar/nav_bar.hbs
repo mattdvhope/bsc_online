@@ -42,36 +42,37 @@
               <li role="separator" class="divider"></li>
 
               <li><a id="be-a-member-point" class="page-scroll nav-hover">{{be_a_member}}</a></li>
-            {{/if}}
+              
+              <li class="dropdown">
+                <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{courses}}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li id="backbone-app">
+                    <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
+                      {{login}}
+                    </a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li id="backbone-app">
+                    <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
+                      {{you_can_speak}}
+                    </a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li id="backbone-app">
+                    <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#converseonlinemodal">
+                      {{converse_online}}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li role="separator" class="divider"></li>
+
+            {{/if}} <!-- else from 'if volunteer_info_visible' -->
 
             <li role="separator" class="divider"></li>
 
             <li><a id="contact-us-point" class="page-scroll nav-hover">{{contact_us}}</a></li>
-
-            <li class="dropdown">
-              <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{courses}}<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li id="backbone-app">
-                  <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#loginmodal">
-                    {{login}}
-                  </a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li id="backbone-app">
-                  <a id="drop-down-link" class="modal-initiator"  href="#" data-toggle="modal" data-target="#registerstudentmodal">
-                    {{register_new_student}}
-                  </a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li id="backbone-app">
-                  <a id="drop-down-link" class="modal-initiator non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
-                    {{you_can_speak}}
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li role="separator" class="divider"></li>
 
             <li class="dropdown">
               <a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{volunteer}}<span class="caret"></span></a>
