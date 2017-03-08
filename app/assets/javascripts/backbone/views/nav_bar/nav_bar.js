@@ -9,12 +9,8 @@ var NavBarView = Backbone.View.extend({
     'click #home-point': function (e) {
       App.getFrontMainPage();
     },
-    'click #features-point': function (e) {
-      var el = document.getElementById("features");
-      el.scrollIntoView();
-    },
-    'click #get-started-point': function (e) {
-      var el = document.getElementById("get-started");
+    'click #be-a-member-point': function (e) {
+      var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
     'click #contact-us-point': function (e) {
@@ -46,17 +42,14 @@ var NavBarView = Backbone.View.extend({
   schedule: function() {
     return choose_language("Schedule", "ตารางเวลา");
   },
-  get_started: function() {
-    return choose_language("Get Started", "เริ่มต้นกับเรา");
-  },
-  holistic: function() {
-    return choose_language("Holistic", "แบบองค์รวมรุ่น");
+  be_a_member: function() {
+    return choose_language("Be a member!", "สมัครสมาชิก!");
   },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
   },
-  student: function() {
-    return choose_language("Student", "ผู้เรียน");
+  courses: function() {
+    return choose_language("Courses", "หลักสูตร");
   },
   register_new_student: function() {
     return choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
@@ -87,10 +80,9 @@ var NavBarView = Backbone.View.extend({
       sign_up: this.sign_up(),
       features: this.features(),
       schedule: this.schedule(),
-      get_started: this.get_started(),
-      holistic: this.holistic(),
+      be_a_member: this.be_a_member(),
       contact_us: this.contact_us(),
-      student: this.student(),
+      courses: this.courses(),
       register_new_student: this.register_new_student(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
