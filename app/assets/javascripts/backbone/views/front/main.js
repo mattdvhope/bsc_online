@@ -19,7 +19,7 @@ var MainFrontView = Backbone.View.extend({
     return $(window).width() > 550
   },
   schedule: function() {
-    return choose_language("Schedule", "ตารางเวลา");
+    return choose_language("Schedule", "ตารางเรียน");
   },
   login_button_language: function() {
     return choose_language("Login", "เข้าสู่ระบบ");
