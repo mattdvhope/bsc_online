@@ -17,20 +17,3 @@ h2.partners-english {
 p.paragraph {
   font-family: 'Muli', sans-serif;
 }
-
-#nav {
-  background-color: #2D3179;
-  font-family: 'Muli', sans-serif;
-}
-
-#home-link, #top-point, #features-point, #schedule-point, #get-started-point, a#place_4, #contact-us-point, #volunteer-steps-point, #nav-dropdown  {
-  font-size: 120%;
-  color: #ffffff;
-  border: 2px;
-  cursor: pointer;
-}
-
-a#drop-down-link {
-  background-color: #2D3179;
-  color: #ffffff;
-}

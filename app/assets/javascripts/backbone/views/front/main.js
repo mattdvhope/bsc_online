@@ -5,8 +5,8 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    'click #get-to-get-started': function (e) {
-      var el = document.getElementById("get-started");
+    'click #get-to-be-a-member': function (e) {
+      var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
     'click #click-schedule': function (e) {
