@@ -11412,8 +11412,8 @@ return jQuery;
 })( jQuery );
 (function(){function m(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function n(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function l(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",l),a()})};function t(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
 this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
-function x(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=l;y(a)&&a.a.parentNode&&b(a.g)}var l=a;m(a.b,c);m(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function I(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function J(a,b){return[a.style,a.weight,I()?a.stretch:"","100px",b].join(" ")}
-A.prototype.load=function(a,b){var c=this,l=a||"BESbswy",r=0,D=b||3E3,G=(new Date).getTime();return new Promise(function(a,b){var e;null===F&&(F=!!document.fonts);if(e=F)null===C&&(C=/OS X.*Version\/10\..*Safari/.test(navigator.userAgent)&&/Apple/.test(navigator.vendor)),e=!C;if(e){e=new Promise(function(a,b){function f(){(new Date).getTime()-G>=D?b():document.fonts.load(J(c,'"'+c.family+'"'),l).then(function(c){1<=c.length?a():setTimeout(f,25)},function(){b()})}f()});var K=new Promise(function(a,
+function x(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font-synthesis:none;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=l;y(a)&&a.a.parentNode&&b(a.g)}var l=a;m(a.b,c);m(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function I(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function J(a,b){return[a.style,a.weight,I()?a.stretch:"","100px",b].join(" ")}
+A.prototype.load=function(a,b){var c=this,l=a||"BESbswy",r=0,D=b||3E3,G=(new Date).getTime();return new Promise(function(a,b){var e;null===F&&(F=!!document.fonts);if(e=F)null===C&&(C=/OS X.*Version\/10\.0.*Safari/.test(window.navigator.userAgent)&&/Apple/.test(window.navigator.vendor)),e=!C;if(e){e=new Promise(function(a,b){function f(){(new Date).getTime()-G>=D?b():document.fonts.load(J(c,'"'+c.family+'"'),l).then(function(c){1<=c.length?a():setTimeout(f,25)},function(){b()})}f()});var K=new Promise(function(a,
 c){r=setTimeout(c,D)});Promise.race([K,e]).then(function(){clearTimeout(r);a(c)},function(){b(c)})}else n(function(){function e(){var b;if(b=-1!=g&&-1!=h||-1!=g&&-1!=k||-1!=h&&-1!=k)(b=g!=h&&g!=k&&h!=k)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(g==u&&h==u&&k==u||g==v&&h==v&&k==v||g==w&&h==w&&k==w)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(r),a(c))}
 function H(){if((new Date).getTime()-G>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)g=f.a.offsetWidth,h=p.a.offsetWidth,k=q.a.offsetWidth,e();r=setTimeout(H,50)}}var f=new t(l),p=new t(l),q=new t(l),g=-1,h=-1,k=-1,u=-1,v=-1,w=-1,d=document.createElement("div");d.dir="ltr";x(f,J(c,"sans-serif"));x(p,J(c,"serif"));x(q,J(c,"monospace"));d.appendChild(f.a);d.appendChild(p.a);d.appendChild(q.a);document.body.appendChild(d);u=f.a.offsetWidth;v=p.a.offsetWidth;
 w=q.a.offsetWidth;H();z(f,function(a){g=a;e()});x(f,J(c,'"'+c.family+'",sans-serif'));z(p,function(a){h=a;e()});x(p,J(c,'"'+c.family+'",serif'));z(q,function(a){k=a;e()});x(q,J(c,'"'+c.family+'",monospace'))})})};"undefined"!==typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
@@ -18937,9 +18937,35 @@ window.fbAsyncInit = function() {
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/select_skype_time"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<br>\n<select name=\"skype-day\" id=\"skype-day-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Day for Skyping -- </option>\n  <option data-orderday=\"1\" value=\"Sunday\">Sunday</option>\n  <option data-orderday=\"2\" value=\"Monday\">Monday</option>\n  <option data-orderday=\"3\" value=\"Tuesday\">Tuesday</option>\n  <option data-orderday=\"4\" value=\"Wednesday\">Wednesday</option>\n  <option data-orderday=\"5\" value=\"Thursday\">Thursday</option>\n  <option data-orderday=\"6\" value=\"Friday\">Friday</option>\n  <option data-orderday=\"7\" value=\"Saturday\">Saturday</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-time\" id=\"skype-time-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Time for Skyping -- </option>\n  <option data-ordertime=\"1\" value=\"12:00 - 1:00\">12:00 - 1:00 EST</option>\n  <option data-ordertime=\"2\" value=\"1:00 - 2:00\">1:00 - 2:00 EST</option>\n  <option data-ordertime=\"3\" value=\"2:00 - 3:00\">2:00 - 3:00 EST</option>\n  <option data-ordertime=\"4\" value=\"3:00 - 4:00\">3:00 - 4:00 EST</option>\n  <option data-ordertime=\"5\" value=\"4:00 - 5:00\">4:00 - 5:00 EST</option>\n  <option data-ordertime=\"6\" value=\"5:00 - 6:00\">5:00 - 6:00 EST</option>\n  <option data-ordertime=\"7\" value=\"6:00 - 7:00\">6:00 - 7:00 EST</option>\n  <option data-ordertime=\"8\" value=\"7:00 - 8:00\">7:00 - 8:00 EST</option>\n  <option data-ordertime=\"9\" value=\"8:00 - 9:00\">8:00 - 9:00 EST</option>\n  <option data-ordertime=\"10\" value=\"9:00 - 10:00\">9:00 - 10:00 EST</option>\n  <option data-ordertime=\"11\" value=\"10:00 - 11:00\">10:00 - 11:00 EST</option>\n  <option data-ordertime=\"12\" value=\"11:00 - 12:00\">11:00 - 12:00 EST</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-m\" id=\"skype-m-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- AM or PM? -- </option>\n  <option data-orderam=\"1\" value=\"AM EST\">AM</option>\n  <option data-orderam=\"2\" value=\"PM EST\">PM</option>\n</select>\n\n";
+    return "<br>\n<select name=\"skype-day\" id=\"skype-day-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Day for Skyping -- </option>\n  <option data-orderday=\"1\" value=\"Sunday\">Sunday</option>\n  <option data-orderday=\"2\" value=\"Monday\">Monday</option>\n  <option data-orderday=\"3\" value=\"Tuesday\">Tuesday</option>\n  <option data-orderday=\"4\" value=\"Wednesday\">Wednesday</option>\n  <option data-orderday=\"5\" value=\"Thursday\">Thursday</option>\n  <option data-orderday=\"6\" value=\"Friday\">Friday</option>\n  <option data-orderday=\"7\" value=\"Saturday\">Saturday</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-time\" id=\"skype-time-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Time for Skyping -- </option>\n  <option data-ordertime=\"1\" value=\"12:00 - 12:30\">12:00 - 12:30 EST</option>\n  <option data-ordertime=\"2\" value=\"12:30 - 1:00\">12:30 - 1:00 EST</option>\n\n  <option data-ordertime=\"3\" value=\"1:00 - 1:30\">1:00 - 1:30 EST</option>\n  <option data-ordertime=\"4\" value=\"1:30 - 2:00\">1:30 - 2:00 EST</option>\n\n  <option data-ordertime=\"5\" value=\"2:00 - 2:30\">2:00 - 2:30 EST</option>\n  <option data-ordertime=\"6\" value=\"2:30 - 3:00\">2:30 - 3:00 EST</option>\n\n  <option data-ordertime=\"7\" value=\"3:00 - 3:30\">3:00 - 3:30 EST</option>\n  <option data-ordertime=\"8\" value=\"3:30 - 4:00\">3:30 - 4:00 EST</option>\n\n  <option data-ordertime=\"9\" value=\"4:00 - 4:30\">4:00 - 4:30 EST</option>\n  <option data-ordertime=\"10\" value=\"4:30 - 5:00\">4:30 - 5:00 EST</option>\n\n  <option data-ordertime=\"11\" value=\"5:00 - 5:30\">5:00 - 5:30 EST</option>\n  <option data-ordertime=\"12\" value=\"5:30 - 6:00\">5:30 - 6:00 EST</option>\n\n  <option data-ordertime=\"13\" value=\"6:00 - 6:30\">6:00 - 6:30 EST</option>\n  <option data-ordertime=\"14\" value=\"6:30 - 7:00\">6:30 - 7:00 EST</option>\n\n  <option data-ordertime=\"15\" value=\"7:00 - 7:30\">7:00 - 7:30 EST</option>\n  <option data-ordertime=\"16\" value=\"7:30 - 8:00\">7:30 - 8:00 EST</option>\n\n  <option data-ordertime=\"17\" value=\"8:00 - 8:30\">8:00 - 8:30 EST</option>\n  <option data-ordertime=\"18\" value=\"8:30 - 9:00\">8:30 - 9:00 EST</option>\n\n  <option data-ordertime=\"19\" value=\"9:00 - 9:30\">9:00 - 9:30 EST</option>\n  <option data-ordertime=\"20\" value=\"9:30 - 10:00\">9:30 - 10:00 EST</option>\n\n  <option data-ordertime=\"21\" value=\"10:00 - 10:30\">10:00 - 10:30 EST</option>\n  <option data-ordertime=\"22\" value=\"10:30 - 11:00\">10:30 - 11:00 EST</option>\n\n  <option data-ordertime=\"23\" value=\"11:00 - 11:30\">11:00 - 11:30 EST</option>\n  <option data-ordertime=\"24\" value=\"11:30 - 12:00\">11:30 - 12:00 EST</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-m\" id=\"skype-m-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- AM or PM? -- </option>\n  <option data-orderam=\"1\" value=\"AM EST\">AM</option>\n  <option data-orderam=\"2\" value=\"PM EST\">PM</option>\n</select>\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/select_skype_time"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/skype_documents_stu"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n\n  <h2>Skype partnership Documents:</h2>\n  <span id=\"skype-doc-stu-template\">\n    <h3>Each of these documents, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + ", is related to your Skype partnership with the American teacher.  Feel free to click on the icons of whichever documents you'll need to download.</h3>\n\n\n    <ul style=\"list-style: none;\">\n      <hr>\n      <li>\n        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + "</h4>\n        <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works between you and the American teacher.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>Here are some sample questions that you and the American teacher can talk about.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-ใบสมัคร</h4>\n        <p>This is a copy of a blank application form which you will have to fill out in order to have a Skype partnership with you (The CEP instructors may have given this to you already.  If so, you don't need this now.)</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Thai+student+appl+form.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n    </ul>\n    <h3>Here are the 8 course sheets which you will use for the next eight weeks with your American teacher.  Your teacher will also have a copy of them.</h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/skype_documents_stu"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/skype_documents_vol"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<span id=\"skype-doc-vol-template\">\n  <h3>Each of these documents, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + ", is related to your Skype partnership with Thai students.  Feel free to click on the icons of whichever documents you'll need to download.</h3>\n\n\n  <ul style=\"list-style: none;\">\n    <hr>\n    <li>\n      <h4>CEP-Partnership Information for you, "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + "</h4>\n      <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+volunteer.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Partnership Information for Thai students</h4>\n      <p>This is a document that the Thai students will receive, describing the program for them.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions</h4>\n      <p>Here are some sample questions that you can ask the Thai student.  This is not the actual course (which we'll provide for you below).  The Thai student will also receive duplicate questions, but with inline translations (you can look at that immediately below this document).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions (with Thai)</h4>\n      <p>Here are the same sample questions with inline Thai translations (as mentioned immediately above).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Thai student application form</h4>\n      <p>This is a copy of a blank application form which each Thai student will have to fill out in order to have a Skype partnership with you.  It's here for your perusal.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Thai+student+appl+form.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n  </ul>\n  <h3>Here are the 8 course sheets which you will use for the next eight weeks with your Thai student.  Your partner will also have a copy of them.  You might find it more convenient to print them out, but that's up to you.</h3>\n  <br>\n  <ul>\n    <li>\n      <h4>Week 1 - \"All About Me\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 2 - \"All About My Family\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 3 - \"All About Sports and Hobbies\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 4 - \"All About Jobs and Occupations\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 5 - \"All About Travel and Transportation\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 6 - \"All About Thailand\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 7 - \"All About America\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 8 - \"All About Friendship\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n  </ul>\n\n</span>";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/skype_documents_vol"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -18968,12 +18994,10 @@ window.fbAsyncInit = function() {
     var helper;
 
   return "<span id=\"skype-time-slot-available\" style=\"color: #8BC34A;\">"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day : depth0), depth0))
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day_thai : depth0), depth0))
     + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_period : depth0), depth0))
-    + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.am_pm : depth0), depth0))
-    + " with you, "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_thai : depth0), depth0))
+    + " กับคุณ, "
     + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
     + "</span>";
 },"useData":true});
@@ -18985,11 +19009,9 @@ window.fbAsyncInit = function() {
     var helper;
 
   return "<span id=\"skype-time-slot-available\">"
-    + this.escapeExpression(((helper = (helper = helpers.day || (depth0 != null ? depth0.day : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"day","hash":{},"data":data}) : helper)))
+    + this.escapeExpression(((helper = (helper = helpers.day_thai || (depth0 != null ? depth0.day_thai : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"day_thai","hash":{},"data":data}) : helper)))
     + " "
-    + this.escapeExpression(((helper = (helper = helpers.time_period || (depth0 != null ? depth0.time_period : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"time_period","hash":{},"data":data}) : helper)))
-    + " "
-    + this.escapeExpression(((helper = (helper = helpers.am_pm || (depth0 != null ? depth0.am_pm : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"am_pm","hash":{},"data":data}) : helper)))
+    + this.escapeExpression(((helper = (helper = helpers.time_thai || (depth0 != null ? depth0.time_thai : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"time_thai","hash":{},"data":data}) : helper)))
     + "</span>";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_time_slot_unchecked"];
@@ -18999,11 +19021,13 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/skype_time_slots"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "    <h4>(You have not scheduled any time slots yet.)</h4>\n";
 },"3":function(depth0,helpers,partials,data) {
-    var stack1;
+    var stack1, helper;
 
   return "    <span id=\"test-slot-list\">\n      <ul>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.time_slots : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "      </ul>\n    </span>\n";
+    + "      </ul>\n    </span>\n    <p>(Your Thai student will be "
+    + this.escapeExpression(((helper = (helper = helpers.hours_ahead || (depth0 != null ? depth0.hours_ahead : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"hours_ahead","hash":{},"data":data}) : helper)))
+    + " hours ahead of Eastern Standard Time. Please keep that in mind as you schedule your time slots.)</p>\n";
 },"4":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -19019,9 +19043,9 @@ window.fbAsyncInit = function() {
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<span id=\"time-slot-template\">\n"
+  return "<span id=\"time-slot-template\">\n\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_time_slots : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "</span>";
+    + "\n\n\n</span>";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_time_slots"];
 }).call(this);
@@ -19032,7 +19056,7 @@ window.fbAsyncInit = function() {
 
   return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n    <hr>\n    <h2>"
     + this.escapeExpression(((helper = (helper = helpers.welcome_note || (depth0 != null ? depth0.welcome_note : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"welcome_note","hash":{},"data":data}) : helper)))
-    + "</h2>\n  </div>\n  <h2>นี่คือรายชื่อของคู่สนทนาภาษาอังกฤษทาง Skype สำหรับคุณ กรุณาเลือกหนึ่งคน ในกรณีที่คุณต้องการเปลี่ยน คุณสามารถทำได้ง่ายๆโดยการเลือกคู่สนทนาคนใหม่</h2>\n  <br>\n</div>\n\n<script>\n  \n  \n</script>\n\n\n";
+    + "</h2>\n  </div>\n  <h2>ในกรณีที่คุณต้องการเปลี่ยนคู่สนทนา คุณสามารถทำได้ง่ายๆโดยการเลือกคู่สนทนาคนใหม่หรือเลือกช่วงเวลาใหม่</h2>\n</div>\n\n<span id=\"volunteers-avail-view-to-be-attached\"></span>\n\n<hr>\n<hr>\n<span id=\"skype-documents-stu-below\"></span>\n<!-- insert 'SkypeDocumentsStuView' template here-->\n<hr>\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/student_dashboard"];
 }).call(this);
@@ -19041,13 +19065,13 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/volunteer_dashboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n\n<div id=\"volunteer-dashboard-template\" class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2>Welcome to the \"City English Project,\" "
-    + this.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"first_name","hash":{},"data":data}) : helper)))
-    + " as a volunteer!</h2>\n    <hr>\n\n    <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n\n<div id=\"volunteer-dashboard-template\" class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2 id=\"volunteer-welcome\">Welcome to the \"City English Project,\" "
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + " as a Skype-partner!</h2>\n    <hr>\n\n    <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n      <h2>Click here to add one or more Skype time slots to your list of available time slots.</h2>\n      <h2 class=\"skype-slot-choice\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseSkypeTime\" aria-expanded=\"false\" aria-controls=\"collapseSkypeTime\">\n        <span id=\"open-to-add\">Add time slot</span>\n      </h2>\n      <div class=\"collapse\" id=\"collapseSkypeTime\">\n"
+    + ">\n\n      <h2>Click here to select the Skype time slots.  The slots are for once a week (half hour each time) for 8 weeks.</h2>\n      <h2 class=\"skype-slot-choice\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseSkypeTime\" aria-expanded=\"false\" aria-controls=\"collapseSkypeTime\">\n        <span id=\"open-to-add\">Add time slot</span>\n      </h2>\n      <div class=\"collapse\" id=\"collapseSkypeTime\">\n"
     + ((stack1 = this.invokePartial(partials.select_skype_time,depth0,{"name":"select_skype_time","data":data,"indent":"        ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "        <p class=\"est-times\">All times Eastern Standard Time (EST) zone. We will convert your time choice automatically into Thailand's time zone for the student to see.</p>\n\n        <br>\n        <div class=\"button-for-skype\">\n          <button id=\"add-skype-slots\" class=\"btn btn-primary\">Submit</button>\n        </div>\n      </div>\n\n      <h4 id=\"choosing-many-slots\">(You can choose as many slots as you like.)</h4>\n\n    </form>\n    <hr>\n\n    <h3 id=\"list-avail-skype\">List of your available time slots:</h3>\n    <!-- insert 'SkypeTimeSlotsView' template here-->\n    <hr>\n\n  </div>\n\n</div>";
+    + "        <p class=\"est-times\">All times Eastern Standard Time (EST) zone. We will convert your time slot choices automatically into Thailand's time zone for the student to see.</p>\n\n        <br>\n        <div class=\"button-for-skype\">\n          <button id=\"add-skype-slots\" class=\"btn btn-primary\">Submit</button>\n        </div>\n      </div>\n\n      <h4 id=\"choosing-many-slots\">(You can choose as many slots as you like.)</h4>\n\n    </form>\n    <hr>\n\n    <h3 id=\"list-avail-skype\">List of your available time slots:</h3>\n    <!-- insert 'SkypeTimeSlotsView' template here-->\n    <hr>\n    <h2 id=\"skype-documents-vol-below\">Skype partnership Documents:</h2>\n    <!-- insert 'SkypeDocumentsVolView' template here-->\n    <hr>\n\n  </div>\n\n</div>";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["dashboard/volunteer_dashboard"];
 }).call(this);
@@ -19075,55 +19099,47 @@ window.fbAsyncInit = function() {
 },"4":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "      <li>\n        <h3 style=\"cursor: pointer; text-decoration: underline;\" class=\"modal-initiator volunteer-profile-modal\" data-toggle=\"modal\" data-target=\"#volunteerprofile\" data-id="
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.id : depth0), depth0))
-    + " data-first-name="
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + " data-last-name="
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + " data-gender="
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.gender : depth0), depth0))
-    + " data-age="
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.age : depth0), depth0))
-    + " data-slots='"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.stringified_slots : depth0), depth0))
-    + "'>\n          "
+  return "      <li>\n        <h3>\n          ชื่อ: <span style=\"text-decoration: underline;\">"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + " "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + "\n        </h3>\n        <h4>\n"
+    + "</span>\n        </h3>\n        <h4>\n"
     + ((stack1 = (helpers.genderTranslate || (depth0 && depth0.genderTranslate) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.gender : depth0),{"name":"genderTranslate","hash":{},"fn":this.program(5, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "        </h4>\n        <h4>Age: "
+    + "        </h4>\n        <h4>อายุ: "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.age : depth0), depth0))
-    + "</h4>\n        <h4>State: "
+    + "</h4>\n        <h4>รัฐ: "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.province : depth0), depth0))
-    + "</h4>\n        <h4>Country: "
+    + "</h4>\n        <h4>ประเทศ: "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.country : depth0), depth0))
-    + "</h4>\n        <h4 id=\"choose-skype-time\">Choose skype times with "
+    + "</h4>\n        <h4 id=\"choose-skype-time\">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + ":</h4>\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.skype_time_slots : depth0),{"name":"each","hash":{},"fn":this.program(7, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "        <h4>After you choose some slots from "
+    + ".  "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + ", please click on this green button.  An auto-email will be sent to inform "
+    + " is available for only 1 of these "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.number_of_slots_listed : depth0), depth0))
+    + " slots:</h4>\n\n"
+    + ((stack1 = (helpers.disableSomeSlots || (depth0 && depth0.disableSomeSlots) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.skype_time_slots : depth0),{"name":"disableSomeSlots","hash":{},"fn":this.program(7, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        <h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + " that you want to be a Skype partner, "
-    + this.escapeExpression(this.lambda((depths[1] != null ? depths[1].first_name : depths[1]), depth0))
-    + ".</h4>\n        <button id=\"connect-with-volunteer\" class=\"btn btn-success\" data-id="
+    + " กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + " ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "</h4>\n        <button id=\"connect-with-volunteer\" class=\"btn btn-success\" data-id="
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.id : depth0), depth0))
     + " data-firstname="
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + " data-lastname="
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + ">\n          Auto-email to "
+    + ">\n          ส่งอีเมลอัตโนมัติถึง "
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + "\n        </button>\n\n\n        <hr>\n      </li>\n    ";
+    + "\n        </button>\n        <hr>\n      </li>\n    ";
 },"5":function(depth0,helpers,partials,data) {
     return "";
 },"7":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "          <div>\n"
+  return "          <div id=\"checkArray\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.available : depth0),{"name":"if","hash":{},"fn":this.program(8, data, 0, blockParams, depths),"inverse":this.program(10, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "          </div>\n";
 },"8":function(depth0,helpers,partials,data) {
@@ -19134,31 +19150,27 @@ window.fbAsyncInit = function() {
     + " type=\"checkbox\">\n            <span id=\"skype-time-slot-available\" data-order="
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.ordertime : depth0), depth0))
     + ">"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day : depth0), depth0))
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day_thai : depth0), depth0))
     + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_period : depth0), depth0))
-    + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.am_pm : depth0), depth0))
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_thai : depth0), depth0))
     + "</span>\n";
 },"10":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials.skype_time_slot_input,depth0,{"name":"skype_time_slot_input","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "            <span id=\"skype-time-slot-available\" style=\"color: #8BC34A;\">"
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day : depth0), depth0))
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.day_thai : depth0), depth0))
     + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_period : depth0), depth0))
-    + " "
-    + this.escapeExpression(this.lambda((depth0 != null ? depth0.am_pm : depth0), depth0))
-    + " with you, "
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.time_thai : depth0), depth0))
+    + " กับคุณ, "
     + this.escapeExpression(this.lambda((depths[3] != null ? depths[3].first_name : depths[3]), depth0))
     + "</span>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "<div class=\"container\">\n\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_volunteers : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
-    + "\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n</div> <!-- container -->\n\n";
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.no_vol_with_slots : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
+    + "\n</div> <!-- container -->\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
   return this.HandlebarsTemplates["dashboard/volunteers_available"];
 }).call(this);
@@ -19219,7 +19231,7 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(13, data, 0),"data":data})) != null ? stack1 : "")
     + "          </a>\n          <br>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.program(17, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <br>\n        <div> <!-- social media icons -->\n          <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Facebook.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.youtube.com/channel/UCcqBmxAGOstDdFbRImmnVWg\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+YouTube.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Instagram.png\" class=\"social-media-icon\"></a>\n        </div> <!-- social media icons -->\n        <br>\n      </div> <!-- footer-address -->\n      <div class=\"col-sm-6 col-xs-12\">\n        <div id=\"map-box\">\n          <iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d968.986814483854!2d100.5229871!3d13.721643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbcd972043dc4fdfc!2sCity+English+Project!5e0!3m2!1sen!2s!4v1479132826508\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\n        </div>\n      </div><!-- col-sm-6 col-xs-12 -->\n    </div><!-- row -->\n      <br>\n    <div class=\"row \">\n      <div class=\"copyright\">\n        <div>Copyright &copy; City English Project 2017-1</div>\n        <div>All rights reserved.</div>\n        <div>Flag images provided by <a href=\"http://www.icondrawer.com/\" target=\"_blank\">Icon Drawer</a></div>\n      </div>\n    </div> <!-- row -->\n    <br>\n    <br>\n    <br>\n  </div> <!-- container-full -->\n</div> \n\n\n\n\n\n\n\n";
+    + "        <br>\n        <div> <!-- social media icons -->\n          <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Facebook.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.youtube.com/channel/UCcqBmxAGOstDdFbRImmnVWg\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+YouTube.png\" class=\"social-media-icon\"></a>\n          <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\" target=\"_blank\"><img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Instagram+Logo.jpg\" class=\"social-media-icon\"></a>\n        </div> <!-- social media icons -->\n        <br>\n      </div> <!-- footer-address -->\n      <div class=\"col-sm-6 col-xs-12\">\n        <div id=\"map-box\">\n          <iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d968.986814483854!2d100.5229871!3d13.721643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbcd972043dc4fdfc!2sCity+English+Project!5e0!3m2!1sen!2s!4v1479132826508\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\n        </div>\n      </div><!-- col-sm-6 col-xs-12 -->\n    </div><!-- row -->\n      <br>\n    <div class=\"row \">\n      <div class=\"copyright\">\n        <div>Copyright &copy; City English Project 2017-1</div>\n        <div>All rights reserved.</div>\n        <div>Flag images provided by <a href=\"http://www.icondrawer.com/\" target=\"_blank\">Icon Drawer</a></div>\n      </div>\n    </div> <!-- row -->\n    <br>\n    <br>\n    <br>\n  </div> <!-- container-full -->\n</div> \n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["footer/footer"];
 }).call(this);
@@ -19241,109 +19253,30 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/_features", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  Handlebars.registerPartial("front/_be_a_member", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_be_a_member_top'],depth0,{"name":"front/thai/_be_a_member_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_be_a_member_top'],depth0,{"name":"front/english/_be_a_member_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"5":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_be_a_member_one'],depth0,{"name":"front/thai/_be_a_member_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"7":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_be_a_member_one'],depth0,{"name":"front/english/_be_a_member_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"9":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/thai/_community_boards'],depth0,{"name":"front/thai/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/thai/_be_a_member_two'],depth0,{"name":"front/thai/_be_a_member_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"11":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = this.invokePartial(partials['front/english/_community_boards'],depth0,{"name":"front/english/_community_boards","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"13":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"15":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"17":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_online_classes'],depth0,{"name":"front/thai/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"19":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_online_classes'],depth0,{"name":"front/english/_online_classes","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"21":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_ongoing_opportunities'],depth0,{"name":"front/thai/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"23":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_ongoing_opportunities'],depth0,{"name":"front/english/_ongoing_opportunities","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"25":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_we_look_forward'],depth0,{"name":"front/thai/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"27":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_we_look_forward'],depth0,{"name":"front/english/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper;
-
-  return "<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
-    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
-    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.png\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners.png\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Community+Boards.png\" alt=\"Community Boards\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n  </div>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups.png\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">\n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Online+Classes.png\" alt=\"Online Classes\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Ongoing+Opportunities.png\" alt=\"Ongoing Opportunities\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(21, data, 0),"inverse":this.program(23, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n  </div>\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(25, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "")
-    + "</div> <!-- Features -->";
-},"usePartial":true,"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/_get_started", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_top'],depth0,{"name":"front/thai/_get_started_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"3":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_top'],depth0,{"name":"front/english/_get_started_top","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"5":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_one'],depth0,{"name":"front/thai/_get_started_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"7":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_one'],depth0,{"name":"front/english/_get_started_one","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"9":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_get_started_two'],depth0,{"name":"front/thai/_get_started_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"11":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_get_started_two'],depth0,{"name":"front/english/_get_started_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+  return ((stack1 = this.invokePartial(partials['front/english/_be_a_member_two'],depth0,{"name":"front/english/_be_a_member_two","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"13":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -19363,7 +19296,7 @@ window.fbAsyncInit = function() {
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container-full\" id=\"get-started\">\n  <br>\n  <br>\n  <div id=\"get-started-centerer\">\n    <hr>\n    <hr>\n    <div class=\"row\">\n"
+  return "<div class=\"container-full\" id=\"be-a-member\">\n  <br>\n  <br>\n  <div id=\"be-a-member-centerer\">\n    <hr>\n    <hr>\n    <div class=\"row\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "    </div> <!-- row -->\n    <hr>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
@@ -19373,7 +19306,56 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.png\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(19, data, 0),"data":data})) != null ? stack1 : "")
-    + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <hr>\n    <br>\n    <br>\n  </div> <!-- get-started-centerer -->\n</div> <!-- container-full -->\n\n\n";
+    + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <hr>\n    <br>\n    <br>\n  </div> <!-- be-a-member-centerer -->\n</div> <!-- container-full -->\n\n\n";
+},"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/_features", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_city_talk_class'],depth0,{"name":"front/thai/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"3":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_city_talk_class'],depth0,{"name":"front/english/_city_talk_class","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"5":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_eng_conversation_partners'],depth0,{"name":"front/thai/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"7":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_eng_conversation_partners'],depth0,{"name":"front/english/_eng_conversation_partners","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_conversation_groups'],depth0,{"name":"front/thai/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"11":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_conversation_groups'],depth0,{"name":"front/english/_conversation_groups","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"13":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/thai/_we_look_forward'],depth0,{"name":"front/thai/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"15":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials['front/english/_we_look_forward'],depth0,{"name":"front/english/_we_look_forward","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
+    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
+    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.png\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners.png\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups.png\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "        </div>\n     </div>\n  </div>\n\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + "</div> <!-- Features -->";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -19452,28 +19434,20 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_welcome", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking.jpg\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n";
 },"3":function(depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking+mobile.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking+mobile2.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
 },"5":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/thai/_top_welcome'],depth0,{"name":"front/thai/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"7":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials['front/english/_top_welcome'],depth0,{"name":"front/english/_top_welcome","data":data,"indent":"              ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"9":function(depth0,helpers,partials,data) {
     return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png\" alt=\"wide picture\" class=\"img-responsive\">\n";
-},"11":function(depth0,helpers,partials,data) {
+},"7":function(depth0,helpers,partials,data) {
     return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png\" alt=\"narrow picture\" class=\"img-responsive\">\n";
-},"13":function(depth0,helpers,partials,data) {
+},"9":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "          <span style=\"font-size: 91%\">\n"
     + ((stack1 = this.invokePartial(partials['front/thai/_welcome_caption'],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "          </span>\n";
-},"15":function(depth0,helpers,partials,data) {
+},"11":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['front/english/_welcome_caption'],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -19482,12 +19456,10 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"top-front-screen\" style=\"padding-top: 50px;\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <div class=\"top-front-caption\">\n        <div class=\"text-box\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n      </div>\n    </div>\n  </div> \n</div>\n\n<div class=\"container-full main\" id=\"welcome-caption-id\">\n  <div class=\"row\">\n    <div class=\"welcome-screen\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </div>\n  </div> \n</div>\n\n<div class=\"container-full main\" id=\"welcome-caption-id\">\n  <div class=\"row\">\n    <div class=\"welcome-screen\">\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "      <div class=\"welcome-caption-content\">\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.program(15, data, 0),"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(9, data, 0),"inverse":this.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div>\n  </div> \n</div>\n\n\n\n\n\n\n\n\n\n\n\n";
 },"usePartial":true,"useData":true}));
 }).call(this);
@@ -19503,6 +19475,21 @@ window.fbAsyncInit = function() {
     + "</h3>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->";
 },"useData":true});
   return this.HandlebarsTemplates["front/class_details"];
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_be_a_member_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>Step 1:</h3>\n\n<span class=\"be-a-member-text\">Sign up online or in person at our Pan Road location for our five-lesson \"You Can Speak!\" conversational English, culture and worldview class. The classes are taught by TESOL certified, native English speakers and are offered at an introductory price of 499 baht!  <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here</a> for details and available class times.  We also offer on-site classes at businesses and schools. If you would like more information on how your business or school can host on-site \"You Can Speak!\" classes, <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">click here</a>....</span>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center be-a-member-top-title\">Be a Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  The City English Project is designed to help you excel in conversational English. To take advantage of all we have to offer, you must to become a network member. Becoming a member of the network involves two easy steps:\n</h3>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/english/_be_a_member_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>Step 2:</h3>\n\n<span class=\"be-a-member-text\">Upon successful completion of the \"You Can Speak!\" course, you will be given a FREE one-year membership to the City English Project online network. Network members have exclusive, unlimited access to message boards, online self-study and up-coming on-site classes and events. Members also have the opportunity to be matched with online conversation partners for a nominal fee.</span>";
+},"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_city_talk_class", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -19521,7 +19508,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_conversation_groups", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>Activities and Events</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional activities and events that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
+    return "<h4>CEP 1 - 2 - 3!</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional activities and events that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19531,12 +19518,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_friends_helping", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>Serving Thai People</h3>\n\n<span class=\"get-started-text\">We understand that studying English (especially with native English speakers) can be VERY expensive in Thailand.  That is one of the main reasons we started the project.  One question we often get asked is, \"How are your English classes and online partnerships so affordable?\" We are able to make our classes and partnerships affordable for two reasons.  First, we are a non-profit project. We exist to serve Thai people, not make money. All income is used to support and expand our services to you. Second, our TESOL certified English teachers and conversation partners are all volunteers. They are Christians who volunteer their time to serve and help the people of Thailand. They come from a <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#historymodal\">long history of Christian volunteers</a> who have loved and served Thai people.</span>\n\n\n";
+    return "<h3>Serving Thai People</h3>\n\n<span class=\"be-a-member-text\">We understand that studying English (especially with native English speakers) can be VERY expensive in Thailand.  That is one of the main reasons we started the project.  One question we often get asked is, \"How are your English classes and online partnerships so affordable?\" We are able to make our classes and partnerships affordable for two reasons.  First, we are a non-profit project. We exist to serve Thai people, not make money. All income is used to support and expand our services to you. Second, our TESOL certified English teachers and conversation partners are all volunteers. They are Christians who volunteer their time to serve and help the people of Thailand. They come from a <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#historymodal\">long history of Christian volunteers</a> who have loved and served Thai people.</span>\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_general_sched_activ_list", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>Upcoming activities at our center...</h3>\n<h4>Come and join us at these times for free English practice and fun conversation games at our CEP center....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>19 January, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Business Idioms!\"</h4></li>\n</ul>";
+    return "<h3>Upcoming activities at our center (CEP 1 - 2 - 3!)...</h3>\n<h4>Come and join us at these times for free English practice and fun conversation games at our CEP center....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>Thursday, 9 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n  <li><h3>Thursday, 16 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n  <li><h3>Thursday, 23 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19550,28 +19537,13 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/english/_get_started_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>Step 1:</h3>\n\n<span class=\"get-started-text\">Sign up online or in person at our Pan Road location for our five-lesson \"You Can Speak!\" conversational English, culture and worldview class. The classes are taught by TESOL certified, native English speakers and are offered at an introductory price of 499 baht!  <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here</a> for details and available class times.  We also offer on-site classes at businesses and schools. If you would like more information on how your business or school can host on-site \"You Can Speak!\" classes, <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">click here</a>....</span>";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/english/_get_started_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center get-started-top-title\">Let's Get Started!</h2>\n\n<h3 class=\"get-started-top-text\">\n  The City English Project is designed to help you excel in conversational English. To take advantage of all we have to offer, you must to become a network member. Becoming a member of the network involves two easy steps:\n</h3>";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/english/_get_started_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>Step 2:</h3>\n\n<span class=\"get-started-text\">Upon successful completion of the \"You Can Speak!\" course, you will be given a FREE one-year membership to the City English Project online network. Network members have exclusive, unlimited access to message boards, online self-study and up-coming on-site classes and events. Members also have the opportunity to be matched with online conversation partners for a nominal fee.</span>";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/english/_history_dan", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h3>\n  Christians in Thailand have a long history of serving and helping the Thai people.  For example, <a target='_blank' href='https://en.wikipedia.org/wiki/Dan_Beach_Bradley'>Dan Beach Bradley</a> is famous for introducing modern vaccination and surgery to Thailand as well as publishing the first Thai language newspaper.\n</h3>\n\n<h3>\n  The City English Project follows in the tradition of Dan Beach Bradley by helping modern Thai people grow in their ability with English and in their knowledge of other cultures.\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_holistic_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>A Holistic Model</h3>\n\n<span class=\"get-started-text\">The heart of what we do is conversational English. However, everyone knows that learning English is not enough to help you excel in cross-cultural business and personal relationships. That's why our model integrates basic elements of culture and worldview into our classes. For example, in our introductory City Talk class you will learn basic tips like how to shake hands and introduce yourself in a culturally appropriate way. You will also learn an easy-to-remember outline that gives you a basic understanding of the Christian worldview - a worldview that impacts, at least in some ways, over two billion people around the world. Our online network will also offer additional classes on culture and global worldviews. We want to do all we can to equip you for a successful life and career!</span>\n\n\n\n\n";
+    return "<h3>A Holistic Model</h3>\n\n<span class=\"be-a-member-text\">The heart of what we do is conversational English. However, everyone knows that learning English is not enough to help you excel in cross-cultural business and personal relationships. That's why our model integrates basic elements of culture and worldview into our classes. For example, in our introductory City Talk class you will learn basic tips like how to shake hands and introduce yourself in a culturally appropriate way. You will also learn an easy-to-remember outline that gives you a basic understanding of the Christian worldview - a worldview that impacts, at least in some ways, over two billion people around the world. Our online network will also offer additional classes on culture and global worldviews. We want to do all we can to equip you for a successful life and career!</span>\n\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19590,23 +19562,18 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/english/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "\n<a id=\"click-welcome\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here!</a>";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/english/_we_look_forward", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h2 class=\"text-center features-text-bottom\">We look forward to having you join us!</h2>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_welcome_caption", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <span id=\"get-to-get-started\">Click here</span> to learn more about us. Or, <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak!\" English class.\n";
+    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <span id=\"get-to-be-a-member\">Click here</span> to learn more about us. Or, <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak!\" English class.\n";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english_modal/_christian_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"get-started-text\">City Talk will help Thais grow in their understanding of other cultures and worldviews.  With ASEAN opening the trade borders in 2016, Thais not only need to excel in the chosen trade language (English), they also need to understand the cultures and worldviews of people around them.  One important worldview Thais will increasingly interact with is Christianity.  As trade and commerce increase throughout the ASEAN region, Thais will meet and develop relationships with government leaders, business managers, sales executives and students who are Christians.  For these relationships to be mutually beneficial and successful, both sides must understand each other's culture and worldview.  With that in mind, a recent sudy revealed that the majority of Thais (89%) do not understand the basics of the Christian worldview. Therefore, in an effort to help Tahis increase their knowledge of other worldviews, this course offers a 15-minute English lesson about the Christian worldview at the end of each class.  Students will see that the Chrstian worldview is not only interesting, but it is also simple to understand.</span>";
+    return "<span class=\"be-a-member-text\">City Talk will help Thais grow in their understanding of other cultures and worldviews.  With ASEAN opening the trade borders in 2016, Thais not only need to excel in the chosen trade language (English), they also need to understand the cultures and worldviews of people around them.  One important worldview Thais will increasingly interact with is Christianity.  As trade and commerce increase throughout the ASEAN region, Thais will meet and develop relationships with government leaders, business managers, sales executives and students who are Christians.  For these relationships to be mutually beneficial and successful, both sides must understand each other's culture and worldview.  With that in mind, a recent sudy revealed that the majority of Thais (89%) do not understand the basics of the Christian worldview. Therefore, in an effort to help Tahis increase their knowledge of other worldviews, this course offers a 15-minute English lesson about the Christian worldview at the end of each class.  Students will see that the Chrstian worldview is not only interesting, but it is also simple to understand.</span>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19697,7 +19664,7 @@ window.fbAsyncInit = function() {
     + "\n"
     + ((stack1 = this.invokePartial(partials['front/_features'],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "\n"
-    + ((stack1 = this.invokePartial(partials['front/_get_started'],depth0,{"name":"front/_get_started","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials['front/_be_a_member'],depth0,{"name":"front/_be_a_member","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "\n</div>\n\n<!-- nested modals in application_form.hbs -->\n"
     + ((stack1 = this.invokePartial(partials['front/_nested_modal'],depth0,{"name":"front/_nested_modal","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials['front/_nested_modal_christian_worldview'],depth0,{"name":"front/_nested_modal_christian_worldview","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
@@ -19706,6 +19673,21 @@ window.fbAsyncInit = function() {
     + "<!-- nested modals in application_form.hbs -->";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/main"];
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_be_a_member_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3>ขั้นตอนที่ 1</h3>\n\n<span class=\"be-a-member-text\">ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak!\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 499 บาท เท่านั้น! <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่ </a>เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">คลิกที่นี่</a>...</span>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_be_a_member_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h2 class=\"text-center be-a-member-top-title\">สมัครสมาชิก!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:\n</h3>";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/thai/_be_a_member_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<h3><span class=\"stepTitle\">ขั้นตอนที่ 2</span></h3>\n\n<span class=\"be-a-member-text\">เมื่อเรียนจบหลักสูตร \"You Can Speak!\" คุณจะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายออนไลน์โครงการซิตี้ อิงลิช ฟรี  1 ปี สมาชิกเครือข่ายจะได้รับสิทธิพิเศษที่ไม่จำกัดในการเข้าถึงกระดานข้อมูลข่าวสาร ชั้นเรียนออนไลน์ และชั้นเรียนและกิจกรรมต่างๆ ที่จะจัดขึ้นในพื้นที่กรุงเทพมหานคร นอกจากนี้สมาชิกเครือข่ายจะได้รับโอกาสในการสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาเจ้าของภาษา โดยมีค่าใช้จ่ายในการดำเนินการเพียงเล็กน้อย</span>\n";
+},"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_city_talk_class", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -19724,7 +19706,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_conversation_groups", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>กิจกรรมต่างๆ</h4>\n\n<p>สนใจฝึกฝนการสนทนาภาษาอังกฤษของคุณในบรรยากาศที่สบายๆ เป็นกันเองและสนุกสนานมั๊ย ? เรามีกิจกรรมเสริมเพื่อเพิ่มโอกาสในการสนทนาภาษาอังกฤษในบรรยากาศที่สบายๆ เป็นกันเองและเป็นธรรมชาติกับเจ้าของภาษา ติดตามเราทางโซเชียลมีเดียสำหรับวันและเวลาในการจัดกิจกรรมต่างๆ ของเราต่อไป</p>";
+    return "<h4>CEP 1 - 2 - 3!</h4>\n\n<p>สนใจฝึกฝนการสนทนาภาษาอังกฤษของคุณในบรรยากาศที่สบายๆ เป็นกันเองและสนุกสนานมั๊ย ? เรามีกิจกรรมเสริมเพื่อเพิ่มโอกาสในการสนทนาภาษาอังกฤษในบรรยากาศที่สบายๆ เป็นกันเองและเป็นธรรมชาติกับเจ้าของภาษา ติดตามเราทางโซเชียลมีเดียสำหรับวันและเวลาในการจัดกิจกรรมต่างๆ ของเราต่อไป</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19734,12 +19716,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_friends_helping", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>บริการรับใช้คนไทย</h3>\n\n<span class=\"get-started-text\">เราเข้าใจว่าการเรียนภาษาอังกฤษ (โดยเฉพาะอย่างยิ่งกับเจ้าของภาษา) ในประเทศไทยมีค่าใช้จ่ายที่แพงมาก สิ่งนี้เป็นหนึ่งในเหตุผลหลักที่ทำเราเริ่มต้นโครงการนี้ขึ้นมา คำถามหนึ่งที่เรามักจะถูกถามบ่อยๆ คือ \"ทำไมชั้นเรียนภาษาอังกฤษและการสนทนาภาษาอังกฤษออนไลน์ของคุณจึงมีราคาถูกมาก?\" ประการแรก เราเป็นโครงการที่ไม่แสวงหาผลกำไร โครงการของเราได้จัดตั้งขึ้นเพื่อให้บริการและรับใช้คนไทย ไม่ใช่เพื่อหาเงิน รายได้ทั้งหมดจะถูกนำมาใช้เพื่อสนับสนุนและขยายการให้บริการของเรากับคุณ  ประการที่สอง ผู้สอนภาษาอังกฤษที่ได้รับการรับรองโดย TESOL และผู้ร่วมงานที่เป็นพันธมิตรในการสนทนาออนไลน์ของเราทุกคนเป็นอาสาสมัคร  พวกเขาเป็นคริสเตียนที่อาสาสมัครเข้ามาเพื่อใช้เวลาของพวกเขาสำหรับบริการรับใช้และช่วยคนไทย พวกเขามาจาก<a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#historymodal\">ประวัติศาสตร์ความเป็นมาที่ยาวนานของอาสาสมัครคริสเตียน</a>ที่มีความรักและความปรารถนาที่จะรับใช้คนไทย</span>";
+    return "<h3>บริการรับใช้คนไทย</h3>\n\n<span class=\"be-a-member-text\">เราเข้าใจว่าการเรียนภาษาอังกฤษ (โดยเฉพาะอย่างยิ่งกับเจ้าของภาษา) ในประเทศไทยมีค่าใช้จ่ายที่แพงมาก สิ่งนี้เป็นหนึ่งในเหตุผลหลักที่ทำเราเริ่มต้นโครงการนี้ขึ้นมา คำถามหนึ่งที่เรามักจะถูกถามบ่อยๆ คือ \"ทำไมชั้นเรียนภาษาอังกฤษและการสนทนาภาษาอังกฤษออนไลน์ของคุณจึงมีราคาถูกมาก?\" ประการแรก เราเป็นโครงการที่ไม่แสวงหาผลกำไร โครงการของเราได้จัดตั้งขึ้นเพื่อให้บริการและรับใช้คนไทย ไม่ใช่เพื่อหาเงิน รายได้ทั้งหมดจะถูกนำมาใช้เพื่อสนับสนุนและขยายการให้บริการของเรากับคุณ  ประการที่สอง ผู้สอนภาษาอังกฤษที่ได้รับการรับรองโดย TESOL และผู้ร่วมงานที่เป็นพันธมิตรในการสนทนาออนไลน์ของเราทุกคนเป็นอาสาสมัคร  พวกเขาเป็นคริสเตียนที่อาสาสมัครเข้ามาเพื่อใช้เวลาของพวกเขาสำหรับบริการรับใช้และช่วยคนไทย พวกเขามาจาก<a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#historymodal\">ประวัติศาสตร์ความเป็นมาที่ยาวนานของอาสาสมัครคริสเตียน</a>ที่มีความรักและความปรารถนาที่จะรับใช้คนไทย</span>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_general_sched_activ_list", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>กิจกรรมต่อไปที่เซนเตอร์ของเรา...</h3>\n<h4>มาร่วมกิจกรรมครั้งนี้กับเราเพื่อฝึกฝนภาษาอังกฤษและเกมส์การสนทนาที่สนุกสนานได้ฟรีที่ซิตี้ อิงลิช เซนเตอร์....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>วันอังคาร, 19 มกราคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"สำนวนเกี่ยวกับธุรกิจ!\"</h4></li>\n</ul>";
+    return "<h3>กิจกรรมต่อไปที่เซนเตอร์ของเรา (CEP 1 - 2 - 3!)...</h3>\n<h4>มาร่วมกิจกรรมครั้งนี้กับเราเพื่อฝึกฝนภาษาอังกฤษและเกมส์การสนทนาที่สนุกสนานได้ฟรีที่ซิตี้ อิงลิช เซนเตอร์....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>วันพฤหัสบดี, 9 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n  <li><h3>วันพฤหัสบดี, 16 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n  <li><h3>วันพฤหัสบดี, 23 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19753,28 +19735,13 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/thai/_get_started_one", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>ขั้นตอนที่ 1</h3>\n\n<span class=\"get-started-text\">ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak!\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 499 บาท เท่านั้น! <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่ </a>เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">คลิกที่นี่</a>...</span>";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/thai/_get_started_top", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center get-started-top-title\">มาเริ่มกันเลยดีกว่า!</h2>\n\n<h3 class=\"get-started-top-text\">\n  โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:\n</h3>";
-},"useData":true}));
-}).call(this);
-(function() {
-  Handlebars.registerPartial("front/thai/_get_started_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3><span class=\"stepTitle\">ขั้นตอนที่ 2</span></h3>\n\n<span class=\"get-started-text\">เมื่อเรียนจบหลักสูตร \"You Can Speak!\" คุณจะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายออนไลน์โครงการซิตี้ อิงลิช ฟรี  1 ปี สมาชิกเครือข่ายจะได้รับสิทธิพิเศษที่ไม่จำกัดในการเข้าถึงกระดานข้อมูลข่าวสาร ชั้นเรียนออนไลน์ และชั้นเรียนและกิจกรรมต่างๆ ที่จะจัดขึ้นในพื้นที่กรุงเทพมหานคร นอกจากนี้สมาชิกเครือข่ายจะได้รับโอกาสในการสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาเจ้าของภาษา โดยมีค่าใช้จ่ายในการดำเนินการเพียงเล็กน้อย</span>\n";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/thai/_history_dan", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h3>\nคริสเตียนในประเทศไทยมีประวัติศาสตร์การรับใช้และการช่วยเหลือคนไทยที่ยาวนาน อย่างเช่น \"<a target='_blank' href='https://th.wikipedia.org/wiki/แดน_บีช_บรัดเลย์'>แดน บีช บรัดเลย์</a>\" (Dan Beach Bradley) ซึ่งเป็นผู้ที่มีชื่อเสียงว่าเผ็นผู้นำและริเริ่มการฉีดวัคซีนและการผ่าตัดสมัยใหม่เข้ามาในประเทศไทย รวมถึงริเริ่มการตีพิมพ์หนังสือพิมพ์ภาษาไทยเป็นครั้งแรก\n</h3>\n\n<h3>\nโครงการซิตี้ อิงลิช ได้ทำตามแบบอย่างของ \"แดน บีช บรัดเลย์\" (Dan Beach Bradley) โดยการช่วยเหลือคนไทยสมัยใหม่ให้ได้รับการพัฒนาศักยภาพด้านภาษาอังกฤษและความรู้ความเข้าใจในวัฒนธรรมของกลุ่มอื่นๆ\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_holistic_text", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h3>ต้นแบบการเรียนรู้แบบองค์รวม</h3>\n\n<span class=\"get-started-text\">หัวใจสำคัญของสิ่งที่เราทำ คือ การสนทนาภาษาอังกฤษ อย่างไรก็ดี ทุกคนรู้ว่าการเรียนรู้ภาษาอังกฤษไม่เพียงพอที่จะช่วยให้คุณมีความเชี่ยวชาญในการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในเชิงธุรกิจและความสัมพันธ์ส่วนบุคคล นั่นเป็นเหตุผลที่รูปแบบการเรียนรู้แบบองค์รวมของเราได้รวมเอาข้อมูลและองค์ประกอบพื้นฐานของวัฒนธรรมและโลกทัศน์เข้าไปไว้ในทุกบทเรียนของเราด้วย ตัวอย่างเช่น ในบทนำของบทเรียน City Talk ของเรา คุณจะได้เรียนรู้เกร็ดความรู้เบื้องต้น อย่างเช่น วิธีการจับมือทักทายและการแนะนำตัวเองที่เหมาะสมทางวัฒนธรรม นอกจากนี้คุณยังจะได้เรียนรู้วิธีการง่ายๆ ในการจดจำโครงเรื่องแบบย่อสรุปที่ช่วยให้คุณมีพื้นฐานความเข้าใจเกี่ยวกับโลกทัศน์ของคริสเตียน – มุมมองความเชื่อที่มีอิทธิพลต่อวิถีชีวิตอย่างน้อยในด้านใดด้านหนึ่งของผู้คนมากกว่าสองพันล้านคนทั่วโลก เครือข่ายออนไลน์ของเรายังจะนำเสนอชั้นเรียนเพิ่มเติมเกี่ยวกับวัฒนธรรมและโลกทัศน์กลุ่มอื่นๆในโลก เราต้องการที่จะทำทุกสิ่งทุกอย่างที่เราสามารถทำได้เพื่อให้คุณประสบความสำเร็จในชีวิตและการประกอบอาชีพ!</span>\n\n";
+    return "<h3>ต้นแบบการเรียนรู้แบบองค์รวม</h3>\n\n<span class=\"be-a-member-text\">หัวใจสำคัญของสิ่งที่เราทำ คือ การสนทนาภาษาอังกฤษ อย่างไรก็ดี ทุกคนรู้ว่าการเรียนรู้ภาษาอังกฤษไม่เพียงพอที่จะช่วยให้คุณมีความเชี่ยวชาญในการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในเชิงธุรกิจและความสัมพันธ์ส่วนบุคคล นั่นเป็นเหตุผลที่รูปแบบการเรียนรู้แบบองค์รวมของเราได้รวมเอาข้อมูลและองค์ประกอบพื้นฐานของวัฒนธรรมและโลกทัศน์เข้าไปไว้ในทุกบทเรียนของเราด้วย ตัวอย่างเช่น ในบทนำของบทเรียน City Talk ของเรา คุณจะได้เรียนรู้เกร็ดความรู้เบื้องต้น อย่างเช่น วิธีการจับมือทักทายและการแนะนำตัวเองที่เหมาะสมทางวัฒนธรรม นอกจากนี้คุณยังจะได้เรียนรู้วิธีการง่ายๆ ในการจดจำโครงเรื่องแบบย่อสรุปที่ช่วยให้คุณมีพื้นฐานความเข้าใจเกี่ยวกับโลกทัศน์ของคริสเตียน – มุมมองความเชื่อที่มีอิทธิพลต่อวิถีชีวิตอย่างน้อยในด้านใดด้านหนึ่งของผู้คนมากกว่าสองพันล้านคนทั่วโลก เครือข่ายออนไลน์ของเรายังจะนำเสนอชั้นเรียนเพิ่มเติมเกี่ยวกับวัฒนธรรมและโลกทัศน์กลุ่มอื่นๆในโลก เราต้องการที่จะทำทุกสิ่งทุกอย่างที่เราสามารถทำได้เพื่อให้คุณประสบความสำเร็จในชีวิตและการประกอบอาชีพ!</span>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19793,23 +19760,18 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/thai/_top_welcome", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "\n<a id=\"click-welcome\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่!</a>";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/thai/_we_look_forward", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h2 class=\"text-center features-text-bottom\">เราตื่นเต้นและรอคอยที่จะให้คุณมาเรียนรู้และฝึกฝนกับเรา</h2>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_welcome_caption", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <span id=\"get-to-get-started\">คลิกที่นี่</span> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak!\" ที่เป็นที่นิยมของเรา\n\n";
+    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <span id=\"get-to-be-a-member\">คลิกที่นี่</span> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak!\" ที่เป็นที่นิยมของเรา\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai_modal/_christian_worldview", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"get-started-text\">โครงการซิตี้ ทอล์ค ยังจะช่วยให้คนไทยมีความเข้าใจมากขึ้นเกี่ยวกับวัฒนธรรมและโลกทัศน์ของกลุ่ม อื่นๆ การเปิดพรมแดนการค้าเสรีสมาคมอาเชียนในปี 2016 คนไทยไม่ได้ต้องการเพียงแค่ความเชี่ยวชาญในการใช้ภาษากลางทางการค้า ซึ่งก็คือภาษาอังกฤษเท่านั้น แต่คนไทยจำเป็นจะต้องมีพื้นฐานความรู้ความเข้าใจที่ถูกต้องในวัฒนธรรมและโลกทัษน์ของผู้คนที่อยู่รายรอบพวกเขาด้วย โลกทัศน์กลุ่มหนึ่งที่สำคัญที่คนไทยจะต้องมีการติดต่อปฏิสัมพันธ์ ด้วยมากยิ่งขึ้น คือ คริสเตียน ในขณะที่การทำธุรกิจการค้าและการพาณิชย์ทั่วภูมิภาคอาเชียนจะมีความเข้มข้น ขึ้น คนไทยจะต้องพบปะและพัฒนาความสัมพันธ์กับทั้งกลุ่มผู้นำรัฐบาล ผู้จัดการธุรกิจ ผู้บริหารการขาย และนักเรียนนักศึกษาที่เป็นคริสเตียน เพื่อให้ความสัมพันธ์ดังกล่าวนั้น จะนำมาซึ่งประโยชน์และความสำเร็จร่วมกัน  ทั้งสองฝ่ายจะต้องมีความ เข้าใจซึ่งกันและกันทั้งในเรื่องของภาษา วัฒนธรรมและโลกทัศน์  ด้วยเงื่องไขดังกล่าวข้างต้น ข้อมูลการศึกษาล่าสุดพบว่า คนไทยส่วนใหญ่ (89%) ยังขาดความความรู้เข้าใจเกี่ยวกับพื้นฐานความเชื่อ หรือโลกทศน์ของคริสเตียน  ทั้งนี้ด้วยความพยายาม ที่จะช่วยให้คนไทยมีความรู้เกี่ยวกับโลกทัศน์กลุ่มอื่นๆ มากขึ้น หลักสูตรนี้จึงได้บรรจุเนื้อหาบทเรียนภาษาอังกฤษเกี่ยวกับโลกทัศน์ของ คริสเตียน 15 นาทีไว้ในตอนท้ายของแต่ละคาบเรียน ผู้เรียนจะพบว่าโลกทัศน์หรือมุมมองทางความเชื่อของคริสเตียนไม่ได้เพียงแต่ น่าสนใจเท่านั้นแต่ยังง่ายต่อการทำความเข้าใจด้วย</span>";
+    return "<span class=\"be-a-member-text\">โครงการซิตี้ ทอล์ค ยังจะช่วยให้คนไทยมีความเข้าใจมากขึ้นเกี่ยวกับวัฒนธรรมและโลกทัศน์ของกลุ่ม อื่นๆ การเปิดพรมแดนการค้าเสรีสมาคมอาเชียนในปี 2016 คนไทยไม่ได้ต้องการเพียงแค่ความเชี่ยวชาญในการใช้ภาษากลางทางการค้า ซึ่งก็คือภาษาอังกฤษเท่านั้น แต่คนไทยจำเป็นจะต้องมีพื้นฐานความรู้ความเข้าใจที่ถูกต้องในวัฒนธรรมและโลกทัษน์ของผู้คนที่อยู่รายรอบพวกเขาด้วย โลกทัศน์กลุ่มหนึ่งที่สำคัญที่คนไทยจะต้องมีการติดต่อปฏิสัมพันธ์ ด้วยมากยิ่งขึ้น คือ คริสเตียน ในขณะที่การทำธุรกิจการค้าและการพาณิชย์ทั่วภูมิภาคอาเชียนจะมีความเข้มข้น ขึ้น คนไทยจะต้องพบปะและพัฒนาความสัมพันธ์กับทั้งกลุ่มผู้นำรัฐบาล ผู้จัดการธุรกิจ ผู้บริหารการขาย และนักเรียนนักศึกษาที่เป็นคริสเตียน เพื่อให้ความสัมพันธ์ดังกล่าวนั้น จะนำมาซึ่งประโยชน์และความสำเร็จร่วมกัน  ทั้งสองฝ่ายจะต้องมีความ เข้าใจซึ่งกันและกันทั้งในเรื่องของภาษา วัฒนธรรมและโลกทัศน์  ด้วยเงื่องไขดังกล่าวข้างต้น ข้อมูลการศึกษาล่าสุดพบว่า คนไทยส่วนใหญ่ (89%) ยังขาดความความรู้เข้าใจเกี่ยวกับพื้นฐานความเชื่อ หรือโลกทศน์ของคริสเตียน  ทั้งนี้ด้วยความพยายาม ที่จะช่วยให้คนไทยมีความรู้เกี่ยวกับโลกทัศน์กลุ่มอื่นๆ มากขึ้น หลักสูตรนี้จึงได้บรรจุเนื้อหาบทเรียนภาษาอังกฤษเกี่ยวกับโลกทัศน์ของ คริสเตียน 15 นาทีไว้ในตอนท้ายของแต่ละคาบเรียน ผู้เรียนจะพบว่าโลกทัศน์หรือมุมมองทางความเชื่อของคริสเตียนไม่ได้เพียงแต่ น่าสนใจเท่านั้นแต่ยังง่ายต่อการทำความเข้าใจด้วย</span>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19823,56 +19785,76 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
+  Handlebars.registerPartial("nav_bar/_courses_drop_down", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
+    + this.escapeExpression(((helper = (helper = helpers.courses || (depth0 != null ? depth0.courses : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"courses","hash":{},"data":data}) : helper)))
+    + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
+    + this.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"you_can_speak","hash":{},"data":data}) : helper)))
+    + "\n    </a>\n  </li>\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#converseonlinemodal\">\n      "
+    + this.escapeExpression(((helper = (helper = helpers.converse_online || (depth0 != null ? depth0.converse_online : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"converse_online","hash":{},"data":data}) : helper)))
+    + "\n    </a>\n  </li>\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a id=\"schedule-point\" class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n      "
+    + this.escapeExpression(((helper = (helper = helpers.schedule || (depth0 != null ? depth0.schedule : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"schedule","hash":{},"data":data}) : helper)))
+    + "\n    </a>\n  </li>\n</ul>\n\n\n";
+},"useData":true}));
+}).call(this);
+(function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["nav_bar/nav_bar"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "          <div> \n            <a id=\"home-point\" class=\"navbar-brand\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.png\" alt=\"logo\" class=\"img-responsive\">\n            </a>\n          </div>\n          <div id=\"courses-middle\">\n"
+    + ((stack1 = this.invokePartial(partials['nav_bar/_courses_drop_down'],depth0,{"name":"nav_bar/_courses_drop_down","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "          </div>\n        ";
+},"3":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.volunteer_info_visible : depth0),{"name":"if","hash":{},"fn":this.program(2, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n            <li role=\"separator\" class=\"divider\"></li>\n\n            <li><a id=\"contact-us-point\" class=\"page-scroll nav-hover\">"
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.volunteer_info_visible : depth0),{"name":"if","hash":{},"fn":this.program(4, data, 0),"inverse":this.program(6, data, 0),"data":data})) != null ? stack1 : "")
+    + " <!-- else from 'if volunteer_info_visible' -->\n\n            <li role=\"separator\" class=\"divider\"></li>\n\n            <li><a id=\"contact-us-point\" class=\"page-scroll nav-hover\">"
     + this.escapeExpression(((helper = (helper = helpers.contact_us || (depth0 != null ? depth0.contact_us : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"contact_us","hash":{},"data":data}) : helper)))
     + "</a></li>\n\n            <li class=\"dropdown\">\n              <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
-    + this.escapeExpression(((helper = (helper = helpers.student || (depth0 != null ? depth0.student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"student","hash":{},"data":data}) : helper)))
-    + "<span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\">\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                    "
-    + this.escapeExpression(((helper = (helper = helpers.login_student || (depth0 != null ? depth0.login_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_student","hash":{},"data":data}) : helper)))
-    + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#registerstudentmodal\">\n                    "
-    + this.escapeExpression(((helper = (helper = helpers.register_new_student || (depth0 != null ? depth0.register_new_student : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_student","hash":{},"data":data}) : helper)))
-    + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n                    "
-    + this.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"you_can_speak","hash":{},"data":data}) : helper)))
-    + "\n                  </a>\n                </li>\n              </ul>\n            </li>\n\n            <li role=\"separator\" class=\"divider\"></li>\n\n            <li class=\"dropdown\">\n              <a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
     + this.escapeExpression(((helper = (helper = helpers.volunteer || (depth0 != null ? depth0.volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer","hash":{},"data":data}) : helper)))
-    + "<span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\">\n                <li id=\"backbone-app\" class=\"volunteer_page\">\n                  <a id=\"drop-down-link\" href=\"/volunteer_info\">"
-    + this.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_info","hash":{},"data":data}) : helper)))
-    + "</a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#registervolunteermodal\">\n                    "
+    + "<span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\">\n"
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.volunteer_info_visible : depth0),{"name":"unless","hash":{},"fn":this.program(8, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- unless.. volunteer_info_visible -->\n                <li id=\"backbone-app\">\n                  <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#registervolunteermodal\">\n                    "
     + this.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
-    + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\" class=\"login-checker\">\n                  <a id=\"drop-down-link\" class=\"coming-soon-vol\" href=\"/volunteer_info\">"
-    + this.escapeExpression(((helper = (helper = helpers.login_volunteer || (depth0 != null ? depth0.login_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login_volunteer","hash":{},"data":data}) : helper)))
-    + "</a>\n                </li>\n\n                <li role=\"separator\" class=\"divider\"></li>\n\n                <li id=\"backbone-app\">\n                  <a id=\"drop-down-link\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                    Admin Log In\n                  </a>\n                </li>\n                \n              </ul>\n            </li>\n            <li>\n            <li class=\"national-flag\">\n              <span class=\"usa_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png\" alt=\"Usa\">\n              </span>\n            </li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li class=\"national-flag\">\n              <span class=\"thai_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png\" alt=\"Thai\">\n              </span>\n            </li>\n\n          ";
-},"2":function(depth0,helpers,partials,data) {
+    + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                    "
+    + this.escapeExpression(((helper = (helper = helpers.login || (depth0 != null ? depth0.login : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"login","hash":{},"data":data}) : helper)))
+    + "\n                  </a>\n                </li>\n              </ul>\n            </li>\n            <li>\n            <li class=\"national-flag\">\n              <span class=\"usa_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png\" alt=\"Usa\">\n              </span>\n            </li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li class=\"national-flag\">\n              <span class=\"thai_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png\" alt=\"Thai\">\n              </span>\n            </li>\n\n          ";
+},"4":function(depth0,helpers,partials,data) {
     var helper;
 
   return "              <li><a id=\"volunteer-steps-point\" class=\"page-scroll nav-hover\">"
     + this.escapeExpression(((helper = (helper = helpers.steps_to_volunteer || (depth0 != null ? depth0.steps_to_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"steps_to_volunteer","hash":{},"data":data}) : helper)))
     + "</a></li>\n";
-},"4":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return "              <li><a id=\"features-point\" class=\"page-scroll nav-hover\">"
-    + this.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"features","hash":{},"data":data}) : helper)))
-    + "</a></li>\n\n              <li role=\"separator\" class=\"divider\"></li>\n\n              <li><a id=\"get-started-point\" class=\"page-scroll nav-hover\">"
-    + this.escapeExpression(((helper = (helper = helpers.get_started || (depth0 != null ? depth0.get_started : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"get_started","hash":{},"data":data}) : helper)))
-    + "</a></li>\n";
 },"6":function(depth0,helpers,partials,data) {
-    return " <!-- for unless.. dashboard_visible -->\n\n            <li><a id=\"log-out\" href=\"/log_out\">Log Out (ออกจากระบบ)</a></li>\n\n          ";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<header class=\"header\">\n\n  <nav id=\"nav\" class=\"navbar navbar-default\" id=\"nav-text-color\" style=\"font-family: 'Athiti', 'Neue Frutiger W31 Modern Light', sans-serif\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n\n        <div> \n          <a class=\"navbar-brand\" id=\"home-point\">\n            <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.png\" alt=\"logo\" class=\"img-responsive\">\n          </a>\n        </div>\n\n        <div class=\"sign-up\">\n          <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">"
-    + this.escapeExpression(((helper = (helper = helpers.sign_up || (depth0 != null ? depth0.sign_up : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"sign_up","hash":{},"data":data}) : helper)))
-    + "</a>\n        </div>\n\n      </div> \n\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n"
-    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(6, data, 0),"data":data})) != null ? stack1 : "")
+  return "              <li><a id=\"free-events\" class=\"page-scroll nav-hover\">"
+    + this.escapeExpression(((helper = (helper = helpers.free_events || (depth0 != null ? depth0.free_events : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"free_events","hash":{},"data":data}) : helper)))
+    + "</a>\n\n\n              </li>\n              <li id=\"nav-course-drop-down\" class=\"dropdown\">\n"
+    + ((stack1 = this.invokePartial(partials['nav_bar/_courses_drop_down'],depth0,{"name":"nav_bar/_courses_drop_down","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "              </li>\n              <li><a id=\"be-a-member-point\" class=\"page-scroll nav-hover\">"
+    + this.escapeExpression(((helper = (helper = helpers.be_a_member || (depth0 != null ? depth0.be_a_member : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"be_a_member","hash":{},"data":data}) : helper)))
+    + "</a></li>\n\n              <li role=\"separator\" class=\"divider\"></li>\n\n            ";
+},"8":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "                  <li id=\"backbone-app\" class=\"volunteer_page\">\n                    <a class=\"drop-down-link\" href=\"/volunteer_info\">"
+    + this.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"volunteer_info","hash":{},"data":data}) : helper)))
+    + "</a>\n                  </li>\n                  <li role=\"separator\" class=\"divider\"></li>\n                ";
+},"10":function(depth0,helpers,partials,data) {
+    return " <!-- for unless.. dashboard_visible -->\n\n            <li><a id=\"log-out\" href=\"/log_out\">Log Out (ออกจากระบบ)</a></li>\n\n          ";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<header class=\"header\">\n\n  <nav id=\"nav\" class=\"navbar navbar-default\" id=\"nav-text-color\" style=\"font-family: 'Athiti', 'Neue Frutiger W31 Modern Light', sans-serif\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n\n"
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- unless.. dashboard_visible -->\n\n      </div> \n\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n"
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "")
     + " <!-- unless.. dashboard_visible -->\n\n        </ul> <!-- nav navbar-nav navbar-right -->\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n</header>\n";
-},"useData":true});
+},"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["nav_bar/nav_bar"];
 }).call(this);
 (function() {
@@ -19880,9 +19862,9 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["registration/admin_reg"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register your church, business or organization with City English Project (CEP)!</h3>\n      <h4>\n        When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Application Form.\" After you fill it out and submit it, will respond to you within 72 hours. \n      </h4>\n      <hr>\n      <h4>\n        Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"student status\" and will enter the City English app. Later, if you are approved as an administrator for volunteers, you will gain \"admin\" to the app.  In this status, you will have to ability to approve or disapprove volunteers (English teachers, etc) for CEP.\n      </h4>\n      <hr>\n      <h4>\n        Every box is required to be filled in except 'Address 2.'\n      </h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"admin-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register your church, business or organization with City English Project (CEP)!</h3>\n      <h4>\n        When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Questionnaire.\" After you fill it out and submit it, we will respond to you within 72 hours. \n      </h4>\n      <hr>\n      <h4>\n        Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"admin applicant status.\" You will not yet enter the City English app. If and when you are approved as an administrator for volunteers, you will then gain \"admin\" status.  In this status, you will be able to provide an access PIN to future volunteers (Skype partners, etc) for CEP.  You will also be able to log in to CEP using your email and password.\n      </h4>\n      <hr>\n      <h4>\n        Every box is required to be filled in except 'Address 2.'\n      </h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"admin-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n      <input type=\"hidden\" name=\"role\" value=\"admin_applicant\">\n\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label\">Password</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label\">Password Confirmation</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label\">Address One</label>\n        <input type=\"text\" class=\"form-control address-one\" placeholder=\"Address One\" name=\"address_1\">\n        <hr>\n\n        <label class=\"field-label\">Address Two</label>\n        <input type=\"text\" class=\"form-control address-two\" placeholder=\"Address Two\" name=\"address_2\">\n        <hr>\n\n        <label class=\"field-label\">Town or City</label>\n        <input type=\"text\" class=\"form-control city\" placeholder=\"Town or City\" name=\"city\">\n        <hr>\n\n        <label class=\"field-label\">State or Province</label>\n        <input type=\"text\" class=\"form-control province\" placeholder=\"State or Province\" name=\"province\">\n        <hr>\n\n        <label class=\"field-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Postal Code\" name=\"postal_code\">\n        <hr>\n\n        <label class=\"field-label\">Country</label>\n        <input type=\"text\" class=\"form-control country\" placeholder=\"State or Province\" name=\"country\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary admin-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n";
+    + ">\n      <input type=\"hidden\" name=\"role\" value=\"admin_applicant\">\n\n        <label class=\"field-label\">First Name</label>\n        <input id=\"applicant-first-name\" type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label skype-name-label\">Skype Name<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control skype-name\" placeholder=\"ชื่อ Skype\" name=\"skype_name\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-confirmation-label\">Password Confirmation</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password-confirmation\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label\">Address One</label>\n        <input type=\"text\" class=\"form-control address-one\" placeholder=\"Address One\" name=\"address_1\">\n        <hr>\n\n        <label class=\"field-label\">Address Two</label>\n        <input type=\"text\" class=\"form-control address-two\" placeholder=\"Address Two\" name=\"address_2\">\n        <hr>\n\n        <label class=\"field-label\">Town or City</label>\n        <input type=\"text\" class=\"form-control city\" placeholder=\"Town or City\" name=\"city\">\n        <hr>\n\n        <label class=\"field-label\">State or Province</label>\n        <input type=\"text\" class=\"form-control province\" placeholder=\"State or Province\" name=\"province\">\n        <hr>\n\n        <label class=\"field-label postal-code-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Zip Code\" name=\"postal_code\">\n        <hr>\n\n        <label class=\"field-label\">Country</label>\n        <input type=\"text\" class=\"form-control country\" placeholder=\"State or Province\" name=\"country\">\n        <hr>\n\n        <div id=\"admin-reg-submit-button\" class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary admin-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/admin_reg"];
 }).call(this);
@@ -19899,11 +19881,11 @@ window.fbAsyncInit = function() {
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">ลงทะเบียน</h3>\n      <h4>ลงทะเบียนเป้นสมาชิกเครือข่ายโครงการ ซิตี้ อิงลิช (CEP)!</h4>\n      <h4>การเป็นสมาชิกเครือข่าย คุณจะต้องเรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\"</h4>\n      <br>\n      <h4>Register to become a City English Project (CEP) network member!</h4>\n      <h4>To become a network member, you must have successfully completed our \"You Can Speak!\" conversational English class.</h4>\n      <h4></h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"student-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">สมัครสนทนาออนไลน์</h3>\n      <h4>ลงทะเบียนเป้นสมาชิกเครือข่ายโครงการ ซิตี้ อิงลิช (CEP)!</h4>\n      <h4>การเป็นสมาชิกเครือข่าย คุณจะต้องเรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\"</h4>\n      <br>\n      <h4>Register to become a City English Project (CEP) network member!</h4>\n      <h4>To become a network member, you must have successfully completed our \"You Can Speak!\" conversational English class.</h4>\n      <h4></h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"student-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n      <input type=\"hidden\" name=\"role\" value=\"student\">\n\n        <label class=\"field-label pin-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"หมายเลขประจำตัว\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"nickname\">\n        <hr>\n\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address <h4>\n"
+    + ">\n      <input type=\"hidden\" name=\"role\" value=\"student\">\n\n        <label class=\"field-label pin-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"หมายเลขประจำตัว\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">Nickname</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น\" name=\"nickname\">\n        <hr>\n\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label skype-name-label\">Skype Name<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control skype-name\" placeholder=\"ที่อยู่ Skype\" name=\"skype_name\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address <h4>\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label national-id-label\">National ID</label>\n        <input type=\"text\" class=\"form-control national-id\" placeholder=\"หมายเลขประจำตัวประชาชน\" name=\"national_id\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"อายุ\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control password\" placeholder=\"รหัสผ่าน\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-conf-label\">Password Confirmation</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"ยืนยันรหัสผ่าน\" name=\"password_confirmation\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary student-registration-submit\">\n\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n";
+    + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label national-id-label\">National ID</label>\n        <input type=\"text\" class=\"form-control national-id\" placeholder=\"หมายเลขประจำตัวประชาชน\" name=\"national_id\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"อายุ\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control password\" placeholder=\"รหัสผ่าน\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-conf-label\">Password Confirmation</label>\n        <input id=\"student-registration-password\" type=\"password\" class=\"form-control\" placeholder=\"ยืนยันรหัสผ่าน\" name=\"password_confirmation\">\n        <hr>\n\n        <div id=\"submit-input-button\" class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary student-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["registration/student_reg"];
 }).call(this);
@@ -19912,9 +19894,9 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["registration/vol_reg"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register to become a CEP volunteer</h3>\n      <h4>If you do not yet have a PIN, please contact the \"CEP volunteer administrator\" from your organization or church.</h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"volunteer-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register to become a CEP Skype-partner</h3>\n      <h4>If you do not yet have a PIN, please contact the \"CEP volunteer administrator\" from your organization or church.</h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"volunteer-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + this.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n      <input type=\"hidden\" name=\"role\" value=\"volunteer\">\n\n        <label class=\"field-label pin-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"PIN\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input type=\"password\" class=\"form-control password\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-conf-label\">Password Confirmation</label>\n        <input type=\"password\" class=\"form-control password-confirmation\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label\">Address One</label>\n        <input type=\"text\" class=\"form-control address-one\" placeholder=\"Address One\" name=\"address_1\">\n        <hr>\n\n        <label class=\"field-label\">Address Two</label>\n        <input type=\"text\" class=\"form-control address-two\" placeholder=\"Address Two\" name=\"address_2\">\n        <hr>\n\n        <label class=\"field-label\">Town or City</label>\n        <input type=\"text\" class=\"form-control city\" placeholder=\"Town or City\" name=\"city\">\n        <hr>\n\n        <label class=\"field-label\">State or Province</label>\n        <input type=\"text\" class=\"form-control province\" placeholder=\"State or Province\" name=\"province\">\n        <hr>\n\n        <label class=\"field-label postal-code-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Postal Code\" name=\"postal_code\">\n        <hr>\n\n        <label class=\"field-label\">Country</label>\n        <input type=\"text\" class=\"form-control country\" placeholder=\"State or Province\" name=\"country\">\n        <hr>\n\n        <div class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary volunteer-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n";
+    + ">\n      <input type=\"hidden\" name=\"role\" value=\"volunteer\">\n\n        <label class=\"field-label pin-label\">PIN</label>\n        <input type=\"text\" class=\"form-control pin\" placeholder=\"PIN\" name=\"pin\">\n        <hr>\n\n        <label class=\"field-label\">First Name</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label skype-name-label\">Skype Name<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control skype-name\" placeholder=\"ชื่อ Skype\" name=\"skype_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input type=\"password\" class=\"form-control password\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-conf-label\">Password Confirmation</label>\n        <input type=\"password\" class=\"form-control password-confirmation\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <div id=\"vol-submit-input-button\" class=\"control-group\">\n          <input type=\"submit\" value=\"Become a Skype Partner!\" id=\"submit\" name=\"submit\" class=\"btn btn-success volunteer-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/vol_reg"];
 }).call(this);
@@ -19946,7 +19928,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("volunteer/english/_step_two", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<h4>Step 2: Volunteers are invited to Register!</h4>\n\n<p class=\"vol-step\">Once the church, business or organization has registered and been accepted, they will be given a PIN.  Volunteers can use the PIN to register here with City English Project.</p>";
+    return "<h4>Step 2: Volunteers are invited to Register as Skype Partners!</h4>\n\n<p class=\"vol-step\">Once the church, business or organization has registered and been accepted, they will be given a PIN.  Volunteers can use the PIN to register here with City English Project.</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20383,6 +20365,33 @@ var DashboardView = Backbone.View.extend({
 });
 
 
+var SkypeDocumentsStuView = Backbone.View.extend({
+
+  template:  HandlebarsTemplates['dashboard/skype_documents_stu'],
+
+  render: function() {
+    $("#skype-documents-stu-below").after(
+      this.template({
+        student: this.model.toJSON()
+      })
+    );
+  } // render
+
+});
+var SkypeDocumentsVolView = Backbone.View.extend({
+
+  template:  HandlebarsTemplates['dashboard/skype_documents_vol'],
+
+  render: function() {
+    $("#skype-documents-vol-below").after(
+      this.template({
+        volunteer: this.model.toJSON(),
+        // time_slots: collection_objects
+      })
+    );
+  } // render
+
+});
 var SkypeTimeSlotsView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['dashboard/skype_time_slots'],
@@ -20412,10 +20421,19 @@ var SkypeTimeSlotsView = Backbone.View.extend({
     })
     .then(function(collection_objects) {
       $("#time-slot-template").remove();
+      var all_slots = collection_objects.length;
+      var num_slots_array = [];
+      for (i = 0; i < all_slots+1; i++) { 
+        num_slots_array.push(i);
+      }
+
+      var hours_ahead = volunteerIsInDaylightSavingsTime() ? 11 : 12;
       $("#list-avail-skype").after(
         view_context.template({
           no_time_slots: noTimeSlots(),
-          time_slots: collection_objects
+          time_slots: collection_objects,
+          all_slots: num_slots_array,
+          hours_ahead: hours_ahead
         })
       );
       function noTimeSlots() {
@@ -20475,11 +20493,37 @@ var VolunteerDashboardView = Backbone.View.extend({
     },
     'click #open-to-add': function (e) {
       $("#choosing-many-slots").toggle();
-    }
+    },
+    "change #number-of-slots": 'changeVolunteerSlotNumber'
+  },
+
+  changeVolunteerSlotNumber: function() {
+    var view_context = this;
+    var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
+    var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
+
+    var promise = new Promise(function(resolve, reject) {
+      resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
+    });
+
+    promise
+    .then(function(volunteer_obj) {
+      $("#current-numbers-slots").remove();
+      if (volunteer_obj.number_of_slots == 0) {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+      } else {
+        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+      }
+      $("#skype-time-partial").remove();
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
   },
 
   deleteSkypeTimeSlot: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
+    var view_context = this;
     var slot = new SkypeTimeSlot({id: parseInt($(e.target)[0].dataset.id)});
     var promise = new Promise(function(resolve, reject) {
       resolve(slot.destroy());
@@ -20487,8 +20531,14 @@ var VolunteerDashboardView = Backbone.View.extend({
 
     promise
     .then(function(slot) {
-      var skype_time_slots_view = new SkypeTimeSlotsView();
-      skype_time_slots_view.render();
+      view_context.renderTimeSlotView();
+      return view_context.model;
+    })
+    .then(function(volunteer) {
+      var volunteer = new User({id: volunteer.get("id"), number_of_slots: 0});
+      volunteer.save();
+      $("#current-numbers-slots").remove();
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots (because you deleted a slot) out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     })
     .catch(function(error) {
       console.log(error);
@@ -20500,25 +20550,32 @@ var VolunteerDashboardView = Backbone.View.extend({
     var volunteer = this.model;
     var time_slot_parts = [];
     var time_slot_orders = [];
-
-
-
     this.$el.find('select[name]').each(function() {
 
       var selected = $(this).find('option:selected');
+      if (selected.data('daythai')) {
+        view_context.day_thai = selected.data('daythai')
+      }
+      if (selected.data('timethai')) {
+        view_context.time_thai = selected.data('timethai')
+      }
       var day = selected.data('orderday'); 
-      if (day) time_slot_orders.push(day);
+      if (day) {time_slot_orders.push(day)};
       var time = selected.data('ordertime'); 
-      if (time) time_slot_orders.push(time);
+      if (time) {time_slot_orders.push(time)};
       var am_pm = selected.data('orderam'); 
-      if (am_pm) time_slot_orders.push(am_pm);
+      if (am_pm) {time_slot_orders.push(am_pm)};
 
       time_slot_parts.push(this.value);
       var blanks_to_remove = time_slot_parts.indexOf("select_option");
       if (blanks_to_remove > -1) {
         time_slot_parts.splice(blanks_to_remove, 1);
       }
-    });
+    }); // each
+
+    if (time_slot_parts.length === 4) { 
+      time_slot_parts.pop(); // to remove 'number_of_slots' when it is selected; keeps time_slot_parts.length equal to 3
+    }
 
     var regex = /(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\d\d?:(00|30)\s-\s\d\d?:(00|30)(AM|PM)\sEST/
     if (time_slot_parts.length === 0) {
@@ -20530,6 +20587,7 @@ var VolunteerDashboardView = Backbone.View.extend({
     else {
       if (time_slot_parts.length === 3) {
         var time_slot = new SkypeTimeSlot();
+        setThaiAttributes(time_slot, time_slot_parts[0], time_slot_parts[1], time_slot_parts[2]);
         time_slot.set({
           volunteer_id: volunteer.get("id"),
           day: time_slot_parts[0],
@@ -20542,9 +20600,11 @@ var VolunteerDashboardView = Backbone.View.extend({
 
         time_slot.save({}, {
           success: function (model, response, options) {
+// console.log(model);
             view_context.renderTimeSlotView();
           },
           error: function (model, response, options) {
+// console.log(response);
             console.log(response);
           }
         });
@@ -20561,7 +20621,7 @@ var VolunteerDashboardView = Backbone.View.extend({
   },
 
   renderTimeSlotView: function() {
-    var skype_time_slots_view = new SkypeTimeSlotsView();
+    var skype_time_slots_view = new SkypeTimeSlotsView({model: this.model});
     skype_time_slots_view.render();
   },
 
@@ -20569,10 +20629,13 @@ var VolunteerDashboardView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
+      volunteer: this.model.toJSON(),
+      one_slot: this.model.toJSON().number_of_slots == 1
     }));
 
     this.renderTimeSlotView();
+
+    return this;
   }
 
 });
@@ -20580,7 +20643,6 @@ var VolunteerProfileView = Backbone.View.extend({
 
   initialize: function(options) {
     this.options = options;
-    console.log(options);
     _.bindAll(this, 'render');
   },
 
@@ -20596,7 +20658,7 @@ var VolunteerProfileView = Backbone.View.extend({
           console.log("success");
           swal({
             title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
+            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
@@ -20638,47 +20700,113 @@ var VolunteersAvailableView = Backbone.View.extend({
     Handlebars.registerPartial('skype_time_slot_input', HandlebarsTemplates['dashboard/skype_time_slot_input']);
     Handlebars.registerPartial('skype_time_slot_span', HandlebarsTemplates['dashboard/skype_time_slot_span']);
     Handlebars.registerPartial('skype_time_slot_unchecked', HandlebarsTemplates['dashboard/skype_time_slot_unchecked']);
-  },
+    Handlebars.registerHelper('genderTranslate', function(gender) {
+      if(gender === "ผู้ชาย" || gender === "male") {
+        return "เพศ: ผู้ชาย";
+      } else if (gender === "ผู้หญิง" || gender === "female") {
+        return "เพศ: ผู้หญิง";
+      } else {
+        return "เพศ: ไม่ทราบ";
+      }
+    });
+
+    var any_slot_chosen = 0
+
+    window.Handlebars.registerHelper('disableSomeSlots', function(context, options) {
+      var ret = "";
+      var one_slot_chosen = false;
+      for(var i = 0; i < context.length; i++) {
+        if (context[i].available == false) {
+          one_slot_chosen = true;
+          break;
+        }
+      }
+
+      if (one_slot_chosen === true) {
+        any_slot_chosen++
+        for(var i=0, j=context.length; i<j; i++) {
+          var $el = $(options.fn(context[i]));
+          if (context[i].student_id) {
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').attr("disabled", false);
+          } else {
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').attr("disabled", true);
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').next().css( "color", "#b0b8c4" );
+          }
+          ret = ret + '<div id="checkArray">' + $el.html() + '</div>';
+        }
+      }
+      else if (one_slot_chosen === false) {
+        for(var i=0, j=context.length; i<j; i++) {
+          var $el = $(options.fn(context[i]));
+          if (any_slot_chosen) {
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').attr("disabled", true);
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').next().css( "color", "#b0b8c4" );
+          } else {
+            $el.find('[data-volunteer-id=' + context[i].volunteer_id + ']').attr("disabled", false);
+          }
+          ret = ret + '<div id="checkArray">' + $el.html() + '</div>';
+        }
+      }
+      return ret;
+    }); // registerHelper
+
+    // this.first_vol_id = _.first(this.collection.toJSON()).id; // used in 'render'
+
+    this.setElement($("#volunteers-avail-view-to-be-attached"));
+  }, // initialize
 
   events: {
-    'click .volunteer-profile-modal': function (e) {
-      var volunteerFirstName = $(e.target)[0].dataset.firstName;
-      var volunteerLastName = $(e.target)[0].dataset.lastName;
-      var volunteerAge = $(e.target)[0].dataset.age;
-      var volunteerGender = $(e.target)[0].dataset.gender;
-      if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
-      if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
-      $(".modal-body #volunteer-first-name").text( volunteerFirstName );
-      $(".modal-body #volunteer-last-name").text( volunteerLastName );
-      $(".modal-body #volunteer-age").text( volunteerAge );
-      $(".modal-body #volunteer-gender").text( volunteerGender );
-      this.volunteer_id = $(e.target)[0].dataset.id;
+    // 'click .volunteer-profile-modal': function (e) {
+    //   var volunteerFirstName = $(e.target)[0].dataset.firstName;
+    //   var volunteerLastName = $(e.target)[0].dataset.lastName;
+    //   var volunteerAge = $(e.target)[0].dataset.age;
+    //   var volunteerGender = $(e.target)[0].dataset.gender;
+    //   if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
+    //   if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
+    //   $(".modal-body #volunteer-first-name").text( volunteerFirstName );
+    //   $(".modal-body #volunteer-last-name").text( volunteerLastName );
+    //   $(".modal-body #volunteer-age").text( volunteerAge );
+    //   $(".modal-body #volunteer-gender").text( volunteerGender );
+    //   this.volunteer_id = $(e.target)[0].dataset.id;
 
-      var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
-      console.log(vol_slots);
-      $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
+    //   var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
+    //   console.log(vol_slots);
+    //   $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
 
 
-      $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
-      $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
-      $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
-    },
+    //   $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
+    //   $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
+    //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
+    // },
 
-    'click .checkers': function (e) {
+    'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
       var volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
       var student_id = this.model.get('id');
       var student = this.model;
+
       if ($(e.target)[0].checked) {
+        $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
+        $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
+        $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
+        $(".checkers[data-id=" + slot_id + "]").next().css( "color", "black" );
+
+        non_selected_volunteers = this.collection.toJSON().filter(function(vol) {
+          return vol.id !== volunteer_id;
+        });
+        non_selected_volunteers.forEach(function(vol) {
+          $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", true);
+          $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "#b0b8c4" );
+        })
+
         saveSlot(student_id, false)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(400, function() {
             span.replaceWith($(view_context.template_for_slot_span({
-              day: result.day,
-              time_period: result.time_period,
-              am_pm: result.am_pm,
+              day_thai: result.day_thai,
+              time_thai: result.time_thai,
               first_name: student.get("first_name")
             }) ).fadeIn(400) );
           });
@@ -20687,14 +20815,18 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(error);
         });
       } else if (!$(e.target)[0].checked) {
+        this.collection.toJSON().forEach(function(vol) {
+          $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
+          $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
+        })
+
         saveSlot(null, true)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(400, function() {
             span.replaceWith($(view_context.template_for_unchecked_slot_span({
-              day: result.day,
-              time_period: result.time_period,
-              am_pm: result.am_pm
+              day_thai: result.day_thai,
+              time_thai: result.time_thai,
             }) ).fadeIn(400) );
           });
         })
@@ -20709,24 +20841,26 @@ var VolunteersAvailableView = Backbone.View.extend({
           resolve(slot.save());
         });
       }
-    },
+    }, // 'click .checkers': function(e)
 
     'click #connect-with-volunteer': function (e) {
       var volunteer_id = $(e.target)[0].dataset.id;
       var volunteer_first_name = $(e.target)[0].dataset.firstname;
       var volunteer_last_name = $(e.target)[0].dataset.lastname;
       var volunteer = new VolunteerForStudent({id: volunteer_id});
+      var student = this.model;
+      var gender_particle = student.gender === "male" || "Male" || "ผู้ชาย" ? "ครับ" : "ค่ะ";
       volunteer.fetch({
         success: function (model, response, options) {
           console.log("success");
+          console.log(student.toJSON());
           swal({
-            title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " will receive an email from CEP with your name and email on it, and will contact you soon.",
+            title: "ขอบคุณ" + gender_particle + "!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
           });
-          console.log(model);
           // $("entire-main").html(model.get("first_name"));
 
         },
@@ -20752,9 +20886,9 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   template_for_unchecked_slot_span:  HandlebarsTemplates['dashboard/skype_time_slot_unchecked'],
 
-  no_volunteers: function() {
-    var stu_num = this.collection.length
-    if (stu_num === 0) { 
+  no_vol_with_slots: function() { // if a vol has no slots avail, then vol not in this view/collection
+    var vols_in_view = this.collection.length
+    if (vols_in_view === 0) { 
       return true
     }
     else {
@@ -20762,57 +20896,66 @@ var VolunteersAvailableView = Backbone.View.extend({
     }
   },
 
-  render: function() { // see page 32 in book, "JS with Promises"
-    var view_context = this;
-    function sequence(volunteers, callback) {
-      return volunteers.reduce(function chain(promise, volunteer) {
-        return promise.then(function () {
-          return callback(volunteer);
-        });
-      }, Promise.resolve());
-    }
+  render: function() {
+    if (this.no_vol_with_slots()) { // render the template here w/o Promises
+      this.$el.html(this.template({
+        no_vol_with_slots: true
+      }));
+      return this;
+    } else { // render the template here WITH Promises
+      var view_context = this;
 
-    sequence(this.collection, function(volunteer) {
-      return getVolunteerSlots(volunteer)
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.ordertime - b.ordertime;
+      function sequence(volunteers, callback) { // see page 32 in book, "JS with Promises"
+        return volunteers.reduce(function chain(promise, volunteer) {
+          return promise.then(function () {
+            return callback(volunteer);
           });
-        })
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.orderam - b.orderam;
-          });
-        })
-        .then(function(slots) {
-          return slots.sort(function (a, b) {
-            return a.orderday - b.orderday;
-          });
-        })
-        .then(function(slots) {
-          volunteer.set({skype_time_slots: slots});
-// console.log(JSON.stringify(slots));
-          volunteer.set({stringified_slots: JSON.stringify(slots)});
-          view_context.$el.html(view_context.template({
-            no_volunteers: view_context.no_volunteers(),
-            volunteers: view_context.collection.toJSON(),
-            first_name: view_context.model.get("first_name")
-          }));
-          return view_context;
-        })
-    })
-    .catch(function (reason) {
-      console.log(reason);
-    });
+        }, Promise.resolve());
+      }
 
-    function getVolunteerSlots(volunteer) {
-      var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
-      return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
-    }
+      sequence(this.collection, function(volunteer) {
+        return getVolunteerSlots(volunteer)
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.ordertime - b.ordertime;
+            });
+          })
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.orderam - b.orderam;
+            });
+          })
+          .then(function(slots) {
+            return slots.sort(function (a, b) {
+              return a.orderday - b.orderday;
+            });
+          })
+          .then(function(slots) {
+            // if (volunteer.get("id") === view_context.first_vol_id) { // to prevent multiple renderings
+              volunteer.set({skype_time_slots: slots});
+              volunteer.set({number_of_slots_listed: slots.length});
+              view_context.$el.html(view_context.template({
+                no_vol_with_slots: false,
+                volunteers: view_context.collection.toJSON(),
+                first_name: view_context.model.get("first_name")
+              }));
+              return view_context;
+            // } 
+          })
+      })
+      .catch(function (reason) {
+        console.log(reason);
+      });
+
+      function getVolunteerSlots(volunteer) {
+        var volunteer_available = new VolunteerAvailable({id: volunteer.get("id")});
+        return volunteer_available.fetch(); // in Rails constroller 'show' method, returning slots of that particular volunteer that are available to the student/current_user (not the volunteer himself)
+      }
+
+    } // else
+
   } // render
 });
-
-
 var FooterFrontView = Backbone.View.extend({
   // id: "contact-us",
   initialize: function() {
@@ -20910,7 +21053,6 @@ var GeneralScheduleView = Backbone.View.extend({
 
   bring_appl_form: function(event) {
     event.preventDefault();
-    $("#generalschedulemodal").modal('hide');
     App.openApplicationForm();
     $("#applicationmodal").modal();
   },
@@ -20984,18 +21126,21 @@ var MainFrontView = Backbone.View.extend({
   },
 
   events: {
-    // 'click #click-welcome': function (e) {
-    //   var el = document.getElementById("welcome-caption-id");
-    //   el.scrollIntoView();
-    // },
-    'click #get-to-get-started': function (e) {
-      var el = document.getElementById("get-started");
+    'click #get-to-be-a-member': function (e) {
+      var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
+    'click #click-schedule': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
+    }
   },
 
   window_width: function() {
     return $(window).width() > 550
+  },
+  schedule: function() {
+    return choose_language("Schedule", "ตารางเวลา");
   },
   login_button_language: function() {
     return choose_language("Login", "เข้าสู่ระบบ");
@@ -21031,6 +21176,7 @@ var MainFrontView = Backbone.View.extend({
     this.$el.html(this.template({
       window_big: this.window_width(),
       thai_language: thai_language(),
+      schedule: this.schedule(),
       login: this.login_button_language(),
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
@@ -21046,22 +21192,24 @@ var MainFrontView = Backbone.View.extend({
 });
 
 var NavBarView = Backbone.View.extend({
-  template:  HandlebarsTemplates['nav_bar/nav_bar'],
-
   initialize: function() {
     this.$el.appendTo(".entire-nav");
+
+    if($(window).width() > 767) {
+      setInterval(function(){ $("#courses-middle").remove(); }, 0);
+    } else {
+      setInterval(function(){ $("#nav-course-drop-down").remove(); }, 0);
+    }
   },
+
+  template:  HandlebarsTemplates['nav_bar/nav_bar'],
 
   events: {
     'click #home-point': function (e) {
       App.getFrontMainPage();
     },
-    'click #features-point': function (e) {
-      var el = document.getElementById("features");
-      el.scrollIntoView();
-    },
-    'click #get-started-point': function (e) {
-      var el = document.getElementById("get-started");
+    'click #be-a-member-point': function (e) {
+      var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
     'click #contact-us-point': function (e) {
@@ -21071,6 +21219,14 @@ var NavBarView = Backbone.View.extend({
     'click #volunteer-steps-point': function (e) {
       var el = document.getElementById("volunteer-steps");
       el.scrollIntoView();
+    },
+    'click #schedule-point': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
+    },
+    'click #free-events': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
     }
   },
 
@@ -21086,23 +21242,26 @@ var NavBarView = Backbone.View.extend({
   features: function() {
     return choose_language("Features", "บริการของเรา");
   },
-  get_started: function() {
-    return choose_language("Get Started", "เริ่มต้นกับเรา");
+  schedule: function() {
+    return choose_language("Schedule", "ตารางเวลา");
   },
-  holistic: function() {
-    return choose_language("Holistic", "แบบองค์รวมรุ่น");
+  be_a_member: function() {
+    return choose_language("Be a member!", "สมัครสมาชิก!");
+  },
+  free_events: function() {
+    return choose_language("Free Events!", "กิจกรรมฟรี!");
   },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
   },
-  student: function() {
-    return choose_language("Student", "ผู้เรียน");
+  courses: function() {
+    return choose_language("Courses", "หลักสูตร");
   },
-  register_new_student: function() {
-    return choose_language("Become Network Member", "ลงทะเบียนเป็นสมาชิกเครือข่าย");
+  converse_online: function() {
+    return choose_language("Converse Online", "สมัครสนทนาออนไลน์");
   },
   you_can_speak: function() {
-    return choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
+    return choose_language("'You Can Speak!' Registration", "สมัครเรียน 'You Can Speak!'");
   },
   volunteer: function() {
     return choose_language("Volunteer", "อาสาสมัคร");
@@ -21113,11 +21272,8 @@ var NavBarView = Backbone.View.extend({
   register_new_volunteer: function() {
     return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
   },
-  login_student: function() {
+  login: function() {
     return choose_language("Login", "ล็อกอิน");
-  },
-  login_volunteer: function() {
-    return choose_language("Volunteer Login", "อาสาสมัครล็อกอิน");
   },
   steps_to_volunteer: function() {
     return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
@@ -21129,17 +21285,17 @@ var NavBarView = Backbone.View.extend({
       thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
-      get_started: this.get_started(),
-      holistic: this.holistic(),
+      schedule: this.schedule(),
+      free_events: this.free_events(),
+      be_a_member: this.be_a_member(),
       contact_us: this.contact_us(),
-      student: this.student(),
-      register_new_student: this.register_new_student(),
+      courses: this.courses(),
+      converse_online: this.converse_online(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),
-      login_student: this.login_student(),
-      login_volunteer: this.login_volunteer(),
+      login: this.login(),
       steps_to_volunteer: this.steps_to_volunteer()
     }));
   }
@@ -21167,18 +21323,99 @@ var AdminRegFormView = Backbone.View.extend({
     var options = {
       success: function (model, response, options) {
         $("#adminregformmodal").modal("hide");
-        // App.getVolunteerDashboardPage(model);
-        var $html = $(document.documentElement); // allow scrolling
-        $html.css('overflow', '');
+        swal({
+          title: "Thank you, " + response.first_name + "!",
+          text: "We will send an email to \"" + response.email + ".\" The email will show you how to access the online \"CEP Volunteer Administrator Questionnaire\" form.",
+          timer: 30000,
+          showConfirmButton: true
+        });
       },
       error: function (model, response, options) {
-        console.log("error");
-        if (response.responseText === '{"errors":"Incorrect email"}') {
-          $(".email").css("border-color", "blue");
-          $(".email").css("border-color", "red");
-          console.log(response.responseText);
-        }
-      }      
+        $(".form-control").css("border-color", "#cccccc");
+        $("select").css("border-color", "#cccccc");
+        $("h4:contains('invalid')").remove();
+        $("h4:contains('taken')").remove();
+        $("h4:contains('choose')").remove();
+        $("h4:contains('option')").remove();
+        $("h4:contains('password')").remove();
+        $("h4:contains('email')").remove();
+        $("h4:contains('inputs')").remove();
+        $("h4.appended-pass").remove();
+        $("h4.appended-pass-conf").remove();
+
+        $("#admin-reg-submit-button").prepend("<h4 class='appended-pin-note' style='color:red;'>Your inputs above were incorrect.</h4>");
+
+        if (response.responseJSON) {
+          response.responseJSON.errors.forEach(function(error) {
+            if (error === "First name can't be blank") {
+              $(".first-name").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Last name can't be blank") {
+              $(".last-name").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Email can't be blank") {
+              $(".email").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Email is invalid") {
+              $(".email-label").append("<h4 style='color:red;'>" + error + "</h4>");
+              $(".email").css("border-color", "red");
+            }
+            else if (error === "Email has already been taken") {
+              $(".email-label").append("<h4 style='color:red;'>Email has already been taken</h4>");
+              $(".email").css("border-color", "red");
+            }
+            else if (error === "Skype name can't be blank") {
+              $(".skype-name").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Age can't be blank") {
+              $(".age").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Organization can't be blank") {
+              $(".organization").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Password can't be blank") {
+              $(".password").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Password is too short (minimum is 6 characters)") {
+              $(".password").css("border-color", "red");
+              $(".password-label").append("<h4 class='appended-pass' style='color:red;'>" + error + "</h4>");
+            }
+            else if (error === "Password confirmation can't be blank") {
+              $(".password-confirmation").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Password confirmation doesn't match Password") {
+              $(".password-confirmation").css("border-color", "red");
+              $(".password-confirmation-label").append("<h4 class='appended-pass' style='color:red;'>" + error + "</h4>");
+            }
+            else if (error === "Password confirmation doesn't match Password") {
+              $(".password-confirmation").css("border-color", "red");
+              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>Password confirmation doesn't match Password</h4>");
+            }
+            else if (error === "Phone number can't be blank") {
+              $(".phone-number").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "Address 1 can't be blank") {
+              $(".address-one").css("border-color", "red").attr("placeholder", error);
+            }
+            else if (error === "City can't be blank") {
+              $(".city").css("border-color", "red").attr("placeholder", "Town or city can't be blank");
+            }
+            else if (error === "Province can't be blank") {
+              $(".province").css("border-color", "red").attr("placeholder", "State can't be blank");
+            }
+            else if (error === "Postal code can't be blank") {
+              $(".postal-code").css("border-color", "red").attr("placeholder", "Zip code can't be blank");
+            }
+            else if (error === "Postal code is invalid") {
+              $(".postal-code-label").append("<h4 class='appended-pass-conf' style='color:red;'>" + error + "</h4>");
+              $(".postal-code").css("border-color", "red");
+            }
+            else if (error === "Country can't be blank") {
+              $(".country").css("border-color", "red").attr("placeholder", error);
+            }
+          }); // forEach
+        } // if (response.responseJSON)
+      } // error
     }
 
     model.save({}, options);
@@ -21233,6 +21470,7 @@ var StudentRegFormView = Backbone.View.extend({
       first_name: this.$("input[name='first_name']").val(),
       last_name: this.$("input[name='last_name']").val(),
       gender: this.$("select[name='gender']").val(),
+      skype_name: this.$("input[name='skype_name']").val(),
       email: this.$("input[name='email']").val(),
       national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
@@ -21243,13 +21481,12 @@ var StudentRegFormView = Backbone.View.extend({
 
     var options = { // need PROMISE HERE!!! ..TO HAVE ACCESS TO (NEW) USER; first 'user' needs to SAVE (& enter a SESSION!!) and THEN we getStudentDashboardPage...the problem here is an attempted "success within a success (in App)" which just doesn't work!
       success: function (model, response, options) {
-        $("#registerstudentmodal").modal("hide");
+        $("#converseonlinemodal").modal("hide");
         App.removeNavAndPage();
         App.getStudentDashboardPage(model);
         var $html = $(document.documentElement); // allow scrolling
         $html.css('overflow', '');
       },
-
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
         $("select").css("border-color", "#cccccc");
@@ -21267,6 +21504,9 @@ var StudentRegFormView = Backbone.View.extend({
           if (response.responseJSON["errors"] === "Incorrect PIN") {
             $(".pin").css("border-color", "red");
             $(".pin-label").append("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
+            $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>PIN นี้ไม่สามารถใช้งานได้</h4>");
+          } else {
+            $("#submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>ข้อมูลข้างบนไม่ถูกต้อง</h4>");
           }
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
@@ -21286,6 +21526,9 @@ var StudentRegFormView = Backbone.View.extend({
             }
             else if (error === "Phone number can't be blank") {
               $(".phone-number").css("border-color", "red").attr("placeholder", "ควรกรอกเบอร์โทรศัพท์ลงในช่องว่าง");
+            }
+            else if (error === "Skype name can't be blank") {
+              $(".skype-name").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อ Skype ลงในช่องว่าง");
             }
             else if (error === "Email can't be blank") {
               $(".email").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
@@ -21321,18 +21564,19 @@ var StudentRegFormView = Backbone.View.extend({
               $(".national-id-label").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้มีผู้ใช้อยู่แล้ว</h4>");
             }
           }); // forEach
-        } // if (response.responseJSON.errors)
+        } // if (response.responseJSON)
       } // error:
     }
 
     model.save({}, options);
-  },
+  }, // 'submit' method
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateStudentReg({
+      thai_language: thai_language(),
       token: csrf_token
     }));
 
@@ -21340,10 +21584,6 @@ var StudentRegFormView = Backbone.View.extend({
   }
 
 });
-
-
-
-
 
 var VolRegFormView = Backbone.View.extend({
   attributes: {
@@ -21394,64 +21634,51 @@ var VolRegFormView = Backbone.View.extend({
           if (response.responseJSON["errors"] === "Incorrect PIN") {
             $(".pin").css("border-color", "red");
             $(".pin-label").append("<h4 class='appended-pin-note' style='color:red;'>This PIN is not valid.</h4>");
+            $("#vol-submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>This PIN is not valid.</h4>");
+          } else {
+            $("#vol-submit-input-button").prepend("<h4 class='appended-pin-note' style='color:red;'>Your inputs above were incorrect.</h4>");
           }
           response.responseJSON.errors.forEach(function(error) {
             if (error === "First name can't be blank") {
-              $(".first-name").css("border-color", "red").attr("placeholder", "First name can't be blank");
+              $(".first-name").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Last name can't be blank") {
-              $(".last-name").css("border-color", "red").attr("placeholder", "Last name can't be blank");
+              $(".last-name").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Email can't be blank") {
-              $(".email").css("border-color", "red").attr("placeholder", "Email can't be blank");
+              $(".email").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Email is invalid") {
-              $(".email-label").append("<h4 style='color:red;'>Email is invalid</h4>");
+              $(".email-label").append("<h4 style='color:red;'>" + error + "</h4>");
             }
             else if (error === "Email has already been taken") {
-              $(".email-label").append("<h4 style='color:red;'>Email has already been taken</h4>");
+              $(".email-label").append("<h4 style='color:red;'>" + error + "</h4>");
+            }
+            else if (error === "Skype name can't be blank") {
+              $(".skype-address").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Age can't be blank") {
-              $(".age").css("border-color", "red").attr("placeholder", "Age can't be blank");
+              $(".age").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Organization can't be blank") {
-              $(".organization").css("border-color", "red").attr("placeholder", "Organization can't be blank");
+              $(".organization").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Password can't be blank") {
-              $(".password").css("border-color", "red").attr("placeholder", "Password can't be blank");
+              $(".password").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Password is too short (minimum is 6 characters)") {
               $(".password").css("border-color", "red");
-              $(".password-label").append("<h4 class='appended-pass' style='color:red;'>Password is too short (minimum is 6 characters)</h4>");
+              $(".password-label").append("<h4 class='appended-pass' style='color:red;'>" + error + "</h4>");
             }
             else if (error === "Password confirmation can't be blank") {
-              $(".password-confirmation").css("border-color", "red").attr("placeholder", "Password confirmation cannot be blank");
+              $(".password-confirmation").css("border-color", "red").attr("placeholder", error);
             }
             else if (error === "Password confirmation doesn't match Password") {
               $(".password-confirmation").css("border-color", "red");
-              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>Password confirmation does not match Password</h4>");
+              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>" + error + "</h4>");
             }
             else if (error === "Phone number can't be blank") {
-              $(".phone-number").css("border-color", "red").attr("placeholder", "Phone number can't be blank");
-            }
-            else if (error === "Address 1 can't be blank") {
-              $(".address-one").css("border-color", "red").attr("placeholder", "Address one can't be blank");
-            }
-            else if (error === "City can't be blank") {
-              $(".city").css("border-color", "red").attr("placeholder", "Town or City can't be blank");
-            }
-            else if (error === "Province can't be blank") {
-              $(".province").css("border-color", "red").attr("placeholder", "State or Province can't be blank");
-            }
-            else if (error === "Postal code can't be blank") {
-              $(".postal-code").css("border-color", "red").attr("placeholder", "Zip code can't be blank");
-            }
-            else if (error === "Postal code is invalid") {
-              $(".postal-code").css("border-color", "red");
-              $(".postal-code-label").append("<h4 class='appended-postal' style='color:red;'>Postal code is invalid.</h4>");
-            }
-            else if (error === "Country can't be blank") {
-              $(".country").css("border-color", "red").attr("placeholder", "Country can't be blank");
+              $(".phone-number").css("border-color", "red").attr("placeholder", error);
             }
           }); // forEach
         } // if (response.responseJSON.errors)
@@ -21472,10 +21699,6 @@ var VolRegFormView = Backbone.View.extend({
     return this;
   }
 });
-
-
-
-
 
 var LogInFormView = Backbone.View.extend({
   attributes: {
@@ -21506,10 +21729,10 @@ var LogInFormView = Backbone.View.extend({
 
     promise
     .then(function(result) { // 'result' means 'onFulfilled'
-      if (result.role === "leader" || result.role === "admin") {
+      if (result.role === "leader") {
         App.getDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
       }
-      else if (result.role === "volunteer") {
+      else if (result.role === "volunteer" || result.role === "admin") {
         App.getVolunteerDashboardPage(makeModel(result)); // result = successfully requested 'user object' (not model) from session... with 'id' and everything!
       }
       else if (result.role === "student") {
@@ -21688,6 +21911,194 @@ function getFrontMainPage() {
     App.front_page_main = front_page_main;
 }
 ;
+function setThaiAttributes(time_slot, day, time_period, am_pm) {
+
+  var time_parts = time_period.match(/(\d{1,2})(:)(00|30) - (\d{1,2})(:)(00|30)/);
+  first_time = parseInt(time_parts[1]);
+  first_time_mins = parseInt(time_parts[3]);
+  second_time = parseInt(time_parts[4]);
+  second_time_mins = parseInt(time_parts[6]);
+
+  var thai_first_time;
+  var time_thai;
+  var day_thai;
+
+  if (volunteerIsInDaylightSavingsTime()) {
+    if (am_pm == "AM EST") {
+      thai_first_time = first_time + 11;
+      if (first_time_mins === 00) {
+        thai_second_time = thai_first_time;
+        time_thai = thai_first_time + ":00 - " + thai_second_time + ":30น.";
+      }
+      else if (first_time_mins === 30) {
+        thai_second_time = thai_first_time + 1;
+        time_thai = thai_first_time + ":30 - " + thai_second_time + ":00น.";
+      }
+      
+      if (first_time === 12 && first_time_mins === 00) {
+        time_thai = "11:00 - 11:30น.";
+      }
+      if (first_time === 12 && first_time_mins === 30) {
+        time_thai = "11:30 - 12:00น.";
+      }
+
+      if (day == "Sunday") {day_thai = "วันอาทิตย์"}
+      if (day == "Monday") {day_thai = "วันจันทร์"}
+      if (day == "Tuesday") {day_thai = "วันอังคาร"}
+      if (day == "Wednesday") {day_thai = "วันพุธ"}
+      if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
+      if (day == "Friday") {day_thai = "วันศุกร์"}
+      if (day == "Saturday") {day_thai = "วันเสาร์"}
+    } 
+    else if (am_pm == "PM EST") {
+      thai_first_time = first_time - 1;
+      if (first_time_mins === 00) {
+        thai_second_time = thai_first_time;
+        time_thai = thai_first_time + ":00 - " + thai_second_time + ":30น.";
+      }
+      else if (first_time_mins === 30) {
+        thai_second_time = thai_first_time + 1;
+        time_thai = thai_first_time + ":30 - " + thai_second_time + ":00น.";
+      }
+
+      if (first_time === 12 && first_time_mins === 00) {
+        time_thai = "23:00 - 23:30น.";
+      }
+      if (first_time === 12 && first_time_mins === 30) {
+        time_thai = "23:30 - 00:00น.";
+      }
+
+      if (first_time != 12) {
+        if (day == "Sunday") {day_thai = "วันจันทร์"}
+        if (day == "Monday") {day_thai = "วันอังคาร"}
+        if (day == "Tuesday") {day_thai = "วันพุธ"}
+        if (day == "Wednesday") {day_thai = "วันพฤหัสบดี"}
+        if (day == "Thursday") {day_thai = "วันศุกร์"}
+        if (day == "Friday") {day_thai = "วันเสาร์"}
+        if (day == "Saturday") {day_thai = "วันอาทิตย์"}
+      } else {
+        if (day == "Sunday") {day_thai = "วันอาทิตย์"}
+        if (day == "Monday") {day_thai = "วันจันทร์"}
+        if (day == "Tuesday") {day_thai = "วันอังคาร"}
+        if (day == "Wednesday") {day_thai = "วันพุธ"}
+        if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
+        if (day == "Friday") {day_thai = "วันศุกร์"}
+        if (day == "Saturday") {day_thai = "วันเสาร์"}
+      }
+    }
+  }
+  else { // if it's not 'daylight s.t.'
+    if (am_pm == "AM EST") {
+      thai_first_time = first_time + 12;
+      if (first_time_mins === 00) {
+        thai_second_time = thai_first_time;
+        time_thai = thai_first_time + ":00 - " + thai_second_time + ":30น.";
+      }
+      else if (first_time_mins === 30) {
+        thai_second_time = thai_first_time + 1;
+        time_thai = thai_first_time + ":30 - " + thai_second_time + ":00น.";
+      }
+
+      if (first_time === 12 && first_time_mins === 00) {
+        time_thai = "12:00 - 12:30น.";
+      }
+      if (first_time === 12 && first_time_mins === 30) {
+        time_thai = "12:30 - 00:00น.";
+      }
+      if (first_time === 11 && first_time_mins === 30) {
+        time_thai = "23:30 - 00:00น.";
+      }
+
+      if (day == "Sunday") {day_thai = "วันอาทิตย์"}
+      if (day == "Monday") {day_thai = "วันจันทร์"}
+      if (day == "Tuesday") {day_thai = "วันอังคาร"}
+      if (day == "Wednesday") {day_thai = "วันพุธ"}
+      if (day == "Thursday") {day_thai = "วันพฤหัสบดี"}
+      if (day == "Friday") {day_thai = "วันศุกร์"}
+      if (day == "Saturday") {day_thai = "วันเสาร์"}
+    } 
+    else if (am_pm == "PM EST") {
+      thai_first_time = first_time;
+      if (first_time_mins === 00) {
+        thai_second_time = thai_first_time;
+        time_thai = thai_first_time + ":00 - " + thai_second_time + ":30น.";
+      }
+      else if (first_time_mins === 30) {
+        thai_second_time = thai_first_time + 1;
+        time_thai = thai_first_time + ":30 - " + thai_second_time + ":00น.";
+      }
+
+      if (first_time === 12 && first_time_mins === 00) {
+        time_thai = "00:00 - 00:30น.";
+      }
+      if (first_time === 12 && first_time_mins === 30) {
+        time_thai = "00:30 - 01:00น.";
+      }
+
+      if (day == "Sunday") {day_thai = "วันจันทร์"}
+      if (day == "Monday") {day_thai = "วันอังคาร"}
+      if (day == "Tuesday") {day_thai = "วันพุธ"}
+      if (day == "Wednesday") {day_thai = "วันพฤหัสบดี"}
+      if (day == "Thursday") {day_thai = "วันศุกร์"}
+      if (day == "Friday") {day_thai = "วันเสาร์"}
+      if (day == "Saturday") {day_thai = "วันอาทิตย์"}
+    }
+  } // if-else 'dst'
+  time_slot.set({
+    day_thai: day_thai,
+    time_thai: time_thai
+  });
+
+  return time_slot;
+
+} // function setThaiAttributes()
+
+
+;
+function volunteerIsInDaylightSavingsTime() {
+
+  var today = new Date(2017, 2, 12, 3);
+  // var today = new Date();
+  Date.prototype.stdTimezoneOffset = function() {
+    if (this.getFullYear() === 2017) {
+      return largerTzOffset(12, 5);
+    }
+    else if (this.getFullYear() === 2018) {
+      return largerTzOffset(11, 4);
+    }
+    else if (this.getFullYear() === 2019) {
+      return largerTzOffset(10, 3);
+    }
+    else if (this.getFullYear() === 2020) {
+      return largerTzOffset(8, 1);
+    }
+    else if (this.getFullYear() === 2021) {
+      return largerTzOffset(14, 7);
+    }
+    else if (this.getFullYear() === 2022) {
+      return largerTzOffset(13, 6);
+    }
+    else {
+      return largerTzOffset(10, 4);
+    }
+  }
+  Date.prototype.dst = function() {
+      return this.getTimezoneOffset() < this.stdTimezoneOffset();
+  }
+  function largerTzOffset(marchDate, novDate) {
+    return Math.max(march(marchDate).getTimezoneOffset(), november(novDate).getTimezoneOffset());
+  }
+  function march(date) {
+    return new Date(today.getFullYear(), 2, date, 2);
+  }
+  function november(date) {
+    return new Date(today.getFullYear(), 10, date, 2);
+  }
+
+  return today.dst()
+
+}
+;
 
 
 
@@ -21758,7 +22169,15 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
+    if (volunteer.get("number_of_slots") == 0) {
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
+    }
+    else {
+      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+    }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+    var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
+    skype_docs_view.render();
   },
   getStudentDashboardPage: function(student) {
     var this_app = this;
@@ -21780,6 +22199,8 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    skype_docs_view.render();
     document.title = student.get("first_name") + " " + student.get("last_name");
   },
   scrollUpToTopOfPage: function() {
@@ -21814,7 +22235,7 @@ var App = {
   instantiateStudentRegForm: function() {
     var student = new User();
     this.reg_form_modal = new StudentRegFormView({ model: student });
-    $("#registerstudentmodal").html(this.reg_form_modal.render().el);
+    $("#converseonlinemodal").html(this.reg_form_modal.render().el);
   },
   instantiateVolunteerRegForm: function() {
     var volunteer = new User();
@@ -21832,6 +22253,8 @@ var App = {
   },
   presentUserModel: function() {
     var user_object = $("#user-now").data("present-user");
+    var skype_time_slots = $("#user-slots").data("user-slots");
+    user_object.skype_time_slots = skype_time_slots
     return new Backbone.Model(user_object);
   },
   openApplicationForm: function() {
@@ -21916,19 +22339,6 @@ var App = {
     $(".dropdown-toggle").mouseleave(function(){
       $(this).css("background-color", "#2D3179");
     });
-
-    // "Coming soon" sweet alert
-    $("a.coming-soon-vol").on("click", function(e) {
-      e.preventDefault();
-      swal({
-        title: "Coming Soon!",
-        text: "Very soon, you will be able to connect with the CEP volunteer administrator in your organization!  We're very excited that soon Thai people will have the opportunity to learn English with you!",
-        timer: 15000,
-        showConfirmButton: true,
-        animation: "slide-from-bottom"
-      });
-    });
-
   },
   init: function() {
     var app_obj = this;
@@ -21948,11 +22358,12 @@ var App = {
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
         app_obj.openApplicationForm();
+        // app_obj.getGeneralSchedModal();
       }
-      else if (gon.page_needed === "volunteer_info") {
+      else if (gon.page_needed === "volunteer_info" || gon.page_needed === "admin") {
         app_obj.getVolunteerPage();
       }
-      else if (gon.page_needed === "leader" || gon.page_needed === "admin") {
+      else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "volunteer") {
@@ -21993,16 +22404,6 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
 }, false);
 
 App.init();
-
-Handlebars.registerHelper('genderTranslate', function(gender) {
-  if(gender === "ผู้ชาย" || gender === "male") {
-    return "Gender: Male";
-  } else if (gender === "ผู้หญิง" || gender === "female") {
-    return "Gender: Female";
-  } else {
-    return "Gender: Unknown";
-  }
-});
 $("h3.answer").click(function() {
   $(this).closest("div").children("h3").children("a").removeClass("brown");
   $(this).children().addClass("brown");
