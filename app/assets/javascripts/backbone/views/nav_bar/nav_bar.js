@@ -6,6 +6,7 @@ var NavBarView = Backbone.View.extend({
       setInterval(function(){ $("#courses-middle").remove(); }, 0);
     } else {
       setInterval(function(){ $("#nav-course-drop-down").remove(); }, 0);
+      setInterval(function(){ $("ul.dropdown-menu").css({"right": 0}); }, 0);
     }
   },
 
