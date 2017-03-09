@@ -1,9 +1,15 @@
 var NavBarView = Backbone.View.extend({
-  template:  HandlebarsTemplates['nav_bar/nav_bar'],
-
   initialize: function() {
     this.$el.appendTo(".entire-nav");
+
+    if($(window).width() > 767) {
+      setInterval(function(){ $("#courses-middle").remove(); }, 0);
+    } else {
+      setInterval(function(){ $("#nav-course-drop-down").remove(); }, 0);
+    }
   },
+
+  template:  HandlebarsTemplates['nav_bar/nav_bar'],
 
   events: {
     'click #home-point': function (e) {
@@ -22,6 +28,10 @@ var NavBarView = Backbone.View.extend({
       el.scrollIntoView();
     },
     'click #schedule-point': function (e) {
+      e.preventDefault();
+      App.getGeneralSchedModal();
+    },
+    'click #free-events': function (e) {
       e.preventDefault();
       App.getGeneralSchedModal();
     }
@@ -45,6 +55,9 @@ var NavBarView = Backbone.View.extend({
   be_a_member: function() {
     return choose_language("Be a member!", "สมัครสมาชิก!");
   },
+  free_events: function() {
+    return choose_language("Free Events!", "กิจกรรมฟรี!");
+  },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
   },
@@ -55,7 +68,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Converse Online", "สมัครสนทนาออนไลน์");
   },
   you_can_speak: function() {
-    return choose_language("'You Can Speak!' Registration", "การลงทะเบียน 'You Can Speak!'");
+    return choose_language("'You Can Speak!' Registration", "สมัครเรียน 'You Can Speak!'");
   },
   volunteer: function() {
     return choose_language("Volunteer", "อาสาสมัคร");
@@ -80,6 +93,7 @@ var NavBarView = Backbone.View.extend({
       sign_up: this.sign_up(),
       features: this.features(),
       schedule: this.schedule(),
+      free_events: this.free_events(),
       be_a_member: this.be_a_member(),
       contact_us: this.contact_us(),
       courses: this.courses(),
