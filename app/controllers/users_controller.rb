@@ -125,6 +125,7 @@ class UsersController < ApplicationController
         if old_guest_student
           old_guest_student.guest = false
           set_password(old_guest_student)
+          old_guest_student.skype_name = user.skype_name
           if old_guest_student.save
             student_render(old_guest_student)
             send_new_user_email(old_guest_student)

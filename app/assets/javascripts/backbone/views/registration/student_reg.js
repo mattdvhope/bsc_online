@@ -20,6 +20,8 @@ var StudentRegFormView = Backbone.View.extend({
       gender: this.$("select[name='gender']").val(),
       skype_name: this.$("input[name='skype_name']").val(),
       email: this.$("input[name='email']").val(),
+      facebook: this.$("input[name='facebook']").val(),
+      line: this.$("input[name='line']").val(),
       national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
       phone_number: this.$("input[name='phone_number']").val(),
@@ -99,7 +101,7 @@ var StudentRegFormView = Backbone.View.extend({
             }
             else if (error === "Password confirmation doesn't match Password") {
               $(".password-confirmation").css("border-color", "red");
-              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>Password confirmation doesn't match Password</h4>");
+              $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>การยืนยันรหัสผ่านไม่ตรงกับรหัสผ่าน</h4>");
             }
             else if (error === "National can't be blank") {
               $(".national-id").css("border-color", "red").attr("placeholder", "ควรกรอกหมายเลขประจำตัวประชาชนลงในช่องว่าง");
