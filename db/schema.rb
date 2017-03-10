@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218083608) do
+ActiveRecord::Schema.define(version: 20170310115158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,7 +218,6 @@ ActiveRecord::Schema.define(version: 20170218083608) do
     t.string   "postal_code"
     t.string   "role",            default: "student"
     t.string   "pin",             default: "000000"
-    t.string   "uid_facebook"
     t.string   "nickname"
     t.string   "image"
     t.integer  "class_time_id"
@@ -226,9 +225,10 @@ ActiveRecord::Schema.define(version: 20170218083608) do
     t.string   "date_format"
     t.string   "organization"
     t.string   "national_id"
-    t.boolean  "need_skype"
     t.string   "skype_name"
     t.integer  "number_of_slots", default: 0
+    t.string   "facebook"
+    t.string   "line"
   end
 
 end

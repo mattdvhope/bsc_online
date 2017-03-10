@@ -30,8 +30,6 @@ Rails.application.routes.draw do
 
   resources :skype_time_slots, only: [:index, :show, :create, :update, :destroy]
 
-  resources :students_needing_skype, only: [:index, :show]
-
   get 'register_student', to: "users#new"
   resources :users, only: [:index, :show, :create, :update]
 
