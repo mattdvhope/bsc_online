@@ -41,6 +41,7 @@ var ApplicationView = Backbone.View.extend({
         $("h4.appended-nat-id-note").remove();
 
         if (response.responseJSON) {
+          $(".control-group").prepend("<h4 class='appended-pin-note' style='color:red;'>ข้อมูลข้างบนไม่ถูกต้อง</h4>");
           response.responseJSON.errors.forEach(function(error) {
             if (error === "Nickname can't be blank") {
               $(".nickname").css("border-color", "red").attr("placeholder", "ควรกรอกชื่อเล่นลงในช่องว่าง");
