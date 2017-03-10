@@ -119,13 +119,18 @@ var StudentRegFormView = Backbone.View.extend({
     model.save({}, options);
   }, // 'submit' method
 
+  apply_to_converse: function() {
+    return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
+  },
+
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.templateStudentReg({
       thai_language: thai_language(),
-      token: csrf_token
+      token: csrf_token,
+      apply_to_converse: this.apply_to_converse()
     }));
 
     return this;

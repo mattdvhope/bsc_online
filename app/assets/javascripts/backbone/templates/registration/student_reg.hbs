@@ -4,13 +4,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
-      <h3 class="modal-title">สมัครสนทนาออนไลน์</h3>
-      <h4>ลงทะเบียนเป้นสมาชิกเครือข่ายโครงการ ซิตี้ อิงลิช (CEP)!</h4>
-      <h4>การเป็นสมาชิกเครือข่าย คุณจะต้องเรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา "You Can Speak!"</h4>
-      <br>
-      <h4>Register to become a City English Project (CEP) network member!</h4>
-      <h4>To become a network member, you must have successfully completed our "You Can Speak!" conversational English class.</h4>
-      <h4></h4>
+      <h3 class="modal-title">{{apply_to_converse}}</h3>
+      {{#if thai_language}}
+        {{> registration/thai/_register_network }}
+      {{^}}
+        {{> registration/english/_register_network }}
+      {{/if}}
     </div>
     <div class="modal-body">
       <form class="student-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
