@@ -6,8 +6,15 @@ Rails.application.routes.draw do
 
   root to: "pages#front"
 
-  # root to: "photos#index"
-  # resources :photos, only: [:index, :new]
+
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+
+  resources :chatrooms, param: :slug
+  resources :messages
+
+
+
   
   get 'volunteer_info', to: "pages#volunteer_info"
   get 'dashboard', to: "pages#dashboard"
