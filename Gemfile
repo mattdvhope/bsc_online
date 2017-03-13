@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.4.0'
 
-gem 'rails', '4.2.0'
+gem 'rails', '5.0.2'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'responders'
@@ -18,7 +18,6 @@ gem 'paratrooper' # for setting up the Heroku staging environment
 gem 'mini_magick' # photo resizing
 
 gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
-gem 'draper' # For using decorators
 # gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 gem 'simple_form'
 gem "cocoon" # handle nested forms in rails
