@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310115158) do
+ActiveRecord::Schema.define(version: 20170314053511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,10 +127,9 @@ ActiveRecord::Schema.define(version: 20170310115158) do
     t.string   "list"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email"], name: "index_mailkick_opt_outs_on_email", using: :btree
+    t.index ["user_id", "user_type"], name: "index_mailkick_opt_outs_on_user_id_and_user_type", using: :btree
   end
-
-  add_index "mailkick_opt_outs", ["email"], name: "index_mailkick_opt_outs_on_email", using: :btree
-  add_index "mailkick_opt_outs", ["user_id", "user_type"], name: "index_mailkick_opt_outs_on_user_id_and_user_type", using: :btree
 
   create_table "parts", force: :cascade do |t|
     t.integer  "course_id"

@@ -9,6 +9,7 @@ gem 'puma'
 gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem 'paratrooper' # for setting up the Heroku staging environment
+gem 'redis', '~> 3.0'
 
 # AWS stuff...
 # gem 'carrierwave-aws'

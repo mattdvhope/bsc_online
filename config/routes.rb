@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "pages#front"
-
-  # root to: "photos#index"
-  # resources :photos, only: [:index, :new]
   
   get 'volunteer_info', to: "pages#volunteer_info"
   get 'dashboard', to: "pages#dashboard"
