@@ -1,5 +1,25 @@
 <div class="container">
 
+  <hr>
+
+  <div id="page-wrapper">
+    <h1>WebSockets Demo</h1>
+
+    <div id="status">Connecting...</div>
+
+    <ul id="messages"></ul>
+
+    <form id="message-form" action="#" method="post">
+      <textarea id="message" placeholder="Write your message here..." required></textarea>
+      <button type="submit">Send Message</button>
+      <button type="button" id="close">Close Connection</button>
+    </form>
+  </div>
+
+  <hr>
+
+
+
   {{#if no_vol_with_slots}}
     <h3>There are currently no volunteers available.</h3>
   {{^}}
