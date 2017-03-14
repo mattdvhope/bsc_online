@@ -19,3 +19,4 @@
 //= require backbone/app
 
 //= require assessment
+//= require_tree ./channels

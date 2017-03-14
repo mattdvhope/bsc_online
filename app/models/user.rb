@@ -4,12 +4,6 @@ class User < ActiveRecord::Base
 
   before_save { self.email = email.downcase unless self.email.blank? }
 
-
-  has_many :messages
-  has_many :chatrooms, through: :messages
-
-
-
   belongs_to :class_time
 
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy

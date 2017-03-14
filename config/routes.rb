@@ -5,16 +5,6 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "pages#front"
-
-
-  # Serve websocket cable requests in-process
-  mount ActionCable.server => '/cable'
-
-  resources :chatrooms, param: :slug
-  resources :messages
-
-
-
   
   get 'volunteer_info', to: "pages#volunteer_info"
   get 'dashboard', to: "pages#dashboard"

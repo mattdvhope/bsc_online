@@ -1,0 +1,9 @@
+production:
+  adapter: redis
+  url: redis://redistogo:bd8a74dc74146f8bb6c1f0131d0265e9@koi.redistogo.com:11328/
+
+development:
+  adapter: async
+
+test:
+  adapter: async
