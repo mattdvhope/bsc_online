@@ -42,8 +42,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # websockets
-  config.web_socket_server_url = "wss://cityenglishproject.com/cable"
-  config.action_cable.allowed_request_origins = ['https://cityenglishproject.com', 'https://www.cityenglishproject.com']
+  config.web_socket_server_url = "wss://enigmatic-castle-3874.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://enigmatic-castle-3874.herokuapp.com', 'https://cityenglishproject.com', 'https://www.cityenglishproject.com']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = false
