@@ -21923,7 +21923,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Be a member!", "สมัครสมาชิก!");
   },
   free_events: function() {
-    return choose_language("Free Events!", "รี!");
+    return choose_language("Free Events!", "กิจกรรมฟรี!");
   },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
