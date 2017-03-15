@@ -11,9 +11,7 @@
 
     <form id="message-form" action="#" method="post">
       <textarea id="message" placeholder="Write your message here..." required></textarea>
-      <br>
       <button id="ws-button" type="submit">Send Message</button>
-      <br>
       <button type="button" id="close-ws">Close Connection</button>
     </form>
   </div>

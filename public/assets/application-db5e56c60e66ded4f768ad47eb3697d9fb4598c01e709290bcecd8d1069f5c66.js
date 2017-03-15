@@ -19762,7 +19762,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "<div class=\"container\">\n\n  <hr>\n\n  <div id=\"page-wrapper\">\n    <h1>WebSockets Demo</h1>\n\n    <div id=\"status\">Connecting...</div>\n\n    <ul id=\"messages\"></ul>\n\n    <form id=\"message-form\" action=\"#\" method=\"post\">\n      <textarea id=\"message\" placeholder=\"Write your message here...\" required></textarea>\n      <button type=\"submit\">Send Message</button>\n      <button type=\"button\" id=\"close\">Close Connection</button>\n    </form>\n  </div>\n\n  <hr>\n\n\n\n"
+  return "<div class=\"container\">\n\n  <hr>\n\n  <div id=\"page-wrapper\">\n    <h1>WebSockets Demo</h1>\n\n    <div id=\"status\">Connecting...</div>\n\n    <ul id=\"messages\"></ul>\n\n    <form id=\"message-form\" action=\"#\" method=\"post\">\n      <textarea id=\"message\" placeholder=\"Write your message here...\" required></textarea>\n      <br>\n      <button id=\"ws-button\" type=\"submit\">Send Message</button>\n      <br>\n      <button type=\"button\" id=\"close-ws\">Close Connection</button>\n    </form>\n  </div>\n\n  <hr>\n\n\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.no_vol_with_slots : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "\n</div> <!-- container -->\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
@@ -21389,6 +21389,24 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
+
+    'click #ws-button': function(e) {
+      e.preventDefault();
+      var socket = new WebSocket('ws://localhost:3000/cable');
+
+      var form = document.getElementById('message-form');
+      var messageField = document.getElementById('message');
+      var messagesList = document.getElementById('messages');
+      var socketStatus = document.getElementById('status');
+      var closeBtn = document.getElementById('close-ws');
+
+      socket.onopen = function(event) {
+console.log(event);
+        socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
+        socketStatus.className = 'open';
+      };
+
+    },
 
     'click .checkers': function(e) {
       var view_context = this;

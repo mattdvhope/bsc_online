@@ -19762,7 +19762,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "<div class=\"container\">\n\n  <hr>\n\n  <div id=\"page-wrapper\">\n    <h1>WebSockets Demo</h1>\n\n    <div id=\"status\">Connecting...</div>\n\n    <ul id=\"messages\"></ul>\n\n    <form id=\"message-form\" action=\"#\" method=\"post\">\n      <textarea id=\"message\" placeholder=\"Write your message here...\" required></textarea>\n      <button type=\"submit\">Send Message</button>\n      <button type=\"button\" id=\"close\">Close Connection</button>\n    </form>\n  </div>\n\n  <hr>\n\n\n\n"
+  return "<div class=\"container\">\n\n  <hr>\n\n  <div id=\"page-wrapper\">\n    <h1>WebSockets Demo</h1>\n\n    <div id=\"status\">Connecting...</div>\n\n    <ul id=\"messages\"></ul>\n\n    <form id=\"message-form\" action=\"#\" method=\"post\">\n      <textarea id=\"message\" placeholder=\"Write your message here...\" required></textarea>\n      <br>\n      <button id=\"ws-button\" type=\"submit\">Send Message</button>\n      <br>\n      <button type=\"button\" id=\"close-ws\">Close Connection</button>\n    </form>\n  </div>\n\n  <hr>\n\n\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.no_vol_with_slots : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "\n</div> <!-- container -->\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
@@ -21390,6 +21390,50 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
 
+    'click #ws-button': function(e) {
+      e.preventDefault();
+
+      var form = document.getElementById('message-form');
+      var messageField = document.getElementById('message');
+      var messagesList = document.getElementById('messages');
+      var socketStatus = document.getElementById('status');
+      var closeBtn = document.getElementById('close-ws');
+
+      var socket;
+      var message;
+      var promise = new Promise(function(resolve, reject) {
+        socket = new WebSocket('ws://localhost:3000/cable');
+      });
+
+      promise
+      .then(function(result) {
+        return socket.onopen = function(event) {
+          socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
+          socketStatus.className = 'open';
+        };
+      })
+      .then(function(result) {
+        // Retrieve the message from the textarea.
+        message = messageField.value;
+  console.log(message);
+
+        // Send the message through the WebSocket.
+        socket.send(message);
+      })
+
+
+      // Add the message to the messages list.
+      messagesList.innerHTML += '<li class="sent"><span>Sent:</span>' + message +
+                                '</li>';
+
+      // Clear out the message field.
+      messageField.value = '';
+
+      return false;
+
+
+    },
+
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
@@ -21861,7 +21905,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Be a member!", "สมัครสมาชิก!");
   },
   free_events: function() {
-    return choose_language("Free Events!", "รี!");
+    return choose_language("Free Events!", "กิจกรรมฟรี!");
   },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
