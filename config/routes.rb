@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "pages#front"
+
+
+
+  mount ActionCable.server => '/cable'
+
+  resources :chatrooms, only: [:show]
+  resources :messages
+
   
   get 'volunteer_info', to: "pages#volunteer_info"
   get 'dashboard', to: "pages#dashboard"

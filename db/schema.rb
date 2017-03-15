@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314053511) do
+ActiveRecord::Schema.define(version: 20170315053923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20170314053511) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type_of"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string   "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "choices", force: :cascade do |t|
@@ -129,6 +135,14 @@ ActiveRecord::Schema.define(version: 20170314053511) do
     t.datetime "updated_at"
     t.index ["email"], name: "index_mailkick_opt_outs_on_email", using: :btree
     t.index ["user_id", "user_type"], name: "index_mailkick_opt_outs_on_user_id_and_user_type", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "chatroom_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "parts", force: :cascade do |t|

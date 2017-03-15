@@ -46,7 +46,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://cityenglishproject.com', 'https://www.cityenglishproject.com']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  config.force_ssl = false
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Set up CDN for serving up assets.
-  config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
+  # config.action_controller.asset_host = "d2dfl1mmokbl0b.cloudfront.net"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
