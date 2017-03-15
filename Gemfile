@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.3.3'
 
-gem 'rails', '5.0.2'
+gem 'rails', '5.0.0.1'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'responders'
