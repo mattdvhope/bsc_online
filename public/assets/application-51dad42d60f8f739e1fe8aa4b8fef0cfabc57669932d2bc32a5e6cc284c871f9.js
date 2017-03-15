@@ -21392,7 +21392,6 @@ var VolunteersAvailableView = Backbone.View.extend({
 
     'click #ws-button': function(e) {
       e.preventDefault();
-      var socket = new WebSocket('ws://localhost:3000/cable');
 
       var form = document.getElementById('message-form');
       var messageField = document.getElementById('message');
@@ -21400,11 +21399,56 @@ var VolunteersAvailableView = Backbone.View.extend({
       var socketStatus = document.getElementById('status');
       var closeBtn = document.getElementById('close-ws');
 
-      socket.onopen = function(event) {
-console.log(event);
-        socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
-        socketStatus.className = 'open';
-      };
+      var socket;
+
+
+      var promise = new Promise((resolve, reject) => {
+        this.socket = new WebSocket('ws://localhost:3000/cable');
+
+        socket.onopen = function(event) {
+          socketStatus.innerHTML = 'Connected to: ' + event.currentTarget.url;
+          socketStatus.className = 'open';
+        };
+
+        socket.onerror = function (error) {
+            console.log('WebSocket error: ' + error);
+            reject(error);
+        };
+
+
+        socket.onclose = function (event) {
+            console.log("Websocket socket closed: " + JSON.stringify(event));
+        };
+      });
+
+      promise
+      .then(function(slots) {
+        return slots.sort(function (a, b) {
+          return a.orderam - b.orderam;
+        });
+      })
+
+
+
+
+
+        // Retrieve the message from the textarea.
+      message = messageField.value;
+  console.log(message);
+
+      // Send the message through the WebSocket.
+      socket.send(message);
+
+
+      // Add the message to the messages list.
+      messagesList.innerHTML += '<li class="sent"><span>Sent:</span>' + message +
+                                '</li>';
+
+      // Clear out the message field.
+      messageField.value = '';
+
+      return false;
+
 
     },
 
@@ -21879,7 +21923,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Be a member!", "สมัครสมาชิก!");
   },
   free_events: function() {
-    return choose_language("Free Events!", "กิจกรรมฟรี!");
+    return choose_language("Free Events!", "รี!");
   },
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
