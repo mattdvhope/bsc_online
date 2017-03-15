@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   # This is actually the default setting below
-  # config.action_cable.url = "ws://localhost:3000/cable"
+  config.action_cable.url = "ws://localhost:3000/cable"
 
   # Do not eager load code on boot.
   config.eager_load = false

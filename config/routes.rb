@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show]
   resources :messages
 
+
   
   get 'volunteer_info', to: "pages#volunteer_info"
   get 'dashboard', to: "pages#dashboard"
