@@ -1,8 +1,7 @@
 Appp.messages = Appp.cable.subscriptions.create("MessagesChannel", {
-
-
+                                // when .create is invoked, it will invoke the MessagesChannel#subscribed method (in Rails), which is in fact a callback method.
   connected: function() {
-  },   // when .create is invoked, it will invoke the MessagesChannel#subscribed method, which is in fact a callback method.
+  },
   disconnected: function() {
   },
   received: function(data) { // 'data' is from 'messages_controller.rb'..the hash key-value pairs (message & user)
