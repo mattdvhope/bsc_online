@@ -47,7 +47,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = ['https://enigmatic-castle-3874.herokuapp.com', 'https://enigmatic-castle-3874-staging.herokuapp.com', 'https://cityenglishproject.com', 'https://www.cityenglishproject.com', 'http://localhost:3000']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = false
+  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
