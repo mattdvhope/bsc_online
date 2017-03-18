@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
   validates_presence_of :organization, :if => :non_student?
   validates_presence_of :skype_name, :unless => :guest?
 
+    # check out 'case_sensitive: false' for email...maybe use...
   validates_presence_of :email, length: { maximum: 40 }, :unless => :guest?
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create, :allow_blank => true
