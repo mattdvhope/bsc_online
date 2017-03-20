@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id]) if session[:user_id]
   end
 
-  def log_in(user_id)
-    cookies.signed[:user_id] = user_id
-  end
-
   helper_method :current_user # This makes the 'current_user' method available in the views.
 
   def destroy_old_admin_applicants
