@@ -16,3 +16,8 @@
   Appp.cable = ActionCable.createConsumer();
 
 }).call(this);
+
+// When our client-side consumer code (here), sends
+// the WebSocket upgrade request, the server will
+// instantiate a new connection object in
+// 'app/channels/application_cable/connection.rb'.
