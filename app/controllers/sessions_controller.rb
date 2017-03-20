@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   def log_in
+    cookies.signed[:user_id] = user_id
+binding.pry
     redirect_to root_path # in case 'log_in' typed into URL
   end
 
