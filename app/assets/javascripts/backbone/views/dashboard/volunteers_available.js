@@ -86,7 +86,7 @@ var VolunteersAvailableView = Backbone.View.extend({
 
     'click input.checkers': function(e) {
 
-console.log("here");
+console.log("in events --> 'click input.checkers'");
 
 
     },
