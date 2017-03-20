@@ -21,3 +21,5 @@
 // the WebSocket upgrade request, the server will
 // instantiate a new connection object in
 // 'app/channels/application_cable/connection.rb'.
+// This object will be the parent of all of the channel
+// subscriptions you go on to create.
