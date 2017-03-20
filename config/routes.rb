@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "pages#front"
 
 
-
+  # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
   resources :chatrooms, only: [:show]
