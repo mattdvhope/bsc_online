@@ -11,11 +11,12 @@ Appp.messages = Appp.cable.subscriptions.create({channel: "MessagesChannel"}, {
   },
   received: function(data) { // 'data' is from 'messages_controller.rb'..the hash key-value pairs (message & user)
     console.log("in received");
-    $("#messages").removeClass('hidden')
+    $("#messages").removeClass('hidden');
     return $('#messages').append(this.renderMessage(data));
   },
 
   renderMessage: function(data) {
+    // return $("[data-chatroom='" + data.chatroom_id + "']").append(data.message);
     return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
   }
 });
