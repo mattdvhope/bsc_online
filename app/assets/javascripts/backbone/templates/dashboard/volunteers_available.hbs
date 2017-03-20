@@ -28,7 +28,7 @@
     <ul  style="list-style-type:none">
       <hr>
     {{#each volunteers}}
-      <li>
+      <li data-id={{this.id}}>
         <h3>
           ชื่อ: <span style="text-decoration: underline;">{{this.first_name}} {{this.last_name}}</span>
         </h3>
