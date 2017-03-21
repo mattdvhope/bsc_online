@@ -7,6 +7,17 @@ Appp.volunteer_restoration = Appp.cable.subscriptions.create({channel: "Voluntee
     console.log("disconnected from ActionCable");
   },
   received: function(data) {
+console.log("In 'VolunteerRestorationChannel'");
+console.log(data);
+    $("#vol-avail-template").remove();
+    var student = App.presentUserModel();
+    App.getVolunteersAvailableView(student);
+
+    // $("#ul-of-vol-avail ul").append('<li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
+
+    // $("#ul-of-vol-avail").append(
+    //   '<li><h2>List item here!!</h2><li>'
+    // );
 
   },
 

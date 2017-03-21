@@ -9,8 +9,8 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
   received: function(data) {
 console.log(data);
 
-    $('[data-volunteer-id="'+ data.volunteer_id + '"]')
-    .not('[data-student-id="'+ data.student_id + '"]').remove();
+    $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
+    .not('li[data-student-id="'+ data.student_id + '"]').remove();
 
   },
 

@@ -84,13 +84,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
 
-    'click input.checkers': function(e) {
-
-console.log("in events --> 'click input.checkers'");
-
-
-    },
-
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);

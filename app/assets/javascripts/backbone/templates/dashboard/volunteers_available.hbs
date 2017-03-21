@@ -1,8 +1,8 @@
-<div class="container">
+<div id="vol-avail-template" class="container">
   {{#if no_vol_with_slots}}
     <h3>There are currently no volunteers available.</h3>
   {{^}}
-    <ul  style="list-style-type:none">
+    <ul id="ul-of-vol-avail" style="list-style-type:none">
       <hr>
     {{#each volunteers}}
       <li data-volunteer-id={{this.id}} data-student-id={{../student_id}}>
