@@ -84,13 +84,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
 
-    'click input.checkers': function(e) {
-
-console.log("here");
-
-
-    },
-
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
@@ -249,6 +242,7 @@ console.log("here");
               view_context.$el.html(view_context.template({
                 no_vol_with_slots: false,
                 volunteers: view_context.collection.toJSON(),
+                student_id: view_context.model.get("id"),
                 first_name: view_context.model.get("first_name")
               }));
               return view_context;

@@ -1,34 +1,11 @@
-<div class="container">
-
-  <hr>
-
-  <div id="page-wrapper">
-    <h1>WebSockets Demo</h1>
-
-    <div id="status">Connecting...</div>
-
-    <ul id="messages"></ul>
-
-    <form id="message-form" action="#" method="post">
-      <textarea id="message" placeholder="Write your message here..." required></textarea>
-      <br>
-      <button id="ws-button" type="submit">Send Message</button>
-      <br>
-      <button type="button" id="close-ws">Close Connection</button>
-    </form>
-  </div>
-
-  <hr>
-
-
-
+<div id="vol-avail-template" class="container">
   {{#if no_vol_with_slots}}
     <h3>There are currently no volunteers available.</h3>
   {{^}}
-    <ul  style="list-style-type:none">
+    <ul id="ul-of-vol-avail" style="list-style-type:none">
       <hr>
     {{#each volunteers}}
-      <li>
+      <li data-volunteer-id={{this.id}} data-student-id={{../student_id}}>
         <h3>
           ชื่อ: <span style="text-decoration: underline;">{{this.first_name}} {{this.last_name}}</span>
         </h3>

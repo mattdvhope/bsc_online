@@ -19702,13 +19702,17 @@ window.fbAsyncInit = function() {
 },"3":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "    <ul  style=\"list-style-type:none\">\n      <hr>\n"
+  return "    <ul id=\"ul-of-vol-avail\" style=\"list-style-type:none\">\n      <hr>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.volunteers : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " <!-- each class times -->\n    </ul>\n";
 },"4":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "      <li>\n        <h3>\n          ชื่อ: <span style=\"text-decoration: underline;\">"
+  return "      <li data-volunteer-id="
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + " data-student-id="
+    + container.escapeExpression(container.lambda((depths[1] != null ? depths[1].student_id : depths[1]), depth0))
+    + ">\n        <h3>\n          ชื่อ: <span style=\"text-decoration: underline;\">"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + " "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
@@ -19777,7 +19781,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
-  return "<div class=\"container\">\n\n  <hr>\n\n  <div id=\"page-wrapper\">\n    <h1>WebSockets Demo</h1>\n\n    <div id=\"status\">Connecting...</div>\n\n    <ul id=\"messages\"></ul>\n\n    <form id=\"message-form\" action=\"#\" method=\"post\">\n      <textarea id=\"message\" placeholder=\"Write your message here...\" required></textarea>\n      <br>\n      <button id=\"ws-button\" type=\"submit\">Send Message</button>\n      <br>\n      <button type=\"button\" id=\"close-ws\">Close Connection</button>\n    </form>\n  </div>\n\n  <hr>\n\n\n\n"
+  return "<div id=\"vol-avail-template\" class=\"container\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.no_vol_with_slots : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.program(3, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "\n</div> <!-- container -->\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
@@ -21405,13 +21409,6 @@ var VolunteersAvailableView = Backbone.View.extend({
     //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
     // },
 
-    'click input.checkers': function(e) {
-
-console.log("here");
-
-
-    },
-
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
@@ -21570,6 +21567,7 @@ console.log("here");
               view_context.$el.html(view_context.template({
                 no_vol_with_slots: false,
                 volunteers: view_context.collection.toJSON(),
+                student_id: view_context.model.get("id"),
                 first_name: view_context.model.get("first_name")
               }));
               return view_context;
@@ -22821,10 +22819,21 @@ var App = {
     skype_docs_view.render();
   },
   getStudentDashboardPage: function(student) {
+    this.getVolunteersAvailableView(student);
+    var dashboard_page = new StudentDashboardView({ model: student });
+    this.renderNavBar();
+    this.scrollUpToTopOfPage();
+    dashboard_page.render();
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    skype_docs_view.render();
+    document.title = student.get("first_name") + " " + student.get("last_name");
+  },
+  getVolunteersAvailableView: function(student) {
     var this_app = this;
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
+console.log(student);
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
         var profile_view_modal = new VolunteerProfileView({ model: student });
@@ -22836,13 +22845,6 @@ var App = {
         console.log(options);
       }
     });
-    var dashboard_page = new StudentDashboardView({ model: student });
-    this.renderNavBar();
-    this.scrollUpToTopOfPage();
-    dashboard_page.render();
-    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
-    skype_docs_view.render();
-    document.title = student.get("first_name") + " " + student.get("last_name");
   },
   scrollUpToTopOfPage: function() {
     var el = document.getElementById("page-here");
@@ -23649,6 +23651,11 @@ $("h3.answer").click(function() {
 
 
 
+
+// Below we'll instantiate our Action Cable consumer on the
+// client-side, telling it to initiate a WebSocket
+// request, and maintain a persistent connection with
+// ws://localhost:3000/cable.
 (function() {
   this.Appp || (this.Appp = {});
 
@@ -23656,29 +23663,90 @@ $("h3.answer").click(function() {
 
 }).call(this);
 
+// When our client-side consumer code (here), sends
+// the WebSocket upgrade request, the server will
+// instantiate a new connection object in
+// 'app/channels/application_cable/connection.rb'.
+// This object will be the parent of all of the channel
+// subscriptions you go on to create.
+;
+
 
 
 
 // this.Appp = {};
 
 // Appp.cable = ActionCable.createConsumer();  
-Appp.messages = Appp.cable.subscriptions.create("MessagesChannel", {
-                                // when .create is invoked, it will invoke the MessagesChannel#subscribed method (in Rails), which is in fact a callback method.
+// This assumes you've already requested the right to send
+// web notifications.
+
+// Appp.messages = Appp.cable.subscriptions.create({channel: "MessagesChannel"}, {
+//                                 // when .create is invoked, it will invoke the MessagesChannel#subscribed method (in Rails), which is in fact a callback method.
+//   connected: function() {
+//     console.log("connected to ActionCable");
+//   },
+//   disconnected: function() {
+//     console.log("disconnected from ActionCable");
+//   },
+//   received: function(data) { // 'data' is from 'messages_controller.rb'..the hash key-value pairs (message & user)
+//     console.log("in received");
+//     $("#messages").removeClass('hidden');
+//     return $('#messages').append(this.renderMessage(data));
+//   },
+
+//   renderMessage: function(data) {
+//     // return $("[data-chatroom='" + data.chatroom_id + "']").append(data.message);
+//     return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
+//   }
+// });
+
+// // example of re-broadcast...not sure if it works...
+// Appp.messages.send({
+//   sent_by: "Paul", body: "This is a cool chat app."
+// });
+Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRemovalChannel"}, {
+                                // when .create is invoked, it will invoke the VolunteerRemovalChannel#subscribed method (in Rails), which is in fact a callback method.
   connected: function() {
     console.log("connected to ActionCable");
   },
   disconnected: function() {
     console.log("disconnected from ActionCable");
   },
-  received: function(data) { // 'data' is from 'messages_controller.rb'..the hash key-value pairs (message & user)
-    $("#messages").removeClass('hidden')
-    return $('#messages').append(this.renderMessage(data));
+  received: function(data) {
+console.log(data);
+
+    $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
+    .not('li[data-student-id="'+ data.student_id + '"]').remove();
+
   },
 
-  renderMessage: function(data) {
-    return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
-  }
 });
+
+Appp.volunteer_restoration = Appp.cable.subscriptions.create({channel: "VolunteerRestorationChannel"}, {
+                                // when .create is invoked, it will invoke the VolunteerRestorationChannel#subscribed method (in Rails), which is in fact a callback method.
+  connected: function() {
+    console.log("connected to ActionCable");
+  },
+  disconnected: function() {
+    console.log("disconnected from ActionCable");
+  },
+  received: function(data) {
+console.log("In 'VolunteerRestorationChannel'");
+console.log(data);
+    $("#vol-avail-template").remove();
+    var student = App.presentUserModel();
+    App.getVolunteersAvailableView(student);
+
+    // $("#ul-of-vol-avail ul").append('<li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
+
+    // $("#ul-of-vol-avail").append(
+    //   '<li><h2>List item here!!</h2><li>'
+    // );
+
+  },
+
+});
+
 
 
 

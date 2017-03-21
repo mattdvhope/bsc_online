@@ -79,10 +79,21 @@ var App = {
     skype_docs_view.render();
   },
   getStudentDashboardPage: function(student) {
+    this.getVolunteersAvailableView(student);
+    var dashboard_page = new StudentDashboardView({ model: student });
+    this.renderNavBar();
+    this.scrollUpToTopOfPage();
+    dashboard_page.render();
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    skype_docs_view.render();
+    document.title = student.get("first_name") + " " + student.get("last_name");
+  },
+  getVolunteersAvailableView: function(student) {
     var this_app = this;
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
+console.log(student);
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
         var profile_view_modal = new VolunteerProfileView({ model: student });
@@ -94,13 +105,6 @@ var App = {
         console.log(options);
       }
     });
-    var dashboard_page = new StudentDashboardView({ model: student });
-    this.renderNavBar();
-    this.scrollUpToTopOfPage();
-    dashboard_page.render();
-    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
-    skype_docs_view.render();
-    document.title = student.get("first_name") + " " + student.get("last_name");
   },
   scrollUpToTopOfPage: function() {
     var el = document.getElementById("page-here");

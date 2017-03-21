@@ -1,9 +1,19 @@
+# Pub/Sub, or Publish-Subscribe, refers to a message queue
+# paradigm whereby senders of information (publishers),
+# send data to an abstract class of recipients (subscribers),
+# without specifying individual recipients. Action Cable
+# uses this approach to communicate between the server
+# and many clients -- i.e., 'messages:1' where '1' is the
+# current_user's id of '1'.
+
 production:
   adapter: redis
   url: redis://redistogo:bd8a74dc74146f8bb6c1f0131d0265e9@koi.redistogo.com:11328/
 
 development:
-  adapter: async
+  # adapter: async
+  adapter: redis
+  url: redis://redistogo:bd8a74dc74146f8bb6c1f0131d0265e9@koi.redistogo.com:11328/
 
 test:
   adapter: async
