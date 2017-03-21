@@ -9,6 +9,11 @@ Appp.volunteer_restoration = Appp.cable.subscriptions.create({channel: "Voluntee
   received: function(data) {
 console.log("In 'VolunteerRestorationChannel'");
 console.log(data);
+
+    //!!!!!! Use a conditional 'break' to prevent endless cycling through the 'received' method
+    // if (i === 3) { break; }
+
+
     $("#vol-avail-template").remove();
     var student = App.presentUserModel();
     App.getVolunteersAvailableView(student);
