@@ -7,7 +7,11 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
     console.log("disconnected from ActionCable");
   },
   received: function(data) {
-    $('[data-id="'+ data.id + '"]').remove();
+console.log(data);
+
+    $('[data-volunteer-id="'+ data.volunteer_id + '"]')
+    .not('[data-student-id="'+ data.student_id + '"]').remove();
+
   },
 
 });
