@@ -249,6 +249,7 @@ console.log("in events --> 'click input.checkers'");
               view_context.$el.html(view_context.template({
                 no_vol_with_slots: false,
                 volunteers: view_context.collection.toJSON(),
+                student_id: view_context.model.get("id"),
                 first_name: view_context.model.get("first_name")
               }));
               return view_context;
