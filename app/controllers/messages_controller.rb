@@ -10,9 +10,9 @@ class MessagesController < ApplicationController
       # that named broadcasting. Each channel can be
       # streaming zero or more broadcastings.
 
-      ActionCable.server.broadcast 'messages', # 'messages' is the name of the channel to which we are broadcasting
-        message: message.content,
-        user: message.user.first_name
+      # ActionCable.server.broadcast 'messages', # 'messages' is the name of the channel to which we are broadcasting
+      #   message: message.content,
+      #   user: message.user.first_name
       # This places a message in the current subscription adapter's
       # (in cable.yml) pubsub queue under a separate broadcasting
       # name for each user.
