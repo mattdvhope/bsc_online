@@ -16,7 +16,7 @@ console.log(data);
 
     $("#vol-avail-template").remove();
     var student = App.presentUserModel();
-    App.getVolunteersAvailableView(student);
+    App.getStudentDashboardPage(student);
 
     // $("#ul-of-vol-avail").append(
 
