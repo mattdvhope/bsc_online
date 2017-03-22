@@ -20136,7 +20136,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_general_sched_activ_list", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>Upcoming activities at our center (CEP 1 - 2 - 3!)...</h3>\n<h4>Come and join us at these times for free English practice and fun conversation games at our CEP center....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>Thursday, 9 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n  <li><h3>Thursday, 16 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n  <li><h3>Thursday, 23 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n</ul>";
+    return "<h3>Upcoming activities at our center (CEP 1 - 2 - 3!)...</h3>\n<h4>Come and join us at these times for free English practice and fun conversation games at our CEP center....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>Thursday, 23 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 6 April, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 20 April, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 4 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 11 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 18 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20334,7 +20334,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_general_sched_activ_list", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>กิจกรรมต่อไปที่เซนเตอร์ของเรา (CEP 1 - 2 - 3!)...</h3>\n<h4>มาร่วมกิจกรรมครั้งนี้กับเราเพื่อฝึกฝนภาษาอังกฤษและเกมส์การสนทนาที่สนุกสนานได้ฟรีที่ซิตี้ อิงลิช เซนเตอร์....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>วันพฤหัสบดี, 9 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n  <li><h3>วันพฤหัสบดี, 16 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n  <li><h3>วันพฤหัสบดี, 23 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n</ul>";
+    return "<h3>กิจกรรมต่อไปที่เซนเตอร์ของเรา (CEP 1 - 2 - 3!)...</h3>\n<h4>มาร่วมกิจกรรมครั้งนี้กับเราเพื่อฝึกฝนภาษาอังกฤษและเกมส์การสนทนาที่สนุกสนานได้ฟรีที่ซิตี้ อิงลิช เซนเตอร์....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>วันพฤหัสบดี, 23 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 6 เมษายน, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 20 เมษายน, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 4 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 11 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 18 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -23740,7 +23740,7 @@ console.log(data);
 
     $("#vol-avail-template").remove();
     var student = App.presentUserModel();
-    App.getVolunteersAvailableView(student);
+    App.getStudentDashboardPage(student);
 
     // $("#ul-of-vol-avail").append(
 
