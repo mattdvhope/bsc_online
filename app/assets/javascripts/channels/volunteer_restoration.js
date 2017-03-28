@@ -28,8 +28,8 @@ console.log(data);
     //       เพศ: ' + data.gender + '
     //     </h4>
     //     <h4>อายุ: ' + data.age + '</h4>
-    //     <h4>รัฐ: ' + data.province + '</h4>
-    //     <h4>ประเทศ: ' + data.country + '</h4>
+    //     <h4>มลรัฐในสหรัฐ: ' + data.province + '</h4>
+
     //     <h4 id="choose-skype-time">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.first_name + '.  ' + data.first_name + ' is available for only 1 of these slots:</h4>
 
     //     {{#disableSomeSlots this.skype_time_slots}}
