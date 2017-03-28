@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, length: { maximum: 40 }
   validates_presence_of :gender
   validates_presence_of :age
-  validates_presence_of :phone_number, length: { maximum: 30 }
+  validates_presence_of :phone_number, length: { maximum: 30 }, :unless => :non_student?
   validates_presence_of :organization, :if => :non_student?
   validates_presence_of :skype_name, :unless => :guest?
 
@@ -84,8 +84,8 @@ class User < ActiveRecord::Base
   validates_format_of :national_id, :with => VALID_NATIONAL_ID_REGEX, :on => :create, :allow_blank => true
   validates_uniqueness_of :national_id, :allow_blank => true
 
-  validates_presence_of :address_1, :if => :admin_applicant?
-  validates_presence_of :city, :if => :admin_applicant?
+  # validates_presence_of :address_1, :if => :admin_applicant?
+  # validates_presence_of :city, :if => :admin_applicant?
   validates_presence_of :province, :if => :admin_applicant?
   VALID_POSTAL_CODE_REGEX = /\A\d{5}(-\d{4})?\z/
   validates :postal_code, presence: true,
