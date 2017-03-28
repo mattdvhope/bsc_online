@@ -90,7 +90,7 @@ class User < ActiveRecord::Base
   VALID_POSTAL_CODE_REGEX = /\A\d{5}(-\d{4})?\z/
   validates :postal_code, presence: true,
             format: { with:  VALID_POSTAL_CODE_REGEX }, :if => :admin_applicant?
-  validates_presence_of :country, :if => :admin_applicant?
+  # validates_presence_of :country, :if => :admin_applicant?
 
   def self.new_guest
     new { |u| u.guest = true } # Doing this in a block to protect the guest attribute from mass assignment.
