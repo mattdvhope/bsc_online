@@ -75,8 +75,9 @@ var App = {
     //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    skype_docs_view.render();
+    setTimeout(function(){ skype_docs_view.render(); }, 200); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
