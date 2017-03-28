@@ -100,7 +100,7 @@ Rails.application.routes.draw do
   # for unsubscribing from an email sent from this app
   get '/users/unsubscribe/:signature' => 'users#unsubscribe', as: 'unsubscribe'
 
-  get 'ui(/:action)', controller: 'ui'
+  # get 'ui(/:action)', controller: 'ui'
 
   # This 'match' MUST BE AT THE BOTTOM OF THIS FILE!!!!
   # match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
