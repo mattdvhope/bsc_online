@@ -7,8 +7,8 @@ Appp.volunteer_restoration = Appp.cable.subscriptions.create({channel: "Voluntee
     console.log("disconnected from ActionCable");
   },
   received: function(data) {
-console.log("In 'VolunteerRestorationChannel'");
-console.log(data);
+// console.log("In 'VolunteerRestorationChannel'");
+// console.log(data);
 
     //!!!!!! Use a conditional 'break' to prevent endless cycling through the 'received' method
     // if (i === 3) { break; }
