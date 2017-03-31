@@ -272,6 +272,7 @@ var App = {
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
+console.log(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "student") {
         app_obj.getStudentDashboardPage(app_obj.presentUserModel());
