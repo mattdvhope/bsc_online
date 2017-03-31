@@ -24,6 +24,8 @@ console.log(data.student_id);
       .not('li[data-student-id="'+ data.student_id + '"]').remove();
     }
     else if (data.available === true) {
+console.log(present_user_id);
+console.log(data.student_id);
       $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
       if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
