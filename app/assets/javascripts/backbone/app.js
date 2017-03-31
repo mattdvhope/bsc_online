@@ -77,7 +77,7 @@ var App = {
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
 
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    setTimeout(function(){ skype_docs_view.render(); }, 4000); // to allow volunteer dashboard to render first
+    setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
