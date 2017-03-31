@@ -75,9 +75,8 @@ var App = {
     //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
-
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    setTimeout(function(){ skype_docs_view.render(); }, 4000); // to allow volunteer dashboard to render first
+    setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
@@ -85,9 +84,9 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
-    skype_docs_view.render();
     document.title = student.get("first_name") + " " + student.get("last_name");
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow student dashboard to render first
   },
   getVolunteersAvailableView: function(student) {
     var this_app = this;
@@ -96,8 +95,8 @@ var App = {
       success: function (collection, response, options) {
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
-        var profile_view_modal = new VolunteerProfileView({ model: student });
-        $("#volunteerprofile").html(profile_view_modal.render().el);
+        // var profile_view_modal = new VolunteerProfileView({ model: student });
+        // $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -273,6 +272,7 @@ var App = {
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
+console.log(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "student") {
         app_obj.getStudentDashboardPage(app_obj.presentUserModel());

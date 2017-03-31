@@ -19700,9 +19700,11 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/volunteers_available"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     return "    <h3>There are currently no volunteers available.</h3>\n";
 },"3":function(container,depth0,helpers,partials,data,blockParams,depths) {
-    var stack1;
+    var stack1, helper;
 
-  return "    <ul id=\"ul-of-vol-avail\" style=\"list-style-type:none\">\n      <hr>\n"
+  return "    <ul id=\"ul-of-vol-avail\" style=\"list-style-type:none\" data-student-id="
+    + container.escapeExpression(((helper = (helper = helpers.student_id || (depth0 != null ? depth0.student_id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"student_id","hash":{},"data":data}) : helper)))
+    + ">\n      <hr>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.volunteers : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " <!-- each class times -->\n    </ul>\n";
 },"4":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -21417,8 +21419,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       var student = this.model;
 
       if ($(e.target)[0].checked) {
-        $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
-        $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
+        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
+        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
+        $(".checkers").attr("disabled", true);
+        $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
         $(".checkers[data-id=" + slot_id + "]").next().css( "color", "black" );
 
@@ -21445,10 +21449,12 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(error);
         });
       } else if (!$(e.target)[0].checked) {
-        this.collection.toJSON().forEach(function(vol) {
-          $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
-          $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
-        })
+        // this.collection.toJSON().forEach(function(vol) { // maybe use later....
+        //   $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
+        //   $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
+        // })
+        $(".checkers").attr("disabled", false);
+        $(".checkers").next().css( "color", "black" );
 
         saveSlot(null, true)
         .then(function(result) {
@@ -22815,9 +22821,8 @@ var App = {
     //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
     // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
-
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    setTimeout(function(){ skype_docs_view.render(); }, 4000); // to allow volunteer dashboard to render first
+    setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
@@ -22825,9 +22830,9 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
-    skype_docs_view.render();
     document.title = student.get("first_name") + " " + student.get("last_name");
+    var skype_docs_view = new SkypeDocumentsStuView({ model: student });
+    setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow student dashboard to render first
   },
   getVolunteersAvailableView: function(student) {
     var this_app = this;
@@ -22836,8 +22841,8 @@ var App = {
       success: function (collection, response, options) {
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
-        var profile_view_modal = new VolunteerProfileView({ model: student });
-        $("#volunteerprofile").html(profile_view_modal.render().el);
+        // var profile_view_modal = new VolunteerProfileView({ model: student });
+        // $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -23013,6 +23018,7 @@ var App = {
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
+console.log(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "student") {
         app_obj.getStudentDashboardPage(app_obj.presentUserModel());
@@ -23704,6 +23710,8 @@ $("h3.answer").click(function() {
 // Appp.messages.send({
 //   sent_by: "Paul", body: "This is a cool chat app."
 // });
+$(document).ready(function(){
+
 Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRemovalChannel"}, {
                                 // when .create is invoked, it will invoke the VolunteerRemovalChannel#subscribed method (in Rails), which is in fact a callback method.
   connected: function() {
@@ -23714,22 +23722,17 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
   },
   received: function(data) {
 
-    var present_user_id;
-    var present_user = $('div#user-now').data("present-user");
-    if (present_user) {
-      present_user_id = present_user.id;
-    } else {
-      present_user_id = data.student_id;
-    }
+    var current_clicker_id = data.student_id;
+    var present_user_id = $('ul#ul-of-vol-avail').data("student-id");
 
     if (data.available === false) {
-console.log(present_user_id);
-console.log(data.student_id);
+console.log("false: ", present_user_id);
 
       $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
-      .not('li[data-student-id="'+ data.student_id + '"]').remove();
+      .not('li[data-student-id="'+ current_clicker_id + '"]').remove();
     }
     else if (data.available === true) {
+console.log("true: ", present_user_id);
       $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
       if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
@@ -23760,27 +23763,26 @@ console.log(data.student_id);
       data.vol_slots.forEach(function(slot) {
         $('h4[data-id=' + data.volunteer_id + ']').append(
           '<div id="checkArray">' +
-            '<input class="checkers" data-id=' + slot.id + ' ' + 'data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + data.student_id + ' '  + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
+            '<input class="checkers" data-id=' + slot.id + ' data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + present_user_id + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
             '<span id="skype-time-slot-available" style="font-size: 16.5px;" data-order=' + '1' + '>' + slot.day_thai + ' ' + slot.time_thai + '</span>' +
           '</div>'
         ); // 'h4[data-id='... .append
       });
 
-      // setTimeout(function(){
-        if ($('span:contains("กับคุณ")').length > 0) {
-          $(".checkers[data-student-id=" + data.student_id + "][data-volunteer-id=" + data.volunteer_id + "]").parent().find('input').each(function() {
-            console.log($(this)[0]);
-            $(this).attr("disabled", true);
-          });
-        }
-      // }, 500);
-
+      if ($('span:contains("กับคุณ")').length > 0) {
+        $(".checkers[data-volunteer-id=" + data.volunteer_id + "][data-student-id=" + present_user_id + "]").parent().find('input').each(function() {
+          console.log($(this)[0]);
+          $(this).attr("disabled", true);
+        });
+      }
 
     } // else if ... true
 
   }, // received:
 
 }); // Appp.cable.subscriptions.create
+
+}); // $(document).ready
 
 ;
 

@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRemovalChannel"}, {
                                 // when .create is invoked, it will invoke the VolunteerRemovalChannel#subscribed method (in Rails), which is in fact a callback method.
   connected: function() {
@@ -8,22 +10,17 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
   },
   received: function(data) {
 
-    var present_user_id;
-    var present_user = $('div#user-now').data("present-user");
-    if (present_user) {
-      present_user_id = present_user.id;
-    } else {
-      present_user_id = data.student_id;
-    }
+    var current_clicker_id = data.student_id;
+    var present_user_id = $('ul#ul-of-vol-avail').data("student-id");
 
     if (data.available === false) {
-console.log(present_user_id);
-console.log(data.student_id);
+console.log("false: ", present_user_id);
 
       $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
-      .not('li[data-student-id="'+ data.student_id + '"]').remove();
+      .not('li[data-student-id="'+ current_clicker_id + '"]').remove();
     }
     else if (data.available === true) {
+console.log("true: ", present_user_id);
       $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
       if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
@@ -54,25 +51,24 @@ console.log(data.student_id);
       data.vol_slots.forEach(function(slot) {
         $('h4[data-id=' + data.volunteer_id + ']').append(
           '<div id="checkArray">' +
-            '<input class="checkers" data-id=' + slot.id + ' ' + 'data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + data.student_id + ' '  + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
+            '<input class="checkers" data-id=' + slot.id + ' data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + present_user_id + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
             '<span id="skype-time-slot-available" style="font-size: 16.5px;" data-order=' + '1' + '>' + slot.day_thai + ' ' + slot.time_thai + '</span>' +
           '</div>'
         ); // 'h4[data-id='... .append
       });
 
-      // setTimeout(function(){
-        if ($('span:contains("กับคุณ")').length > 0) {
-          $(".checkers[data-student-id=" + data.student_id + "][data-volunteer-id=" + data.volunteer_id + "]").parent().find('input').each(function() {
-            console.log($(this)[0]);
-            $(this).attr("disabled", true);
-          });
-        }
-      // }, 500);
-
+      if ($('span:contains("กับคุณ")').length > 0) {
+        $(".checkers[data-volunteer-id=" + data.volunteer_id + "][data-student-id=" + present_user_id + "]").parent().find('input').each(function() {
+          console.log($(this)[0]);
+          $(this).attr("disabled", true);
+        });
+      }
 
     } // else if ... true
 
   }, // received:
 
 }); // Appp.cable.subscriptions.create
+
+}); // $(document).ready
 

@@ -92,8 +92,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       var student = this.model;
 
       if ($(e.target)[0].checked) {
-        $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
-        $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
+        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
+        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
+        $(".checkers").attr("disabled", true);
+        $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
         $(".checkers[data-id=" + slot_id + "]").next().css( "color", "black" );
 
@@ -120,10 +122,12 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(error);
         });
       } else if (!$(e.target)[0].checked) {
-        this.collection.toJSON().forEach(function(vol) {
-          $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
-          $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
-        })
+        // this.collection.toJSON().forEach(function(vol) { // maybe use later....
+        //   $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
+        //   $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
+        // })
+        $(".checkers").attr("disabled", false);
+        $(".checkers").next().css( "color", "black" );
 
         saveSlot(null, true)
         .then(function(result) {
