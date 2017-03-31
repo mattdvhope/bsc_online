@@ -94,7 +94,6 @@ var VolunteersAvailableView = Backbone.View.extend({
       if ($(e.target)[0].checked) {
         // $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
         // $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
-
         $(".checkers").attr("disabled", true);
         $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
