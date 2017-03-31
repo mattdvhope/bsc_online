@@ -30,7 +30,10 @@ console.log("true: ", present_user_id);
           '<li data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + present_user_id + ' ' +
             '<h3>' +
             '<h3>ชื่อ: <span style="text-decoration: underline;">' + data.vol_first_name + ' ' + data.vol_last_name + '</span></h3>' +
+
+             // change gender to Thai!!!
             '<h4>เพศ: ' + data.vol_gender + '</h4>' +
+
             '<h4>อายุ: ' + data.vol_age + '</h4>' +
             '<h4>มลรัฐในสหรัฐ: ' + data.vol_province + '</h4>' +
             '<h4 id="choose-skype-time" data-id="' + data.volunteer_id + '">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.vol_first_name + '.  ' + data.vol_first_name + ' มีเวลาว่างกับ 1 ใน ' + data.vol_slot_num + ' ช่องนี้เท่านั้น:</h4>' +
