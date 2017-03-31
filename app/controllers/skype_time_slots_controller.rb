@@ -20,14 +20,13 @@ class SkypeTimeSlotsController < ApplicationController
   end
 
   def update
-binding.pry
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
     if @skype_time_slot.update(student_id: params[:student_id], available: params[:available])
       volunteer = User.find(@skype_time_slot.volunteer_id)
       ActionCable.server.broadcast 'volunteer_removal',
         student_id: current_user.id,
         volunteer_id: @skype_time_slot.volunteer_id,
-        available: params[:available] #,
+        available: params[:available],
         vol_first_name: volunteer.first_name,
         vol_last_name: volunteer.last_name,
         vol_gender: volunteer.gender,
