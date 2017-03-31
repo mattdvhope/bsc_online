@@ -22,27 +22,18 @@ class SkypeTimeSlotsController < ApplicationController
   def update
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
     if @skype_time_slot.update(student_id: params[:student_id], available: params[:available])
-
       volunteer = User.find(@skype_time_slot.volunteer_id)
-      if params[:available] == false
-        ActionCable.server.broadcast 'volunteer_removal', # 'messages' is the name of the channel to which we are broadcasting
-          student_id: current_user.id,
-          volunteer_id: @skype_time_slot.volunteer_id
-      elsif params[:available] == true
-        ActionCable.server.broadcast 'volunteer_restoration', # 'messages' is the name of the channel to which we are broadcasting
-          student_id: current_user.id,
-          volunteer_id: @skype_time_slot.volunteer_id,
-          first_name: volunteer.first_name,
-          last_name: volunteer.last_name,
-          gender: volunteer.gender,
-          age: volunteer.age,
-          province: volunteer.province,
-          country: volunteer.country
-
-
-
-      end
-
+      ActionCable.server.broadcast 'volunteer_removal',
+        student_id: current_user.id,
+        volunteer_id: @skype_time_slot.volunteer_id,
+        available: params[:available],
+        vol_first_name: volunteer.first_name,
+        vol_last_name: volunteer.last_name,
+        vol_gender: volunteer.gender,
+        vol_age: volunteer.age,
+        vol_province: volunteer.province,
+        vol_slot_num: volunteer.skype_time_slots.count,
+        vol_slots: volunteer.skype_time_slots
       render "show"
     else
       render :json => { :errors => @skype_time_slot.errors.full_messages }, :status => 422

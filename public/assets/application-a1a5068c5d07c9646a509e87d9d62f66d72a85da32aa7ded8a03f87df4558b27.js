@@ -19546,7 +19546,7 @@ window.fbAsyncInit = function() {
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/select_skype_time"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<br>\n<select name=\"skype-day\" id=\"skype-day-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Day for Skyping -- </option>\n  <option data-orderday=\"1\" value=\"Sunday\">Sunday</option>\n  <option data-orderday=\"2\" value=\"Monday\">Monday</option>\n  <option data-orderday=\"3\" value=\"Tuesday\">Tuesday</option>\n  <option data-orderday=\"4\" value=\"Wednesday\">Wednesday</option>\n  <option data-orderday=\"5\" value=\"Thursday\">Thursday</option>\n  <option data-orderday=\"6\" value=\"Friday\">Friday</option>\n  <option data-orderday=\"7\" value=\"Saturday\">Saturday</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-time\" id=\"skype-time-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Time for Skyping -- </option>\n  <option data-ordertime=\"1\" value=\"12:00 - 12:30\">12:00 - 12:30 EST</option>\n  <option data-ordertime=\"2\" value=\"12:30 - 1:00\">12:30 - 1:00 EST</option>\n\n  <option data-ordertime=\"3\" value=\"1:00 - 1:30\">1:00 - 1:30 EST</option>\n  <option data-ordertime=\"4\" value=\"1:30 - 2:00\">1:30 - 2:00 EST</option>\n\n  <option data-ordertime=\"5\" value=\"2:00 - 2:30\">2:00 - 2:30 EST</option>\n  <option data-ordertime=\"6\" value=\"2:30 - 3:00\">2:30 - 3:00 EST</option>\n\n  <option data-ordertime=\"7\" value=\"3:00 - 3:30\">3:00 - 3:30 EST</option>\n  <option data-ordertime=\"8\" value=\"3:30 - 4:00\">3:30 - 4:00 EST</option>\n\n  <option data-ordertime=\"9\" value=\"4:00 - 4:30\">4:00 - 4:30 EST</option>\n  <option data-ordertime=\"10\" value=\"4:30 - 5:00\">4:30 - 5:00 EST</option>\n\n  <option data-ordertime=\"11\" value=\"5:00 - 5:30\">5:00 - 5:30 EST</option>\n  <option data-ordertime=\"12\" value=\"5:30 - 6:00\">5:30 - 6:00 EST</option>\n\n  <option data-ordertime=\"13\" value=\"6:00 - 6:30\">6:00 - 6:30 EST</option>\n  <option data-ordertime=\"14\" value=\"6:30 - 7:00\">6:30 - 7:00 EST</option>\n\n  <option data-ordertime=\"15\" value=\"7:00 - 7:30\">7:00 - 7:30 EST</option>\n  <option data-ordertime=\"16\" value=\"7:30 - 8:00\">7:30 - 8:00 EST</option>\n\n  <option data-ordertime=\"17\" value=\"8:00 - 8:30\">8:00 - 8:30 EST</option>\n  <option data-ordertime=\"18\" value=\"8:30 - 9:00\">8:30 - 9:00 EST</option>\n\n  <option data-ordertime=\"19\" value=\"9:00 - 9:30\">9:00 - 9:30 EST</option>\n  <option data-ordertime=\"20\" value=\"9:30 - 10:00\">9:30 - 10:00 EST</option>\n\n  <option data-ordertime=\"21\" value=\"10:00 - 10:30\">10:00 - 10:30 EST</option>\n  <option data-ordertime=\"22\" value=\"10:30 - 11:00\">10:30 - 11:00 EST</option>\n\n  <option data-ordertime=\"23\" value=\"11:00 - 11:30\">11:00 - 11:30 EST</option>\n  <option data-ordertime=\"24\" value=\"11:30 - 12:00\">11:30 - 12:00 EST</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-m\" id=\"skype-m-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- AM or PM? -- </option>\n  <option data-orderam=\"1\" value=\"AM EST\">AM</option>\n  <option data-orderam=\"2\" value=\"PM EST\">PM</option>\n</select>\n\n";
+    return "<br>\n<select name=\"skype-day\" id=\"skype-day-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Day for Skyping -- </option>\n  <option data-orderday=\"1\" value=\"Sunday\">Sunday</option>\n  <option data-orderday=\"2\" value=\"Monday\">Monday</option>\n  <option data-orderday=\"3\" value=\"Tuesday\">Tuesday</option>\n  <option data-orderday=\"4\" value=\"Wednesday\">Wednesday</option>\n  <option data-orderday=\"5\" value=\"Thursday\">Thursday</option>\n  <option data-orderday=\"6\" value=\"Friday\">Friday</option>\n  <option data-orderday=\"7\" value=\"Saturday\">Saturday</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-time\" id=\"skype-time-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- Time for Skyping -- </option>\n  <option data-ordertime=\"1\" value=\"12:00 - 12:30\">12:00 - 12:30 EST</option>\n  <option data-ordertime=\"2\" value=\"12:30 - 1:00\">12:30 - 1:00 EST</option>\n\n\n  <option data-ordertime=\"11\" value=\"5:00 - 5:30\">5:00 - 5:30 EST</option>\n  <option data-ordertime=\"12\" value=\"5:30 - 6:00\">5:30 - 6:00 EST</option>\n\n  <option data-ordertime=\"13\" value=\"6:00 - 6:30\">6:00 - 6:30 EST</option>\n  <option data-ordertime=\"14\" value=\"6:30 - 7:00\">6:30 - 7:00 EST</option>\n\n  <option data-ordertime=\"15\" value=\"7:00 - 7:30\">7:00 - 7:30 EST</option>\n  <option data-ordertime=\"16\" value=\"7:30 - 8:00\">7:30 - 8:00 EST</option>\n\n  <option data-ordertime=\"17\" value=\"8:00 - 8:30\">8:00 - 8:30 EST</option>\n  <option data-ordertime=\"18\" value=\"8:30 - 9:00\">8:30 - 9:00 EST</option>\n\n  <option data-ordertime=\"19\" value=\"9:00 - 9:30\">9:00 - 9:30 EST</option>\n  <option data-ordertime=\"20\" value=\"9:30 - 10:00\">9:30 - 10:00 EST</option>\n\n  <option data-ordertime=\"21\" value=\"10:00 - 10:30\">10:00 - 10:30 EST</option>\n  <option data-ordertime=\"22\" value=\"10:30 - 11:00\">10:30 - 11:00 EST</option>\n\n  <option data-ordertime=\"23\" value=\"11:00 - 11:30\">11:00 - 11:30 EST</option>\n  <option data-ordertime=\"24\" value=\"11:30 - 12:00\">11:30 - 12:00 EST</option>\n</select>\n\n<br>\n<br>\n<select name=\"skype-m\" id=\"skype-m-select\">\n  <option id=\"option-with-id\" value=\"select_option\" selected> -- AM or PM? -- </option>\n  <option data-orderam=\"1\" value=\"AM EST\">AM</option>\n  <option data-orderam=\"2\" value=\"PM EST\">PM</option>\n</select>\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/select_skype_time"];
 }).call(this);
@@ -19555,11 +19555,11 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/skype_documents_stu"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container\">\n\n  <h2>Skype partnership Documents:</h2>\n  <span id=\"skype-doc-stu-template\">\n    <h3>Each of these documents, "
+  return "<div class=\"container\">\n\n  <h2>เอกสารความร่วมมือออนไลน์:</h2>\n  <span id=\"skype-doc-stu-template\">\n    <h3>\n      เอกสารเหล่านี้คือ "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + ", is related to your Skype partnership with the American teacher.  Feel free to click on the icons of whichever documents you'll need to download.</h3>\n\n\n    <ul style=\"list-style: none;\">\n      <hr>\n      <li>\n        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, "
+    + " ที่มีความเกี่ยวข้องกับการเป็นหุ้นส่วนออนไลน์กับครูชาวอเมริกัน\n\n      คุณสามารถคลิกไปที่ไอคอนของเอกสารใดก็ตามที่คุณต้องการดาวน์โหลด\n    </h3>\n\n\n    <ul style=\"list-style: none;\">\n      <hr>\n      <li>\n        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + "</h4>\n        <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works between you and the American teacher.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>Here are some sample questions that you and the American teacher can talk about.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-ใบสมัคร</h4>\n        <p>This is a copy of a blank application form which you will have to fill out in order to have a Skype partnership with you (The CEP instructors may have given this to you already.  If so, you don't need this now.)</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Thai+student+appl+form.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n    </ul>\n    <h3>Here are the 8 course sheets which you will use for the next eight weeks with your American teacher.  Your teacher will also have a copy of them.</h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
+    + "</h4>\n        <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works between you and the American teacher.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>Here are some sample questions that you and the American teacher can talk about.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-ใบสมัคร</h4>\n        <p>This is a copy of a blank application form which you will have to fill out in order to have a Skype partnership with you (The CEP instructors may have given this to you already.  If so, you don't need this now.)</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Thai+student+appl+form.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n    </ul>\n    <h3>\n      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป\n      ครูของคุณจะมีสำเนานี้ด้วย\n    </h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_documents_stu"];
 }).call(this);
@@ -19634,9 +19634,9 @@ window.fbAsyncInit = function() {
 
   return "    <span id=\"test-slot-list\">\n      <ul>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.time_slots : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "      </ul>\n    </span>\n    <p>(Your Thai student will be "
+    + "      </ul>\n    </span>\n    <p>\n      (Please keep in mind as you schedule your time slots that your Thai student will be "
     + container.escapeExpression(((helper = (helper = helpers.hours_ahead || (depth0 != null ? depth0.hours_ahead : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"hours_ahead","hash":{},"data":data}) : helper)))
-    + " hours ahead of Eastern Standard Time. Please keep that in mind as you schedule your time slots.)</p>\n";
+    + " hours ahead of Eastern Standard Time.)\n    </p>\n";
 },"4":function(container,depth0,helpers,partials,data) {
     var helper;
 
@@ -19678,7 +19678,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
     + " as a Skype-partner!</h2>\n    <hr>\n\n    <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n      <h2>Click here to select the Skype time slots.  The slots are for once a week (half hour each time) for 8 weeks.</h2>\n      <h2 class=\"skype-slot-choice\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseSkypeTime\" aria-expanded=\"false\" aria-controls=\"collapseSkypeTime\">\n        <span id=\"open-to-add\">Add time slot</span>\n      </h2>\n      <div class=\"collapse\" id=\"collapseSkypeTime\">\n"
+    + ">\n\n      <h2>Please choose several time slots that are convenient for you.  Your Thai student will select only <b>one</b> from your list of 30-minute available time slots (to be built by you here) and send you an auto-email telling you the chosen slot.  The student will then meet with you weekly online over an 8-week term.</h2>\n      <h2 class=\"skype-slot-choice\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseSkypeTime\" aria-expanded=\"false\" aria-controls=\"collapseSkypeTime\">\n        <span id=\"open-to-add\">Click to add time slot</span>\n      </h2>\n      <div class=\"collapse\" id=\"collapseSkypeTime\">\n"
     + ((stack1 = container.invokePartial(partials.select_skype_time,depth0,{"name":"select_skype_time","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "        <p class=\"est-times\">All times Eastern Standard Time (EST) zone. We will convert your time slot choices automatically into Thailand's time zone for the student to see.</p>\n\n        <br>\n        <div class=\"button-for-skype\">\n          <button id=\"add-skype-slots\" class=\"btn btn-primary\">Submit</button>\n        </div>\n      </div>\n\n      <h4 id=\"choosing-many-slots\">(You can choose as many slots as you like.)</h4>\n\n    </form>\n    <hr>\n\n    <h3 id=\"list-avail-skype\">List of your available time slots:</h3>\n    <!-- insert 'SkypeTimeSlotsView' template here-->\n    <hr>\n    <h2 id=\"skype-documents-vol-below\">Skype partnership Documents:</h2>\n    <!-- insert 'SkypeDocumentsVolView' template here-->\n    <hr>\n\n  </div>\n\n</div>";
 },"usePartial":true,"useData":true});
@@ -19720,17 +19720,15 @@ window.fbAsyncInit = function() {
     + ((stack1 = (helpers.genderTranslate || (depth0 && depth0.genderTranslate) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.gender : depth0),{"name":"genderTranslate","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </h4>\n        <h4>อายุ: "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.age : depth0), depth0))
-    + "</h4>\n        <h4>รัฐ: "
+    + "</h4>\n        <h4>มลรัฐในสหรัฐ: "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.province : depth0), depth0))
-    + "</h4>\n        <h4>ประเทศ: "
-    + container.escapeExpression(container.lambda((depth0 != null ? depth0.country : depth0), depth0))
     + "</h4>\n        <h4 id=\"choose-skype-time\">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + ".  "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + " is available for only 1 of these "
+    + " มีเวลาว่างกับ 1 ใน "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.number_of_slots_listed : depth0), depth0))
-    + " slots:</h4>\n\n"
+    + " ช่องนี้เท่านั้น:</h4>\n\n"
     + ((stack1 = (helpers.disableSomeSlots || (depth0 && depth0.disableSomeSlots) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.skype_time_slots : depth0),{"name":"disableSomeSlots","hash":{},"fn":container.program(7, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        <h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
@@ -19776,7 +19774,7 @@ window.fbAsyncInit = function() {
     + " "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.time_thai : depth0), depth0))
     + " กับคุณ, "
-    + container.escapeExpression(container.lambda((depths[3] != null ? depths[3].first_name : depths[3]), depth0))
+    + container.escapeExpression(container.lambda((depths[2] != null ? depths[2].first_name : depths[2]), depth0))
     + "</span>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
@@ -20403,7 +20401,9 @@ window.fbAsyncInit = function() {
 
   return "<a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
     + container.escapeExpression(((helper = (helper = helpers.courses || (depth0 != null ? depth0.courses : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"courses","hash":{},"data":data}) : helper)))
-    + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
+    + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n      "
+    + container.escapeExpression(((helper = (helper = helpers.login || (depth0 != null ? depth0.login : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"login","hash":{},"data":data}) : helper)))
+    + "\n    </a>\n  </li>\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"you_can_speak","hash":{},"data":data}) : helper)))
     + "\n    </a>\n  </li>\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#converseonlinemodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.converse_online || (depth0 != null ? depth0.converse_online : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"converse_online","hash":{},"data":data}) : helper)))
@@ -20475,9 +20475,9 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["registration/admin_reg"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register your church, business or organization with City English Project (CEP)!</h3>\n      <h4>\n        When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Questionnaire.\" After you fill it out and submit it, we will respond to you within 72 hours. \n      </h4>\n      <hr>\n      <h4>\n        Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"admin applicant status.\" You will not yet enter the City English app. If and when you are approved as an administrator for volunteers, you will then gain \"admin\" status.  In this status, you will be able to provide an access PIN to future volunteers (Skype partners, etc) for CEP.  You will also be able to log in to CEP using your email and password.\n      </h4>\n      <hr>\n      <h4>\n        Every box is required to be filled in except 'Address 2.'\n      </h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"admin-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return "<div class=\"modal-dialog\">\n\n  <!-- Modal content-->\n  <div class=\"modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"close close-modal\" data-dismiss=\"modal\">&times;</button>\n      <h3 class=\"modal-title\">Register your church, business or organization with City English Project (CEP)!</h3>\n      <h4>\n        When you [successfully] click the button, \"Send this form to CEP\" below, we will send an email to you.  In that email, we will then direct you to our \"CEP Volunteer Administrator Questionnaire.\" After you fill it out and submit it, we will respond to you within 72 hours. \n      </h4>\n      <hr>\n      <h4>\n        Also after [successfully] clicking \"Send this form to CEP,\" you will immediately become a member of CEP in \"admin applicant status.\" You will not yet enter the City English app. If and when you are approved as an administrator for volunteers, you will then gain \"admin\" status.  In this status, you will be able to provide an access PIN to future volunteers (Skype partners, etc) for CEP.  You will also be able to log in to CEP using your email and password.\n      </h4>\n    </div>\n    <div class=\"modal-body\">\n      <form class=\"admin-registration-form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n      <input type=\"hidden\" name=\"role\" value=\"admin_applicant\">\n\n        <label class=\"field-label\">First Name</label>\n        <input id=\"applicant-first-name\" type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label skype-name-label\">Skype Name<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control skype-name\" placeholder=\"ชื่อ Skype\" name=\"skype_name\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-confirmation-label\">Password Confirmation</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password-confirmation\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"Phone Number\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label\">Address One</label>\n        <input type=\"text\" class=\"form-control address-one\" placeholder=\"Address One\" name=\"address_1\">\n        <hr>\n\n        <label class=\"field-label\">Address Two</label>\n        <input type=\"text\" class=\"form-control address-two\" placeholder=\"Address Two\" name=\"address_2\">\n        <hr>\n\n        <label class=\"field-label\">Town or City</label>\n        <input type=\"text\" class=\"form-control city\" placeholder=\"Town or City\" name=\"city\">\n        <hr>\n\n        <label class=\"field-label\">State or Province</label>\n        <input type=\"text\" class=\"form-control province\" placeholder=\"State or Province\" name=\"province\">\n        <hr>\n\n        <label class=\"field-label postal-code-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Zip Code\" name=\"postal_code\">\n        <hr>\n\n        <label class=\"field-label\">Country</label>\n        <input type=\"text\" class=\"form-control country\" placeholder=\"State or Province\" name=\"country\">\n        <hr>\n\n        <div id=\"admin-reg-submit-button\" class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary admin-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n";
+    + ">\n      <input type=\"hidden\" name=\"role\" value=\"admin_applicant\">\n\n        <label class=\"field-label\">First Name</label>\n        <input id=\"applicant-first-name\" type=\"text\" class=\"form-control first-name\" placeholder=\"First Name\" name=\"first_name\">\n        <hr>\n\n        <label class=\"field-label\">Last Name</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"Last Name\" name=\"last_name\">\n        <hr>\n\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"male\">Male</option>\n            <option value=\"female\">Female</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address</label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"Email Address\" name=\"email\">\n        <hr>\n\n        <label class=\"field-label skype-name-label\">Skype Name<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control skype-name\" placeholder=\"ชื่อ Skype\" name=\"skype_name\">\n        <hr>\n\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"Age\" name=\"age\">\n        <hr>\n\n        <label class=\"field-label\">Church, Business or Organization Name</label>\n        <input type=\"text\" class=\"form-control organization\" placeholder=\"Organization\" name=\"organization\">\n        <hr>\n\n        <label class=\"field-label password-label\">Password</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password\" placeholder=\"Password\" name=\"password\">\n        <hr>\n\n        <label class=\"field-label password-confirmation-label\">Password Confirmation</label>\n        <input id=\"admin-registration-password\" type=\"password\" class=\"form-control password-confirmation\" placeholder=\"Password Confirmation\" name=\"password_confirmation\">\n        <hr>\n\n\n        <label class=\"field-label\">State</label>\n        <div>\n          <select name=\"province\" class=\"form-control province\">\n            <option value=\"\" selected=\"selected\">Select a State</option>\n            <option value=\"AL\">Alabama</option>\n            <option value=\"AK\">Alaska</option>\n            <option value=\"AZ\">Arizona</option>\n            <option value=\"AR\">Arkansas</option>\n            <option value=\"CA\">California</option>\n            <option value=\"CO\">Colorado</option>\n            <option value=\"CT\">Connecticut</option>\n            <option value=\"DE\">Delaware</option>\n            <option value=\"DC\">District Of Columbia</option>\n            <option value=\"FL\">Florida</option>\n            <option value=\"GA\">Georgia</option>\n            <option value=\"HI\">Hawaii</option>\n            <option value=\"ID\">Idaho</option>\n            <option value=\"IL\">Illinois</option>\n            <option value=\"IN\">Indiana</option>\n            <option value=\"IA\">Iowa</option>\n            <option value=\"KS\">Kansas</option>\n            <option value=\"KY\">Kentucky</option>\n            <option value=\"LA\">Louisiana</option>\n            <option value=\"ME\">Maine</option>\n            <option value=\"MD\">Maryland</option>\n            <option value=\"MA\">Massachusetts</option>\n            <option value=\"MI\">Michigan</option>\n            <option value=\"MN\">Minnesota</option>\n            <option value=\"MS\">Mississippi</option>\n            <option value=\"MO\">Missouri</option>\n            <option value=\"MT\">Montana</option>\n            <option value=\"NE\">Nebraska</option>\n            <option value=\"NV\">Nevada</option>\n            <option value=\"NH\">New Hampshire</option>\n            <option value=\"NJ\">New Jersey</option>\n            <option value=\"NM\">New Mexico</option>\n            <option value=\"NY\">New York</option>\n            <option value=\"NC\">North Carolina</option>\n            <option value=\"ND\">North Dakota</option>\n            <option value=\"OH\">Ohio</option>\n            <option value=\"OK\">Oklahoma</option>\n            <option value=\"OR\">Oregon</option>\n            <option value=\"PA\">Pennsylvania</option>\n            <option value=\"RI\">Rhode Island</option>\n            <option value=\"SC\">South Carolina</option>\n            <option value=\"SD\">South Dakota</option>\n            <option value=\"TN\">Tennessee</option>\n            <option value=\"TX\">Texas</option>\n            <option value=\"UT\">Utah</option>\n            <option value=\"VT\">Vermont</option>\n            <option value=\"VA\">Virginia</option>\n            <option value=\"WA\">Washington</option>\n            <option value=\"WV\">West Virginia</option>\n            <option value=\"WI\">Wisconsin</option>\n            <option value=\"WY\">Wyoming</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label postal-code-label\">Zip / Postal Code</label>\n        <input type=\"text\" class=\"form-control postal-code\" placeholder=\"Zip Code\" name=\"postal_code\">\n        <hr>\n\n\n        <div id=\"admin-reg-submit-button\" class=\"control-group\">\n          <input type=\"submit\" value=\"Submit\" id=\"submit\" name=\"submit\" class=\"btn btn-primary admin-registration-submit\">\n        </div>\n\n      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n";
 },"useData":true});
   return this.HandlebarsTemplates["registration/admin_reg"];
 }).call(this);
@@ -21127,29 +21127,29 @@ var VolunteerDashboardView = Backbone.View.extend({
     "change #number-of-slots": 'changeVolunteerSlotNumber'
   },
 
-  changeVolunteerSlotNumber: function() {
-    var view_context = this;
-    var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
-    var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
+  // changeVolunteerSlotNumber: function() {
+  //   var view_context = this;
+  //   var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
+  //   var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
 
-    var promise = new Promise(function(resolve, reject) {
-      resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
-    });
+  //   var promise = new Promise(function(resolve, reject) {
+  //     resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
+  //   });
 
-    promise
-    .then(function(volunteer_obj) {
-      $("#current-numbers-slots").remove();
-      if (volunteer_obj.number_of_slots == 0) {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-      } else {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-      }
-      $("#skype-time-partial").remove();
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  },
+  //   promise
+  //   .then(function(volunteer_obj) {
+  //     $("#current-numbers-slots").remove();
+  //     if (volunteer_obj.number_of_slots == 0) {
+  //       $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+  //     } else {
+  //       $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+  //     }
+  //     $("#skype-time-partial").remove();
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error);
+  //   });
+  // },
 
   deleteSkypeTimeSlot: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
@@ -21433,12 +21433,12 @@ var VolunteersAvailableView = Backbone.View.extend({
         saveSlot(student_id, false)
         .then(function(result) {
           var span = $(e.target).next();
-          $($(e.target).next()).fadeOut(400, function() {
+          $($(e.target).next()).fadeOut(0, function() {
             span.replaceWith($(view_context.template_for_slot_span({
               day_thai: result.day_thai,
               time_thai: result.time_thai,
               first_name: student.get("first_name")
-            }) ).fadeIn(400) );
+            }) ).fadeIn(0) );
           });
         })
         .catch(function(error) {
@@ -21453,11 +21453,11 @@ var VolunteersAvailableView = Backbone.View.extend({
         saveSlot(null, true)
         .then(function(result) {
           var span = $(e.target).next();
-          $($(e.target).next()).fadeOut(400, function() {
+          $($(e.target).next()).fadeOut(0, function() {
             span.replaceWith($(view_context.template_for_unchecked_slot_span({
               day_thai: result.day_thai,
               time_thai: result.time_thai,
-            }) ).fadeIn(400) );
+            }) ).fadeIn(0) );
           });
         })
         .catch(function(error) {
@@ -22808,15 +22808,16 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    if (volunteer.get("number_of_slots") == 0) {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
-    }
-    else {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-    }
+    // if (volunteer.get("number_of_slots") == 0) {
+    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
+    // }
+    // else {
+    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+    // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    skype_docs_view.render();
+    setTimeout(function(){ skype_docs_view.render(); }, 4000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
@@ -22833,7 +22834,6 @@ var App = {
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
-console.log(student);
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
         var profile_view_modal = new VolunteerProfileView({ model: student });
@@ -23713,74 +23713,76 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
     console.log("disconnected from ActionCable");
   },
   received: function(data) {
-console.log(data);
 
-    $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
-    .not('li[data-student-id="'+ data.student_id + '"]').remove();
+    var present_user_id;
+    var present_user = $('div#user-now').data("present-user");
+    if (present_user) {
+      present_user_id = present_user.id;
+    } else {
+      present_user_id = data.student_id;
+    }
 
-  },
+    if (data.available === false) {
+console.log(present_user_id);
+console.log(data.student_id);
 
-});
+      $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
+      .not('li[data-student-id="'+ data.student_id + '"]').remove();
+    }
+    else if (data.available === true) {
+      $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
-Appp.volunteer_restoration = Appp.cable.subscriptions.create({channel: "VolunteerRestorationChannel"}, {
-                                // when .create is invoked, it will invoke the VolunteerRestorationChannel#subscribed method (in Rails), which is in fact a callback method.
-  connected: function() {
-    console.log("connected to ActionCable");
-  },
-  disconnected: function() {
-    console.log("disconnected from ActionCable");
-  },
-  received: function(data) {
-console.log("In 'VolunteerRestorationChannel'");
-console.log(data);
+      if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
 
-    //!!!!!! Use a conditional 'break' to prevent endless cycling through the 'received' method
-    // if (i === 3) { break; }
-    // see https://blog.ably.io/rails-5-actioncable-the-good-and-bad-parts-1b56c3b31404#.lmxbqy146
+        $("#ul-of-vol-avail").append(
 
-    $("#vol-avail-template").remove();
-    var student = App.presentUserModel();
-    App.getStudentDashboardPage(student);
+          '<li data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + present_user_id + ' ' +
+            '<h3>' +
+            '<h3>ชื่อ: <span style="text-decoration: underline;">' + data.vol_first_name + ' ' + data.vol_last_name + '</span></h3>' +
+            '<h4>เพศ: ' + data.vol_gender + '</h4>' +
+            '<h4>อายุ: ' + data.vol_age + '</h4>' +
+            '<h4>มลรัฐในสหรัฐ: ' + data.vol_province + '</h4>' +
+            '<h4 id="choose-skype-time" data-id="' + data.volunteer_id + '">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.vol_first_name + '.  ' + data.vol_first_name + ' มีเวลาว่างกับ 1 ใน ' + data.vol_slot_num + ' ช่องนี้เท่านั้น:</h4>' +
+              // slots appended here
+            '<h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก ' + data.vol_first_name + ' กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง ' + data.vol_first_name + ' ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย ' + data.first_name + '</h4>' +
+            '<button id="connect-with-volunteer" class="btn btn-success" data-id=' + '"1"' + 'data-firstname=' + data.vol_first_name + ' ' + 'data-lastname=' + data.vol_last_name + '>' +
+              'ส่งอีเมลอัตโนมัติถึง ' + data.vol_first_name +
+            '</button>' +
+            '<hr>' +
+          '</li>'
 
-    // $("#ul-of-vol-avail").append(
+        ); // $("#ul-of-vol-avail").append
 
-    //  '<li>
-    //     <h3>
-    //       ชื่อ: <span style="text-decoration: underline;">' + data.first_name + ' ' + data.last_name}}'</span>
-    //     </h3>
-    //     <h4>
-    //       เพศ: ' + data.gender + '
-    //     </h4>
-    //     <h4>อายุ: ' + data.age + '</h4>
-    //     <h4>รัฐ: ' + data.province + '</h4>
-    //     <h4>ประเทศ: ' + data.country + '</h4>
-    //     <h4 id="choose-skype-time">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.first_name + '.  ' + data.first_name + ' is available for only 1 of these slots:</h4>
+      } // if
 
-    //     {{#disableSomeSlots this.skype_time_slots}}
-    //       <div id="checkArray">
-    //       {{#if this.available}}
-    //         <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
-    //         <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day_thai}} {{this.time_thai}}</span>
-    //       {{else}}
-    //         {{> skype_time_slot_input }}
-    //         <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day_thai}} {{this.time_thai}} กับคุณ, {{../../../first_name}}</span>
-    //       {{/if}}
-    //       </div>
-    //     {{/disableSomeSlots}}
-    //     <h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก {{this.first_name}} กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง {{this.first_name}} ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย {{this.first_name}}</h4>
-    //     <button id="connect-with-volunteer" class="btn btn-success" data-id={{this.id}} data-firstname={{this.first_name}} data-lastname={{this.last_name}}>
-    //       ส่งอีเมลอัตโนมัติถึง {{this.first_name}}
-    //     </button>
-    //     <hr>
-    //   </li>'
+      // data.vol_slots.data.vol_slots.sort(function(a, b){return a.order-b.order});
+
+      data.vol_slots.forEach(function(slot) {
+        $('h4[data-id=' + data.volunteer_id + ']').append(
+          '<div id="checkArray">' +
+            '<input class="checkers" data-id=' + slot.id + ' ' + 'data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + data.student_id + ' '  + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
+            '<span id="skype-time-slot-available" style="font-size: 16.5px;" data-order=' + '1' + '>' + slot.day_thai + ' ' + slot.time_thai + '</span>' +
+          '</div>'
+        ); // 'h4[data-id='... .append
+      });
+
+      // setTimeout(function(){
+        if ($('span:contains("กับคุณ")').length > 0) {
+          $(".checkers[data-student-id=" + data.student_id + "][data-volunteer-id=" + data.volunteer_id + "]").parent().find('input').each(function() {
+            console.log($(this)[0]);
+            $(this).attr("disabled", true);
+          });
+        }
+      // }, 500);
 
 
-    // ); // $("#ul-of-vol-avail").append
+    } // else if ... true
 
-  },
+  }, // received:
 
-});
+}); // Appp.cable.subscriptions.create
 
+;
 
 
 

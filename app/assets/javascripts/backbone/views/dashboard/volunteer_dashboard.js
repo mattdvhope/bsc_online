@@ -22,29 +22,29 @@ var VolunteerDashboardView = Backbone.View.extend({
     "change #number-of-slots": 'changeVolunteerSlotNumber'
   },
 
-  changeVolunteerSlotNumber: function() {
-    var view_context = this;
-    var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
-    var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
+  // changeVolunteerSlotNumber: function() {
+  //   var view_context = this;
+  //   var number_of_slots_avail = parseInt($('select[name=number-of-slots]').val());
+  //   var volunteer = new User({id: this.model.get("id"), number_of_slots: number_of_slots_avail});
 
-    var promise = new Promise(function(resolve, reject) {
-      resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
-    });
+  //   var promise = new Promise(function(resolve, reject) {
+  //     resolve(volunteer.save(volunteer.toJSON(), {patch: true}));
+  //   });
 
-    promise
-    .then(function(volunteer_obj) {
-      $("#current-numbers-slots").remove();
-      if (volunteer_obj.number_of_slots == 0) {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-      } else {
-        $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-      }
-      $("#skype-time-partial").remove();
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  },
+  //   promise
+  //   .then(function(volunteer_obj) {
+  //     $("#current-numbers-slots").remove();
+  //     if (volunteer_obj.number_of_slots == 0) {
+  //       $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+  //     } else {
+  //       $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer_obj.number_of_slots + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+  //     }
+  //     $("#skype-time-partial").remove();
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error);
+  //   });
+  // },
 
   deleteSkypeTimeSlot: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();

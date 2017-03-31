@@ -21,9 +21,9 @@
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
 
-      <h2>Click here to select the Skype time slots.  The slots are for once a week (half hour each time) for 8 weeks.</h2>
+      <h2>Please choose several time slots that are convenient for you.  Your Thai student will select only <b>one</b> from your list of 30-minute available time slots (to be built by you here) and send you an auto-email telling you the chosen slot.  The student will then meet with you weekly online over an 8-week term.</h2>
       <h2 class="skype-slot-choice" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseSkypeTime" aria-expanded="false" aria-controls="collapseSkypeTime">
-        <span id="open-to-add">Add time slot</span>
+        <span id="open-to-add">Click to add time slot</span>
       </h2>
       <div class="collapse" id="collapseSkypeTime">
         {{> select_skype_time}}

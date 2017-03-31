@@ -68,15 +68,16 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    if (volunteer.get("number_of_slots") == 0) {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
-    }
-    else {
-      $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-    }
+    // if (volunteer.get("number_of_slots") == 0) {
+    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
+    // }
+    // else {
+    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
+    // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
+
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
-    skype_docs_view.render();
+    setTimeout(function(){ skype_docs_view.render(); }, 4000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
     this.getVolunteersAvailableView(student);
@@ -93,7 +94,6 @@ var App = {
     this.volunteers = new VolunteersAvailable(); // collection
     this.volunteers.fetch({
       success: function (collection, response, options) {
-console.log(student);
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
         var profile_view_modal = new VolunteerProfileView({ model: student });
