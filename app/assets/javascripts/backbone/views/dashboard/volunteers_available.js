@@ -108,12 +108,12 @@ var VolunteersAvailableView = Backbone.View.extend({
         saveSlot(student_id, false)
         .then(function(result) {
           var span = $(e.target).next();
-          $($(e.target).next()).fadeOut(400, function() {
+          $($(e.target).next()).fadeOut(0, function() {
             span.replaceWith($(view_context.template_for_slot_span({
               day_thai: result.day_thai,
               time_thai: result.time_thai,
               first_name: student.get("first_name")
-            }) ).fadeIn(400) );
+            }) ).fadeIn(0) );
           });
         })
         .catch(function(error) {
@@ -128,11 +128,11 @@ var VolunteersAvailableView = Backbone.View.extend({
         saveSlot(null, true)
         .then(function(result) {
           var span = $(e.target).next();
-          $($(e.target).next()).fadeOut(400, function() {
+          $($(e.target).next()).fadeOut(0, function() {
             span.replaceWith($(view_context.template_for_unchecked_slot_span({
               day_thai: result.day_thai,
               time_thai: result.time_thai,
-            }) ).fadeIn(400) );
+            }) ).fadeIn(0) );
           });
         })
         .catch(function(error) {
