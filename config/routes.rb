@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
   
-  get 'volunteer_info', to: "pages#volunteer_info"
+  get 'volunteer_info', to: "pages#volunteer_info" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   get 'dashboard', to: "pages#dashboard"
   get 'applicants_list', to: "pages#applicants_list"
 
