@@ -304,12 +304,12 @@ Backbone.history.start({
   silent: true // If the server has already rendered the page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-// $(document).on("click", "#backbone-app a", function(e) {
-//   e.preventDefault();
-//   router.on('route:class_times/new', function(){ 
-//     console.log("something");
-//   });
-// });
+$(document).on("click", "#backbone-app a", function(e) {
+  e.preventDefault();
+  router.on('route:class_times/new', function(){ 
+    console.log("something");
+  });
+});
 
 
 
