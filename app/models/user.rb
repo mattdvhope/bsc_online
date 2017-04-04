@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, length: { maximum: 40 }
   validates_presence_of :gender
   validates_presence_of :age
-  validates_presence_of :phone_number, length: { maximum: 30 }, :unless => :non_student?
+  # validates_presence_of :phone_number, length: { maximum: 30 }, :unless => :non_student?
   validates_presence_of :organization, :if => :non_student?
   validates_presence_of :skype_name, :unless => :guest?
 
