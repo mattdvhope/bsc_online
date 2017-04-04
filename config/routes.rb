@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 
   
-  get 'volunteer_info', to: "pages#volunteer_info"
+  get 'volunteer_info', to: "pages#volunteer_info" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   get 'dashboard', to: "pages#dashboard"
   get 'applicants_list', to: "pages#applicants_list"
 
@@ -103,7 +103,7 @@ Rails.application.routes.draw do
   # get 'ui(/:action)', controller: 'ui'
 
   # This 'match' MUST BE AT THE BOTTOM OF THIS FILE!!!!
-  # match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
+  match "*missing" => redirect("/"), via: :get # redirects to root if meaningless text is typed after '/'
 
   # Example resource route with options:
   #   resources :products do

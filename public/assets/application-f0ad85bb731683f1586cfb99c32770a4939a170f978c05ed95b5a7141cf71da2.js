@@ -19293,9 +19293,9 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "        <hr>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <hr>\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n        <label class=\"field-label\">Age</label>\n        <input type=\"text\" class=\"form-control age\" placeholder=\"อายุ\" name=\"age\">\n        <hr>\n        <label class=\"field-label\">Phone Number</label>\n        <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n        <label class=\"field-label email-label\">Email Address <h4>\n"
+    + "        <hr>\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n\n        <label class=\"field-label email-label\">Email Address <h4>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n        <label class=\"field-label\">Facebook Name</label>\n        <input type=\"text\" class=\"form-control facebook\" placeholder=\"ชื่อเฟซบุ๊ก\" name=\"facebook\">\n        <hr>\n        <label class=\"field-label\">LINE ID\n        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Line+small.jpg\" alt=\"Line ID\" style=\"width:25px;height:25px;\">\n        </label>\n        <input type=\"text\" class=\"form-control line\" placeholder=\"LINE ID\" name=\"line\">\n        <hr>\n        <label class=\"field-label national-id-label\">National ID</label>\n        <input type=\"text\" class=\"form-control national-id\" placeholder=\"หมายเลขประจำตัวประชาชน\" name=\"national_id\">\n        <hr>\n        <!-- partials with selectors -->\n"
+    + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
     + "        </label>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.program(19, data, 0),"data":data})) != null ? stack1 : "")
@@ -19329,7 +19329,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.please_click_here || (depth0 != null ? depth0.please_click_here : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"please_click_here","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>Only 499 baht!  Please pay on the first day of class — arrive 10 minutes early to pay.</li>\n    <li>Classes taught by TESOL certified native English speakers from America</li>\n    <li>Focuses on Conversation that builds confidence and clarity</li>\n    <li>Practice speaking while learning about international cultures and worldview</li>\n    <li>Each class consists of five 90-minute sessions</li>\n    <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n    <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of conversational English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n  </ul>\n\n</div>";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>Only 499 baht!  Please pay on the first day of class — arrive 10 minutes early to pay.</li>\n    <li>Classes taught by TESOL certified native English speakers from America</li>\n    <li>Focuses on Conversation that builds confidence and clarity</li>\n    <li>Practice speaking while learning about international cultures and worldview</li>\n    <li>Each class consists of five 90-minute sessions</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of conversational English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n    <li>After you complete the 5-day class, you will be eligible to receive a PIN.  With your PIN you will able to login and request an online conversation partner. (The teacher will explain the details about this in your class.)</li>\n    <li>Our website is secure.  We will not share your information with anyone!</li>\n  </ul>\n\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19401,7 +19401,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.please_click_here || (depth0 != null ? depth0.please_click_here : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"please_click_here","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>เพียง 499 บาทเท่านั้น! กรุณาชำระค่าลงทะเบียนเรียนในวันแรกของการเรียน – กรุณามาก่อนเวลาเรียน 10 นาที เพื่อชำระค่าลงทะเบียน</li>\n    <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n    <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n    <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n    <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n    <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n    <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับการสนทนาภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n  </ul>\n\n</div>\n\n\n\n";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>เพียง 499 บาทเท่านั้น! กรุณาชำระค่าลงทะเบียนเรียนในวันแรกของการเรียน – กรุณามาก่อนเวลาเรียน 10 นาที เพื่อชำระค่าลงทะเบียน</li>\n    <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n    <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n    <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n    <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับการสนทนาภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n    <li>หลังจากเสร็จสิ้นการเรียน 5 วัน (ชั้นเรียน \"You Can Speak\") คุณจะมีสิทธิ์ได้รับ PIN ...เมื่อใช้ PIN คุณจะสามารถเข้าสู่ระบบและขอให้มีคู่สนทนาออนไลน์ได้ (ครูจะอธิบายรายละเอียดเกี่ยวกับเรื่องนี้ในชั้นเรียนของคุณ)</li>\n    <li>เว็บไซต์ของเรามีความปลอดภัย เราจะไม่เปิดเผยข้อมูลของคุณกับทุกคน!</li>\n    <img src=\"\" alt=\"\">\n  </ul>\n\n</div>\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19533,11 +19533,11 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  // history.pushState(null, null, 'dashboard');\n  // window.addEventListener('popstate', function(event) {\n  //   history.pushState(null, null, 'dashboard');\n  // });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
-    + " status.</h2>\n    <hr>\n    <h2><a href=\"/class_times/new\" target=\"_blank\">Create new class time</a></h2>\n    <hr>\n\n"
+    + " status.</h2>\n    <hr>\n    <h2><a href=\"/class_times/new\" target=\"_blank\">Create new class time</a></h2>\n    <hr>\n\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseCalendar\" aria-expanded=\"false\" aria-controls=\"collapseCalendar\">\n    Click here to see the CEP Team Calendar in list format and in calendar format.\n  </h2>\n  <div class=\"collapse\" id=\"collapseCalendar\">\n    <iframe src=\"https://teamup.com/ks7ca1e78847509cf9?view=l&sidepanel=c&showTitle=0&showLogo=0\" frameborder=\"0\" width=\"100%\" height=\"700\"></iframe>\n    <hr>\n    <iframe src=\"https://teamup.com/ks7ca1e78847509cf9?view=mw4\" frameborder=\"0\" width=\"100%\" height=\"700\"></iframe>\n    <hr>\n  </div>\n  <hr>\n\n\n</div>\n";
 },"useData":true});
@@ -20993,6 +20993,42 @@ var DashboardView = Backbone.View.extend({
       role_is_leader: this.role_is_leader(),
       role: this.model.get("role")
     }));
+  }
+});
+
+
+var NewClassTimePageView = Backbone.View.extend({
+  initialize: function() {
+    // this.listenTo(this.model, 'sync', this.render());
+    this.$el.appendTo(".entire");
+  },
+
+  // template:  HandlebarsTemplates['volunteer/volunteer_info'],
+  // window_width: function() {
+  //   return $(window).width() > 550
+  // },
+  // steps_title: function() {
+  //   return choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
+  // },
+  // register_organization: function() {
+  //   return choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
+  // },
+  // volunteer_registration: function() {
+  //   return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
+  // },
+  // fadeOut: function() {
+  //   App.getFrontMainPage()
+  // },
+  render: function() {
+console.log("in render");
+    // this.$el.html(this.template({
+    //   window_big: this.window_width(),
+    //   thai_language: thai_language(),
+    //   steps_title: this.steps_title(),
+    //   register_organization: this.register_organization(),
+    //   volunteer_registration: this.volunteer_registration()
+
+    // }));
   }
 });
 
@@ -22485,28 +22521,21 @@ var VolunteerPageView = Backbone.View.extend({
 
 var Router = Backbone.Router.extend({
   routes: {
-    "register_admin": "registerAdmin",
-    "application_form": "apply_to_cep",
-    "volunteer_info": "showVolunteerPage"
+    "volunteer_info": "showVolunteerPage",
+
+    "class_times/new": "showNewClassTimePage"
+
   },
-  registerAdmin: function() {
-    App.getAdminRegForm();
-  },
-  apply_to_cep: function() {
-    var person_registering = "Student";
-    App.getStudentRegForm(person_registering);
-  },
+
   showVolunteerPage: function() {
     $(window).scrollTop(0);
-    if (App.reg_form) {
-      App.reg_form.fadeOut();
-    }
-    else if (App.log_in_form) {
-      App.log_in_form.fadeOut();
-    } else {
-      App.getVolunteerPage();      
-    }
+    App.getVolunteerPage();      
   },
+
+  showNewClassTimePage: function() {
+    App.getNewClassTimePage();      
+  }
+
   // index: function() {
   //   var modal = App.reg_form || App.log_in_form;
   //   var volunteer_page = App.volunteer_page;
@@ -22793,6 +22822,7 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
+    this.user = user;
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -22808,6 +22838,16 @@ var App = {
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = 'Dashboard';
+  },
+  getNewClassTimePage: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    var new_class_time_page = new NewClassTimePageView();
+    document.title = 'New Class Time';
+    this.renderNavBar();
+    new_class_time_page.render();
+
+    this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
@@ -23018,7 +23058,6 @@ var App = {
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
-console.log(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "student") {
         app_obj.getStudentDashboardPage(app_obj.presentUserModel());
@@ -23040,6 +23079,15 @@ Backbone.history.start({
   silent: true // If the server has already rendered the page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
+// $(document).on("click", "#backbone-app a", function(e) {
+//   e.preventDefault();
+//   router.on('route:class_times/new', function(){ 
+//     console.log("something");
+//   });
+// });
+
+
+
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not; this ALWAYS needs to be true
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
@@ -23051,6 +23099,12 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
   }
   else if (Backbone.history.getFragment() === "volunteer_info") {
     App.getVolunteerPage();
+  }
+  else if (Backbone.history.getFragment() === "dashboard") {
+    App.getDashboardPage(App.user);
+  }
+  else if (Backbone.history.getFragment() === "class_times/new") {
+    App.getNewClassTimePage();
   }
 }, false);
 

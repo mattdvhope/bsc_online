@@ -1,27 +1,20 @@
 var Router = Backbone.Router.extend({
   routes: {
-    "register_admin": "registerAdmin",
-    "application_form": "apply_to_cep",
-    "volunteer_info": "showVolunteerPage"
+    "volunteer_info": "showVolunteerPage",
+
+    "class_times/new": "showNewClassTimePage"
+
   },
-  registerAdmin: function() {
-    App.getAdminRegForm();
-  },
-  apply_to_cep: function() {
-    var person_registering = "Student";
-    App.getStudentRegForm(person_registering);
-  },
+
   showVolunteerPage: function() {
     $(window).scrollTop(0);
-    if (App.reg_form) {
-      App.reg_form.fadeOut();
-    }
-    else if (App.log_in_form) {
-      App.log_in_form.fadeOut();
-    } else {
-      App.getVolunteerPage();      
-    }
+    App.getVolunteerPage();      
   },
+
+  showNewClassTimePage: function() {
+    App.getNewClassTimePage();      
+  }
+
   // index: function() {
   //   var modal = App.reg_form || App.log_in_form;
   //   var volunteer_page = App.volunteer_page;

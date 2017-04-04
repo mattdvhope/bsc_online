@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     gon.page_needed = "front"
   end
 
-  def volunteer_info
+  def volunteer_info # This is here only for a page refresh in the '/volunteer_info' page, but I don't need this at all for the '/volunteer_info' link in nav_bar.hbs which actually uses the 'showVolunteerPage' method in router.js
     gon.page_needed = "volunteer_info"
   end
 

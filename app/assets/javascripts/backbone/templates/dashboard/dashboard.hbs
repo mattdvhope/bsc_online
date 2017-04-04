@@ -1,9 +1,9 @@
 <!-- script disables browser back button for this page -->
 <script type = "text/javascript" >
-  history.pushState(null, null, 'dashboard');
-  window.addEventListener('popstate', function(event) {
-    history.pushState(null, null, 'dashboard');
-  });
+  // history.pushState(null, null, 'dashboard');
+  // window.addEventListener('popstate', function(event) {
+  //   history.pushState(null, null, 'dashboard');
+  // });
 </script>
 
 <div class="container">
@@ -18,6 +18,12 @@
     <hr>
     <h2><a href="/class_times/new" target="_blank">Create new class time</a></h2>
     <hr>
+
+   {{!--  <h2>Example router links</h2>
+    <br>
+      <h3 id="backbone-app"><a href="/class_times/new">Create new class time</a></h3>
+
+    <hr> --}}
 
     {{#if role_is_leader}}
       <h2><a href="/applicants_list" target="_blank">Check on applications for "Volunteer Administrator"</a></h2>
