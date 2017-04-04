@@ -47,6 +47,7 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
+    this.user = user;
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -62,6 +63,16 @@ var App = {
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = 'Dashboard';
+  },
+  getNewClassTimePage: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    var new_class_time_page = new NewClassTimePageView();
+    document.title = 'New Class Time';
+    this.renderNavBar();
+    new_class_time_page.render();
+
+    this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
@@ -272,7 +283,6 @@ var App = {
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
-console.log(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "student") {
         app_obj.getStudentDashboardPage(app_obj.presentUserModel());
@@ -294,6 +304,15 @@ Backbone.history.start({
   silent: true // If the server has already rendered the page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
+// $(document).on("click", "#backbone-app a", function(e) {
+//   e.preventDefault();
+//   router.on('route:class_times/new', function(){ 
+//     console.log("something");
+//   });
+// });
+
+
+
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not; this ALWAYS needs to be true
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
@@ -305,6 +324,12 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
   }
   else if (Backbone.history.getFragment() === "volunteer_info") {
     App.getVolunteerPage();
+  }
+  else if (Backbone.history.getFragment() === "dashboard") {
+    App.getDashboardPage(App.user);
+  }
+  else if (Backbone.history.getFragment() === "class_times/new") {
+    App.getNewClassTimePage();
   }
 }, false);
 
