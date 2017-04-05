@@ -1,0 +1,36 @@
+<div class="entire-new-class">
+
+<div class="container">
+
+  <br>
+  <br>
+  <br>
+  <hr>
+  <h2>You can create new class times here</h2>
+  <hr>
+  <h3>Please be sure to use a format like this...</h3>
+  <hr>
+  <h3>"20-24 June, 6:30-8:00pm"</h3>
+  <h4>...and...</h4>
+  <h3>"20-24 มิถุนายน, 18:30-20:00น."</h3>
+  <h4>...or...</h4>
+  <h3>"27 Febrary - 3 March, 6:30-8:00pm"</h3>
+  <h4>...and...</h4>
+  <h3>"27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น."</h3>
+  <h4>(but don't add quotes)</h4>
+  <hr><hr>
+
+<form class="new_class_time" id="new_class_time" action="/class_times" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+    <h3><label for="class_time_name">Period, in English</label>:</h3>
+    <h3><textarea class="period-input" name="class_time[period]" id="class_time_period"></textarea></h3>
+    <br>
+    <h3><label for="class_time_name">Period, in Thai</label>:</h3>
+    <h3><textarea class="period-input" name="class_time[period_thai]" id="class_time_period_thai"></textarea></h3>
+    <br>
+    <input type="submit" name="commit" value="Create" class="btn btn-success" data-disable-with="Create">
+    <hr>
+</form>
+
+</div> <!-- container-fluid -->
+
+</div> <!-- class="entire-new-class" -->
