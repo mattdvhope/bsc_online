@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 
   def new_class_time
     gon.page_needed = "new_class_time"
+    gon.current_class_times = ClassTime.all
+
     if current_user
       gon.user = current_user
     else

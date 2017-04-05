@@ -49,9 +49,11 @@ var App = {
   getDashboardPage: function(user) {
     this.removeNavAndPage();
     this.user = user;
+    var app_context = this;
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
+        app_context.class_times = collection;
         var class_time_view = new ClassTimesView({ collection: collection });
         class_time_view.render();
       },
@@ -66,15 +68,13 @@ var App = {
     document.title = 'Dashboard';
   },
   getNewClassTimeView: function() {
-    
-
     this.removeNavAndPage();
-    this.scrollUpToTopOfPage();
-    var new_class_time_page = new NewClassTimeView();
+    var class_times = gon.current_class_times || this.class_times.toJSON();
+    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user});
     document.title = 'New Class Time';
     this.renderNavBar();
-    new_class_time_page.render();
-
+    this.scrollUpToTopOfPage();
+    new_class_time_page.render().el;
     this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
@@ -328,11 +328,10 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
     App.getVolunteerPage();
   }
   else if (Backbone.history.getFragment() === "dashboard") {
-console.log(App.user);
     App.getDashboardPage(App.user);
   }
   else if (Backbone.history.getFragment() === "class_times/new") {
-    App.getNewClassTimePage();
+    App.getNewClassTimeView();
   }
 }, false);
 

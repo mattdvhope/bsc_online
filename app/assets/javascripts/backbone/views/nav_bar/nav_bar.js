@@ -41,8 +41,13 @@ var NavBarView = Backbone.View.extend({
   volunteer_info_visible: function() {
     return $(".entire-vol").is(":visible");
   },
-  dashboard_visible: function() {
-    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
+  current_user_present: function() {
+    if (App.user) {
+      return true;
+    } else {
+      return false;
+    }
+    // return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
   sign_up: function() {
     return choose_language("Sign Up!", "สมัครเรียน!");
@@ -89,7 +94,7 @@ var NavBarView = Backbone.View.extend({
   render: function(visible) {
     this.$el.html(this.template({
       volunteer_info_visible: this.volunteer_info_visible(),
-      dashboard_visible: this.dashboard_visible(),
+      current_user_present: this.current_user_present(),
       thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
