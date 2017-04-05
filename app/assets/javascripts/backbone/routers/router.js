@@ -12,7 +12,7 @@ var Router = Backbone.Router.extend({
   },
 
   showNewClassTimePage: function() {
-    App.getNewClassTimePage();      
+    App.getNewClassTimeView();      
   }
 
   // index: function() {
