@@ -10,8 +10,20 @@ class PagesController < ApplicationController
     gon.page_needed = "volunteer_info"
   end
 
+  def new_class_time
+    gon.page_needed = "new_class_time"
+    gon.current_class_times = ClassTime.all
+
+    if current_user
+      gon.user = current_user
+    else
+      redirect_to root_path
+    end
+  end
+
   def dashboard
     if current_user
+      gon.user = current_user
       case current_user.role
       when "admin_applicant"
         redirect_to log_out_path

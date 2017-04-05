@@ -1,0 +1,74 @@
+<div class="entire-new-class">
+
+<div class="container">
+
+<br>
+<br>
+<br>
+<h2>Create new class times on this page...</h2>
+<hr>
+<h4><a href="/dashboard">Return to your dashboard page, {{leader}}</a></h4>
+<hr>
+<h2>Here are the currently scheduled CEP class times with their "Order Number" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these "Order Numbers."  More explanation on that below....</h2>
+
+  <ul style="list-style: none;">
+  <hr>
+  {{#each class_times}}
+    <li><h4><b>Order Number:</b> {{this.order_no}}</h4></li>
+    <li><h3><b>Class Time:</b> {{this.period}}</h3></li>
+    <hr>
+  {{/each}}
+  </ul>
+
+<hr>
+<h2>You can create new class times below....</h2>
+<h4>(please use formats like these)</h4>
+<h3>20-24 June, 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>
+<h4>...etc...(try not make them too long and avoid typos!!)....</h4>
+<hr>
+<hr>
+<h2>Enter the following information to create a new CEP Class Time!</h2>
+<hr>
+
+<form class="new_class_time" id="new_class_time" action="/class_times" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value={{token}}>
+
+  <ul style="list-style: none; margin-right: 2em;">
+    <li>
+      <h3><label for="class_time_name"><u>Order Number</u> (If your new class time here will be later than <u>all</u> those listed above, make sure its "Order Number" is at least 10 greater than the last "Order Number" above.  For example, if the last class time has an "Order Number" of 53, your new Class Time here should use 63.  If your new class time must be inserted [time-wise] between two Class Times above, than make sure your "Order Number" here is as perfectly between them as possible.  For example if the class time before your new class time has an "Order Number" of 80 and the one after that is 90, then your new Class Time should have an order number of 85.)...</label></h3>
+      <h4><input type="text" class="form-control" placeholder="Order Number" name="class_time[order_no]" autofocus="autofocus" style="width: 9em;"></h4>
+      <br>
+    </li>
+    <li>
+      <h3><label for="class_time_name"><u>Class Time</u>, in English:</label></h3>
+      <h4><input type="text" class="form-control" placeholder="Class Time (English)" name="class_time[period]" autofocus="autofocus"></h4>
+      <br>
+    </li>
+    <li>
+      <h3><label for="class_time_name"><u>Class Time</u>, in Thai:</label></h3>
+      <h4><input type="text" class="form-control" placeholder="Class Time (Thai)" name="class_time[period_thai]" autofocus="autofocus"></h4>
+      <br>
+    </li>
+  </ul>
+
+  <input type="submit" name="commit" value="Create" class="btn btn-success" data-disable-with="Create" style="margin-left: 2.2em;">
+  <hr>
+
+</form>
+
+</div> <!-- container -->
+
+</div> <!-- class="entire-new-class" -->

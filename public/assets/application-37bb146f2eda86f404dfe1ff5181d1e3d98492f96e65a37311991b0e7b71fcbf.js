@@ -499,6 +499,9 @@ Based on Rails routes of BscOnline::Application
 // class_times => /class_times(.:format)
   // function(options)
   class_times_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"class_times",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// class_times_new => /class_times/new(.:format)
+  // function(options)
+  class_times_new_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"class_times",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // contact => /contact(.:format)
   // function(options)
   contact_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"contact",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
@@ -586,9 +589,6 @@ Based on Rails routes of BscOnline::Application
 // new_admin_part => /admin/parts/new(.:format)
   // function(options)
   new_admin_part_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"parts",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]),
-// new_class_time => /class_times/new(.:format)
-  // function(options)
-  new_class_time_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"class_times",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // new_curriculum_course_admin_assessment => /curriculums/:curriculum_id/courses/:course_id/admin/assessments/new(.:format)
   // function(curriculum_id, course_id, options)
   new_curriculum_course_admin_assessment_path: Utils.route([["curriculum_id",true],["course_id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"curriculums",false],[2,[7,"/",false],[2,[3,"curriculum_id",false],[2,[7,"/",false],[2,[6,"courses",false],[2,[7,"/",false],[2,[3,"course_id",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"assessments",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]]),
@@ -19533,15 +19533,36 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  // history.pushState(null, null, 'dashboard');\n  // window.addEventListener('popstate', function(event) {\n  //   history.pushState(null, null, 'dashboard');\n  // });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n    <h2>Welcome to the \"City English Project,\" "
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <h2>Welcome to the \"City English Project,\" "
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
-    + " status.</h2>\n    <hr>\n    <h2><a href=\"/class_times/new\" target=\"_blank\">Create new class time</a></h2>\n    <hr>\n\n\n"
+    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\"><a href=\"/class_times/new\">Create new class time</a></h2>\n    <hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseCalendar\" aria-expanded=\"false\" aria-controls=\"collapseCalendar\">\n    Click here to see the CEP Team Calendar in list format and in calendar format.\n  </h2>\n  <div class=\"collapse\" id=\"collapseCalendar\">\n    <iframe src=\"https://teamup.com/ks7ca1e78847509cf9?view=l&sidepanel=c&showTitle=0&showLogo=0\" frameborder=\"0\" width=\"100%\" height=\"700\"></iframe>\n    <hr>\n    <iframe src=\"https://teamup.com/ks7ca1e78847509cf9?view=mw4\" frameborder=\"0\" width=\"100%\" height=\"700\"></iframe>\n    <hr>\n  </div>\n  <hr>\n\n\n</div>\n";
+    + "\n\n</div>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/dashboard"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/new_class_time_page"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "    <li><h4><b>Order Number:</b> "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.order_no : depth0), depth0))
+    + "</h4></li>\n    <li><h3><b>Class Time:</b> "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.period : depth0), depth0))
+    + "</h3></li>\n    <hr>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n<h2>Create new class times on this page...</h2>\n<hr>\n<h4><a href=\"/dashboard\">Return to your dashboard page, "
+    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Enter the following information to create a new CEP Class Time!</h2>\n<hr>\n\n<form class=\"new_class_time\" id=\"new_class_time\" action=\"/class_times\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
+    + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
+    + ">\n\n  <ul style=\"list-style: none; margin-right: 2em;\">\n    <li>\n      <h3><label for=\"class_time_name\"><u>Order Number</u> (If your new class time here will be later than <u>all</u> those listed above, make sure its \"Order Number\" is at least 10 greater than the last \"Order Number\" above.  For example, if the last class time has an \"Order Number\" of 53, your new Class Time here should use 63.  If your new class time must be inserted [time-wise] between two Class Times above, than make sure your \"Order Number\" here is as perfectly between them as possible.  For example if the class time before your new class time has an \"Order Number\" of 80 and the one after that is 90, then your new Class Time should have an order number of 85.)...</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Order Number\" name=\"class_time[order_no]\" autofocus=\"autofocus\" style=\"width: 9em;\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in English:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (English)\" name=\"class_time[period]\" autofocus=\"autofocus\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in Thai:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (Thai)\" name=\"class_time[period_thai]\" autofocus=\"autofocus\"></h4>\n      <br>\n    </li>\n  </ul>\n\n  <input type=\"submit\" name=\"commit\" value=\"Create\" class=\"btn btn-success\" data-disable-with=\"Create\" style=\"margin-left: 2.2em;\">\n  <hr>\n\n</form>\n\n</div> <!-- container -->\n\n</div> <!-- class=\"entire-new-class\" -->";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/new_class_time_page"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -20460,15 +20481,15 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.volunteer_info || (depth0 != null ? depth0.volunteer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"volunteer_info","hash":{},"data":data}) : helper)))
     + "</a>\n                  </li>\n                  <li role=\"separator\" class=\"divider\"></li>\n                ";
 },"10":function(container,depth0,helpers,partials,data) {
-    return " <!-- for unless.. dashboard_visible -->\n\n            <li><a id=\"log-out\" href=\"/log_out\">Log Out (ออกจากระบบ)</a></li>\n\n          ";
+    return " <!-- for unless.. current_user_present -->\n\n            <li><a id=\"log-out\" href=\"/log_out\">Log Out (ออกจากระบบ)</a></li>\n\n          ";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "<header class=\"header\">\n\n  <nav id=\"nav\" class=\"navbar navbar-default\" id=\"nav-text-color\" style=\"font-family: 'Athiti', 'Neue Frutiger W31 Modern Light', sans-serif\">\n    <div class=\"container-fluid\">\n      <!-- Brand and toggle get grouped for better mobile display -->\n      <div class=\"navbar-header\">\n\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\" aria-expanded=\"false\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n\n"
-    + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + " <!-- unless.. dashboard_visible -->\n\n      </div> \n\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n"
-    + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.dashboard_visible : depth0),{"name":"unless","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "")
-    + " <!-- unless.. dashboard_visible -->\n\n        </ul> <!-- nav navbar-nav navbar-right -->\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n</header>\n";
+    + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.current_user_present : depth0),{"name":"unless","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- unless.. current_user_present -->\n\n      </div> \n\n\n      <!-- Collect the nav links, forms, and other content for toggling -->\n      <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n\n        <ul class=\"nav navbar-nav navbar-right\">\n"
+    + ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.current_user_present : depth0),{"name":"unless","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "")
+    + " <!-- unless.. current_user_present -->\n\n        </ul> <!-- nav navbar-nav navbar-right -->\n      </div><!-- /.navbar-collapse -->\n    </div><!-- /.container-fluid -->\n  </nav>\n\n</header>\n";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["nav_bar/nav_bar"];
 }).call(this);
@@ -20523,7 +20544,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("registration/thai/_register_network", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>ลงทะเบียนเป้นสมาชิกเครือข่ายโครงการ ซิตี้ อิงลิช (CEP)!</h4>\n<h4>การเป็นสมาชิกเครือข่าย คุณจะต้องเรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\"</h4>";
+    return "<h4>ลงทะเบียนเป็นสมาชิกเครือข่ายโครงการ ซิตี้ อิงลิช (CEP)!</h4>\n<h4>การเป็นสมาชิกเครือข่าย คุณจะต้องเรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\"</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20975,8 +20996,6 @@ var DashboardView = Backbone.View.extend({
     id: "dashboard"
   },
 
-  template:  HandlebarsTemplates['dashboard/dashboard'],
-
   initialize: function(options) {
     this.options = options
     // this.listenTo(this.model, 'sync', this.render);
@@ -20987,48 +21006,46 @@ var DashboardView = Backbone.View.extend({
     return this.model.get("role") === "leader"
   },
 
+  template:  HandlebarsTemplates['dashboard/dashboard'],
+
   render: function() {
+    var leader = this.model;
     this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
+      first_name: leader.get("first_name"),
       role_is_leader: this.role_is_leader(),
-      role: this.model.get("role")
+      role: leader.get("role")
     }));
   }
 });
 
 
-var NewClassTimePageView = Backbone.View.extend({
+var NewClassTimeView = Backbone.View.extend({
   initialize: function() {
-    // this.listenTo(this.model, 'sync', this.render());
     this.$el.appendTo(".entire");
   },
 
-  // template:  HandlebarsTemplates['volunteer/volunteer_info'],
-  // window_width: function() {
-  //   return $(window).width() > 550
-  // },
-  // steps_title: function() {
-  //   return choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
-  // },
-  // register_organization: function() {
-  //   return choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
-  // },
-  // volunteer_registration: function() {
-  //   return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
-  // },
-  // fadeOut: function() {
-  //   App.getFrontMainPage()
-  // },
-  render: function() {
-console.log("in render");
-    // this.$el.html(this.template({
-    //   window_big: this.window_width(),
-    //   thai_language: thai_language(),
-    //   steps_title: this.steps_title(),
-    //   register_organization: this.register_organization(),
-    //   volunteer_registration: this.volunteer_registration()
+  template:  HandlebarsTemplates['dashboard/new_class_time_page'],
 
-    // }));
+  render: function() {
+    var class_times = this.collection.sort(function (a, b) {
+      if (a.order_no > b.order_no) {
+        return 1;
+      }
+      if (a.order_no < b.order_no) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    var leader = this.model;
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    this.$el.html(this.template({
+      token: csrf_token,
+      leader: leader.get("first_name"),
+      class_times: class_times,
+    }));
+
+    return this;
   }
 });
 
@@ -21907,8 +21924,13 @@ var NavBarView = Backbone.View.extend({
   volunteer_info_visible: function() {
     return $(".entire-vol").is(":visible");
   },
-  dashboard_visible: function() {
-    return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
+  current_user_present: function() {
+    if (App.user) {
+      return true;
+    } else {
+      return false;
+    }
+    // return $("#dashboard").is(":visible") || $("#student-dashboard").is(":visible") || $("#volunteer-dashboard").is(":visible");
   },
   sign_up: function() {
     return choose_language("Sign Up!", "สมัครเรียน!");
@@ -21955,7 +21977,7 @@ var NavBarView = Backbone.View.extend({
   render: function(visible) {
     this.$el.html(this.template({
       volunteer_info_visible: this.volunteer_info_visible(),
-      dashboard_visible: this.dashboard_visible(),
+      current_user_present: this.current_user_present(),
       thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
@@ -22520,11 +22542,10 @@ var VolunteerPageView = Backbone.View.extend({
 
 
 var Router = Backbone.Router.extend({
+
   routes: {
     "volunteer_info": "showVolunteerPage",
-
     "class_times/new": "showNewClassTimePage"
-
   },
 
   showVolunteerPage: function() {
@@ -22533,31 +22554,9 @@ var Router = Backbone.Router.extend({
   },
 
   showNewClassTimePage: function() {
-    App.getNewClassTimePage();      
+    App.getNewClassTimeView();      
   }
 
-  // index: function() {
-  //   var modal = App.reg_form || App.log_in_form;
-  //   var volunteer_page = App.volunteer_page;
-  //   if (modal && volunteer_page) {
-  //     App.getFrontMainPage();
-  //   } else if (modal) {
-  //     if (modal.$el.is(":visible")) {
-  //       modal.fadeOut();
-  //     }
-  //   } else if (volunteer_page) {
-  //     if (volunteer_page.$el.is(":visible")) {
-  //       volunteer_page.fadeOut();
-  //     }
-  //   }
-  //   App.reg_form = undefined;
-  //   App.log_in_form = undefined;
-  //   App.volunteer_page = undefined;
-  // },
-  // initialize: function() {
-  //   this.route(/^\/?$/, "index", this.index); // listening for a path that starts with a '/' which will be our 'index' & we'll call the current 'index' method in 'Router'
-  //   // this.route(/^\/?volunteer_info$/, "volunteer_info", this.showVolunteerPage);
-  // }
 });
       
 
@@ -22822,10 +22821,13 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
+    this.removeNavAndPage();
     this.user = user;
+    var app_context = this;
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
+        app_context.class_times = collection;
         var class_time_view = new ClassTimesView({ collection: collection });
         class_time_view.render();
       },
@@ -22839,14 +22841,14 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
-  getNewClassTimePage: function() {
+  getNewClassTimeView: function() {
     this.removeNavAndPage();
-    this.scrollUpToTopOfPage();
-    var new_class_time_page = new NewClassTimePageView();
+    var class_times = gon.current_class_times || this.class_times.toJSON();
+    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user});
     document.title = 'New Class Time';
     this.renderNavBar();
-    new_class_time_page.render();
-
+    this.scrollUpToTopOfPage();
+    new_class_time_page.render().el;
     this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
@@ -22941,9 +22943,11 @@ var App = {
   },
   presentUserModel: function() {
     var user_object = $("#user-now").data("present-user");
-    var skype_time_slots = $("#user-slots").data("user-slots");
-    user_object.skype_time_slots = skype_time_slots
-    return new Backbone.Model(user_object);
+    if (user_object) {
+      var skype_time_slots = $("#user-slots").data("user-slots");
+      user_object.skype_time_slots = skype_time_slots
+      return new Backbone.Model(user_object);
+    }
   },
   openApplicationForm: function() {
     var class_times_collection = new ClassTimes();
@@ -23031,6 +23035,9 @@ var App = {
     });
   },
   init: function() {
+    var user = this.presentUserModel();
+    this.user = user;
+
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
@@ -23056,6 +23063,9 @@ var App = {
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
+      else if (gon.page_needed === "new_class_time") {
+        app_obj.getNewClassTimeView();
+      }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
       }
@@ -23079,15 +23089,6 @@ Backbone.history.start({
   silent: true // If the server has already rendered the page, and you don't want the initial route to trigger when starting History, pass silent: true.
 });
 
-// $(document).on("click", "#backbone-app a", function(e) {
-//   e.preventDefault();
-//   router.on('route:class_times/new', function(){ 
-//     console.log("something");
-//   });
-// });
-
-
-
 $(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not; this ALWAYS needs to be true
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
@@ -23104,7 +23105,7 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
     App.getDashboardPage(App.user);
   }
   else if (Backbone.history.getFragment() === "class_times/new") {
-    App.getNewClassTimePage();
+    App.getNewClassTimeView();
   }
 }, false);
 

@@ -1,35 +1,30 @@
-var NewClassTimePageView = Backbone.View.extend({
+var NewClassTimeView = Backbone.View.extend({
   initialize: function() {
-    // this.listenTo(this.model, 'sync', this.render());
     this.$el.appendTo(".entire");
   },
 
-  // template:  HandlebarsTemplates['volunteer/volunteer_info'],
-  // window_width: function() {
-  //   return $(window).width() > 550
-  // },
-  // steps_title: function() {
-  //   return choose_language("Steps to becoming a City English Project (CEP) volunteer", "ขั้นตอนการสมัครเป็นอาสาสมัครโครงการซิตี้ อิงลิช (CEP)");
-  // },
-  // register_organization: function() {
-  //   return choose_language("Register Your Organization", "ลงทะเบียนองค์กรของคุณ");
-  // },
-  // volunteer_registration: function() {
-  //   return choose_language("Register New Volunteer", "ลงทะเบียนอาสาสมัครใหม่");
-  // },
-  // fadeOut: function() {
-  //   App.getFrontMainPage()
-  // },
-  render: function() {
-console.log("in render");
-    // this.$el.html(this.template({
-    //   window_big: this.window_width(),
-    //   thai_language: thai_language(),
-    //   steps_title: this.steps_title(),
-    //   register_organization: this.register_organization(),
-    //   volunteer_registration: this.volunteer_registration()
+  template:  HandlebarsTemplates['dashboard/new_class_time_page'],
 
-    // }));
+  render: function() {
+    var class_times = this.collection.sort(function (a, b) {
+      if (a.order_no > b.order_no) {
+        return 1;
+      }
+      if (a.order_no < b.order_no) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+    var leader = this.model;
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    this.$el.html(this.template({
+      token: csrf_token,
+      leader: leader.get("first_name"),
+      class_times: class_times,
+    }));
+
+    return this;
   }
 });
 
