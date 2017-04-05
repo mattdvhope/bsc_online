@@ -8,14 +8,6 @@ class ClassTimesController < ApplicationController
     @class_time = ClassTime.find(params[:id])
   end
 
-  def new
-    if current_user
-      @class_time = ClassTime.new
-    else
-      redirect_to root_path
-    end
-  end
-
   def create
     class_time = ClassTime.new(class_time_params)
     if class_time.save
