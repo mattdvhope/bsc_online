@@ -1,10 +1,10 @@
-var NewClassTimePageView = Backbone.View.extend({
+var NewClassTimeView = Backbone.View.extend({
   initialize: function() {
-    // this.listenTo(this.model, 'sync', this.render());
+    // this.listenTo(this.model, 'all', this.render());
     this.$el.appendTo(".entire");
   },
 
-  // template:  HandlebarsTemplates['volunteer/volunteer_info'],
+  template:  HandlebarsTemplates['dashboard/new_class_time_page'],
   // window_width: function() {
   //   return $(window).width() > 550
   // },
@@ -21,15 +21,17 @@ var NewClassTimePageView = Backbone.View.extend({
   //   App.getFrontMainPage()
   // },
   render: function() {
-console.log("in render");
-    // this.$el.html(this.template({
-    //   window_big: this.window_width(),
-    //   thai_language: thai_language(),
-    //   steps_title: this.steps_title(),
-    //   register_organization: this.register_organization(),
-    //   volunteer_registration: this.volunteer_registration()
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    this.$el.html(this.template({
+      token: csrf_token,
+      // thai_language: thai_language(),
+      // steps_title: this.steps_title(),
+      // register_organization: this.register_organization(),
+      // volunteer_registration: this.volunteer_registration()
 
-    // }));
+    }));
+
+    return this;
   }
 });
 
