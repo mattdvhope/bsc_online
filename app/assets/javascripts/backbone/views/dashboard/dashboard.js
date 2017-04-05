@@ -3,8 +3,6 @@ var DashboardView = Backbone.View.extend({
     id: "dashboard"
   },
 
-  template:  HandlebarsTemplates['dashboard/dashboard'],
-
   initialize: function(options) {
     this.options = options
     // this.listenTo(this.model, 'sync', this.render);
@@ -15,11 +13,13 @@ var DashboardView = Backbone.View.extend({
     return this.model.get("role") === "leader"
   },
 
-  render: function() {
+  template:  HandlebarsTemplates['dashboard/dashboard'],
+
+  render: function(user) {
     this.$el.html(this.template({
-      first_name: this.model.get("first_name"),
+      first_name: user.get("first_name"),
       role_is_leader: this.role_is_leader(),
-      role: this.model.get("role")
+      role: user.get("role")
     }));
   }
 });
