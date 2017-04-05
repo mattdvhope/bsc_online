@@ -15,11 +15,12 @@ var DashboardView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['dashboard/dashboard'],
 
-  render: function(user) {
+  render: function() {
+    var leader = this.model;
     this.$el.html(this.template({
-      first_name: user.get("first_name"),
+      first_name: leader.get("first_name"),
       role_is_leader: this.role_is_leader(),
-      role: user.get("role")
+      role: leader.get("role")
     }));
   }
 });

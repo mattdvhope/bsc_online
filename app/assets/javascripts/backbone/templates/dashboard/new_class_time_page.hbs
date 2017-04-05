@@ -6,7 +6,27 @@
   <br>
   <br>
   <hr>
+  <h2><a href="/dashboard">Return to 'Leader' Dashboard</a></h2>
+  <hr>
   <h2>You can create new class times here</h2>
+  <hr>
+  <h2>Here are the currently scheduled classtimes with their 'order' number next to them.</h2>
+
+    {{#each this.skype_time_slots}}
+      <div id="checkArray">
+      {{#if this.available}}
+        <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
+        <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day_thai}} {{this.time_thai}}</span>
+      {{else}}
+        {{> skype_time_slot_input }}
+        <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day_thai}} {{this.time_thai}} กับคุณ, {{../../first_name}}</span>
+      {{/if}}
+      </div>
+    {{/each}}
+
+
+
+
   <hr>
   <h3>Please be sure to use a format like this...</h3>
   <hr>

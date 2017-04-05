@@ -47,6 +47,7 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
+    this.removeNavAndPage();
     this.user = user;
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
@@ -64,10 +65,12 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
-  getNewClassTimePage: function() {
+  getNewClassTimeView: function() {
+    
+
     this.removeNavAndPage();
     this.scrollUpToTopOfPage();
-    var new_class_time_page = new NewClassTimePageView();
+    var new_class_time_page = new NewClassTimeView();
     document.title = 'New Class Time';
     this.renderNavBar();
     new_class_time_page.render();
@@ -166,9 +169,11 @@ var App = {
   },
   presentUserModel: function() {
     var user_object = $("#user-now").data("present-user");
-    var skype_time_slots = $("#user-slots").data("user-slots");
-    user_object.skype_time_slots = skype_time_slots
-    return new Backbone.Model(user_object);
+    if (user_object) {
+      var skype_time_slots = $("#user-slots").data("user-slots");
+      user_object.skype_time_slots = skype_time_slots
+      return new Backbone.Model(user_object);
+    }
   },
   openApplicationForm: function() {
     var class_times_collection = new ClassTimes();
@@ -256,6 +261,9 @@ var App = {
     });
   },
   init: function() {
+    var user = this.presentUserModel();
+    this.user = user;
+
     var app_obj = this;
     var font = new FontFaceObserver('Neue Frutiger W31 Modern Light');
 
@@ -281,6 +289,9 @@ var App = {
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
+      else if (gon.page_needed === "new_class_time") {
+        app_obj.getNewClassTimeView();
+      }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
       }
@@ -305,15 +316,6 @@ Backbone.history.start({
 });
 
 $(document).on("click", "#backbone-app a", function(e) {
-  e.preventDefault();
-  router.on('route:class_times/new', function(){ 
-    console.log("something");
-  });
-});
-
-
-
-$(document).on("click", "#backbone-app a", function(e) {
   e.preventDefault();     // "trigger" (below) tells Backbone whether it should call the route handler function or not; this ALWAYS needs to be true
   router.navigate($(e.currentTarget).attr("href").replace(/^\//, ""), { trigger: true } );
 });
@@ -326,6 +328,7 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
     App.getVolunteerPage();
   }
   else if (Backbone.history.getFragment() === "dashboard") {
+console.log(App.user);
     App.getDashboardPage(App.user);
   }
   else if (Backbone.history.getFragment() === "class_times/new") {
