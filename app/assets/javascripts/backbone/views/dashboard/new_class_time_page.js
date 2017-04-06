@@ -1,11 +1,13 @@
 var NewClassTimeView = Backbone.View.extend({
-  initialize: function() {
+  initialize: function(options) {
+    this.refreshed = options.refreshed;
     this.$el.appendTo(".entire");
   },
 
   template:  HandlebarsTemplates['dashboard/new_class_time_page'],
 
   render: function() {
+
     var class_times = this.collection.sort(function (a, b) {
       if (a.order_no > b.order_no) {
         return 1;
@@ -17,12 +19,14 @@ var NewClassTimeView = Backbone.View.extend({
       return 0;
     });
     var leader = this.model;
-    var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
-      token: csrf_token,
       leader: leader.get("first_name"),
       class_times: class_times,
+      refreshed: this.refreshed
     }));
+
+    var new_class_time_form = new NewClassTimeForm({collection: this.collection, model: this.model});
+    new_class_time_form.render();
 
     return this;
   }

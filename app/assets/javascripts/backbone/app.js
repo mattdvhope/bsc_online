@@ -67,10 +67,10 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
-  getNewClassTimeView: function() {
+  getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
     var class_times = gon.current_class_times || this.class_times.toJSON();
-    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user});
+    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user, refreshed: refreshed});
     document.title = 'New Class Time';
     this.renderNavBar();
     this.scrollUpToTopOfPage();
@@ -290,7 +290,7 @@ var App = {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "new_class_time") {
-        app_obj.getNewClassTimeView();
+        app_obj.getNewClassTimeView("refreshed");
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
@@ -336,3 +336,4 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
 }, false);
 
 App.init();
+
