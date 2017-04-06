@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   get 'volunteer_info', to: "pages#volunteer_info" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   get 'dashboard', to: "pages#dashboard"
+  delete 'dashboard', to: "pages#dashboard"
   get 'applicants_list', to: "pages#applicants_list"
 
   get 'build', to: "pages#build"
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   get 'register_vol', to: "users#register_vol"
 
   get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
-  resources :class_times, only: [:index, :show, :create]
+  resources :class_times, only: [:index, :show, :create, :destroy]
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"

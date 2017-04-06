@@ -19,6 +19,17 @@ class ClassTimesController < ApplicationController
     end
   end
 
+  def destroy  
+    class_time = ClassTime.find(params[:id])
+    if class_time.destroy
+      flash[:warning] = "You have deleted a class time."
+      redirect_to dashboard_path
+    else
+      flash[:danger] = "You were not able to delete this class time. Please ask for help from the CEP web app developer."
+      redirect_to dashboard_path
+    end
+  end
+
   private
 
   def class_time_params

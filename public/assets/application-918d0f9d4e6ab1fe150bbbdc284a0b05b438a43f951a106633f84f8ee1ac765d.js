@@ -19545,22 +19545,60 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/delete_class_time"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "    <li>\n      <h3>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.period : depth0), depth0))
+    + "<a data-id="
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + " id=\"delete-class-time\" href=\"\" > Delete</a></h3>\n    </li>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<h2>(2) Delete a class time</h2>\n<hr>\n\n<ul>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul>\n\n<hr>";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/delete_class_time"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/new_class_time_form"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<h2>(1) Create a new class time</h2>\n<hr>\n<form class=\"new_class_time\" id=\"new_class_time\" action=\"/class_times\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
+    + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
+    + ">\n\n  <ul style=\"list-style: none; margin-right: 2em;\">\n    <li>\n      <h3><label for=\"class_time_name\"><u>Order Number</u> (If your new class time here will be later than <u>all</u> those listed above, make sure its \"Order Number\" is at least 10 greater than the last \"Order Number\" above.  For example, if the last class time has an \"Order Number\" of 53, your new Class Time here should use 63.  If your new class time must be inserted [time-wise] between two Class Times above, then make sure your \"Order Number\" here is as perfectly between them as possible.  For example if the class time before your new class time has an \"Order Number\" of 80 and the one after that is 90, then your new Class Time should have an order number of 85.)...</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Order Number\" name=\"class_time[order_no]\" style=\"width: 9em;\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in English:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (English)\" name=\"class_time[period]\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in Thai:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (Thai)\" name=\"class_time[period_thai]\"></h4>\n      <br>\n    </li>\n  </ul>\n\n  <input type=\"submit\" name=\"commit\" value=\"Create\" class=\"btn btn-success\" data-disable-with=\"Create\" style=\"margin-left: 2.2em;\">\n  <hr>\n\n</form>\n\n<span id=\"for-attaching-delete-class-times\"></span>\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/new_class_time_form"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/new_class_time_page"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "  <h4><a href=\"/dashboard\">Return to your dashboard page, "
+    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "  <h4><a href=\"javascript:history.back()\">Return to your dashboard page, "
+    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n";
+},"5":function(container,depth0,helpers,partials,data) {
     return "    <li><h4><b>Order Number:</b> "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.order_no : depth0), depth0))
     + "</h4></li>\n    <li><h3><b>Class Time:</b> "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.period : depth0), depth0))
     + "</h3></li>\n    <hr>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper;
+    var stack1;
 
-  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n<h2>Create new class times on this page...</h2>\n<hr>\n<h4><a href=\"/dashboard\">Return to your dashboard page, "
-    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
-    + "</a></h4>\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Enter the following information to create a new CEP Class Time!</h2>\n<hr>\n\n<form class=\"new_class_time\" id=\"new_class_time\" action=\"/class_times\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
-    + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
-    + ">\n\n  <ul style=\"list-style: none; margin-right: 2em;\">\n    <li>\n      <h3><label for=\"class_time_name\"><u>Order Number</u> (If your new class time here will be later than <u>all</u> those listed above, make sure its \"Order Number\" is at least 10 greater than the last \"Order Number\" above.  For example, if the last class time has an \"Order Number\" of 53, your new Class Time here should use 63.  If your new class time must be inserted [time-wise] between two Class Times above, than make sure your \"Order Number\" here is as perfectly between them as possible.  For example if the class time before your new class time has an \"Order Number\" of 80 and the one after that is 90, then your new Class Time should have an order number of 85.)...</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Order Number\" name=\"class_time[order_no]\" autofocus=\"autofocus\" style=\"width: 9em;\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in English:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (English)\" name=\"class_time[period]\" autofocus=\"autofocus\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"class_time_name\"><u>Class Time</u>, in Thai:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (Thai)\" name=\"class_time[period_thai]\" autofocus=\"autofocus\"></h4>\n      <br>\n    </li>\n  </ul>\n\n  <input type=\"submit\" name=\"commit\" value=\"Create\" class=\"btn btn-success\" data-disable-with=\"Create\" style=\"margin-left: 2.2em;\">\n  <hr>\n\n</form>\n\n</div> <!-- container -->\n\n</div> <!-- class=\"entire-new-class\" -->";
+  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Below here you can (1) Create a new class time, (2) Delete a class time</h2>\n<hr>\n<span id=\"for-attaching-form\"></span>\n\n</div> <!-- container -->\n\n</div> <!-- class=\"entire-new-class\" -->";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/new_class_time_page"];
 }).call(this);
@@ -21019,14 +21057,80 @@ var DashboardView = Backbone.View.extend({
 });
 
 
-var NewClassTimeView = Backbone.View.extend({
+var DeleteClassTime = Backbone.View.extend({
+
   initialize: function() {
+    this.$el.appendTo("#for-attaching-delete-class-times");
+  },
+
+  events: {
+    'click #delete-class-time': "deleteClassTime"
+  },
+
+  deleteClassTime: function(e) { // on 'skype_time_slots.hbs' template
+    e.preventDefault();
+    var leader_user = this.model;
+    var view_context = this;
+    var class_time = new ClassTime({id: parseInt($(e.target)[0].dataset.id)});
+
+    var promise = new Promise(function(resolve, reject) {
+      resolve(class_time.destroy({ url: "/class_times/" + class_time.get("id") }));
+    });
+
+    promise
+    .then(function(class_time) {
+      location.reload();
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  },
+
+  template:  HandlebarsTemplates['dashboard/delete_class_time'],
+
+  render: function() {
+    var class_times = this.collection;
+    this.$el.html(this.template({
+      class_times: class_times,
+    }));
+
+    return this;
+  }
+});
+
+
+var NewClassTimeForm = Backbone.View.extend({
+
+  initialize: function() {
+    this.$el.appendTo("#for-attaching-form");
+  },
+
+  template:  HandlebarsTemplates['dashboard/new_class_time_form'],
+
+  render: function() {
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    this.$el.html(this.template({
+      token: csrf_token
+    }));
+
+    var edit_class_time_form = new DeleteClassTime({collection: this.collection, model: this.model});
+    edit_class_time_form.render();
+
+    return this;
+  }
+});
+
+
+var NewClassTimeView = Backbone.View.extend({
+  initialize: function(options) {
+    this.refreshed = options.refreshed;
     this.$el.appendTo(".entire");
   },
 
   template:  HandlebarsTemplates['dashboard/new_class_time_page'],
 
   render: function() {
+
     var class_times = this.collection.sort(function (a, b) {
       if (a.order_no > b.order_no) {
         return 1;
@@ -21038,12 +21142,14 @@ var NewClassTimeView = Backbone.View.extend({
       return 0;
     });
     var leader = this.model;
-    var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
-      token: csrf_token,
       leader: leader.get("first_name"),
       class_times: class_times,
+      refreshed: this.refreshed
     }));
+
+    var new_class_time_form = new NewClassTimeForm({collection: this.collection, model: this.model});
+    new_class_time_form.render();
 
     return this;
   }
@@ -22841,10 +22947,10 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
-  getNewClassTimeView: function() {
+  getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
     var class_times = gon.current_class_times || this.class_times.toJSON();
-    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user});
+    var new_class_time_page = new NewClassTimeView({collection: class_times, model: this.user, refreshed: refreshed});
     document.title = 'New Class Time';
     this.renderNavBar();
     this.scrollUpToTopOfPage();
@@ -23064,7 +23170,7 @@ var App = {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
       else if (gon.page_needed === "new_class_time") {
-        app_obj.getNewClassTimeView();
+        app_obj.getNewClassTimeView("refreshed");
       }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
@@ -23110,6 +23216,7 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
 }, false);
 
 App.init();
+
 $("h3.answer").click(function() {
   $(this).closest("div").children("h3").children("a").removeClass("brown");
   $(this).children().addClass("brown");
