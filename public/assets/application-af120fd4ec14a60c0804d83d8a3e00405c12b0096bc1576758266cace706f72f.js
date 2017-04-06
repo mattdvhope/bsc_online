@@ -19537,7 +19537,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
-    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\"><a href=\"/class_times/new\">Create new class time</a></h2>\n    <hr>\n\n"
+    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\"><a href=\"/class_times/new\">Create or Delete class times</a></h2>\n    <hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n\n</div>\n";
 },"useData":true});
