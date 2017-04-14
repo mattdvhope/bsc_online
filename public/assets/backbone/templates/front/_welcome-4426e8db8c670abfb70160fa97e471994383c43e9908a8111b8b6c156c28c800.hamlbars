@@ -14,9 +14,9 @@
   <div class="row">
     <div class="welcome-screen">
       {{#if window_big}}
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.png" alt="wide picture" class="img-responsive">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg" alt="wide picture" class="img-responsive">
       {{^}}
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.png" alt="narrow picture" class="img-responsive">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg" alt="narrow picture" class="img-responsive">
       {{/if}}
       <div class="welcome-caption-content">
         {{#if thai_language}}

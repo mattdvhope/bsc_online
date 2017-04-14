@@ -1,10 +1,10 @@
 <div id="contact-us" class="footer-screen">
   {{#if window_big}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City_scape.png" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City_scape.jpg" class="img-responsive">
   {{else if window_medium}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+medium.png" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+medium.jpg" class="img-responsive">
   {{else if window_smaller}}
-    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+smaller.png" class="img-responsive">
+    <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+scape+smaller.jpg" class="img-responsive">
   {{else}}
     <img style="display: none;">
   {{/if}}
@@ -26,7 +26,7 @@
     <br>
     <div class="row footer-contact-info">
       <div class="col-sm-3 col-xs-12 footer-cep-logo">
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo.png" alt="wide picture" class="img-responsive">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo.jpg" alt="wide picture" class="img-responsive">
       </div>
       <div class="col-sm-3 col-xs-12 footer-address">
         <br>
@@ -48,9 +48,9 @@
           {{/if}}
         <br>
         <div> <!-- social media icons -->
-          <a href="https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+Facebook.png" class="social-media-icon"></a>
-          <a href="https://www.youtube.com/channel/UCcqBmxAGOstDdFbRImmnVWg" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon+-+YouTube.png" class="social-media-icon"></a>
-          <a href="https://www.instagram.com/cityenglishproject/?hl=en" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Instagram+Logo.jpg" class="social-media-icon"></a>
+          <a href="https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon-Facebook.jpg" class="social-media-icon"></a>
+          <a href="https://www.youtube.com/channel/UCcqBmxAGOstDdFbRImmnVWg" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon-Youtube.jpg" class="social-media-icon"></a>
+          <a href="https://www.instagram.com/cityenglishproject/?hl=en" target="_blank"><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Icon-Instagram.jpg" class="social-media-icon"></a>
         </div> <!-- social media icons -->
         <br>
         {{!-- <li style="list-style-type: none;"><div class="line-it-button" style="display: none;" data-type="share-d" data-lang="en"></div></li> --}}
