@@ -8,7 +8,7 @@
       <h4>CEP-Partnership Information for you, {{volunteer.first_name}}</h4>
       <p>This will give you a comprehensive description of how the "Skype Conversation Partnership" works.</p>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+volunteer.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2Bvolunteer-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -18,7 +18,7 @@
       <h4>CEP-Partnership Information for Thai students</h4>
       <p>This is a document that the Thai students will receive, describing the program for them.</p>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -28,7 +28,7 @@
       <h4>CEP-Conversation Questions</h4>
       <p>Here are some sample questions that you can ask the Thai student.  This is not the actual course (which we'll provide for you below).  The Thai student will also receive duplicate questions, but with inline translations (you can look at that immediately below this document).</p>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -38,21 +38,12 @@
       <h4>CEP-Conversation Questions (with Thai)</h4>
       <p>Here are the same sample questions with inline Thai translations (as mentioned immediately above).</p>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions%2B(Thai%2Balso)-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
     <hr>
 
-    <li>
-      <h4>CEP-Thai student application form</h4>
-      <p>This is a copy of a blank application form which each Thai student will have to fill out in order to have a Skype partnership with you.  It's here for your perusal.</p>
-      <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Thai+student+appl+form.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
-      </a>
-    </li>
-    <hr>
-    <hr>
   </ul>
   <h3>Here are the 8 course sheets which you will use for the next eight weeks with your Thai student.  Your partner will also have a copy of them.  You might find it more convenient to print them out, but that's up to you.</h3>
   <br>
@@ -60,7 +51,7 @@
     <li>
       <h4>Week 1 - "All About Me"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -68,7 +59,7 @@
     <li>
       <h4>Week 2 - "All About My Family"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -76,7 +67,7 @@
     <li>
       <h4>Week 3 - "All About Sports and Hobbies"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -84,7 +75,7 @@
     <li>
       <h4>Week 4 - "All About Jobs and Occupations"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -92,7 +83,7 @@
     <li>
       <h4>Week 5 - "All About Travel and Transportation"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -100,7 +91,7 @@
     <li>
       <h4>Week 6 - "All About Thailand"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -108,7 +99,7 @@
     <li>
       <h4>Week 7 - "All About America"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
@@ -116,7 +107,7 @@
     <li>
       <h4>Week 8 - "All About Friendship"</h4>
       <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf" style="text-decoration: none !important;" download>
-        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP+PDF+document.jpg" alt="CEP document" height="107" width="96">
+        <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg" alt="CEP document" height="107" width="96">
       </a>
     </li>
     <hr>
