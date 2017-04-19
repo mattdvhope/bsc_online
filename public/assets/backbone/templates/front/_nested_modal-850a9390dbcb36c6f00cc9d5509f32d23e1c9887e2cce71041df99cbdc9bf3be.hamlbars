@@ -1,0 +1,92 @@
+<!-- Modal we're looking for in application_form.hbs -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 1</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <p>content...</p>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal2" class="btn btn-primary">Launch modal2</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary ">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade rotate" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 2</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <br>
+                <p>Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...Lots of content...L</p>
+                <br>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal3" class="btn btn-primary">Launch modal</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 3</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.
+                <br>
+                <br>
+                <p>content...</p>
+                <br>
+                <br>  <a data-toggle="modal" href="#myModal4" class="btn btn-primary">Launch modal</a>
+
+            </div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal4">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h4 class="modal-title">Modal 4</h4>
+
+            </div>
+            <div class="container"></div>
+            <div class="modal-body">Content for the dialog / modal goes here.</div>
+            <div class="modal-footer">  <a href="#" data-dismiss="modal" class="btn">Close</a>
+  <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+        </div>
+    </div>
+</div> <!-- Modal for application_form.hbs -->
+
+

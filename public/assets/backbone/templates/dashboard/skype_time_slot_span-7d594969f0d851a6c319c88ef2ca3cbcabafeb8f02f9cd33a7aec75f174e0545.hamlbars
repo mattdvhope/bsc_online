@@ -1,0 +1,1 @@
+<span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day_thai}} {{this.time_thai}} กับคุณ, {{first_name}}</span>
