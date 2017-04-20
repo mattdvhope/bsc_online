@@ -78,6 +78,7 @@ var App = {
     this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
+    this.user = volunteer;
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     this.scrollUpToTopOfPage();
@@ -93,6 +94,7 @@ var App = {
     setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
+    this.user = student;
     this.getVolunteersAvailableView(student);
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
