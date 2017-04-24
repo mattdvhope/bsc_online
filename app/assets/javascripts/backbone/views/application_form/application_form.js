@@ -100,7 +100,7 @@ var ApplicationView = Backbone.View.extend({
     
     model.save({}, options);
 
-  },
+  }, // signUp:
 
   application_title: function() {
     return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
