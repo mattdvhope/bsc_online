@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424092047) do
+ActiveRecord::Schema.define(version: 20170424105844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,12 +50,16 @@ ActiveRecord::Schema.define(version: 20170424092047) do
   end
 
   create_table "businesses", force: :cascade do |t|
-    t.string  "business_name"
-    t.string  "business_address"
-    t.string  "leader_name"
-    t.integer "employees_no"
-    t.string  "times"
-    t.string  "days"
+    t.string   "business_name"
+    t.string   "business_address"
+    t.string   "leader_name"
+    t.integer  "employees_no"
+    t.string   "times"
+    t.string   "days"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "chatrooms", force: :cascade do |t|

@@ -245,6 +245,9 @@ var App = {
       if ($("#front-main-hbs").is(":visible")) {
         the_app.getFrontMainPage();
         the_app.getFooter();
+      } else if ($("#on-business-page").is(":visible")) {
+        the_app.getBusinessPage();
+        the_app.getFooter();
       } else if ($(".entire-vol").is(":visible")) {
         the_app.getVolunteerPage();
         the_app.getFooter();
