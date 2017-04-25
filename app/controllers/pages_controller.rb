@@ -10,6 +10,10 @@ class PagesController < ApplicationController
     gon.page_needed = "volunteer_info"
   end
 
+  def business
+    gon.page_needed = "business"   
+  end
+
   def new_class_time
     gon.page_needed = "new_class_time"
     gon.current_class_times = ClassTime.all

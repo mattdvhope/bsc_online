@@ -36,6 +36,16 @@ var App = {
       $('.modal:visible').length && $(document.body).addClass('modal-open');
     });
   },
+  getBusinessPage: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    var business_page = new BusinessPageView();
+    document.title = 'Business';
+    this.renderNavBar();
+    business_page.render();
+
+    this.business_page = business_page;
+  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     this.scrollUpToTopOfPage();
@@ -78,6 +88,7 @@ var App = {
     this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
+    this.user = volunteer;
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     this.scrollUpToTopOfPage();
@@ -93,6 +104,7 @@ var App = {
     setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
+    this.user = student;
     this.getVolunteersAvailableView(student);
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
@@ -233,6 +245,9 @@ var App = {
       if ($("#front-main-hbs").is(":visible")) {
         the_app.getFrontMainPage();
         the_app.getFooter();
+      } else if ($("#on-business-page").is(":visible")) {
+        the_app.getBusinessPage();
+        the_app.getFooter();
       } else if ($(".entire-vol").is(":visible")) {
         the_app.getVolunteerPage();
         the_app.getFooter();
@@ -292,6 +307,9 @@ var App = {
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
       }
+      else if (gon.page_needed === "business") {
+        app_obj.getBusinessPage();
+      }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
       }
@@ -323,6 +341,9 @@ $(document).on("click", "#backbone-app a", function(e) {
 window.addEventListener('popstate', function(event) { // navigating with back & forward buttons
   if (Backbone.history.getFragment() === "") {
     App.getFrontMainPage();
+  }
+  else if (Backbone.history.getFragment() === "business") {
+    App.getBusinessPage();
   }
   else if (Backbone.history.getFragment() === "volunteer_info") {
     App.getVolunteerPage();

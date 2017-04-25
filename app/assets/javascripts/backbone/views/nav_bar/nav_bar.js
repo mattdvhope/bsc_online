@@ -73,6 +73,9 @@ var NavBarView = Backbone.View.extend({
   converse_online: function() {
     return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
   },
+  class_at_business: function() {
+    return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
+  },
   you_can_speak: function() {
     return choose_language("'You Can Speak!' Registration", "สมัครเรียน 'You Can Speak!'");
   },
@@ -104,6 +107,7 @@ var NavBarView = Backbone.View.extend({
       contact_us: this.contact_us(),
       courses: this.courses(),
       converse_online: this.converse_online(),
+      class_at_business: this.class_at_business(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),

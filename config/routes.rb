@@ -5,16 +5,14 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "pages#front"
-
+  get 'business', to: "pages#business"
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
-
   resources :chatrooms, only: [:show]
   resources :messages
+  # ...websockets...
 
-
-  
   get 'volunteer_info', to: "pages#volunteer_info" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   get 'dashboard', to: "pages#dashboard"
   delete 'dashboard', to: "pages#dashboard"

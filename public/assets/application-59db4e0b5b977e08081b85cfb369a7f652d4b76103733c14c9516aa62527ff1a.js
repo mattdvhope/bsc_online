@@ -484,6 +484,9 @@ Based on Rails routes of BscOnline::Application
 // build => /build(.:format)
   // function(options)
   build_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"build",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// business => /business(.:format)
+  // function(options)
+  business_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"business",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
 // chatroom => /chatrooms/:id(.:format)
   // function(id, options)
   chatroom_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"chatrooms",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -19470,6 +19473,17 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["business/business"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<br>\n<br>\n<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<h1>"
+    + container.escapeExpression(((helper = (helper = helpers.business_page || (depth0 != null ? depth0.business_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_page","hash":{},"data":data}) : helper)))
+    + "</h1>";
+},"useData":true});
+  return this.HandlebarsTemplates["business/business"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["dashboard/class_times"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     return "    <h3>....please wait for classtimes to load....</h3>\n";
 },"3":function(container,depth0,helpers,partials,data) {
@@ -19533,7 +19547,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <h2>Welcome to the \"City English Project,\" "
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n<div class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n    <hr>\n    <h2><a href=\"/log_out\">Log Out</a></h2>\n    <hr>\n\n    <h2>Welcome to the \"City English Project,\" "
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
@@ -19556,7 +19570,7 @@ window.fbAsyncInit = function() {
 
   return "<h2>(2) Delete a class time</h2>\n<hr>\n\n<ul>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</ul>\n\n<hr>";
+    + "</ul>\n\n<hr>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/delete_class_time"];
 }).call(this);
@@ -19594,7 +19608,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
+  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -19618,7 +19632,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
     + " ที่มีความเกี่ยวข้องกับการเป็นหุ้นส่วนออนไลน์กับครูชาวอเมริกัน\n\n      คุณสามารถคลิกไปที่ไอคอนของเอกสารใดก็ตามที่คุณต้องการดาวน์โหลด\n    </h3>\n\n\n    <ul style=\"list-style: none;\">\n      <hr>\n      <li>\n        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + "</h4>\n        <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works between you and the American teacher.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>Here are some sample questions that you and the American teacher can talk about.</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n    </ul>\n    <h3>\n      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป\n      ครูของคุณจะมีสำเนานี้ด้วย\n    </h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
+    + "</h4>\n        <p>เอกสารนี้จะให้คำอธิบายโดยละเอียดเกี่ยวกับการใช้งาน \"Skype คู่สนทนา\" ระหว่างคุณและอาจารย์ชาวอเมริกัน </p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>นี่คือตัวอย่างคำถามที่คุณสามารถใช้พูดคุยกับอาจารย์ชาวอเมริกันได้</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n    </ul>\n    <h3>\n      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป\n      ครูของคุณจะมีสำเนานี้ด้วย\n    </h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_documents_stu"];
 }).call(this);
@@ -19631,7 +19645,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
     + ", is related to your Skype partnership with Thai students.  Feel free to click on the icons of whichever documents you'll need to download.</h3>\n\n\n  <ul style=\"list-style: none;\">\n    <hr>\n    <li>\n      <h4>CEP-Partnership Information for you, "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + "</h4>\n      <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+volunteer.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2Bvolunteer-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Partnership Information for Thai students</h4>\n      <p>This is a document that the Thai students will receive, describing the program for them.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions</h4>\n      <p>Here are some sample questions that you can ask the Thai student.  This is not the actual course (which we'll provide for you below).  The Thai student will also receive duplicate questions, but with inline translations (you can look at that immediately below this document).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions (with Thai)</h4>\n      <p>Here are the same sample questions with inline Thai translations (as mentioned immediately above).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions%2B(Thai%2Balso)-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n  </ul>\n  <h3>Here are the 8 course sheets which you will use for the next eight weeks with your Thai student.  Your partner will also have a copy of them.  You might find it more convenient to print them out, but that's up to you.</h3>\n  <br>\n  <ul>\n    <li>\n      <h4>Week 1 - \"All About Me\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 2 - \"All About My Family\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 3 - \"All About Sports and Hobbies\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 4 - \"All About Jobs and Occupations\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 5 - \"All About Travel and Transportation\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 6 - \"All About Thailand\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 7 - \"All About America\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 8 - \"All About Friendship\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n  </ul>\n\n</span>";
+    + "</h4>\n      <p>This will give you a comprehensive description of how the \"Skype Conversation Partnership\" works.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+volunteer.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2Bvolunteer-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Partnership Information for Thai students</h4>\n      <p>This is a document that the Thai students will receive, describing the program for them.</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions</h4>\n      <p>Here are some sample questions that you can ask the Thai student.  This is not the actual course (which we'll provide for you below).  The Thai student will also receive duplicate questions, but with inline translations (you can look at that immediately below this document).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n    <li>\n      <h4>CEP-Conversation Questions (with Thai)</h4>\n      <p>Here are the same sample questions with inline Thai translations (as mentioned immediately above).</p>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also).pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions%2B(Thai%2Balso)-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n    <hr>\n\n  </ul>\n  <h3>Here are the 8 course sheets which you will use for the next eight weeks with your Thai student.  Your partner will also have a copy of them.  You might find it more convenient to print them out, but that's up to you.</h3>\n  <br>\n  <ul>\n    <li>\n      <h4>Week 1 - \"All About Me\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 2 - \"All About My Family\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 3 - \"All About Sports and Hobbies\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 4 - \"All About Jobs and Occupations\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 5 - \"All About Travel and Transportation\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 6 - \"All About Thailand\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 7 - \"All About America\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n\n    <li>\n      <h4>Week 8 - \"All About Friendship\"</h4>\n      <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8.pdf\" style=\"text-decoration: none !important;\" download>\n        <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n      </a>\n    </li>\n    <hr>\n  </ul>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</span>";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_documents_vol"];
 }).call(this);
@@ -19733,7 +19747,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["dashboard/volunteer_dashboard"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n\n<div id=\"volunteer-dashboard-template\" class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <div>\n    <h2 id=\"volunteer-welcome\">Welcome to the \"City English Project,\" "
+  return "<!-- script disables browser back button for this page -->\n<script type = \"text/javascript\" >\n  history.pushState(null, null, 'dashboard');\n  window.addEventListener('popstate', function(event) {\n    history.pushState(null, null, 'dashboard');\n  });\n</script>\n\n\n<div id=\"volunteer-dashboard-template\" class=\"container\">\n  <br>\n  <br>\n  <br>\n  <br>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n  <div>\n    <h2 id=\"volunteer-welcome\">Welcome to the \"City English Project,\" "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
     + " as a Skype-partner!</h2>\n    <hr>\n\n    <form novalidate=\"novalidate\" class=\"simple_form application_form\" id=\"new_user\" enctype=\"multipart/form-data\" action=\"/users\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
@@ -19980,6 +19994,11 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.program(19, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <hr>\n    <br>\n    <br>\n  </div> <!-- be-a-member-centerer -->\n</div> <!-- container-full -->\n\n\n";
 },"usePartial":true,"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("front/_carousel", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<br>\n<br>\n<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg\" alt=\"Chania\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg\" alt=\"Chania\">\n    </div>\n  </div>\n\n  <!-- Left and right controls -->\n  <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
+},"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_features", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
@@ -20331,7 +20350,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div id=\"front-main-hbs\">\n\n"
+  return "<div id=\"front-main-hbs\">\n\n\n"
     + ((stack1 = container.invokePartial(partials["front/_welcome"],depth0,{"name":"front/_welcome","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["front/_features"],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
@@ -20462,7 +20481,7 @@ window.fbAsyncInit = function() {
 
   return "<a href=\"\" id=\"nav-dropdown\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">"
     + container.escapeExpression(((helper = (helper = helpers.courses || (depth0 != null ? depth0.courses : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"courses","hash":{},"data":data}) : helper)))
-    + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
+    + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n\n\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"you_can_speak","hash":{},"data":data}) : helper)))
     + "\n    </a>\n  </li>\n  <li role=\"separator\" class=\"divider\"></li>\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#converseonlinemodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.converse_online || (depth0 != null ? depth0.converse_online : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"converse_online","hash":{},"data":data}) : helper)))
@@ -20916,7 +20935,7 @@ var ApplicationView = Backbone.View.extend({
     
     model.save({}, options);
 
-  },
+  }, // signUp:
 
   application_title: function() {
     return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
@@ -20994,6 +21013,31 @@ var WelcomePopupView = Backbone.View.extend({
   }
 
 });
+
+var BusinessPageView = Backbone.View.extend({
+  initialize: function(options) {
+    // this.refreshed = options.refreshed;
+    this.$el.appendTo(".entire");
+  },
+
+  template:  HandlebarsTemplates['business/business'],
+
+  business_page: function() {
+    return choose_language("Business Page", "หน้าธุรกิจ");
+  },
+
+  render: function() {
+
+    this.$el.html(this.template({
+      business_page: this.business_page(),
+      // thai_language: thai_language(),
+
+    }));
+
+    return this;
+  }
+});
+
 
 var ClassTimesView = Backbone.View.extend({
   template:  HandlebarsTemplates['dashboard/class_times'],
@@ -22062,6 +22106,9 @@ var NavBarView = Backbone.View.extend({
   converse_online: function() {
     return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
   },
+  class_at_business: function() {
+    return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
+  },
   you_can_speak: function() {
     return choose_language("'You Can Speak!' Registration", "สมัครเรียน 'You Can Speak!'");
   },
@@ -22093,6 +22140,7 @@ var NavBarView = Backbone.View.extend({
       contact_us: this.contact_us(),
       courses: this.courses(),
       converse_online: this.converse_online(),
+      class_at_business: this.class_at_business(),
       you_can_speak: this.you_can_speak(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
@@ -22650,8 +22698,14 @@ var VolunteerPageView = Backbone.View.extend({
 var Router = Backbone.Router.extend({
 
   routes: {
+    "business": "showBusinessPage",
     "volunteer_info": "showVolunteerPage",
     "class_times/new": "showNewClassTimePage"
+  },
+
+  showBusinessPage: function() {
+    $(window).scrollTop(0);
+    App.getBusinessPage();      
   },
 
   showVolunteerPage: function() {
@@ -22916,6 +22970,16 @@ var App = {
       $('.modal:visible').length && $(document.body).addClass('modal-open');
     });
   },
+  getBusinessPage: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    var business_page = new BusinessPageView();
+    document.title = 'Business';
+    this.renderNavBar();
+    business_page.render();
+
+    this.business_page = business_page;
+  },
   getVolunteerPage: function() {
     this.removeNavAndPage();
     this.scrollUpToTopOfPage();
@@ -22958,6 +23022,7 @@ var App = {
     this.new_class_time_page = new_class_time_page;
   },
   getVolunteerDashboardPage: function(volunteer) {
+    this.user = volunteer;
     var dashboard_page = new VolunteerDashboardView({ model: volunteer });
     this.renderNavBar();
     this.scrollUpToTopOfPage();
@@ -22973,6 +23038,7 @@ var App = {
     setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
   },
   getStudentDashboardPage: function(student) {
+    this.user = student;
     this.getVolunteersAvailableView(student);
     var dashboard_page = new StudentDashboardView({ model: student });
     this.renderNavBar();
@@ -23113,6 +23179,9 @@ var App = {
       if ($("#front-main-hbs").is(":visible")) {
         the_app.getFrontMainPage();
         the_app.getFooter();
+      } else if ($("#on-business-page").is(":visible")) {
+        the_app.getBusinessPage();
+        the_app.getFooter();
       } else if ($(".entire-vol").is(":visible")) {
         the_app.getVolunteerPage();
         the_app.getFooter();
@@ -23172,6 +23241,9 @@ var App = {
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
       }
+      else if (gon.page_needed === "business") {
+        app_obj.getBusinessPage();
+      }
       else if (gon.page_needed === "volunteer") {
         app_obj.getVolunteerDashboardPage(app_obj.presentUserModel());
       }
@@ -23203,6 +23275,9 @@ $(document).on("click", "#backbone-app a", function(e) {
 window.addEventListener('popstate', function(event) { // navigating with back & forward buttons
   if (Backbone.history.getFragment() === "") {
     App.getFrontMainPage();
+  }
+  else if (Backbone.history.getFragment() === "business") {
+    App.getBusinessPage();
   }
   else if (Backbone.history.getFragment() === "volunteer_info") {
     App.getVolunteerPage();
