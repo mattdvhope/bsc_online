@@ -106,6 +106,18 @@ var ApplicationView = Backbone.View.extend({
     return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
   },
 
+  bank_transfer_info: function() {
+    return choose_language("CEP bank transfer information", "ข้อมูลสำหรับการโอนเงินโครงการซิตี้ อิงลิช");
+  },
+
+  bank_name: function() {
+    return choose_language("Bank: Siam Commercial Bank", "ธนาคาร: ธนาคารไทยพาณิชย์ จำกัด (มหาชน)");
+  },
+
+  bank_number: function() {
+    return choose_language("Acct Number: 227-210027-2", "หมายเลขบัญชี: 227-210027-2");
+  },
+
   please_click_here: function() {
     return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
   },
@@ -141,6 +153,9 @@ var ApplicationView = Backbone.View.extend({
       token: csrf_token,
       thai_language: thai_language(),
       application_title: this.application_title(),
+      bank_transfer_info: this.bank_transfer_info(),
+      bank_name: this.bank_name(),
+      bank_number: this.bank_number(),
       please_click_here: this.please_click_here(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
