@@ -19300,7 +19300,13 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </label>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
+    + "        </label>\n        <hr>\n\n        <h3><u>"
+    + container.escapeExpression(((helper = (helper = helpers.bank_transfer_info || (depth0 != null ? depth0.bank_transfer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_transfer_info","hash":{},"data":data}) : helper)))
+    + "</u></h3>\n        <h4>"
+    + container.escapeExpression(((helper = (helper = helpers.bank_name || (depth0 != null ? depth0.bank_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_name","hash":{},"data":data}) : helper)))
+    + "</h4>\n        <h4>"
+    + container.escapeExpression(((helper = (helper = helpers.bank_number || (depth0 != null ? depth0.bank_number : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_number","hash":{},"data":data}) : helper)))
+    + "</h4>\n        <hr>\n\n        <div class=\"control-group\">\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.program(19, data, 0),"data":data})) != null ? stack1 : "")
     + "      </form>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->\n\n\n<script>\n\n  /// to prevent scrolling when bootstrap modal is open\n  var $html = $(document.documentElement);\n  var $modal = $('#applicationmodal');\n\n  function showModal() {\n    $html.css('overflow', 'hidden');\n    $modal.css('overflow', 'auto');\n  }\n\n  function hideModal() {\n    $html.css('overflow', '');\n    $modal.modal(\"hide\");\n  }\n\n  $('.modal-initiator').on('click', showModal);\n  $('.close-modal').on('click', hideModal);\n  /// to prevent scrolling ///////////////////////\n\n\n  //// radio buttons /////\n  // var button1 = document.getElementById(\"sched-opt-one\");\n  // var button2 = document.getElementById(\"sched-opt-two\");\n\n  // $(\"#sched-opt-one, #sched-opt-two\").on(\"click\", function() {\n  //   if (button1.checked){ // if #five-weeks selected\n  //     $('#five-weeks').prop('disabled', false);\n  //     $('#five-weeks').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#one-whole-week').val('select_option');\n  //     $('#one-whole-week').prop('disabled', 'disabled');\n  //     $('#one-whole-week').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  //   else if (button2.checked) { // if #one-whole-week selected\n  //     $('#one-whole-week').prop('disabled', false);\n  //     $('#one-whole-week').removeClass(\"grayout\").addClass(\"blackin\");\n  //     $('#five-weeks').val('select_option');\n  //     $('#five-weeks').prop('disabled', 'disabled');\n  //     $('#five-weeks').removeClass(\"blackin\").addClass(\"grayout\");\n  //   }\n  // });\n\n  $('.radio-pay_at_center').on(\"change\", function() {\n    $('.radio-pay_by_transfer').prop('checked', false);\n  });\n  $('.radio-pay_by_transfer').on(\"change\", function() {\n    $('.radio-pay_at_center').prop('checked', false);\n  });\n\n  //// radio buttons /////\n\n</script>\n\n\n\n\n\n";
 },"usePartial":true,"useData":true});
@@ -20941,6 +20947,18 @@ var ApplicationView = Backbone.View.extend({
     return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
   },
 
+  bank_transfer_info: function() {
+    return choose_language("CEP bank transfer information", "ข้อมูลสำหรับการโอนเงินโครงการซิตี้ อิงลิช");
+  },
+
+  bank_name: function() {
+    return choose_language("Bank: Siam Commercial Bank", "ธนาคาร: ธนาคารไทยพาณิชย์ จำกัด (มหาชน)");
+  },
+
+  bank_number: function() {
+    return choose_language("Acct Number: 227-210027-2", "หมายเลขบัญชี: 227-210027-2");
+  },
+
   please_click_here: function() {
     return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
   },
@@ -20976,6 +20994,9 @@ var ApplicationView = Backbone.View.extend({
       token: csrf_token,
       thai_language: thai_language(),
       application_title: this.application_title(),
+      bank_transfer_info: this.bank_transfer_info(),
+      bank_name: this.bank_name(),
+      bank_number: this.bank_number(),
       please_click_here: this.please_click_here(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
