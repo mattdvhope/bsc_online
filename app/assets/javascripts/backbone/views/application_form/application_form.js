@@ -103,7 +103,7 @@ var ApplicationView = Backbone.View.extend({
   }, // signUp:
 
   application_title: function() {
-    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
+    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสมัครเรียนหลักสูตร \"You Can Speak!\"");
   },
 
   bank_transfer_info: function() {

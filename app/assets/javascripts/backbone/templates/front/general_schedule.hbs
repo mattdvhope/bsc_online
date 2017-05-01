@@ -13,25 +13,28 @@
         {{> front/english/_general_sched_activ_list }}
       {{/if}}
       <hr>
-      {{#if thai_language}}
+
+      {{!-- {{#if thai_language}}
         {{> front/thai/_general_sched_list_title }}
       {{^}}
         {{> front/english/_general_sched_list_title }}
-      {{/if}}
-      {{!-- get each 'class_time' in the right order using 'order_no'!!!!!! (see application_form) --}}
-      <ul style="list-style: none;">
+      {{/if}} --}}
+
+      {{!-- <ul style="list-style: none;">
         {{#each class_times}}
           <li><h4>{{this}}</h4></li>
         {{/each}}
       </ul>
-      <hr>
-      <h3>
+      <hr> --}}
+
+      {{!-- <h3>
         {{#if thai_language}}
           {{> front/thai/_general_sched_on_site }}
         {{^}}
           {{> front/english/_general_sched_on_site }}
         {{/if}}
-      </h3>
+      </h3> --}}
+      
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default close-sched-modal" data-dismiss="modal">Close</button>
