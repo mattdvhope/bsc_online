@@ -34,16 +34,21 @@
             {{#if volunteer_info_visible}}
               <li><a id="volunteer-steps-point" class="page-scroll nav-hover">{{steps_to_volunteer}}</a></li>
             {{^}}
-              <li><a id="free-events" class="page-scroll nav-hover">{{free_events}}</a>
-
-
+              <li>
+                <a id="free-events" class="page-scroll nav-hover">{{free_events}}</a>
               </li>
-              <li id="nav-course-drop-down" class="dropdown">
+
+              <li>
                 {{> nav_bar/_courses_drop_down }}
               </li>
+
               <li>
-                <a id="be-a-member-point" class="page-scroll nav-hover">{{be_a_member}}</a>
+                {{> nav_bar/_be_member_drop_down }}
               </li>
+
+              {{!-- <li>
+                <a id="be-a-member-point" class="page-scroll nav-hover">{{be_a_member}}</a>
+              </li> --}}
 
               <li role="separator" class="divider"></li>
 
