@@ -17,12 +17,14 @@
           {{> application_form/english/_intro_bullets }}
         {{/if}}
         <hr>
+
         {{#if thai_language}}
-          {{> application_form/thai/_please_fill_out }}
+          {{> application_form/thai/_course_option_bullets }}
         {{^}}
-          {{> application_form/english/_please_fill_out }}
+          {{> application_form/english/_course_option_bullets }}
         {{/if}}
         <hr>
+
         <label class="field-label">Nickname (in English)</label>
         <input type="text" class="form-control nickname" placeholder="ชื่อเล่น (ภาษาอังกฤษ)" name="nickname">
         <hr>
@@ -41,20 +43,11 @@
         </div>
         <hr>
 
-        {{!-- <label class="field-label">Age</label>
-        <input type="text" class="form-control age" placeholder="อายุ" name="age">
-        <hr> --}}
-
         <label class="field-label">Phone Number</label>
             <input type="text" class="form-control phone-number" placeholder="เบอร์โทรศัพท์" name="phone_number">
         <hr>
 
         <label class="field-label email-label">Email Address <h4>
-          {{#if thai_language}}
-            {{> application_form/thai/_email_explanation }}
-          {{^}}
-            {{> application_form/english/_email_explanation }}
-          {{/if}}
         </h4></label>
         <input type="text" class="form-control email" placeholder="อีเมล" name="email">
         <hr>
@@ -78,11 +71,20 @@
         <hr>
 
         <h3><u>{{bank_transfer_info}}</u></h3>
+        <h4>{{bank_transfer_extra_info}}</h4>
         <h4>{{bank_name}}</h4>
+        <h4>{{bank_person}}</h4>
         <h4>{{bank_number}}</h4>
         <hr>
 
         <div class="control-group">
+          {{#if thai_language}}
+            {{> application_form/thai/_email_explanation }}
+          {{^}}
+            {{> application_form/english/_email_explanation }}
+          {{/if}}
+          <br>
+          <br>
           <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
         </div>
 

@@ -3,7 +3,7 @@
 <br>
   <select id="non-univ-select" name="class_time_scheduled" class="seminar-session-select">
 
-    <option id="option-with-id" value="select_option" disabled selected> -- เลือกตัวเลือก -- </option>
+    <option id="option-with-id" value="select_option" disabled selected> -- เลือกตารางเรียน -- </option>
 
     {{#each regular_class_times}}
       <option value="{{this.period}}">{{this.period_thai}}</option>
