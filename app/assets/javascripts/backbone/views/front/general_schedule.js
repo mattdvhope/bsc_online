@@ -25,6 +25,10 @@ var GeneralScheduleView = Backbone.View.extend({
     return choose_language("List of class sessions...", "รายการชั้นเรียน...");
   },
 
+  please_click_here: function() {
+    return choose_language("Description of these classes", "รายละเอียดของชั้นเรียนเหล่านี้");
+  },
+
   sorted_class_times: function() {
     return this.collection.toJSON().sort(function(a, b) {
       return a.order_no - b.order_no;
@@ -53,6 +57,7 @@ var GeneralScheduleView = Backbone.View.extend({
       welcome: this.welcome(),
       description_of_free: this.description_of_free(),
       list_title: this.list_title(),
+      please_click_here: this.please_click_here(),
       class_times: this.class_times()
     }));
 

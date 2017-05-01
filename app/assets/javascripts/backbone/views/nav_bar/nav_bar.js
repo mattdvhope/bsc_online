@@ -61,6 +61,9 @@ var NavBarView = Backbone.View.extend({
   be_a_member: function() {
     return choose_language("Be a member!", "สมาชิกเครือข่าย!");
   },
+  member_info: function() {
+    return choose_language("Information", "ข้อมูล");
+  },
   free_events: function() {
     return choose_language("Free Events!", "กิจกรรมฟรี!");
   },
@@ -104,6 +107,7 @@ var NavBarView = Backbone.View.extend({
       free_events: this.free_events(),
       schedule: this.schedule(),
       be_a_member: this.be_a_member(),
+      member_info: this.member_info(),
       contact_us: this.contact_us(),
       courses: this.courses(),
       converse_online: this.converse_online(),
