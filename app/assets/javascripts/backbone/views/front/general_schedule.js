@@ -14,7 +14,11 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   welcome: function() {
-    return choose_language("City English Project Free Events!", "กิจกรรมฟรีของโครงการซิตี้ อิงลิช!");
+    return choose_language("Schedule of all activities & classes", "กำหนดการจัดกิจกรรมและกิจกรรมทั้งหมด");
+  },
+
+  description_of_free: function() {
+    return choose_language("Description of free activities", "รายละเอียดของกิจกรรมฟรี");
   },
 
   list_title: function() {
@@ -47,6 +51,7 @@ var GeneralScheduleView = Backbone.View.extend({
     this.$el.html(this.template({
       thai_language: thai_language(),
       welcome: this.welcome(),
+      description_of_free: this.description_of_free(),
       list_title: this.list_title(),
       class_times: this.class_times()
     }));

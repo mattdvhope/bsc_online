@@ -28,13 +28,13 @@ var NavBarView = Backbone.View.extend({
       var el = document.getElementById("volunteer-steps");
       el.scrollIntoView();
     },
-    'click #schedule-point': function (e) {
-      e.preventDefault();
-      App.getGeneralSchedModal();
-    },
     'click #free-events': function (e) {
       e.preventDefault();
-      App.getGeneralSchedModal();
+      App.freeEventsModal();
+    },
+    'click #general-schedule': function (e) {
+      e.preventDefault();
+      App.generalScheduleModal();
     }
   },
 
@@ -101,8 +101,8 @@ var NavBarView = Backbone.View.extend({
       thai_language: thai_language(),
       sign_up: this.sign_up(),
       features: this.features(),
-      schedule: this.schedule(),
       free_events: this.free_events(),
+      schedule: this.schedule(),
       be_a_member: this.be_a_member(),
       contact_us: this.contact_us(),
       courses: this.courses(),

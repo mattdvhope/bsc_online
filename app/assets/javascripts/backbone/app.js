@@ -10,7 +10,13 @@ var App = {
   getFrontMainPage: function() {
     getFrontMainPage(); // in 'app_methods' folder
   },
-  getGeneralSchedModal: function() {
+  freeEventsModal: function() {
+    var free_events_view = new FreeEventsView();
+    $("#freeeventsmodal").html(free_events_view.render().el);
+    $("#freeeventsmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+    $("#freeeventsmodal").modal();
+  },
+  generalScheduleModal: function() {
     var class_times = new ClassTimes(); // collection
     class_times.fetch({
       success: function (collection, response, options) {
@@ -296,7 +302,6 @@ var App = {
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
         app_obj.openApplicationForm();
-        // app_obj.getGeneralSchedModal();
       }
       else if (gon.page_needed === "volunteer_info" || gon.page_needed === "admin") {
         app_obj.getVolunteerPage();
