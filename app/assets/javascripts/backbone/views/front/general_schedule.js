@@ -14,7 +14,7 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   welcome: function() {
-    return choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
+    return choose_language("City English Project Free Events!", "กิจกรรมฟรีของโครงการซิตี้ อิงลิช!");
   },
 
   list_title: function() {
