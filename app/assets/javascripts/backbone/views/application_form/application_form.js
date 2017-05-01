@@ -110,8 +110,16 @@ var ApplicationView = Backbone.View.extend({
     return choose_language("CEP bank transfer information", "ข้อมูลสำหรับการโอนเงินโครงการซิตี้ อิงลิช");
   },
 
+  bank_transfer_extra_info: function() {
+    return choose_language("(Please pay by bank transfer within 7 days.  Then bring the bank transfer slip to class.)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
+  },
+
   bank_name: function() {
     return choose_language("Bank: Siam Commercial Bank", "ธนาคาร: ธนาคารไทยพาณิชย์ จำกัด (มหาชน)");
+  },
+
+  bank_person: function() {
+    return choose_language("Contact Person: \"Matthew Malone\"", "บุคคลที่ติดต่อ: \"Matthew Malone\"");
   },
 
   bank_number: function() {
@@ -120,6 +128,10 @@ var ApplicationView = Backbone.View.extend({
 
   please_click_here: function() {
     return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+  },
+
+  course_options: function() {
+    return choose_language("Course Options", "ทางเลือกสำหรับการเรียน");
   },
 
   schedule_option_one: function() {
@@ -154,9 +166,12 @@ var ApplicationView = Backbone.View.extend({
       thai_language: thai_language(),
       application_title: this.application_title(),
       bank_transfer_info: this.bank_transfer_info(),
+      bank_transfer_extra_info: this.bank_transfer_extra_info(),
       bank_name: this.bank_name(),
+      bank_person: this.bank_person(),
       bank_number: this.bank_number(),
       please_click_here: this.please_click_here(),
+      course_options: this.course_options(),
       schedule_option_one: this.schedule_option_one(),
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
