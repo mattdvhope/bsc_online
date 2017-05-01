@@ -59,7 +59,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Schedule", "ตารางเรียน");
   },
   be_a_member: function() {
-    return choose_language("Be a member!", "สมัครสมาชิก!");
+    return choose_language("Be a member!", "สมาชิกเครือข่าย!");
   },
   free_events: function() {
     return choose_language("Free Events!", "กิจกรรมฟรี!");
