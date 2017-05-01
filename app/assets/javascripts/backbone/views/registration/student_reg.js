@@ -122,7 +122,7 @@ var StudentRegFormView = Backbone.View.extend({
   }, // 'submit' method
 
   apply_to_converse: function() {
-    return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
+    return choose_language("Register to Converse Online", "สมัครสนทนาออนไลน์");
   },
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
