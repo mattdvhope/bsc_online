@@ -19296,7 +19296,7 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "        <hr>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <hr>\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n\n        <label class=\"field-label email-label\">Email Address <h4>\n"
+    + "        <hr>\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n\n        <label class=\"field-label\">Phone Number</label>\n            <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address <h4>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
@@ -19338,7 +19338,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.please_click_here || (depth0 != null ? depth0.please_click_here : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"please_click_here","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>Only 499 baht!  Please pay on the first day of class — arrive 10 minutes early to pay.</li>\n    <li>Classes taught by TESOL certified native English speakers from America</li>\n    <li>Focuses on Conversation that builds confidence and clarity</li>\n    <li>Practice speaking while learning about international cultures and worldview</li>\n    <li>Each class consists of five 90-minute sessions</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 75 minutes of conversational English and culture</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 15 minutes of conversational English and <a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">Christian worldview</a></li>\n    <li>After you complete the 5-day class, you will be eligible to receive a PIN.  With your PIN you will able to login and request an online conversation partner. (The teacher will explain the details about this in your class.)</li>\n    <li>Our website is secure.  We will not share your information with anyone!</li>\n    <img id=\"secure-website\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/secure+website.png\" alt=\"Secure CEP Website\">\n  </ul>\n\n</div>";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <h4>You Can Speak! is a conversational English course specially designed to help Thais improve confidence and clarity in speaking English. The curriculum also helps Thais establish a foundation for building personal and business relationships cross-culturally.</h4>\n\n  <ul>\n    <li>Course includes five 90 min classes.</li>\n    <li>Each class is taught by TESOL certifed, native English speakers.</li>\n    <li>Classes are fun, interactive and focus on helping students speak with clarity and confidence.</li>\n    <li>Class includes a free workbook (value 300B).</li>\n    <li>The course includes aspects of Western culture and Christian worldview to help Thais effectively build cross-cultural relationships.</li>\n    <li>All students who successfully complete the class are awarded a certificate and a free one year membership to City English Project.</li>\n    <li>Beginner and Intermediate levels</li>\n    <li>Our website is secure.  We will not share your information with anyone!</li>\n\n  </ul>\n\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19410,7 +19410,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseExample\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.please_click_here || (depth0 != null ? depth0.please_click_here : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"please_click_here","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <ul>\n    <li>เพียง 499 บาทเท่านั้น! กรุณาชำระค่าลงทะเบียนเรียนในวันแรกของการเรียน – กรุณามาก่อนเวลาเรียน 10 นาที เพื่อชำระค่าลงทะเบียน</li>\n    <li>ทุกชั้นเรียนสอนโดยผู้สอนภาษาอังกฤษเจ้าของภาษาที่ได้รับการรับรองโดย TESOL จากประเทศอเมริกาและออสเตรเลีย</li>\n    <li>เน้นการสนทนาภาษาอังกฤษเพื่อสร้างความมั่นใจและการออกเสียงที่ชัดเจน</li>\n    <li>ฝึกฝนการสนทนาควบคู่กับการเรียนรู้เกี่ยวกับวัฒนธรรมและโลกทัศน์สากล</li>\n    <li>แต่ละคาบเรียนใช้เวลา 90 นาที</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 75 นาที สำหรับการสนทนาภาษาอังกฤษและวัฒนธรรม</li>\n      <li style=\"margin-left: 10px; list-style:none;\">- 15 นาที สำหรับการสนทนาภาษาอังกฤษและ<a data-toggle=\"modal\" href=\"#\" data-target=\"#christianWorldViewModal\">โลกทัศน์คริสเตียน</a></li>\n    <li>หลังจากเสร็จสิ้นการเรียน 5 วัน (ชั้นเรียน \"You Can Speak\") คุณจะมีสิทธิ์ได้รับ PIN ...เมื่อใช้ PIN คุณจะสามารถเข้าสู่ระบบและขอให้มีคู่สนทนาออนไลน์ได้ (ครูจะอธิบายรายละเอียดเกี่ยวกับเรื่องนี้ในชั้นเรียนของคุณ)</li>\n    <li>เว็บไซต์ของเรามีความปลอดภัย เราจะไม่เปิดเผยข้อมูลของคุณกับทุกคน!</li>\n    <img id=\"secure-website\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/secure+website.png\" alt=\"Secure CEP Website\">\n  </ul>\n\n</div>\n\n\n\n";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n\n  <h4>You Can Speak! เป็นหลักสูตรภาษาอังกฤษเพื่อการสนทนาที่ออกแบบมาเพื่อช่วยให้คนไทยพัฒนาการการพูดภาษาอังกฤษได้อย่างชัดเจนและมีความมั่นใจ หลักสูตรนี้ยังจะช่วยให้คนไทยมีโอกาสในการพัฒนาทักษะการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในระดับส่วนตัวและความสัมพันธ์ทางธุรกิจควบคู่กันไปด้วย</h4>\n\n  <ul>\n    <li>หลักสูตร ประกอบด้วย 5 คาบเรียนๆ ละ 90 นาที</li>\n    <li>แต่ละชั้นเรียนสอนโดยอาจารย์ผู้สอนเจ้าของภาษาที่รับรองโดย TESOL</li>\n    <li>ชั้นเรียนมีความสนุกสนาน เน้นการพูดคุยปฏิสัมพันธ์ และเน้นการช่วยให้ผู้เรียนพูดอย่างชัดเจนและมั่นใจ</li>\n    <li>บทเรียนฟรี (มูลค่า 300 บาท)</li>\n    <li>หลักสูตรนี้มีเนื้อหาเกี่ยวกับวัฒนธรรมตะวันตกและโลกทัศน์คริสเตียน เพื่อช่วยให้คนไทยสามารถสร้างความสัมพันธ์ข้ามวัฒนธรรมได้อย่างมีประสิทธิภาพ</li>\n    <li>ผู้เรียนทุกคนที่เรียนจบหลักสูตรนี้จะได้รับประกาศนียบัตรและสิทธิ์ในการเป็นสมาชิกโครงการซิตี้ อิงลิช ฟรี 1 ปี</li>\n    <li>ระดับเบื้องต้น และระดับกลาง</li>\n    <li>เว็บไซต์ของเรามีความปลอดภัย เราจะไม่เปิดเผยข้อมูลของคุณกับทุกคน!</li>\n  </ul>\n\n</div>\n\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19986,11 +19986,13 @@ window.fbAsyncInit = function() {
 
   return ((stack1 = container.invokePartial(partials["front/english/_friends_helping"],depth0,{"name":"front/english/_friends_helping","data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
+    var stack1, helper;
 
   return "<div class=\"container-full\" id=\"be-a-member\">\n  <br>\n  <br>\n  <div id=\"be-a-member-centerer\">\n    <hr>\n    <hr>\n    <div class=\"row\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "    </div> <!-- row -->\n    <hr>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + "    </div> <!-- row -->\n    <hr>\n    <hr>\n    <h2>"
+    + container.escapeExpression(((helper = (helper = helpers.how_to_become_member || (depth0 != null ? depth0.how_to_become_member : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"how_to_become_member","hash":{},"data":data}) : helper)))
+    + "</h2>\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div> <!-- row -->\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+Two.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
@@ -20220,7 +20222,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_general_sched_activ_list", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>Upcoming activities at our center (CEP 1 - 2 - 3!)...</h3>\n<h4>Come and join us at these times for free English practice and fun conversation games at our CEP center....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>Thursday, 23 March, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 6 April, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 20 April, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 4 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 11 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n  <li><h3>Thursday, 18 May, 6:30-8:00pm</h3></li>\n  <li><h4>...\"Conversation Practice!\"</h4></li>\n\n</ul>";
+    return "<h3>Free English classes at our center...</h3>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“Let's Talk! class” June 5-8 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 12-15 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 19-22 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 26-29 (Mon-Thurs) 6:00-8:00pm</h4></li>\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20293,26 +20295,6 @@ window.fbAsyncInit = function() {
     var stack1;
 
   return ((stack1 = container.invokePartial(partials["front/english/_general_sched_activ_list"],depth0,{"name":"front/english/_general_sched_activ_list","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"5":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/thai/_general_sched_list_title"],depth0,{"name":"front/thai/_general_sched_list_title","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"7":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/english/_general_sched_list_title"],depth0,{"name":"front/english/_general_sched_list_title","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"9":function(container,depth0,helpers,partials,data) {
-    return "          <li><h4>"
-    + container.escapeExpression(container.lambda(depth0, depth0))
-    + "</h4></li>\n";
-},"11":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/thai/_general_sched_on_site"],depth0,{"name":"front/thai/_general_sched_on_site","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"13":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/english/_general_sched_on_site"],depth0,{"name":"front/english/_general_sched_on_site","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
@@ -20320,13 +20302,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.welcome || (depth0 != null ? depth0.welcome : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"welcome","hash":{},"data":data}) : helper)))
     + "</h1>\n    </div>\n    <div class=\"modal-body\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <hr>\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <ul style=\"list-style: none;\">\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "      </ul>\n      <hr>\n      <h3>\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.program(13, data, 0),"data":data})) != null ? stack1 : "")
-    + "      </h3>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-sched-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->";
+    + "      <hr>\n\n\n\n      \n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default close-sched-modal\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/general_schedule"];
 }).call(this);
@@ -20373,12 +20349,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_be_a_member_one", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>ขั้นตอนที่ 1</h3>\n\n<span class=\"be-a-member-text\">ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak!\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 499 บาท เท่านั้น! <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่ </a>เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">คลิกที่นี่</a>...</span>";
+    return "\n<h3>ขั้นตอนที่ 1</h3>\n\n<span class=\"be-a-member-text\">ลงทะเบียนออนไลน์หรือลงทะเบียนด้วยตัวเองที่ศูนย์ของเรา เลขที่ 66 ถนนปั้น แขวงสีลม เขตบางรัก กรุงเทพมหานคร เพื่อเรียนหลักสูตร \"You Can Speak!\"  5 บทเรียน ซึ่งเป็นชั้นเรียนภาษาอังกฤษเพื่อการสนทนา วัฒนธรรมและโลกทัศน์ของเรา ทุกชั้นเรียนดำเนินการเรียนการสอนโดยผู้สอนเจ้าของภาษาที่ได้รับการรับรองจาก TESOL ค่าลงทะเบียนเรียนในช่วงแนะนำเพียง 499 บาท เท่านั้น! <a class=\"modal-initiator non-summer-university\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่ </a>เพื่อดูรายละเอียดและตารางเวลาเรียน นอกจากนี้เรายังนำเสนอบริการจัดการเรียนการสอนในสถานที่ทำงานและสถานศึกษาควบคู่กันไปด้วย หากคุณต้องการข้อมูลเพิ่มเติมเกี่ยวกับวิธีการจัดการเรียนการสอนหลักสูตร \"You Can Speak!\" ในสถานที่ทำงานหรือสถานศึกษาของคุณ <a class=\"modal-initiator\" style=\"color:#337ab7\" href=\"#\" data-toggle=\"modal\" data-target=\"#classdetailsmodal\">คลิกที่นี่</a>...</span>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">สมัครสมาชิก!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">สมาชิกเครือข่าย!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  โครงการซิตี้ อิงลิช ได้รับการออกแบบขึ้นมาเพื่อช่วยให้คุณมีความเชี่ยวชาญในการสนทนาภาษาอังกฤษ เพื่อให้คุณได้รับประโยชน์จากบริการที่เรานำเสนอ คุณจะต้องเป็นสมาชิกของเครือข่าย การเข้าเป็นสมาชิกเครือข่ายคุณจะต้องปฏิบัติตาม 2 ขั้นตอนง่ายๆ ต่อไปนี้:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20418,7 +20394,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_general_sched_activ_list", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>กิจกรรมต่อไปที่เซนเตอร์ของเรา (CEP 1 - 2 - 3!)...</h3>\n<h4>มาร่วมกิจกรรมครั้งนี้กับเราเพื่อฝึกฝนภาษาอังกฤษและเกมส์การสนทนาที่สนุกสนานได้ฟรีที่ซิตี้ อิงลิช เซนเตอร์....</h4>\n\n<ul style=\"list-style: none;\">\n  <li><h3>วันพฤหัสบดี, 23 มีนาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 6 เมษายน, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 20 เมษายน, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 4 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 11 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n  <li><h3>วันพฤหัสบดี, 18 พฤษภาคม, 18:30-20:00 น.</h3></li>\n  <li><h4>...\"ฝึกสนทนา!\"</h4></li>\n\n</ul>";
+    return "<h3>ชั้นเรียนภาษาอังกฤษฟรีที่เซนเตอร์ของเรา </h3>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“ชั้นเรียน Let's Talk!,” 5-8 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 12-15 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 19-22 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 26-29 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20944,7 +20920,7 @@ var ApplicationView = Backbone.View.extend({
   }, // signUp:
 
   application_title: function() {
-    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสำหรับลงทะเบียนชั้นเรียน \"You Can Speak!\"");
+    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสมัครเรียนหลักสูตร \"You Can Speak!\"");
   },
 
   bank_transfer_info: function() {
@@ -21919,7 +21895,7 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   welcome: function() {
-    return choose_language("Welcome to the CEP web app!", "ยินดีต้อนรับสู่ CEP เว็บแอป!");
+    return choose_language("City English Project Free Events!", "กิจกรรมฟรีของโครงการซิตี้ อิงลิช!");
   },
 
   list_title: function() {
@@ -22015,6 +21991,9 @@ var MainFrontView = Backbone.View.extend({
   features_language: function() {
     return choose_language("Features", "บริการของเรา");
   },
+  how_to_become_member: function() {
+    return choose_language("How to become a member", "เงื่อนไขการเป็นสมาชิกเครือข่าย")
+  },
   step_one: function() {
     return choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
@@ -22042,6 +22021,7 @@ var MainFrontView = Backbone.View.extend({
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
       features: this.features_language(),
+      how_to_become_member: this.how_to_become_member(),
       step_one: this.step_one(),
       step_two: this.step_two(),
       helping_friends: this.helping_friends(),
@@ -22113,7 +22093,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Schedule", "ตารางเรียน");
   },
   be_a_member: function() {
-    return choose_language("Be a member!", "สมัครสมาชิก!");
+    return choose_language("Be a member!", "สมาชิกเครือข่าย!");
   },
   free_events: function() {
     return choose_language("Free Events!", "กิจกรรมฟรี!");
@@ -22125,13 +22105,13 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Courses", "หลักสูตร");
   },
   converse_online: function() {
-    return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
+    return choose_language("Register to Converse Online", "สมัครสนทนาภาษาอังกฤษออนไลน์");
   },
   class_at_business: function() {
     return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
   },
   you_can_speak: function() {
-    return choose_language("'You Can Speak!' Registration", "สมัครเรียน 'You Can Speak!'");
+    return choose_language("'You Can Speak!' Registration", "สมัครเรียนหลักสูตร 'You Can Speak!'");
   },
   volunteer: function() {
     return choose_language("Volunteer", "อาสาสมัคร");
@@ -22445,7 +22425,7 @@ var StudentRegFormView = Backbone.View.extend({
   }, // 'submit' method
 
   apply_to_converse: function() {
-    return choose_language("Apply to Converse Online", "สมัครสนทนาออนไลน์");
+    return choose_language("Register to Converse Online", "สมัครสนทนาออนไลน์");
   },
 
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],

@@ -33,6 +33,9 @@ var MainFrontView = Backbone.View.extend({
   features_language: function() {
     return choose_language("Features", "บริการของเรา");
   },
+  how_to_become_member: function() {
+    return choose_language("How to become a member", "เงื่อนไขการเป็นสมาชิกเครือข่าย")
+  },
   step_one: function() {
     return choose_language("Step One", "ขั้นตอนหนึ่ง");
   },
@@ -60,6 +63,7 @@ var MainFrontView = Backbone.View.extend({
       register: this.register_button_language(),
       volunteer: this.volunteer_button_language(),
       features: this.features_language(),
+      how_to_become_member: this.how_to_become_member(),
       step_one: this.step_one(),
       step_two: this.step_two(),
       helping_friends: this.helping_friends(),
