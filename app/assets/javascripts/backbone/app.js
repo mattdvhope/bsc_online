@@ -25,8 +25,7 @@ var App = {
         $("#generalschedulemodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
         $("#generalschedulemodal").modal();
         $("button.free-class-button").addClass( "collapsable-free-ev" );
-console.log("in success");
-      },
+d      },
       error: function (collection, response, options) {
         console.log("error");
       }
