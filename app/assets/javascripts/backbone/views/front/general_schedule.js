@@ -4,7 +4,11 @@ var GeneralScheduleView = Backbone.View.extend({
     'click .close-sched-modal': function (e) {
       sessionStorage.setItem('genSched', 'closed');
     },
-    'click a#appl-form-city': 'bring_appl_form'
+    'click a#appl-form-city': 'bring_appl_form',
+    'click .collapsable-free-ev': function (e) {
+console.log("clicking collapse");
+      $('.collapse').collapse('toggle');
+    }
   },
 
   bring_appl_form: function(event) {

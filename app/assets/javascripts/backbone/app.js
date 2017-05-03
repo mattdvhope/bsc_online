@@ -24,6 +24,8 @@ var App = {
         $("#generalschedulemodal").html(gen_sch_view.render().el);
         $("#generalschedulemodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
         $("#generalschedulemodal").modal();
+        $("button.free-class-button").addClass( "collapsable-free-ev" );
+console.log("in success");
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -214,6 +216,7 @@ var App = {
         });
         $("#applicationmodal").html(this.applicationView.render().el);
         $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+        $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
       },
       error: function (collection, response, options) {
         console.log("error");

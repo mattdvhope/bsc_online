@@ -9,6 +9,13 @@ var ApplicationView = Backbone.View.extend({
     'click .guest-add': function (e) {
       e.preventDefault();
       this.signUp();
+    },
+    'click button.btn-primary': function (e) {
+      $('.collapse').collapse('toggle');
+    },
+    'click .btn-intro-bullets': function (e) {
+console.log("clicking collapse");
+      $('.collapse').collapse('toggle');
     }
   },
 
