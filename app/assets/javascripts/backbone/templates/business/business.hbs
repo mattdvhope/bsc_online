@@ -13,16 +13,40 @@
 
     <h1 class="biz-title">{{business_title}}</h1>
 
-    <form enctype="multipart/form-data" action="/business" accept-charset="UTF-8" method="post">
+    <form enctype="multipart/form-data" action="/businesses" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
 
-      <label class="field-label biz-label">Email Address</label>
-      <input type="text" class="form-control biz-input" placeholder="อีเมล" name="email" autofocus="autofocus">
+      <label class="field-label biz-label">{{business_name}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="business_name" autofocus="autofocus">
       <hr>
 
-      <label class="field-label biz-label">Password</label>
-      <input id="login_password" type="password" class="form-control biz-input" placeholder="รหัสผ่าน" name="password">
+      <label class="field-label biz-label">{{business_address}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="business_address">
+      <hr>
+
+      <label class="field-label biz-label">{{leader_name}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="leader_name">
+      <hr>
+
+      <label class="field-label biz-label">{{employees_no}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="employees_no">
+      <hr>
+
+      <label class="field-label biz-label">{{times}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="times">
+      <hr>
+
+      <label class="field-label biz-label">{{days}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="days">
+      <hr>
+
+      <label class="field-label biz-label">{{email}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="email">
+      <hr>
+
+      <label class="field-label biz-label">{{phone}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="phone">
       <hr>
 
       <div class="control-group">

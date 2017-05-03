@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "pages#front"
+
   get 'business', to: "pages#business"
+  resources :businesses, only: [:create]
+
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
