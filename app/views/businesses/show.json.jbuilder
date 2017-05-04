@@ -1,0 +1,9 @@
+json.id                 @business.id
+json.business_name      @business.business_name
+json.business_address   @business.business_address
+json.leader_name        @business.leader_name
+json.employees_no       @business.employees_no
+json.times              @business.times
+json.days               @business.days
+json.email              @business.email
+json.phone              @business.phone

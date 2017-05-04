@@ -11575,7 +11575,38 @@ textarea#admin_application_response_first, textarea#admin_application_response_s
 .top-front-welcome-carousel {
   height: 48em;
 }
+/* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
+.biz-title {
+  margin-left: 5%;
+  margin-bottom: 0.4em;
+}
+
+/* line 5, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
+.biz-label, .biz-input {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* line 10, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
+.biz-button {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+@media screen and (min-width: 550px) {
+  /* line 10, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
+  .biz-button {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 10, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
+  .biz-button {
+    width: 90%;
+  }
+}
 /*
+ *
  *
  *
  *

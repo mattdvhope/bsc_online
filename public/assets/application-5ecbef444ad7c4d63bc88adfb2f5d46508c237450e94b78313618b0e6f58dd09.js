@@ -487,6 +487,9 @@ Based on Rails routes of BscOnline::Application
 // business => /business(.:format)
   // function(options)
   business_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"business",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// businesses => /businesses(.:format)
+  // function(options)
+  businesses_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"businesses",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
 // chatroom => /chatrooms/:id(.:format)
   // function(id, options)
   chatroom_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"chatrooms",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -19466,9 +19469,27 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["business/business"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "<br>\n<br>\n<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<h1>"
-    + container.escapeExpression(((helper = (helper = helpers.business_page || (depth0 != null ? depth0.business_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_page","hash":{},"data":data}) : helper)))
-    + "</h1>";
+  return "<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<div class=\"entire-biz\">\n\n<div class=\"container\" id=\"page-top\">\n\n\n  <div class=\"row\">\n\n    <h1 class=\"biz-title\">"
+    + container.escapeExpression(((helper = (helper = helpers.business_title || (depth0 != null ? depth0.business_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_title","hash":{},"data":data}) : helper)))
+    + "</h1>\n\n    <form enctype=\"multipart/form-data\" action=\"/businesses\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+    + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
+    + ">\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.business_name || (depth0 != null ? depth0.business_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_name","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input biz-name-input\" placeholder=\"กกกกกกก\" name=\"business_name\" autofocus=\"autofocus\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.business_address || (depth0 != null ? depth0.business_address : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_address","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"business_address\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.leader_name || (depth0 != null ? depth0.leader_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader_name","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"leader_name\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.employees_no || (depth0 != null ? depth0.employees_no : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"employees_no","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input employees-no-input\" placeholder=\"กกกกกกก\" name=\"employees_no\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.times || (depth0 != null ? depth0.times : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"times","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"times\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.days || (depth0 != null ? depth0.days : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"days","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"days\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"email","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"email\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"phone","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" placeholder=\"กกกกกกก\" name=\"phone\">\n      <hr>\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <br>\n      <br>\n    </form>\n\n  </div> \n</div>\n\n</div> <!-- class=\"entire-biz\" -->";
 },"useData":true});
   return this.HandlebarsTemplates["business/business"];
 }).call(this);
@@ -20190,7 +20211,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.description_of_free || (depth0 != null ? depth0.description_of_free : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"description_of_free","hash":{},"data":data}) : helper)))
     + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseFreeEvDescEng\">\n  <br>\n"
     + ((stack1 = container.invokePartial(partials["front/english/_free_events_activ_desc"],depth0,{"name":"front/english/_free_events_activ_desc","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“Let's Talk! class” June 5-8 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 12-15 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 19-22 (Mon-Thurs) 6:00-8:00pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 26-29 (Mon-Thurs) 6:00-8:00pm</h4></li>\n</ul>";
+    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“Let's Talk! class” June 6-8 (Tues-Thurs) 6:30-7:30pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 13-15 (Tues-Thurs) 6:30-7:30pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 20-22 (Tues-Thurs) 6:30-7:30pm</h4></li>\n\n  <li><h4>“Let's Talk! class” June 27-29 (Tues-Thurs) 6:30-7:30pm</h4></li>\n</ul>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -20789,6 +20810,11 @@ window.fbAsyncInit = function() {
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["volunteer/volunteer_info"];
 }).call(this);
+var Business = Backbone.Model.extend({
+
+  urlRoot: 'businesses'
+
+});
 var ClassTime = Backbone.Model.extend({
 
   // parse: function(attrs) {
@@ -20839,6 +20865,12 @@ var VolunteerForStudent = Backbone.Model.extend({
   urlRoot: 'volunteer_for_student'
 
 });
+var Businesses = Backbone.Collection.extend({
+
+  model: Business,
+  url : 'businesses'
+
+}); 
 var ClassTimes = Backbone.Collection.extend({
 
   model: ClassTime,
@@ -20901,11 +20933,11 @@ console.log("clicking collapse");
 
     this.$el.find('input[name]').each(function() {
       model.set(this.name, this.value);
-    })
+    });
 
     this.$el.find('select[name]').each(function() {
       model.set(this.name, this.value);
-    })
+    });
 
     var options = {
       success: function (model, response, options) {
@@ -21101,15 +21133,109 @@ var BusinessPageView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['business/business'],
 
-  business_page: function() {
-    return choose_language("Business Page", "หน้าธุรกิจ");
+  events: {
+    'click .biz-button': function (e) {
+      e.preventDefault();
+      this.submit_biz();
+    },
+  },
+
+  submit_biz: function() {
+    var model = new Business();
+
+    this.$el.find('input[name]').each(function() {
+      if (!((this.name === "utf8") || (this.name === "authenticity_token"))) {
+        model.set(this.name, this.value);
+      }
+    });
+    console.log(model.toJSON());
+
+    var promise = new Promise(function(resolve, reject) {
+      resolve(model.save());
+    });
+
+    promise
+    .then(function(model_object) {
+      console.log(model_object);
+      App.getFrontMainPage();
+      swal({
+        title: "ขอขอบคุณครับ!",
+        text: "เราจะติดต่อคุณเร็ว ๆ นี้",
+        timer: 20000,
+        showConfirmButton: true,
+        animation: "slide-from-bottom"
+      });
+
+
+    })
+    .catch(function(error) {
+      console.log(error.responseJSON);
+      error.responseJSON.errors.forEach(function(error) {
+        if (error === "Business name can't be blank") {
+          $(".biz-name-input").css("border-color", "red").attr("placeholder", "ชื่อธุรกิจต้องไม่เว้นว่าง");
+        }
+        else if (error === "Phone can't be blank") {
+          $(".phone-input").css("border-color", "red").attr("placeholder", "หมายเลขโทรศัพท์ต้องไม่เว้นว่าง");
+        }
+        else if (error === "Employees no is not a number") {
+          $(".employees-no-input").css("border-color", "red").attr("placeholder", "นี่ต้องเป็นตัวเลข");
+        }
+      });
+
+    });
+
+
+
+
+
+
+  },
+
+  business_title: function() {
+    return choose_language("Business Title", "หน้าธุรกิจ");
+  },
+  
+  business_name: function() {
+    return choose_language("Business Name", "กกกกกกกกกกก");
+  },
+  business_address: function() {
+    return choose_language("Business Address", "กกกกกกกกกกก");
+  },
+  leader_name: function() {
+    return choose_language("Leader Name", "กกกกกกกกกกก");
+  },
+  employees_no: function() {
+    return choose_language("Number of Employees", "กกกกกกกกกกก");
+  },
+  times: function() {
+    return choose_language("Times", "กกกกกกกกกกก");
+  },
+  days: function() {
+    return choose_language("Days", "กกกกกกกกกกก");
+  },
+  email: function() {
+    return choose_language("Email Address", "กกกกกกกกกกก");
+  },
+  phone: function() {
+    return choose_language("Phone Number", "กกกกกกกกกกก");
   },
 
   render: function() {
 
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
-      business_page: this.business_page(),
-      // thai_language: thai_language(),
+      token: csrf_token,
+      business_title: this.business_title(),
+      business_name: this.business_name(),
+      business_address: this.business_address(),
+      leader_name: this.leader_name(),
+      employees_no: this.employees_no(),
+      times: this.times(),
+      days: this.days(),
+      email: this.email(),
+      phone: this.phone(),
+
+
 
     }));
 
@@ -23072,7 +23198,6 @@ var App = {
         $("#generalschedulemodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
         $("#generalschedulemodal").modal();
         $("button.free-class-button").addClass( "collapsable-free-ev" );
-console.log("in success");
       },
       error: function (collection, response, options) {
         console.log("error");

@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def business
-    gon.page_needed = "business"   
+    gon.page_needed = "business"
   end
 
   def new_class_time
