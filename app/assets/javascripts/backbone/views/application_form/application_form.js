@@ -24,11 +24,11 @@ console.log("clicking collapse");
 
     this.$el.find('input[name]').each(function() {
       model.set(this.name, this.value);
-    })
+    });
 
     this.$el.find('select[name]').each(function() {
       model.set(this.name, this.value);
-    })
+    });
 
     var options = {
       success: function (model, response, options) {
