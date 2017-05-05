@@ -118,7 +118,7 @@ console.log("clicking collapse");
   },
 
   bank_transfer_extra_info: function() {
-    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
+    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระค่าสมัครเรียนภายใน 7 วัน และกรุณานำหลักฐานการโอนเงินมายืนยันในชั้นเรียน)");
   },
 
   bank_name: function() {

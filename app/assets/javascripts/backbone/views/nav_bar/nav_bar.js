@@ -58,11 +58,11 @@ var NavBarView = Backbone.View.extend({
   schedule: function() {
     return choose_language("Schedule of everything", "ตารางสำหรับชั้นเรียนและกิจกรรมทั้งหมด");
   },
-  be_a_member: function() {
-    return choose_language("Be a member!", "สมาชิกเครือข่าย!");
+  network_membership: function() {
+    return choose_language("Network Membership", "การเป็นสมาชิกเครือข่าย");
   },
   member_info: function() {
-    return choose_language("Information", "ข้อมูล");
+    return choose_language("Information about becoming a member", "ข้อมูลการเป็นสมาชิก");
   },
   free_events: function() {
     return choose_language("Free Events!", "กิจกรรมฟรี!");
@@ -70,11 +70,11 @@ var NavBarView = Backbone.View.extend({
   contact_us: function() {
     return choose_language("Contact Us", "ติดต่อเรา");
   },
-  courses: function() {
-    return choose_language("Courses", "หลักสูตร");
+  register_ycs: function() {
+    return choose_language("Register", "สมัครเรียน");
   },
   converse_online: function() {
-    return choose_language("Join English conversation courses online. (Members Only)", "สมัครเรียนหลักสูตรการสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
+    return choose_language("Converse in English online. (Members Only)", "สมัครสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
   class_at_business: function() {
     return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
@@ -94,6 +94,9 @@ var NavBarView = Backbone.View.extend({
   login: function() {
     return choose_language("Login", "ล็อกอิน");
   },
+  login_for_members: function() {
+    return choose_language("Login for Members", "เข้าสู่ระบบ (เฉพาะสมาชิก)");
+  },
   steps_to_volunteer: function() {
     return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
@@ -106,10 +109,10 @@ var NavBarView = Backbone.View.extend({
       features: this.features(),
       free_events: this.free_events(),
       schedule: this.schedule(),
-      be_a_member: this.be_a_member(),
+      network_membership: this.network_membership(),
       member_info: this.member_info(),
       contact_us: this.contact_us(),
-      courses: this.courses(),
+      register_ycs: this.register_ycs(),
       converse_online: this.converse_online(),
       class_at_business: this.class_at_business(),
       you_can_speak: this.you_can_speak(),
@@ -117,6 +120,7 @@ var NavBarView = Backbone.View.extend({
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),
       login: this.login(),
+      login_for_members: this.login_for_members(),
       steps_to_volunteer: this.steps_to_volunteer()
     }));
   }
