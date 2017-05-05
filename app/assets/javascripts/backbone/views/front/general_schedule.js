@@ -6,7 +6,6 @@ var GeneralScheduleView = Backbone.View.extend({
     },
     'click a#appl-form-city': 'bring_appl_form',
     'click .collapsable-free-ev': function (e) {
-console.log("clicking collapse");
       $('.collapse').collapse('toggle');
     }
   },
@@ -18,11 +17,11 @@ console.log("clicking collapse");
   },
 
   welcome: function() {
-    return choose_language("Schedule of all activities & classes", "กำหนดการจัดกิจกรรมและกิจกรรมทั้งหมด");
+    return choose_language("Schedule of all activities & classes", "ตารางสำหรับชั้นเรียนและกิจกรรมทั้งหมด");
   },
 
   description_of_free: function() {
-    return choose_language("Description of free activities", "รายละเอียดของกิจกรรมฟรี");
+    return choose_language("Description of free activities", "คำอธิบายสำหรับกิจกรรมฟรี");
   },
 
   list_title: function() {
@@ -30,7 +29,7 @@ console.log("clicking collapse");
   },
 
   please_click_here: function() {
-    return choose_language("Description of these classes", "รายละเอียดของชั้นเรียนเหล่านี้");
+    return choose_language("Description of these classes", "คำอธิบายสำหรับชั้นเรียนเหล่านี้");
   },
 
   sorted_class_times: function() {

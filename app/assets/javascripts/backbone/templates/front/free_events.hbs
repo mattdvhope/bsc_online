@@ -9,13 +9,6 @@
     <div class="modal-body">
 
       {{#if thai_language}}
-        {{> front/thai/_free_events_activ_desc }}
-      {{^}}
-        {{> front/english/_free_events_activ_desc }}
-      {{/if}}
-      <hr>
-
-      {{#if thai_language}}
         {{> front/thai/_free_events_activ_list }}
       {{^}}
         {{> front/english/_free_events_activ_list }}

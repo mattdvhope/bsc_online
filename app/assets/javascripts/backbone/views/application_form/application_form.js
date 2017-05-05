@@ -118,7 +118,7 @@ console.log("clicking collapse");
   },
 
   bank_transfer_extra_info: function() {
-    return choose_language("(Please pay by bank transfer within 7 days.  Then bring the bank transfer slip to class.)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
+    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
   },
 
   bank_name: function() {
@@ -134,7 +134,7 @@ console.log("clicking collapse");
   },
 
   please_click_here: function() {
-    return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+    return choose_language("Details about this class", "คำอธิบายสำหรับชั้นเรียนนี้");
   },
 
   course_options: function() {

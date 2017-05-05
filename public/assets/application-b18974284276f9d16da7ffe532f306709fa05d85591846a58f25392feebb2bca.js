@@ -19643,7 +19643,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
     + " ที่มีความเกี่ยวข้องกับการเป็นหุ้นส่วนออนไลน์กับครูชาวอเมริกัน\n\n      คุณสามารถคลิกไปที่ไอคอนของเอกสารใดก็ตามที่คุณต้องการดาวน์โหลด\n    </h3>\n\n\n    <ul style=\"list-style: none;\">\n      <hr>\n      <li>\n        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
-    + "</h4>\n        <p>เอกสารนี้จะให้คำอธิบายโดยละเอียดเกี่ยวกับการใช้งาน \"Skype คู่สนทนา\" ระหว่างคุณและอาจารย์ชาวอเมริกัน </p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>นี่คือตัวอย่างคำถามที่คุณสามารถใช้พูดคุยกับอาจารย์ชาวอเมริกันได้</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also)+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n    </ul>\n    <h3>\n      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป\n      ครูของคุณจะมีสำเนานี้ด้วย\n    </h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
+    + "</h4>\n        <p>เอกสารนี้จะให้คำอธิบายที่ครอบคลุมกับคุณเกี่ยวกับวิธีการทำงานของ “คู่สนทนาภาษาอังกฤษออนไลน์” ระหว่างคุณและผู้สอนชาวอเมริกัน</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n      <li>\n        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>\n        <p>ต่อไปนี้เป็นตัวอย่างคำถามที่คุณและผู้สอนชาวอเมริกันสามารถใช้ในการสนทนา</p>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also)+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n      <hr>\n\n    </ul>\n    <h3>\n      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป\n      ครูของคุณจะมีสำเนานี้ด้วย\n    </h3>\n    <br>\n    <ul>\n      <li>\n        <h4>สัปดาห์ที่ 1 – \"เกี่ยวกับตัวฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 2 – \"ครอบครัวของฉัน\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 3 – \"กีฬาและงานอดิเรก\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 4 – \"งานและอาชีพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 5 – \"การท่องเที่ยวและการเดินทาง\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 6 – \"ประเทศไทย\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 7 – \"ประเทศอเมริกา\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n\n      <li>\n        <h4>สัปดาห์ที่ 8 – \"มิตรภาพ\"</h4>\n        <a class=\"cep-doc-anchor\" href=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8+-+PDF.pdf\" style=\"text-decoration: none !important;\" download>\n          <img class=\"cep-doc-image\" src=\"https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg\" alt=\"CEP document\" height=\"107\" width=\"96\">\n        </a>\n      </li>\n      <hr>\n    </ul>\n  </span>\n\n  <hr>\n  <h2><a href=\"/log_out\">ออกจากระบบ</a></h2>\n  <hr>\n\n\n</div> ";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/skype_documents_stu"];
 }).call(this);
@@ -20200,7 +20200,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_free_events_activ_desc", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6 pm to 8 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday CEP staff will teach a 2-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
+    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6 pm to 8 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday, CEP staff will teach a 2-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20293,16 +20293,8 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/free_events"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = container.invokePartial(partials["front/thai/_free_events_activ_desc"],depth0,{"name":"front/thai/_free_events_activ_desc","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"3":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/english/_free_events_activ_desc"],depth0,{"name":"front/english/_free_events_activ_desc","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"5":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
   return ((stack1 = container.invokePartial(partials["front/thai/_free_events_activ_list"],depth0,{"name":"front/thai/_free_events_activ_list","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"7":function(container,depth0,helpers,partials,data) {
+},"3":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = container.invokePartial(partials["front/english/_free_events_activ_list"],depth0,{"name":"front/english/_free_events_activ_list","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
@@ -20313,8 +20305,6 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"title","hash":{},"data":data}) : helper)))
     + "</h1>\n    </div>\n    <div class=\"modal-body\">\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <hr>\n\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "      <hr>\n\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n    </div>\n  </div> <!-- Modal content-->\n</div> <!-- Modal dialog -->";
 },"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["front/free_events"];
@@ -21027,7 +21017,7 @@ console.log("clicking collapse");
   },
 
   bank_transfer_extra_info: function() {
-    return choose_language("(Please pay by bank transfer within 7 days.  Then bring the bank transfer slip to class.)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
+    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
   },
 
   bank_name: function() {
@@ -21043,7 +21033,7 @@ console.log("clicking collapse");
   },
 
   please_click_here: function() {
-    return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+    return choose_language("Details about this class", "คำอธิบายสำหรับชั้นเรียนนี้");
   },
 
   course_options: function() {
@@ -22094,7 +22084,7 @@ var FreeEventsView = Backbone.View.extend({
   },
 
   description_of_free: function() {
-    return choose_language("Description of free activities", "รายละเอียดของกิจกรรมฟรี");
+    return choose_language("Description of free activities", "คำอธิบายสำหรับกิจกรรมฟรี");
   },
 
   template:  HandlebarsTemplates['front/free_events'],
@@ -22119,7 +22109,6 @@ var GeneralScheduleView = Backbone.View.extend({
     },
     'click a#appl-form-city': 'bring_appl_form',
     'click .collapsable-free-ev': function (e) {
-console.log("clicking collapse");
       $('.collapse').collapse('toggle');
     }
   },
@@ -22131,11 +22120,11 @@ console.log("clicking collapse");
   },
 
   welcome: function() {
-    return choose_language("Schedule of all activities & classes", "กำหนดการจัดกิจกรรมและกิจกรรมทั้งหมด");
+    return choose_language("Schedule of all activities & classes", "ตารางสำหรับชั้นเรียนและกิจกรรมทั้งหมด");
   },
 
   description_of_free: function() {
-    return choose_language("Description of free activities", "รายละเอียดของกิจกรรมฟรี");
+    return choose_language("Description of free activities", "คำอธิบายสำหรับกิจกรรมฟรี");
   },
 
   list_title: function() {
@@ -22143,7 +22132,7 @@ console.log("clicking collapse");
   },
 
   please_click_here: function() {
-    return choose_language("Description of these classes", "รายละเอียดของชั้นเรียนเหล่านี้");
+    return choose_language("Description of these classes", "คำอธิบายสำหรับชั้นเรียนเหล่านี้");
   },
 
   sorted_class_times: function() {
@@ -22324,7 +22313,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Features", "บริการของเรา");
   },
   schedule: function() {
-    return choose_language("Schedule", "ตารางเรียน");
+    return choose_language("Schedule of everything", "ตารางสำหรับชั้นเรียนและกิจกรรมทั้งหมด");
   },
   be_a_member: function() {
     return choose_language("Be a member!", "สมาชิกเครือข่าย!");
