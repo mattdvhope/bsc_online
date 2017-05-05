@@ -125,6 +125,10 @@ var StudentRegFormView = Backbone.View.extend({
     return choose_language("Join English conversation courses online. (Members Only)", "สมัครเรียนหลักสูตรการสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
 
+  become_member_how: function() {
+    return choose_language("How do I become a member?", "ฉันจะเป็นสมาชิกได้อย่างไร?");
+  },
+
   templateStudentReg:  HandlebarsTemplates['registration/student_reg'],
 
   render: function() {
@@ -132,7 +136,8 @@ var StudentRegFormView = Backbone.View.extend({
     this.$el.html(this.templateStudentReg({
       thai_language: thai_language(),
       token: csrf_token,
-      apply_to_converse: this.apply_to_converse()
+      apply_to_converse: this.apply_to_converse(),
+      become_member_how: this.become_member_how()
     }));
 
     return this;

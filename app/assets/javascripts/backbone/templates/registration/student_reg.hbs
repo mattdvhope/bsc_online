@@ -1,4 +1,4 @@
-<div class="modal-dialog">
+<div id="online-partner-form" class="modal-dialog">
 
   <!-- Modal content-->
   <div class="modal-content">
@@ -8,6 +8,14 @@
 
     </div>
     <div class="modal-body">
+
+      {{#if thai_language}}
+        {{> registration/thai/_how_to_become_member }}
+      {{^}}
+        {{> registration/english/_how_to_become_member }}
+      {{/if}}
+      <hr>
+
       <form class="student-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
       <input name="utf8" type="hidden" value="✓">
       <input type="hidden" name="authenticity_token" value={{token}}>
