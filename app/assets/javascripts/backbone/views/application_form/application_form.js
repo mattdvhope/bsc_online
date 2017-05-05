@@ -118,7 +118,7 @@ console.log("clicking collapse");
   },
 
   bank_transfer_extra_info: function() {
-    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระเงินโดยการโอนเงินผ่านธนาคารภายใน 7 วัน จากนั้นจึงนำใบโอนเงินไปที่ชั้นเรียน)");
+    return choose_language("(Please pay within 7 days.  Please bring bank tranfer slip to class as proof of payment)", "(กรุณาชำระค่าสมัครเรียนภายใน 7 วัน และกรุณานำหลักฐานการโอนเงินมายืนยันในชั้นเรียน)");
   },
 
   bank_name: function() {
@@ -131,6 +131,10 @@ console.log("clicking collapse");
 
   bank_number: function() {
     return choose_language("Acct Number: 227-210027-2", "หมายเลขบัญชี: 227-210027-2");
+  },
+
+  promotion_price: function() {
+    return choose_language("(499 baht promotional price for June and July!!)", "(ราคาโปรโมชั่น 499 บาทสำหรับเดือนมิถุนายนและกรกฎาคมนี้!!)");
   },
 
   please_click_here: function() {
@@ -177,6 +181,7 @@ console.log("clicking collapse");
       bank_name: this.bank_name(),
       bank_person: this.bank_person(),
       bank_number: this.bank_number(),
+      promotion_price: this.promotion_price(),
       please_click_here: this.please_click_here(),
       course_options: this.course_options(),
       schedule_option_one: this.schedule_option_one(),

@@ -194,7 +194,8 @@ class UsersController < ApplicationController
       if Rails.env.production?
         send_production_email(user)
       else
-        send_development_email(user)
+        send_production_email(user)
+        # send_development_email(user)
       end
     end
 
