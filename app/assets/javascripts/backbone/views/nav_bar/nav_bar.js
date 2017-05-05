@@ -74,7 +74,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Courses", "หลักสูตร");
   },
   converse_online: function() {
-    return choose_language("Register to Converse Online", "สมัครสนทนาภาษาอังกฤษออนไลน์");
+    return choose_language("Join English conversation courses online. (Members Only)", "สมัครเรียนหลักสูตรการสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
   class_at_business: function() {
     return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
