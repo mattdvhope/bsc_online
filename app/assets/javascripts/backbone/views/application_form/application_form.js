@@ -134,7 +134,8 @@ console.log("clicking collapse");
   },
 
   please_click_here: function() {
-    return choose_language("Details about this class", "ดูรายละเอียดเกี่ยวกับชั้นเรียนนี้");
+    return choose_language("Details about this class", "คำอธิบายสำหรับ
+      ชั้นเรียนนี้");
   },
 
   course_options: function() {

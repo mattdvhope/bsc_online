@@ -5,7 +5,7 @@ var FreeEventsView = Backbone.View.extend({
   },
 
   description_of_free: function() {
-    return choose_language("Description of free activities", "รายละเอียดของกิจกรรมฟรี");
+    return choose_language("Description of free activities", "คำอธิบายสำหรับกิจกรรมฟรี");
   },
 
   template:  HandlebarsTemplates['front/free_events'],
