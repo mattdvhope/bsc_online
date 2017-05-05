@@ -17,7 +17,7 @@ var GeneralScheduleView = Backbone.View.extend({
   },
 
   welcome: function() {
-    return choose_language("Schedule of all activities & classes", "กำหนดการจัดกิจกรรมและกิจกรรมทั้งหมด");
+    return choose_language("Schedule of all activities & classes", "ตารางสำหรับชั้นเรียนและกิจกรรมทั้งหมด");
   },
 
   description_of_free: function() {
