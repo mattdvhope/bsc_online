@@ -62,7 +62,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Network Membership", "การเป็นสมาชิกเครือข่าย");
   },
   member_info: function() {
-    return choose_language("Information about becoming a member", "ข้อมูลการเป็นสมาชิก");
+    return choose_language("How to become a member", "ข้อมูลการเป็นสมาชิก");
   },
   free_events: function() {
     return choose_language("Free Events!", "กิจกรรมฟรี!");
