@@ -19468,32 +19468,46 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
-  this.HandlebarsTemplates["business/business"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper;
+  this.HandlebarsTemplates["business/business"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
 
-  return "<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<div class=\"entire-biz\">\n\n<div class=\"container\" id=\"page-top\">\n\n\n  <div class=\"row\">\n\n    <h1 class=\"biz-title\">"
-    + container.escapeExpression(((helper = (helper = helpers.business_title || (depth0 != null ? depth0.business_title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_title","hash":{},"data":data}) : helper)))
-    + "</h1>\n\n    <form enctype=\"multipart/form-data\" action=\"/businesses\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
+  return ((stack1 = container.invokePartial(partials["business/thai/_description_of_form"],depth0,{"name":"business/thai/_description_of_form","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = container.invokePartial(partials["business/english/_description_of_form"],depth0,{"name":"business/english/_description_of_form","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<div class=\"entire-biz\">\n\n<div class=\"container\" id=\"page-top\">\n\n\n  <div class=\"row\">\n\n    <br>\n    <h4 class=\"biz-title\"><a href=\"/\">"
+    + container.escapeExpression(((helper = (helper = helpers.home_page || (depth0 != null ? depth0.home_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_page","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n\n    <h2 class=\"biz-title\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "    </h2>\n    <hr>\n\n    <form enctype=\"multipart/form-data\" action=\"/businesses\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
     + ">\n\n      <label class=\"field-label biz-label\">"
-    + container.escapeExpression(((helper = (helper = helpers.business_name || (depth0 != null ? depth0.business_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_name","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input biz-name-input\" placeholder=\"กกกกกกก\" name=\"business_name\" autofocus=\"autofocus\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
-    + container.escapeExpression(((helper = (helper = helpers.business_address || (depth0 != null ? depth0.business_address : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"business_address","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"business_address\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + container.escapeExpression(((helper = (helper = helpers.organization_name || (depth0 != null ? depth0.organization_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"organization_name","hash":{},"data":data}) : helper)))
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input biz-name-input\"  name=\"business_name\" autofocus=\"autofocus\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
     + container.escapeExpression(((helper = (helper = helpers.leader_name || (depth0 != null ? depth0.leader_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader_name","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"leader_name\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
-    + container.escapeExpression(((helper = (helper = helpers.employees_no || (depth0 != null ? depth0.employees_no : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"employees_no","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input employees-no-input\" placeholder=\"กกกกกกก\" name=\"employees_no\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
-    + container.escapeExpression(((helper = (helper = helpers.times || (depth0 != null ? depth0.times : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"times","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"times\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
-    + container.escapeExpression(((helper = (helper = helpers.days || (depth0 != null ? depth0.days : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"days","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"days\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input leader-name-input\" name=\"leader_name\">\n      <hr>\n\n      <label class=\"field-label biz-label email-label\">"
     + container.escapeExpression(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"email","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input\" placeholder=\"กกกกกกก\" name=\"email\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input email-input\" name=\"email\">\n      <hr>\n\n      <label class=\"field-label biz-label phone-label\">"
     + container.escapeExpression(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"phone","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" placeholder=\"กกกกกกก\" name=\"phone\">\n      <hr>\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <br>\n      <br>\n    </form>\n\n  </div> \n</div>\n\n</div> <!-- class=\"entire-biz\" -->";
-},"useData":true});
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" name=\"phone\">\n      <hr>\n\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <hr>\n      <h4 class=\"biz-title\"><a href=\"/\">"
+    + container.escapeExpression(((helper = (helper = helpers.home_page || (depth0 != null ? depth0.home_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_page","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n      <br>\n\n    </form>\n\n  </div> \n</div>\n\n</div> <!-- class=\"entire-biz\" -->";
+},"usePartial":true,"useData":true});
   return this.HandlebarsTemplates["business/business"];
+}).call(this);
+(function() {
+  Handlebars.registerPartial("business/english/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "If you would like the City English Project to send teachers to your business, university, organization, etc, please fill out this form and press 'Submit' below.\n\nCEP will then contact you about arranging English classes at your location.";
+},"useData":true}));
+}).call(this);
+(function() {
+  Handlebars.registerPartial("business/thai/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "หากคุณต้องการให้ City English Project (CEP) ส่งผู้สอนไปยังธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ โปรดกรอกแบบฟอร์มนี้และกด ’Submit' ด้านล่าง\n\n\nจากนั้น CEP จะติดต่อคุณ เกี่ยวกับชั้นเรียนภาษาอังกฤษในสถานที่ของคุณ";
+},"useData":true}));
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -20192,7 +20206,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_conversation_groups", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>Events &amp; Activities!</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional activities and events that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
+    return "<h4>Classes &amp; Activities!</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional activities and events that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20421,7 +20435,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_conversation_groups", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>กิจกรรมอื่นๆ!</h4>\n\n<p>สนใจฝึกฝนการสนทนาภาษาอังกฤษของคุณในบรรยากาศที่สบายๆ เป็นกันเองและสนุกสนานมั๊ย ? เรามีกิจกรรมเสริมเพื่อเพิ่มโอกาสในการสนทนาภาษาอังกฤษในบรรยากาศที่สบายๆ เป็นกันเองและเป็นธรรมชาติกับเจ้าของภาษา ติดตามเราทางโซเชียลมีเดียสำหรับวันและเวลาในการจัดกิจกรรมต่างๆ ของเราต่อไป</p>";
+    return "<h4>ชั้นเรียน และกิจกรรมอื่นๆ!</h4>\n\n<p>สนใจฝึกฝนการสนทนาภาษาอังกฤษของคุณในบรรยากาศที่สบายๆ เป็นกันเองและสนุกสนานมั๊ย ? เรามีกิจกรรมเสริมเพื่อเพิ่มโอกาสในการสนทนาภาษาอังกฤษในบรรยากาศที่สบายๆ เป็นกันเองและเป็นธรรมชาติกับเจ้าของภาษา ติดตามเราทางโซเชียลมีเดียสำหรับวันและเวลาในการจัดกิจกรรมต่างๆ ของเราต่อไป</p>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20527,7 +20541,9 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.register_ycs || (depth0 != null ? depth0.register_ycs : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"register_ycs","hash":{},"data":data}) : helper)))
     + "<span class=\"caret\"></span></a>\n\n<ul class=\"dropdown-menu\">\n\n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"you_can_speak","hash":{},"data":data}) : helper)))
-    + "\n    </a>\n  </li>\n\n  <li role=\"separator\" class=\"divider\"></li>\n  \n\n  <li id=\"backbone-app\">\n    <a id=\"general-schedule\" class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n      "
+    + "\n    </a>\n  </li>\n\n  <li role=\"separator\" class=\"divider\"></li>\n  \n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"/business\">\n      "
+    + container.escapeExpression(((helper = (helper = helpers.class_at_business || (depth0 != null ? depth0.class_at_business : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"class_at_business","hash":{},"data":data}) : helper)))
+    + "\n    </a>\n  </li>\n  \n  <li role=\"separator\" class=\"divider\"></li>\n\n  <li id=\"backbone-app\">\n    <a id=\"general-schedule\" class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.schedule || (depth0 != null ? depth0.schedule : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"schedule","hash":{},"data":data}) : helper)))
     + "\n    </a>\n  </li>\n</ul>\n\n\n";
 },"useData":true}));
@@ -21175,6 +21191,10 @@ var BusinessPageView = Backbone.View.extend({
     })
     .catch(function(error) {
       console.log(error.responseJSON);
+      $("h4:contains('อีเมล์')").remove();
+      $("h4:contains('หมายเลขโทรศัพท์')").remove();
+      $(".form-control").css("border-color", "#cccccc");
+
       error.responseJSON.errors.forEach(function(error) {
         if (error === "Business name can't be blank") {
           $(".biz-name-input").css("border-color", "red").attr("placeholder", "ชื่อธุรกิจต้องไม่เว้นว่าง");
@@ -21182,61 +21202,67 @@ var BusinessPageView = Backbone.View.extend({
         else if (error === "Phone can't be blank") {
           $(".phone-input").css("border-color", "red").attr("placeholder", "หมายเลขโทรศัพท์ต้องไม่เว้นว่าง");
         }
-        else if (error === "Employees no is not a number") {
-          $(".employees-no-input").css("border-color", "red").attr("placeholder", "นี่ต้องเป็นตัวเลข");
+        else if (error === "Phone is invalid") {
+          $(".phone-input").css("border-color", "red").attr("placeholder", "หมายเลขโทรศัพท์ต้องไม่เว้นว่าง");
+          $(".phone-label").append("<h4 style='color:red;'>หมายเลขโทรศัพท์นี้ไม่สามารถใช้งานได้</h4>");
+          $(".phone-input").css("border-color", "red");
+        }
+        else if (error === "Leader name can't be blank") {
+          $(".leader-name-input").css("border-color", "red").attr("placeholder", "ชื่อของคุณต้องไม่เว้นว่าง");
+        }
+        else if (error === "Email can't be blank") {
+          $(".email-input").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
+        }
+        else if (error === "Email is invalid") {
+          $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้ไม่สามารถใช้งานได้</h4>");
+          $(".email-input").css("border-color", "red");
+        }
+        else if (error === "Email has already been taken") {
+          $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้มีผู้ใช้อยู่แล้ว</h4>");
+          $(".email-input").css("border-color", "red");
         }
       });
 
     });
-
-
-
-
-
-
   },
 
-  business_title: function() {
-    return choose_language("Business Title", "หน้าธุรกิจ");
+  home_page: function() {
+    return choose_language("Return to home page", "กลับไปยังหน้าหลัก");
   },
-  
-  business_name: function() {
-    return choose_language("Business Name", "กกกกกกกกกกก");
-  },
-  business_address: function() {
-    return choose_language("Business Address", "กกกกกกกกกกก");
+  organization_name: function() {
+    return choose_language("Name of your business, university, organization, etc", "ชื่อธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ");
   },
   leader_name: function() {
-    return choose_language("Leader Name", "กกกกกกกกกกก");
-  },
-  employees_no: function() {
-    return choose_language("Number of Employees", "กกกกกกกกกกก");
-  },
-  times: function() {
-    return choose_language("Times", "กกกกกกกกกกก");
-  },
-  days: function() {
-    return choose_language("Days", "กกกกกกกกกกก");
+    return choose_language("Your Name", "ชื่อของคุณ");
   },
   email: function() {
-    return choose_language("Email Address", "กกกกกกกกกกก");
+    return choose_language("Email Address", "ที่อยู่อีเมล");
   },
   phone: function() {
-    return choose_language("Phone Number", "กกกกกกกกกกก");
+    return choose_language("Phone Number", "หมายเลขโทรศัพท์");
   },
+  // employees_no: function() {
+  //   return choose_language("Number of Employees who can attend class", "จำนวนพนักงานที่สามารถเข้าชั้นเรียนได้");
+  // },
+  // times: function() {
+  //   return choose_language("Times", "กกกกกกกกกกก");
+  // },
+  // days: function() {
+  //   return choose_language("Days", "กกกกกกกกกกก");
+  // },
 
   render: function() {
 
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
       token: csrf_token,
-      business_title: this.business_title(),
-      business_name: this.business_name(),
-      business_address: this.business_address(),
+      thai_language: thai_language(),
+      home_page: this.home_page(),
+      organization_name: this.organization_name(),
       leader_name: this.leader_name(),
-      employees_no: this.employees_no(),
-      times: this.times(),
-      days: this.days(),
+      // employees_no: this.employees_no(),
+      // times: this.times(),
+      // days: this.days(),
       email: this.email(),
       phone: this.phone(),
 
@@ -22349,7 +22375,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Converse in English online. (Members Only)", "สมัครสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
   class_at_business: function() {
-    return choose_language("Class at your business", "ชั้นเรียนในที่ทำงานของคุณ");
+    return choose_language("Class at your workplace", "ชั้นเรียนในที่ทำงานของคุณ");
   },
   you_can_speak: function() {
     return choose_language("'You Can Speak!' Registration", "สมัครเรียนหลักสูตร 'You Can Speak!'");

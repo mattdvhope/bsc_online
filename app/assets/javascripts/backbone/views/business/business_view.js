@@ -43,6 +43,10 @@ var BusinessPageView = Backbone.View.extend({
     })
     .catch(function(error) {
       console.log(error.responseJSON);
+      $("h4:contains('อีเมล์')").remove();
+      $("h4:contains('หมายเลขโทรศัพท์')").remove();
+      $(".form-control").css("border-color", "#cccccc");
+
       error.responseJSON.errors.forEach(function(error) {
         if (error === "Business name can't be blank") {
           $(".biz-name-input").css("border-color", "red").attr("placeholder", "ชื่อธุรกิจต้องไม่เว้นว่าง");
@@ -50,61 +54,67 @@ var BusinessPageView = Backbone.View.extend({
         else if (error === "Phone can't be blank") {
           $(".phone-input").css("border-color", "red").attr("placeholder", "หมายเลขโทรศัพท์ต้องไม่เว้นว่าง");
         }
-        else if (error === "Employees no is not a number") {
-          $(".employees-no-input").css("border-color", "red").attr("placeholder", "นี่ต้องเป็นตัวเลข");
+        else if (error === "Phone is invalid") {
+          $(".phone-input").css("border-color", "red").attr("placeholder", "หมายเลขโทรศัพท์ต้องไม่เว้นว่าง");
+          $(".phone-label").append("<h4 style='color:red;'>หมายเลขโทรศัพท์นี้ไม่สามารถใช้งานได้</h4>");
+          $(".phone-input").css("border-color", "red");
+        }
+        else if (error === "Leader name can't be blank") {
+          $(".leader-name-input").css("border-color", "red").attr("placeholder", "ชื่อของคุณต้องไม่เว้นว่าง");
+        }
+        else if (error === "Email can't be blank") {
+          $(".email-input").css("border-color", "red").attr("placeholder", "ควรกรอกอีเมล์ลงในช่องว่าง");
+        }
+        else if (error === "Email is invalid") {
+          $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้ไม่สามารถใช้งานได้</h4>");
+          $(".email-input").css("border-color", "red");
+        }
+        else if (error === "Email has already been taken") {
+          $(".email-label").append("<h4 style='color:red;'>อีเมล์นี้มีผู้ใช้อยู่แล้ว</h4>");
+          $(".email-input").css("border-color", "red");
         }
       });
 
     });
-
-
-
-
-
-
   },
 
-  business_title: function() {
-    return choose_language("Business Title", "หน้าธุรกิจ");
+  home_page: function() {
+    return choose_language("Return to home page", "กลับไปยังหน้าหลัก");
   },
-  
-  business_name: function() {
-    return choose_language("Business Name", "กกกกกกกกกกก");
-  },
-  business_address: function() {
-    return choose_language("Business Address", "กกกกกกกกกกก");
+  organization_name: function() {
+    return choose_language("Name of your business, university, organization, etc", "ชื่อธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ");
   },
   leader_name: function() {
-    return choose_language("Leader Name", "กกกกกกกกกกก");
-  },
-  employees_no: function() {
-    return choose_language("Number of Employees", "กกกกกกกกกกก");
-  },
-  times: function() {
-    return choose_language("Times", "กกกกกกกกกกก");
-  },
-  days: function() {
-    return choose_language("Days", "กกกกกกกกกกก");
+    return choose_language("Your Name", "ชื่อของคุณ");
   },
   email: function() {
-    return choose_language("Email Address", "กกกกกกกกกกก");
+    return choose_language("Email Address", "ที่อยู่อีเมล");
   },
   phone: function() {
-    return choose_language("Phone Number", "กกกกกกกกกกก");
+    return choose_language("Phone Number", "หมายเลขโทรศัพท์");
   },
+  // employees_no: function() {
+  //   return choose_language("Number of Employees who can attend class", "จำนวนพนักงานที่สามารถเข้าชั้นเรียนได้");
+  // },
+  // times: function() {
+  //   return choose_language("Times", "กกกกกกกกกกก");
+  // },
+  // days: function() {
+  //   return choose_language("Days", "กกกกกกกกกกก");
+  // },
 
   render: function() {
 
     var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
       token: csrf_token,
-      business_title: this.business_title(),
-      business_name: this.business_name(),
-      business_address: this.business_address(),
+      thai_language: thai_language(),
+      home_page: this.home_page(),
+      organization_name: this.organization_name(),
       leader_name: this.leader_name(),
-      employees_no: this.employees_no(),
-      times: this.times(),
-      days: this.days(),
+      // employees_no: this.employees_no(),
+      // times: this.times(),
+      // days: this.days(),
       email: this.email(),
       phone: this.phone(),
 
