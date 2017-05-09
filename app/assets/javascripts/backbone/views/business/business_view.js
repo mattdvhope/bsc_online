@@ -82,7 +82,7 @@ var BusinessPageView = Backbone.View.extend({
     return choose_language("Return to home page", "กลับไปยังหน้าหลัก");
   },
   organization_name: function() {
-    return choose_language("Name of your business, university, organization, etc", "ชื่อธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ");
+    return choose_language("Name of your business, university, organization, etc", "ชื่อบริษัท มหาวิทยาลัย หรือองค์กรของคุณ");
   },
   leader_name: function() {
     return choose_language("Your Name", "ชื่อของคุณ");
