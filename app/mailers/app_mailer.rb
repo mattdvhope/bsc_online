@@ -108,4 +108,16 @@ class AppMailer < ActionMailer::Base
     mg_client.send_message ENV["domain"], message_params
   end
 
+  def from_business_to_cep(business)
+    @business = business
+    mg_client = Mailgun::Client.new ENV["api_key"]
+    message_params = {
+      :from    => "City English Project <" + ENV["username"] + ">",
+      :to      => ENV["username"],
+      :subject => "\"#{business.business_name}\" wants CEP to contact them!",
+      :html => (render_to_string(template: "../views/app_mailer/from_business_to_cep")).to_str
+    }
+    mg_client.send_message ENV["domain"], message_params
+  end
+
 end
