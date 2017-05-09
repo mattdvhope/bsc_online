@@ -24,8 +24,7 @@ class BusinessesController < ApplicationController
       if Rails.env.production?
         send_production_email(business)
       else
-        send_production_email(business)
-        # send_development_email(business)
+        send_development_email(business)
       end
     end
 
