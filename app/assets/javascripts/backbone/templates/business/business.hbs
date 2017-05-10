@@ -14,6 +14,7 @@
     <br>
     <h4 class="biz-title"><a id="home-point" style="cursor: pointer;">{{home_page}}</a></h4>
 
+
     <h2 class="biz-title">
       {{#if thai_language}}
         {{> business/thai/_description_of_form }}
@@ -28,7 +29,7 @@
       <input type="hidden" name="authenticity_token" value={{token}}>
 
       <label class="field-label biz-label">{{organization_name}}</label>
-      <input type="text" class="form-control biz-input biz-name-input" {{!-- placeholder={{organization_name}} --}} name="business_name" autofocus="autofocus">
+      <input type="text" class="form-control biz-input biz-name-input" {{!-- placeholder={{organization_name}} --}} name="business_name">
       <hr>
 
       <label class="field-label biz-label">{{leader_name}}</label>

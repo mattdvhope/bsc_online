@@ -100,15 +100,6 @@ var BusinessPageView = Backbone.View.extend({
   line_id: function() {
     return choose_language("Line ID (not required)", "Line ID (ไม่จำเป็นต้องกรอก)");
   },
-  // employees_no: function() {
-  //   return choose_language("Number of Employees who can attend class", "จำนวนพนักงานที่สามารถเข้าชั้นเรียนได้");
-  // },
-  // times: function() {
-  //   return choose_language("Times", "กกกกกกกกกกก");
-  // },
-  // days: function() {
-  //   return choose_language("Days", "กกกกกกกกกกก");
-  // },
 
   render: function() {
 
@@ -119,9 +110,6 @@ var BusinessPageView = Backbone.View.extend({
       home_page: this.home_page(),
       organization_name: this.organization_name(),
       leader_name: this.leader_name(),
-      // employees_no: this.employees_no(),
-      // times: this.times(),
-      // days: this.days(),
       email: this.email(),
       phone: this.phone(),
       line_id: this.line_id()
