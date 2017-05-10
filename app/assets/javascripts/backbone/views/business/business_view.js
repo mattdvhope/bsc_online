@@ -11,6 +11,10 @@ var BusinessPageView = Backbone.View.extend({
       e.preventDefault();
       this.submit_biz();
     },
+    'click #home-point': function (e) {
+      App.getFrontMainPage();
+    }
+
   },
 
   submit_biz: function() {
