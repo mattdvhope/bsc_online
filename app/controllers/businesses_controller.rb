@@ -17,15 +17,14 @@ class BusinessesController < ApplicationController
   private
 
     def business_params
-      params.require(:business).permit(:business_name, :business_address, :leader_name, :employees_no, :times, :days, :email, :phone)
+      params.require(:business).permit(:business_name, :leader_name, :email, :phone, :line_id)
     end
 
     def send_business_email(business)
       if Rails.env.production?
         send_production_email(business)
       else
-        send_production_email(business)
-        # send_development_email(business)
+        send_development_email(business)
       end
     end
 
@@ -34,7 +33,7 @@ class BusinessesController < ApplicationController
     end
 
     def send_development_email(business)
-      AppMailer.development_env_email(user).deliver_later
+      AppMailer.development_env_email(business).deliver_later
     end
 
 end

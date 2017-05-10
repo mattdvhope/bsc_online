@@ -43,6 +43,11 @@
       <input type="text" class="form-control biz-input phone-input" name="phone">
       <hr>
 
+      <label class="field-label biz-label line-id-label">LINE ID</label>
+      <input type="text" class="form-control biz-input line-id-input" name="line_id">
+      <hr>
+
+
       {{!-- <label class="field-label biz-label">{{employees_no}}</label>
       <input type="text" class="form-control biz-input employees-no-input" placeholder="กกกกกกก" name="employees_no">
       <hr>

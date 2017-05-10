@@ -19493,7 +19493,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"email","hash":{},"data":data}) : helper)))
     + "</label>\n      <input type=\"text\" class=\"form-control biz-input email-input\" name=\"email\">\n      <hr>\n\n      <label class=\"field-label biz-label phone-label\">"
     + container.escapeExpression(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"phone","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" name=\"phone\">\n      <hr>\n\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <hr>\n      <h4 class=\"biz-title\"><a href=\"/\">"
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" name=\"phone\">\n      <hr>\n\n      <label class=\"field-label biz-label line-id-label\">LINE ID</label>\n      <input type=\"text\" class=\"form-control biz-input line-id-input\" name=\"line_id\">\n      <hr>\n\n\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <hr>\n      <h4 class=\"biz-title\"><a href=\"/\">"
     + container.escapeExpression(((helper = (helper = helpers.home_page || (depth0 != null ? depth0.home_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_page","hash":{},"data":data}) : helper)))
     + "</a></h4>\n      <br>\n\n    </form>\n\n  </div> \n</div>\n\n</div> <!-- class=\"entire-biz\" -->";
 },"usePartial":true,"useData":true});
@@ -19501,12 +19501,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("business/english/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "If you would like the City English Project to send teachers to your business, university, organization, etc, please fill out this form and press 'Submit' below.\n\nCEP will then contact you about arranging English classes at your location.";
+    return "We offer our \"You Can Speak\" course at universities and businesses in central Bangkok.\n<br>\n<br>\nTo request a course or for more information, call us at 096-732-2317 or 086-696-7821, send a message to our LINE ID (@cityenglishproject), or fill in your information in the form below for someone to respond to you.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("business/thai/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "หากคุณต้องการให้ City English Project (CEP) ส่งผู้สอนไปยังธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ โปรดกรอกแบบฟอร์มนี้และกด ’Submit' ด้านล่าง\n\n\nจากนั้น CEP จะติดต่อคุณ เกี่ยวกับชั้นเรียนภาษาอังกฤษในสถานที่ของคุณ";
+    return "เราขอเสนอหลักสูตรภาษาอังกฤษ \"You Can Speak\" สอนนอกสถานที่ เช่น มหาวิทยาลัยหรือบริษัทในในกลางกรุงเทพฯ \n<br>\n<br>\nหากต้องการขอหลักสูตรหรือสอบถามข้อมูลเพิ่มเติมกรุณาโทร 096-732-2317 หรือ 086-696-7821 หรือส่งข้อความไปที่ LINE ID (@cityenglishproject) หรือกรอกข้อมูลของคุณในแบบฟอร์มด้านล่างเพื่อการติดต่อกลับ";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20186,7 +20186,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a City English Project Network member is easy! Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network. Network members recieve:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network. Network members recieve:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20415,7 +20415,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี ...\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี ...\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -21230,7 +21230,7 @@ var BusinessPageView = Backbone.View.extend({
     return choose_language("Return to home page", "กลับไปยังหน้าหลัก");
   },
   organization_name: function() {
-    return choose_language("Name of your business, university, organization, etc", "ชื่อธุรกิจ มหาวิทยาลัย องค์กร ฯลฯ");
+    return choose_language("Name of your business, university, organization, etc", "ชื่อบริษัท มหาวิทยาลัย หรือองค์กรของคุณ");
   },
   leader_name: function() {
     return choose_language("Your Name", "ชื่อของคุณ");
