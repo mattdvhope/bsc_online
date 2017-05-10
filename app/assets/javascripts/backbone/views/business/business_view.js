@@ -93,6 +93,9 @@ var BusinessPageView = Backbone.View.extend({
   phone: function() {
     return choose_language("Phone Number", "หมายเลขโทรศัพท์");
   },
+  line_id: function() {
+    return choose_language("Line ID (not required)", "Line ID (ไม่จำเป็นต้องกรอก)");
+  },
   // employees_no: function() {
   //   return choose_language("Number of Employees who can attend class", "จำนวนพนักงานที่สามารถเข้าชั้นเรียนได้");
   // },
@@ -117,9 +120,7 @@ var BusinessPageView = Backbone.View.extend({
       // days: this.days(),
       email: this.email(),
       phone: this.phone(),
-
-
-
+      line_id: this.line_id()
     }));
 
     return this;
