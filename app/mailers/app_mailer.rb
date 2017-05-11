@@ -59,6 +59,20 @@ class AppMailer < ActionMailer::Base
     mg_client.send_message ENV["domain"], message_params
   end
 
+  def volunteer_for_student_to_student(volunteer, student)
+    @volunteer = volunteer
+    @student = student
+    @skype_time_slots = @volunteer.skype_time_slots.where(student_id: @student.id)
+    mg_client = Mailgun::Client.new ENV["api_key"]
+    message_params = {
+      :from    => "City English Project <" + ENV["username"] + ">",
+      :to      => @student.email,
+      :subject => "Welcome to CEP online partnerships, #{@student.first_name}!",
+      :html => (render_to_string(template: "../views/app_mailer/volunteer_for_student_to_student")).to_str
+    }
+    mg_client.send_message ENV["domain"], message_params
+  end
+
   def send_admin_application_form(applicant)
     @applicant = applicant
     mg_client = Mailgun::Client.new ENV["api_key"]
