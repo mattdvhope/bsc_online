@@ -14,8 +14,6 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
     var present_user_id = $('ul#ul-of-vol-avail').data("student-id");
 
     if (data.available === false) {
-console.log("false: ", present_user_id);
-
       $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
       .not('li[data-student-id="'+ current_clicker_id + '"]').remove();
     }
