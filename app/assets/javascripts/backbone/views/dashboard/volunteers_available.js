@@ -55,35 +55,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       return ret;
     }); // registerHelper
 
-    // this.first_vol_id = _.first(this.collection.toJSON()).id; // used in 'render'
-
     this.setElement($("#volunteers-avail-view-to-be-attached"));
   }, // initialize
 
   events: {
-    // 'click .volunteer-profile-modal': function (e) {
-    //   var volunteerFirstName = $(e.target)[0].dataset.firstName;
-    //   var volunteerLastName = $(e.target)[0].dataset.lastName;
-    //   var volunteerAge = $(e.target)[0].dataset.age;
-    //   var volunteerGender = $(e.target)[0].dataset.gender;
-    //   if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
-    //   if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
-    //   $(".modal-body #volunteer-first-name").text( volunteerFirstName );
-    //   $(".modal-body #volunteer-last-name").text( volunteerLastName );
-    //   $(".modal-body #volunteer-age").text( volunteerAge );
-    //   $(".modal-body #volunteer-gender").text( volunteerGender );
-    //   this.volunteer_id = $(e.target)[0].dataset.id;
-
-    //   var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
-    //   console.log(vol_slots);
-    //   $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
-
-
-    //   $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
-    //   $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
-    //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
-    // },
-
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
@@ -92,8 +67,6 @@ var VolunteersAvailableView = Backbone.View.extend({
       var student = this.model;
 
       if ($(e.target)[0].checked) {
-        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
-        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
         $(".checkers").attr("disabled", true);
         $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
@@ -120,11 +93,9 @@ var VolunteersAvailableView = Backbone.View.extend({
         .catch(function(error) {
           console.log(error);
         });
+        var vol_id = $(e.target)[0].dataset.volunteerId;
+        $('button[data-id="' + vol_id + '"]').attr("disabled", false);
       } else if (!$(e.target)[0].checked) {
-        // this.collection.toJSON().forEach(function(vol) { // maybe use later....
-        //   $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
-        //   $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
-        // })
         $(".checkers").attr("disabled", false);
         $(".checkers").next().css( "color", "black" );
 
@@ -141,7 +112,9 @@ var VolunteersAvailableView = Backbone.View.extend({
         .catch(function(error) {
           console.log(error);
         });
-      } // if - else
+        var vol_id = $(e.target)[0].dataset.volunteerId;
+        $('button[data-id="' + vol_id + '"]').attr("disabled", true);
+      } // else if
 
       function saveSlot(student_id, availability) {
         var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability});
@@ -169,7 +142,6 @@ var VolunteersAvailableView = Backbone.View.extend({
             showConfirmButton: true,
             animation: "slide-from-top"
           });
-          // $("entire-main").html(model.get("first_name"));
 
         },
         error: function (model, response, options) {
@@ -184,9 +156,14 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(response);
         }
       });
+    },
+
+    'click button#connect-with-volunteer': function(e) {
+      var vol_id = $(e.target)[0].dataset.id;
+      $('button[data-id="' + vol_id + '"]').attr("disabled", true);
     }
 
-  },
+  }, // events
 
   template:  HandlebarsTemplates['dashboard/volunteers_available'],
 
