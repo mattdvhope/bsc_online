@@ -240,17 +240,15 @@ var VolunteersAvailableView = Backbone.View.extend({
             });
           })
           .then(function(slots) {
-            // if (volunteer.get("id") === view_context.first_vol_id) { // to prevent multiple renderings
-              volunteer.set({skype_time_slots: slots});
-              volunteer.set({number_of_slots_listed: slots.length});
-              view_context.$el.html(view_context.template({
-                no_vol_with_slots: false,
-                volunteers: view_context.collection.toJSON(),
-                student_id: view_context.model.get("id"),
-                first_name: view_context.model.get("first_name")
-              }));
-              return view_context;
-            // } 
+            volunteer.set({skype_time_slots: slots});
+            volunteer.set({number_of_slots_listed: slots.length});
+            view_context.$el.html(view_context.template({
+              no_vol_with_slots: false,
+              volunteers: view_context.collection.toJSON(),
+              student_id: view_context.model.get("id"),
+              first_name: view_context.model.get("first_name")
+            }));
+            return view_context;
           })
       })
       .catch(function (reason) {
