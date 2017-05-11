@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510044053) do
+ActiveRecord::Schema.define(version: 20170511042026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,13 +205,13 @@ ActiveRecord::Schema.define(version: 20170510044053) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "available",    default: true
-    t.integer  "volunteer_id"
-    t.integer  "student_id"
     t.integer  "orderday"
     t.integer  "ordertime"
     t.integer  "orderam"
     t.string   "day_thai"
     t.string   "time_thai"
+    t.integer  "volunteer_id"
+    t.integer  "student_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -242,8 +242,8 @@ ActiveRecord::Schema.define(version: 20170510044053) do
     t.datetime "updated_at"
     t.boolean  "guest"
     t.string   "postal_code"
-    t.string   "role",            default: "student"
-    t.string   "pin",             default: "000000"
+    t.string   "role",               default: "student"
+    t.string   "pin",                default: "000000"
     t.string   "nickname"
     t.string   "image"
     t.integer  "class_time_id"
@@ -252,9 +252,10 @@ ActiveRecord::Schema.define(version: 20170510044053) do
     t.string   "organization"
     t.string   "national_id"
     t.string   "skype_name"
-    t.integer  "number_of_slots", default: 0
+    t.integer  "number_of_slots",    default: 0
     t.string   "facebook"
     t.string   "line"
+    t.string   "skype_time_slot_id"
   end
 
 end
