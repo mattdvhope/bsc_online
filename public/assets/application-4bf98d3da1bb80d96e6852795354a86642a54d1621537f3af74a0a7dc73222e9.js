@@ -679,9 +679,9 @@ Based on Rails routes of BscOnline::Application
 // volunteer_for_student => /volunteer_for_student/:id(.:format)
   // function(id, options)
   volunteer_for_student_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"volunteer_for_student",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
-// volunteer_for_student_index => /volunteer_for_student/index(.:format)
+// volunteer_for_student_index => /volunteer_for_student(.:format)
   // function(options)
-  volunteer_for_student_index_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"volunteer_for_student",false],[2,[7,"/",false],[2,[6,"index",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+  volunteer_for_student_index_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"volunteer_for_student",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
 // volunteer_info => /volunteer_info(.:format)
   // function(options)
   volunteer_info_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"volunteer_info",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
@@ -19479,15 +19479,15 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper;
 
-  return "<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<div class=\"entire-biz\">\n\n<div class=\"container\" id=\"page-top\">\n\n\n  <div class=\"row\">\n\n    <br>\n    <h4 class=\"biz-title\"><a href=\"/\">"
+  return "<br>\n<br>\n<br>\n\n<span id=\"on-business-page\"></span>\n\n<div class=\"entire-biz\">\n\n<div class=\"container\" id=\"page-top\">\n\n\n  <div class=\"row\">\n\n    <br>\n    <h4 class=\"biz-title\"><a id=\"home-point\" style=\"cursor: pointer;\">"
     + container.escapeExpression(((helper = (helper = helpers.home_page || (depth0 != null ? depth0.home_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_page","hash":{},"data":data}) : helper)))
-    + "</a></h4>\n\n    <h2 class=\"biz-title\">\n"
+    + "</a></h4>\n\n\n    <h2 class=\"biz-title\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "    </h2>\n    <hr>\n\n    <form enctype=\"multipart/form-data\" action=\"/businesses\" accept-charset=\"UTF-8\" method=\"post\">\n      <input name=\"utf8\" type=\"hidden\" value=\"✓\">\n      <input type=\"hidden\" name=\"authenticity_token\" value="
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
     + ">\n\n      <label class=\"field-label biz-label\">"
     + container.escapeExpression(((helper = (helper = helpers.organization_name || (depth0 != null ? depth0.organization_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"organization_name","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input biz-name-input\"  name=\"business_name\" autofocus=\"autofocus\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input biz-name-input\"  name=\"business_name\">\n      <hr>\n\n      <label class=\"field-label biz-label\">"
     + container.escapeExpression(((helper = (helper = helpers.leader_name || (depth0 != null ? depth0.leader_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader_name","hash":{},"data":data}) : helper)))
     + "</label>\n      <input type=\"text\" class=\"form-control biz-input leader-name-input\" name=\"leader_name\">\n      <hr>\n\n      <label class=\"field-label biz-label email-label\">"
     + container.escapeExpression(((helper = (helper = helpers.email || (depth0 != null ? depth0.email : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"email","hash":{},"data":data}) : helper)))
@@ -19495,7 +19495,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.phone || (depth0 != null ? depth0.phone : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"phone","hash":{},"data":data}) : helper)))
     + "</label>\n      <input type=\"text\" class=\"form-control biz-input phone-input\" name=\"phone\">\n      <hr>\n\n      <label class=\"field-label biz-label line-id-label\">"
     + container.escapeExpression(((helper = (helper = helpers.line_id || (depth0 != null ? depth0.line_id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"line_id","hash":{},"data":data}) : helper)))
-    + "</label>\n      <input type=\"text\" class=\"form-control biz-input line-id-input\" name=\"line_id\">\n      <hr>\n\n\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <hr>\n      <h4 class=\"biz-title\"><a href=\"/\">"
+    + "</label>\n      <input type=\"text\" class=\"form-control biz-input line-id-input\" name=\"line_id\">\n      <hr>\n\n\n\n      <div class=\"control-group\">\n        <button class=\"btn btn-success biz-button\" href=\"#\">Submit</button>\n      </div>\n      <hr>\n      <h4 class=\"biz-title\"><a id=\"home-point\" style=\"cursor: pointer;\">"
     + container.escapeExpression(((helper = (helper = helpers.home_page || (depth0 != null ? depth0.home_page : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_page","hash":{},"data":data}) : helper)))
     + "</a></h4>\n      <br>\n\n    </form>\n\n  </div> \n</div>\n\n</div> <!-- class=\"entire-biz\" -->";
 },"usePartial":true,"useData":true});
@@ -19503,12 +19503,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("business/english/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "We offer our \"You Can Speak\" course at universities and businesses in central Bangkok.\n<br>\n<br>\nTo request a course or for more information, call us at 096-732-2317 or 086-696-7821, send a message to our LINE ID (@cityenglishproject), or fill in your information in the form below for someone to respond to you.";
+    return "We offer our \"You Can Speak\" course at universities and businesses in central Bangkok.\n<hr>\n<img id=\"img-at-your-org\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/At-Your-Org-Mobile.jpg\" alt=\"at-your-org\">\n<hr>\nTo request a course or for more information, call us at 096-732-2317 or 086-696-7821, send a message to our LINE ID (@cityenglishproject), or fill in your information in the form below for someone to respond to you.";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("business/thai/_description_of_form", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "เราขอเสนอหลักสูตรภาษาอังกฤษ \"You Can Speak\" สอนนอกสถานที่ เช่น มหาวิทยาลัยหรือบริษัทในในกลางกรุงเทพฯ \n<br>\n<br>\nหากต้องการขอหลักสูตรหรือสอบถามข้อมูลเพิ่มเติมกรุณาโทร 096-732-2317 หรือ 086-696-7821 หรือส่งข้อความไปที่ LINE ID (@cityenglishproject) หรือกรอกข้อมูลของคุณในแบบฟอร์มด้านล่างเพื่อการติดต่อกลับ";
+    return "เราขอเสนอหลักสูตรภาษาอังกฤษ \"You Can Speak\" สอนนอกสถานที่ เช่น มหาวิทยาลัยหรือบริษัทในในกลางกรุงเทพฯ \n<hr>\n<img id=\"img-at-your-org\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/At-Your-Org-Mobile.jpg\" alt=\"at-your-org\">\n<hr>\nหากต้องการขอหลักสูตรหรือสอบถามข้อมูลเพิ่มเติมกรุณาโทร 096-732-2317 หรือ 086-696-7821 หรือส่งข้อความไปที่ LINE ID (@cityenglishproject) หรือกรอกข้อมูลของคุณในแบบฟอร์มด้านล่างเพื่อการติดต่อกลับ";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19846,7 +19846,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + " data-lastname="
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + ">\n          ส่งอีเมลอัตโนมัติถึง "
+    + " disabled>\n          ส่งอีเมลอัตโนมัติถึง "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + "\n        </button>\n        <hr>\n      </li>\n    ";
 },"5":function(container,depth0,helpers,partials,data) {
@@ -20003,9 +20003,9 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container-full\" id=\"be-a-member\">\n  <br>\n  <br>\n  <div id=\"be-a-member-centerer\">\n    <hr>\n    <hr>\n    <div class=\"row\">\n"
+  return "<div class=\"container-full\" id=\"be-a-member\">\n  <br>\n  <br>\n  <div id=\"be-a-member-centerer\">\n    <br>\n    <div class=\"row\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "    </div> <!-- row -->\n    <hr>\n    <hr>\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + "    </div> <!-- row -->\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div> <!-- row -->\n    <br>\n    <hr>\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
@@ -20188,7 +20188,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network. Network members recieve:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20208,7 +20208,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_conversation_groups", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>Classes &amp; Activities!</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional activities and events that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
+    return "<h4>Classes &amp; Activities!</h4>\n\n<p>Interested in practicing your English in a casual and fun environment? We host additional classes and activities that provide opportunities for relaxed, natural conversations with native English speakers. Follow us on social media for the dates of upcoming events.</p>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20218,7 +20218,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_free_events_activ_desc", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6 pm to 8 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday, CEP staff will teach a 2-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
+    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6 pm to 8 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday, CEP staff will teach a 1-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20447,7 +20447,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_free_events_activ_desc", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>ความสามารถในการพูดภาษาอังกฤษเป็นทักษะที่สำคัญที่สามารถเปิดประตูสู่โอกาสต่างๆ มากมาย แล้วทำไมคุณจึงไม่มาร่วมและเรียนรู้กับผู้ที่ใช้ภาษาอังกฤษเป็นภาษาหลักที่โครงการซิตี้ อิงลิชในวันจันทร์ถึงวันพฤหัส เวลา 18:00-20:00 น. ในเดือนมิถุนายนนี้หล่ะ? ต่อไปนี้เป็นข้อมูลสำคัญที่คุณจำเป็นต้องรู้:</h4>\n\n<ol>\n  <li>ทุกคืนวันจันทร์ – วันพฤหัส เจ้าหน้าที่โครงการซิตี้ อิงลิช จะมีสอนชั้นเรียนภาษาอังกฤษคืนละ 2 ชั่วโมง โดยจะเน้นหัวข้อการสนทนาที่ใช้เป็นประจำและสำคัญต่อทักษะด้านภาษา</li>\n\n  <li>คุณจะได้เรียนรู้คำศัพท์ การออกเสียง และคำศัพท์เกี่ยวกับการแสดงออกทางความรู้สึกใหม่ๆ</li>\n\n  <li>คุณจะได้พบเพื่อนใหม่ที่เป็นชาวอเมริกัน (และคนไทยบางคน)</li>\n\n  <li>แทนที่จะกลับบ้านและนอนดูทีวี หรือเล่นวีดีโอเกมส์ คุณควรจะใช้เวลาช่วงค่ำของคุณเพื่อการพัฒนาตัวเอง</li>\n\n  <li>มันเป็นชั้นเรียนฟรี! เพราะว่ามันฟรีไม่ได้หมายความว่ามันเป็นชั้นเรียนที่ไม่ดี ความเป็นจริงที่ตรงข้ามกันคือมันเป็นเรื่องจริง!</li>\n</ol>\n\n<h4>เพราะฉะนั้น มีอะไรที่คุณจะต้องสูญเสียมั๊ย? ชวนเพื่อนของคุณและมา และลองมาเรียนรู้ภาษาอังกฤษกับเรา</h4>";
+    return "<h4>ความสามารถในการพูดภาษาอังกฤษเป็นทักษะที่สำคัญที่สามารถเปิดประตูสู่โอกาสต่างๆ มากมาย แล้วทำไมคุณจึงไม่มาร่วมและเรียนรู้กับผู้ที่ใช้ภาษาอังกฤษเป็นภาษาหลักที่โครงการซิตี้ อิงลิชในวันจันทร์ถึงวันพฤหัส เวลา 18:00-20:00 น. ในเดือนมิถุนายนนี้หล่ะ? ต่อไปนี้เป็นข้อมูลสำคัญที่คุณจำเป็นต้องรู้:</h4>\n\n<ol>\n  <li>ทุกคืนวันจันทร์ – วันพฤหัส เจ้าหน้าที่โครงการซิตี้ อิงลิช จะมีสอนชั้นเรียนภาษาอังกฤษคืนละ 1 ชั่วโมง โดยจะเน้นหัวข้อการสนทนาที่ใช้เป็นประจำและสำคัญต่อทักษะด้านภาษา</li>\n\n  <li>คุณจะได้เรียนรู้คำศัพท์ การออกเสียง และคำศัพท์เกี่ยวกับการแสดงออกทางความรู้สึกใหม่ๆ</li>\n\n  <li>คุณจะได้พบเพื่อนใหม่ที่เป็นชาวอเมริกัน (และคนไทยบางคน)</li>\n\n  <li>แทนที่จะกลับบ้านและนอนดูทีวี หรือเล่นวีดีโอเกมส์ คุณควรจะใช้เวลาช่วงค่ำของคุณเพื่อการพัฒนาตัวเอง</li>\n\n  <li>มันเป็นชั้นเรียนฟรี! เพราะว่ามันฟรีไม่ได้หมายความว่ามันเป็นชั้นเรียนที่ไม่ดี ความเป็นจริงที่ตรงข้ามกันคือมันเป็นเรื่องจริง!</li>\n</ol>\n\n<h4>เพราะฉะนั้น มีอะไรที่คุณจะต้องสูญเสียมั๊ย? ชวนเพื่อนของคุณและมา และลองมาเรียนรู้ภาษาอังกฤษกับเรา</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20570,7 +20570,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["nav_bar/nav_bar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "          <div> \n            <a id=\"home-point\" class=\"navbar-brand\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg\" alt=\"logo\" class=\"img-responsive\">\n            </a>\n          </div>\n          <div id=\"courses-middle\">\n"
+  return "          <div> \n            <a id=\"home-point\" class=\"navbar-brand\" style=\"cursor: pointer;\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg\" alt=\"logo\" class=\"img-responsive\">\n            </a>\n          </div>\n          <div id=\"courses-middle\">\n"
     + ((stack1 = container.invokePartial(partials["nav_bar/_courses_drop_down"],depth0,{"name":"nav_bar/_courses_drop_down","data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "          </div>\n        ";
 },"3":function(container,depth0,helpers,partials,data) {
@@ -21161,6 +21161,10 @@ var BusinessPageView = Backbone.View.extend({
       e.preventDefault();
       this.submit_biz();
     },
+    'click #home-point': function (e) {
+      App.getFrontMainPage();
+    }
+
   },
 
   submit_biz: function() {
@@ -21246,15 +21250,6 @@ var BusinessPageView = Backbone.View.extend({
   line_id: function() {
     return choose_language("Line ID (not required)", "Line ID (ไม่จำเป็นต้องกรอก)");
   },
-  // employees_no: function() {
-  //   return choose_language("Number of Employees who can attend class", "จำนวนพนักงานที่สามารถเข้าชั้นเรียนได้");
-  // },
-  // times: function() {
-  //   return choose_language("Times", "กกกกกกกกกกก");
-  // },
-  // days: function() {
-  //   return choose_language("Days", "กกกกกกกกกกก");
-  // },
 
   render: function() {
 
@@ -21265,9 +21260,6 @@ var BusinessPageView = Backbone.View.extend({
       home_page: this.home_page(),
       organization_name: this.organization_name(),
       leader_name: this.leader_name(),
-      // employees_no: this.employees_no(),
-      // times: this.times(),
-      // days: this.days(),
       email: this.email(),
       phone: this.phone(),
       line_id: this.line_id()
@@ -21720,41 +21712,41 @@ var VolunteerProfileView = Backbone.View.extend({
     _.bindAll(this, 'render');
   },
 
-  events: {
-    'click #connect-with-volunteer': function (e) {
-      $('#volunteerprofile').modal('hide');
-      var volunteer_id = $(e.target)[0].dataset.id;
-      var volunteer_first_name = $(e.target)[0].dataset.firstname;
-      var volunteer_last_name = $(e.target)[0].dataset.lastname;
-      var volunteer = new User({id: volunteer_id});
-      volunteer.fetch({
-        success: function (model, response, options) {
-          console.log("success");
-          swal({
-            title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
-            timer: 20000,
-            showConfirmButton: true,
-            animation: "slide-from-top"
-          });
-          console.log(model);
-          // $("entire-main").html(model.get("first_name"));
+  // events: {
+  //   'click #connect-with-volunteer': function (e) {
+  //     $('#volunteerprofile').modal('hide');
+  //     var volunteer_id = $(e.target)[0].dataset.id;
+  //     var volunteer_first_name = $(e.target)[0].dataset.firstname;
+  //     var volunteer_last_name = $(e.target)[0].dataset.lastname;
+  //     var volunteer = new User({id: volunteer_id});
+  //     volunteer.fetch({
+  //       success: function (model, response, options) {
+  //         console.log("success");
+  //         swal({
+  //           title: "Thank you!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
+  //           text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะติดต่อคุณกลับเร็วๆ นี้",
+  //           timer: 20000,
+  //           showConfirmButton: true,
+  //           animation: "slide-from-top"
+  //         });
+  //         console.log(model);
+  //         // $("entire-main").html(model.get("first_name"));
 
-        },
-        error: function (model, response, options) {
-          console.log("error");
-          swal({
-            title: "Error with database",
-            text: "Please click on the same person's name again.",
-            timer: 20000,
-            showConfirmButton: true,
-            animation: "slide-from-top"
-          });
-          console.log(response);
-        }
-      });
-    }
-  },
+  //       },
+  //       error: function (model, response, options) {
+  //         console.log("error");
+  //         swal({
+  //           title: "Error with database",
+  //           text: "Please click on the same person's name again.",
+  //           timer: 20000,
+  //           showConfirmButton: true,
+  //           animation: "slide-from-top"
+  //         });
+  //         console.log(response);
+  //       }
+  //     });
+  //   }
+  // },
 
   template:  HandlebarsTemplates['dashboard/volunteer_profile'],
 
@@ -21824,35 +21816,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       return ret;
     }); // registerHelper
 
-    // this.first_vol_id = _.first(this.collection.toJSON()).id; // used in 'render'
-
     this.setElement($("#volunteers-avail-view-to-be-attached"));
   }, // initialize
 
   events: {
-    // 'click .volunteer-profile-modal': function (e) {
-    //   var volunteerFirstName = $(e.target)[0].dataset.firstName;
-    //   var volunteerLastName = $(e.target)[0].dataset.lastName;
-    //   var volunteerAge = $(e.target)[0].dataset.age;
-    //   var volunteerGender = $(e.target)[0].dataset.gender;
-    //   if (volunteerGender === "ผู้ชาย") { volunteerGender = "male" }
-    //   if (volunteerGender === "ผู้หญิง") { volunteerGender = "female" }
-    //   $(".modal-body #volunteer-first-name").text( volunteerFirstName );
-    //   $(".modal-body #volunteer-last-name").text( volunteerLastName );
-    //   $(".modal-body #volunteer-age").text( volunteerAge );
-    //   $(".modal-body #volunteer-gender").text( volunteerGender );
-    //   this.volunteer_id = $(e.target)[0].dataset.id;
-
-    //   var vol_slots = JSON.parse($(e.target)[0].dataset.slots);
-    //   console.log(vol_slots);
-    //   $("#slots-of-volunteer").append(JSON.stringify(vol_slots));
-
-
-    //   $("button#connect-with-volunteer").attr('data-id', this.volunteer_id);
-    //   $("button#connect-with-volunteer").attr('data-firstname', volunteerFirstName);
-    //   $("button#connect-with-volunteer").attr('data-lastname', volunteerLastName);
-    // },
-
     'click .checkers': function(e) {
       var view_context = this;
       var slot_id = parseInt($(e.target)[0].dataset.id);
@@ -21861,13 +21828,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       var student = this.model;
 
       if ($(e.target)[0].checked) {
-        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").attr("disabled", true);
-        // $(".checkers[data-volunteer-id=" + volunteer_id + "]").next().css( "color", "#b0b8c4" );
         $(".checkers").attr("disabled", true);
         $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
         $(".checkers[data-id=" + slot_id + "]").next().css( "color", "black" );
-
         non_selected_volunteers = this.collection.toJSON().filter(function(vol) {
           return vol.id !== volunteer_id;
         });
@@ -21890,11 +21854,9 @@ var VolunteersAvailableView = Backbone.View.extend({
         .catch(function(error) {
           console.log(error);
         });
+        var vol_id = $(e.target)[0].dataset.volunteerId;
+        $('button[data-id="' + vol_id + '"]').attr("disabled", false);
       } else if (!$(e.target)[0].checked) {
-        // this.collection.toJSON().forEach(function(vol) { // maybe use later....
-        //   $(".checkers[data-volunteer-id=" + vol.id + "]").attr("disabled", false);
-        //   $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "black" );
-        // })
         $(".checkers").attr("disabled", false);
         $(".checkers").next().css( "color", "black" );
 
@@ -21911,7 +21873,9 @@ var VolunteersAvailableView = Backbone.View.extend({
         .catch(function(error) {
           console.log(error);
         });
-      } // if - else
+        var vol_id = $(e.target)[0].dataset.volunteerId;
+        $('button[data-id="' + vol_id + '"]').attr("disabled", true);
+      } // else if
 
       function saveSlot(student_id, availability) {
         var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability});
@@ -21939,7 +21903,6 @@ var VolunteersAvailableView = Backbone.View.extend({
             showConfirmButton: true,
             animation: "slide-from-top"
           });
-          // $("entire-main").html(model.get("first_name"));
 
         },
         error: function (model, response, options) {
@@ -21954,9 +21917,14 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(response);
         }
       });
+    },
+
+    'click button#connect-with-volunteer': function(e) {
+      var vol_id = $(e.target)[0].dataset.id;
+      $('button[data-id="' + vol_id + '"]').attr("disabled", true);
     }
 
-  },
+  }, // events
 
   template:  HandlebarsTemplates['dashboard/volunteers_available'],
 
@@ -22009,17 +21977,15 @@ var VolunteersAvailableView = Backbone.View.extend({
             });
           })
           .then(function(slots) {
-            // if (volunteer.get("id") === view_context.first_vol_id) { // to prevent multiple renderings
-              volunteer.set({skype_time_slots: slots});
-              volunteer.set({number_of_slots_listed: slots.length});
-              view_context.$el.html(view_context.template({
-                no_vol_with_slots: false,
-                volunteers: view_context.collection.toJSON(),
-                student_id: view_context.model.get("id"),
-                first_name: view_context.model.get("first_name")
-              }));
-              return view_context;
-            // } 
+            volunteer.set({skype_time_slots: slots});
+            volunteer.set({number_of_slots_listed: slots.length});
+            view_context.$el.html(view_context.template({
+              no_vol_with_slots: false,
+              volunteers: view_context.collection.toJSON(),
+              student_id: view_context.model.get("id"),
+              first_name: view_context.model.get("first_name")
+            }));
+            return view_context;
           })
       })
       .catch(function (reason) {
@@ -23343,8 +23309,6 @@ var App = {
       success: function (collection, response, options) {
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
-        // var profile_view_modal = new VolunteerProfileView({ model: student });
-        // $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
@@ -24251,13 +24215,10 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
     var present_user_id = $('ul#ul-of-vol-avail').data("student-id");
 
     if (data.available === false) {
-console.log("false: ", present_user_id);
-
       $('li[data-volunteer-id="'+ data.volunteer_id + '"]')
       .not('li[data-student-id="'+ current_clicker_id + '"]').remove();
     }
     else if (data.available === true) {
-console.log("true: ", present_user_id);
       $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
       if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
@@ -24275,8 +24236,8 @@ console.log("true: ", present_user_id);
             '<h4>มลรัฐในสหรัฐ: ' + data.vol_province + '</h4>' +
             '<h4 id="choose-skype-time" data-id="' + data.volunteer_id + '">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.vol_first_name + '.  ' + data.vol_first_name + ' มีเวลาว่างกับ 1 ใน ' + data.vol_slot_num + ' ช่องนี้เท่านั้น:</h4>' +
               // slots appended here
-            '<h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก ' + data.vol_first_name + ' กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง ' + data.vol_first_name + ' ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย ' + data.first_name + '</h4>' +
-            '<button id="connect-with-volunteer" class="btn btn-success" data-id=' + '"1"' + 'data-firstname=' + data.vol_first_name + ' ' + 'data-lastname=' + data.vol_last_name + '>' +
+            '<h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก ' + data.vol_first_name + ' กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง ' + data.vol_first_name + ' ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย ' + data.vol_first_name + '</h4>' +
+            '<button id="connect-with-volunteer" class="btn btn-success" data-id=' + data.volunteer_id + ' data-firstname=' + data.vol_first_name + ' ' + 'data-lastname=' + data.vol_last_name + ' disabled>' +
               'ส่งอีเมลอัตโนมัติถึง ' + data.vol_first_name +
             '</button>' +
             '<hr>' +
@@ -24292,15 +24253,15 @@ console.log("true: ", present_user_id);
         $('h4[data-id=' + data.volunteer_id + ']').append(
           '<div id="checkArray">' +
             '<input class="checkers" data-id=' + slot.id + ' data-volunteer-id=' + data.volunteer_id + ' data-student-id=' + present_user_id + ' type="checkbox" style="transform: scale(1.5, 1.5); zoom: 1.2; margin-left: 0.8em; margin-top: 0.3em">' +
-            '<span id="skype-time-slot-available" style="font-size: 16.5px;" data-order=' + '1' + '>' + slot.day_thai + ' ' + slot.time_thai + '</span>' +
+            '<span id="skype-time-slot-available" style="font-size: 16.5px;" data-order=' + slot.order_day + '>' + slot.day_thai + ' ' + slot.time_thai + '</span>' +
           '</div>'
-        ); // 'h4[data-id='... .append
+        );
       });
 
-      if ($('span:contains("กับคุณ")').length > 0) {
+      if ($('span:contains("น. กับคุณ")').length > 0) {
         $(".checkers[data-volunteer-id=" + data.volunteer_id + "][data-student-id=" + present_user_id + "]").parent().find('input').each(function() {
-          console.log($(this)[0]);
           $(this).attr("disabled", true);
+          $(this).next().css( "color", "#b0b8c4" )
         });
       }
 

@@ -128,8 +128,6 @@ var App = {
       success: function (collection, response, options) {
         this_app.volunteers_avail_view = new VolunteersAvailableView({ collection: collection, model: student });
         this_app.volunteers_avail_view.render();
-        // var profile_view_modal = new VolunteerProfileView({ model: student });
-        // $("#volunteerprofile").html(profile_view_modal.render().el);
       },
       error: function (collection, response, options) {
         console.log("error");
