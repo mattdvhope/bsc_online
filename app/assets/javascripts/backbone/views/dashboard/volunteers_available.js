@@ -156,12 +156,8 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(response);
         }
       });
-    },
-
-    'click button#connect-with-volunteer': function(e) {
-      var vol_id = $(e.target)[0].dataset.id;
       $('button[data-id="' + vol_id + '"]').attr("disabled", true);
-    }
+    },
 
   }, // events
 
