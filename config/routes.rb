@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'volunteer_for_student/index'
-
   get 'home/index'
 
   root to: "pages#front"
