@@ -1,0 +1,44 @@
+<div class="container-full main" id="page-top">
+  <div class="row">
+    <div class="top-front-screen" style="padding-top: 50px;">
+      {{#if window_big}}
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg" class="img-responsive">
+      {{^}}
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking+mobile2.jpg" alt="narrow picture" class="img-responsive">
+      {{/if}}
+    </div>
+  </div> {{!-- row --}}
+</div>
+
+<div class="container-full main" id="welcome-caption-id">
+  <div class="row">
+    <div class="welcome-screen">
+      {{#if window_big}}
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg" alt="wide picture" class="img-responsive">
+      {{^}}
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg" alt="narrow picture" class="img-responsive">
+      {{/if}}
+      <div class="welcome-caption-content">
+        {{#if thai_language}}
+          <span style="font-size: 91%">
+          {{> front/thai/_welcome_caption }}
+          </span>
+        {{^}}
+          {{> front/english/_welcome_caption }}
+        {{/if}}
+      </div>
+    </div>
+  </div> {{!-- row --}}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
