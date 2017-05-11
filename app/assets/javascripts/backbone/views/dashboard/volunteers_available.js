@@ -98,7 +98,6 @@ var VolunteersAvailableView = Backbone.View.extend({
         $(".checkers").next().css( "color", "#b0b8c4" );
         $(".checkers[data-id=" + slot_id + "]").attr("disabled", false);
         $(".checkers[data-id=" + slot_id + "]").next().css( "color", "black" );
-
         non_selected_volunteers = this.collection.toJSON().filter(function(vol) {
           return vol.id !== volunteer_id;
         });

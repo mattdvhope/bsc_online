@@ -20,7 +20,8 @@ console.log("false: ", present_user_id);
       .not('li[data-student-id="'+ current_clicker_id + '"]').remove();
     }
     else if (data.available === true) {
-console.log("true: ", present_user_id);
+// console.log("true: ", present_user_id);
+console.log(data);
       $('h4[data-id=' + data.volunteer_id + ']').children().remove();
 
       if ($('li[data-volunteer-id=' + data.volunteer_id + ']').length === 0) {
