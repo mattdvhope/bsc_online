@@ -81,7 +81,7 @@ background-color: #f6f6f6;
                 </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                     <% slot = @skype_time_slots.order("orderday").order("orderam").order("ordertime").first %>
 
-                    ชื่อ Skype ของเขาคือ "<%= @volunteer.skype_name %>"  คุณสามารถเริ่ม Skype กับเขาได้ตามช่วงเวลา Skype ที่คุณเห็นข้างต้น (โดยจะเริ่มต้นใน<%= slot.day_thai %> <%= slot.time_thai %>).  เขาคาดหวังการโทร Skype ครั้งแรกของคุณ  และหากคุณไม่สามารถติดต่อได้ในเวลานั้น โปรดส่งอีเมล์หาคู่หูของคุณที่ "<%= @volunteer.email %>" และแจ้งเขาเรื่องเวลาใหม่ ที่คุณจะสะดวกติดต่อ Skype ครั้งแรกกับเขา
+                    <h2>ชื่อ Skype ของเขาคือ "<%= @volunteer.skype_name %>"  คุณสามารถเริ่ม Skype กับเขาได้ตามช่วงเวลา Skype ที่คุณเห็นข้างต้น (โดยจะเริ่มต้นใน<%= slot.day_thai %> <%= slot.time_thai %>).  เขาคาดหวังการโทร Skype ครั้งแรกของคุณ  และหากคุณไม่สามารถติดต่อได้ในเวลานั้น โปรดส่งอีเมล์หาคู่หูของคุณที่ "<%= @volunteer.email %>" และแจ้งเขาเรื่องเวลาใหม่ ที่คุณจะสะดวกติดต่อ Skype ครั้งแรกกับเขา</h2>
                   </td>
                 </tr>
                 </table></td>
