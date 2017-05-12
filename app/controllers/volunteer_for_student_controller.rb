@@ -14,8 +14,7 @@ class VolunteerForStudentController < ApplicationController
         AppMailer.volunteer_for_student(volunteer, student).deliver_later
         AppMailer.volunteer_for_student_to_student(volunteer, student).deliver_later
       else
-        AppMailer.volunteer_for_student_to_student(volunteer, student).deliver_later
-        # AppMailer.development_env_email(volunteer).deliver_later
+        AppMailer.development_env_email(volunteer).deliver_later
       end
     end
 
