@@ -67,7 +67,7 @@ class AppMailer < ActionMailer::Base
     message_params = {
       :from    => "City English Project <" + ENV["username"] + ">",
       :to      => @student.email,
-      :subject => "Welcome to CEP online partnerships, #{@student.first_name}!",
+      :subject => "ยินดีต้อนรับ คุณ #{@student.first_name} สู่การสนทนาภาษาอังกฤษออนไลน์!",
       :html => (render_to_string(template: "../views/app_mailer/volunteer_for_student_to_student")).to_str
     }
     mg_client.send_message ENV["domain"], message_params
