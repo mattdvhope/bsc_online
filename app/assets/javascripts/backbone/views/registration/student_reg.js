@@ -22,7 +22,6 @@ var StudentRegFormView = Backbone.View.extend({
       email: this.$("input[name='email']").val(),
       facebook: this.$("input[name='facebook']").val(),
       line: this.$("input[name='line']").val(),
-      national_id: this.$("input[name='national_id']").val(),
       age: this.$("input[name='age']").val(),
       phone_number: this.$("input[name='phone_number']").val(),
       password: this.$("input[name='password']").val(),
@@ -48,7 +47,6 @@ var StudentRegFormView = Backbone.View.extend({
         $("h4.appended-pass").remove();
         $("h4.appended-pass-conf").remove();
         $("h4.appended-pin-note").remove();
-        $("h4.appended-nat-id-note").remove();
 
         if (response.responseJSON) {
           if (response.responseJSON["errors"] === "Incorrect PIN") {
@@ -102,16 +100,6 @@ var StudentRegFormView = Backbone.View.extend({
             else if (error === "Password confirmation doesn't match Password") {
               $(".password-confirmation").css("border-color", "red");
               $(".password-conf-label").append("<h4 class='appended-pass-conf' style='color:red;'>การยืนยันรหัสผ่านไม่ตรงกับรหัสผ่าน</h4>");
-            }
-            else if (error === "National can't be blank") {
-              $(".national-id").css("border-color", "red").attr("placeholder", "ควรกรอกหมายเลขประจำตัวประชาชนลงในช่องว่าง");
-            }
-            else if (error === "National is invalid") {
-              $(".national-id-label").css("border-color", "red").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้ไม่สามารถใช้งานได้</h4>");
-            }
-            else if (error === "National has already been taken") {
-              $(".national-id").css("border-color", "red");
-              $(".national-id-label").append("<h4 class='appended-nat-id-note' style='color:red;'>หมายเลขประจำตัวประชาชนนี้มีผู้ใช้อยู่แล้ว</h4>");
             }
           }); // forEach
         } // if (response.responseJSON)

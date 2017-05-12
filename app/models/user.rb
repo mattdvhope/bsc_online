@@ -79,11 +79,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # validates_presence_of :national_id, :if => :student?
-  VALID_NATIONAL_ID_REGEX = /\A\d{13}\z/
-  validates_format_of :national_id, :with => VALID_NATIONAL_ID_REGEX, :on => :create, :allow_blank => true
-  validates_uniqueness_of :national_id, :allow_blank => true
-
   # validates_presence_of :address_1, :if => :admin_applicant?
   # validates_presence_of :city, :if => :admin_applicant?
   validates_presence_of :province, :if => :admin_applicant?

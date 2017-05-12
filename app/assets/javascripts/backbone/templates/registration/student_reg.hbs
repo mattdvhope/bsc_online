@@ -26,7 +26,7 @@
         <hr>
 
         <label class="field-label">Nickname</label>
-        <input type="text" class="form-control nickname" placeholder="ชื่อเล่น" name="nickname">
+        <input type="text" class="form-control nickname" placeholder="ชื่อเล่น (ภาษาอังกฤษ)" name="nickname">
         <hr>
 
         <label class="field-label">First Name (in English)</label>
@@ -51,7 +51,7 @@
         <input type="text" class="form-control skype-name" placeholder="ที่อยู่ Skype" name="skype_name">
         <hr>
 
-        <label class="field-label email-label">Email Address <h4>
+        <label class="field-label email-label">Email Address<h4>
           {{#if thai_language}}
             {{> application_form/thai/_email_explanation }}
           {{^}}
@@ -65,15 +65,11 @@
         <input type="text" class="form-control facebook" placeholder="ชื่อเฟซบุ๊ก" name="facebook">
         <hr>
 
-        <label class="field-label">LINE ID
+        {{!-- <label class="field-label">LINE ID
         <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Line+small.jpg" alt="Line ID" style="width:25px;height:25px;">
         </label>
         <input type="text" class="form-control line" placeholder="LINE ID" name="line">
-        <hr>
-
-        <label class="field-label national-id-label">National ID</label>
-        <input type="text" class="form-control national-id" placeholder="หมายเลขประจำตัวประชาชน" name="national_id">
-        <hr>
+        <hr> --}}
 
         <label class="field-label">Age</label>
         <input type="text" class="form-control age" placeholder="อายุ" name="age">
