@@ -1,0 +1,112 @@
+<div class="container">
+
+  <h2>เอกสารความร่วมมือออนไลน์:</h2>
+  <span id="skype-doc-stu-template">
+    <h3>
+      เอกสารเหล่านี้คือ {{student.first_name}} ที่มีความเกี่ยวข้องกับการเป็นหุ้นส่วนออนไลน์กับครูชาวอเมริกัน
+
+      คุณสามารถคลิกไปที่ไอคอนของเอกสารใดก็ตามที่คุณต้องการดาวน์โหลด
+    </h3>
+
+
+    <ul style="list-style: none;">
+      <hr>
+      <li>
+        <h4>CEP-แนวทางการทำงานของความร่วมมือสำหรับคุณ, {{student.first_name}}</h4>
+        <p>เอกสารนี้จะให้คำอธิบายที่ครอบคลุมกับคุณเกี่ยวกับวิธีการทำงานของ “คู่สนทนาภาษาอังกฤษออนไลน์” ระหว่างคุณและผู้สอนชาวอเมริกัน</p>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Partnership+Info+for+Thai+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Partnership%2BInfo%2Bfor%2BThai-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+      <hr>
+
+      <li>
+        <h4>CEP-คำถามสำหรับการสนทนาเพื่อเป็นแนวทางในการ</h4>
+        <p>ต่อไปนี้เป็นตัวอย่างคำถามที่คุณและผู้สอนชาวอเมริกันสามารถใช้ในการสนทนา</p>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/CEP-Conversation+Questions+(Thai+also)+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/CEP-Conversation%2BQuestions-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+      <hr>
+
+    </ul>
+    <h3>
+      ต่อไปนี้เป็นแบบฝึกหัด 8 หลักสูตรซึ่งคุณจะใช้กับครูอเมริกันของคุณในแปดสัปดาห์ถัดไป
+      ครูของคุณจะมีสำเนานี้ด้วย
+    </h3>
+    <br>
+    <ul>
+      <li>
+        <h4>สัปดาห์ที่ 1 – "เกี่ยวกับตัวฉัน"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week1+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week1-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 2 – "ครอบครัวของฉัน"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week2+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week2-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 3 – "กีฬาและงานอดิเรก"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week3+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week3-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 4 – "งานและอาชีพ"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week4+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week4-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 5 – "การท่องเที่ยวและการเดินทาง"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week5+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week5-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 6 – "ประเทศไทย"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week6+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week6-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 7 – "ประเทศอเมริกา"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week7+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week7-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+
+      <li>
+        <h4>สัปดาห์ที่ 8 – "มิตรภาพ"</h4>
+        <a class="cep-doc-anchor" href="https://s3-ap-southeast-1.amazonaws.com/cepskype/Skype+course/SkypeLev1Week8+-+PDF.pdf" style="text-decoration: none !important;" download>
+          <img class="cep-doc-image" src="https://s3-ap-southeast-1.amazonaws.com/cepskype/icons/course+icons/SkypeLev1Week8-1_icon.jpg" alt="CEP document" height="107" width="96">
+        </a>
+      </li>
+      <hr>
+    </ul>
+  </span>
+
+  <hr>
+  <h2><a href="/log_out">ออกจากระบบ</a></h2>
+  <hr>
+
+
+</div> {{!-- container --}}
