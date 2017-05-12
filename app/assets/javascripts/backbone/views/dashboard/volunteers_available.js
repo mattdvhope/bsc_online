@@ -137,7 +137,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           console.log(student.toJSON());
           swal({
             title: "ขอบคุณ" + gender_particle + "!", //"สวัสดีครับ -- Thank you for connecting with the CEP Skype teacher!",
-            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะส่งอีเมลถึงคุณด้วย",
+            text: volunteer_first_name + " " + volunteer_last_name + " จะได้รับอีเมลจากโครงการซิตี้ อิงลิช ที่มีชื่อและอีเมลของคุณอยู่ในนั้น และเราจะส่งอีเมลไปหาคุณด้วย หากคุณไม่เห็นอีเมล กรุณาตรวจดูในกล่องรับอีเมล \"Junk\" หรือ \"Trash\" ของคุณ",
             timer: 20000,
             showConfirmButton: true,
             animation: "slide-from-top"
