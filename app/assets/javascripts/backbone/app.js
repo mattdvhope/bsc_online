@@ -84,6 +84,10 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
+  getFormerStudents: function() {
+    var users = new Users(); // collection
+
+  },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
     var class_times = gon.current_class_times || this.class_times.toJSON();
@@ -308,6 +312,7 @@ var App = {
       }
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
+        app_obj.getFormerStudents();
       }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
