@@ -85,7 +85,17 @@ var App = {
     document.title = 'Dashboard';
   },
   getFormerStudents: function() {
-    var users = new Users(); // collection
+    var students = new Students(); // collection
+    
+    students.fetch({
+      success: function (collection, response, options) {
+        var former_students_view = new FormerStudentsView({ collection: collection });
+        former_students_view.render();
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
 
   },
   getNewClassTimeView: function(refreshed) {
