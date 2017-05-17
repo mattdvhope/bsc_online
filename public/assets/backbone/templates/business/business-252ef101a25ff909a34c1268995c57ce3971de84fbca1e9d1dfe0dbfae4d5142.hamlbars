@@ -1,0 +1,76 @@
+<br>
+<br>
+<br>
+
+<span id="on-business-page"></span>
+
+<div class="entire-biz">
+
+<div class="container" id="page-top">
+
+
+  <div class="row">
+
+    <br>
+    <h4 class="biz-title"><a id="home-point" style="cursor: pointer;">{{home_page}}</a></h4>
+
+
+    <h2 class="biz-title">
+      {{#if thai_language}}
+        {{> business/thai/_description_of_form }}
+      {{^}}
+        {{> business/english/_description_of_form }}
+      {{/if}}
+    </h2>
+    <hr>
+
+    <form enctype="multipart/form-data" action="/businesses" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
+
+      <label class="field-label biz-label">{{organization_name}}</label>
+      <input type="text" class="form-control biz-input biz-name-input" {{!-- placeholder={{organization_name}} --}} name="business_name">
+      <hr>
+
+      <label class="field-label biz-label">{{leader_name}}</label>
+      <input type="text" class="form-control biz-input leader-name-input" name="leader_name">
+      <hr>
+
+      <label class="field-label biz-label email-label">{{email}}</label>
+      <input type="text" class="form-control biz-input email-input" name="email">
+      <hr>
+
+      <label class="field-label biz-label phone-label">{{phone}}</label>
+      <input type="text" class="form-control biz-input phone-input" name="phone">
+      <hr>
+
+      <label class="field-label biz-label line-id-label">{{line_id}}</label>
+      <input type="text" class="form-control biz-input line-id-input" name="line_id">
+      <hr>
+
+
+      {{!-- <label class="field-label biz-label">{{employees_no}}</label>
+      <input type="text" class="form-control biz-input employees-no-input" placeholder="กกกกกกก" name="employees_no">
+      <hr>
+
+      <label class="field-label biz-label">{{times}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="times">
+      <hr>
+
+      <label class="field-label biz-label">{{days}}</label>
+      <input type="text" class="form-control biz-input" placeholder="กกกกกกก" name="days">
+      <hr> --}}
+
+      <div class="control-group">
+        <button class="btn btn-success biz-button" href="#">Submit</button>
+      </div>
+      <hr>
+      <h4 class="biz-title"><a id="home-point" style="cursor: pointer;">{{home_page}}</a></h4>
+      <br>
+
+    </form>
+
+  </div> {{!-- row --}}
+</div>
+
+</div> <!-- class="entire-biz" -->

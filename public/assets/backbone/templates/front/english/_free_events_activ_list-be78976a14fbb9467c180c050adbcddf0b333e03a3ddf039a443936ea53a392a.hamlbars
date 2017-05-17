@@ -1,0 +1,22 @@
+<h3>Free English classes at our center (You don't have to register for these events!  Just come to our center!)</h3>
+
+<p>
+  <button class="btn btn-primary free-class-button" type="button" data-toggle="collapse" data-target="#collapseFreeEvDescEng" aria-expanded="false" aria-controls="collapseFreeEvDescEng">
+    {{description_of_free}}
+  </button>
+</p>
+<div class="collapse" id="collapseFreeEvDescEng">
+  <br>
+  {{> front/english/_free_events_activ_desc }}
+  <hr>
+</div>
+
+<ul style="list-style: none;">
+  <li><h4>“Let's Talk! class” June 6-8 (Tues-Thurs) 6:30-7:30pm</h4></li>
+
+  <li><h4>“Let's Talk! class” June 13-15 (Tues-Thurs) 6:30-7:30pm</h4></li>
+
+  <li><h4>“Let's Talk! class” June 20-22 (Tues-Thurs) 6:30-7:30pm</h4></li>
+
+  <li><h4>“Let's Talk! class” June 27-29 (Tues-Thurs) 6:30-7:30pm</h4></li>
+</ul>
