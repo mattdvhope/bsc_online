@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'students/index'
+
   get 'home/index'
 
   root to: "pages#front"
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
+
+  get 'students', to: "students#index"
 
   resources :volunteers_available, only: [:index, :show]
 

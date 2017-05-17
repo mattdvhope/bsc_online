@@ -667,6 +667,12 @@ Based on Rails routes of BscOnline::Application
 // skype_time_slots => /skype_time_slots(.:format)
   // function(options)
   skype_time_slots_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"skype_time_slots",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// students => /students(.:format)
+  // function(options)
+  students_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"students",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// students_index => /students/index(.:format)
+  // function(options)
+  students_index_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"students",false],[2,[7,"/",false],[2,[6,"index",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // unsubscribe => /users/unsubscribe/:signature(.:format)
   // function(signature, options)
   unsubscribe_path: Utils.route([["signature",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"unsubscribe",false],[2,[7,"/",false],[2,[3,"signature",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]),
@@ -19565,7 +19571,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container\" style=\"margin-top: -20px;\">\n\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseClassTimes\" aria-expanded=\"false\" aria-controls=\"collapseClassTimes\">\n    Click here to see a list of CEP class times and the students who have registered for them.\n  </h2>\n  <div class=\"collapse\" id=\"collapseClassTimes\">\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.no_class_times : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + " <!-- if no class times -->\n\n  </div>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n";
+    + " <!-- if no class times -->\n\n  </div>\n\n</div> <!-- container -->\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/class_times"];
 }).call(this);
@@ -19582,7 +19588,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
     + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\"><a href=\"/class_times/new\">Create or Delete class times</a></h2>\n    <hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n\n</div>\n";
+    + "\n\n\n</div>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/dashboard"];
 }).call(this);
@@ -19602,6 +19608,41 @@ window.fbAsyncInit = function() {
     + "</ul>\n\n<hr>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/delete_class_time"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/former_students"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "              <tr>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.gender : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.age : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.email : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.skype_name : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.facebook : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.line : depth0), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.date_format : depth0), depth0))
+    + "</td>\n              </tr>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\" style=\"margin-top: -20px;\">\n\n  <hr>\n\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseStudents\" aria-expanded=\"false\" aria-controls=\"collapseStudents\">\n    Click here to see a list of former CEP students.\n  </h2>\n  <div class=\"collapse\" id=\"collapseStudents\">\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <li>\n        <div class=\"table-responsive\">\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>Nick Name</th>\n                <th>First Name</th>\n                <th>Last Name</th>\n                <th>Gender</th>\n                <th>Age</th>\n                <th>Phone Number</th>\n                <th>Email</th>\n                <th>Skype Name</th>\n                <th>Facebook</th>\n                <th>LINE</th>\n                <th>Date Registered</th>\n              </tr>\n            </thead>\n\n            <tbody>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </tbody>\n          </table>\n        </div> <!-- table-responsive -->\n      </li>\n     <!-- each students -->\n    </ul>\n   <!-- if no students -->\n\n  </div>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/former_students"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -20188,7 +20229,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20263,7 +20304,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_member_privileges", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>Privileges of CEP network membership:</h3>\n\n<ul>\n  <li><h3>Invitations to Free English events and activities</h3></li>\n  <li><h3>Affordable English classes and seminars</h3></li>\n  <li><h3>Opportunities for online conversation partnerships with Americans</h3></li>\n  <li><h3>Free conversational English worldview class and workbook</h3></li>\n  <li><h3>Free access to CEP Online chat groups where students can ask English questions and receive support from native English speakers</h3></li>\n  <li><h3>Ongoing opportunites to build relationships with English speakers</h3></li>\n</ul>\n";
+    return "<ul>\n  <li><h3>Invitations to Free English events and activities</h3></li>\n  <li><h3>Affordable English classes and seminars</h3></li>\n  <li><h3>Opportunities for online conversation partnerships with Americans</h3></li>\n  <li><h3>Free conversational English worldview class (Perspectives on the world and life) and workbook</h3></li>\n  <li><h3>Free access to CEP Online chat groups where students can ask English questions and receive support from native English speakers</h3></li>\n  <li><h3>Ongoing opportunites to build relationships with English speakers</h3></li>\n</ul>\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20417,7 +20458,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี ...\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี และสมาชิกเครือข่ายจะได้รับสิทธิพิเศษดังต่อไปนี้:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20458,7 +20499,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.description_of_free || (depth0 != null ? depth0.description_of_free : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"description_of_free","hash":{},"data":data}) : helper)))
     + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseFreeEvDescThai\">\n  <br>\n"
     + ((stack1 = container.invokePartial(partials["front/thai/_free_events_activ_desc"],depth0,{"name":"front/thai/_free_events_activ_desc","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“ชั้นเรียน Let's Talk!,” 5-8 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 12-15 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 19-22 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 26-29 มิถุนายน (จันทร์-พฤหัสบดี) 18:00-20:00น.</h4></li>\n</ul>";
+    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“ชั้นเรียน Let's Talk!,” 5-8 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 12-15 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 19-22 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 26-29 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n</ul>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -20492,7 +20533,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_member_privileges", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h3>สิทธิพิเศษสำหรับสมาชิกเครือข่ายโครงการซิตี้ อิงลิช:</h3>\n\n<ul>\n  <li><h3>คำเชิญในการเข้าร่วมกิจกรรมการภาษาอังกฤษฟรี</h3></li>\n  <li><h3>หลักสูตรและการสัมมนาภาษาอังกฤษที่ราคาไม่แพง</h3></li>\n  <li><h3>โอกาสในการสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาชาวอเมริกัน</h3></li>\n  <li><h3>ชั้นเรียนภาษาอังกฤษเพื่อการสนทนาเกี่ยวกับโลกทัศน์ พร้อมบทเรียนฟรี</h3></li>\n  <li><h3>การเข้าถึงกลุ่มสนทนาภาษาอังกฤษออนไลน์ CEP ฟรี ที่ผู้เรียนสามารถถามคำถามเกี่ยวกับภาษาอังกฤษและรับความช่วยเหลือจากเจ้าของภาษาอังกฤษ</h3></li>\n  <li><h3>โอกาสในการสร้างความสัมพันธ์กับผู้ที่ใช้ภาษาอังกฤษเป็นภาษาหลัก</h3></li>\n</ul>";
+    return "<ul>\n  <li><h3>สิทธิในการเข้าร่วมกิจกรรมภาษาอังกฤษของโครงการซิตี้ อิงลิช ฟรี</h3></li>\n  <li><h3>หลักสูตรและการสัมมนาภาษาอังกฤษที่ราคาไม่แพง</h3></li>\n  <li><h3>โอกาสในการฝึกสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาชาวอเมริกัน</h3></li>\n  <li><h3>ชั้นเรียนภาษาอังกฤษเพื่อการสนทนาเกี่ยวกับโลกทัศน์ (มุมมองทางความเชื่อเกี่ยวกับโลกและชีวิต) พร้อมบทเรียนฟรี</h3></li>\n  <li><h3>การเข้าถึงกลุ่มสนทนาภาษาอังกฤษออนไลน์ CEP ฟรี ที่ผู้เรียนสามารถถามคำถามเกี่ยวกับภาษาอังกฤษและรับความช่วยเหลือจากเจ้าของภาษา</h3></li>\n  <li><h3>โอกาสในพบเพื่อนใหม่และสร้างมิตรภาพกับชาวอเมริกัน</h3></li>\n</ul>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20640,7 +20681,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary btn-intro-bullets\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseBecomeMember\" aria-expanded=\"false\" aria-controls=\"collapseBecomeMember\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.become_member_how || (depth0 != null ? depth0.become_member_how : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"become_member_how","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseBecomeMember\">\n\n  <br>\n  <h2>Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.</h2>\n\n</div>";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseBecomeMember\">\n\n  <br>\n  <h2>Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:</h2>\n\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20682,7 +20723,7 @@ window.fbAsyncInit = function() {
 
   return "<p>\n  <button class=\"btn btn-primary btn-intro-bullets\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapseBecomeMember\" aria-expanded=\"false\" aria-controls=\"collapseBecomeMember\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.become_member_how || (depth0 != null ? depth0.become_member_how : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"become_member_how","hash":{},"data":data}) : helper)))
-    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseBecomeMember\">\n\n  <br>\n  <h2>ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี</h2>\n\n</div>";
+    + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseBecomeMember\">\n\n  <br>\n  <h2>การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี และสมาชิกเครือข่ายจะได้รับสิทธิพิเศษดังต่อไปนี้:</h2>\n\n</div>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20899,6 +20940,12 @@ var SkypeTimeSlots = Backbone.Collection.extend({
 
   model: SkypeTimeSlot,
   url : 'skype_time_slots'
+
+}); 
+var Students = Backbone.Collection.extend({
+
+  model: User,
+  url : 'students'
 
 }); 
 var Users = Backbone.Collection.extend({
@@ -21367,6 +21414,30 @@ var DeleteClassTime = Backbone.View.extend({
     var class_times = this.collection;
     this.$el.html(this.template({
       class_times: class_times,
+    }));
+
+    return this;
+  }
+});
+
+
+var FormerStudentsView = Backbone.View.extend({
+  template:  HandlebarsTemplates['dashboard/former_students'],
+
+  initialize: function() {
+    this.$el.appendTo(".entire");
+  },
+
+  render: function() {
+    var students = this.collection.toJSON();
+
+    students.sort(function(a, b) {
+      return a.id - b.id;
+    });
+
+    this.$el.html(this.template({
+      // no_students: this.no_students(),
+      students: students
     }));
 
     return this;
@@ -23253,6 +23324,20 @@ var App = {
     dashboard_page.render();
     document.title = 'Dashboard';
   },
+  getFormerStudents: function() {
+    var students = new Students(); // collection
+    
+    students.fetch({
+      success: function (collection, response, options) {
+        var former_students_view = new FormerStudentsView({ collection: collection });
+        former_students_view.render();
+      },
+      error: function (collection, response, options) {
+        console.log("error");
+      }
+    });
+
+  },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
     var class_times = gon.current_class_times || this.class_times.toJSON();
@@ -23477,6 +23562,7 @@ var App = {
       }
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
+        app_obj.getFormerStudents();
       }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
