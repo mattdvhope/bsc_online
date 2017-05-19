@@ -12,6 +12,10 @@ var MainFrontView = Backbone.View.extend({
     'click #click-schedule': function (e) {
       e.preventDefault();
       App.getGeneralSchedModal();
+    },
+    'click #general-schedule': function (e) {
+      e.preventDefault();
+      App.generalScheduleModal();
     }
   },
 
