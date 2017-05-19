@@ -9661,6 +9661,12 @@ h3.be-a-member-top-text {
 .be-a-member-text {
   font-size: 1.4em;
 }
+
+/* line 21, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/be_a_member.sass */
+.link-converse {
+  color: #8BC34A;
+  font-size: 120%;
+}
 /* line 2, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/footer.sass */
 .footer-screen {
   position: relative;
@@ -11571,10 +11577,6 @@ textarea#admin_application_response_first, textarea#admin_application_response_s
     width: 12em;
   }
 }
-/* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/carousel.sass */
-.top-front-welcome-carousel {
-  height: 48em;
-}
 /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/business.sass */
 .biz-title {
   margin-left: 5%;
@@ -11623,7 +11625,6 @@ textarea#admin_application_response_first, textarea#admin_application_response_s
   font-family: "Neue Frutiger W31 Modern Light", "Athiti";
 }
 /*
- *
  *
  *
  *

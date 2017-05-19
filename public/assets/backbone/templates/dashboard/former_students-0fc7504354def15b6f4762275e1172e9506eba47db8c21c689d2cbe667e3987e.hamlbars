@@ -29,7 +29,6 @@
                 <th>Facebook</th>
                 <th>LINE</th>
                 <th>Date Registered</th>
-                {{!-- <th>Class Period</th> --}}
               </tr>
             </thead>
 
@@ -47,7 +46,6 @@
                 <td>{{this.facebook}}</td>
                 <td>{{this.line}}</td>
                 <td>{{this.date_format}}</td>
-                {{!-- <td>{{this.class_period}}</td> --}}
               </tr>
             {{/each}}
             </tbody>

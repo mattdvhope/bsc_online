@@ -18,7 +18,7 @@ var NavBarView = Backbone.View.extend({
     },
     'click #be-a-member-point': function (e) {
       var el = document.getElementById("be-a-member");
-      el.scrollIntoView();
+      el.scrollIntoView({behavior: "smooth"});
     },
     'click #contact-us-point': function (e) {
       var el = document.getElementById("contact-us");

@@ -20056,9 +20056,35 @@ window.fbAsyncInit = function() {
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/_carousel", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<br>\n<br>\n<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n    <div class=\"item active top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg\" alt=\"Chania\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n    </div>\n\n    <div class=\"item top-front-welcome-carousel\">\n      <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg\" alt=\"Chania\">\n    </div>\n  </div>\n\n  <!-- Left and right controls -->\n  <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>";
-},"useData":true}));
+  Handlebars.registerPartial("front/_carousel", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+},"9":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "          <span style=\"font-size: 91%\">\n"
+    + ((stack1 = container.invokePartial(partials["front/thai/_welcome_caption"],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "          </span>\n";
+},"11":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = container.invokePartial(partials["front/english/_welcome_caption"],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<br>\n<br>\n<div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" data-interval=\"4000\">\n  <!-- Indicators -->\n  <ol class=\"carousel-indicators\">\n    <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\n    <li data-target=\"#myCarousel\" data-slide-to=\"4\"></li>\n  </ol>\n\n  <!-- Wrapper for slides -->\n  <div class=\"carousel-inner\" role=\"listbox\">\n\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "  </div>\n\n  <!-- Left and right controls -->\n  <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\n    <span class=\"glyphicon glyphicon-chevron-left\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\n    <span class=\"glyphicon glyphicon-chevron-right\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n<div class=\"container-full main\" id=\"welcome-caption-id\">\n  <div class=\"row\">\n    <div class=\"welcome-screen\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "      <div class=\"welcome-caption-content\">\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
+    + "      </div>\n    </div>\n  </div> \n</div>";
+},"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_features", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
@@ -20184,37 +20210,6 @@ window.fbAsyncInit = function() {
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/_welcome", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking2.jpg\" class=\"img-responsive\">\n";
-},"3":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Asians+and+American+talking+mobile2.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
-},"5":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
-},"7":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
-},"9":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return "          <span style=\"font-size: 91%\">\n"
-    + ((stack1 = container.invokePartial(partials["front/thai/_welcome_caption"],depth0,{"name":"front/thai/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "          </span>\n";
-},"11":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = container.invokePartial(partials["front/english/_welcome_caption"],depth0,{"name":"front/english/_welcome_caption","data":data,"indent":"          ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<div class=\"container-full main\" id=\"page-top\">\n  <div class=\"row\">\n    <div class=\"top-front-screen\" style=\"padding-top: 50px;\">\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "    </div>\n  </div> \n</div>\n\n<div class=\"container-full main\" id=\"welcome-caption-id\">\n  <div class=\"row\">\n    <div class=\"welcome-screen\">\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.window_big : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "      <div class=\"welcome-caption-content\">\n"
-    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
-    + "      </div>\n    </div>\n  </div> \n</div>\n\n\n\n\n\n\n\n\n\n\n\n";
-},"usePartial":true,"useData":true}));
-}).call(this);
-(function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["front/class_details"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
@@ -20229,7 +20224,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our \"You Can Speak!\" conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\"You Can Speak!\"</a> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20304,7 +20299,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_member_privileges", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<ul>\n  <li><h3>Invitations to Free English events and activities</h3></li>\n  <li><h3>Affordable English classes and seminars</h3></li>\n  <li><h3>Opportunities for online conversation partnerships with Americans</h3></li>\n  <li><h3>Free conversational English worldview class (Perspectives on the world and life) and workbook</h3></li>\n  <li><h3>Free access to CEP Online chat groups where students can ask English questions and receive support from native English speakers</h3></li>\n  <li><h3>Ongoing opportunites to build relationships with English speakers</h3></li>\n</ul>\n";
+    return "<ul>\n  <li><h3>Invitations to <a id=\"free-events\" style=\"color: #8BC34A; font-size: 100%;\">Free English events and activities</a></h3></li>\n  <li><h3>Affordable English classes and seminars</h3></li>\n  <li><h3>Opportunities for <a class=\"modal-initiator link-converse\" href=\"#\" data-toggle=\"modal\" data-target=\"#converseonlinemodal\" style=\"color: #8BC34A; font-size: 100%;\">online conversation partnerships with Americans</a></h3></li>\n  <li><h3>Free conversational English worldview class (Perspectives on the world and life) and workbook</h3></li>\n  <li><h3>Free access to CEP Online chat groups where students can ask English questions and receive support from native English speakers</h3></li>\n  <li><h3>Ongoing opportunites to build relationships with English speakers</h3></li>\n</ul>\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20441,8 +20436,8 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div id=\"front-main-hbs\">\n\n\n"
-    + ((stack1 = container.invokePartial(partials["front/_welcome"],depth0,{"name":"front/_welcome","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+  return "<div id=\"front-main-hbs\">\n\n"
+    + ((stack1 = container.invokePartial(partials["front/_carousel"],depth0,{"name":"front/_carousel","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["front/_features"],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
@@ -20458,7 +20453,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา \"You Can Speak!\" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี และสมาชิกเครือข่ายจะได้รับสิทธิพิเศษดังต่อไปนี้:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\"You Can Speak!\"</a> จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี และสมาชิกเครือข่ายจะได้รับสิทธิพิเศษดังต่อไปนี้:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20499,7 +20494,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.description_of_free || (depth0 != null ? depth0.description_of_free : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"description_of_free","hash":{},"data":data}) : helper)))
     + "\n  </button>\n</p>\n<div class=\"collapse\" id=\"collapseFreeEvDescThai\">\n  <br>\n"
     + ((stack1 = container.invokePartial(partials["front/thai/_free_events_activ_desc"],depth0,{"name":"front/thai/_free_events_activ_desc","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“ชั้นเรียน Let's Talk!,” 5-8 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 12-15 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 19-22 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 26-29 มิถุนายน (จันทร์-พฤหัสบดี) 18:30-19:30น.</h4></li>\n</ul>";
+    + "  <hr>\n</div>\n\n<ul style=\"list-style: none;\">\n  <li><h4>“ชั้นเรียน Let's Talk!,” 5-8 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 12-15 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 19-22 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>\n\n  <li><h4>“ชั้นเรียน Let's Talk!,” 26-29 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>\n</ul>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -20533,7 +20528,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_member_privileges", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<ul>\n  <li><h3>สิทธิในการเข้าร่วมกิจกรรมภาษาอังกฤษของโครงการซิตี้ อิงลิช ฟรี</h3></li>\n  <li><h3>หลักสูตรและการสัมมนาภาษาอังกฤษที่ราคาไม่แพง</h3></li>\n  <li><h3>โอกาสในการฝึกสนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาชาวอเมริกัน</h3></li>\n  <li><h3>ชั้นเรียนภาษาอังกฤษเพื่อการสนทนาเกี่ยวกับโลกทัศน์ (มุมมองทางความเชื่อเกี่ยวกับโลกและชีวิต) พร้อมบทเรียนฟรี</h3></li>\n  <li><h3>การเข้าถึงกลุ่มสนทนาภาษาอังกฤษออนไลน์ CEP ฟรี ที่ผู้เรียนสามารถถามคำถามเกี่ยวกับภาษาอังกฤษและรับความช่วยเหลือจากเจ้าของภาษา</h3></li>\n  <li><h3>โอกาสในพบเพื่อนใหม่และสร้างมิตรภาพกับชาวอเมริกัน</h3></li>\n</ul>";
+    return "<ul>\n  <li><h3>สิทธิในการเข้าร่วม<a id=\"free-events\" style=\"color: #8BC34A; font-size: 100%;\">กิจกรรมภาษาอังกฤษของโครงการซิตี้ อิงลิช ฟรี</a></h3></li>\n  <li><h3>หลักสูตรและการสัมมนาภาษาอังกฤษที่ราคาไม่แพง</h3></li>\n  <li><h3>โอกาสในการฝึก<a class=\"modal-initiator link-converse\" href=\"#\" data-toggle=\"modal\" data-target=\"#converseonlinemodal\" style=\"color: #8BC34A; font-size: 100%;\">สนทนาภาษาอังกฤษออนไลน์กับคู่สนทนาชาวอเมริกัน</a></h3></li>\n  <li><h3>ชั้นเรียนภาษาอังกฤษเพื่อการสนทนาเกี่ยวกับโลกทัศน์ (มุมมองทางความเชื่อเกี่ยวกับโลกและชีวิต) พร้อมบทเรียนฟรี</h3></li>\n  <li><h3>การเข้าถึงกลุ่มสนทนาภาษาอังกฤษออนไลน์ CEP ฟรี ที่ผู้เรียนสามารถถามคำถามเกี่ยวกับภาษาอังกฤษและรับความช่วยเหลือจากเจ้าของภาษา</h3></li>\n  <li><h3>โอกาสในพบเพื่อนใหม่และสร้างมิตรภาพกับชาวอเมริกัน</h3></li>\n</ul>\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -22030,6 +22025,16 @@ var VolunteersAvailableView = Backbone.View.extend({
         }, Promise.resolve());
       }
 
+//       function sequence(array, callback) {
+// console.log(array);
+//         function chain(array, index) {
+//           if (index == array.length) return Promise.resolve();
+//           return Promise.resolve(callback(array[index])).then(function () {
+//             return chain(array, index + 1);
+//           });
+//         }
+//       }
+
       sequence(this.collection, function(volunteer) {
         return getVolunteerSlots(volunteer)
           .then(function(slots) {
@@ -22281,12 +22286,24 @@ var MainFrontView = Backbone.View.extend({
   events: {
     'click #get-to-be-a-member': function (e) {
       var el = document.getElementById("be-a-member");
-      el.scrollIntoView();
+      el.scrollIntoView(false);
     },
     'click #click-schedule': function (e) {
       e.preventDefault();
       App.getGeneralSchedModal();
-    }
+    },
+    'click #general-schedule': function (e) {
+      e.preventDefault();
+      App.generalScheduleModal();
+    },
+    'click #free-events': function (e) {
+      e.preventDefault();
+      App.freeEventsModal();
+    },
+    'click #be-a-member-point': function (e) {
+      var el = document.getElementById("be-a-member");
+      el.scrollIntoView();
+    },
   },
 
   window_width: function() {
@@ -22356,7 +22373,7 @@ var NavBarView = Backbone.View.extend({
     },
     'click #be-a-member-point': function (e) {
       var el = document.getElementById("be-a-member");
-      el.scrollIntoView();
+      el.scrollIntoView({behavior: "smooth"});
     },
     'click #contact-us-point': function (e) {
       var el = document.getElementById("contact-us");
