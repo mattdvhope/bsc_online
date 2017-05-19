@@ -7,7 +7,7 @@ var MainFrontView = Backbone.View.extend({
   events: {
     'click #get-to-be-a-member': function (e) {
       var el = document.getElementById("be-a-member");
-      el.scrollIntoView();
+      el.scrollIntoView(false);
     },
     'click #click-schedule': function (e) {
       e.preventDefault();
@@ -16,7 +16,15 @@ var MainFrontView = Backbone.View.extend({
     'click #general-schedule': function (e) {
       e.preventDefault();
       App.generalScheduleModal();
-    }
+    },
+    'click #free-events': function (e) {
+      e.preventDefault();
+      App.freeEventsModal();
+    },
+    'click #be-a-member-point': function (e) {
+      var el = document.getElementById("be-a-member");
+      el.scrollIntoView();
+    },
   },
 
   window_width: function() {

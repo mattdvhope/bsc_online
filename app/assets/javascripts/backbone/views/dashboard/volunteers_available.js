@@ -198,6 +198,16 @@ var VolunteersAvailableView = Backbone.View.extend({
         }, Promise.resolve());
       }
 
+//       function sequence(array, callback) {
+// console.log(array);
+//         function chain(array, index) {
+//           if (index == array.length) return Promise.resolve();
+//           return Promise.resolve(callback(array[index])).then(function () {
+//             return chain(array, index + 1);
+//           });
+//         }
+//       }
+
       sequence(this.collection, function(volunteer) {
         return getVolunteerSlots(volunteer)
           .then(function(slots) {
