@@ -64,8 +64,6 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
-    this.removeNavAndPage();
-    this.user = user;
     var app_context = this;
     var class_times = new ClassTimes(); // collection
     var students = new Students();
@@ -76,14 +74,15 @@ var App = {
       resolve(students.fetch());
     });
     var dashboard_page = new DashboardView({ model: user });
+    this.removeNavAndPage();
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
     document.title = 'Dashboard';
 
     Promise.all([p1, p2]).then(values => { 
-      var class_time_view = new ClassTimesView({ collection: values[0] });
-      class_time_view.render();
+      var class_times_view = new ClassTimesView({ collection: values[0] });
+      class_times_view.render();
       var former_students_view = new FormerStudentsView({ collection: values[1] });
       former_students_view.render();
     }).catch(reason => { 
