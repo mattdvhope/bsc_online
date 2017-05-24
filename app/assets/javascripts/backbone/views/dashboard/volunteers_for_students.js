@@ -8,16 +8,18 @@ var VolunteersForStudentsView = Backbone.View.extend({
   render: function() {
     var slots_taken = this.collection;
 
-console.log(slots_taken);
-
-    slots_taken.forEach(function(slot_taken) {
-      slot_taken.volunteer.first_name
-      slot_taken.student.first_name
-
+    slots_taken.sort(function (a, b) {
+      return a.date_chosen - b.date_chosen;
+    });
+    slots_taken.sort(function (a, b) {
+      return a.month_chosen - b.month_chosen;
+    });
+    slots_taken.sort(function (a, b) {
+      return a.year_chosen - b.year_chosen;
     });
 
     this.$el.html(this.template({
-      slots_taken: this.slots_taken
+      slots_taken: slots_taken
     }));
 
     return this;

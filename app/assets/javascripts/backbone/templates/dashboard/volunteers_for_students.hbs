@@ -3,11 +3,9 @@
   <hr>
 
   <h2 class="txt" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseVolsStudents" aria-expanded="false" aria-controls="collapseVolsStudents">
-    Click here to see a list Online partnership set-ups.
+    Click here to see a list Online Partnerships (former &amp; current).
   </h2>
   <div class="collapse" id="collapseVolsStudents">
-
-    <h1>List of relationships</h1>
 
     <ul style="list-style-type:none">
       <hr>
@@ -16,35 +14,21 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Day</th>
-                <th>Time Period</th>
-                <th>am_pm</th>
-                <th>created_at</th>
-                <th>updated_at</th>
-                <th>day_thai</th>
-                <th>time_thai</th>
                 <th>Volunteer</th>
                 <th>Student</th>
+                <th>Date the student chose the volunteer</th>
               </tr>
             </thead>
 
-            {{!-- <tbody>
+            <tbody>
             {{#each slots_taken}}
               <tr>
-                <td>{{this.nickname}}</td>
-                <td>{{this.first_name}}</td>
-                <td>{{this.last_name}}</td>
-                <td>{{this.gender}}</td>
-                <td>{{this.age}}</td>
-                <td>{{this.phone_number}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.skype_name}}</td>
-                <td>{{this.facebook}}</td>
-                <td>{{this.line}}</td>
-                <td>{{this.date_format}}</td>
+                <td>{{this.volunteer.first_name}} {{this.volunteer.last_name}}</td>
+                <td>{{this.student.first_name}} {{this.student.last_name}}</td>
+                <td>{{this.month_chosen}}/{{this.date_chosen}}/{{this.year_chosen}}</td>
               </tr>
             {{/each}}
-            </tbody> --}}
+            </tbody>
           </table>
         </div> <!-- table-responsive -->
       </li>

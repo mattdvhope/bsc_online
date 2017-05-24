@@ -15,4 +15,8 @@ json.array! @skype_time_slots do |skype_time_slot|
   json.student            skype_time_slot.student
   json.volunteer          skype_time_slot.volunteer
 
+  json.date_chosen        skype_time_slot.date_chosen
+  json.month_chosen       skype_time_slot.month_chosen
+  json.year_chosen        skype_time_slot.year_chosen
+
 end
