@@ -3,7 +3,7 @@
   <hr>
 
   <h2 class="txt" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseVolsStudents" aria-expanded="false" aria-controls="collapseVolsStudents">
-    Click here to see a list Online Partnerships (former &amp; current).
+    Click here to see a list Online Partnerships (current &amp; uncancelled).
   </h2>
   <div class="collapse" id="collapseVolsStudents">
 
@@ -15,7 +15,10 @@
             <thead>
               <tr>
                 <th>Volunteer</th>
+                <th>Volunteer's email</th>
                 <th>Student</th>
+                <th>Student's phone #</th>
+                <th>Student's email</th>
                 <th>Date the student chose the volunteer</th>
               </tr>
             </thead>
@@ -24,7 +27,10 @@
             {{#each slots_taken}}
               <tr>
                 <td>{{this.volunteer.first_name}} {{this.volunteer.last_name}}</td>
-                <td>{{this.student.first_name}} {{this.student.last_name}}</td>
+                <td>{{this.volunteer.email}}</td>
+                <td>{{this.student.first_name}} ("{{this.student.nickname}}") {{this.student.last_name}}</td>
+                <td>{{this.student.phone_number}}</td>
+                <td>{{this.student.email}}</td>
                 <td>{{this.month_chosen}}/{{this.date_chosen}}/{{this.year_chosen}}</td>
               </tr>
             {{/each}}
