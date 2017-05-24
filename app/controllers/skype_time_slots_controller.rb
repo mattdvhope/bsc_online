@@ -23,6 +23,7 @@ class SkypeTimeSlotsController < ApplicationController
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
     if @skype_time_slot.update(student_id: params[:student_id], available: params[:available])
       volunteer = User.find(@skype_time_slot.volunteer_id)
+binding.pry
       ActionCable.server.broadcast 'volunteer_removal',
         student_id: current_user.id,
         volunteer_id: @skype_time_slot.volunteer_id,

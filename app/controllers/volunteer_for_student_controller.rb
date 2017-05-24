@@ -2,6 +2,10 @@ class VolunteerForStudentController < ApplicationController
 
   before_action :require_user, :only => [:show]
 
+  def index
+    @skype_time_slots = SkypeTimeSlot.where(available: false)
+  end
+
   def show
     @volunteer = User.find(params[:id]) # the volunteer (not current_user)
     send_both_people_emails(@volunteer, current_user)

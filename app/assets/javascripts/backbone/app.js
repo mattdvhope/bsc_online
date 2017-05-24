@@ -74,19 +74,27 @@ var App = {
     this.renderNavBar();
 
     var class_times = new ClassTimes(); // collection
-    var students = new Students();
+    this.class_times = class_times;
+    var students = new Students(); // collection
+    var slots_taken = new VolunteersForStudents(); // collection
     var p1 = new Promise((resolve, reject) => { 
       resolve(class_times.fetch());
     }); 
     var p2 = new Promise((resolve, reject) => { 
       resolve(students.fetch());
     });
+    var p3 = new Promise((resolve, reject) => { 
+      resolve(slots_taken.fetch());
+    });
 
-    Promise.all([p1, p2]).then(values => { 
+    Promise.all([p1, p2, p3]).then(values => { 
       var class_times_view = new ClassTimesView({ collection: values[0] });
       class_times_view.render();
       var former_students_view = new FormerStudentsView({ collection: values[1] });
       former_students_view.render();
+      var volunteers_for_students_view = new VolunteersForStudentsView ({ collection: values[2] });
+      volunteers_for_students_view.render();
+
     }).catch(reason => { 
       console.log(reason)
     });
