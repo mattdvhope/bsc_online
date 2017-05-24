@@ -65,6 +65,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       var volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
       var student_id = this.model.get('id');
       var student = this.model;
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1;
+      var yyyy = today.getFullYear();
 
       if ($(e.target)[0].checked) {
         $(".checkers").attr("disabled", true);
@@ -79,7 +83,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "#b0b8c4" );
         })
 
-        saveSlot(student_id, false)
+        saveSlot(student_id, false, dd, mm, yyyy)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(0, function() {
@@ -99,7 +103,7 @@ var VolunteersAvailableView = Backbone.View.extend({
         $(".checkers").attr("disabled", false);
         $(".checkers").next().css( "color", "black" );
 
-        saveSlot(null, true)
+        saveSlot(null, true, null, null, null)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(0, function() {
@@ -116,8 +120,8 @@ var VolunteersAvailableView = Backbone.View.extend({
         $('button[data-id="' + vol_id + '"]').attr("disabled", true);
       } // else if
 
-      function saveSlot(student_id, availability) {
-        var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability});
+      function saveSlot(student_id, availability, day, month, year) {
+        var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability, date_chosen: day, month_chosen: month, year_chosen: year});
         return new Promise(function(resolve, reject) {
           resolve(slot.save());
         });
@@ -197,16 +201,6 @@ var VolunteersAvailableView = Backbone.View.extend({
           });
         }, Promise.resolve());
       }
-
-//       function sequence(array, callback) {
-// console.log(array);
-//         function chain(array, index) {
-//           if (index == array.length) return Promise.resolve();
-//           return Promise.resolve(callback(array[index])).then(function () {
-//             return chain(array, index + 1);
-//           });
-//         }
-//       }
 
       sequence(this.collection, function(volunteer) {
         return getVolunteerSlots(volunteer)

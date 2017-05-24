@@ -19640,7 +19640,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container\" style=\"margin-top: -20px;\">\n\n  <hr>\n\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseStudents\" aria-expanded=\"false\" aria-controls=\"collapseStudents\">\n    Click here to see a list of former CEP students.\n  </h2>\n  <div class=\"collapse\" id=\"collapseStudents\">\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <li>\n        <div class=\"table-responsive\">\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>Nick Name</th>\n                <th>First Name</th>\n                <th>Last Name</th>\n                <th>Gender</th>\n                <th>Age</th>\n                <th>Phone Number</th>\n                <th>Email</th>\n                <th>Skype Name</th>\n                <th>Facebook</th>\n                <th>LINE</th>\n                <th>Date Registered</th>\n              </tr>\n            </thead>\n\n            <tbody>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.students : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "            </tbody>\n          </table>\n        </div> <!-- table-responsive -->\n      </li>\n     <!-- each students -->\n    </ul>\n   <!-- if no students -->\n\n  </div>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n";
+    + "            </tbody>\n          </table>\n        </div> <!-- table-responsive -->\n      </li>\n     <!-- each students -->\n    </ul>\n   <!-- if no students -->\n\n  </div>\n\n</div> <!-- container -->\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/former_students"];
 }).call(this);
@@ -19929,6 +19929,35 @@ window.fbAsyncInit = function() {
     + "\n</div> <!-- container -->\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
   return this.HandlebarsTemplates["dashboard/volunteers_available"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/volunteers_for_students"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "              <tr>\n                <td>"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + " "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.volunteer : depth0)) != null ? stack1.last_name : stack1), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.first_name : stack1), depth0))
+    + " "
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.student : depth0)) != null ? stack1.last_name : stack1), depth0))
+    + "</td>\n                <td>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.month_chosen : depth0), depth0))
+    + "/"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.date_chosen : depth0), depth0))
+    + "/"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.year_chosen : depth0), depth0))
+    + "</td>\n              </tr>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\" style=\"margin-top: -20px;\">\n\n  <hr>\n\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseVolsStudents\" aria-expanded=\"false\" aria-controls=\"collapseVolsStudents\">\n    Click here to see a list Online Partnerships (former &amp; current).\n  </h2>\n  <div class=\"collapse\" id=\"collapseVolsStudents\">\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <li>\n        <div class=\"table-responsive\">\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>Volunteer</th>\n                <th>Student</th>\n                <th>Date the student chose the volunteer</th>\n              </tr>\n            </thead>\n\n            <tbody>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.slots_taken : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "            </tbody>\n          </table>\n        </div> <!-- table-responsive -->\n      </li>\n    </ul>\n\n  </div>\n\n  <hr>\n  <h2><a href=\"/log_out\">Log Out</a></h2>\n  <hr>\n\n</div> <!-- container -->\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/volunteers_for_students"];
 }).call(this);
 (function() {
   Handlebars.registerPartial("footer/english/_address", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -20254,7 +20283,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_free_events_activ_desc", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6 pm to 8 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday, CEP staff will teach a 1-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
+    return "<h4>The ability to speak English is an important skill that can open many doors.  Why not come and learn English with native English speakers at the City English Project Center on Monday through Thursday from 6:30 pm to 7:30 pm for the month of June?  Here is what you need to know:</h4>\n\n<ol>\n  <li>Each evening Monday through Thursday, CEP staff will teach a 1-hour class that will focus on popular conversation topics and important language skills.</li>\n  <li>You will learn vocabulary, pronunciation, as well as new expressions.</li>\n  <li>You will meet new American (and maybe even some Thai) friends.</li>\n  <li>Instead of going home and watching T.V. or playing video games, you will be spending your evenings improving yourself.</li>\n  <li>It is FREE!  Now, just because it is free doesn’t mean the classes are not any good. In fact, the opposite is true!</li>\n</ol>\n<h4>So, what do you have to lose?  Bring your friend and come and give learning English with us a try.</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20483,7 +20512,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_free_events_activ_desc", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>ความสามารถในการพูดภาษาอังกฤษเป็นทักษะที่สำคัญที่สามารถเปิดประตูสู่โอกาสต่างๆ มากมาย แล้วทำไมคุณจึงไม่มาร่วมและเรียนรู้กับผู้ที่ใช้ภาษาอังกฤษเป็นภาษาหลักที่โครงการซิตี้ อิงลิชในวันจันทร์ถึงวันพฤหัส เวลา 18:00-20:00 น. ในเดือนมิถุนายนนี้หล่ะ? ต่อไปนี้เป็นข้อมูลสำคัญที่คุณจำเป็นต้องรู้:</h4>\n\n<ol>\n  <li>ทุกคืนวันจันทร์ – วันพฤหัส เจ้าหน้าที่โครงการซิตี้ อิงลิช จะมีสอนชั้นเรียนภาษาอังกฤษคืนละ 1 ชั่วโมง โดยจะเน้นหัวข้อการสนทนาที่ใช้เป็นประจำและสำคัญต่อทักษะด้านภาษา</li>\n\n  <li>คุณจะได้เรียนรู้คำศัพท์ การออกเสียง และคำศัพท์เกี่ยวกับการแสดงออกทางความรู้สึกใหม่ๆ</li>\n\n  <li>คุณจะได้พบเพื่อนใหม่ที่เป็นชาวอเมริกัน (และคนไทยบางคน)</li>\n\n  <li>แทนที่จะกลับบ้านและนอนดูทีวี หรือเล่นวีดีโอเกมส์ คุณควรจะใช้เวลาช่วงค่ำของคุณเพื่อการพัฒนาตัวเอง</li>\n\n  <li>มันเป็นชั้นเรียนฟรี! เพราะว่ามันฟรีไม่ได้หมายความว่ามันเป็นชั้นเรียนที่ไม่ดี ความเป็นจริงที่ตรงข้ามกันคือมันเป็นเรื่องจริง!</li>\n</ol>\n\n<h4>เพราะฉะนั้น มีอะไรที่คุณจะต้องสูญเสียมั๊ย? ชวนเพื่อนของคุณและมา และลองมาเรียนรู้ภาษาอังกฤษกับเรา</h4>";
+    return "<h4>ความสามารถในการพูดภาษาอังกฤษเป็นทักษะที่สำคัญที่สามารถเปิดประตูสู่โอกาสต่างๆ มากมาย แล้วทำไมคุณจึงไม่มาร่วมและเรียนรู้กับผู้ที่ใช้ภาษาอังกฤษเป็นภาษาหลักที่โครงการซิตี้ อิงลิชในวันจันทร์ถึงวันพฤหัส เวลา 18:30-19:30 น. ในเดือนมิถุนายนนี้หล่ะ? ต่อไปนี้เป็นข้อมูลสำคัญที่คุณจำเป็นต้องรู้:</h4>\n\n<ol>\n  <li>ทุกคืนวันจันทร์ – วันพฤหัส เจ้าหน้าที่โครงการซิตี้ อิงลิช จะมีสอนชั้นเรียนภาษาอังกฤษคืนละ 1 ชั่วโมง โดยจะเน้นหัวข้อการสนทนาที่ใช้เป็นประจำและสำคัญต่อทักษะด้านภาษา</li>\n\n  <li>คุณจะได้เรียนรู้คำศัพท์ การออกเสียง และคำศัพท์เกี่ยวกับการแสดงออกทางความรู้สึกใหม่ๆ</li>\n\n  <li>คุณจะได้พบเพื่อนใหม่ที่เป็นชาวอเมริกัน (และคนไทยบางคน)</li>\n\n  <li>แทนที่จะกลับบ้านและนอนดูทีวี หรือเล่นวีดีโอเกมส์ คุณควรจะใช้เวลาช่วงค่ำของคุณเพื่อการพัฒนาตัวเอง</li>\n\n  <li>มันเป็นชั้นเรียนฟรี! เพราะว่ามันฟรีไม่ได้หมายความว่ามันเป็นชั้นเรียนที่ไม่ดี ความเป็นจริงที่ตรงข้ามกันคือมันเป็นเรื่องจริง!</li>\n</ol>\n\n<h4>เพราะฉะนั้น มีอะไรที่คุณจะต้องสูญเสียมั๊ย? ชวนเพื่อนของคุณและมา และลองมาเรียนรู้ภาษาอังกฤษกับเรา</h4>";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20955,6 +20984,12 @@ var VolunteersAvailable = Backbone.Collection.extend({
   url: "volunteers_available"
 
 });
+var VolunteersForStudents = Backbone.Collection.extend({
+
+  model: VolunteerForStudent,
+  url: "volunteer_for_student"
+
+});
 function thai_language() {
   return sessionStorage.getItem('language') === "thai";
 }
@@ -21330,7 +21365,7 @@ var ClassTimesView = Backbone.View.extend({
   },
 
   sorted_class_times: function() {
-    return this.collection.toJSON().sort(function(a, b) {
+    return this.collection.sort(function(a, b) {
       return a.order_no - b.order_no;
     });
   },
@@ -21424,7 +21459,7 @@ var FormerStudentsView = Backbone.View.extend({
   },
 
   render: function() {
-    var students = this.collection.toJSON();
+    var students = this.collection;
 
     students.sort(function(a, b) {
       return a.id - b.id;
@@ -21892,6 +21927,10 @@ var VolunteersAvailableView = Backbone.View.extend({
       var volunteer_id = parseInt($(e.target)[0].dataset.volunteerId);
       var student_id = this.model.get('id');
       var student = this.model;
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1;
+      var yyyy = today.getFullYear();
 
       if ($(e.target)[0].checked) {
         $(".checkers").attr("disabled", true);
@@ -21906,7 +21945,7 @@ var VolunteersAvailableView = Backbone.View.extend({
           $(".checkers[data-volunteer-id=" + vol.id + "]").next().css( "color", "#b0b8c4" );
         })
 
-        saveSlot(student_id, false)
+        saveSlot(student_id, false, dd, mm, yyyy)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(0, function() {
@@ -21926,7 +21965,7 @@ var VolunteersAvailableView = Backbone.View.extend({
         $(".checkers").attr("disabled", false);
         $(".checkers").next().css( "color", "black" );
 
-        saveSlot(null, true)
+        saveSlot(null, true, null, null, null)
         .then(function(result) {
           var span = $(e.target).next();
           $($(e.target).next()).fadeOut(0, function() {
@@ -21943,8 +21982,8 @@ var VolunteersAvailableView = Backbone.View.extend({
         $('button[data-id="' + vol_id + '"]').attr("disabled", true);
       } // else if
 
-      function saveSlot(student_id, availability) {
-        var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability});
+      function saveSlot(student_id, availability, day, month, year) {
+        var slot = new SkypeTimeSlot({id: slot_id, student_id: student_id, available: availability, date_chosen: day, month_chosen: month, year_chosen: year});
         return new Promise(function(resolve, reject) {
           resolve(slot.save());
         });
@@ -22025,16 +22064,6 @@ var VolunteersAvailableView = Backbone.View.extend({
         }, Promise.resolve());
       }
 
-//       function sequence(array, callback) {
-// console.log(array);
-//         function chain(array, index) {
-//           if (index == array.length) return Promise.resolve();
-//           return Promise.resolve(callback(array[index])).then(function () {
-//             return chain(array, index + 1);
-//           });
-//         }
-//       }
-
       sequence(this.collection, function(volunteer) {
         return getVolunteerSlots(volunteer)
           .then(function(slots) {
@@ -22077,6 +22106,35 @@ var VolunteersAvailableView = Backbone.View.extend({
 
   } // render
 });
+var VolunteersForStudentsView = Backbone.View.extend({
+  template:  HandlebarsTemplates['dashboard/volunteers_for_students'],
+
+  initialize: function() {
+    this.$el.appendTo(".entire");
+  },
+
+  render: function() {
+    var slots_taken = this.collection;
+
+    slots_taken.sort(function (a, b) {
+      return a.date_chosen - b.date_chosen;
+    });
+    slots_taken.sort(function (a, b) {
+      return a.month_chosen - b.month_chosen;
+    });
+    slots_taken.sort(function (a, b) {
+      return a.year_chosen - b.year_chosen;
+    });
+
+    this.$el.html(this.template({
+      slots_taken: slots_taken
+    }));
+
+    return this;
+  }
+});
+
+
 var FooterFrontView = Backbone.View.extend({
   // id: "contact-us",
   initialize: function() {
@@ -23321,39 +23379,40 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
-    this.removeNavAndPage();
-    this.user = user;
-    var app_context = this;
-    var class_times = new ClassTimes(); // collection
-    class_times.fetch({
-      success: function (collection, response, options) {
-        app_context.class_times = collection;
-        var class_time_view = new ClassTimesView({ collection: collection });
-        class_time_view.render();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
-    var dashboard_page = new DashboardView({ model: user });
-    this.renderNavBar();
-    this.scrollUpToTopOfPage();
-    dashboard_page.render();
     document.title = 'Dashboard';
-  },
-  getFormerStudents: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    this.user = user;
+
+    var dashboard_page = new DashboardView({ model: user });
+    dashboard_page.render();
+    this.renderNavBar();
+
+    var class_times = new ClassTimes(); // collection
+    this.class_times = class_times;
     var students = new Students(); // collection
-    
-    students.fetch({
-      success: function (collection, response, options) {
-        var former_students_view = new FormerStudentsView({ collection: collection });
-        former_students_view.render();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
+    var slots_taken = new VolunteersForStudents(); // collection
+    var p1 = new Promise((resolve, reject) => { 
+      resolve(class_times.fetch());
+    }); 
+    var p2 = new Promise((resolve, reject) => { 
+      resolve(students.fetch());
+    });
+    var p3 = new Promise((resolve, reject) => { 
+      resolve(slots_taken.fetch());
     });
 
+    Promise.all([p1, p2, p3]).then(values => { 
+      var class_times_view = new ClassTimesView({ collection: values[0] });
+      class_times_view.render();
+      var former_students_view = new FormerStudentsView({ collection: values[1] });
+      former_students_view.render();
+      var volunteers_for_students_view = new VolunteersForStudentsView ({ collection: values[2] });
+      volunteers_for_students_view.render();
+
+    }).catch(reason => { 
+      console.log(reason)
+    });
   },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
@@ -23579,7 +23638,6 @@ var App = {
       }
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
-        app_obj.getFormerStudents();
       }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");

@@ -64,39 +64,40 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
-    this.removeNavAndPage();
-    this.user = user;
-    var app_context = this;
-    var class_times = new ClassTimes(); // collection
-    class_times.fetch({
-      success: function (collection, response, options) {
-        app_context.class_times = collection;
-        var class_time_view = new ClassTimesView({ collection: collection });
-        class_time_view.render();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
-    });
-    var dashboard_page = new DashboardView({ model: user });
-    this.renderNavBar();
-    this.scrollUpToTopOfPage();
-    dashboard_page.render();
     document.title = 'Dashboard';
-  },
-  getFormerStudents: function() {
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    this.user = user;
+
+    var dashboard_page = new DashboardView({ model: user });
+    dashboard_page.render();
+    this.renderNavBar();
+
+    var class_times = new ClassTimes(); // collection
+    this.class_times = class_times;
     var students = new Students(); // collection
-    
-    students.fetch({
-      success: function (collection, response, options) {
-        var former_students_view = new FormerStudentsView({ collection: collection });
-        former_students_view.render();
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
+    var slots_taken = new VolunteersForStudents(); // collection
+    var p1 = new Promise((resolve, reject) => { 
+      resolve(class_times.fetch());
+    }); 
+    var p2 = new Promise((resolve, reject) => { 
+      resolve(students.fetch());
+    });
+    var p3 = new Promise((resolve, reject) => { 
+      resolve(slots_taken.fetch());
     });
 
+    Promise.all([p1, p2, p3]).then(values => { 
+      var class_times_view = new ClassTimesView({ collection: values[0] });
+      class_times_view.render();
+      var former_students_view = new FormerStudentsView({ collection: values[1] });
+      former_students_view.render();
+      var volunteers_for_students_view = new VolunteersForStudentsView ({ collection: values[2] });
+      volunteers_for_students_view.render();
+
+    }).catch(reason => { 
+      console.log(reason)
+    });
   },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
@@ -322,7 +323,6 @@ var App = {
       }
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
-        app_obj.getFormerStudents();
       }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");

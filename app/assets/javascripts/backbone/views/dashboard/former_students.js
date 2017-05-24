@@ -6,7 +6,7 @@ var FormerStudentsView = Backbone.View.extend({
   },
 
   render: function() {
-    var students = this.collection.toJSON();
+    var students = this.collection;
 
     students.sort(function(a, b) {
       return a.id - b.id;

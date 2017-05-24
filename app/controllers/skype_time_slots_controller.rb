@@ -21,7 +21,7 @@ class SkypeTimeSlotsController < ApplicationController
 
   def update
     @skype_time_slot = SkypeTimeSlot.find(params[:id])
-    if @skype_time_slot.update(student_id: params[:student_id], available: params[:available])
+    if @skype_time_slot.update(student_id: params[:student_id], available: params[:available], date_chosen: params[:date_chosen], month_chosen: params[:month_chosen], year_chosen: params[:year_chosen])
       volunteer = User.find(@skype_time_slot.volunteer_id)
       ActionCable.server.broadcast 'volunteer_removal',
         student_id: current_user.id,
@@ -49,7 +49,7 @@ class SkypeTimeSlotsController < ApplicationController
   private
 
     def skype_time_slot_params
-      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :day_thai, :time_period, :time_thai, :am_pm, :available, :orderday, :ordertime, :orderam)
+      params.require(:skype_time_slot).permit(:volunteer_id, :student_id, :day, :day_thai, :time_period, :time_thai, :am_pm, :available, :orderday, :ordertime, :orderam, :date_chosen, :month_chosen, :year_chosen)
     end
 
 end

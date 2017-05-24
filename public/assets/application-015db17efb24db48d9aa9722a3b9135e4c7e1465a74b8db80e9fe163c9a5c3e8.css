@@ -9522,6 +9522,12 @@ input[placeholder], [placeholder], *[placeholder] {
     width: 85%;
   }
 }
+@media screen and (max-width: 390px) {
+  /* line 101, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+  .welcome-screen > .welcome-caption-content {
+    font-size: 115%;
+  }
+}
 @media screen and (max-width: 360px) {
   /* line 101, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
   .welcome-screen > .welcome-caption-content {
@@ -9535,17 +9541,17 @@ input[placeholder], [placeholder], *[placeholder] {
   }
 }
 
-/* line 137, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+/* line 139, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
 span#get-to-be-a-members {
   color: #77ac39;
   cursor: pointer;
 }
-/* line 140, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+/* line 142, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
 span#get-to-be-a-members:hover {
   text-decoration: underline;
 }
 
-/* line 143, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
+/* line 145, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/welcome.sass */
 .non-summer-university {
   color: #77ac39;
 }
