@@ -101,6 +101,7 @@ var NavBarView = Backbone.View.extend({
     return choose_language("Steps to Volunteer", "ขั้นตอนการเป็นอาสาสมัคร");
   },
   render: function(visible) {
+console.log(this.current_user_present());
     this.$el.html(this.template({
       volunteer_info_visible: this.volunteer_info_visible(),
       current_user_present: this.current_user_present(),

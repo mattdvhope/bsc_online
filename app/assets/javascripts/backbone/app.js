@@ -64,7 +64,15 @@ var App = {
     this.volunteer_page = volunteer_page;
   },
   getDashboardPage: function(user) {
-    var app_context = this;
+    document.title = 'Dashboard';
+    this.removeNavAndPage();
+    this.scrollUpToTopOfPage();
+    this.user = user;
+
+    var dashboard_page = new DashboardView({ model: user });
+    dashboard_page.render();
+    this.renderNavBar();
+
     var class_times = new ClassTimes(); // collection
     var students = new Students();
     var p1 = new Promise((resolve, reject) => { 
@@ -73,12 +81,6 @@ var App = {
     var p2 = new Promise((resolve, reject) => { 
       resolve(students.fetch());
     });
-    var dashboard_page = new DashboardView({ model: user });
-    this.removeNavAndPage();
-    this.renderNavBar();
-    this.scrollUpToTopOfPage();
-    dashboard_page.render();
-    document.title = 'Dashboard';
 
     Promise.all([p1, p2]).then(values => { 
       var class_times_view = new ClassTimesView({ collection: values[0] });
