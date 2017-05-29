@@ -29,9 +29,14 @@
         <input type="text" class="form-control email" placeholder="Email Address" name="email">
         <hr>
 
-        <label class="field-label skype-name-label">Skype Name<h4>
+        <label class="field-label skype-name-label">Skype Name (Please set your Skype app's notifications to "on" so that you can receive instant messages from your partner.)<h4>
         </h4></label>
         <input type="text" class="form-control skype-name" placeholder="ชื่อ Skype" name="skype_name">
+        <hr>
+
+        <label class="field-label facebook-label">Facebook Name (Why do we ask for your Facebook name?  Because we want you to have the ability to communicate immediately with your Online Conversation Partner using Facebook’s instant messenger about canceling appointments, etc.)<h4>
+        </h4></label>
+        <input type="text" class="form-control facebook" placeholder="Facebook address" name="facebook">
         <hr>
 
         <label class="field-label">Gender</label>
