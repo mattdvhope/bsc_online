@@ -1,0 +1,22 @@
+<h3>ชั้นเรียนภาษาอังกฤษฟรีที่เซนเตอร์ของเรา  (สำหรับกิจกรรมนี้ คุณไม่ต้องสมัครเรียน! สามารถมาเรียนที่ศูนย์ของเราได้เลย!)</h3>
+
+<p>
+  <button class="btn btn-primary free-class-button" type="button" data-toggle="collapse" data-target="#collapseFreeEvDescThai" aria-expanded="false" aria-controls="collapseFreeEvDescThai">
+    {{description_of_free}}
+  </button>
+</p>
+<div class="collapse" id="collapseFreeEvDescThai">
+  <br>
+  {{> front/thai/_free_events_activ_desc }}
+  <hr>
+</div>
+
+<ul style="list-style: none;">
+  <li><h4>“ชั้นเรียน Let's Talk!,” 6-8 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>
+
+  <li><h4>“ชั้นเรียน Let's Talk!,” 13-15 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>
+
+  <li><h4>“ชั้นเรียน Let's Talk!,” 20-22 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>
+
+  <li><h4>“ชั้นเรียน Let's Talk!,” 27-29 มิถุนายน (อังคาร-พฤหัสบดี) 18:30-19:30น.</h4></li>
+</ul>
