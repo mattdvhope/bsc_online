@@ -1,0 +1,102 @@
+<div id="online-partner-form" class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">{{apply_to_converse}}</h3>
+
+    </div>
+    <div class="modal-body">
+
+      {{#if thai_language}}
+        {{> registration/thai/_how_to_become_member }}
+      {{^}}
+        {{> registration/english/_how_to_become_member }}
+      {{/if}}
+      <hr>
+
+      <form class="student-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
+      <input type="hidden" name="role" value="student">
+
+        <label class="field-label pin-label">PIN</label>
+        <input type="text" class="form-control pin" placeholder="หมายเลขประจำตัว" name="pin">
+        <hr>
+
+        <label class="field-label">Nickname</label>
+        <input type="text" class="form-control nickname" placeholder="ชื่อเล่น (ภาษาอังกฤษ)" name="nickname">
+        <hr>
+
+        <label class="field-label">First Name (in English)</label>
+        <input type="text" class="form-control first-name" placeholder="ชื่อจริง (ภาษาอังกฤษ)" name="first_name">
+        <hr>
+
+        <label class="field-label">Last Name (in English)</label>
+        <input type="text" class="form-control last-name" placeholder="นามสกุล (ภาษาอังกฤษ)" name="last_name">
+        <hr>
+
+        <label class="field-label">Gender</label>
+        <div>
+          <select name="gender" class="gender-select">
+            <option value="ผู้ชาย">ผู้ชาย</option>
+            <option value="ผู้หญิง">ผู้หญิง</option>
+          </select>
+        </div>
+        <hr>
+
+        <label class="field-label skype-name-label">Skype Name<h4>
+        </h4></label>
+        <input type="text" class="form-control skype-name" placeholder="ที่อยู่ Skype" name="skype_name">
+        <hr>
+
+        <label class="field-label email-label">Email Address<h4>
+          {{#if thai_language}}
+            {{> application_form/thai/_email_explanation }}
+          {{^}}
+            {{> application_form/english/_email_explanation }}
+          {{/if}}
+        </h4></label>
+        <input type="text" class="form-control email" placeholder="อีเมล" name="email">
+        <hr>
+
+        <label class="field-label">Facebook Name (ทำไมเราขอชื่อเฟซบุ๊กของคุณ?  เพราะว่าเราอยากให้คุณมีความสามารถในการติดต่อสื่อสารกับคู่สนทนาออนไลน์ของคุณได้ทันที [ที่จะเปลี่ยนการนัดหมาย])</label>
+        <input type="text" class="form-control facebook" placeholder="ชื่อเฟซบุ๊ก" name="facebook">
+        <hr>
+
+        {{!-- <label class="field-label">LINE ID
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Line+small.jpg" alt="Line ID" style="width:25px;height:25px;">
+        </label>
+        <input type="text" class="form-control line" placeholder="LINE ID" name="line">
+        <hr> --}}
+
+        <label class="field-label">Age</label>
+        <input type="text" class="form-control age" placeholder="อายุ" name="age">
+        <hr>
+
+        <label class="field-label">Phone Number</label>
+        <input type="text" class="form-control phone-number" placeholder="เบอร์โทรศัพท์" name="phone_number">
+        <hr>
+
+        <label class="field-label password-label">Password</label>
+        <input id="student-registration-password" type="password" class="form-control password" placeholder="รหัสผ่าน" name="password">
+        <hr>
+
+        <label class="field-label password-conf-label">Password Confirmation</label>
+        <input id="student-registration-password" type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน" name="password_confirmation">
+        <hr>
+
+        <div id="submit-input-button" class="control-group">
+          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary student-registration-submit">
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+
