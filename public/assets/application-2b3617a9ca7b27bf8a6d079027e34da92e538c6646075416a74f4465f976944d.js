@@ -20473,9 +20473,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div id=\"front-main-hbs\">\n\n"
-    + ((stack1 = container.invokePartial(partials["front/_carousel"],depth0,{"name":"front/_carousel","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n"
+  return "<div id=\"front-main-hbs\">\n\n\n"
     + ((stack1 = container.invokePartial(partials["front/_features"],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["front/_be_a_member"],depth0,{"name":"front/_be_a_member","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")

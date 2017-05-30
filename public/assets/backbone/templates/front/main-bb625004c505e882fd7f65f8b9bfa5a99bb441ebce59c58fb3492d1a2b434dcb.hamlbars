@@ -1,6 +1,6 @@
 <div id="front-main-hbs">
 
-  {{> front/_carousel }}
+  {{!-- {{> front/_carousel }} --}}
 
   {{> front/_features }}
 
