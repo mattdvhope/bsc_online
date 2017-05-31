@@ -20473,7 +20473,9 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["front/main"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div id=\"front-main-hbs\">\n\n\n"
+  return "<div id=\"front-main-hbs\">\n\n"
+    + ((stack1 = container.invokePartial(partials["front/_carousel"],depth0,{"name":"front/_carousel","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n"
     + ((stack1 = container.invokePartial(partials["front/_features"],depth0,{"name":"front/_features","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["front/_be_a_member"],depth0,{"name":"front/_be_a_member","data":data,"indent":"  ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
@@ -23398,26 +23400,25 @@ var App = {
     this.class_times = class_times;
     var students = new Students(); // collection
     var slots_taken = new VolunteersForStudents(); // collection
-    var p1 = new Promise((resolve, reject) => { 
+    var p1 = new Promise(function (resolve, reject) {
       resolve(class_times.fetch());
-    }); 
-    var p2 = new Promise((resolve, reject) => { 
+    });
+    var p2 = new Promise(function (resolve, reject) {
       resolve(students.fetch());
     });
-    var p3 = new Promise((resolve, reject) => { 
+    var p3 = new Promise(function (resolve, reject) {
       resolve(slots_taken.fetch());
     });
 
-    Promise.all([p1, p2, p3]).then(values => { 
+    Promise.all([p1, p2, p3]).then(function (values) {
       var class_times_view = new ClassTimesView({ collection: values[0] });
       class_times_view.render();
       var former_students_view = new FormerStudentsView({ collection: values[1] });
       former_students_view.render();
-      var volunteers_for_students_view = new VolunteersForStudentsView ({ collection: values[2] });
+      var volunteers_for_students_view = new VolunteersForStudentsView({ collection: values[2] });
       volunteers_for_students_view.render();
-
-    }).catch(reason => { 
-      console.log(reason)
+    }).catch(function (reason) {
+      console.log(reason);
     });
   },
   getNewClassTimeView: function(refreshed) {
