@@ -19381,7 +19381,7 @@ window.fbAsyncInit = function() {
 
   return "<h3>Please write to us at 'info@cityenglishproject.com' if you have any questions.</h3>\n<hr>\n\n<img class=\"welcome-popup\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Step+One.png\" alt=\"Thank you!\">\n\n<hr>\n<h3>Congratulations!  You are now registered for a \"You Can Speak!\" class: "
     + container.escapeExpression(((helper = (helper = helpers.class_time || (depth0 != null ? depth0.class_time : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"class_time","hash":{},"data":data}) : helper)))
-    + ".</h3>\n\n<h3>Please check you email 'Inbox'.  If you do not see an email from 'info@cityenglishproject.com' in your 'Inbox', please look in your \"Junk\" or \"Trash\" mail box. Then move the email to your 'Inbox'.</h3>\n\n<h3>If you have questions, you can call us at 086-696-7821 or LINE us at \"cityenglishproject\".</h3>\n\n<h3>Please arrive 15 minutes early on the first day of class to pay.</h3>\n\n<h3>Our center is located at [Pan Road address].</h3>\n\n<h3>Don't forget to \"Like\" us on Facebook <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\">Facebook</a> and \"Follow\" us on <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\">Instagram</a>.</h3>\n\n<h3>We hope you have a great time learning English with CEP!!</h3>\n\n<hr>\nCopyright © City English Project 2016\nAll rights reserved.";
+    + ".</h3>\n\n<h3>Please check your email 'Inbox'.  If you do not see an email from 'info@cityenglishproject.com' in your 'Inbox', please look in your \"Junk\" or \"Trash\" mail box. Then move the email to your 'Inbox'.</h3>\n\n<h3>If you have questions, you can call us at 086-696-7821 or LINE us at \"cityenglishproject\".</h3>\n\n<h3>Please arrive 15 minutes early on the first day of class to pay.</h3>\n\n<h3>Our center is located at [Pan Road address].</h3>\n\n<h3>Don't forget to \"Like\" us on Facebook <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\">Facebook</a> and \"Follow\" us on <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\">Instagram</a>.</h3>\n\n<h3>We hope you have a great time learning English with CEP!!</h3>\n\n<hr>\nCopyright © City English Project 2016\nAll rights reserved.";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -19881,7 +19881,13 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
     + " ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย "
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + "</h4>\n        <button id=\"connect-with-volunteer\" class=\"btn btn-success\" data-id="
+    + "</h4>\n\n        <h4>กรุณาตรวจสอบให้แน่ใจว่า คุณได้ตั้งค่าการแจ้งเตือนในโปรแกรม Skype ของคุณเป็น \"on\"  ทั้งบนอุปกรณ์สื่อสารเคลื่อนที่และบนคอมพิวเตอร์ของคุณ นอกจากนี้ เราขอแนะนำให้คุณเป็นเพื่อนใน Facebook กับ \""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + " "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "\" เพราะเป็นเรื่องสำคัญมากเพื่อที่คุณจะสามารถส่งและรับข้อความระหว่างคุณกับ \""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + "\" ในระหว่างช่วงเวลาของการสนทนาทาง Skype แต่ละครั้งของคุณในกรณีที่คุณหรือคู่สนทนาของคุณต้องการเลื่อนการสนทนาในสัปดาห์นั้นๆ</h4>\n\n        <h4>หากคุณเลือกช่วงเวลาการสนทนาที่มีเวลาน้อยกว่า 24 ชั่วโมงนับจาก ณ. เวลานี้ กรุณาวางแผนและนัดหมายเพื่อการสนทนาครั้งแรกกับคู่สนทนาของคุณในสัปดาห์ถัดไป (ไม่ใช่สัปดาห์นี้)</h4>\n\n        <button id=\"connect-with-volunteer\" class=\"btn btn-success\" data-id="
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
     + " data-firstname="
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
@@ -24393,6 +24399,11 @@ Appp.volunteer_removal = Appp.cable.subscriptions.create({channel: "VolunteerRem
             '<h4 id="choose-skype-time" data-id="' + data.volunteer_id + '">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ ' + data.vol_first_name + '.  ' + data.vol_first_name + ' มีเวลาว่างกับ 1 ใน ' + data.vol_slot_num + ' ช่องนี้เท่านั้น:</h4>' +
               // slots appended here
             '<h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก ' + data.vol_first_name + ' กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง ' + data.vol_first_name + ' ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย ' + data.vol_first_name + '</h4>' +
+
+            '<h4>กรุณาตรวจสอบให้แน่ใจว่า คุณได้ตั้งค่าการแจ้งเตือนในโปรแกรม Skype ของคุณเป็น "on"  ทั้งบนอุปกรณ์สื่อสารเคลื่อนที่และบนคอมพิวเตอร์ของคุณ นอกจากนี้ เราขอแนะนำให้คุณเป็นเพื่อนใน Facebook กับ ' + data.vol_first_name + ' ' + data.vol_last_name + ' เพราะเป็นเรื่องสำคัญมากเพื่อที่คุณจะสามารถส่งและรับข้อความระหว่างคุณกับ ' + data.vol_first_name + ' ในระหว่างช่วงเวลาของการสนทนาทาง Skype แต่ละครั้งของคุณในกรณีที่คุณหรือคู่สนทนาของคุณต้องการเลื่อนการสนทนาในสัปดาห์นั้นๆ' + '</h4>' +
+
+            '<h4>หากคุณเลือกช่วงเวลาการสนทนาที่มีเวลาน้อยกว่า 24 ชั่วโมงนับจาก ณ. เวลานี้ กรุณาวางแผนและนัดหมายเพื่อการสนทนาครั้งแรกกับคู่สนทนาของคุณในสัปดาห์ถัดไป (ไม่ใช่สัปดาห์นี้)' + '</h4>' +
+
             '<button id="connect-with-volunteer" class="btn btn-success" data-id=' + data.volunteer_id + ' data-firstname=' + data.vol_first_name + ' ' + 'data-lastname=' + data.vol_last_name + ' disabled>' +
               'ส่งอีเมลอัตโนมัติถึง ' + data.vol_first_name +
             '</button>' +

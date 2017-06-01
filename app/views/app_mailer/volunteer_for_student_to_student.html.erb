@@ -70,18 +70,21 @@ background-color: #f6f6f6;
                 </tr>
                 <tr><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg" alt="Coffee shop" height="380" width="520" align="middle"/></tr>
 
-                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                <tr><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 20px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                     นี่คือช่วงเวลา Skype ที่คุณได้เลือกไว้...
                     <ul>
                       <% @skype_time_slots.order("orderday").order("orderam").order("ordertime").each do |slot|%>
                             <li><%= slot.day_thai %> <%= slot.time_thai %></li>
                       <% end %>
                     </ul>
+                    <p>หากช่วงเวลาการสนทนาที่คุณเลือกไว้ จะเริ่มต้นภายใน 24 ชั่วโมงนับจากนี้ กรุณาวางแผนเพื่อนัดหมายการสนทนาครั้งแรกกับคู่สนทนาของคุณในสัปดาห์ถัดไป (ไม่ใช่สัปดาห์นี้)</p>
                   </td>
-                </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                </tr><tr><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 20px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                     <% slot = @skype_time_slots.order("orderday").order("orderam").order("ordertime").first %>
 
-                    <h2>ชื่อ Skype ของเขาคือ "<%= @volunteer.skype_name %>"  คุณสามารถเริ่ม Skype กับเขาได้ตามช่วงเวลา Skype ที่คุณเห็นข้างต้น (โดยจะเริ่มต้นใน<%= slot.day_thai %> <%= slot.time_thai %>).  เขาคาดหวังการโทร Skype ครั้งแรกของคุณ  และหากคุณไม่สามารถติดต่อได้ในเวลานั้น โปรดส่งอีเมล์หาคู่หูของคุณที่ "<%= @volunteer.email %>" และแจ้งเขาเรื่องเวลาใหม่ ที่คุณจะสะดวกติดต่อ Skype ครั้งแรกกับเขา</h2>
+                    <p>ชื่อ Skype ของเขาคือ "<%= @volunteer.skype_name %>" คุณสามารถเริ่ม Skype กับเขาได้ตามช่วงเวลา Skype ที่คุณเห็นข้างต้น (โดยจะเริ่มต้นใน <%= slot.day_thai %> <%= slot.time_thai %>) เขารอคอยการโทร Skype ครั้งแรกของคุณ และหากคุณไม่สามารถติดต่อได้ในเวลานั้น โปรดส่งอีเมล์หาคู่สนทนาของคุณที่ "<%= @volunteer.email %>" และแจ้งเขาเรื่องเวลาใหม่ ที่คุณจะสะดวกติดต่อ Skype ครั้งแรกกับเขา</p>
+                    <br />
+                    <p>เราต้องการให้คุณสามารถติดต่อสื่อสารกับคู่สนทนาออนไลน์ของคุณได้ทันทีโดยใช้ Facebook messenger เพื่อยกเลิกหรือเลื่อนการนัดหมาย ฯลฯ <%= @volunteer.facebook == "" ? "" : " (ชื่อ Facebook: #{@volunteer.facebook})" %></p>
                   </td>
                 </tr>
                 </table></td>
