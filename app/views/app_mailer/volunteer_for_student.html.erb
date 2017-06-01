@@ -70,28 +70,31 @@ background-color: #f6f6f6;
                 </tr>
                 <tr><img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/at_coffee_shop.jpg" alt="Coffee shop" height="380" width="520" align="middle"/></tr>
 
-                <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top"> 
+                <tr><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 20px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top"> 
                     Here is the Skype time slot <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "he" : "she" %> has chosen:
                     <ul>
                       <% @skype_time_slots.order("orderday").order("orderam").order("ordertime").each do |slot|%>
                             <li><%= slot.day %> <%= slot.time_period %> <%= slot.am_pm %></li>
                       <% end %>
                     </ul>
-                  </td>
-                </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top"><h3>
+                    <p>If <%= @student.nickname %> has chosen a time that is less than 24 hours from the time you have received this email, then your session will start <u>next week</u> -- not this week.</p>
+
                     <% slot = @skype_time_slots.order("orderday").order("orderam").order("ordertime").first %>
 
-                    <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "His" : "Her" %> skype address is "<%= @student.skype_name %>".  You can start skyping with <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "him" : "her" %> at the time of the scheduled skype time slot you see above (the upcoming...<%= slot.day %> <%= slot.time_period %> <%= slot.am_pm %> ).  <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "He" : "She" %> will be expecting your first Skype call then.  If you cannot connect at that time, please send a message on Skype to '<%= @student.nickname %>' at '<%= @student.skype_name %>' (<%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "His" : "Her" %> Skype address) regarding the best time for your initial Skype contact with <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "him" : "her" %>.  <b>Please keep your message very short and clear.</b>  You can copy/paste this: "I can not meet with you on <%= slot.day_thai %> <%= slot.time_thai %>  this week.  Please meet with me on Skype at the same time next week."
-                  </h3></td>
-                </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top"><h3><b>
-                <u>Make sure to set your Skype app's notifications to "on" on both your mobile device and on your computer.</u>  Also, we highly encourage you to become Facebook friends with <%= @student.nickname %>!  <u>It is very important that you are able to send and receive instant notifications between you and <%= @student.nickname %> during the days between each of your Skype conversations, in case one of you needs to postpone the conversation for that week.</u> <%= @student.facebook == "" ? "" : " Facebook name: #{@student.facebook}" %>
-                  </b></h3></td>
-                </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top"><h2><b>
-                We hope you have a great time conversing with <%= "#{@student.nickname}" %>!!
-                  </b></h2></td>
+                    <p><%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "His" : "Her" %> skype address is "<%= @student.skype_name %>".  You can start skyping with <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "him" : "her" %> at the time of the scheduled skype time slot you see above (the upcoming...<%= slot.day %> <%= slot.time_period %> <%= slot.am_pm %>).</p>
+
+                    <p><%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "He" : "She" %> will be expecting your first Skype call then.  If you cannot connect at that time, please send a message on Skype to '<%= @student.nickname %>' at '<%= @student.skype_name %>' (<%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "His" : "Her" %> Skype address) regarding the best time for your initial Skype contact with <%= @student.gender == "male" || @student.gender == "ผู้ชาย" ? "him" : "her" %>.</p>
+
+                    <p><b>Please keep your message very short and clear.</b>  You can copy/paste this: "I can not meet with you on <%= slot.day_thai %> <%= slot.time_thai %>  this week.  Please meet with me on Skype at the same time next week." (By the way, the time you see in this paste-able message is your Eastern Standard Time converted to Thai time.)</p>
+
+                <p><u>Make sure to set your Skype app's notifications to "on" on both your mobile device and on your computer.</u></p>
+
+                <p>Also, we highly encourage you to become Facebook friends with <%= @student.nickname %>! <%= @student.facebook == "" ? "" : " (Facebook name: #{@student.facebook})" %>  <u>It is very important that you are able to send and receive instant messages between you and <%= @student.nickname %> during the days between each of your Skype conversations, in case one of you needs to postpone the conversation for that week.</u></p>
+                <b>We hope you have a great time conversing with <%= "#{@student.nickname}" %>!!</b>
+                  </td>
                 </tr>
-                </table></td>
-          </tr></table><div class="footer" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;">
+                </table>
+          </table><div class="footer" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;">
           <table width="100%" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="aligncenter content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; color: #999; text-align: center; margin: 0; padding: 0 0 20px;" align="center" valign="top">From the <a href="http://www.cityenglishproject.com" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0;">&copy; 2017 City English Project</a> in Bangkok, Thailand.</td>
             </tr></table></div></div>
     </td>
