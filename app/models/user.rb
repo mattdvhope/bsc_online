@@ -8,10 +8,8 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :chatrooms, through: :messages
 
-
-
-
   belongs_to :class_time
+  belongs_to :off_site_location
 
   has_many :plans, :foreign_key=>"student_id", :dependent => :destroy
   has_many :curriculums, through: :plans
