@@ -15,7 +15,26 @@ var ApplicationView = Backbone.View.extend({
     },
     'click .btn-intro-bullets': function (e) {
       $('.collapse').collapse('toggle');
-    }
+    },
+    'change #non-univ-select': 'deal_with_off_site_classes'
+  },
+
+  deal_with_off_site_classes: function(e) {
+    var options = $(e.target)[0].children;
+    var options_arr = $.map(options, function(value, index) {
+      return [value];
+    });
+    var _this = this;
+    options_arr.forEach(function(value) {
+      if ($(value).val() === "Off-site class (not at our center)" && $(value).is(':selected')) {
+        $("#off-site-fields").html(_this.template_off_site());
+      }
+      if ($(value).val() === "Off-site class (not at our center)" && !$(value).is(':selected')) {
+        $('#off-site-fields label').remove();
+        $('#off-site-fields input').remove();
+        $('#off-site-fields hr').remove();
+      }
+    });
   },
 
   signUp: function() {
@@ -167,7 +186,9 @@ var ApplicationView = Backbone.View.extend({
     return this.class_times.options;
   },
 
-  template:  HandlebarsTemplates['application_form/application_form'],
+  template: HandlebarsTemplates['application_form/application_form'],
+
+  template_off_site: HandlebarsTemplates['application_form/off_site'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
