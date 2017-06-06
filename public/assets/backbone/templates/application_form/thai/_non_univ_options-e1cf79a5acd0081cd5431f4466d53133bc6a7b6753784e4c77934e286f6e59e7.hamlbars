@@ -9,6 +9,4 @@
       <option value="{{this.period}}">{{this.period_thai}}</option>
     {{/each}}
 
-    <option value="Off-site class">ชั้นเรียนนอกสถานที่ (ไม่ใช่ที่ศูนย์ของเรา)</option>
-
   </select>

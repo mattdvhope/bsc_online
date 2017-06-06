@@ -19359,7 +19359,7 @@ window.fbAsyncInit = function() {
   return ((stack1 = container.invokePartial(partials["application_form/_choose_options_explained"],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "<br>\n<br>\n  <select id=\"non-univ-select\" name=\"class_time_scheduled\" class=\"seminar-session-select\">\n\n    <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- Choice -- </option>\n\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.regular_class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n    <option value=\"Off-site class\">Off-site class (not at our center)</option>\n\n  </select>\n\n";
+    + "\n  </select>\n\n";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
@@ -19426,7 +19426,7 @@ window.fbAsyncInit = function() {
   return ((stack1 = container.invokePartial(partials["application_form/_choose_options_explained"],depth0,{"name":"application_form/_choose_options_explained","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "<br>\n<br>\n  <select id=\"non-univ-select\" name=\"class_time_scheduled\" class=\"seminar-session-select\">\n\n    <option id=\"option-with-id\" value=\"select_option\" disabled selected> -- เลือกตารางเรียน -- </option>\n\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.regular_class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n    <option value=\"Off-site class\">ชั้นเรียนนอกสถานที่ (ไม่ใช่ที่ศูนย์ของเรา)</option>\n\n  </select>";
+    + "\n  </select>";
 },"usePartial":true,"useData":true}));
 }).call(this);
 (function() {
