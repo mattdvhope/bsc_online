@@ -144,7 +144,7 @@ class UsersController < ApplicationController
       else
         deal_with_bad_pin
       end
-    end
+    end #
 
     def set_password(user)
       user.password = params[:password]
