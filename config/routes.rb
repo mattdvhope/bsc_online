@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'business', to: "pages#business"
   resources :businesses, only: [:create]
 
+  resources :off_site_locations, only: [:index, :show]
 
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
