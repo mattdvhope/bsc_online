@@ -1,0 +1,14 @@
+{{> application_form/_choose_options_explained}}
+<br>
+<br>
+  <select id="non-univ-select" name="class_time_scheduled" class="seminar-session-select">
+
+    <option id="option-with-id" value="select_option" disabled selected> -- เลือกตารางเรียน -- </option>
+
+    <option value="Off-site class">ชั้นเรียนนอกสถานที่ (ไม่ใช่ที่ศูนย์ของเรา)</option>
+
+    {{#each regular_class_times}}
+      <option value="{{this.period}}">{{this.period_thai}}</option>
+    {{/each}}
+
+  </select>
