@@ -207,7 +207,27 @@ var App = {
     }
   },
   openApplicationForm: function() {
-    var class_times_collection = new ClassTimes();
+    var class_times = new ClassTimes();
+    this.class_times = class_times;
+    var off_site_locations = new OffSiteLocations();
+    this.off_site_locations = off_site_locations;
+
+    var p1 = new Promise(function (resolve, reject) {
+      resolve(class_times.fetch());
+    });
+    var p2 = new Promise(function (resolve, reject) {
+      resolve(off_site_locations.fetch());
+    });
+
+    Promise.all([p1, p2]).then(function (values) {
+      var class_times_view = new ClassTimesView({ collection: values[0] });
+      class_times_view.render();
+      var off_site_locations = new OffSiteLocationsView({ collection: values[1] });
+      off_site_locations.render();
+    }).catch(function (reason) {
+      console.log(reason);
+    });
+
     class_times_collection.fetch({
       success: function (class_times) {
         var student = new User();
@@ -223,15 +243,13 @@ var App = {
         });
         this.applicationView = new ApplicationView({
           model: student,
-          options: class_times
+          options: class_times,
+          collection: 
         });
         $("#applicationmodal").html(this.applicationView.render().el);
         $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
         $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
       },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
     });
   },
   nav_bar_control: function() {

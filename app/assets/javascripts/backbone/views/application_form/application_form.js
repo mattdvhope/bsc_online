@@ -186,6 +186,10 @@ var ApplicationView = Backbone.View.extend({
     return this.class_times.options;
   },
 
+  off_site_locations: function() {
+    return this.off_site_locations.options
+  },
+
   template: HandlebarsTemplates['application_form/application_form'],
 
   template_off_site: HandlebarsTemplates['application_form/off_site'],
@@ -208,7 +212,8 @@ var ApplicationView = Backbone.View.extend({
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      regular_class_times: this.regular_class_times()
+      regular_class_times: this.regular_class_times(),
+      off_site_locations: this.off_site_locations()
     }));
 
     return this;
