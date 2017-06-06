@@ -5,10 +5,10 @@
 
     <option id="option-with-id" value="select_option" disabled selected> -- เลือกตารางเรียน -- </option>
 
+    <option value="Off-site class">ชั้นเรียนนอกสถานที่ (ไม่ใช่ที่ศูนย์ของเรา)</option>
+
     {{#each regular_class_times}}
       <option value="{{this.period}}">{{this.period_thai}}</option>
     {{/each}}
-
-    <option value="Off-site class">ชั้นเรียนนอกสถานที่ (ไม่ใช่ที่ศูนย์ของเรา)</option>
 
   </select>
