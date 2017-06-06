@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524124610) do
+ActiveRecord::Schema.define(version: 20170606114428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,13 @@ ActiveRecord::Schema.define(version: 20170524124610) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "off_site_locations", force: :cascade do |t|
+    t.string   "location_english"
+    t.string   "location_thai"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "parts", force: :cascade do |t|
     t.integer  "course_id"
     t.boolean  "completed?"
@@ -245,8 +252,8 @@ ActiveRecord::Schema.define(version: 20170524124610) do
     t.datetime "updated_at"
     t.boolean  "guest"
     t.string   "postal_code"
-    t.string   "role",               default: "student"
-    t.string   "pin",                default: "000000"
+    t.string   "role",                 default: "student"
+    t.string   "pin",                  default: "000000"
     t.string   "nickname"
     t.string   "image"
     t.integer  "class_time_id"
@@ -255,10 +262,11 @@ ActiveRecord::Schema.define(version: 20170524124610) do
     t.string   "organization"
     t.string   "national_id"
     t.string   "skype_name"
-    t.integer  "number_of_slots",    default: 0
+    t.integer  "number_of_slots",      default: 0
     t.string   "facebook"
     t.string   "line"
     t.string   "skype_time_slot_id"
+    t.integer  "off_site_location_id"
   end
 
 end
