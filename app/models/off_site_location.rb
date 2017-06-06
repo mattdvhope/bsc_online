@@ -1,0 +1,2 @@
+class OffSiteLocation < ApplicationRecord
+end
