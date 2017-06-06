@@ -1,9 +1,7 @@
 class OffSiteLocationsController < ApplicationController
 
   def index
-  end
-
-  def show
+    @off_site_locations = OffSiteLocation.all
   end
 
 end
