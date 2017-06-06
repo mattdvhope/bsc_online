@@ -14,7 +14,6 @@ var ApplicationView = Backbone.View.extend({
       $('.collapse').collapse('toggle');
     },
     'click .btn-intro-bullets': function (e) {
-console.log("clicking collapse");
       $('.collapse').collapse('toggle');
     }
   },
