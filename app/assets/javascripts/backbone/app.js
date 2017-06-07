@@ -211,6 +211,7 @@ var App = {
     this.class_times = class_times;
     var off_site_locations = new OffSiteLocations();
     this.off_site_locations = off_site_locations;
+    var student = new User();
 
     var p1 = new Promise(function (resolve, reject) {
       resolve(class_times.fetch());
@@ -228,29 +229,31 @@ var App = {
       console.log(reason);
     });
 
-    class_times_collection.fetch({
-      success: function (class_times) {
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times,
-          collection: 
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-        $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
-        $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
-      },
-    });
+/////////////////////////////////////
+
+    // class_times_collection.fetch({
+    //   success: function (class_times) {
+    //     var student = new User();
+    //     var class_times = class_times.toJSON().sort(function (a, b) {
+    //       if (a.order_no > b.order_no) {
+    //         return 1;
+    //       }
+    //       if (a.order_no < b.order_no) {
+    //         return -1;
+    //       }
+    //       // a must be equal to b
+    //       return 0;
+    //     });
+    //     this.applicationView = new ApplicationView({
+    //       model: student,
+    //       options: class_times,
+    //       collection: 
+    //     });
+    //     $("#applicationmodal").html(this.applicationView.render().el);
+    //     $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+    //     $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
+    //   },
+    // });
   },
   nav_bar_control: function() {
     var the_app = this;
