@@ -29,15 +29,8 @@ var ApplicationView = Backbone.View.extend({
       if ($(value).val() === "Off-site class (not at our center)" && $(value).is(':selected')) {
         var off_site_locations_view = new OffSiteLocationsView({ collection: off_site_locations });
         off_site_locations_view.render();
-
-
-        // $("#off-site-fields").html(_this.template_off_site());
       }
       if ($(value).val() === "Off-site class (not at our center)" && !$(value).is(':selected')) {
-        // $('#off-site-fields label').remove();
-        // $('#off-site-fields input').remove();
-        // $('#off-site-fields hr').remove();
-
         $("#off-site-loc-span").remove();
       }
     });
