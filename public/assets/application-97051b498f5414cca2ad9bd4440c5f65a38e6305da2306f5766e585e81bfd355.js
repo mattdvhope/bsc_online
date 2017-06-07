@@ -604,6 +604,9 @@ Based on Rails routes of BscOnline::Application
 // new_plan => /plans/new(.:format)
   // function(options)
   new_plan_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"plans",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+// off_site_locations => /off_site_locations(.:format)
+  // function(options)
+  off_site_locations_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"off_site_locations",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
 // part => /parts/:id(.:format)
   // function(id, options)
   part_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"parts",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -19297,7 +19300,7 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "        <hr>\n\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n            <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address <h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </label>\n        <hr>\n\n        <h3><u>"
+    + "        </label>\n        <hr>\n\n        <span id=\"off-site-fields\"></span>\n\n        <h3><u>"
     + container.escapeExpression(((helper = (helper = helpers.bank_transfer_info || (depth0 != null ? depth0.bank_transfer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_transfer_info","hash":{},"data":data}) : helper)))
     + "</u></h3>\n        <h4>"
     + container.escapeExpression(((helper = (helper = helpers.bank_transfer_extra_info || (depth0 != null ? depth0.bank_transfer_extra_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_transfer_extra_info","hash":{},"data":data}) : helper)))
@@ -19383,6 +19386,23 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.class_time || (depth0 != null ? depth0.class_time : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"class_time","hash":{},"data":data}) : helper)))
     + ".</h3>\n\n<h3>Please check your email 'Inbox'.  If you do not see an email from 'info@cityenglishproject.com' in your 'Inbox', please look in your \"Junk\" or \"Trash\" mail box. Then move the email to your 'Inbox'.</h3>\n\n<h3>If you have questions, you can call us at 086-696-7821 or LINE us at \"cityenglishproject\".</h3>\n\n<h3>Please arrive 15 minutes early on the first day of class to pay.</h3>\n\n<h3>Our center is located at [Pan Road address].</h3>\n\n<h3>Don't forget to \"Like\" us on Facebook <a href=\"https://www.facebook.com/City-English-Project-1745393602361714/?notif_t=page_fan&notif_id=1462353525485104\">Facebook</a> and \"Follow\" us on <a href=\"https://www.instagram.com/cityenglishproject/?hl=en\">Instagram</a>.</h3>\n\n<h3>We hope you have a great time learning English with CEP!!</h3>\n\n<hr>\nCopyright © City English Project 2016\nAll rights reserved.";
 },"useData":true}));
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["application_form/off_site_locations"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "        <option value=\""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + "\">"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_thai : depth0), depth0))
+    + "</option>\n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<span id=\"off-site-loc-span\">\n\n  <label class=\"field-label\">Class location</label>\n  <div>\n    <select name=\"off_site_location_id\" class=\"site-location-select\">\n\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.off_site_locations : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n    </select>\n  </div>\n\n  <hr>\n\n</span>";
+},"useData":true});
+  return this.HandlebarsTemplates["application_form/off_site_locations"];
 }).call(this);
 (function() {
   Handlebars.registerPartial("application_form/thai/_after_submit", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -20922,6 +20942,11 @@ var ClassTime = Backbone.Model.extend({
   urlRoot: 'class_times'
 
 });
+var OffSiteLocation = Backbone.Model.extend({
+
+  urlRoot: 'off_site_locations'
+
+});
 var Session = Backbone.Model.extend({
 
   urlRoot: 'sessions'
@@ -20972,6 +20997,12 @@ var ClassTimes = Backbone.Collection.extend({
 
   model: ClassTime,
   url : 'class_times'
+
+}); 
+var OffSiteLocations = Backbone.Collection.extend({
+
+  model: OffSiteLocation,
+  url : 'off_site_locations'
 
 }); 
 var SkypeTimeSlots = Backbone.Collection.extend({
@@ -21032,9 +21063,26 @@ var ApplicationView = Backbone.View.extend({
       $('.collapse').collapse('toggle');
     },
     'click .btn-intro-bullets': function (e) {
-console.log("clicking collapse");
       $('.collapse').collapse('toggle');
-    }
+    },
+    'change #non-univ-select': 'deal_with_off_site_classes'
+  },
+
+  deal_with_off_site_classes: function(e) {
+    var options = $(e.target)[0].children;
+    var options_arr = $.map(options, function(value, index) {
+      return [value];
+    });
+    var off_site_locations = this.collection;
+    options_arr.forEach(function(value) {
+      if ($(value).val() === "Off-site class (not at our center)" && $(value).is(':selected')) {
+        var off_site_locations_view = new OffSiteLocationsView({ collection: off_site_locations });
+        off_site_locations_view.render();
+      }
+      if ($(value).val() === "Off-site class (not at our center)" && !$(value).is(':selected')) {
+        $("#off-site-loc-span").remove();
+      }
+    });
   },
 
   signUp: function() {
@@ -21186,7 +21234,13 @@ console.log("clicking collapse");
     return this.class_times.options;
   },
 
-  template:  HandlebarsTemplates['application_form/application_form'],
+  off_site_locations: function() {
+    return this.off_site_locations.options
+  },
+
+  template: HandlebarsTemplates['application_form/application_form'],
+
+  template_off_site: HandlebarsTemplates['application_form/off_site'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -21206,13 +21260,33 @@ console.log("clicking collapse");
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      regular_class_times: this.regular_class_times()
+      regular_class_times: this.regular_class_times(),
+      off_site_locations: this.off_site_locations()
     }));
 
     return this;
   }
 
 });
+var OffSiteLocationsView = Backbone.View.extend({
+
+  template:  HandlebarsTemplates['application_form/off_site_locations'],
+
+  initialize: function() {
+    this.$el.appendTo(".entire");
+  },
+
+  render: function() {
+    $("#off-site-fields").html(this.template({
+      off_site_locations: this.collection
+    }));
+
+    return this;
+  }
+  
+});
+
+
 var WelcomePopupView = Backbone.View.extend({
   initialize: function() {},
   events: {},
@@ -23536,31 +23610,47 @@ var App = {
     }
   },
   openApplicationForm: function() {
-    var class_times_collection = new ClassTimes();
-    class_times_collection.fetch({
-      success: function (class_times) {
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-        $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
-        $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
+    var class_times = new ClassTimes();
+    this.class_times = class_times;
+    var off_site_locations = new OffSiteLocations();
+    this.off_site_locations = off_site_locations;
+    var student = new User();
+
+    var p1 = new Promise(function (resolve, reject) {
+      resolve(class_times.fetch());
+    });
+    var p2 = new Promise(function (resolve, reject) {
+      resolve(off_site_locations.fetch());
+    });
+
+    Promise.all([p1, p2]).then(function (values) {
+      var class_times = values[0];
+      var off_site_locations = values[1];
+      var class_times_view = new ClassTimesView({ collection: class_times });
+      class_times_view.render();
+
+      var student = new User();
+      var class_times = class_times.sort(function (a, b) {
+        if (a.order_no > b.order_no) {
+          return 1;
+        }
+        if (a.order_no < b.order_no) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+      this.applicationView = new ApplicationView({
+        model: student,
+        options: class_times,
+        collection: off_site_locations
+      });
+
+      $("#applicationmodal").html(this.applicationView.render().el);
+      $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+      $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
+    }).catch(function (reason) {
+      console.log(reason);
     });
   },
   nav_bar_control: function() {

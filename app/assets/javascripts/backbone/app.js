@@ -207,31 +207,47 @@ var App = {
     }
   },
   openApplicationForm: function() {
-    var class_times_collection = new ClassTimes();
-    class_times_collection.fetch({
-      success: function (class_times) {
-        var student = new User();
-        var class_times = class_times.toJSON().sort(function (a, b) {
-          if (a.order_no > b.order_no) {
-            return 1;
-          }
-          if (a.order_no < b.order_no) {
-            return -1;
-          }
-          // a must be equal to b
-          return 0;
-        });
-        this.applicationView = new ApplicationView({
-          model: student,
-          options: class_times
-        });
-        $("#applicationmodal").html(this.applicationView.render().el);
-        $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
-        $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
-      },
-      error: function (collection, response, options) {
-        console.log("error");
-      }
+    var class_times = new ClassTimes();
+    this.class_times = class_times;
+    var off_site_locations = new OffSiteLocations();
+    this.off_site_locations = off_site_locations;
+    var student = new User();
+
+    var p1 = new Promise(function (resolve, reject) {
+      resolve(class_times.fetch());
+    });
+    var p2 = new Promise(function (resolve, reject) {
+      resolve(off_site_locations.fetch());
+    });
+
+    Promise.all([p1, p2]).then(function (values) {
+      var class_times = values[0];
+      var off_site_locations = values[1];
+      var class_times_view = new ClassTimesView({ collection: class_times });
+      class_times_view.render();
+
+      var student = new User();
+      var class_times = class_times.sort(function (a, b) {
+        if (a.order_no > b.order_no) {
+          return 1;
+        }
+        if (a.order_no < b.order_no) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+      this.applicationView = new ApplicationView({
+        model: student,
+        options: class_times,
+        collection: off_site_locations
+      });
+
+      $("#applicationmodal").html(this.applicationView.render().el);
+      $("#applicationmodal").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
+      $("button.btn-intro-bullets").addClass( "collapsable-intro-bullets" );
+    }).catch(function (reason) {
+      console.log(reason);
     });
   },
   nav_bar_control: function() {

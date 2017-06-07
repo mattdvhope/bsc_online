@@ -14,9 +14,26 @@ var ApplicationView = Backbone.View.extend({
       $('.collapse').collapse('toggle');
     },
     'click .btn-intro-bullets': function (e) {
-console.log("clicking collapse");
       $('.collapse').collapse('toggle');
-    }
+    },
+    'change #non-univ-select': 'deal_with_off_site_classes'
+  },
+
+  deal_with_off_site_classes: function(e) {
+    var options = $(e.target)[0].children;
+    var options_arr = $.map(options, function(value, index) {
+      return [value];
+    });
+    var off_site_locations = this.collection;
+    options_arr.forEach(function(value) {
+      if ($(value).val() === "Off-site class (not at our center)" && $(value).is(':selected')) {
+        var off_site_locations_view = new OffSiteLocationsView({ collection: off_site_locations });
+        off_site_locations_view.render();
+      }
+      if ($(value).val() === "Off-site class (not at our center)" && !$(value).is(':selected')) {
+        $("#off-site-loc-span").remove();
+      }
+    });
   },
 
   signUp: function() {
@@ -168,7 +185,13 @@ console.log("clicking collapse");
     return this.class_times.options;
   },
 
-  template:  HandlebarsTemplates['application_form/application_form'],
+  off_site_locations: function() {
+    return this.off_site_locations.options
+  },
+
+  template: HandlebarsTemplates['application_form/application_form'],
+
+  template_off_site: HandlebarsTemplates['application_form/off_site'],
 
   render: function() {
     var csrf_token = $('meta[name=csrf-token]').attr('content');
@@ -188,7 +211,8 @@ console.log("clicking collapse");
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      regular_class_times: this.regular_class_times()
+      regular_class_times: this.regular_class_times(),
+      off_site_locations: this.off_site_locations()
     }));
 
     return this;

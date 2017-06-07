@@ -63,6 +63,8 @@
         </label>
         <hr>
 
+        <span id="off-site-fields"></span>
+
         <h3><u>{{bank_transfer_info}}</u></h3>
         <h4>{{bank_transfer_extra_info}}</h4>
         <h4>{{bank_name}}</h4>
