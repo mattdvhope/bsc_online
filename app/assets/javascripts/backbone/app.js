@@ -73,26 +73,33 @@ var App = {
     dashboard_page.render();
     this.renderNavBar();
 
-    var class_times = new ClassTimes(); // collection
+    var class_times = new ClassTimes();
     this.class_times = class_times;
-    var students = new Students(); // collection
-    var slots_taken = new VolunteersForStudents(); // collection
+    var off_site_locations = new OffSiteLocations();
+    var students = new Students();
+    var slots_taken = new VolunteersForStudents();
+
     var p1 = new Promise(function (resolve, reject) {
       resolve(class_times.fetch());
     });
     var p2 = new Promise(function (resolve, reject) {
-      resolve(students.fetch());
+      resolve(off_site_locations.fetch());
     });
     var p3 = new Promise(function (resolve, reject) {
+      resolve(students.fetch());
+    });
+    var p4 = new Promise(function (resolve, reject) {
       resolve(slots_taken.fetch());
     });
 
-    Promise.all([p1, p2, p3]).then(function (values) {
+    Promise.all([p1, p2, p3, p4]).then(function (values) {
       var class_times_view = new ClassTimesView({ collection: values[0] });
       class_times_view.render();
-      var former_students_view = new FormerStudentsView({ collection: values[1] });
+      var off_site_locations_view = new OffSiteLocationsView({ model: user, collection: values[1] });
+      off_site_locations_view.render();
+      var former_students_view = new FormerStudentsView({ collection: values[2] });
       former_students_view.render();
-      var volunteers_for_students_view = new VolunteersForStudentsView({ collection: values[2] });
+      var volunteers_for_students_view = new VolunteersForStudentsView({ collection: values[3] });
       volunteers_for_students_view.render();
     }).catch(function (reason) {
       console.log(reason);
@@ -114,12 +121,6 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    // if (volunteer.get("number_of_slots") == 0) {
-    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
-    // }
-    // else {
-    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-    // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
     setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
