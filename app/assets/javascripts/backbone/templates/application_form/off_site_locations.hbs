@@ -1,18 +1,16 @@
 <span id="off-site-loc-span">
 
-<label class="field-label">Class location</label>
-<div>
-  <select name="off_site_location_id" class="site-location-select">
+  <label class="field-label">Class location</label>
+  <div>
+    <select name="off_site_location_id" class="site-location-select">
 
-    {{#each off_site_locations}}
-      <option value="{{this.id}}">{{this.location_thai}}</option>
-    {{/each}}
+      {{#each off_site_locations}}
+        <option value="{{this.id}}">{{this.location_thai}}</option>
+      {{/each}}
 
-    {{!-- <option value="location one">Location #1</option>
-    <option value="location two">Location #2</option> --}}
-  </select>
-</div>
+    </select>
+  </div>
 
-<hr>
+  <hr>
 
 </span>
