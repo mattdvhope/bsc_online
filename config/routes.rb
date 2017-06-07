@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get 'business', to: "pages#business"
   resources :businesses, only: [:create]
 
-  resources :off_site_locations, only: [:index]
-
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
   resources :chatrooms, only: [:show]
@@ -32,6 +30,8 @@ Rails.application.routes.draw do
 
   get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   resources :class_times, only: [:index, :show, :create, :destroy]
+
+  resources :off_site_locations, only: [:index]
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
