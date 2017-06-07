@@ -1,4 +1,5 @@
 var OffSiteLocationsView = Backbone.View.extend({
+
   template:  HandlebarsTemplates['application_form/off_site_locations'],
 
   initialize: function() {
@@ -6,14 +7,13 @@ var OffSiteLocationsView = Backbone.View.extend({
   },
 
   render: function() {
-console.log(this.collection);
-    // this.$el.html(this.template({
-      // no_class_times: this.no_class_times(),
-      // class_times: this.sorted_class_times()
-    // }));
+    $("#off-site-fields").html(this.template({
+      off_site_locations: this.collection
+    }));
 
-    // return this;
+    return this;
   }
+  
 });
 
 
