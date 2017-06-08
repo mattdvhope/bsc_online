@@ -1,27 +1,70 @@
+<div class="container">
+
 <br>
 <br>
 <br>
+
+<hr>
+<h2><a href="/log_out">Log Out</a></h2>
+<hr>
+  
+<h2>Create or Delete class times on this page...</h2>
 <hr>
 
-<span id="off-site-loc-span">
-???????????????????????
-  <label class="field-label">Class location</label>
-  <div>
-    <select name="off_site_location_id" class="site-location-select">
+{{#if refreshed}}
+  <h4><a href="/dashboard">Return to your dashboard page, {{leader}}</a></h4>
+{{else}}
+  <h4><a href="javascript:history.back()">Return to your dashboard page, {{leader}}</a></h4>
+{{/if}}
 
-      {{#if thai_language}}
-        {{#each off_site_locations}}
-          <option value="{{this.id}}">{{this.location_thai}}</option>
-        {{/each}}
-      {{^}}
-        {{#each off_site_locations}}
-          <option value="{{this.id}}">{{this.location_english}}</option>
-        {{/each}}
-      {{/if}}
+<hr>
+<h2>Here are the currently scheduled CEP off-site (not at the CEP center) class locations....</h2>
 
-    </select>
-  </div>
-
+  <ul style="list-style: none;">
   <hr>
+  {{#each off_site_locations}}
+    <li>
+      <h4><b>Location (English):</b> {{this.location_english}}</h4>
+      {{!-- {{#each this.users}}
+        <h4>{{this.first_name}} {{this.last_name}}</h4>        
+      {{/each}} --}}
+    </li>
+    <li>
+      <h4>{{this.users}}</h4>
+    </li>
+    <li>
+      <h4><b>Location (Thai):</b> {{this.location_thai}}</h4>
+    </li>
+    <hr>
+  {{/each}}
+  </ul>
 
-</span>
+<hr>
+<h2>You can create new class times below....</h2>
+<h4>(please use formats like these)</h4>
+<h3>20-24 June, 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>
+<h4>..............or.............</h4>
+<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>
+<h4>...and...</h4>
+<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>
+<h4>...etc...(try not make them too long and avoid typos!!)....</h4>
+<hr>
+<hr>
+<h2>Below here you can (1) Create a new class time, (2) Delete a class time</h2>
+<hr>
+<span id="for-attaching-form"></span>
+
+</div> <!-- container -->
+
+<!-- new_off_site_location_form below this template -->
+

@@ -111,6 +111,7 @@ var App = {
   getNewOffSiteLocationView: function(refreshed) {
     this.removeNavAndPage();
     var off_site_locations = gon.current_off_site_locations || this.off_site_locations;
+console.log(off_site_locations);
     var new_off_site_location_page = new NewOffSiteLocationView({collection: off_site_locations, model: this.user, refreshed: refreshed});
     document.title = 'New Off-site Location';
     this.renderNavBar();
