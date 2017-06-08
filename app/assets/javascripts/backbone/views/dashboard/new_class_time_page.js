@@ -25,7 +25,7 @@ var NewClassTimeView = Backbone.View.extend({
       refreshed: this.refreshed
     }));
 
-    var new_class_time_form = new NewClassTimeForm({collection: this.collection, model: this.model});
+    var new_class_time_form = new  NewClassTimeForm({collection: this.collection, model: this.model});
     new_class_time_form.render();
 
     return this;

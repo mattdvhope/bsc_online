@@ -14,6 +14,17 @@ class PagesController < ApplicationController
     gon.page_needed = "business"
   end
 
+  def new_off_site_location
+    gon.page_needed = "new_off_site_location"
+    gon.current_off_site_locations = OffSiteLocation.all
+
+    if current_user
+      gon.user = current_user
+    else
+      redirect_to root_path
+    end
+  end
+
   def new_class_time
     gon.page_needed = "new_class_time"
     gon.current_class_times = ClassTime.all

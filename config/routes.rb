@@ -28,10 +28,11 @@ Rails.application.routes.draw do
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
 
-  get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
-  resources :class_times, only: [:index, :show, :create, :destroy]
-
+  get 'off_site_locations/new', to: "pages#new_off_site_location" # this is only for the page refresh
   resources :off_site_locations, only: [:index]
+
+  get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh
+  resources :class_times, only: [:index, :show, :create, :destroy]
 
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"

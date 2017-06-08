@@ -105,6 +105,18 @@ var App = {
       console.log(reason);
     });
   },
+  getNewOffSiteLocationView: function(refreshed) {
+    this.removeNavAndPage();
+console.log(gon.current_off_site_locations);
+console.log(this.off_site_locations);
+    var off_site_locations = gon.current_off_site_locations || this.off_site_locations.toJSON();
+    var new_off_site_location_page = new NewOffSiteLocationView({collection: off_site_locations, model: this.user, refreshed: refreshed});
+    document.title = 'New Off-site Location';
+    this.renderNavBar();
+    this.scrollUpToTopOfPage();
+    new_off_site_location_page.render().el;
+    this.new_off_site_location_page = new_off_site_location_page;
+  },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
     var class_times = gon.current_class_times || this.class_times.toJSON();
@@ -340,6 +352,9 @@ var App = {
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
+      else if (gon.page_needed === "new_off_site_location") {
+        app_obj.getNewOffSiteLocationView("refreshed");
+      }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
       }
@@ -386,6 +401,9 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
   }
   else if (Backbone.history.getFragment() === "dashboard") {
     App.getDashboardPage(App.user);
+  }
+  else if (Backbone.history.getFragment() === "off_site_locations/new") {
+    App.getNewOffSiteLocationView();
   }
   else if (Backbone.history.getFragment() === "class_times/new") {
     App.getNewClassTimeView();
