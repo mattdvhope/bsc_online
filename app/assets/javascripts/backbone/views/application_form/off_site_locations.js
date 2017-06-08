@@ -19,12 +19,9 @@ var OffSiteLocationsView = Backbone.View.extend({
 
   render: function() {
     if (this.model) {
-      $('.dash-create-classes').after(this.template_dash(handlebars_data()));
+      $('.dash-create-classes').after(this.template_dash(this.handlebars_data()));
     } else {
-      $("#off-site-fields").html(this.template_appl({
-        thai_language: thai_language(),
-        off_site_locations: this.collection
-      }));
+      $("#off-site-fields").html(this.template_appl(this.handlebars_data()));
     }
     return this;
   }
