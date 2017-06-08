@@ -16,7 +16,6 @@ class PagesController < ApplicationController
 
   def new_off_site_location
     gon.page_needed = "new_off_site_location"
-    gon.current_off_site_locations = OffSiteLocation.all
 
     if current_user
       gon.user = current_user
