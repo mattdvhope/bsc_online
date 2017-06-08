@@ -92,10 +92,13 @@ var App = {
       resolve(slots_taken.fetch());
     });
 
+    var _this = this;
+
     Promise.all([p1, p2, p3, p4]).then(function (values) {
       var class_times_view = new ClassTimesView({ collection: values[0] });
       class_times_view.render();
       var off_site_locations_view = new OffSiteLocationsView({ model: user, collection: values[1] });
+      _this.off_site_locations = values[1];
       off_site_locations_view.render();
       var former_students_view = new FormerStudentsView({ collection: values[2] });
       former_students_view.render();
@@ -107,9 +110,7 @@ var App = {
   },
   getNewOffSiteLocationView: function(refreshed) {
     this.removeNavAndPage();
-console.log(gon.current_off_site_locations);
-console.log(this.off_site_locations);
-    var off_site_locations = gon.current_off_site_locations || this.off_site_locations.toJSON();
+    var off_site_locations = gon.current_off_site_locations || this.off_site_locations;
     var new_off_site_location_page = new NewOffSiteLocationView({collection: off_site_locations, model: this.user, refreshed: refreshed});
     document.title = 'New Off-site Location';
     this.renderNavBar();
@@ -159,7 +160,6 @@ console.log(this.off_site_locations);
       error: function (collection, response, options) {
         console.log("error");
         console.log(response);
-        console.log(options);
       }
     });
   },
