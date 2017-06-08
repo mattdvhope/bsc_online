@@ -11,7 +11,6 @@ var DeleteClassTime = Backbone.View.extend({
   deleteClassTime: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
     var leader_user = this.model;
-    var view_context = this;
     var class_time = new ClassTime({id: parseInt($(e.target)[0].dataset.id)});
 
     var promise = new Promise(function(resolve, reject) {
