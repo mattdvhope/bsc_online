@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get 'business', to: "pages#business"
   resources :businesses, only: [:create]
 
-  resources :off_site_locations, only: [:index]
-
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
   resources :chatrooms, only: [:show]
@@ -19,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'volunteer_info', to: "pages#volunteer_info" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
   get 'dashboard', to: "pages#dashboard"
+  patch 'dashboard', to: "pages#dashboard"
   delete 'dashboard', to: "pages#dashboard"
   get 'applicants_list', to: "pages#applicants_list"
 
@@ -30,7 +29,11 @@ Rails.application.routes.draw do
   get 'register_admin', to: "users#register_admin"
   get 'register_vol', to: "users#register_vol"
 
-  get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh (NOT AT ALL for the '/volunteer_info' link in nav_bar.hbs -- that is handled in 'router.js')
+  get 'off_site_locations/new', to: "pages#new_off_site_location" # this is only for the page refresh
+  resources :off_site_locations, only: [:index, :create]
+  patch 'off_site_locations/off_site_locations/:id', to: "off_site_locations#update" # this is only for the page refresh
+
+  get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh
   resources :class_times, only: [:index, :show, :create, :destroy]
 
   get 'volunteers/users/:id', to: "users#show"

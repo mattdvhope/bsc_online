@@ -14,6 +14,24 @@ class PagesController < ApplicationController
     gon.page_needed = "business"
   end
 
+  def new_off_site_location
+    gon.page_needed = "new_off_site_location"
+    locations = OffSiteLocation.all
+
+    array = []
+    locations.each do |loc|
+      loc = loc.attributes.merge!(users: loc.users).merge!(timestamp: loc.created_at.to_i)
+      array << loc
+    end
+    @off_site_locations = array.to_json
+
+    if current_user
+      gon.user = current_user
+    else
+      redirect_to root_path
+    end
+  end
+
   def new_class_time
     gon.page_needed = "new_class_time"
     gon.current_class_times = ClassTime.all

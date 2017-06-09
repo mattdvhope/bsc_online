@@ -607,6 +607,9 @@ Based on Rails routes of BscOnline::Application
 // off_site_locations => /off_site_locations(.:format)
   // function(options)
   off_site_locations_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"off_site_locations",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
+// off_site_locations_new => /off_site_locations/new(.:format)
+  // function(options)
+  off_site_locations_new_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"off_site_locations",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // part => /parts/:id(.:format)
   // function(id, options)
   part_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"parts",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
@@ -19390,16 +19393,30 @@ window.fbAsyncInit = function() {
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
   this.HandlebarsTemplates["application_form/off_site_locations"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "        <option value=\""
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.off_site_locations : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
+    return "          <option value=\""
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
     + "\">"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_thai : depth0), depth0))
+    + "</option>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.off_site_locations : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"5":function(container,depth0,helpers,partials,data) {
+    return "          <option value=\""
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + "\">"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_english : depth0), depth0))
     + "</option>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "<span id=\"off-site-loc-span\">\n\n  <label class=\"field-label\">Class location</label>\n  <div>\n    <select name=\"off_site_location_id\" class=\"site-location-select\">\n\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.off_site_locations : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(4, data, 0),"data":data})) != null ? stack1 : "")
     + "\n    </select>\n  </div>\n\n  <hr>\n\n</span>";
 },"useData":true});
   return this.HandlebarsTemplates["application_form/off_site_locations"];
@@ -19606,7 +19623,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
-    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\"><a href=\"/class_times/new\">Create or Delete class times</a></h2>\n    <hr>\n\n"
+    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/off_site_locations/new\">Create or Delete class times (at off-site location)</a></h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/class_times/new\">Create or Delete class times (at center)</a></h2>\n    <hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n\n\n</div>\n";
 },"useData":true});
@@ -19628,6 +19645,41 @@ window.fbAsyncInit = function() {
     + "</ul>\n\n<hr>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/delete_class_time"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/edit_off_site_location"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    return "    <li>\n      <h3>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_english : depth0), depth0))
+    + "<a data-id="
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + " id=\"archive-off-site-location\" href=\"\" > Archive</a></h3>\n    </li>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "      <li>\n        <h4><b>Location:</b> "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_english : depth0), depth0))
+    + "/"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_thai : depth0), depth0))
+    + "</h4>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.users : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "      </li>\n      <hr>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    return "          <h5>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + " "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</h5>        \n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<h2>(2) Mark/Archive off-site location as 'complete'</h2>\n<hr>\n\n<ul>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.not_completed : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul>\n\n<hr>\n\n  <h2 class=\"txt\" style=\"color: #337ab7; cursor: pointer;\" data-toggle=\"collapse\" data-target=\"#collapseOffSiteLocations\" aria-expanded=\"false\" aria-controls=\"collapseOffSiteLocations\">\n    Click here to see an Archived List of 'completed' off-site locations.\n  </h2>\n  <div class=\"collapse\" id=\"collapseOffSiteLocations\">\n\n    <br>\n    <ol>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.completed : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </ol>\n\n  </div>\n\n<hr>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n\n\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/edit_off_site_location"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -19698,13 +19750,65 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"entire-new-class\">\n\n<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
+  return "<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Below here you can (1) Create a new class time, (2) Delete a class time</h2>\n<hr>\n<span id=\"for-attaching-form\"></span>\n\n</div> <!-- container -->\n\n</div> <!-- class=\"entire-new-class\" -->";
+    + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Below here you can (1) Create a new class time, (2) Delete a class time</h2>\n<hr>\n<span id=\"for-attaching-form\"></span>\n\n</div> <!-- container -->\n\n<!-- new_class_time_form below this template -->";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/new_class_time_page"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/new_off_site_location_form"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<h2>(1) Create a new off-site locations</h2>\n<hr>\n<form class=\"new_off_site_location\" id=\"new_off_site_location\" action=\"/off_site_locations\" accept-charset=\"UTF-8\" method=\"post\"><input name=\"utf8\" type=\"hidden\" value=\"✓\"><input type=\"hidden\" name=\"authenticity_token\" value="
+    + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
+    + ">\n\n  <ul style=\"list-style: none; margin-right: 2em;\">\n    <li>\n      <h3><label for=\"off_site_location_name\"><u>Location in English</u>:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (English)\" name=\"off_site_location[location_english]\"></h4>\n      <br>\n    </li>\n    <li>\n      <h3><label for=\"off_site_location_name\"><u>Location in Thai</u>:</label></h3>\n      <h4><input type=\"text\" class=\"form-control\" placeholder=\"Class Time (Thai)\" name=\"off_site_location[location_thai]\"></h4>\n      <br>\n    </li>\n  </ul>\n\n  <input type=\"submit\" name=\"commit\" value=\"Create\" class=\"btn btn-success\" data-disable-with=\"Create\" style=\"margin-left: 2.2em;\">\n  <hr>\n\n</form>\n\n<span id=\"for-attaching-edit-off-site-locations\"></span>\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/new_off_site_location_form"];
+}).call(this);
+(function() {
+  this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
+  this.HandlebarsTemplates["dashboard/new_off_site_location_page"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "  <h4><a href=\"/dashboard\">Return to your dashboard page, "
+    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "  <h4><a href=\"javascript:history.back()\">Return to your dashboard page, "
+    + container.escapeExpression(((helper = (helper = helpers.leader || (depth0 != null ? depth0.leader : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"leader","hash":{},"data":data}) : helper)))
+    + "</a></h4>\n";
+},"5":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <li>\n      <h4><b>Location:</b> "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_english : depth0), depth0))
+    + "/"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.location_thai : depth0), depth0))
+    + "</h4>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.users : depth0),{"name":"each","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </li>\n    <hr>\n";
+},"6":function(container,depth0,helpers,partials,data) {
+    return "        <h5>"
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
+    + " "
+    + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
+    + "</h5>        \n";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete off-site locations on this page...</h2>\n<hr>\n\n"
+    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n<hr>\n<h2>Here are the currently scheduled CEP off-site (not at the CEP center) class locations....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.not_completed : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "  </ul>\n\n<hr>\n<h2>You can create new off-site locations below....</h2>\n<h4>Use differing characteristics [like floor numbers, etc] and a chronologically ordered number [#3, etc] for classes taught in succession at the same location.  Also write in the time period (plus days if not a M-F class). <u>The bottom line is that you want to distinguish every class from every <b>other</b> class!</u></h4>\n<h3>Wat Tam Sua (3rd floor, #1), 10:00am-12:00pm</h3>\n<h4>...and...</h4>\n<h3>วัดถ้ำเสือ (ชั้น 3, #1), 10:30-12:00น.</h3>\n<h4>..............or.............</h4>\n<h3>Fusion Sales team (#2), 6:00-7:30pm</h3>\n<h4>...and...</h4>\n<h3>ทีมขาย Fusion (#2), 18:00-19:30น.</h3>\n<h4>..............or.............</h4>\n<h3>Fusion Sales team (#3), T-Th, 6:00-7:30pm</h3>\n<h4>...and...</h4>\n<h3>ทีมขาย Fusion (#3), อังคาร-พฤหัส, 18:00-19:30น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Below here you can (1) Create a new off-site location, (2) Archive an off-site location</h2>\n<hr>\n<span id=\"for-attaching-form\"></span>\n\n</div> <!-- container -->\n\n<!-- new_off_site_location_form below this template -->\n";
+},"useData":true});
+  return this.HandlebarsTemplates["dashboard/new_off_site_location_page"];
 }).call(this);
 (function() {
   this.HandlebarsTemplates || (this.HandlebarsTemplates = {});
@@ -21270,20 +21374,28 @@ var ApplicationView = Backbone.View.extend({
 });
 var OffSiteLocationsView = Backbone.View.extend({
 
-  template:  HandlebarsTemplates['application_form/off_site_locations'],
-
   initialize: function() {
     this.$el.appendTo(".entire");
   },
 
-  render: function() {
-    $("#off-site-fields").html(this.template({
-      off_site_locations: this.collection
-    }));
+  template: HandlebarsTemplates['application_form/off_site_locations'],
 
+  render: function() {
+    var off_site_locations = this.collection;
+    var not_completed = [];
+    off_site_locations.forEach(function(loc) {
+      if (loc.completed !== true) {
+        not_completed.push(loc)
+      }
+    });
+
+    $("#off-site-fields").html(this.template({
+      thai_language: thai_language(),
+      off_site_locations: not_completed
+    }));
     return this;
   }
-  
+
 });
 
 
@@ -21510,7 +21622,6 @@ var DeleteClassTime = Backbone.View.extend({
   deleteClassTime: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
     var leader_user = this.model;
-    var view_context = this;
     var class_time = new ClassTime({id: parseInt($(e.target)[0].dataset.id)});
 
     var promise = new Promise(function(resolve, reject) {
@@ -21532,6 +21643,66 @@ var DeleteClassTime = Backbone.View.extend({
     var class_times = this.collection;
     this.$el.html(this.template({
       class_times: class_times,
+    }));
+
+    return this;
+  }
+});
+
+
+var EditOffSiteLocation = Backbone.View.extend({
+
+  initialize: function() {
+    this.$el.appendTo("#for-attaching-edit-off-site-locations");
+  },
+
+  events: {
+    'click #archive-off-site-location': "archiveOffSiteLocation"
+  },
+
+  archiveOffSiteLocation: function(e) {
+    e.preventDefault();
+    var leader_user = this.model;
+    var _id = parseInt($(e.target)[0].dataset.id);
+    var off_site_location = new OffSiteLocation();
+
+    var promise = new Promise(function(resolve, reject) {
+      resolve(off_site_location.save({id: _id}, {patch: true}));
+    });
+
+    promise
+    .then(function(off_site_location) {
+      location.reload();
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  },
+
+  template:  HandlebarsTemplates['dashboard/edit_off_site_location'],
+
+  render: function() {
+    var off_site_locations = this.collection;
+    var not_completed = [];
+    var completed = [];
+    off_site_locations.forEach(function(loc) {
+      if (loc.completed === true) {
+        completed.push(loc)
+      } else {
+        not_completed.push(loc)
+      }
+    });
+
+    not_completed.sort(function(a, b) {
+      return parseFloat(a.timestamp) - parseFloat(b.timestamp);
+    });
+    completed.sort(function(a, b) {
+      return parseFloat(a.timestamp) - parseFloat(b.timestamp);
+    });
+
+    this.$el.html(this.template({
+      not_completed: not_completed,
+      completed: completed
     }));
 
     return this;
@@ -21612,7 +21783,7 @@ var NewClassTimeView = Backbone.View.extend({
       refreshed: this.refreshed
     }));
 
-    var new_class_time_form = new NewClassTimeForm({collection: this.collection, model: this.model});
+    var new_class_time_form = new  NewClassTimeForm({collection: this.collection, model: this.model});
     new_class_time_form.render();
 
     return this;
@@ -21620,6 +21791,61 @@ var NewClassTimeView = Backbone.View.extend({
 });
 
 
+var NewOffSiteLocationForm = Backbone.View.extend({
+
+  initialize: function() {
+    this.$el.appendTo("#for-attaching-form");
+  },
+
+  template:  HandlebarsTemplates['dashboard/new_off_site_location_form'],
+
+  render: function() {
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
+    this.$el.html(this.template({
+      token: csrf_token
+    }));
+
+    var edit_off_site_location_form = new EditOffSiteLocation({collection: this.collection, model: this.model});
+    edit_off_site_location_form.render();
+
+    return this;
+  }
+});
+
+
+var NewOffSiteLocationView = Backbone.View.extend({
+  initialize: function(options) {
+    this.refreshed = options.refreshed;
+    this.$el.appendTo(".entire");
+  },
+
+  template:  HandlebarsTemplates['dashboard/new_off_site_location_page'],
+
+  render: function() {
+    var leader = this.model.toJSON().first_name;
+    var off_site_locations = this.collection;
+    var not_completed = [];
+    off_site_locations.forEach(function(loc) {
+      if (loc.completed !== true) {
+        not_completed.push(loc)
+      }
+    });
+
+    not_completed.sort(function(a, b) {
+      return parseFloat(a.timestamp) - parseFloat(b.timestamp);
+    });
+
+    this.$el.html(this.template({
+      leader: leader,
+      not_completed: not_completed
+    }));
+
+    var new_off_site_location_form = new  NewOffSiteLocationForm({collection: this.collection, model: this.model});
+    new_off_site_location_form.render();
+
+    return this;
+  }
+});
 var SkypeDocumentsStuView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['dashboard/skype_documents_stu'],
@@ -23169,6 +23395,7 @@ var Router = Backbone.Router.extend({
   routes: {
     "business": "showBusinessPage",
     "volunteer_info": "showVolunteerPage",
+    "off_site_locations/new": "showNewOffSiteLocationPage",
     "class_times/new": "showNewClassTimePage"
   },
 
@@ -23182,14 +23409,15 @@ var Router = Backbone.Router.extend({
     App.getVolunteerPage();      
   },
 
+  showNewOffSiteLocationPage: function() {
+    App.getNewOffSiteLocationView();      
+  },
+
   showNewClassTimePage: function() {
     App.getNewClassTimeView();      
   }
 
 });
-      
-
-
 
 function getFrontMainPage() {
     App.removeNavAndPage();
@@ -23476,30 +23704,51 @@ var App = {
     dashboard_page.render();
     this.renderNavBar();
 
-    var class_times = new ClassTimes(); // collection
+    var class_times = new ClassTimes();
     this.class_times = class_times;
-    var students = new Students(); // collection
-    var slots_taken = new VolunteersForStudents(); // collection
+    var off_site_locations = new OffSiteLocations();
+    var students = new Students();
+    var slots_taken = new VolunteersForStudents();
+
     var p1 = new Promise(function (resolve, reject) {
       resolve(class_times.fetch());
     });
     var p2 = new Promise(function (resolve, reject) {
-      resolve(students.fetch());
+      resolve(off_site_locations.fetch());
     });
     var p3 = new Promise(function (resolve, reject) {
+      resolve(students.fetch());
+    });
+    var p4 = new Promise(function (resolve, reject) {
       resolve(slots_taken.fetch());
     });
 
-    Promise.all([p1, p2, p3]).then(function (values) {
+    var _this = this;
+
+    Promise.all([p1, p2, p3, p4]).then(function (values) {
       var class_times_view = new ClassTimesView({ collection: values[0] });
       class_times_view.render();
-      var former_students_view = new FormerStudentsView({ collection: values[1] });
+      var off_site_locations_view = new OffSiteLocationsView({ model: user, collection: values[1] });
+      _this.off_site_locations = values[1];
+      off_site_locations_view.render();
+      var former_students_view = new FormerStudentsView({ collection: values[2] });
       former_students_view.render();
-      var volunteers_for_students_view = new VolunteersForStudentsView({ collection: values[2] });
+      var volunteers_for_students_view = new VolunteersForStudentsView({ collection: values[3] });
       volunteers_for_students_view.render();
     }).catch(function (reason) {
       console.log(reason);
     });
+  },
+  getNewOffSiteLocationView: function(refreshed) {
+    this.removeNavAndPage();
+    var refreshed_locations = $("#holder-off-site-locations").data('off-site-locations');
+    var off_site_locations = refreshed_locations || this.off_site_locations;
+    var new_off_site_location_page = new NewOffSiteLocationView({collection: off_site_locations, model: this.user, refreshed: refreshed});
+    document.title = 'New Off-site Location';
+    this.renderNavBar();
+    this.scrollUpToTopOfPage();
+    new_off_site_location_page.render().el;
+    this.new_off_site_location_page = new_off_site_location_page;
   },
   getNewClassTimeView: function(refreshed) {
     this.removeNavAndPage();
@@ -23517,12 +23766,6 @@ var App = {
     this.renderNavBar();
     this.scrollUpToTopOfPage();
     dashboard_page.render();
-    // if (volunteer.get("number_of_slots") == 0) {
-    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for 0 Skype-partner time slots, but you can change/edit that below.</h4>")
-    // }
-    // else {
-    //   $("#volunteer-welcome").append("<h4 id='current-numbers-slots'>You have currently decided to be available for " + volunteer.get("number_of_slots") + " out of your total number of Skype-partner time slots (below), but you can change/edit that below.</h4>")
-    // }
     document.title = volunteer.get("first_name") + " " + volunteer.get("last_name");
     var skype_docs_view = new SkypeDocumentsVolView({ model: volunteer });
     setTimeout(function(){ skype_docs_view.render(); }, 3000); // to allow volunteer dashboard to render first
@@ -23549,7 +23792,6 @@ var App = {
       error: function (collection, response, options) {
         console.log("error");
         console.log(response);
-        console.log(options);
       }
     });
   },
@@ -23742,6 +23984,9 @@ var App = {
       else if (gon.page_needed === "leader") {
         app_obj.getDashboardPage(app_obj.presentUserModel());
       }
+      else if (gon.page_needed === "new_off_site_location") {
+        app_obj.getNewOffSiteLocationView("refreshed");
+      }
       else if (gon.page_needed === "new_class_time") {
         app_obj.getNewClassTimeView("refreshed");
       }
@@ -23788,6 +24033,9 @@ window.addEventListener('popstate', function(event) { // navigating with back & 
   }
   else if (Backbone.history.getFragment() === "dashboard") {
     App.getDashboardPage(App.user);
+  }
+  else if (Backbone.history.getFragment() === "off_site_locations/new") {
+    App.getNewOffSiteLocationView();
   }
   else if (Backbone.history.getFragment() === "class_times/new") {
     App.getNewClassTimeView();
