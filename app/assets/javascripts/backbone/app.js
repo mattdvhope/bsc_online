@@ -99,7 +99,6 @@ var App = {
       class_times_view.render();
       var off_site_locations_view = new OffSiteLocationsView({ model: user, collection: values[1] });
       _this.off_site_locations = values[1];
-      sessionStorage.setItem("off_site_locations", JSON.stringify(values[1]));
       off_site_locations_view.render();
       var former_students_view = new FormerStudentsView({ collection: values[2] });
       former_students_view.render();
@@ -111,7 +110,7 @@ var App = {
   },
   getNewOffSiteLocationView: function(refreshed) {
     this.removeNavAndPage();
-    var refreshed_locations = JSON.parse(sessionStorage.getItem("off_site_locations"));
+    var refreshed_locations = $("#holder-off-site-locations").data('off-site-locations');
     var off_site_locations = refreshed_locations || this.off_site_locations;
     var new_off_site_location_page = new NewOffSiteLocationView({collection: off_site_locations, model: this.user, refreshed: refreshed});
     document.title = 'New Off-site Location';
@@ -238,7 +237,6 @@ var App = {
     Promise.all([p1, p2]).then(function (values) {
       var class_times = values[0];
       var off_site_locations = values[1];
-console.log(off_site_locations);
       var class_times_view = new ClassTimesView({ collection: class_times });
       class_times_view.render();
 

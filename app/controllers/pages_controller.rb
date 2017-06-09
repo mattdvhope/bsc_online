@@ -16,6 +16,14 @@ class PagesController < ApplicationController
 
   def new_off_site_location
     gon.page_needed = "new_off_site_location"
+    locations = OffSiteLocation.all
+
+    array = []
+    locations.each do |loc|
+      loc = loc.attributes.merge!(users: loc.users).merge!(timestamp: loc.created_at.to_i)
+      array << loc
+    end
+    @off_site_locations = array.to_json
 
     if current_user
       gon.user = current_user
