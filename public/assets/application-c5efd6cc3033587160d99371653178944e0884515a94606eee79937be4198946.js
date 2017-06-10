@@ -604,6 +604,9 @@ Based on Rails routes of BscOnline::Application
 // new_plan => /plans/new(.:format)
   // function(options)
   new_plan_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"plans",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
+// off_site_location => /off_site_locations/:id(.:format)
+  // function(id, options)
+  off_site_location_path: Utils.route([["id",true],["format",false]], {}, [2,[7,"/",false],[2,[6,"off_site_locations",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]),
 // off_site_locations => /off_site_locations(.:format)
   // function(options)
   off_site_locations_path: Utils.route([["format",false]], {}, [2,[7,"/",false],[2,[6,"off_site_locations",false],[1,[2,[8,".",false],[3,"format",false]],false]]]),
@@ -21656,32 +21659,32 @@ var EditOffSiteLocation = Backbone.View.extend({
     this.$el.appendTo("#for-attaching-edit-off-site-locations");
   },
 
-//   events: {
-//     'click #archive-off-site-location': "archiveOffSiteLocation"
-//   },
+  events: {
+    'click #archive-off-site-location': "archiveOffSiteLocation"
+  },
 
-//   archiveOffSiteLocation: function(e) {
-//     e.preventDefault();
-// console.log("in click");
-//     var leader_user = this.model;
-//     var _id = parseInt($(e.target)[0].dataset.id);
-//     var off_site_location = new OffSiteLocation();
+  archiveOffSiteLocation: function(e) {
+    e.preventDefault();
+console.log("in click");
+    var leader_user = this.model;
+    var _id = parseInt($(e.target)[0].dataset.id);
+    var off_site_location = new OffSiteLocation();
 
-//     var promise = new Promise(function(resolve, reject) {
-//       resolve(off_site_location.save({id: _id}, {patch: true}));
-//     });
+    var promise = new Promise(function(resolve, reject) {
+      resolve(off_site_location.save({id: _id}, {patch: true}));
+    });
 
-//     promise
-//     .then(function(off_site_location) {
-// console.log(off_site_location);
-// //       window.location.href = '/off_site_locations/new';
-//       // location.reload();
-//     })
-//     .catch(function(error) {
-//       console.log("error");
-//       console.log(error);
-//     });
-//   },
+    promise
+    .then(function(off_site_location) {
+console.log(off_site_location);
+      window.location.href = '/off_site_locations/new';
+      // location.reload();
+    })
+    .catch(function(error) {
+      console.log("error");
+      console.log(error);
+    });
+  },
 
   template:  HandlebarsTemplates['dashboard/edit_off_site_location'],
 
@@ -21801,38 +21804,33 @@ var NewOffSiteLocationForm = Backbone.View.extend({
     this.$el.appendTo("#for-attaching-form");
   },
 
-//   events: {
-//     'click #submit-new-os-location': function (e) {
-//       e.preventDefault();
-// console.log("in click");
-//       var english = $("input[name='off_site_location[location_english]']").val()
-//       var thai = $("input[name='off_site_location[location_thai]']").val()
+  events: {
+    'click #submit-new-os-location': function (e) {
+      e.preventDefault();
+      var english = $("input[name='off_site_location[location_english]']").val()
+      var thai = $("input[name='off_site_location[location_thai]']").val()
 
-//       var locations = new OffSiteLocations();
+      var locations = new OffSiteLocations();
 
-//       var promise = new Promise(function (resolve, reject) {
-//         resolve(
-//           locations.create({
-//             location_english: english,
-//             location_thai: thai
-//           })
-//           console.log("in resolve");
-//         );
-//       });
+      var promise = new Promise(function (resolve, reject) {
+        resolve(
+          locations.create({
+            location_english: english,
+            location_thai: thai
+          })
+        );
+      });
 
-//       promise
-//       .then(function(loc) {
-// console.log(loc);
-// //         window.location.href = '/off_site_locations/new';
-//         // location.reload();
-//       })
-//       .catch(function(reason) {
-//         console.log("error");
-//         console.log(reason);
-//       });
-
-//     },
-//   },
+      promise
+      .then(function(loc) {
+        window.location.href = '/off_site_locations/new';
+      })
+      .catch(function(reason) {
+        console.log("error");
+        console.log(reason);
+      });
+    },
+  },
 
   template:  HandlebarsTemplates['dashboard/new_off_site_location_form'],
 
