@@ -4,6 +4,39 @@ var NewOffSiteLocationForm = Backbone.View.extend({
     this.$el.appendTo("#for-attaching-form");
   },
 
+  events: {
+    'click #submit-new-os-location': function (e) {
+      e.preventDefault();
+console.log("in click");
+      var english = $("input[name='off_site_location[location_english]']").val()
+      var thai = $("input[name='off_site_location[location_thai]']").val()
+
+      var locations = new OffSiteLocations();
+
+      var promise = new Promise(function (resolve, reject) {
+        resolve(
+          locations.create({
+            location_english: english,
+            location_thai: thai
+          })
+          console.log("in resolve");
+        );
+      });
+
+      promise
+      .then(function(loc) {
+console.log(loc);
+//         window.location.href = '/off_site_locations/new';
+        // location.reload();
+      })
+      .catch(function(reason) {
+        console.log("error");
+        console.log(reason);
+      });
+
+    },
+  },
+
   template:  HandlebarsTemplates['dashboard/new_off_site_location_form'],
 
   render: function() {

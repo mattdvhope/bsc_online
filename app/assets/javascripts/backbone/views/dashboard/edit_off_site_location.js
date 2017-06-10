@@ -10,6 +10,7 @@ var EditOffSiteLocation = Backbone.View.extend({
 
   archiveOffSiteLocation: function(e) {
     e.preventDefault();
+console.log("in click");
     var leader_user = this.model;
     var _id = parseInt($(e.target)[0].dataset.id);
     var off_site_location = new OffSiteLocation();
@@ -20,9 +21,12 @@ var EditOffSiteLocation = Backbone.View.extend({
 
     promise
     .then(function(off_site_location) {
-      location.reload();
+console.log(off_site_location);
+//       window.location.href = '/off_site_locations/new';
+      // location.reload();
     })
     .catch(function(error) {
+      console.log("error");
       console.log(error);
     });
   },
