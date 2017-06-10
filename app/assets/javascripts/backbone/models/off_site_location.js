@@ -1,5 +1,5 @@
 var OffSiteLocation = Backbone.Model.extend({
-
-  urlRoot: 'off_site_locations'
-
+    urlRoot: function() {
+        return '/off_site_locations';
+    }
 });

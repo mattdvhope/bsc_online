@@ -20,11 +20,9 @@ class OffSiteLocationsController < ApplicationController
     off_site_location.completed = true
 
     if off_site_location.save
-      redirect_to dashboard_path
       flash[:warning] = "This off-site location class is completed & will be archived."
     else
       flash[:danger] = "You were not able to archive this off-site location. Please ask for help from the CEP web app developer."
-      redirect_to dashboard_path
     end
   end
 
