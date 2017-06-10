@@ -1,0 +1,5 @@
+<h3>Upcoming classes at our center...</h3>
+
+{{> application_form/english/_intro_bullets }}
+
+<h3>Here is a list of upcoming “You Can Speak” classes. <a href="" id="appl-form-city">Click here</a> if you would like to register for one of them....</h3>
