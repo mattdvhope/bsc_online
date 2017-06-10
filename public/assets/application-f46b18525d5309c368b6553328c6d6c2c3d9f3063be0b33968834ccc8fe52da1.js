@@ -19623,7 +19623,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.first_name || (depth0 != null ? depth0.first_name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"first_name","hash":{},"data":data}) : helper)))
     + ". You are here in "
     + container.escapeExpression(((helper = (helper = helpers.role || (depth0 != null ? depth0.role : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"role","hash":{},"data":data}) : helper)))
-    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/off_site_locations/new\">Create or Delete class times (at off-site location)</a></h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/class_times/new\">Create or Delete class times (at center)</a></h2>\n    <hr>\n\n"
+    + " status.</h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/off_site_locations/new\">Create or Archive class times (at off-site location)</a></h2>\n    <hr>\n    <h2 id=\"backbone-app\" class=\"dash-create-classes\"><a href=\"/class_times/new\">Create or Delete class times (at center)</a></h2>\n    <hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.role_is_leader : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n\n\n</div>\n";
 },"useData":true});
@@ -19802,7 +19802,7 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete off-site locations on this page...</h2>\n<hr>\n\n"
+  return "<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Archive off-site locations on this page...</h2>\n<hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "\n<hr>\n<h2>Here are the currently scheduled CEP off-site (not at the CEP center) class locations....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.not_completed : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
