@@ -4,32 +4,32 @@ var EditOffSiteLocation = Backbone.View.extend({
     this.$el.appendTo("#for-attaching-edit-off-site-locations");
   },
 
-  events: {
-    'click #archive-off-site-location': "archiveOffSiteLocation"
-  },
+//   events: {
+//     'click #archive-off-site-location': "archiveOffSiteLocation"
+//   },
 
-  archiveOffSiteLocation: function(e) {
-    e.preventDefault();
-console.log("in click");
-    var leader_user = this.model;
-    var _id = parseInt($(e.target)[0].dataset.id);
-    var off_site_location = new OffSiteLocation();
+//   archiveOffSiteLocation: function(e) {
+//     e.preventDefault();
+// console.log("in click");
+//     var leader_user = this.model;
+//     var _id = parseInt($(e.target)[0].dataset.id);
+//     var off_site_location = new OffSiteLocation();
 
-    var promise = new Promise(function(resolve, reject) {
-      resolve(off_site_location.save({id: _id}, {patch: true}));
-    });
+//     var promise = new Promise(function(resolve, reject) {
+//       resolve(off_site_location.save({id: _id}, {patch: true}));
+//     });
 
-    promise
-    .then(function(off_site_location) {
-console.log(off_site_location);
-//       window.location.href = '/off_site_locations/new';
-      // location.reload();
-    })
-    .catch(function(error) {
-      console.log("error");
-      console.log(error);
-    });
-  },
+//     promise
+//     .then(function(off_site_location) {
+// console.log(off_site_location);
+// //       window.location.href = '/off_site_locations/new';
+//       // location.reload();
+//     })
+//     .catch(function(error) {
+//       console.log("error");
+//       console.log(error);
+//     });
+//   },
 
   template:  HandlebarsTemplates['dashboard/edit_off_site_location'],
 
