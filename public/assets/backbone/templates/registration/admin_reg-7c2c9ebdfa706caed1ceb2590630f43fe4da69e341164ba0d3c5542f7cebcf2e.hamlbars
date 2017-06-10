@@ -1,0 +1,173 @@
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">Register your church, business or organization with City English Project (CEP)!</h3>
+      <h4>
+        When you [successfully] click the button, "Send this form to CEP" below, we will send an email to you.  In that email, we will then direct you to our "CEP Volunteer Administrator Questionnaire." After you fill it out and submit it, we will respond to you within 72 hours. 
+      </h4>
+      <hr>
+      <h4>
+        Also after [successfully] clicking "Send this form to CEP," you will immediately become a member of CEP in "admin applicant status." You will not yet enter the City English app. If and when you are approved as an administrator for volunteers, you will then gain "admin" status.  In this status, you will be able to provide an access PIN to future volunteers (Skype partners, etc) for CEP.  You will also be able to log in to CEP using your email and password.
+      </h4>
+    </div>
+    <div class="modal-body">
+      <form class="admin-registration-form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
+      <input type="hidden" name="role" value="admin_applicant">
+
+        <label class="field-label">First Name</label>
+        <input id="applicant-first-name" type="text" class="form-control first-name" placeholder="First Name" name="first_name">
+        <hr>
+
+        <label class="field-label">Last Name</label>
+        <input type="text" class="form-control last-name" placeholder="Last Name" name="last_name">
+        <hr>
+
+        <label class="field-label">Gender</label>
+        <div>
+          <select name="gender" class="gender-select">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <hr>
+
+        <label class="field-label email-label">Email Address</label>
+        <input type="text" class="form-control email" placeholder="Email Address" name="email">
+        <hr>
+
+        <label class="field-label skype-name-label">Skype Name (Please set your Skype app's notifications to "on" so that you can receive instant messages from your partner.)<h4>
+        </h4></label>
+        <input type="text" class="form-control skype-name" placeholder="Skype address" name="skype_name">
+        <hr>
+
+        <label class="field-label facebook-label">Facebook Name (Why do we ask for your Facebook name?  Because we want you to have the ability to communicate immediately with your Online Conversation Partner using Facebook’s instant messenger about canceling appointments, etc.)<h4>
+        </h4></label>
+        <input type="text" class="form-control facebook" placeholder="Facebook address" name="facebook">
+        <hr>
+
+        <label class="field-label">Age</label>
+        <input type="text" class="form-control age" placeholder="Age" name="age">
+        <hr>
+
+        <label class="field-label">Church, Business or Organization Name</label>
+        <input type="text" class="form-control organization" placeholder="Organization" name="organization">
+        <hr>
+
+        <label class="field-label password-label">Password</label>
+        <input id="admin-registration-password" type="password" class="form-control password" placeholder="Password" name="password">
+        <hr>
+
+        <label class="field-label password-confirmation-label">Password Confirmation</label>
+        <input id="admin-registration-password" type="password" class="form-control password-confirmation" placeholder="Password Confirmation" name="password_confirmation">
+        <hr>
+
+        {{!-- <label class="field-label">Phone Number</label>
+        <input type="text" class="form-control phone-number" placeholder="Phone Number" name="phone_number">
+        <hr>
+
+        <label class="field-label">Address One</label>
+        <input type="text" class="form-control address-one" placeholder="Address One" name="address_1">
+        <hr>
+
+        <label class="field-label">Address Two</label>
+        <input type="text" class="form-control address-two" placeholder="Address Two" name="address_2">
+        <hr>
+
+        <label class="field-label">Town or City</label>
+        <input type="text" class="form-control city" placeholder="Town or City" name="city">
+        <hr> --}}
+
+        <label class="field-label">State</label>
+        <div>
+          <select name="province" class="form-control province">
+            <option value="" selected="selected">Select a State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <hr>
+
+        <label class="field-label postal-code-label">Zip / Postal Code</label>
+        <input type="text" class="form-control postal-code" placeholder="Zip Code" name="postal_code">
+        <hr>
+
+       {{!--  <label class="field-label">Country</label>
+        <div>
+          <select name="country" class="form-control country">
+            <option value="" selected="selected">Select a Country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Australia">Australia</option>
+            <option value="New Zealand">New Zealand</option>
+          </select>
+        </div>
+        <hr> --}}
+
+        <div id="admin-reg-submit-button" class="control-group">
+          <input type="submit" value="Submit" id="submit" name="submit" class="btn btn-primary admin-registration-submit">
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+
+
