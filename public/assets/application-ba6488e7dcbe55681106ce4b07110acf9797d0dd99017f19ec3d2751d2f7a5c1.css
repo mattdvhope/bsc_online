@@ -9907,7 +9907,7 @@ body .modal-dialog {
   }
 }
 
-/* line 13, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 9, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 html.noscroll {
   position: fixed;
   width: 100%;
@@ -9917,25 +9917,25 @@ html.noscroll {
   z-index: 10;
 }
 
-/* line 23, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 17, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input.form-control.nickname {
   width: 100%;
   height: 200%;
 }
 
-/* line 31, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 21, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .field-label {
   font-size: 140%;
   font-family: "Muli", sans-serif;
 }
 
-/* line 35, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input.form-control {
   font-size: 160%;
   height: 200%;
 }
 
-/* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.seminar-session-select {
   background: white;
   margin-bottom: 10px;
@@ -9944,42 +9944,54 @@ select.seminar-session-select {
   height: 55px;
 }
 @media screen and (min-width: 768px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     font-size: 130%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     font-size: 90%;
   }
 }
-@media screen and (min-width: 768px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+@media screen and (min-width: 915px) {
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 600px;
   }
 }
+@media screen and (max-width: 915px) {
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  select.seminar-session-select {
+    width: 500px;
+  }
+}
 @media screen and (max-width: 768px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 400px;
   }
 }
+@media screen and (max-width: 625px) {
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  select.seminar-session-select {
+    width: 300px;
+  }
+}
 @media screen and (max-width: 550px) {
-  /* line 39, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
   select.seminar-session-select {
     width: 200px;
   }
 }
 
-/* line 63, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 50, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 p.above-radios {
   padding-left: 19px;
 }
 
-/* line 66, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 53, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 div.radio-div-applic {
   margin-top: -3px;
   margin-bottom: -3px;
@@ -9987,37 +9999,37 @@ div.radio-div-applic {
   margin-left: 15px;
 }
 
-/* line 72, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 59, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 input[type="radio"] {
   margin-right: 12px;
 }
 
-/* line 75, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 62, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .radio-in-appl {
   width: 28px;
   height: 28px;
   vertical-align: middle;
 }
 
-/* line 84, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 67, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 p.under-radios {
   padding-left: 19px;
   margin-top: 20px;
 }
 
-/* line 88, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 71, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.grayout {
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
 
-/* line 92, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 75, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 select.blackin {
   opacity: 1;
   filter: alpha(opacity=100);
 }
 
-/* line 96, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 79, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .guest-add.btn {
   color: #2D3179;
   background-color: #8BC34A;
@@ -10025,14 +10037,14 @@ select.blackin {
   border-width: 2px;
 }
 
-/* line 105, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 85, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .rotate {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-/* line 108, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 88, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 .rotate.in {
   -webkit-transform: rotate(1800deg);
           transform: rotate(1800deg);
@@ -10040,7 +10052,7 @@ select.blackin {
   transition: all 1.5s;
 }
 
-/* line 114, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
+/* line 92, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/modals.sass */
 img.welcome-popup {
   width: 100%;
 }
