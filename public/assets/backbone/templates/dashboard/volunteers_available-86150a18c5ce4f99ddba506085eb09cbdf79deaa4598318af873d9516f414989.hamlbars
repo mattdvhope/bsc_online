@@ -1,0 +1,48 @@
+<div id="vol-avail-template" class="container">
+  {{#if no_vol_with_slots}}
+    <h3>There are currently no volunteers available.</h3>
+  {{^}}
+    <ul id="ul-of-vol-avail" style="list-style-type:none" data-student-id={{student_id}}>
+      <hr>
+    {{#each volunteers}}
+      <li data-volunteer-id={{this.id}} data-student-id={{../student_id}}>
+        <h3>
+          ชื่อ: <span style="text-decoration: underline;">{{this.first_name}} {{this.last_name}}</span>
+        </h3>
+        <h4>
+          {{#genderTranslate this.gender }}
+          {{/genderTranslate}}
+        </h4>
+        <h4>อายุ: {{this.age}}</h4>
+        <h4>มลรัฐในสหรัฐ: {{this.province}}</h4>
+        <h4 id="choose-skype-time">เลือกเวลาการสนทนาภาษาอังกฤษทาง Skype กับ คุณ {{this.first_name}}.  {{this.first_name}} มีเวลาว่างกับ 1{{!-- {{this.number_of_slots}} --}} ใน {{this.number_of_slots_listed}} ช่องนี้เท่านั้น:</h4>
+
+        {{#disableSomeSlots this.skype_time_slots}}
+          <div id="checkArray">
+          {{#if this.available}}
+            <input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox">
+            <span id="skype-time-slot-available" data-order={{this.ordertime}}>{{this.day_thai}} {{this.time_thai}}</span>
+          {{else}}
+            {{> skype_time_slot_input }}
+            <span id="skype-time-slot-available" style="color: #8BC34A;">{{this.day_thai}} {{this.time_thai}} กับคุณ, {{../../first_name}}</span>
+          {{/if}}
+          </div>
+        {{/disableSomeSlots}}
+        <h4>หลังจากคุณเลือกช่วงเวลาสำหรับการสนทนาภาษาอังกฤษทาง Skype จาก {{this.first_name}} กรุณาคลิ๊กที่ปุ่มสีเขียวนี้ ระบบตอบรับอีเมลอัตโนมัติจะถูกส่งออกไปเพื่อแจ้ง {{this.first_name}} ที่คุณต้องการจะเป็นคู่สนทนาทาง Skype ด้วย {{this.first_name}}</h4>
+
+        <h4>กรุณาตรวจสอบให้แน่ใจว่า คุณได้ตั้งค่าการแจ้งเตือนในโปรแกรม Skype ของคุณเป็น "on"  ทั้งบนอุปกรณ์สื่อสารเคลื่อนที่และบนคอมพิวเตอร์ของคุณ นอกจากนี้ เราขอแนะนำให้คุณเป็นเพื่อนใน Facebook กับ "{{this.first_name}} {{this.last_name}}" เพราะเป็นเรื่องสำคัญมากเพื่อที่คุณจะสามารถส่งและรับข้อความระหว่างคุณกับ "{{this.first_name}}" ในระหว่างช่วงเวลาของการสนทนาทาง Skype แต่ละครั้งของคุณในกรณีที่คุณหรือคู่สนทนาของคุณต้องการเลื่อนการสนทนาในสัปดาห์นั้นๆ</h4>
+
+        <h4>หากคุณเลือกช่วงเวลาการสนทนาที่มีเวลาน้อยกว่า 24 ชั่วโมงนับจาก ณ. เวลานี้ กรุณาวางแผนและนัดหมายเพื่อการสนทนาครั้งแรกกับคู่สนทนาของคุณในสัปดาห์ถัดไป (ไม่ใช่สัปดาห์นี้)</h4>
+
+        <button id="connect-with-volunteer" class="btn btn-success" data-id={{this.id}} data-firstname={{this.first_name}} data-lastname={{this.last_name}} disabled>
+          ส่งอีเมลอัตโนมัติถึง {{this.first_name}}
+        </button>
+        <hr>
+      </li>
+    {{/each}} <!-- each class times -->
+    </ul>
+  {{/if}}
+
+</div> <!-- container -->
+
+
