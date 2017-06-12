@@ -31,7 +31,6 @@ Rails.application.routes.draw do
 
   get 'off_site_locations/new', to: "pages#new_off_site_location" # this is only for the page refresh
   resources :off_site_locations, only: [:index, :create, :update]
-  # patch 'off_site_locations/off_site_locations/:id', to: "off_site_locations#update" # this is only for the page refresh
 
   get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh
   resources :class_times, only: [:index, :show, :create, :destroy]

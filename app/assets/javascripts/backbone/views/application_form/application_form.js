@@ -139,15 +139,15 @@ var ApplicationView = Backbone.View.extend({
   },
 
   bank_name: function() {
-    return choose_language("Bank: Siam Commercial Bank", "ธนาคาร: ธนาคารไทยพาณิชย์ จำกัด (มหาชน)");
+    return choose_language("Bank: Bangkok Bank", "ธนาคาร: ธนาคารกรุงเทพ");
   },
 
   bank_person: function() {
-    return choose_language("Contact Person: \"Matthew Malone\"", "บุคคลที่ติดต่อ: \"Matthew Malone\"");
+    return choose_language("Contact Person: \"Ms. Karen Elizabeth Erskine\"", "บุคคลที่ติดต่อ: \"Ms. Karen Elizabeth Erskine\"");
   },
 
   bank_number: function() {
-    return choose_language("Acct Number: 227-210027-2", "หมายเลขบัญชี: 227-210027-2");
+    return choose_language("Acct Number: 200-4-17105-0", "หมายเลขบัญชี: 200-4-17105-0");
   },
 
   promotion_price: function() {

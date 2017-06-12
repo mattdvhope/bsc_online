@@ -23,6 +23,10 @@ var NewOffSiteLocationForm = Backbone.View.extend({
 
       promise
       .then(function(loc) {
+        location.reload();
+        return loc;
+      })
+      .then(function(loc) {
         window.location.href = '/off_site_locations/new';
       })
       .catch(function(reason) {

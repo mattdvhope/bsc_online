@@ -19304,7 +19304,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.token || (depth0 != null ? depth0.token : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"token","hash":{},"data":data}) : helper)))
     + ">\n      <input type=\"hidden\" name=\"guest\" value=\"true\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <hr>\n\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n            <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address <h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
+    + "        <hr>\n\n        <label class=\"field-label\">Nickname (in English)</label>\n        <input type=\"text\" class=\"form-control nickname\" placeholder=\"ชื่อเล่น (ภาษาอังกฤษ)\" name=\"nickname\">\n        <hr>\n        <label class=\"field-label\">First Name (in English)</label>\n        <input type=\"text\" class=\"form-control first-name\" placeholder=\"ชื่อจริง (ภาษาอังกฤษ)\" name=\"first_name\">\n        <hr>\n        <label class=\"field-label\">Last Name (in English)</label>\n        <input type=\"text\" class=\"form-control last-name\" placeholder=\"นามสกุล (ภาษาอังกฤษ)\" name=\"last_name\">\n        <hr>\n        <label class=\"field-label\">Gender</label>\n        <div>\n          <select name=\"gender\" class=\"gender-select\">\n            <option value=\"ผู้ชาย\">ผู้ชาย</option>\n            <option value=\"ผู้หญิง\">ผู้หญิง</option>\n          </select>\n        </div>\n        <hr>\n\n        <label class=\"field-label\">Phone Number</label>\n            <input type=\"text\" class=\"form-control phone-number\" placeholder=\"เบอร์โทรศัพท์\" name=\"phone_number\">\n        <hr>\n\n        <label class=\"field-label email-label\">Email Address (ไม่จำเป็น/optional)<h4>\n        </h4></label>\n        <input type=\"text\" class=\"form-control email\" placeholder=\"อีเมล\" name=\"email\">\n        <hr>\n\n        \n        <!-- partials with selectors -->\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "        </label>\n        <hr>\n\n        <span id=\"off-site-fields\"></span>\n\n        <h3><u>"
     + container.escapeExpression(((helper = (helper = helpers.bank_transfer_info || (depth0 != null ? depth0.bank_transfer_info : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_transfer_info","hash":{},"data":data}) : helper)))
@@ -21295,15 +21295,15 @@ var ApplicationView = Backbone.View.extend({
   },
 
   bank_name: function() {
-    return choose_language("Bank: Siam Commercial Bank", "ธนาคาร: ธนาคารไทยพาณิชย์ จำกัด (มหาชน)");
+    return choose_language("Bank: Bangkok Bank", "ธนาคาร: ธนาคารกรุงเทพ");
   },
 
   bank_person: function() {
-    return choose_language("Contact Person: \"Matthew Malone\"", "บุคคลที่ติดต่อ: \"Matthew Malone\"");
+    return choose_language("Contact Person: \"Ms. Karen Elizabeth Erskine\"", "บุคคลที่ติดต่อ: \"Ms. Karen Elizabeth Erskine\"");
   },
 
   bank_number: function() {
-    return choose_language("Acct Number: 227-210027-2", "หมายเลขบัญชี: 227-210027-2");
+    return choose_language("Acct Number: 200-4-17105-0", "หมายเลขบัญชี: 200-4-17105-0");
   },
 
   promotion_price: function() {
@@ -21665,7 +21665,6 @@ var EditOffSiteLocation = Backbone.View.extend({
 
   archiveOffSiteLocation: function(e) {
     e.preventDefault();
-console.log("in click");
     var leader_user = this.model;
     var _id = parseInt($(e.target)[0].dataset.id);
     var off_site_location = new OffSiteLocation();
@@ -21676,9 +21675,7 @@ console.log("in click");
 
     promise
     .then(function(off_site_location) {
-console.log(off_site_location);
       window.location.href = '/off_site_locations/new';
-      // location.reload();
     })
     .catch(function(error) {
       console.log("error");
@@ -21822,6 +21819,10 @@ var NewOffSiteLocationForm = Backbone.View.extend({
       });
 
       promise
+      .then(function(loc) {
+        location.reload();
+        return loc;
+      })
       .then(function(loc) {
         window.location.href = '/off_site_locations/new';
       })
