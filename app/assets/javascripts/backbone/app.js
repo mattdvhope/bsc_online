@@ -95,7 +95,7 @@ var App = {
     var _this = this;
 
     Promise.all([p1, p2, p3, p4]).then(function (values) {
-      var class_times_view = new ClassTimesView({ collection: values[0] });
+      var class_times_view = new ClassTimesView({ model: user, collection: values[0] });
       class_times_view.render();
       var off_site_locations_view = new OffSiteLocationsView({ model: user, collection: values[1] });
       _this.off_site_locations = values[1];
