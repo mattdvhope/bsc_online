@@ -1,6 +1,6 @@
 class ClassTimesController < ApplicationController
 
-  before_action :require_leader, :only => [:index]
+  # before_action :require_leader, :only => [:index]
 
   def index
     @class_times = ClassTime.all
