@@ -222,7 +222,6 @@ var App = {
   },
   openApplicationForm: function() {
     var class_times = new ClassTimes();
-console.log(class_times);
     this.class_times = class_times;
     var off_site_locations = new OffSiteLocations();
     this.off_site_locations = off_site_locations;
