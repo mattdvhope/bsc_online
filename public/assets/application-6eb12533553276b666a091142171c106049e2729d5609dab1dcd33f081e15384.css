@@ -8793,11 +8793,6 @@ logo:active {
   position: fixed;
 }
 
-/* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
-.header {
-  background-color: #8BC34A;
-}
-
 @media screen and (min-width: 550px) {
   /* line 48, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/style.sass */
   .backg-vol {
@@ -10456,11 +10451,11 @@ h3.brown {
 
 /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 #nav {
-  background-color: #2D3179;
+  background-color: black;
   font-family: "Muli", sans-serif;
 }
 
-/* line 5, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+/* line 6, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 #free-events, #features-point, #contact-us-point, #volunteer-steps-point, #nav-dropdown {
   font-size: 120%;
   color: #ffffff;
@@ -10469,122 +10464,122 @@ h3.brown {
 }
 
 @media (max-width: 767px) {
-  /* line 12, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 13, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-header {
     float: none;
     padding-right: 11px;
   }
 
-  /* line 15, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 16, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-toggle {
     display: block;
   }
 
-  /* line 17, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 18, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-top: 0.4em;
   }
 }
 @media screen and (max-width: 767px) and (min-width: 700px) {
-  /* line 20, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 21, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 15.5em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 700px) {
-  /* line 24, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 13.5em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 500px) {
-  /* line 28, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 29, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 9.5em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 470px) {
-  /* line 32, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 33, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 8.5em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 390px) {
-  /* line 36, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 37, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 7.1em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 365px) {
-  /* line 40, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 41, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 7.1em;
     font-size: 150%;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 325px) {
-  /* line 44, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 45, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   #courses-middle {
     margin-left: 6em;
     font-size: 150%;
   }
 }
 @media (max-width: 767px) {
-  /* line 47, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 48, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-  /* line 51, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 52, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-nav {
     float: none !important;
     margin: 7.5px -15px;
   }
-  /* line 55, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 56, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-nav > li.national-flag {
     margin-left: 150px;
     width: 2px;
   }
-  /* line 58, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 59, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
-  /* line 61, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 62, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-text {
     float: none;
     margin: 15px 0;
   }
 
-  /* line 64, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+  /* line 65, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
   .navbar-collapse.collapse.in {
     display: block !important;
     margin-top: 0px;
   }
 }
-/* line 69, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+/* line 70, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 a.drop-down-link {
   background-color: #fff;
   color: black;
 }
-/* line 72, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+/* line 73, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 a#log-out {
   color: white;
 }
 
-/* line 75, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+/* line 76, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 .navbar-nav > li > a {
   text-align: center;
 }
 
-/* line 78, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
+/* line 79, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/nav_bar.sass */
 .crazy-shirts {
   background: url(/assets/tv-4a1fe9ba9a16c652bdceeb0a814534c4ac34ee8ccc455dd6474cdaeb94c31d44.png);
 }
