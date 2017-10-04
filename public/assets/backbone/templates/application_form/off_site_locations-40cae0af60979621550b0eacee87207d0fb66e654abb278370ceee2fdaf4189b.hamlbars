@@ -1,0 +1,22 @@
+<span id="off-site-loc-span">
+
+  <label class="field-label">Class location</label>
+  <div>
+    <select name="off_site_location_id" class="site-location-select">
+
+      {{#if thai_language}}
+        {{#each off_site_locations}}
+          <option value="{{this.id}}">{{this.location_thai}}</option>
+        {{/each}}
+      {{^}}
+        {{#each off_site_locations}}
+          <option value="{{this.id}}">{{this.location_english}}</option>
+        {{/each}}
+      {{/if}}
+
+    </select>
+  </div>
+
+  <hr>
+
+</span>
