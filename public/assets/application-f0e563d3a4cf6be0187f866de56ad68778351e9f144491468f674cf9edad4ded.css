@@ -9587,11 +9587,11 @@ input.checkers {
 /* line 1, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 .features {
   z-index: 0;
-  background: #2D3179;
+  background: black;
   padding: 60px 0px;
 }
 
-/* line 6, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+/* line 7, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 .features-text {
   font-weight: 700;
   margin-bottom: 30px;
@@ -9599,7 +9599,7 @@ input.checkers {
   color: #ffffff;
 }
 
-/* line 12, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+/* line 13, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 h2.features-text::after {
   display: block;
   margin: 17px auto 0px;
@@ -9607,7 +9607,7 @@ h2.features-text::after {
   background: #FFF none repeat scroll 0% 0%;
 }
 
-/* line 18, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+/* line 19, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 .features-text-bottom {
   font-weight: 700;
   margin-bottom: 30px;
@@ -9615,7 +9615,7 @@ h2.features-text::after {
   color: #ffffff;
 }
 
-/* line 25, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+/* line 26, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 h2.features-text-bottom::after {
   display: block;
   margin: 17px auto 0px;
@@ -9624,7 +9624,7 @@ h2.features-text-bottom::after {
   background: #FFF none repeat scroll 0% 0%;
   content: "";
 }
-/* line 32, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
+/* line 33, /Users/matthewmalone/Sites/bsc_online/app/assets/stylesheets/features.sass */
 h2.features-text-bottom::before {
   display: block;
   margin: 17px auto 10px;
