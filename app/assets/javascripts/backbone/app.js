@@ -303,24 +303,30 @@ var App = {
     }
 
     $(".nav-hover").mouseenter(function(){
-      $(this).css("background-color", "#8BC34A");
+      // $(this).css("background-color", "#8BC34A");
+      $(this).css("background-color", black);
     });
     $(".nav-hover").mouseleave(function(){
-      $(this).css("background-color", "#2D3179");
+      // $(this).css("background-color", "#2D3179");
+      $(this).css("background-color", black);
     });
 
     $("#nav-dropdown").mouseenter(function(){
-      $(this).css("background-color", "#8BC34A");
+      // $(this).css("background-color", "#8BC34A");
+      $(this).css("background-color", black);
     });
     $("#nav-dropdown").mouseleave(function(){
-      $(this).css("background-color", "#2D3179");
+      // $(this).css("background-color", "#2D3179");
+      $(this).css("background-color", black);
     });
 
     $(".dropdown-toggle").mouseenter(function(){
-      $(this).css("background-color", "#8BC34A");
+      // $(this).css("background-color", "#8BC34A");
+      $(this).css("background-color", black);
     });
     $(".dropdown-toggle").mouseleave(function(){
-      $(this).css("background-color", "#2D3179");
+      // $(this).css("background-color", "#2D3179");
+      $(this).css("background-color", black);
     });
   },
   init: function() {
