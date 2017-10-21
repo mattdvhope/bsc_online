@@ -1,0 +1,65 @@
+<div class="container" style="margin-top: -20px;">
+
+  <h2 class="txt" style="color: #337ab7; cursor: pointer;" data-toggle="collapse" data-target="#collapseClassTimes" aria-expanded="false" aria-controls="collapseClassTimes">
+    Click here to see a list of CEP class times and the students who have registered for them.
+  </h2>
+  <div class="collapse" id="collapseClassTimes">
+
+  {{#if no_class_times}}
+    <h3>....please wait for classtimes to load....</h3>
+  {{^}}
+    <ul style="list-style-type:none">
+      <hr>
+    {{#each class_times}}
+      <li >
+        <h3 style="text-decoration: underline;">{{this.period}}</h3>
+        {{#if this.cancelled }}
+          <h4 style="color: red;">This class is cancelled.</h4>
+        {{/if}}
+        {{#if this.completed }}
+          <h4 style="color: green;">This class is completed.</h4>
+        {{/if}}
+
+        {{#if this.users}}
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Nick Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Date Registered</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                {{#each this.users}}
+                  <tr>
+                    <td>{{this.nickname}}</td>
+                    <td>{{this.first_name}}</td>
+                    <td>{{this.last_name}}</td>
+                    <td>{{this.gender}}</td>
+                    <td>{{this.phone_number}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.date_format}}</td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            </div> <!-- table-responsive -->
+        {{^}}
+          <h4>No students have registered for this class yet.</h4>
+        {{/if}}
+        <hr>
+      </li>
+    {{/each}} <!-- each class times -->
+    </ul>
+  {{/if}} <!-- if no class times -->
+
+  </div>
+
+</div> <!-- container -->
+
