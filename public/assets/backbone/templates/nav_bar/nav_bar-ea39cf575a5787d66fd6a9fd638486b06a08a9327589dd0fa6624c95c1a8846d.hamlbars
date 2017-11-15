@@ -15,10 +15,7 @@
         {{#unless current_user_present}}
           <div> {{!-- to ensure flag stays beside title --}}
             <a id="home-point" class="navbar-brand" style="cursor: pointer;">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+Logo+Small+BW.jpg" alt="logo" class="img-responsive">
-
-              {{!-- <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg" alt="logo" class="img-responsive"> --}}
-
+              <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg" alt="logo" class="img-responsive">
             </a>
           </div>
           <div id="courses-middle">
@@ -82,21 +79,13 @@
             <li>
             <li class="national-flag">
               <span class="usa_flag">
-
-                {{!-- <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png" alt="Usa"> --}}
-
-                <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle+BW.png" alt="Usa">
-
+                <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png" alt="Usa">
               </span>
             </li>
             <li role="separator" class="divider"></li>
             <li class="national-flag">
               <span class="thai_flag">
-
-                {{!-- <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png" alt="Thai"> --}}
-
-                <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle+BW.png" alt="Thai">
-
+                <img style="cursor: pointer; padding-top: 0.5em;" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png" alt="Thai">
               </span>
             </li>
 

@@ -16,53 +16,53 @@
     {{#if window_big}}
       <div class="item active top-front-welcome-carousel">
         <a id="general-schedule" class="modal-initiator"  href="#" data-toggle="modal" data-target="#generalschedulemodal">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/1Home-Page-Pic+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" class="img-responsive">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a class="modal-initiator" href="#" data-toggle="modal" data-target="#applicationmodal">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/2YouCanSpeakAd+BW.jpg" alt="Chania">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg" alt="Chania">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a id="free-events">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/3FreeClass+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass.jpg" class="img-responsive">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a class="modal-initiator" href="/business">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/4AtYourOffice+BW.jpg" alt="Chania">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg" alt="Chania">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a id="be-a-member-point" style="cursor: pointer;">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/5Membership+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg" class="img-responsive">
         </a>
       </div>
     {{^}}
       <div class="item active top-front-welcome-carousel">
         <a id="general-schedule" class="modal-initiator"  href="#" data-toggle="modal" data-target="#generalschedulemodal">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/1Homepage-Pic-Mobile+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg" class="img-responsive">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a class="modal-initiator" href="#" data-toggle="modal" data-target="#applicationmodal">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/2YouCanSpeak-Mobile+BW.jpg" alt="Chania">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg" alt="Chania">
         </a>
         </div>
       <div class="item top-front-welcome-carousel">
         <a id="free-events">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/3FreeClass-Mobile+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass-Mobile.jpg" class="img-responsive">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a class="modal-initiator" href="/business">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/4AtYourOffice-Mobile+BW.jpg" alt="Chania">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg" alt="Chania">
         </a>
       </div>
       <div class="item top-front-welcome-carousel">
         <a id="be-a-member-point" style="cursor: pointer;">
-          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/5Membership-Mobile+BW.jpg" class="img-responsive">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg" class="img-responsive">
         </a>
       </div>
     {{/if}}
@@ -83,9 +83,9 @@
   <div class="row">
     <div class="welcome-screen">
       {{#if window_big}}
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide+BW.jpg" alt="wide picture" class="img-responsive">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg" alt="wide picture" class="img-responsive">
       {{^}}
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+BW.jpg" alt="narrow picture" class="img-responsive">
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg" alt="narrow picture" class="img-responsive">
       {{/if}}
       <div class="welcome-caption-content">
         {{#if thai_language}}
