@@ -20220,7 +20220,7 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container-full\" id=\"be-a-member\">\n  <br>\n  <br>\n  <div id=\"be-a-member-centerer\">\n    <br>\n    <div class=\"row\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "    </div> <!-- row -->\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n\n\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web+BW.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web+BW.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
+    + "    </div> <!-- row -->\n\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "      </div>\n    </div> <!-- row -->\n    <br>\n    <hr>\n    <hr>\n    <br>\n    <div class=\"row\">\n      <div class=\"col-sm-6 col-xs-12\">\n        <a data-lightbox=\"image-1\" href=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg\">\n          <img style=\"padding: 10px;\" align=\"top\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg\" alt=\"Step 1\" class=\"center-block img-responsive\">\n        </a>\n      </div>\n      <div class=\"col-sm-6 col-xs-12\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
@@ -20231,13 +20231,13 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_carousel", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/1Home-Page-Pic+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/2YouCanSpeakAd+BW.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/3FreeClass+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/4AtYourOffice+BW.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/5Membership+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"3":function(container,depth0,helpers,partials,data) {
-    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/1Homepage-Pic-Mobile+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/2YouCanSpeak-Mobile+BW.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/3FreeClass-Mobile+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/4AtYourOffice-Mobile+BW.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcepbw/5Membership-Mobile+BW.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"5":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide+BW.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
 },"7":function(container,depth0,helpers,partials,data) {
-    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile+BW.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
+    return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+mobile.jpg\" alt=\"narrow picture\" class=\"img-responsive\">\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -20298,11 +20298,11 @@ window.fbAsyncInit = function() {
 
   return "<!-- Features -->\n<div class=\"container-full features\" id=\"features\">\n  <h2 class=\"text-center features-text\">"
     + container.escapeExpression(((helper = (helper = helpers.features || (depth0 != null ? depth0.features : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"features","hash":{},"data":data}) : helper)))
-    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class+BW.jpg\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + "</h2>\n  <div class=\"row\">\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/City+Talk+Class.jpg\" alt=\"City Talk Class\" align=\"middle\" class=\"img-responsive\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners+BW.jpg\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\"> \n        <div class=\"picturing\">\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/English+Conversation+Partners.jpg\" alt=\"English Conversation Partners\" align=\"middle\" class=\"English Conversation Partners\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
-    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups+BW.jpg\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
+    + "        </div>\n     </div>\n     <div class=\"col-xs-12 col-sm-4\">  \n        <div class=\"picturing\">\n\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Conversation+Groups.jpg\" alt=\"Conversation Groups\" align=\"middle\" class=\"img-responsive\">\n\n        </div>\n        <div class=\"col-md-12 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-sm-10 icon-text-box text-under-circle\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "        </div>\n     </div>\n  </div>\n\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
@@ -20780,7 +20780,7 @@ window.fbAsyncInit = function() {
   this.HandlebarsTemplates["nav_bar/nav_bar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "          <div> \n            <a id=\"home-point\" class=\"navbar-brand\" style=\"cursor: pointer;\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+Logo+Small+BW.jpg\" alt=\"logo\" class=\"img-responsive\">\n\n\n            </a>\n          </div>\n          <div id=\"courses-middle\">\n"
+  return "          <div> \n            <a id=\"home-point\" class=\"navbar-brand\" style=\"cursor: pointer;\">\n              <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/CEP+logo+small.jpg\" alt=\"logo\" class=\"img-responsive\">\n            </a>\n          </div>\n          <div id=\"courses-middle\">\n"
     + ((stack1 = container.invokePartial(partials["nav_bar/_courses_drop_down"],depth0,{"name":"nav_bar/_courses_drop_down","data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "          </div>\n        ";
 },"3":function(container,depth0,helpers,partials,data) {
@@ -20797,7 +20797,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.register_new_volunteer || (depth0 != null ? depth0.register_new_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"register_new_volunteer","hash":{},"data":data}) : helper)))
     + "\n                  </a>\n                </li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li id=\"backbone-app\">\n                  <a class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#loginmodal\">\n                    "
     + container.escapeExpression(((helper = (helper = helpers.login || (depth0 != null ? depth0.login : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"login","hash":{},"data":data}) : helper)))
-    + "\n                  </a>\n                </li>\n              </ul>\n            </li>\n            <li>\n            <li class=\"national-flag\">\n              <span class=\"usa_flag\">\n\n\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle+BW.png\" alt=\"Usa\">\n\n              </span>\n            </li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li class=\"national-flag\">\n              <span class=\"thai_flag\">\n\n\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle+BW.png\" alt=\"Thai\">\n\n              </span>\n            </li>\n\n          ";
+    + "\n                  </a>\n                </li>\n              </ul>\n            </li>\n            <li>\n            <li class=\"national-flag\">\n              <span class=\"usa_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/usa_flag_circle.png\" alt=\"Usa\">\n              </span>\n            </li>\n            <li role=\"separator\" class=\"divider\"></li>\n            <li class=\"national-flag\">\n              <span class=\"thai_flag\">\n                <img style=\"cursor: pointer; padding-top: 0.5em;\" src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/thailand_flag_circle.png\" alt=\"Thai\">\n              </span>\n            </li>\n\n          ";
 },"4":function(container,depth0,helpers,partials,data) {
     var helper;
 
@@ -23974,30 +23974,24 @@ var App = {
     }
 
     $(".nav-hover").mouseenter(function(){
-      // $(this).css("background-color", "#8BC34A");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#8BC34A");
     });
     $(".nav-hover").mouseleave(function(){
-      // $(this).css("background-color", "#2D3179");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#2D3179");
     });
 
     $("#nav-dropdown").mouseenter(function(){
-      // $(this).css("background-color", "#8BC34A");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#8BC34A");
     });
     $("#nav-dropdown").mouseleave(function(){
-      // $(this).css("background-color", "#2D3179");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#2D3179");
     });
 
     $(".dropdown-toggle").mouseenter(function(){
-      // $(this).css("background-color", "#8BC34A");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#8BC34A");
     });
     $(".dropdown-toggle").mouseleave(function(){
-      // $(this).css("background-color", "#2D3179");
-      $(this).css("background-color", black);
+      $(this).css("background-color", "#2D3179");
     });
   },
   init: function() {
