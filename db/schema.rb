@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607074036) do
+ActiveRecord::Schema.define(version: 20180315191054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,25 +130,17 @@ ActiveRecord::Schema.define(version: 20170607074036) do
     t.datetime "updated_at"
   end
 
+  create_table "jekyll_users", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lessons", force: :cascade do |t|
     t.integer  "part_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "mailkick_opt_outs", force: :cascade do |t|
-    t.string   "email"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.boolean  "active",     default: true, null: false
-    t.string   "reason"
-    t.string   "list"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["email"], name: "index_mailkick_opt_outs_on_email", using: :btree
-    t.index ["user_id", "user_type"], name: "index_mailkick_opt_outs_on_user_id_and_user_type", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -213,13 +205,13 @@ ActiveRecord::Schema.define(version: 20170607074036) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "available",    default: true
+    t.integer  "volunteer_id"
+    t.integer  "student_id"
     t.integer  "orderday"
     t.integer  "ordertime"
     t.integer  "orderam"
     t.string   "day_thai"
     t.string   "time_thai"
-    t.integer  "volunteer_id"
-    t.integer  "student_id"
     t.integer  "date_chosen"
     t.integer  "month_chosen"
     t.integer  "year_chosen"
@@ -266,7 +258,6 @@ ActiveRecord::Schema.define(version: 20170607074036) do
     t.integer  "number_of_slots",      default: 0
     t.string   "facebook"
     t.string   "line"
-    t.string   "skype_time_slot_id"
     t.integer  "off_site_location_id"
   end
 
