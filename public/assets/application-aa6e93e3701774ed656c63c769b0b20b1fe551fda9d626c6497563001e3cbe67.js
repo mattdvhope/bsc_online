@@ -19348,9 +19348,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.bank_person || (depth0 != null ? depth0.bank_person : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_person","hash":{},"data":data}) : helper)))
     + "</h4>\n        <h4>"
     + container.escapeExpression(((helper = (helper = helpers.bank_number || (depth0 != null ? depth0.bank_number : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"bank_number","hash":{},"data":data}) : helper)))
-    + "</h4>\n        <h4><b>"
-    + container.escapeExpression(((helper = (helper = helpers.promotion_price || (depth0 != null ? depth0.promotion_price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"promotion_price","hash":{},"data":data}) : helper)))
-    + "</b></h4>\n        <hr>\n\n        <div class=\"control-group\">\n"
+    + "</h4>\n        <hr>\n\n        <div class=\"control-group\">\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(11, data, 0),"data":data})) != null ? stack1 : "")
     + "          <br>\n          <br>\n          <button class=\"guest-add btn\" >Submit</button>\n        </div>\n\n        <hr>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.thai_language : depth0),{"name":"if","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data})) != null ? stack1 : "")
