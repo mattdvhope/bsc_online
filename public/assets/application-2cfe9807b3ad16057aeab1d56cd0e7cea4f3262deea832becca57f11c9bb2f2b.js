@@ -20261,9 +20261,9 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_carousel", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"3":function(container,depth0,helpers,partials,data) {
-    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"free-events\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/3FreeClass-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"5":function(container,depth0,helpers,partials,data) {
     return "        <img src=\"https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Welcome+wide.jpg\" alt=\"wide picture\" class=\"img-responsive\">\n";
 },"7":function(container,depth0,helpers,partials,data) {
@@ -20785,9 +20785,7 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.you_can_speak || (depth0 != null ? depth0.you_can_speak : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"you_can_speak","hash":{},"data":data}) : helper)))
     + "\n    </a>\n  </li>\n\n  <li role=\"separator\" class=\"divider\"></li>\n  \n  <li id=\"backbone-app\">\n    <a class=\"modal-initiator drop-down-link non-summer-university\"  href=\"/business\">\n      "
     + container.escapeExpression(((helper = (helper = helpers.class_at_business || (depth0 != null ? depth0.class_at_business : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"class_at_business","hash":{},"data":data}) : helper)))
-    + "\n    </a>\n  </li>\n  \n  <li role=\"separator\" class=\"divider\"></li>\n\n  <li id=\"backbone-app\">\n    <a id=\"general-schedule\" class=\"modal-initiator drop-down-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#generalschedulemodal\">\n      "
-    + container.escapeExpression(((helper = (helper = helpers.schedule || (depth0 != null ? depth0.schedule : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"schedule","hash":{},"data":data}) : helper)))
-    + "\n    </a>\n  </li>\n</ul>\n\n\n";
+    + "\n    </a>\n  </li>\n  \n</ul>\n\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20835,11 +20833,9 @@ window.fbAsyncInit = function() {
     + container.escapeExpression(((helper = (helper = helpers.steps_to_volunteer || (depth0 != null ? depth0.steps_to_volunteer : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"steps_to_volunteer","hash":{},"data":data}) : helper)))
     + "</a></li>\n";
 },"6":function(container,depth0,helpers,partials,data) {
-    var stack1, helper;
+    var stack1;
 
-  return "              <li>\n                <a id=\"free-events\" class=\"page-scroll nav-hover\">"
-    + container.escapeExpression(((helper = (helper = helpers.free_events || (depth0 != null ? depth0.free_events : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"free_events","hash":{},"data":data}) : helper)))
-    + "</a>\n              </li>\n\n              <li>\n"
+  return "\n              <li>\n"
     + ((stack1 = container.invokePartial(partials["nav_bar/_courses_drop_down"],depth0,{"name":"nav_bar/_courses_drop_down","data":data,"indent":"                ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "              </li>\n\n              <li>\n"
     + ((stack1 = container.invokePartial(partials["nav_bar/_network_membership_drop_down"],depth0,{"name":"nav_bar/_network_membership_drop_down","data":data,"indent":"                ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
@@ -22735,8 +22731,8 @@ var MainFrontView = Backbone.View.extend({
       App.getGeneralSchedModal();
     },
     'click #general-schedule': function (e) {
-      e.preventDefault();
-      App.generalScheduleModal();
+      // e.preventDefault();
+      // App.generalScheduleModal();
     },
     'click #free-events': function (e) {
       e.preventDefault();
@@ -22830,8 +22826,8 @@ var NavBarView = Backbone.View.extend({
       App.freeEventsModal();
     },
     'click #general-schedule': function (e) {
-      e.preventDefault();
-      App.generalScheduleModal();
+      // e.preventDefault();
+      // App.generalScheduleModal();
     }
   },
 

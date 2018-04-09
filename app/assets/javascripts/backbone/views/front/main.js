@@ -14,8 +14,8 @@ var MainFrontView = Backbone.View.extend({
       App.getGeneralSchedModal();
     },
     'click #general-schedule': function (e) {
-      e.preventDefault();
-      App.generalScheduleModal();
+      // e.preventDefault();
+      // App.generalScheduleModal();
     },
     'click #free-events': function (e) {
       e.preventDefault();
