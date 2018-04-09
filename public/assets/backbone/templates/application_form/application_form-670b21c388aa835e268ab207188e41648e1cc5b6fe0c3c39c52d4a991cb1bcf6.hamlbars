@@ -1,0 +1,158 @@
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content application-modal-content">
+    <div class="modal-header">
+      <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
+      <h3 class="modal-title">{{application_title}}</h3>
+    </div>
+    <div class="modal-body">
+      <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value={{token}}>
+      <input type="hidden" name="guest" value="true">
+        {{#if thai_language}}
+          {{> application_form/thai/_intro_bullets }}
+        {{^}}
+          {{> application_form/english/_intro_bullets }}
+        {{/if}}
+        <hr>
+
+        <label class="field-label">Nickname (in English)</label>
+        <input type="text" class="form-control nickname" placeholder="ชื่อเล่น (ภาษาอังกฤษ)" name="nickname">
+        <hr>
+        <label class="field-label">First Name (in English)</label>
+        <input type="text" class="form-control first-name" placeholder="ชื่อจริง (ภาษาอังกฤษ)" name="first_name">
+        <hr>
+        <label class="field-label">Last Name (in English)</label>
+        <input type="text" class="form-control last-name" placeholder="นามสกุล (ภาษาอังกฤษ)" name="last_name">
+        <hr>
+        <label class="field-label">Gender</label>
+        <div>
+          <select name="gender" class="gender-select">
+            <option value="ผู้ชาย">ผู้ชาย</option>
+            <option value="ผู้หญิง">ผู้หญิง</option>
+          </select>
+        </div>
+        <hr>
+
+        <label class="field-label">Phone Number</label>
+            <input type="text" class="form-control phone-number" placeholder="เบอร์โทรศัพท์" name="phone_number">
+        <hr>
+
+        <label class="field-label email-label">Email Address (ไม่จำเป็น/optional)<h4>
+        </h4></label>
+        <input type="text" class="form-control email" placeholder="อีเมล" name="email">
+        <hr>
+
+        {{!-- <label class="field-label">Facebook Name</label>
+        <input type="text" class="form-control facebook" placeholder="ชื่อเฟซบุ๊ก" name="facebook">
+        <hr>
+        <label class="field-label">LINE ID
+        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Line+small.jpg" alt="Line ID" style="width:25px;height:25px;">
+        </label>
+        <input type="text" class="form-control line" placeholder="LINE ID" name="line">
+        <hr> --}}
+        
+        <!-- partials with selectors -->
+        {{#if thai_language}}
+          {{> application_form/thai/_non_univ_options }}
+        {{^}}
+          {{> application_form/english/_non_univ_options }}
+        {{/if}}
+        </label>
+        <hr>
+
+        <span id="off-site-fields"></span>
+
+        <h3><u>{{bank_transfer_info}}</u></h3>
+        <h4>{{bank_transfer_extra_info}}</h4>
+        <h4>{{bank_name}}</h4>
+        <h4>{{bank_person}}</h4>
+        <h4>{{bank_number}}</h4>
+        <hr>
+
+        <div class="control-group">
+          {{#if thai_language}}
+            {{> application_form/thai/_email_explanation }}
+          {{^}}
+            {{> application_form/english/_email_explanation }}
+          {{/if}}
+          <br>
+          <br>
+          <button class="guest-add btn" {{!-- data-toggle="modal" href="#" data-target="#welcomepopupmodal" --}}>Submit</button>
+        </div>
+
+        <hr>
+        {{#if thai_language}}
+          {{> application_form/thai/_after_submit }}
+        {{^}}
+          {{> application_form/english/_after_submit }}
+        {{/if}}
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+    </div>
+  </div> <!-- Modal content-->
+</div> <!-- Modal dialog -->
+
+
+<script>
+
+  /// to prevent scrolling when bootstrap modal is open
+  var $html = $(document.documentElement);
+  var $modal = $('#applicationmodal');
+
+  function showModal() {
+    $html.css('overflow', 'hidden');
+    $modal.css('overflow', 'auto');
+  }
+
+  function hideModal() {
+    $html.css('overflow', '');
+    $modal.modal("hide");
+  }
+
+  $('.modal-initiator').on('click', showModal);
+  $('.close-modal').on('click', hideModal);
+  /// to prevent scrolling ///////////////////////
+
+
+  //// radio buttons /////
+  // var button1 = document.getElementById("sched-opt-one");
+  // var button2 = document.getElementById("sched-opt-two");
+
+  // $("#sched-opt-one, #sched-opt-two").on("click", function() {
+  //   if (button1.checked){ // if #five-weeks selected
+  //     $('#five-weeks').prop('disabled', false);
+  //     $('#five-weeks').removeClass("grayout").addClass("blackin");
+  //     $('#one-whole-week').val('select_option');
+  //     $('#one-whole-week').prop('disabled', 'disabled');
+  //     $('#one-whole-week').removeClass("blackin").addClass("grayout");
+  //   }
+  //   else if (button2.checked) { // if #one-whole-week selected
+  //     $('#one-whole-week').prop('disabled', false);
+  //     $('#one-whole-week').removeClass("grayout").addClass("blackin");
+  //     $('#five-weeks').val('select_option');
+  //     $('#five-weeks').prop('disabled', 'disabled');
+  //     $('#five-weeks').removeClass("blackin").addClass("grayout");
+  //   }
+  // });
+
+  $('.radio-pay_at_center').on("change", function() {
+    $('.radio-pay_by_transfer').prop('checked', false);
+  });
+  $('.radio-pay_by_transfer').on("change", function() {
+    $('.radio-pay_at_center').prop('checked', false);
+  });
+
+  //// radio buttons /////
+
+</script>
+
+
+
+
+
+

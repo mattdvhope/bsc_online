@@ -1,0 +1,29 @@
+<a href="" id="nav-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{register_ycs}}<span class="caret"></span></a>
+
+<ul class="dropdown-menu">
+
+  <li id="backbone-app">
+    <a class="modal-initiator drop-down-link non-summer-university"  href="#" data-toggle="modal" data-target="#applicationmodal">
+      {{you_can_speak}}
+    </a>
+  </li>
+
+  <li role="separator" class="divider"></li>
+  
+  <li id="backbone-app">
+    <a class="modal-initiator drop-down-link non-summer-university"  href="/business">
+      {{class_at_business}}
+    </a>
+  </li>
+  
+  {{!-- <li role="separator" class="divider"></li>
+
+  <li id="backbone-app">
+    <a id="general-schedule" class="modal-initiator drop-down-link"  href="#" data-toggle="modal" data-target="#generalschedulemodal">
+      {{schedule}}
+    </a>
+  </li> --}}
+</ul>
+
+
+
