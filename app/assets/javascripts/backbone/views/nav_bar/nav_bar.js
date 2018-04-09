@@ -33,8 +33,8 @@ var NavBarView = Backbone.View.extend({
       App.freeEventsModal();
     },
     'click #general-schedule': function (e) {
-      e.preventDefault();
-      App.generalScheduleModal();
+      // e.preventDefault();
+      // App.generalScheduleModal();
     }
   },
 
