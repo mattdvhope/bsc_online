@@ -11,6 +11,8 @@ gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry
 gem "paratrooper", "~> 3.0.2" # for setting up the Heroku staging environment
 gem 'redis'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 # AWS stuff...
 # gem 'carrierwave-aws'
 # gem 'fog-aws' #, require: 'fog/aws' # for AWS cloud storage
