@@ -15,6 +15,22 @@ module BscOnline
     # This middleware will compress (using gzip, deflate, or another Accept-Encoding value) every response that leaves your application.
     config.middleware.use Rack::Deflater
 
+    # Setup for CORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:4000', '127.0.0.1:4000'
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :patch, :delete, :options]
+      end
+
+      # MORE THAN ONE origin possible
+      # allow do
+      #   origins '*'
+      #   resource '/public/*', :headers => :any, :methods => :get
+      # end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
