@@ -25,10 +25,10 @@ module BscOnline
       end
 
       # MORE THAN ONE origin possible
-      allow do
-        origins '*'
-        resource '/public/*', :headers => :any, :methods => :get
-      end
+      # allow do
+      #   origins '*'
+      #   resource '/public/*', :headers => :any, :methods => :get
+      # end
     end
 
     # Settings in config/environments/* take precedence over those specified here.
