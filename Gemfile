@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.5.0'
 
-gem 'rails', '5.0.0.1'
+gem 'rails', '~> 5.1.6'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'responders'
@@ -9,7 +9,7 @@ gem 'puma'
 gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem "paratrooper", "~> 3.0.2" # for setting up the Heroku staging environment
-gem 'redis'
+gem "redis"
 
 gem 'rack-cors', :require => 'rack/cors'
 
