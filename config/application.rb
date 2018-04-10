@@ -25,10 +25,13 @@ module BscOnline
       end
 
       # MORE THAN ONE origin possible
-      # allow do
-      #   origins '*'
-      #   resource '/public/*', :headers => :any, :methods => :get
-      # end
+      allow do
+        origins 'https://cocky-wing-c94f8d.netlify.com/'
+        resource '*',
+          :headers => :any,
+          :methods => [:get]
+        # resource '/public/*', :headers => :any, :methods => :get
+      end
     end
 
     # Settings in config/environments/* take precedence over those specified here.
