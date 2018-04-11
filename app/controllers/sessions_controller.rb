@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def log_in
-    redirect_to root_path # in case 'log_in' typed into URL
-  end
-
   def create
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
