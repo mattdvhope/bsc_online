@@ -368,6 +368,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   js-routes
+  jwt
   launchy
   letter_opener
   mailgun-ruby (~> 1.0.3)
