@@ -21,7 +21,7 @@ module BscOnline
         origins 'localhost:4000', '127.0.0.1:4000'
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :put, :patch, :delete, :options]
+          :methods => [:get, :post, :put, :patch, :options]
       end
 
       # MORE THAN ONE origin possible
@@ -29,7 +29,7 @@ module BscOnline
         origins 'https://cocky-wing-c94f8d.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :put, :patch, :delete, :options]
+          :methods => [:get, :post, :put, :patch, :options]
         # resource '/public/*', :headers => :any, :methods => :get
       end
     end
