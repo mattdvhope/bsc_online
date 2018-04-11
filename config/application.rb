@@ -29,7 +29,7 @@ module BscOnline
         origins 'https://cocky-wing-c94f8d.netlify.com/'
         resource '*',
           :headers => :any,
-          :methods => [:get]
+          :methods => [:get, :post, :put, :patch, :delete, :options]
         # resource '/public/*', :headers => :any, :methods => :get
       end
     end
