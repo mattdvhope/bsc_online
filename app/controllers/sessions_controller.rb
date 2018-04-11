@@ -7,12 +7,10 @@ class SessionsController < ApplicationController
   def create
     reset_session # see 'http://guides.rubyonrails.org/security.html#sessions' paragraph 2.8 
     if user = user_defined
-binding.pry
       session[:user_id] = user.id
       cookies.permanent.signed[:user_id] = session[:user_id]
       redirect_to dashboard_path
     else
-binding.pry
       render :json => { :error => "Invalid email address & password" }, :status => 422
     end
   end
