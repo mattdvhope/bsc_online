@@ -13,6 +13,8 @@ gem "redis"
 
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'jwt'
+
 # AWS stuff...
 # gem 'carrierwave-aws'
 # gem 'fog-aws' #, require: 'fog/aws' # for AWS cloud storage

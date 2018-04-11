@@ -100,7 +100,7 @@ Rails.application.routes.draw do
 
   get 'log_in', to: "sessions#log_in" # action doesn't really matter here since Backbone is taking over routing with this path
 
-  get 'auth/:provider/callback', to: 'sessions#create' # for Facebook login
+  # get 'auth/:provider/callback', to: 'sessions#create' # for Facebook login
 
   resources :sessions, only: [:create]
   get 'log_out', to: "sessions#destroy"

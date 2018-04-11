@@ -28,6 +28,12 @@ User.create(first_name: 'Alex', last_name: 'Blanton', nickname: "Alex", skype_na
 User.create(first_name: 'John', last_name: 'Lapos', nickname: "John", skype_name: "@John", line: "@John", off_site_location_id: 0, role: "volunteer", organization: "NGO org", phone_number: "099-555-4324", email: 'john@test.tv', age: 49, gender: "Male", password: 'password', password_confirmation: 'password', postal_code: '10801', pin: "000000")
 User.create(first_name: 'Eric', last_name: 'Mullis', nickname: "Eric", skype_name: "@Eric", line: "@Eric", off_site_location_id: 0, role: "volunteer", organization: "NGO org", phone_number: "099-555-4325", email: 'eric@test.tv', age: 47, gender: "Male", password: 'password', password_confirmation: 'password', postal_code: '10701', pin: "000000")
 
+ClassTime.create(period: '14-18 May, 18.30-20.00, Monday - Friday', period_thai: '14-18 พฤษภาคม, 18.30-20.00, วันจันทร์ - วันศุกร์', category: nil, order_no: 10, completed: false, cancelled: false)
+ClassTime.create(period: '14-18 June, 18.30-20.00, Monday - Friday', period_thai: '14-18 มิถุนายน, 18.30-20.00, วันจันทร์ - วันศุกร์', category: nil, order_no: 20, completed: false, cancelled: false)
+ClassTime.create(period: '14-18 July, 18.30-20.00, Monday - Friday', period_thai: '14-18 กรกฎาคม, 18.30-20.00, วันจันทร์ - วันศุกร์', category: nil, order_no: 30, completed: false, cancelled: false)
+ClassTime.create(period: '14-18 August, 18.30-20.00, Monday - Friday', period_thai: '14-18 สิงหาคม, 18.30-20.00, วันจันทร์ - วันศุกร์', category: nil, order_no: 40, completed: false, cancelled: false)
+ClassTime.create(period: '14-18 September, 18.30-20.00, Monday - Friday', period_thai: '14-18 กันยายน, 18.30-20.00, วันจันทร์ - วันศุกร์', category: nil, order_no: 50, completed: false, cancelled: false)
+
 
 AdminApplication.create(user_id: 1, response_first: "First Response1", response_second: "Second Response1", response_third: "Third Response1", approved: true)
 AdminApplication.create(user_id: 1, response_first: "First Response2", response_second: "Second Response2", response_third: "Third Response2", approved: true)
