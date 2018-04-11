@@ -26,7 +26,8 @@ module BscOnline
 
       # MORE THAN ONE origin possible
       allow do
-        origins 'https://cocky-wing-c94f8d.netlify.com/'
+        # origins 'https://cocky-wing-c94f8d.netlify.com/'
+        origins '*'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :delete, :options]
