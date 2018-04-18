@@ -7,7 +7,7 @@ class JsonWebToken
     # set expiry to 24 hours from creation time
     payload[:exp] = exp.to_i
     # sign token with application secret
-    JWT.encode(payload, HMAC_SECRET)
+    JWT.encode(payload, HMAC_SECRET) # The payload (second part of the token) contains information about the user and his/her role. For example, the payload can contain the e-mail and the password.
   end
 
   def self.decode(token)
