@@ -98,10 +98,10 @@ Rails.application.routes.draw do
 
   resources :plans, except: [:destroy]
 
-  get 'log_in', to: "sessions#log_in" # action doesn't really matter here since Backbone is taking over routing with this path
-
-  # get 'auth/:provider/callback', to: 'sessions#create' # for Facebook login
-
+  # post 'auth/login', to: 'authentication#authenticate'
+  # post 'signup', to: 'users#create'
+  
+  
   resources :sessions, only: [:create]
   get 'log_out', to: "sessions#destroy"
 
