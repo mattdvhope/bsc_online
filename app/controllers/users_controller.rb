@@ -30,19 +30,22 @@ class UsersController < ApplicationController
   def create
     # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
-    user.nickname = user.nickname.downcase.capitalize
     user.first_name = user.first_name.downcase.capitalize
     user.last_name = user.last_name.downcase.capitalize
     user.off_site_location_id = user.off_site_location_id.to_i
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
+      user.nickname = user.nickname.downcase.capitalize
       deal_with_guest(user)
     elsif user.role == "volunteer" && user.pin != "000000"
+      user.nickname = "vol"
       deal_with_volunteer(user)
     elsif user.role == "admin_applicant"
+      user.nickname = "adm"
       deal_with_admin_applicant(user)
     elsif user.role == "student" && user.pin != "000000"
+      user.nickname = user.nickname.downcase.capitalize
       fully_register_student(user)
     end
   end
@@ -98,7 +101,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :gender, :email, :facebook, :line, :skype_name, :number_of_slots, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :off_site_location_id)
+      params.require(:user).permit(:nickname, :first_name, :last_name, :image, :email, :facebook, :line, :skype_name, :number_of_slots, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :off_site_location_id)
     end
 
     def deal_with_guest(user)
@@ -137,6 +140,11 @@ class UsersController < ApplicationController
         else
           set_password(user)
           if user.save
+
+#             auth_token = AuthenticateUser.new(user.email, user.password).call
+#             response = { message: Message.account_created, auth_token: auth_token }
+#             json_response(response, :created)
+
             student_render(user)
             send_new_user_email(user)
           else
