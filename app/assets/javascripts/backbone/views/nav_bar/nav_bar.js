@@ -79,8 +79,11 @@ var NavBarView = Backbone.View.extend({
   class_at_business: function() {
     return choose_language("Class at your workplace", "ชั้นเรียนในที่ทำงานของคุณ");
   },
-  you_can_speak: function() {
-    return choose_language("'You Can Speak!' Registration", "สมัครเรียนหลักสูตร 'You Can Speak!'");
+  you_can_speak_1: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่หนึ่ง)");
+  },
+  you_can_speak_2: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่สอง)");
   },
   volunteer: function() {
     return choose_language("Volunteer", "อาสาสมัคร");
@@ -115,7 +118,8 @@ var NavBarView = Backbone.View.extend({
       register_ycs: this.register_ycs(),
       converse_online: this.converse_online(),
       class_at_business: this.class_at_business(),
-      you_can_speak: this.you_can_speak(),
+      you_can_speak_1: this.you_can_speak_1(),
+      you_can_speak_2: this.you_can_speak_2(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),
