@@ -35,6 +35,14 @@ var NavBarView = Backbone.View.extend({
     'click #general-schedule': function (e) {
       // e.preventDefault();
       // App.generalScheduleModal();
+    },
+    'click .app-form-part-one': function (e) {
+      e.preventDefault();
+      $('#applicationmodal').modal('show');
+    },
+    'click .app-form-part-two': function (e) {
+      e.preventDefault();
+      $('#applicationmodal').modal('show');
     }
   },
 

@@ -6,8 +6,6 @@
 //= require_tree ./routers
 //= require_tree ./app_methods
 
-console.log("Hello!!!!");
-
 var App = {
   getFrontMainPage: function() {
     getFrontMainPage(); // in 'app_methods' folder
@@ -222,7 +220,7 @@ var App = {
       return new Backbone.Model(user_object);
     }
   },
-  openApplicationForm: function() {
+  renderApplicationForm: function() {
     var class_times = new ClassTimes();
     this.class_times = class_times;
     var off_site_locations = new OffSiteLocations();
@@ -277,7 +275,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Neue Frutiger W31 Modern Light', 'Athiti'");
-      the_app.openApplicationForm();
+      the_app.renderApplicationForm();
       the_app.instantiateStudentRegForm();
     });
 
@@ -287,7 +285,7 @@ var App = {
       }
       getCorrectPageWhenFlagClicked();
       $("body").css("font-family", "'Century Gothic W01', 'Athiti', sans-serif");
-      the_app.openApplicationForm();
+      the_app.renderApplicationForm();
       the_app.instantiateStudentRegForm();
     });
 
@@ -345,7 +343,7 @@ var App = {
 
       if (gon.page_needed === "front") {
         app_obj.getFrontMainPage();
-        app_obj.openApplicationForm();
+        app_obj.renderApplicationForm();
       }
       else if (gon.page_needed === "volunteer_info" || gon.page_needed === "admin") {
         app_obj.getVolunteerPage();
