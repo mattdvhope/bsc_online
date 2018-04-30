@@ -32,9 +32,29 @@ var NavBarView = Backbone.View.extend({
       e.preventDefault();
       App.freeEventsModal();
     },
-    'click #general-schedule': function (e) {
-      // e.preventDefault();
-      // App.generalScheduleModal();
+    'click .app-form-part-one': function (e) {
+      e.preventDefault();
+      $('#applicationmodal').modal('show');
+      $('.app-title-2').hide();
+      $('.app-title-1').show();
+
+      $('.removable-appl-fields').show();
+
+
+      $('.part_2_class_time_selectors').hide();
+      $('.part_1_class_time_selectors').show();
+    },
+    'click .app-form-part-two': function (e) {
+      e.preventDefault();
+      $('#applicationmodal').modal('show');
+      $('.app-title-1').hide();
+      $('.app-title-2').show();
+
+      $('.removable-appl-fields').hide();
+
+
+      $('.part_1_class_time_selectors').hide();
+      $('.part_2_class_time_selectors').show();
     }
   },
 
@@ -73,14 +93,17 @@ var NavBarView = Backbone.View.extend({
   register_ycs: function() {
     return choose_language("Register", "สมัครเรียน");
   },
-  converse_online: function() {
+  'converse_online': function() {
     return choose_language("Converse in English online. (Members Only)", "สมัครสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
   class_at_business: function() {
     return choose_language("Class at your workplace", "ชั้นเรียนในที่ทำงานของคุณ");
   },
-  you_can_speak: function() {
-    return choose_language("'You Can Speak!' Registration", "สมัครเรียนหลักสูตร 'You Can Speak!'");
+  you_can_speak_1: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 1)");
+  },
+  you_can_speak_2: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 2)");
   },
   volunteer: function() {
     return choose_language("Volunteer", "อาสาสมัคร");
@@ -115,7 +138,8 @@ var NavBarView = Backbone.View.extend({
       register_ycs: this.register_ycs(),
       converse_online: this.converse_online(),
       class_at_business: this.class_at_business(),
-      you_can_speak: this.you_can_speak(),
+      you_can_speak_1: this.you_can_speak_1(),
+      you_can_speak_2: this.you_can_speak_2(),
       volunteer: this.volunteer(),
       volunteer_info: this.volunteer_info(),
       register_new_volunteer: this.register_new_volunteer(),

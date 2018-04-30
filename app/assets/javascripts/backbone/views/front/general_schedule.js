@@ -12,7 +12,7 @@ var GeneralScheduleView = Backbone.View.extend({
 
   bring_appl_form: function(event) {
     event.preventDefault();
-    App.openApplicationForm();
+    App.renderApplicationForm();
     $("#applicationmodal").modal();
   },
 

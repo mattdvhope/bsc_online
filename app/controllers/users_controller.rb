@@ -28,11 +28,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
     user.first_name = user.first_name.downcase.capitalize
     user.last_name = user.last_name.downcase.capitalize
     user.off_site_location_id = user.off_site_location_id.to_i
+    user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
@@ -105,17 +105,36 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
-      user.class_period = params[:class_time_scheduled]
+      previous_user = User.where(email: user.email)[0] || User.where(phone_number: user.phone_number)[0]
+      previous_user ? user = previous_user : user = user
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
-      if user.save
-        relate_user_to_class_time(user)
-        render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
-        if user.email != ""
-          send_new_user_email(user)
-        end
-      else
-        render :json => { :errors => user.errors.full_messages }, :status => 422
+      if params[:class_time_scheduled_2] == "select_option"
+        user.class_period = params[:class_time_scheduled_1]
+      elsif params[:class_time_scheduled_1] == "select_option"
+        user.class_period = params[:class_time_scheduled_2]
       end
+
+      unless previous_user
+        if user.save
+          relate_user_to_class_time(user)
+          render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+          if user.email != ""
+            send_new_user_email(user)
+          end
+        else
+          render :json => { :errors => user.errors.full_messages }, :status => 422
+        end
+
+      else
+        relate_user_to_class_time(previous_user)
+        previous_user.save!(:validate => false)
+        if previous_user.email != ""
+          send_new_user_email(previous_user)
+        end
+        render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+
+      end
+
     end
 
     def relate_user_to_class_time(user)

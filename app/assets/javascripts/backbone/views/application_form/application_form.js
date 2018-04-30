@@ -126,8 +126,12 @@ var ApplicationView = Backbone.View.extend({
 
   }, // signUp:
 
-  application_title: function() {
-    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสมัครเรียนหลักสูตร \"You Can Speak!\"");
+  application_title_1: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 1)");
+  },
+
+  application_title_2: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 2)");
   },
 
   bank_transfer_info: function() {
@@ -181,8 +185,28 @@ var ApplicationView = Backbone.View.extend({
     return choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
   },
 
-  regular_class_times: function() {
-    return this.class_times.options;
+  regular_class_times_1: function() {
+    var class_times_part_1 = [];
+    this.class_times.options.forEach(function(class_time) {
+      class_time.part === "one" ? class_times_part_1.push(class_time) : null;
+    });
+
+    var off_site = this.class_times.options.filter( function(item){return (item.part=="off-site");} );
+    class_times_part_1.unshift(off_site[0]);
+
+    return class_times_part_1;
+  },
+
+  regular_class_times_2: function() {
+    var class_times_part_2 = [];
+    this.class_times.options.forEach(function(class_time) {
+      class_time.part === "two" ? class_times_part_2.push(class_time) : null;
+    });
+
+    var off_site = this.class_times.options.filter( function(item){return (item.part=="off-site");} );
+    class_times_part_2.unshift(off_site[0]);
+    
+    return class_times_part_2;
   },
 
   off_site_locations: function() {
@@ -198,7 +222,8 @@ var ApplicationView = Backbone.View.extend({
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: thai_language(),
-      application_title: this.application_title(),
+      application_title_1: this.application_title_1(),
+      application_title_2: this.application_title_2(),
       bank_transfer_info: this.bank_transfer_info(),
       bank_transfer_extra_info: this.bank_transfer_extra_info(),
       bank_name: this.bank_name(),
@@ -211,7 +236,8 @@ var ApplicationView = Backbone.View.extend({
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      regular_class_times: this.regular_class_times(),
+      regular_class_times_1: this.regular_class_times_1(),
+      regular_class_times_2: this.regular_class_times_2(),
       off_site_locations: this.off_site_locations()
     }));
 
