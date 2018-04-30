@@ -54,6 +54,14 @@
           {{/if}}
         </span>
 
+        <span class="part_2_class_time_selectors">
+          {{#if thai_language}}
+            {{> application_form/thai/_part_2_class_time_selectors }}
+          {{^}}
+            {{> application_form/english/_part_2_class_time_selectors }}
+          {{/if}}
+        </span>
+
         <hr>
 
         <span id="off-site-fields"></span>

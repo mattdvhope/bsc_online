@@ -105,8 +105,11 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
+binding.pry
       user.class_period = params[:class_time_scheduled]
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
+      # user.save!(:validate => false)
+
       if user.save
         relate_user_to_class_time(user)
         render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
