@@ -1,0 +1,60 @@
+<div class="container">
+
+<br>
+<br>
+<br>
+
+<hr>
+<h2><a href="/log_out">Log Out</a></h2>
+<hr>
+  
+<h2>Create or Archive off-site locations on this page...</h2>
+<hr>
+
+{{#if refreshed}}
+  <h4><a href="/dashboard">Return to your dashboard page, {{leader}}</a></h4>
+{{else}}
+  <h4><a href="javascript:history.back()">Return to your dashboard page, {{leader}}</a></h4>
+{{/if}}
+
+<hr>
+<h2>Here are the currently scheduled CEP off-site (not at the CEP center) class locations....</h2>
+
+  <ul style="list-style: none;">
+  <hr>
+  {{#each not_completed}}
+    <li>
+      <h4><b>Location:</b> {{this.location_english}}/{{this.location_thai}}</h4>
+      {{#each this.users}}
+        <h5>{{this.first_name}} {{this.last_name}}, {{this.phone_number}}, {{this.email}}</h5>        
+      {{/each}}
+    </li>
+    <hr>
+  {{/each}}
+  </ul>
+
+<hr>
+<h2>You can create new off-site locations below....</h2>
+<h4>Use differing characteristics [like floor numbers, etc] and a chronologically ordered number [#3, etc] for classes taught in succession at the same location.  Also write in the time period (plus days if not a M-F class). <u>The bottom line is that you want to distinguish every class from every <b>other</b> class!</u></h4>
+<h3>Wat Tam Sua (3rd floor, #1), 10:00am-12:00pm</h3>
+<h4>...and...</h4>
+<h3>วัดถ้ำเสือ (ชั้น 3, #1), 10:30-12:00น.</h3>
+<h4>..............or.............</h4>
+<h3>Fusion Sales team (#2), 6:00-7:30pm</h3>
+<h4>...and...</h4>
+<h3>ทีมขาย Fusion (#2), 18:00-19:30น.</h3>
+<h4>..............or.............</h4>
+<h3>Fusion Sales team (#3), T-Th, 6:00-7:30pm</h3>
+<h4>...and...</h4>
+<h3>ทีมขาย Fusion (#3), อังคาร-พฤหัส, 18:00-19:30น.</h3>
+<h4>...etc...(try not make them too long and avoid typos!!)....</h4>
+<hr>
+<hr>
+<h2>Below here you can (1) Create a new off-site location, (2) Archive an off-site location</h2>
+<hr>
+<span id="for-attaching-form"></span>
+
+</div> <!-- container -->
+
+<!-- new_off_site_location_form below this template -->
+
