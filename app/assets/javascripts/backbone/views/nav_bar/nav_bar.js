@@ -38,6 +38,9 @@ var NavBarView = Backbone.View.extend({
       $('.app-title-2').hide();
       $('.app-title-1').show();
 
+      $('.removable-appl-fields').show();
+
+
       $('.part_2_class_time_selectors').hide();
       $('.part_1_class_time_selectors').show();
     },
@@ -46,6 +49,9 @@ var NavBarView = Backbone.View.extend({
       $('#applicationmodal').modal('show');
       $('.app-title-1').hide();
       $('.app-title-2').show();
+
+      $('.removable-appl-fields').hide();
+
 
       $('.part_1_class_time_selectors').hide();
       $('.part_2_class_time_selectors').show();

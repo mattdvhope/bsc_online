@@ -191,6 +191,9 @@ var ApplicationView = Backbone.View.extend({
       class_time.part === "one" ? class_times_part_1.push(class_time) : null;
     });
 
+    var off_site = this.class_times.options.filter( function(item){return (item.part=="off-site");} );
+    class_times_part_1.unshift(off_site[0]);
+
     return class_times_part_1;
   },
 
@@ -200,6 +203,9 @@ var ApplicationView = Backbone.View.extend({
       class_time.part === "two" ? class_times_part_2.push(class_time) : null;
     });
 
+    var off_site = this.class_times.options.filter( function(item){return (item.part=="off-site");} );
+    class_times_part_2.unshift(off_site[0]);
+    
     return class_times_part_2;
   },
 
