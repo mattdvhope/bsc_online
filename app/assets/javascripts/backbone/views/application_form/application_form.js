@@ -185,9 +185,22 @@ var ApplicationView = Backbone.View.extend({
     return choose_language("CEP's payment information", "ข้อมูลการชำระเงินโครงการซิตี้ อิงลิช");
   },
 
-  regular_class_times: function() {
-console.log(this.class_times.options);
-    return this.class_times.options;
+  regular_class_times_1: function() {
+    var class_times_part_1 = [];
+    this.class_times.options.forEach(function(class_time) {
+      class_time.part === "one" ? class_times_part_1.push(class_time) : null;
+    });
+
+    return class_times_part_1;
+  },
+
+  regular_class_times_2: function() {
+    var class_times_part_2 = [];
+    this.class_times.options.forEach(function(class_time) {
+      class_time.part === "two" ? class_times_part_2.push(class_time) : null;
+    });
+
+    return class_times_part_2;
   },
 
   off_site_locations: function() {
@@ -217,7 +230,8 @@ console.log(this.class_times.options);
       schedule_option_two: this.schedule_option_two(),
       class_cost: this.class_cost(),
       pan_road: this.pan_road(),
-      regular_class_times: this.regular_class_times(),
+      regular_class_times_1: this.regular_class_times_1(),
+      regular_class_times_2: this.regular_class_times_2(),
       off_site_locations: this.off_site_locations()
     }));
 

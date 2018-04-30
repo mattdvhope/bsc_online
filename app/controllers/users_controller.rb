@@ -105,8 +105,13 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
-binding.pry
-      user.class_period = params[:class_time_scheduled]
+
+      if params[:class_time_scheduled_1] == "select_option"
+        user.class_period = params[:class_time_scheduled_2]
+      elsif params[:class_time_scheduled_2] == "select_option"
+        user.class_period = params[:class_time_scheduled_1]
+      end
+
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
       # user.save!(:validate => false)
 
