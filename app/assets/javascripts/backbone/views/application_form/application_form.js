@@ -126,8 +126,12 @@ var ApplicationView = Backbone.View.extend({
 
   }, // signUp:
 
-  application_title: function() {
-    return choose_language("Register for the class, \"You Can Speak!\"", "แบบฟอร์มสมัครเรียนหลักสูตร \"You Can Speak!\"");
+  application_title_1: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่หนึ่ง)");
+  },
+
+  application_title_2: function() {
+    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่สอง)");
   },
 
   bank_transfer_info: function() {
@@ -198,7 +202,8 @@ var ApplicationView = Backbone.View.extend({
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: thai_language(),
-      application_title: this.application_title(),
+      application_title_1: this.application_title_1(),
+      application_title_2: this.application_title_2(),
       bank_transfer_info: this.bank_transfer_info(),
       bank_transfer_extra_info: this.bank_transfer_extra_info(),
       bank_name: this.bank_name(),

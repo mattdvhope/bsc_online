@@ -32,17 +32,23 @@ var NavBarView = Backbone.View.extend({
       e.preventDefault();
       App.freeEventsModal();
     },
-    'click #general-schedule': function (e) {
-      // e.preventDefault();
-      // App.generalScheduleModal();
-    },
     'click .app-form-part-one': function (e) {
       e.preventDefault();
       $('#applicationmodal').modal('show');
+      $('.app-title-2').hide();
+      $('.app-title-1').show();
+
+      $('.part_2_class_time_selectors').hide();
+      $('.part_1_class_time_selectors').show();
     },
     'click .app-form-part-two': function (e) {
       e.preventDefault();
       $('#applicationmodal').modal('show');
+      $('.app-title-1').hide();
+      $('.app-title-2').show();
+
+      $('.part_1_class_time_selectors').hide();
+      $('.part_2_class_time_selectors').show();
     }
   },
 
@@ -81,7 +87,7 @@ var NavBarView = Backbone.View.extend({
   register_ycs: function() {
     return choose_language("Register", "สมัครเรียน");
   },
-  converse_online: function() {
+  'converse_online': function() {
     return choose_language("Converse in English online. (Members Only)", "สมัครสนทนาภาษาอังกฤษออนไลน์ (เฉพาะสมาชิก)");
   },
   class_at_business: function() {

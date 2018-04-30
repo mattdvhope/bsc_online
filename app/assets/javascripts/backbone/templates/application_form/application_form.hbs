@@ -4,7 +4,8 @@
   <div class="modal-content application-modal-content">
     <div class="modal-header">
       <button type="button" class="close close-modal" data-dismiss="modal">&times;</button>
-      <h3 class="modal-title">{{application_title}}</h3>
+      <h3 class="modal-title app-title-1">{{application_title_1}}</h3>
+      <h3 class="modal-title app-title-2">{{application_title_2}}</h3>
     </div>
     <div class="modal-body">
       <form novalidate="novalidate" class="simple_form application_form" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
@@ -45,22 +46,14 @@
         <input type="text" class="form-control email" placeholder="อีเมล" name="email">
         <hr>
 
-        {{!-- <label class="field-label">Facebook Name</label>
-        <input type="text" class="form-control facebook" placeholder="ชื่อเฟซบุ๊ก" name="facebook">
-        <hr>
-        <label class="field-label">LINE ID
-        <img src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Circle+Line+small.jpg" alt="Line ID" style="width:25px;height:25px;">
-        </label>
-        <input type="text" class="form-control line" placeholder="LINE ID" name="line">
-        <hr> --}}
-        
-        <!-- partials with selectors -->
-        {{#if thai_language}}
-          {{> application_form/thai/_non_univ_options }}
-        {{^}}
-          {{> application_form/english/_non_univ_options }}
-        {{/if}}
-        </label>
+        <span class="part_1_class_time_selectors">
+          {{#if thai_language}}
+            {{> application_form/thai/_part_1_class_time_selectors }}
+          {{^}}
+            {{> application_form/english/_part_1_class_time_selectors }}
+          {{/if}}
+        </span>
+
         <hr>
 
         <span id="off-site-fields"></span>
