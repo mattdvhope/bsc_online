@@ -127,11 +127,11 @@ var ApplicationView = Backbone.View.extend({
   }, // signUp:
 
   application_title_1: function() {
-    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่หนึ่ง)");
+    return choose_language("Registration for \"You Can Speak!\" (Part 1)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 1)");
   },
 
   application_title_2: function() {
-    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่สอง)");
+    return choose_language("Registration for \"You Can Speak!\" (Part 2)", "สมัครเรียนหลักสูตร \"You Can Speak!\" (ตอนที่ 2)");
   },
 
   bank_transfer_info: function() {
