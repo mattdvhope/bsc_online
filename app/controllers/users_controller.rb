@@ -28,11 +28,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @uploader.update_attribute :image_key, params[:key]
     user = User.new(user_params)
+binding.pry
     user.first_name = user.first_name.downcase.capitalize
     user.last_name = user.last_name.downcase.capitalize
     user.off_site_location_id = user.off_site_location_id.to_i
+    user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
