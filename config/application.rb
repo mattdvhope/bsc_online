@@ -18,7 +18,7 @@ module BscOnline
     # Setup for CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:4000', '127.0.0.1:4000'
+        origins 'localhost:8000', '127.0.0.1:8000'
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :options]
@@ -26,7 +26,7 @@ module BscOnline
 
       # MORE THAN ONE origin possible
       allow do
-        origins 'https://cocky-wing-c94f8d.netlify.com' # DON'T ADD FINAL SLASH!!!
+        origins 'https://loving-meitner-305338.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :options]
