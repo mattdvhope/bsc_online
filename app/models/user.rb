@@ -78,8 +78,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # validates_presence_of :address_1, :if => :admin_applicant?
-  # validates_presence_of :city, :if => :admin_applicant?
   validates_presence_of :province, :if => :admin_applicant?
   VALID_POSTAL_CODE_REGEX = /\A\d{5}(-\d{4})?\z/
   validates :postal_code, presence: true,

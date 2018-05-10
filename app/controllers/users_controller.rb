@@ -111,12 +111,13 @@ class UsersController < ApplicationController
       if params[:class_time_scheduled_2] == "select_option"
         user.class_period = params[:class_time_scheduled_1]
       elsif params[:class_time_scheduled_1] == "select_option"
+        user.class_period = nil
         user.class_period = params[:class_time_scheduled_2]
       end
 
-      unless previous_user
+      if !previous_user # if NOT a previous user
+        relate_user_to_class_time(user)
         if user.save
-          relate_user_to_class_time(user)
           render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
           if user.email != ""
             send_new_user_email(user)
@@ -125,7 +126,7 @@ class UsersController < ApplicationController
           render :json => { :errors => user.errors.full_messages }, :status => 422
         end
 
-      else
+      else # if this IS a previous user...
         relate_user_to_class_time(previous_user)
         previous_user.save!(:validate => false)
         if previous_user.email != ""
@@ -138,8 +139,8 @@ class UsersController < ApplicationController
     end
 
     def relate_user_to_class_time(user)
-      class_time = ClassTime.find_by(period: user.class_period)
-      class_time.users << user
+      user.class_time = nil
+      user.class_time = ClassTime.find_by(period: user.class_period)
     end
 
     def fully_register_student(user)
