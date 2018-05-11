@@ -12,7 +12,7 @@ module BscOnline
     # config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/lib) # To enable the module in lib/assessment_providable.rb to be available to the models
 
-    # This middleware will compress (using gzip, deflate, or another Accept-Encoding value) every response that leaves your application.
+    # This middleware will compress (using gzip, deflate,  or another Accept-Encoding value) every response that leaves your application.
     config.middleware.use Rack::Deflater
 
     # Setup for CORS
