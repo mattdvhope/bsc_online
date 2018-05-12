@@ -26,7 +26,7 @@ module BscOnline
 
       # MORE THAN ONE origin possible
       allow do
-        origins '*' # DON'T ADD FINAL SLASH!!!
+        origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :options]
