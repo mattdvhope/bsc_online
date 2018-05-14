@@ -15,6 +15,11 @@ module BscOnline
     # This middleware will compress (using gzip, deflate,  or another Accept-Encoding value) every response that leaves your application.
     config.middleware.use Rack::Deflater
 
+    config.action_dispatch.default_headers.merge!({
+      'Access-Control-Allow-Origin' => 'https://vibrant-mccarthy-58efac.netlify.com',
+      'Access-Control-Request-Method' => '*'
+    })
+
     # Setup for CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
@@ -26,7 +31,7 @@ module BscOnline
 
       # MORE THAN ONE origin possible
       allow do
-        origins '*' # DON'T ADD FINAL SLASH!!!  DON'T FORGET https ..the 's'!!
+        origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!  DON'T FORGET https ..the 's'!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :options]
