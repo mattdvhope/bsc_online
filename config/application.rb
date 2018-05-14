@@ -18,7 +18,7 @@ module BscOnline
     # Setup for CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!  DON'T FORGET https ..the 's'!!
+        origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :options]
