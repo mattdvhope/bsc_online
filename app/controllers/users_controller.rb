@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def create
-binding.pry
     user = User.new(user_params)
     user.first_name = user.first_name.downcase.capitalize
     user.last_name = user.last_name.downcase.capitalize
@@ -106,7 +105,6 @@ binding.pry
     end
 
     def deal_with_guest(user)
-binding.pry
       previous_user = User.where(email: user.email)[0] || User.where(phone_number: user.phone_number)[0]
       previous_user ? user = previous_user : user = user
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")

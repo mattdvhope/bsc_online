@@ -218,11 +218,7 @@ var ApplicationView = Backbone.View.extend({
   template_off_site: HandlebarsTemplates['application_form/off_site'],
 
   render: function() {
-    // var csrf_token = $('meta[name=csrf-token]').attr('content');
-
-    var element = document.querySelector('meta[name=csrf-token]');
-    var csrf_token = element && element.getAttribute("content");
-
+    var csrf_token = $('meta[name=csrf-token]').attr('content');
     this.$el.html(this.template({
       token: csrf_token,
       thai_language: thai_language(),
