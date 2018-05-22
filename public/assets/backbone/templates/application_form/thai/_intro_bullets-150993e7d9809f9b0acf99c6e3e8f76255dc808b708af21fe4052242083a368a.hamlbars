@@ -1,12 +1,7 @@
-<p>
-  <button class="btn btn-primary btn-intro-bullets" type="button" data-toggle="collapse" data-target="#collapseIntroBulletsThai" aria-expanded="false" aria-controls="collapseIntroBulletsThai">
-    {{please_click_here}}
-  </button>
-</p>
-<div class="collapse" id="collapseIntroBulletsThai">
+<h4>You Can Speak! เป็นหลักสูตรการสนทนาภาษาอังกฤษ ซึ่งประกอบไปด้วย 2 ส่วน ที่ออกแบบมาเพื่อช่วยให้คนไทยพัฒนาการพูดภาษาอังกฤษได้อย่างชัดเจนและมีความมั่นใจ หลักสูตรนี้ยังจะช่วยให้คนไทยมีโอกาสในการพัฒนาทักษะการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในระดับส่วนตัวและความสัมพันธ์ทางธุรกิจควบคู่กันไปด้วย <span class="btn-intro-bullets" data-toggle="collapse" data-target="#collapseIntroBullets" aria-expanded="false" aria-controls="collapseIntroBullets" style="color: blue; cursor: pointer;">(...คลิกเพื่ออ่านรายละเอียดเพิ่มเติม...)</span></h4>
+<br>
 
-  <br>
-  <h4>You Can Speak! เป็นหลักสูตรการสนทนาภาษาอังกฤษ ซึ่งประกอบไปด้วย 2 ส่วน ที่ออกแบบมาเพื่อช่วยให้คนไทยพัฒนาการพูดภาษาอังกฤษได้อย่างชัดเจนและมีความมั่นใจ หลักสูตรนี้ยังจะช่วยให้คนไทยมีโอกาสในการพัฒนาทักษะการสร้างความสัมพันธ์ข้ามวัฒนธรรมทั้งในระดับส่วนตัวและความสัมพันธ์ทางธุรกิจควบคู่กันไปด้วย</h4>
+<div class="collapse" id="collapseIntroBulletsThai">
 
   <ul>
     <li>หลักสูตร You Can Speak! ในแต่ละส่วน ประกอบด้วย 5 คาบเรียนๆ ละ 90 นาที</li>
