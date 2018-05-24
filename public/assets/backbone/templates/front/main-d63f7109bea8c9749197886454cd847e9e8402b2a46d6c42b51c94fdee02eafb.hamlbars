@@ -1,0 +1,16 @@
+<div id="front-main-hbs">
+
+  {{> front/_carousel }}
+
+  {{> front/_features }}
+
+  {{> front/_be_a_member }}
+
+</div>
+
+<!-- nested modals in application_form.hbs -->
+{{> front/_nested_modal }}
+{{> front/_nested_modal_christian_worldview }}
+{{> front/_nested_modal_cost_amount }}
+{{> front/_nested_modal_payment_info }}
+<!-- nested modals in application_form.hbs -->

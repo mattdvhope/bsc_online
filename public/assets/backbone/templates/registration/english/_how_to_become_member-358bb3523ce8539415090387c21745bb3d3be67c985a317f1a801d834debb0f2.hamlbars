@@ -1,0 +1,11 @@
+<p>
+  <button class="btn btn-primary btn-intro-bullets" type="button" data-toggle="collapse" data-target="#collapseBecomeMember" aria-expanded="false" aria-controls="collapseBecomeMember">
+    {{become_member_how}}
+  </button>
+</p>
+<div class="collapse" id="collapseBecomeMember">
+
+  <br>
+  <h2>Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our "You Can Speak!" conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:</h2>
+
+</div>
