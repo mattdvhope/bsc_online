@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     user.last_name = user.last_name.downcase.capitalize
     user.off_site_location_id = user.off_site_location_id.to_i
     user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
+binding.pry
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
