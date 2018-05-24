@@ -105,7 +105,7 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
-      previous_user = User.where(phone_number: user.phone_number)[0] || User.where(email: user.email)[0]
+      previous_user = User.where(phone_number: user.phone_number)[0]
       previous_user ? user = previous_user : user = user
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
       if params[:class_time_scheduled_2] == "select_option"
