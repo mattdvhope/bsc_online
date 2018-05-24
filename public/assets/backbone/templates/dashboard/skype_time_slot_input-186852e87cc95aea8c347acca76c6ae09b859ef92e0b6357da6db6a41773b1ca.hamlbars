@@ -1,1 +1,0 @@
-<input class="checkers" data-id={{this.id}} data-volunteer-id={{this.volunteer_id}} type="checkbox" checked>
