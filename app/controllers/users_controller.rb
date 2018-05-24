@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     user.last_name = user.last_name.downcase.capitalize
     user.off_site_location_id = user.off_site_location_id.to_i
     user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
+binding.pry
     user.email = user.email.downcase
     log_out_path if users_path
     if user.guest
@@ -105,7 +106,7 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
-      previous_user = User.where(email: user.email)[0] || User.where(phone_number: user.phone_number)[0]
+      previous_user = User.where(phone_number: user.phone_number)[0]
       previous_user ? user = previous_user : user = user
       user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
       if params[:class_time_scheduled_2] == "select_option"
