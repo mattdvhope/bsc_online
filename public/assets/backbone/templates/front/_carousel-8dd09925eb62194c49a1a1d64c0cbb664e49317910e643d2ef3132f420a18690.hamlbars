@@ -15,7 +15,7 @@
 
     {{#if window_big}}
       <div class="item active top-front-welcome-carousel">
-        <a id="general-schedule" class="modal-initiator"  href="#" data-toggle="modal" data-target="#applicationmodal">
+        <a id="general-schedule" class="modal-initiator seminar-link"  href="#" data-toggle="modal" data-target="#applicationmodal">
           <img src="https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg" class="img-responsive">
         </a>
       </div>

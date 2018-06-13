@@ -18,11 +18,25 @@
 {{/if}}
 
 <hr>
-<h2>Here are the currently scheduled CEP class times with their "Order Number" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these "Order Numbers."  More explanation on that below....</h2>
+<h2>Here are the currently scheduled CEP class times with their "Order Number" above each of them (not including off-site classes on this list).
+</h2>
+<h2>This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these "Order Numbers."  More explanation on that below....</h2>
 
   <ul style="list-style: none;">
+  <h2>Part 1 classes</h2>
   <hr>
-  {{#each class_times}}
+  {{#each class_times_one}}
+    <li><h4><b>Order Number:</b> {{this.order_no}}</h4></li>
+    <li><h3><b>Class Time:</b> {{this.period}}</h3></li>
+    <hr>
+  {{/each}}
+  </ul>
+
+  <br>
+  <ul style="list-style: none;">
+  <h2>Part 2 classes</h2>
+  <hr>
+  {{#each class_times_two}}
     <li><h4><b>Order Number:</b> {{this.order_no}}</h4></li>
     <li><h3><b>Class Time:</b> {{this.period}}</h3></li>
     <hr>

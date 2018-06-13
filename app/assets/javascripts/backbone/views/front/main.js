@@ -25,6 +25,11 @@ var MainFrontView = Backbone.View.extend({
       var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
+    'click .seminar-link': function (e) {
+      e.preventDefault();
+      $('.app-title-2').hide();
+      $('.app-title-1').show();
+    }
   },
 
   window_width: function() {

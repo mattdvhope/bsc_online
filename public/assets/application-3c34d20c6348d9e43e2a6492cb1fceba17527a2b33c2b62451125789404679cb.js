@@ -19607,48 +19607,50 @@ window.fbAsyncInit = function() {
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "    <ul style=\"list-style-type:none\">\n      <hr>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + " <!-- each class times -->\n    </ul>\n  ";
+  return "    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Part 1 classes</h1>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_one : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- each class_times_one -->\n    </ul>\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Part 2 classes</h1>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- each class_times_two -->\n    </ul>\n\n\n\n  ";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "      <li >\n        <h3 style=\"text-decoration: underline;\">"
+  return "        <li >\n          <h3 style=\"text-decoration: underline;\">"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.period : depth0), depth0))
     + "</h3>\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.cancelled : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.completed : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.users : depth0),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.program(12, data, 0),"data":data})) != null ? stack1 : "")
-    + "        <hr>\n      </li>\n    ";
+    + "          <hr>\n        </li>\n      ";
 },"5":function(container,depth0,helpers,partials,data) {
-    return "          <h4 style=\"color: red;\">This class is cancelled.</h4>\n";
+    return "            <h4 style=\"color: red;\">This class is cancelled.</h4>\n";
 },"7":function(container,depth0,helpers,partials,data) {
-    return "          <h4 style=\"color: green;\">This class is completed.</h4>\n";
+    return "            <h4 style=\"color: green;\">This class is completed.</h4>\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "            <div class=\"table-responsive\">\n              <table class=\"table table-striped\">\n                <thead>\n                  <tr>\n                    <th>Nick Name</th>\n                    <th>First Name</th>\n                    <th>Last Name</th>\n                    <th>Gender</th>\n                    <th>Phone Number</th>\n                    <th>Email</th>\n                    <th>Date Registered</th>\n                  </tr>\n                </thead>\n\n                <tbody>\n"
+  return "              <div class=\"table-responsive\">\n                <table class=\"table table-striped\">\n                  <thead>\n                    <tr>\n                      <th>Nick Name</th>\n                      <th>First Name</th>\n                      <th>Last Name</th>\n                      <th>Gender</th>\n                      <th>Phone Number</th>\n                      <th>Email</th>\n                      <th>Date Registered</th>\n                    </tr>\n                  </thead>\n\n                  <tbody>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.users : depth0),{"name":"each","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "                </tbody>\n              </table>\n            </div> <!-- table-responsive -->\n";
+    + "                  </tbody>\n                </table>\n              </div> <!-- table-responsive -->\n";
 },"10":function(container,depth0,helpers,partials,data) {
-    return "                  <tr>\n                    <td>"
+    return "                    <tr>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.nickname : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.first_name : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.last_name : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.gender : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.phone_number : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.email : depth0), depth0))
-    + "</td>\n                    <td>"
+    + "</td>\n                      <td>"
     + container.escapeExpression(container.lambda((depth0 != null ? depth0.date_format : depth0), depth0))
-    + "</td>\n                  </tr>\n";
+    + "</td>\n                    </tr>\n";
 },"12":function(container,depth0,helpers,partials,data) {
-    return "          <h4>No students have registered for this class yet.</h4>\n";
+    return "            <h4>No students have registered for this class yet.</h4>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -19686,8 +19688,10 @@ window.fbAsyncInit = function() {
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<h2>(2) Delete a class time</h2>\n<hr>\n\n<ul>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  return "<h2>(2) Delete a class time</h2>\n<hr>\n\n<h2>Part 1 classes</h2>\n<ul>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_one : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</ul>\n\n<br>\n<h2>Part 2 classes</h2>\n<ul>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</ul>\n\n<hr>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/delete_class_time"];
@@ -19798,8 +19802,10 @@ window.fbAsyncInit = function() {
 
   return "<div class=\"container\">\n\n<br>\n<br>\n<br>\n\n<hr>\n<h2><a href=\"/log_out\">Log Out</a></h2>\n<hr>\n  \n<h2>Create or Delete class times on this page...</h2>\n<hr>\n\n"
     + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.refreshed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them.  This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <hr>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n<hr>\n<h2>Here are the currently scheduled CEP class times with their \"Order Number\" above each of them (not including off-site classes on this list).\n</h2>\n<h2>This is the order (usually chronological) in which they will be shown upon various places throughout the website.  You'll notice that there are some big gaps between these \"Order Numbers.\"  More explanation on that below....</h2>\n\n  <ul style=\"list-style: none;\">\n  <h2>Part 1 classes</h2>\n  <hr>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_one : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "  </ul>\n\n  <br>\n  <ul style=\"list-style: none;\">\n  <h2>Part 2 classes</h2>\n  <hr>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "  </ul>\n\n<hr>\n<h2>You can create new class times below....</h2>\n<h4>(please use formats like these)</h4>\n<h3>20-24 June, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>20-24 มิถุนายน, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>27 Febrary - 3 March, 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>27 กุมภาพันธ์ - 3 มีนาคม, 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>18,19,20,25,27 April (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>18,19,20,25,27 เมษายน (5 ครัง), 18:30-20:00น.</h3>\n<h4>..............or.............</h4>\n<h3>9-23 May, Tuesdays/Thursdays (5 times), 6:30-8:00pm</h3>\n<h4>...and...</h4>\n<h3>9-23 พฤษภาคม, อังคาร/พฤหัสบดี (5 ครั้ง), 18:30-20:00น.</h3>\n<h4>...etc...(try not make them too long and avoid typos!!)....</h4>\n<hr>\n<hr>\n<h2>Below here you can (1) Create a new class time, (2) Delete a class time</h2>\n<hr>\n<span id=\"for-attaching-form\"></span>\n\n</div> <!-- container -->\n\n<!-- new_class_time_form below this template -->";
 },"useData":true});
   return this.HandlebarsTemplates["dashboard/new_class_time_page"];
@@ -20274,7 +20280,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/_carousel", Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
+    return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator seminar-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Home-Page-Pic.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeakAd.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     return "      <div class=\"item active top-front-welcome-carousel\">\n        <a id=\"general-schedule\" class=\"modal-initiator\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/1Homepage-Pic-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/2YouCanSpeak-Mobile.jpg\" alt=\"Chania\">\n        </a>\n        </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a class=\"modal-initiator\" href=\"/business\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/4AtYourOffice-Mobile.jpg\" alt=\"Chania\">\n        </a>\n      </div>\n      <div class=\"item top-front-welcome-carousel\">\n        <a id=\"be-a-member-point\" style=\"cursor: pointer;\">\n          <img src=\"https://s3-ap-southeast-1.amazonaws.com/carouselcep/5Membership-Mobile.jpg\" class=\"img-responsive\">\n        </a>\n      </div>\n";
 },"5":function(container,depth0,helpers,partials,data) {
@@ -20441,12 +20447,12 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_be_a_member_top", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\"You Can Speak!\"</a> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:\n</h3>";
+    return "<h2 class=\"text-center be-a-member-top-title\">Become a City English Project Network Member!</h2>\n\n<h3 class=\"be-a-member-top-text\">\n  Becoming a member of the City English Project is Easy! Everyone who sucessfully completes our <a class=\"modal-initiator non-summer-university seminar-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">\"You Can Speak!\"</a> conversational English class will be awarded a free one-year membership to our network.  Network members will receive the following privileges:\n</h3>";
 },"useData":true}));
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_city_talk_class", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h4>\"You Can Speak!\"  Conversational English Class</h4>\n<p>Our \"You Can Speak!\" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a class=\"modal-initiator non-summer-university\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here to sign up for a class!</a>\n</p>\n";
+    return "<h4>\"You Can Speak!\"  Conversational English Class</h4>\n<p>Our \"You Can Speak!\" conversational English, culture and worldview class is a fun and interactive way to build confidence and learn to speak English with greater clarity. We offer beginner through intermediate level classes taught by TESOL certified native English speakers. <a class=\"modal-initiator non-summer-university seminar-link\" href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">Click here to sign up for a class!</a>\n</p>\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20520,11 +20526,6 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/english/_middle_welcome", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"desc\">\n  <h2 class=\"partners-english\">PARTNERS YOU CAN TRUST. A network that will help you succeed.</h2>\n  <p class=\"paragraph\">\n    The City English Project makes learning English convenient, affordable and fun! Our specially designed learning model and network connects Thais with native-English speakers through on-site English classes, online face-to-face conversation partnerships with native English speakers, as well as through our integrated online learning community. We focus on what you need the most - conversational English skills! Our classes and partnerships are a fun and engaging way to help students of all levels improve thier ability to speak English. Even more, our model is unique in that we integrate aspects of culture and worldview study into our teaching model. We desire not only to help you speak better English but also to equip you to build successful, cross-cultural business and personal relationships within the ASEAN community and beyond! Click here to learn more about our model. Or, click here to sign up for our introductory \"City Talk\" class.\n  </p>\n  </br>\n</div>";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/english/_ongoing_opportunities", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<h4>Ongoing Opportunities</h4>\n\n<p>Network members will have ongoing opportunities to connect with native English speakers through additional classes and events in Bangkok. More information coming in 2017!</p>";
 },"useData":true}));
@@ -20541,7 +20542,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/english/_welcome_caption", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <span id=\"get-to-be-a-member\">Click here</span> to learn more about us. Or, <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak!\" English class.\n";
+    return "The City English Project makes learning English convenient, affordable and fun!  And, we focus on what you need the most - conversational English skills. Our network offers classes, conversation partnerships and events to help you improve your conversational English. We also integrate culture and worldview elements in to our learning model to better equip your for building relationships within the ASEAN community and beyond.  We want to help you succeed in life and in business! <span id=\"get-to-be-a-member\" style=\"color: green; cursor: pointer;\">Click here</span> to learn more about us. Or, <a class=\"modal-initiator non-summer-university seminar-link\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">click here</a> to sign up for our popular \"You Can Speak!\" English class.\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -20749,11 +20750,6 @@ window.fbAsyncInit = function() {
 },"useData":true}));
 }).call(this);
 (function() {
-  Handlebars.registerPartial("front/thai/_middle_welcome", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"title\">\n  <h2>ยินดีต้อนรับ City English Project...!!</h2>\n</div>\n<h2 class=\"partners-thai\">หหหหหหหหกกกกกกกกกกกกกกกกกกกกกกกกกกกกก</h2>\n<div class=\"desc\">\n  <p class=\"paragraph\">\n    หหหหหหหหหหหหกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกกก\n  </p>\n  </br>\n</div>";
-},"useData":true}));
-}).call(this);
-(function() {
   Handlebars.registerPartial("front/thai/_ongoing_opportunities", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<h4>โอกาสอื่นๆ ในอนาคต</h4>\n\n<p>สมาชิกเครือข่ายจะมีโอกาสอย่างต่อเนื่องในการติดต่อเชื่อมโยงกับเจ้าของภาษาผ่านชั้นเรียนเสริม และกิจกรรมต่างๆ ที่จะจัดขึ้นในพื้นที่กรุงเทพมหานคร ติดตามข้อมูลเพิ่มเติมในปี 2017!</p>";
 },"useData":true}));
@@ -20770,7 +20766,7 @@ window.fbAsyncInit = function() {
 }).call(this);
 (function() {
   Handlebars.registerPartial("front/thai/_welcome_caption", Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <span id=\"get-to-be-a-member\">คลิกที่นี่</span> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak!\" ที่เป็นที่นิยมของเรา\n\n";
+    return "โครงการซิตี้ อิงลิช ทำให้การเรียนภาษาอังกฤษเป็นเรื่องง่ายและสะดวก ราคาไม่แพง และสนุกสนาน! เราให้มุ่งเน้นและความสำคัญในสิ่งที่คุณต้องการมากที่สุด – ทักษะการสนทนาภาษาอังกฤษ เครือข่ายของเรานำเสนอบริการชั้นเรียนภาษาอังกฤษ คู่สนทนาภาษาอังกฤษออนไลน์ และกิจกรรมภาษาอังกฤษที่จะช่วยให้คุณพัฒนาทักษะการสนทนาภาษาอังกฤษของคุณ นอกจากนี้เรายังบูรณาการโดยการรวมเอาองค์ประกอบด้านวัฒนธรรมและโลกทัศน์เข้ามาไว้ในรูปแบบการเรียนรู้ของเรา เพื่อเตรียมคุณสำหรับการสร้างความสัมพันธ์ข้ามวัฒนธรรมในชุมชนอาเซียนและชุมชนอื่นๆ ทั่วโลก เราต้องการช่วยให้คุณประสบความสำเร็จในชีวิตและการทำธุรกิจ! <span id=\"get-to-be-a-member\" style=\"color: green; cursor: pointer;\">คลิกที่นี่</span> เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเรา หรือ <a class=\"modal-initiator non-summer-university\"  href=\"#\" data-toggle=\"modal\" data-target=\"#applicationmodal\">คลิกที่นี่</a> เพื่อลงทะเบียนสำหรับชั้นเรียนภาษาอังกฤษ \"You Can Speak!\" ที่เป็นที่นิยมของเรา\n\n";
 },"useData":true}));
 }).call(this);
 (function() {
@@ -21250,7 +21246,6 @@ var ApplicationView = Backbone.View.extend({
         this.welcomePopupView = new WelcomePopupView({ model: model });
         $("#welcomepopupmodal").html(this.welcomePopupView.render().el);
         $("#welcomepopupmodal").modal();
-        window.location.reload(true);
       },
       error: function (model, response, options) {
         $(".form-control").css("border-color", "#cccccc");
@@ -21635,8 +21630,20 @@ var ClassTimesView = Backbone.View.extend({
     }
   },
 
-  sorted_class_times: function() {
-    return this.collection.sort(function(a, b) {
+  sorted_class_times_one: function() {
+    var part1 = this.collection.filter(function (el) {
+      return el.part === "one"
+    });
+    return part1.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
+  sorted_class_times_two: function() {
+    var part2 = this.collection.filter(function (el) {
+      return el.part === "two"
+    });
+    return part2.sort(function(a, b) {
       return a.order_no - b.order_no;
     });
   },
@@ -21644,7 +21651,8 @@ var ClassTimesView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       no_class_times: this.no_class_times(),
-      class_times: this.sorted_class_times()
+      class_times_one: this.sorted_class_times_one(),
+      class_times_two: this.sorted_class_times_two()
     }));
 
     return this;
@@ -21690,6 +21698,24 @@ var DeleteClassTime = Backbone.View.extend({
     'click #delete-class-time': "deleteClassTime"
   },
 
+  sorted_class_times_one: function() {
+    var part1 = this.collection.filter(function (el) {
+      return el.part === "one"
+    });
+    return part1.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
+  sorted_class_times_two: function() {
+    var part2 = this.collection.filter(function (el) {
+      return el.part === "two"
+    });
+    return part2.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   deleteClassTime: function(e) { // on 'skype_time_slots.hbs' template
     e.preventDefault();
     var leader_user = this.model;
@@ -21713,7 +21739,9 @@ var DeleteClassTime = Backbone.View.extend({
   render: function() {
     var class_times = this.collection;
     this.$el.html(this.template({
-      class_times: class_times,
+      // class_times: class_times,
+      class_times_one: this.sorted_class_times_one(),
+      class_times_two: this.sorted_class_times_two()
     }));
 
     return this;
@@ -21836,22 +21864,35 @@ var NewClassTimeView = Backbone.View.extend({
 
   template:  HandlebarsTemplates['dashboard/new_class_time_page'],
 
+  sorted_class_times_one: function() {
+    var part1 = this.collection.filter(function (el) {
+      return el.part === "one"
+    });
+    return part1.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
+  sorted_class_times_two: function() {
+    var part2 = this.collection.filter(function (el) {
+      return el.part === "two"
+    });
+    return part2.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   render: function() {
 
     var class_times = this.collection.sort(function (a, b) {
-      if (a.order_no > b.order_no) {
-        return 1;
-      }
-      if (a.order_no < b.order_no) {
-        return -1;
-      }
-      // a must be equal to b
-      return 0;
+      return a.order_no - b.order_no;
     });
+
     var leader = this.model;
     this.$el.html(this.template({
       leader: leader.get("first_name"),
-      class_times: class_times,
+      class_times_one: this.sorted_class_times_one(),
+      class_times_two: this.sorted_class_times_two(),
       refreshed: this.refreshed
     }));
 
@@ -22780,6 +22821,11 @@ var MainFrontView = Backbone.View.extend({
       var el = document.getElementById("be-a-member");
       el.scrollIntoView();
     },
+    'click .seminar-link': function (e) {
+      e.preventDefault();
+      $('.app-title-2').hide();
+      $('.app-title-1').show();
+    }
   },
 
   window_width: function() {
