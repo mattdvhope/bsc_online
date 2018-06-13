@@ -19611,7 +19611,9 @@ window.fbAsyncInit = function() {
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_one : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " <!-- each class_times_one -->\n    </ul>\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Part 2 classes</h1>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + " <!-- each class_times_two -->\n    </ul>\n\n\n\n  ";
+    + " <!-- each class_times_two -->\n    </ul>\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Off-site classes</h1>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " <!-- each class_times_two -->\n    </ul>\n\n\n  ";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -21648,11 +21650,23 @@ var ClassTimesView = Backbone.View.extend({
     });
   },
 
+  sorted_class_times_off_site: function() {
+    var part1 = this.collection.filter(function (el) {
+      return el.part === "off-site"
+    });
+    return part1.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   render: function() {
+    console.log(this.collection);
+
     this.$el.html(this.template({
       no_class_times: this.no_class_times(),
       class_times_one: this.sorted_class_times_one(),
-      class_times_two: this.sorted_class_times_two()
+      class_times_two: this.sorted_class_times_two(),
+      class_times_off_site: this.sorted_class_times_off_site()
     }));
 
     return this;
