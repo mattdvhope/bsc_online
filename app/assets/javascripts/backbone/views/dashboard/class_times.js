@@ -33,11 +33,23 @@ var ClassTimesView = Backbone.View.extend({
     });
   },
 
+  sorted_class_times_off_site: function() {
+    var part1 = this.collection.filter(function (el) {
+      return el.part === "off-site"
+    });
+    return part1.sort(function(a, b) {
+      return a.order_no - b.order_no;
+    });
+  },
+
   render: function() {
+    console.log(this.collection);
+
     this.$el.html(this.template({
       no_class_times: this.no_class_times(),
       class_times_one: this.sorted_class_times_one(),
-      class_times_two: this.sorted_class_times_two()
+      class_times_two: this.sorted_class_times_two(),
+      class_times_off_site: this.sorted_class_times_off_site()
     }));
 
     return this;
