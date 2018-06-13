@@ -139,8 +139,10 @@ class UsersController < ApplicationController
     end
 
     def relate_user_to_class_time(user)
-      user.class_time = nil
-      user.class_time = ClassTime.find_by(period: user.class_period)
+      partic = CepParticipation.new
+      partic.user = user
+      partic.class_time = ClassTime.find_by(period: user.class_period)
+      partic.save
     end
 
     def fully_register_student(user)
