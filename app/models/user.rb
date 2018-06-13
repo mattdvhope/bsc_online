@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :chatrooms, through: :messages
 
-  has_many :cep_participations
+  has_many :cep_participations, :dependent => :destroy
   has_many :class_times, through: :cep_participations
   
   belongs_to :off_site_location
