@@ -1,0 +1,11 @@
+<p>
+  <button class="btn btn-primary btn-intro-bullets" type="button" data-toggle="collapse" data-target="#collapseBecomeMember" aria-expanded="false" aria-controls="collapseBecomeMember">
+    {{become_member_how}}
+  </button>
+</p>
+<div class="collapse" id="collapseBecomeMember">
+
+  <br>
+  <h2>การเป็นสมาชิกเครือข่ายโครงการซิตี้ อิงลิช เป็นเรื่องง่าย! ผู้เรียนทุกคนที่เรียนจบหลักสูตรภาษาอังกฤษเพื่อการสนทนา "You Can Speak!" จะได้รับสิทธิ์การเป็นสมาชิกเครือข่ายของเราฟรี 1 ปี และสมาชิกเครือข่ายจะได้รับสิทธิพิเศษดังต่อไปนี้:</h2>
+
+</div>

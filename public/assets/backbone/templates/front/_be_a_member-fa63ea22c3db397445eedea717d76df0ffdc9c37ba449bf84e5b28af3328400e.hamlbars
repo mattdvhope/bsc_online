@@ -1,0 +1,72 @@
+<div class="container-full" id="be-a-member">
+  <br>
+  <br>
+  <div id="be-a-member-centerer">
+    <br>
+    <div class="row">
+    {{#if thai_language}}
+      {{> front/thai/_be_a_member_top }}
+    {{^}}
+      {{> front/english/_be_a_member_top }}
+    {{/if}}
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/beamember/Membership4Web.jpg" alt="Step 1" class="center-block img-responsive">
+        </a>
+
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        {{#if thai_language}}
+          {{> front/thai/_member_privileges }}
+        {{^}}
+          {{> front/english/_member_privileges }}
+        {{/if}}
+      </div>
+    </div> <!-- row -->
+    <br>
+    <hr>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Holistic+Model.jpg" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        {{#if thai_language}}
+          {{> front/thai/_holistic_text }}
+        {{^}}
+          {{> front/english/_holistic_text }}
+        {{/if}}
+      </div>
+    </div> <!-- row -->
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <a data-lightbox="image-1" href="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.jpg">
+          <img style="padding: 10px;" align="top" src="https://s3-ap-southeast-1.amazonaws.com/ccmcoversbsc/Friends+helping+friends.jpg" alt="Step 1" class="center-block img-responsive">
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+          {{#if thai_language}}
+            {{> front/thai/_friends_helping }}
+          {{^}}
+            {{> front/english/_friends_helping }}
+          {{/if}}
+      </div>
+    </div> <!-- row -->
+    <hr>
+    <hr>
+    <br>
+    <br>
+  </div> <!-- be-a-member-centerer -->
+</div> <!-- container-full -->
+
+
+
