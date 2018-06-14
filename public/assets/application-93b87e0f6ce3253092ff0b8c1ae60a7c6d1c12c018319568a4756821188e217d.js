@@ -19612,7 +19612,7 @@ window.fbAsyncInit = function() {
     + " <!-- each class_times_one -->\n    </ul>\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Part 2 classes</h1>\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " <!-- each class_times_two -->\n    </ul>\n\n    <ul style=\"list-style-type:none\">\n      <hr>\n      <h1>Off-site classes</h1>\n"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_two : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.class_times_off_site : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + " <!-- each class_times_two -->\n    </ul>\n\n\n  ";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1;
