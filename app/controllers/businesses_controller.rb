@@ -6,8 +6,6 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     if @business.save
-binding.pry
-      # render "show"
       render json: nil, status: :ok
       send_business_email(@business)
     else
