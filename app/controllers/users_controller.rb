@@ -209,7 +209,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id unless user.role == "admin_applicant"
         send_new_user_email(user)
         @user = user
-        render "show" # to get JSON in jbuilder
+        render json: nil, status: :ok # to get JSON in jbuilder
       else
         render :json => { :errors => user.errors.full_messages }, :status => 422
       end
