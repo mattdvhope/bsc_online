@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     if @business.save
-      render "show"
+      render json: nil, status: :ok
       send_business_email(@business)
     else
       render :json => { :errors => @business.errors.full_messages }, :status => 422
