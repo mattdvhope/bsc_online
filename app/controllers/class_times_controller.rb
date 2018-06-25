@@ -14,10 +14,10 @@ class ClassTimesController < ApplicationController
     class_time = ClassTime.new(class_time_params)
     if class_time.save
       flash[:success] = "You have created a new class time."
-      redirect_to dashboard_path
+      render json: nil, status: :ok 
     else
       flash[:danger] = "You were not able to create a new class time. Please ask for help from the CEP web app developer."
-      redirect_to dashboard_path
+      render json: nil, status: :ok 
     end
   end
 
@@ -25,10 +25,10 @@ class ClassTimesController < ApplicationController
     class_time = ClassTime.find(params[:id])
     if class_time.destroy
       flash[:warning] = "You have deleted a class time."
-      redirect_to dashboard_path
+      render json: nil, status: :ok 
     else
       flash[:danger] = "You were not able to delete this class time. Please ask for help from the CEP web app developer."
-      redirect_to dashboard_path
+      render json: nil, status: :ok 
     end
   end
 
