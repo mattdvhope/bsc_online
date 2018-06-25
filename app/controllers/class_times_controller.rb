@@ -16,7 +16,7 @@ class ClassTimesController < ApplicationController
       flash[:success] = "You have created a new class time."
       render json: nil, status: :ok 
     else
-      flash[:danger] = "You were not able to create a new class time. Please ask for help from the CEP web app developer."
+      flash[:danger] r= "You were not able to create a new class time. Please ask for help from the CEP web app developer."
       render json: nil, status: :ok 
     end
   end
