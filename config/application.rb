@@ -21,7 +21,7 @@ module BscOnline
         origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :put, :patch, :options]
+          :methods => [:get, :post, :put, :patch, :delete, :options]
         # resource '/public/*', :headers => :any, :methods => :get
       end
 
@@ -29,7 +29,7 @@ module BscOnline
         origins 'http://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :put, :patch, :options]
+          :methods => [:get, :post, :put, :patch, :delete, :options]
         # resource '/public/*', :headers => :any, :methods => :get
       end
 
@@ -38,7 +38,7 @@ module BscOnline
         origins 'localhost:8000', '127.0.0.1:8000'
         resource '*',
           :headers => :any,
-          :methods => [:get, :post, :put, :patch, :options]
+          :methods => [:get, :post, :put, :patch, :delete, :options]
       end
     end
 
