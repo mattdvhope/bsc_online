@@ -8,10 +8,10 @@ class OffSiteLocationsController < ApplicationController
     off_site_location = OffSiteLocation.new(off_site_location_params)
     if off_site_location.save
       flash[:success] = "You have created a new off site location."
-      redirect_to dashboard_path
+      render json: nil, status: :ok
     else
       flash[:danger] = "You were not able to create a new off site location. Please ask for help from the CEP web app developer."
-      redirect_to dashboard_path
+      render :json => { :errors => off_site_location.errors.full_messages }, :status => 422
     end
   end
 
@@ -21,10 +21,10 @@ class OffSiteLocationsController < ApplicationController
 
     if off_site_location.save
       flash[:warning] = "This off-site location class is completed & will be archived."
-      redirect_to dashboard_path
+      render json: nil, status: :ok
     else
       flash[:danger] = "You were not able to archive this off-site location. Please ask for help from the CEP web app developer."
-      redirect_to dashboard_path
+      render :json => { :errors => off_site_location.errors.full_messages }, :status => 422
     end
   end
 
