@@ -17,7 +17,7 @@ class ClassTimesController < ApplicationController
       render json: nil, status: :ok 
     else
       flash[:danger]= "You were not able to create a new class time. Please ask for help from the CEP web app developer."
-      render json: nil, status: :ok 
+      render :json => { :errors => class_time.errors.full_messages }, :status => 422
     end
   end
 
@@ -28,7 +28,7 @@ class ClassTimesController < ApplicationController
       render json: nil, status: :ok 
     else
       flash[:danger] = "You were not able to delete this class time. Please ask for help from the CEP web app developer."
-      render json: nil, status: :ok 
+      render :json => { :errors => class_time.errors.full_messages }, :status => 422
     end
   end
 
