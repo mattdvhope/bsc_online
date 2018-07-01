@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
     if user = user_defined
       session[:user_id] = user.id
       cookies.permanent.signed[:user_id] = session[:user_id]
-      redirect_to dashboard_path
-      # render :json => { first_name: user.first_name, last_name: user.last_name, email: user.email }, :status => 200
+      # redirect_to dashboard_path
+      render :json => { first_name: user.first_name, last_name: user.last_name, email: user.email }, :status => 200
     else
       render :json => { :error => "Invalid email address & password" }, :status => 422
     end
