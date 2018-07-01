@@ -18,11 +18,24 @@ module BscOnline
     # Setup for CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
+        origins 'https://cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :patch, :delete, :options]
+      end
+
+      allow do
+        origins 'http://cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :patch, :delete, :options]
+      end
+
+      allow do
         origins 'https://vibrant-mccarthy-58efac.netlify.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :delete, :options]
-        # resource '/public/*', :headers => :any, :methods => :get
       end
 
       allow do
