@@ -18,14 +18,14 @@ module BscOnline
     # Setup for CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
+        origins 'https://www.cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :delete, :options]
       end
 
       allow do
-        origins 'http://cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
+        origins 'http://www.cityenglishproject.com' # DON'T ADD FINAL SLASH!!!
         resource '*',
           :headers => :any,
           :methods => [:get, :post, :put, :patch, :delete, :options]
