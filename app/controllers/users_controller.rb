@@ -107,41 +107,60 @@ class UsersController < ApplicationController
     end
 
     def deal_with_guest(user)
-      previous_user = User.where(phone_number: user.phone_number)[0]
-      previous_user ? user = previous_user : user = user
-      user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
+      # previous_user = User.where(phone_number: user.phone_number)[0]
+      # previous_user ? user = previous_user : user = user
+      # user.date_format = DateTime.now.strftime("%A, %B %d, %Y")
 
-      if !previous_user # if NOT a previous user
-        partic = CepParticipation.new
-        partic.class_time = ClassTime.find_by(period: params[:class_time_scheduled_1])
-        if user.save
-          partic.user = user
-          partic.save
-          render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
-          if user.email != ""
-            send_new_user_email(user)
-          end
-        else
-          render :json => { :errors => user.errors.full_messages }, :status => 422
-        end
 
-      else # if this IS a previous user...
-        if previous_user.cep_participations.count > 2
-          render :json => { :errors => user.errors.full_messages }, :status => 422
-        elsif params[:class_time_scheduled_2] == "select_option"
-          render :json => { :errors => user.errors.full_messages }, :status => 422
+      if user.save
+        user.class_times << ClassTime.where(id: user.off_site_location_id.to_i)
+        render json: {:code=>200, :message=>"Successful creation of new user!!"}
+      else
+        begin
+          user.save!
+        rescue ActiveRecord::RecordInvalid => e
+          render json: {:code=>422, :message=>e}
         else
-          partic = CepParticipation.new
-          partic.class_time = ClassTime.find_by(period: params[:class_time_scheduled_2])
-          partic.user = previous_user
-          partic.save
-          previous_user.save!(:validate => false)
-          if previous_user.email != ""
-            send_new_user_email(previous_user)
-          end
-          render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+          render json: nil, status: :ok
         end
       end
+
+
+#       if !previous_user # if NOT a previous user
+#         partic = CepParticipation.new
+#         partic.class_time = ClassTime.find_by(period: params[:class_time_scheduled_1])
+#         if user.save
+#           partic.user = user
+#           partic.save
+#           render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+#           if user.email != ""
+#             send_new_user_email(user)
+#           end
+#         else
+# binding.pry
+#           render :json => { :errors => user.errors.full_messages }, :status => 422
+#         end
+
+#       else # if this IS a previous user...
+#         if previous_user.cep_participations.count > 2
+# binding.pry
+#           render :json => { :errors => previous_user.errors.full_messages }, :status => 422
+#         elsif params[:class_time_scheduled_2] == "select_option"
+# binding.pry
+#           render :json => { :errors => previous_user.errors.full_messages }, :status => 422
+#         else
+# binding.pry
+#           partic = CepParticipation.new
+#           partic.class_time = ClassTime.find_by(period: params[:class_time_scheduled_2])
+#           partic.user = previous_user
+#           partic.save
+#           previous_user.save!(:validate => false)
+#           if previous_user.email != ""
+#             send_new_user_email(previous_user)
+#           end
+#           render json: nil, status: :ok # to render nothing, but still retain json response; It did cause a problem with 'parse in user.js though'.. have to check it out
+#         end
+#       end
 
     end
 
