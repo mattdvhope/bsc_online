@@ -46,6 +46,21 @@ module BscOnline
         # resource '/public/*', :headers => :any, :methods => :get
       end
 
+      allow do
+        origins 'https://city-team-leaders.netlify.com' # DON'T ADD FINAL SLASH!!!
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :patch, :delete, :options]
+      end
+
+      allow do
+        origins 'http://city-team-leaders.netlify.com' # DON'T ADD FINAL SLASH!!!
+        resource '*',
+          :headers => :any,
+          :methods => [:get, :post, :put, :patch, :delete, :options]
+        # resource '/public/*', :headers => :any, :methods => :get
+      end
+
       # MORE THAN ONE origin possible
       allow do
         origins 'localhost:8000', '127.0.0.1:8000'
