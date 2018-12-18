@@ -6,6 +6,7 @@
 //= require_tree ./routers
 //= require_tree ./app_methods
 
+
 var App = {
   getFrontMainPage: function() {
     getFrontMainPage(); // in 'app_methods' folder
