@@ -43,6 +43,7 @@ class UsersController < ApplicationController
       user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
       user.email = user.email.downcase
       user.nickname = user.nickname.downcase.capitalize
+      user.date_format = Time.now.strftime "%B %d, %Y"
       user
     end
 
