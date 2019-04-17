@@ -16,18 +16,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    format_user_attributes(user)
-    log_out_path if users_path
-    deal_with_student(user)
-  end
-
-  def update
-    phone_number = user_params[:phone_number]
-    phone_number = phone_number.gsub(/(?!^\+)\D*/, '')
-    user = User.find_by(phone_number: phone_number)
-    user.class_times << ClassTime.where(id: params[:user][:trainingPeriodId].to_i)
-    render json: nil, status: :ok
+    phone_number = stripped_down_phone_number
+    existing_user = determine_if_user_exists(phone_number)
+    if existing_user
+      add_class_time_for_existing_student(existing_user)
+    else
+      add_class_time_for_new_student
+    end
   end
 
   private
@@ -36,20 +31,26 @@ class UsersController < ApplicationController
       params.require(:user).permit(:nickname, :first_name, :last_name, :image, :email, :facebook, :line, :skype_name, :number_of_slots, :password, :password_confirmation, :postal_code, :address_1, :address_2, :city, :sub_district, :district, :province, :country, :phone_number, :organization, :age, :gender, :guest, :role, :pin, :off_site_location_id)
     end
 
-    def format_user_attributes(user)
-      user.first_name = user.first_name.downcase.capitalize
-      user.last_name = user.last_name.downcase.capitalize
-      user.off_site_location_id = user.off_site_location_id.to_i
-      user.phone_number = user.phone_number.gsub(/(?!^\+)\D*/, '')
-      user.email = user.email.downcase
-      user.nickname = user.nickname.downcase.capitalize
-      user.date_format = Time.now.strftime "%B %d, %Y"
-      user
+    def determine_if_user_exists(phone_number)
+      user = User.find_by_phone_number(phone_number)
     end
 
-    def deal_with_student(user)
+    def add_class_time_for_existing_student(existing_user)
+      existing_user.update_attributes(formatted_user_attributes)
+      assign_class_time_to_student(existing_user)
+
+      times = ClassTime.find(existing_user.class_times.map(&:id).uniq) # to eliminate duplicate class_times
+      existing_user.class_times = []
+      existing_user.class_times << times
+
+      render json: {:code=>200, :message=>"Successful update of existing user!!"}
+    end
+
+    def add_class_time_for_new_student
+      user = User.new(formatted_user_attributes)
+      user.phone_number = stripped_down_phone_number
       if user.save
-        user.class_times << ClassTime.where(id: params[:user][:trainingPeriodId].to_i)
+        assign_class_time_to_student(user)
         render json: {:code=>200, :message=>"Successful creation of new user!!"}
       else
         begin
@@ -60,6 +61,27 @@ class UsersController < ApplicationController
           render json: nil, status: :ok
         end
       end
+    end
+
+    def assign_class_time_to_student(user)
+      user.class_times << ClassTime.where(id: params[:user][:trainingPeriodId].to_i)
+    end
+
+    def formatted_user_attributes
+      date = Time.now.strftime "%B %d, %Y"
+      {
+        guest: user_params[:guest],
+        nickname: user_params[:nickname].downcase.capitalize,
+        first_name: user_params[:first_name].downcase.capitalize,
+        last_name: user_params[:last_name].downcase.capitalize,
+        email: user_params[:email].downcase,
+        gender: user_params[:gender],
+        date_format: date
+      }
+    end
+
+    def stripped_down_phone_number
+      user_params[:phone_number].gsub(/(?!^\+)\D*/, '')
     end
 
     def student_render(user)
