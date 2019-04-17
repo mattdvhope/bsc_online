@@ -26,7 +26,7 @@ gem 'figaro' # creates the 'config/application.yml' file (in gitignore)
 # gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 gem 'simple_form'
 gem "cocoon" # handle nested forms in rails
-gem 'haml-rails'
+# gem 'haml-rails'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'omniauth'
 gem 'omniauth-facebook'
