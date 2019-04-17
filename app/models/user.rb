@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, length: { maximum: 40 }, :if => :non_student?
   VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :email, :with => VALID_EMAIL_REGEX, :on => :create, :allow_blank => true
-  validates_uniqueness_of :email, :allow_blank => true
+  # validates_uniqueness_of :email, :allow_blank => true
   # validates_uniqueness_of :phone_number
 
   has_secure_password validations: false
