@@ -21,20 +21,20 @@ class User < ActiveRecord::Base
   has_many :skype_time_slots, :foreign_key=>"volunteer_id", :dependent => :destroy
     # with :skype_time_slots a 'slot' has access to both the 'volunteer' and the 'student' methods, but only 'volunteer' has access to the 'skype_time_slots' to bring up its slots
 
-  def self.omniauth(auth)
-    string_number = (auth.uid.to_i * rand(10000)).to_s
-    where(uid_facebook: auth.uid).first_or_initialize.tap do |user|
-      user.uid_facebook = auth.uid
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
-      user.email = auth.info.email
-      user.password = string_number
-      user.password_confirmation = string_number
-      user.gender = auth.extra.raw_info.gender == "male" ? "ผู้ชาย" : "ผู้หญิง"
-      user.postal_code = "10901"
-      user.save!
-    end
-  end
+  # def self.omniauth(auth)
+  #   string_number = (auth.uid.to_i * rand(10000)).to_s
+  #   where(uid_facebook: auth.uid).first_or_initialize.tap do |user|
+  #     user.uid_facebook = auth.uid
+  #     user.first_name = auth.info.first_name
+  #     user.last_name = auth.info.last_name
+  #     user.email = auth.info.email
+  #     user.password = string_number
+  #     user.password_confirmation = string_number
+  #     user.gender = auth.extra.raw_info.gender == "male" ? "ผู้ชาย" : "ผู้หญิง"
+  #     user.postal_code = "10901"
+  #     user.save!
+  #   end
+  # end
 
   def self.pins_available
     pins = ""
@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
   validates_presence_of :gender
   # validates_presence_of :age
   validates_presence_of :phone_number, length: { maximum: 30 }
-  validates_presence_of :organization, :if => :non_student?
-  validates_presence_of :skype_name, :unless => :guest?
+  # validates_presence_of :organization, :if => :non_student?
+  # validates_presence_of :skype_name, :unless => :guest?
 
     # check out 'case_sensitive: false' for email...maybe use...
   validates_presence_of :email, length: { maximum: 40 }, :if => :non_student?
