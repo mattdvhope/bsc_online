@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   get "/users/:id/approve_admin", to: "users#approve_admin"
   get "/users/:id/disapprove_admin", to: "users#disapprove_admin"
 
-  resources :leaders, only: [:create]
+  resources :leaders, only: [:index, :create]
 
   resources :volunteer_for_student, only: [:index, :show]
 
