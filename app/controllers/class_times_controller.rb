@@ -15,7 +15,7 @@ class ClassTimesController < ApplicationController
       period: params[:period],
       period_thai: params[:period_thai],
       category: params[:category],
-      order_no: params[:order_no],
+      order_no: params[:order_no].to_i,
       completed: params[:completed],
       cancelled: params[:cancelled],
       part: params[:part]
