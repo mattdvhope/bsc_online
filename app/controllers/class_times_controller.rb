@@ -11,12 +11,18 @@ class ClassTimesController < ApplicationController
   end
 
   def create
-    class_time = ClassTime.new(class_time_params)
+    class_time = ClassTime.new(
+      period: params[:period],
+      period_thai: params[:period_thai],
+      category: params[:category],
+      order_no: params[:order_no],
+      completed: params[:completed],
+      cancelled: params[:cancelled],
+      part: params[:part]
+    )
     if class_time.save
-      flash[:success] = "You have created a new class time."
-      render json: nil, status: :ok 
+      render json: {:code=>200, :message=>"Successful creation of new class time!!"}
     else
-      flash[:danger]= "You were not able to create a new class time. Please ask for help from the CEP web app developer."
       render :json => { :errors => class_time.errors.full_messages }, :status => 422
     end
   end
@@ -35,7 +41,7 @@ class ClassTimesController < ApplicationController
   private
 
   def class_time_params
-    params.require(:class_time).permit(:period, :period_thai, :category, :part, :order_no)
+    params.require(:class_time).permit(:period, :period_thai, :completed, :category, :cancelled, :part, :order_no)
   end
 
 end
