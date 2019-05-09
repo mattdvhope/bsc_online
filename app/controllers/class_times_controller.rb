@@ -27,6 +27,12 @@ class ClassTimesController < ApplicationController
     end
   end
 
+  def update
+    time = ClassTime.find(params[:id])
+    time.update_attribute(:completed, true)
+    render json: nil, status: :ok 
+  end
+
   def destroy  
     class_time = ClassTime.find(params[:id])
     if class_time.destroy
