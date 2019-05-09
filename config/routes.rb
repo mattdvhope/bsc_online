@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   resources :off_site_locations, only: [:index, :create, :update]
 
   get 'class_times/new', to: "pages#new_class_time" # this is only for the page refresh
-  resources :class_times, only: [:index, :show, :create, :destroy]
-
+  resources :class_times
+  
   get 'volunteers/users/:id', to: "users#show"
   get 'volunteers/volunteers', to: "users#volunteers"
 
