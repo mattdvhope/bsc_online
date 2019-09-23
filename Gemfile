@@ -28,8 +28,8 @@ gem 'simple_form'
 gem "cocoon" # handle nested forms in rails
 # gem 'haml-rails'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
-gem 'omniauth'
-gem 'omniauth-facebook'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
 
 # assets
 gem "bower-rails"

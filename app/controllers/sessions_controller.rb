@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   private
 
     def user_defined
-      if params[:email]
+      # if params[:email]
         user = User.where(email: params[:email].downcase).first
         begin
           user.authenticate(params[:password])
@@ -39,9 +39,9 @@ class SessionsController < ApplicationController
         else
           return false
         end
-      else
-        user = User.omniauth(env['omniauth.auth']) # for facebook gem
-      end
+      # else
+      #   user = User.omniauth(env['omniauth.auth']) # for facebook gem
+      # end
     end
 
 end
