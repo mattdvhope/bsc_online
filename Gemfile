@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.6.4'
 
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 6.0.0'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'responders'
@@ -74,7 +74,7 @@ group :test do
   gem 'database_cleaner' # If we use 'selenium-webdriver' as the test-runner, then we need this gem to clean the db.
 end
 
-gem "foreman"
+# gem "foreman"
 # gem 'ngannotate-rails'
 
 group :production, :staging do
