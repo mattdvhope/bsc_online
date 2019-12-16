@@ -117,7 +117,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.8.0)
     erubis (2.7.0)
-    excon (0.66.0)
+    excon (0.71.0)
     execjs (2.7.0)
     fabrication (2.20.2)
     faker (2.4.0)
