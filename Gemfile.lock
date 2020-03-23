@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/codegram/sass-images.git
+  remote: git://github.com/codegram/sass-images.git
   revision: 77b4c42e1a020f724e0f9790538b5e7e136f62eb
   specs:
     sass-images (0.0.2)
@@ -371,7 +371,7 @@ DEPENDENCIES
   pry-nav
   puma
   rack-cors
-  rails (~> 6.0.0)
+  rails (~> 6.0.2.2)
   rails_12factor
   rails_serve_static_assets
   rails_stdout_logging
@@ -391,7 +391,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.6.4p104
+   ruby 2.6.5p114
 
 BUNDLED WITH
-   2.1.4
+   1.17.2
