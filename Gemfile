@@ -10,6 +10,7 @@ gem 'pg'
 gem "sentry-raven" # A gem for error monitoring ; After installing the ‘sentry-raven’ gem, you can go to your Sentry dashboard (through Heroku) and to see run time errors.
 gem "paratrooper", "~> 3.0.2" # for setting up the Heroku staging environment
 gem "redis"
+gem "nokogiri", ">= 1.10.8"
 
 gem 'rack-cors', :require => 'rack/cors'
 
